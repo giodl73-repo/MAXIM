@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:optics-lenses
+kind: guide
+module: photography
+section: photography
+title: Optics and Lenses
+status: source-custody
+source_custody: partial
+current_path: photography/01-OPTICS-LENSES.md
+canonical_path: photography/01-OPTICS-LENSES.md
+backsource_ids: [proof-backfill:photography:01-optics-lenses, git-history:photography:01-optics-lenses]
+concepts: [optics, lenses]
+root_concepts: [optics, lenses]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optics and Lenses
 
 ## The Big Picture

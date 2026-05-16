@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:extraction-smelting
+kind: guide
+module: metalworking
+section: metalworking
+title: Extraction and Smelting
+status: source-custody
+source_custody: partial
+current_path: metalworking/01-EXTRACTION-SMELTING.md
+canonical_path: metalworking/01-EXTRACTION-SMELTING.md
+backsource_ids: [proof-backfill:metalworking:01-extraction-smelting, git-history:metalworking:01-extraction-smelting]
+concepts: [extraction, smelting]
+root_concepts: [extraction, smelting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Extraction and Smelting
 
 ## The Big Picture

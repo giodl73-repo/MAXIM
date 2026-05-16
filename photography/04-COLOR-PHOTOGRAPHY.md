@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:color-photography
+kind: guide
+module: photography
+section: photography
+title: Color Photography
+status: source-custody
+source_custody: partial
+current_path: photography/04-COLOR-PHOTOGRAPHY.md
+canonical_path: photography/04-COLOR-PHOTOGRAPHY.md
+backsource_ids: [proof-backfill:photography:04-color-photography, git-history:photography:04-color-photography]
+concepts: [color, photography]
+root_concepts: [color, photography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color Photography
 
 ## The Big Picture

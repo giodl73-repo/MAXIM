@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "metalworking\\09-PRECISION-METROLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "METROLOGY HIERARCHY:\n\n  DESIGN: nominal dimension + tolerance (GD&T callouts)\n       │\n  PROCESS CAPABILITY: does the process hold the tolerance? (Cp, Cpk)\n       │\n  IN-PROCESS GAUGING: real-time feedback during machining\n       │\n  INSPECTION (CMM, surface): did this specific part meet spec?\n       │\n  GAUGE R&R: is the measurement system reliable enough to detect non-conforming parts?\n       │\n  SPC: control chart → process trending → intervention before out-of-spec\n\nTOLERANCE MAGNITUDE EXAMPLES:\n  Free-machined surfaces:     ±0.5–1 mm   (rough fixtures, brackets)\n  Standard machined:          ±0.05–0.1 mm (general precision)\n  Close-tolerance:            ±0.01 mm     (fits, bearing bores)\n  Precision ground:           ±0.001 mm    (1 micron — gauge components)\n  Ultra-precision:            ±0.0001 mm   (100 nm — optical components, silicon wafers)\n  → 1 micron = 1/70 of human hair; 100 nm = virus size",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 54,
+      "heading_context": "## Dimensional Tolerances and ISO 286 Fits",
+      "confidence": "candidate",
+      "text": "### ISO 286 System",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "### ISO 286 System",
+      "confidence": "candidate",
+      "text": "ISO 286 FITS — SHAFT AND HOLE NOTATION:\n\n  Fit: relationship between mating shaft and hole dimensions\n\n  HOLE DESIGNATION: letter (uppercase) + number\n    H = fundamental deviation = 0 (lower limit = nominal)\n    H7: hole with zero lower deviation + IT7 tolerance grade\n    → H7 hole: actual size between +0 and +IT7 above nominal\n\n  SHAFT DESIGNATION: letter (lowercase) + number\n    f, g, h: clearance-producing (shaft smaller than hole)\n    j, k, m, n: transition (can be either)\n    p, r, s: interference-producing (shaft larger than hole)\n\nFIT TYPES:\n\n  CLEARANCE FIT:\n    Hole always larger than shaft\n    → Always has gap (clearance); shaft slides or rotates in hole\n    Examples:\n      H7/f7: loose running fit (sliding + rotating; large clearance)\n      H7/g6: running fit (bearings; snug but rotates freely)\n      H8/h9: easy clearance (non-precision sliding)\n\n  TRANSITION FIT:\n    May be clearance OR interference depending on actual dimensions\n    → Design intent: precise location without guaranteed interference\n    Examples:\n      H7/k6: keying fit (pressed lightly; usually slight interference)\n      H7/n6: used for gears, couplings; slight interference typical\n\n  INTERFERENCE FIT (PRESS FIT):\n    Shaft always larger than hole → must be assembled by force or thermal method\n    → Held by friction force from elastic/plastic deformation of both parts\n    Examples:\n      H7/p6: light press fit (permanent assembly; requires low force)\n      H7/s6: medium drive fit (significant force or temperature)\n      H7/u6: force fit (must heat or cool to assemble; very tight)\n\nTOLERANCE GRADES (IT grades):\n  IT = International Tolerance Grade\n  IT1 (finest) → IT18 (coarsest): specified tolerance width as function of nominal size\n  IT6: typical precision machining (CNC turning, grinding)\n  IT7: standard for running fits (H7 holes)\n  IT9–IT11: free-machined, rough\n\nEXAMPLE — 50mm H7/g6 running fit:\n  50mm H7 hole: +0 to +25 μm (25 μm tolerance band)\n  50mm g6 shaft: −9 to −25 μm (16 μm tolerance band)\n  → Clearance: minimum = 9 μm; maximum = 50 μm\n  → Shaft always smaller → always rotates; bearing fit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "### GD&T — Geometric Dimensioning and Tolerancing",
+      "confidence": "candidate",
+      "text": "GD&T (ASME Y14.5 / ISO 1101):\n  Traditional tolerancing: ±X on each dimension → tolerance cube (over-constrains)\n  GD&T: tolerance on the GEOMETRY itself → more precisely describes design intent\n\nDATUM REFERENCE FRAME:\n  Three mutually perpendicular planes (A, B, C) define the coordinate system\n  Datums: surfaces or features designated as measurement reference\n  → Must be established in specific order (primary, secondary, tertiary)\n  → CMM: probe datum surfaces first → establish coordinate system → measure features\n\nGD&T SYMBOLS AND TOLERANCES:\n  Form:\n    Flatness: ─ (flat face within tolerance zone)\n    Straightness: ─ ─ (line element within tolerance zone)\n    Circularity: ○ (cross-section within two concentric circles)\n    Cylindricity: ◎ (full cylinder within two coaxial cylinders)\n\n  Orientation (require datums):\n    Perpendicularity: ⊥ (axis or surface perpendicular to datum)\n    Parallelism: ∥ (surface/axis parallel to datum within tolerance)\n    Angularity: ∠ (specific angle to datum)\n\n  Location:\n    True position: ⊕ (axis or feature within cylindrical or spherical tolerance zone)\n      Most important: locates holes, bosses, pins precisely\n      Circular tolerance zone (⊕0.1) = more tolerance than ±0.07 square zone (same area)\n    Concentricity/Coaxiality: ◎ (axis within cylindrical tolerance relative to datum)\n    Symmetry: ═ (feature symmetric about datum)\n\n  Profile:\n    Profile of a line / surface: complex curved profiles within tolerance band\n\n  Runout:\n    Circular runout: surface element variation while rotating about datum axis\n    Total runout: full surface variation while rotating → includes both radial and axial\n\nMAXIMUM MATERIAL CONDITION (MMC) MODIFIER ⓂC:\n  Bonus tolerance: as shaft is machined smaller (away from MMC), tolerance increases\n  Physical reasoning: if shaft is smaller, hole can be less precisely located and still fit\n  Only applies to: size features (holes, shafts, tabs)\n  → Common on bolt patterns: when all holes are larger, their true position can be looser",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Surface Roughness",
+      "confidence": "candidate",
+      "text": "SURFACE TEXTURE PARAMETERS:\n\n  All measured by profilometer (stylus or optical) along a trace length\n\n  Ra (arithmetic mean roughness):\n    Average absolute deviation from mean line over evaluation length\n    Ra = (1/L) ∫|z(x)| dx\n    Most widely used; insensitive to single spikes\n\n  Rq (RMS roughness):\n    Root mean square of profile deviations\n    Rq = √(1/L ∫z(x)² dx)\n    More sensitive to outliers than Ra; used in optics (wavefront error)\n    Rq ≈ 1.25 × Ra for typical surfaces\n\n  Rz (mean roughness depth):\n    Average of peak-to-valley heights of 5 consecutive sampling lengths\n    More sensitive to individual peaks than Ra\n    → Important for: surfaces that fail on peak contact (seals, gaskets)\n    Rz typically 4–8× Ra\n\n  Typical Ra values:\n    Rough turned:      Ra 3.2–12.5 μm (0.125–0.5 μin Ra equiv)\n    Fine turned:       Ra 0.8–3.2 μm\n    Ground:            Ra 0.2–1.6 μm\n    Honed:             Ra 0.025–0.4 μm (bearing bores)\n    Lapped/polished:   Ra 0.012–0.1 μm\n    Optical surface:   Ra < 0.001 μm (1 nm — superpolish)\n\nMEASUREMENT METHODS:\n\n  STYLUS PROFILOMETER:\n    Diamond stylus (2 μm tip radius) traverses surface at constant speed\n    Vertical motion of stylus → electrical signal → profile trace\n    → Cannot measure very deep grooves (stylus can't fit) or very fine features\n    Standards: ISO 4287; ASME B46.1\n\n  OPTICAL PROFILERS:\n    White light interferometry (WLI): coherence scanning → phase map → 3D surface\n    Confocal microscopy: depth discrimination from focus → nm resolution\n    Laser scanning: fast; non-contact; nm vertical resolution\n    No stylus contact → can measure fragile, soft, or very fine surfaces\n    → Semiconductor wafers, optical elements: non-contact required\n\n  ROUGHNESS vs. WAVINESS vs. FORM:\n    Form error: gross shape deviation (bow, taper) — removed by least-squares fit\n    Waviness: medium frequency (fixturing, machine tool vibration)\n    Roughness: high frequency (cutting action)\n    → Filters separate these: λc (cutoff wavelength) separates roughness from waviness\n    → Standard Gaussian filter: λc = 0.8 mm (Ra), 2.5 mm, 8 mm for rougher surfaces",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "## Coordinate Measuring Machines (CMMs)",
+      "confidence": "candidate",
+      "text": "CMM ARCHITECTURE:\n\n  Structure: granite surface plate + Cartesian bridge (or arm) + spindle\n  Probing: ruby-ball probe (2mm diameter) on precision quill\n  Position sensing: glass scales (linear encoders) at each axis; resolution 0.1–0.01 μm\n  Control: CNC or DCC (direct computer control) — programmable measurement routines\n\n  TYPES:\n    Bridge CMM: gantry over part → most common; stable; limited part height\n    Horizontal arm: arm extends over large part → for car bodies, large structures\n    Portable CMM (FARO arm): articulated arm with encoders → for field measurement\n    Optical CMM: structured light or fringe projection → non-contact; fast; less precise\n\nPROBE QUALIFICATION:\n  Must establish the probe's exact tip radius and position in machine coordinates\n  Qualification sphere (precision chrome steel, 25mm diameter, known exactly)\n  → Touch qualification sphere at multiple points → find actual center → calibrate tip\n  Run at each probe orientation change; temperature-sensitive → re-qualify periodically\n\n  PROBE TYPES:\n    Touch-trigger (Renishaw): electrical contact → signal to controller; binary touch/no touch\n    Scanning probe: continuous analog measurement; traces contours; better for complex geometry\n    Optical probe: laser spot or structured light; non-contact; for soft/fragile surfaces\n\nMEASUREMENT OF GD&T FEATURES:\n  HOLE (TRUE POSITION):\n    Touch minimum 4 points on bore circle → fit circle → find center\n    Compare center XY to nominal → compute deviation → compare to position tolerance\n    With CMM: full 3D position in datum reference frame\n\n  FLATNESS:\n    Touch N points on surface → fit plane → find maximum deviation from plane\n    Compare to flatness tolerance\n\n  CYLINDRICITY:\n    Touch multiple circles at multiple heights → fit best-fit cylinder\n    Maximum deviation from cylinder → compare to cylindricity tolerance\n\n  PROFILE OF A SURFACE:\n    Scan or measure dense point grid → compare to nominal CAD surface\n    → Each point: deviation from nominal → check within tolerance band\n\nCMM ACCURACY FACTORS:\n  Temperature: granite and part expand thermally → CMM rooms: 20°C ±0.5°C controlled\n  Cleanliness: chips/coolant on surface → false readings\n  Part clamping: over-clamped part distorts → measure unclamped\n  Probe qualification frequency: critical for accuracy\n  CMM calibration: against NIST-traceable gauge blocks + reference spheres annually",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "## Gauge R&R",
+      "confidence": "candidate",
+      "text": "GAUGE R&R (REPEATABILITY AND REPRODUCIBILITY):\n  Measurement system analysis — quantifies how much variation comes from the measurement\n  system vs. actual part-to-part variation\n\nCOMPONENTS OF VARIATION:\n  Total variation = Part variation + Gauge R&R\n  Gauge R&R = Repeatability + Reproducibility\n\n  Repeatability: variation when ONE operator measures SAME part MULTIPLE TIMES\n    → Equipment variation; inherent gauge precision\n  Reproducibility: variation when MULTIPLE operators measure SAME part\n    → Operator effect; training; interpretation\n  Part variation: actual manufacturing variation (what we want to measure)\n\nCONDUCTING GAUGE R&R (AIAG MSA method):\n  10 parts × 2 operators × 2 trials (minimum)\n  Each operator measures each part twice; operators blind to each other's results\n  ANOVA: separate sources of variation\n  Compute: %Study Variation = (σ_gauge / σ_total) × 100\n\nACCEPTANCE CRITERIA:\n  %Gauge R&R < 10%: acceptable → measurement system is adequate\n  10–30%: marginal → may be acceptable depending on application\n  > 30%: unacceptable → measurement system cannot reliably detect non-conforming parts\n\n  NDC (Number of Distinct Categories):\n  NDC = (√2 × σ_parts) / σ_gauge\n  NDC ≥ 5: acceptable; measurement system can distinguish 5+ categories\n  NDC < 2: gauge is essentially useless for process control\n\nPRACTICAL IMPLICATIONS:\n  Gauge R&R > 30%: if inspection rejects a lot, could be measurement system, not parts\n  Gauge R&R < 10%: inspection decisions are reliable\n  → Must conduct Gauge R&R before using measurement system for production go/no-go\n  → Especially critical: attribute gauges (go/no-go) → confusion between borderline parts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "## Statistical Process Control (SPC)",
+      "confidence": "candidate",
+      "text": "SPC CONTROL CHARTS:\n  Track process output over time → detect when process has shifted or increased variation\n  → Take corrective action BEFORE producing out-of-spec parts\n\nSHEWHART CONTROL CHART:\n  X̄-R chart (for subgroup means and ranges):\n    X̄ (X-bar): average of subgroup of n measurements → tracks CENTERING\n    R (Range): max-min within subgroup → tracks VARIATION\n    UCL/LCL: control limits at ± 3σ from centerline (99.73% of normal distribution)\n    → Points outside limits: signal; process shifted or variation increased\n\n  I-MR chart (individuals and moving range):\n    For n=1 (single measurement per time point)\n    I: individual value; MR: moving range between consecutive values\n    → Used when subgroups aren't practical (slow processes, destructive testing)\n\nCONTROL CHART SIGNALS (Western Electric rules):\n  1. One point outside ±3σ\n  2. Two of three consecutive points outside ±2σ (same side)\n  3. Four of five consecutive points outside ±1σ (same side)\n  4. Eight consecutive points on same side of centerline\n  → Each rule: ~1/1000 false alarm probability if applied alone; combined ~0.8%\n\nCAPABILITY INDICES:\n  Cp = (USL − LSL) / (6σ)   [spread capability]\n    Voice of customer (spec) vs. Voice of process (±3σ)\n    Cp = 1.0: process fits exactly; expect 2700 ppm outside spec\n    Cp = 1.33: ±4σ; ~63 ppm outside\n    Cp = 1.67: ±5σ; ~0.57 ppm\n    Cp = 2.0: ±6σ (Six Sigma): 2 ppm (accounts for ±1.5σ shift → 3.4 DPMO)\n\n  Cpk = min(Cpu, Cpl)   [centered capability]\n    Cpu = (USL − X̄) / 3σ;  Cpl = (X̄ − LSL) / 3σ\n    Cpk accounts for process being off-center\n    Cpk < Cp: process is not centered on nominal\n    → Both Cp ≥ 1.33 AND Cpk ≥ 1.33 needed to claim process is capable AND centered\n\nSPC IN MACHINING:\n  In-process gauging: measure every nth part → plot on X̄-R chart\n  Tool wear: gradual dimensional drift → trend toward control limit → offset tool before OOL\n  Thermal drift: early in shift → dimensions shift as machine warms → monitor\n  Setup variation: first article inspection → verify process centered\n  → Modern CNC: automatic measurement + automatic tool offset correction → closed loop",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 366,
+      "heading_context": "## Laser Tracker for Large Parts",
+      "confidence": "candidate",
+      "text": "LASER TRACKER (FARO, Leica, API):\n  CMM for large-scale measurement (1–100+ meters)\n  Measures: 3D position of a retro-reflective target (SMR — spherically mounted retroreflector)\n\nPRINCIPLE:\n  Laser beam → retroreflector → reflected exactly back\n  Interferometer: measures distance change (continuous tracking mode)\n  Angular encoders (two axes): measure azimuth + elevation\n  → Full 3D position: r, θ, φ → X, Y, Z\n\n  ABSOLUTE DISTANCE MEASUREMENT (ADM):\n    Measures absolute distance (not just change)\n    → Can re-acquire target if tracking is lost; doesn't need continuous beam\n    Modern trackers: ADM + interferometry combined\n\nACCURACY:\n  Volumetric accuracy: ±15–50 μm at 10–15 m (FARO Vantage, Leica AT403)\n  Angular resolution: 0.07 arc-seconds\n  Working volume: up to 80m radius (some models)\n  → For 10m measurement: ±50 μm = 0.005 mm → acceptable for aerospace structures\n\nAPPLICATIONS:\n  Aircraft fuselage assembly: align fuselage sections (±0.5 mm over 30m)\n  Ship block assembly: position hull sections for welding\n  Wind turbine: measure tower straightness, nacelle alignment\n  Automotive tooling: verify jig/fixture geometry; build-to-tolerance\n  CMM verification: check CMM calibration against laser tracker standard\n\nCOMPARISON TO PORTABLE CMM ARM:\n  FARO arm:     range 1.5–4m; accuracy ±25–50 μm; contact; flexible\n  Laser tracker: range 10–80m; accuracy ±15–50 μm; non-contact; tripod-mounted\n  → Small parts in shop: FARO arm; large structures in field: laser tracker\n  → Photogrammetry (camera + coded targets): comparable accuracy; denser point cloud;\n    lower cost for specific applications (complete object scan)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "metalworking\\08-SURFACE-FINISHING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SURFACE FINISHING — LANDSCAPE:\n\n  CATEGORY          PROCESS             ADDS              TYPICAL THICKNESS\n  ─────────────────────────────────────────────────────────────────────────\n  Electrochemical   Electroplating      Metal layer       1–500 μm\n                    Anodizing           Oxide layer       5–25 μm (standard), 25–100 μm (hard)\n                    Electroless plating Metal (no current) 0.1–25 μm\n\n  Organic coating   Powder coating      Polymer film      50–100 μm\n                    Painting            Polymer film      25–250 μm\n                    E-coating           Epoxy primer      15–30 μm\n\n  Thermal spray     Flame spray         Metal/ceramic     50–1500 μm\n                    HVOF                WC-Co/MCrAlY      50–500 μm\n                    Plasma spray        Ceramic TBC       100–500 μm\n\n  PVD/CVD           Physical vapor dep  TiN/TiAlN/DLC    1–10 μm\n                    Chemical vapor dep  TiC/Al₂O₃        5–20 μm\n\n  Diffusion         Carburizing         C diffusion       0.5–3 mm\n                    Nitriding           N diffusion       0.1–0.8 mm\n                    Boriding            B diffusion       0.1–0.5 mm\n\n  Mechanical        Shot peening        Compressive stress N/A (surface modification)\n                    Burnishing          Work hardening    N/A\n                    Polishing           Reduced Ra        N/A\n\n  SELECTION DRIVERS:\n    Corrosion protection → electroplating (Zn, Ni, Cr), anodizing (Al), powder coat\n    Wear resistance → PVD TiN/TiAlN (tools), thermal spray WC-Co (pumps, bearings)\n    Thermal barrier → plasma spray YSZ (turbine blades)\n    Aesthetics + protection → electroplating (Cr, Au, Ni), powder coat\n    Fatigue improvement → shot peening (induces compressive residual stress)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "### Faraday's Laws",
+      "confidence": "candidate",
+      "text": "ELECTROPLATING CELL:\n\n  Power supply (DC) → anode (dissolving metal or inert) → electrolyte → cathode (workpiece)\n\n  At cathode (workpiece): M²⁺ + 2e⁻ → M  (metal deposits)\n  At anode (soluble):     M → M²⁺ + 2e⁻  (metal dissolves into bath)\n  At inert anode:         2H₂O → O₂ + 4H⁺ + 4e⁻ (bath becomes acidic; replenishment needed)\n\nFARADAY'S LAWS:\n  1st law: Mass deposited ∝ charge passed (Q = I × t)\n  2nd law: Equivalent masses of different metals deposited by same charge\n\n  m = (I × t × M) / (n × F)\n\n  Where:\n    m = mass deposited (grams)\n    I = current (amperes)\n    t = time (seconds)\n    M = molar mass of deposited metal (g/mol)\n    n = electrons per ion (valence)\n    F = Faraday constant (96,485 C/mol)\n\n  Example: deposit 1 gram of nickel (M=58.7, n=2):\n  Q = (1 × 2 × 96,485) / 58.7 = 3,289 coulombs = 54.8 A·min\n  At 5A: 660 seconds = 11 minutes\n\n  CURRENT EFFICIENCY:\n  Not all current goes to metal deposition (H₂ evolution competes)\n  Efficiency = 95–99% for Ni, Cu; lower for Cr (~15% for hexavalent chrome!)\n  → Hexavalent chromium: 85% of current evolves H₂ → very low efficiency → high cost + toxicity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "### Major Electroplating Systems",
+      "confidence": "candidate",
+      "text": "ZINC PLATING:\n  Purpose: cathodic corrosion protection for steel\n  Mechanism: zinc is anodic to steel → sacrificial anode\n    Even if zinc layer is scratched → zinc corrodes preferentially → steel protected\n  Typical thickness: 5–25 μm\n  Salt spray life: 100–200 hours (plain Zn); 200–400 hours (Zn + chromate passivation)\n  Applications: fasteners, brackets, sheet metal parts\n  Bath: alkaline (cyanide or non-cyanide) or acid sulfate/chloride\n  Environmental: cyanide baths being replaced; hexavalent chromate passivation\n    now largely replaced by trivalent chromate (EU RoHS compliance)\n\nNICKEL PLATING:\n  Purpose: decorative + corrosion protection; wear resistance\n  Mechanism: barrier protection only (not sacrificial) → complete coverage essential\n  Decorative: bright nickel (organic brighteners) + thin chrome topcoat\n  Engineering: thicker deposits; autocatalytic (electroless) for uniform coverage\n  Applications: automotive trim, firearms, electronic contacts, molds\n  Electroless nickel (EN):\n    No current needed; uses reducing agent (hypophosphite) in bath\n    Deposits uniformly on any conductive surface (no current density variation)\n    Phosphorus content: 2–14% → affects hardness, corrosion resistance, magnetism\n    Med-P EN (6–9% P): balance of properties → most common\n    High-P EN (>10% P): amorphous; excellent corrosion resistance; non-magnetic\n\nCHROME PLATING:\n  DECORATIVE CHROME (very thin: 0.1–0.3 μm):\n    Over nickel undercoat → provides brightness and thin corrosion protection\n    High reflectance (automotive trim)\n    Traditional: hexavalent CrO₃ bath → now being replaced by trivalent Cr (lower toxicity)\n\n  HARD CHROME (25–500 μm):\n    Purpose: wear resistance, low friction, corrosion resistance\n    Industrial shafts, hydraulic cylinders, dies, printing rolls\n    Hardness: 900–1000 HV\n    Environmental: hexavalent Cr is carcinogenic → REACH regulation in EU\n    Replacement candidates: HVOF WC-Co; electroless Ni-P; plasma spray; TiN PVD\n\nGOLD PLATING:\n  Electronics: prevent oxidation on contact surfaces (0.05–3 μm)\n  Jewelry: aesthetic (flash gold = 0.05 μm; heavy gold = 1–3 μm)\n  Medical: biocompatible; corrosion immune\n  Gold bath: gold cyanide complex (alkaline); pure gold (25 karat) or alloys\n  Hard gold: alloyed with Co or Ni → 200–300 HV vs 60 HV pure gold → contact durability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## Anodizing",
+      "confidence": "candidate",
+      "text": "ANODIZING MECHANISM:\n\n  Electrolytic process: workpiece is the ANODE (opposite of electroplating)\n  Electrolyte: sulfuric acid (H₂SO₄) — most common; phosphoric, oxalic, chromic also used\n  At anode (aluminum workpiece):\n    2Al + 3H₂O → Al₂O₃ + 6H⁺ + 6e⁻\n    → Porous oxide layer grows into + out of surface\n  At cathode: 2H⁺ + 2e⁻ → H₂\n\nOXIDE LAYER STRUCTURE:\n  Two zones:\n    Barrier layer: dense, non-porous, ~10–20 nm, at metal interface\n    Porous layer: columnar cells with central pore; grows outward\n  Pore diameter: ~10–25 nm (sulfuric acid)\n  Cell size: ~100 nm\n  → Pores: site for dyeing (color anodize) and sealing\n\nTYPES:\n  TYPE I (Chromic acid anodize): 0.5–7.5 μm; lightest, most ductile; aerospace\n  TYPE II (Sulfuric acid anodize): 5–25 μm; standard decorative + corrosion\n  TYPE III (Hard anodize / hardcoat): 25–100 μm; dense; hard (400–600 HV)\n\nHARD ANODIZE (Type III):\n  Low temperature (0–5°C) H₂SO₄; high current density\n  → Slower oxide growth at lower temperature → denser, harder oxide\n  Hardness: 400–600 HV (harder than most steels)\n  Applications: aircraft parts, hydraulic pistons, gears (light load), textile machinery\n  Limitation: reduces fatigue life (tensile residual stress in outer oxide)\n\nSEALING:\n  After anodize: pores must be sealed to close corrosion path\n  Hot DI water seal: 96–100°C water → boehmite (γ-AlO·OH) closes pores\n  Nickel acetate seal: better corrosion resistance than water seal\n  Mid-temperature seal (60–75°C Ni): balances sealing quality + energy\n  PTFE seal: added lubricity → reduces friction for sliding applications\n\nDYEING:\n  Before sealing: water-soluble dyes absorbed into open pores\n  Gold, black, red, blue — standard colors\n  Anodize color is in the oxide layer → does not wear off like paint\n  \"Natural\" (clear) anodize: no dye; silver-gray appearance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## Powder Coating",
+      "confidence": "candidate",
+      "text": "POWDER COATING PROCESS:\n\n  1. Surface preparation: blast + phosphate or chromate pretreat (critical for adhesion)\n  2. Electrostatic spray gun: powder (charged at 50–100 kV) → attracted to grounded part\n     OR fluidized bed: part preheated → dipped in fluidized powder tank → powder adheres\n  3. Cure oven: 150–230°C for 10–20 min → powder melts, flows, crosslinks → film\n\nPOWDER TYPES:\n  THERMOSETTING (most common):\n    Epoxy: excellent adhesion + chemical resistance; poor UV → indoors\n    Polyester (TGIC): outdoor durable; UV resistant; most architectural + automotive\n    Polyurethane: flexible; good chemical resistance; OEM automotive\n    Epoxy-polyester hybrids: interior use; good flow; lower cost\n\n  THERMOPLASTIC:\n    Nylon, PVC, polyethylene: thicker coatings; re-melted; used for tool handles, wire racks\n\nELECTROSTATIC MECHANISM:\n  Corona charging: high-voltage electrode → corona discharge → ionizes air → charges powder\n  Tribocharging: friction with PTFE gun barrel → charge by triboelectricity\n  Charged particles: attracted to grounded (or oppositely charged) workpiece\n  Faraday cage effect: recessed areas shield from charging → difficult to coat deep cavities\n  → Workaround: electrostatic flocking, higher voltage, or different gun geometry\n\nADVANTAGES vs LIQUID PAINT:\n  No solvents → lower VOC emissions → more environmentally favorable\n  Single coat adequate (no primer + topcoat for many applications)\n  90%+ transfer efficiency (vs 30–50% for spray paint)\n  More uniform film; no runs/drips\n  Thicker film (50–100 μm vs 25–50 μm paint) → more durable\n\nLIMITATIONS:\n  Minimum film thickness: ~50 μm → not suitable for precision tolerances\n  Color change: time-consuming (entire gun system must be cleaned)\n  Not suitable: heat-sensitive substrates; complex curves (Faraday cage); very thick parts\n  Touch-up: difficult (powder doesn't blend with existing coat)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## Thermal Spray",
+      "confidence": "candidate",
+      "text": "THERMAL SPRAY — PRINCIPLE:\n  Feedstock (powder, wire, or rod) → heated to molten or semi-molten state\n  → Propelled by gas jet → impacts substrate → spreads → solidifies (\"splat\")\n  → Successive splats build up a lamellar deposit\n\nPROCESSES:\n\n  HVOF (High Velocity Oxy-Fuel):\n    Fuel (kerosene or hydrogen) + oxygen → combustion chamber at high pressure\n    Exit velocity: 500–1000 m/s (supersonic) at ~2700°C\n    → Very high particle velocity → excellent bond strength (~70 MPa)\n    → Low temperature at substrate → minimal oxidation; low porosity (~0.5%)\n\n    WC-10Co4Cr (tungsten carbide-cobalt-chromium):\n      → Hardness: 1000–1100 HV\n      → Wear resistance: best available by thermal spray\n      → Applications: pump components, aircraft landing gear, paper industry\n      → Replaces electroless nickel and hard chrome for many wear applications\n\n  PLASMA SPRAY:\n    Plasma arc (argon + hydrogen): ~8,000–15,000°C (hottest available)\n    → Melts highest melting point materials (ceramics, refractory metals)\n    → Lower particle velocity than HVOF → higher porosity (~5–15%)\n    → Higher temperature capability\n\n    Thermal Barrier Coatings (TBC) — yttria-stabilized zirconia (YSZ):\n      → 7–8% Y₂O₃ → stabilizes tetragonal phase → thermal cycling resistant\n      → Thermal conductivity: ~2 W/m·K (vs steel 50; Al₂O₃ 30)\n      → Gas turbine blade TBC: allows combustion gas T above alloy melting point!\n        Metal substrate: ~1000°C; combustion gas: ~1400°C; TBC thermal gradient: 150–200°C\n      → MCrAlY bond coat (M=Ni/Co; Cr; Al; Y): Al₂O₃ TGO (thermally grown oxide)\n        → TBC adhesion via TGO; failure = TGO spallation at cycling (Tmax and ΔT critical)\n\n  FLAME SPRAY (older, lower performance):\n    Oxy-acetylene flame; lower velocity; higher porosity; lower bond strength\n    Still used: simple coatings, low-budget, manual repair\n\nTHERMAL SPRAY COATING PROPERTIES:\n  Lamellar (splat) microstructure → anisotropic properties\n  Porosity: 0.5% (HVOF) to 15% (flame)\n  Bond strength: 20–70+ MPa (depends on process + surface prep)\n  Residual stress: compressive (HVOF); tensile (plasma)\n  → Tensile residual stress + porosity → fatigue degradation; must consider in design",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 294,
+      "heading_context": "## PVD and CVD Coatings",
+      "confidence": "candidate",
+      "text": "PVD (Physical Vapor Deposition):\n  Material source → vapor → deposits on substrate in vacuum chamber\n  Substrate temperature: 200–500°C (low → can coat HSS tools)\n\n  METHODS:\n    Evaporation: resistive or electron beam heating of target → evaporation\n    Sputtering: argon ion bombardment of target → target atoms ejected → deposit\n    Arc evaporation (cathodic arc): arc on target → ionized plasma → dense coating\n\n  REACTIVE PVD:\n    Nitrogen (N₂) or carbon-containing gas added → reacts with target metal\n    Ti target + N₂ → TiN (gold color, 2300 HV)\n    Ti + Al + N₂ → TiAlN (dark gray, 3300 HV, better high-temp stability)\n    Cr + N₂ → CrN (silver, 1750 HV, better chemical resistance)\n    Ti + C₂H₂ → TiC/TiCN (high hardness, good adhesion)\n    DLC (diamond-like carbon) + CH₄ → amorphous carbon → 3000+ HV; very low friction\n\n  COATING THICKNESS: 1–5 μm (very thin → minimal dimensional change)\n  HARDNESS: 1700–3500 HV (vs WC 1600 HV; steel tools 65 HRC = 832 HV)\n  APPLICATIONS: cutting tools, forming dies, gears, medical implants\n\nCVD (Chemical Vapor Deposition):\n  Reactant gases flow into hot chamber → react at substrate surface → deposit\n  Temperature: 900–1100°C → too hot for HSS; used on cemented carbide only\n\n  TiC: TiCl₄ + CH₄ → TiC + 4HCl (1000°C)\n  TiN: TiCl₄ + N₂ + H₂ → TiN + HCl (1000°C)\n  Al₂O₃: AlCl₃ + 3/2 H₂O → Al₂O₃ + 3HCl (1000°C)\n\n  CVD advantages vs PVD:\n    Thicker coatings (5–20 μm) → longer tool life\n    Better adhesion (metallurgical bond; higher temperature)\n    Can coat complex 3D shapes uniformly (gas-phase → all surfaces)\n    Al₂O₃ possible: excellent at high cutting temps → hardened steel + cast iron\n\n  Multilayer CVD (e.g., TiN/TiCN/Al₂O₃/TiN):\n    Combines: TiCN (toughness transition) + Al₂O₃ (hot hardness) + TiN (wear indicator)\n    Standard on most commercial carbide inserts\n    Gold TiN topcoat: visual wear indicator — when gold disappears, coating worn\n\nPVD vs CVD SELECTION:\n  HSS, cobalt steel tools → PVD only (500°C vs HSS Ac temp ~600°C)\n  WC carbide inserts → CVD (higher temp capability; thicker; Al₂O₃ possible)\n  Precision tolerance parts → PVD (thinner deposit; less dimensional change)\n  Complex geometry → CVD (uniform gas-phase deposition)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "## Tribology",
+      "confidence": "candidate",
+      "text": "TRIBOLOGY: friction, wear, and lubrication — the science of interacting surfaces in relative motion\n\nFRICTION:\n  Amontons' laws (1699; formalized by Coulomb):\n    1. Friction force ∝ normal load (F_f = μ × F_N)\n    2. Friction force independent of apparent contact area\n    3. Kinetic friction < static friction (approximately; not universally true)\n\n  PHYSICAL MECHANISMS:\n    Adhesion: molecular-level bonding at asperity contacts → shearing adhesive junctions\n    Ploughing: harder asperities plow grooves in softer surface → deformation energy\n    Real contact area << apparent contact area\n    → At microscale, only asperities contact → \"real area\" much smaller than geometric\n    → Adhesion at asperities: μ = τ / H where τ = shear strength; H = hardness\n\n  FRICTION COEFFICIENTS (dry):\n    Steel on steel: 0.4–0.8\n    Steel on PTFE: 0.04–0.1\n    DLC on DLC: 0.01–0.05 (near superlubricity)\n    Lubricated steel: 0.05–0.15\n\nWEAR MECHANISMS:\n  Adhesive wear: material transfer between surfaces (galling; welding at asperities)\n  Abrasive wear: harder particle or asperity plows softer surface\n    Two-body: surface against abrasive surface (grinding)\n    Three-body: abrasive particles between two surfaces (most damaging in practice)\n  Fatigue wear: cyclic loading → subsurface crack nucleation → surface pitting (gears, bearings)\n  Corrosive/oxidative wear: surface reaction products removed by wear → fresh surface exposed\n\nARCHARD WEAR LAW:\n  V = K × L × W / H\n  V = wear volume; K = dimensionless wear coefficient; L = sliding distance;\n  W = normal load; H = hardness\n\n  Higher hardness → lower wear (H in denominator)\n  This is why hard coatings (TiN, WC-Co) dramatically reduce wear\n\nLUBRICATION REGIMES (Stribeck curve):\n  Boundary lubrication (thin film; asperity contact): μ = 0.1–0.5; chemical film protects\n  Mixed (partial EHD): μ = 0.02–0.1; film partially separates surfaces\n  Hydrodynamic (full film; no asperity contact): μ = 0.001–0.01; viscosity carries load\n  EHD (elastohydrodynamic): high-pressure; film remains despite very high loads (gear teeth, rolling bearings)\n\nVISCOSITY AND FILM THICKNESS:\n  Viscosity index (VI): how viscosity varies with temperature (higher VI = less change)\n  ISO VG grades: ISO VG 46 = 46 mm²/s at 40°C (turbine oil, hydraulic)\n  SAE 10W-40: winter (cold cranking) + 40 at 100°C (multigrade)\n  Film thickness (EHD): h_min ∝ η^0.6 × U^0.6 / W^0.2 (Hamrock-Dowson)\n    → Film thickness increases with viscosity × speed; decreases with load",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 423,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "HVOF uses supersonic velocity + moderate temperature → low porosity, high bond strength, best for WC-Co. Plasma spray uses very high temperature + moderate velocity → higher porosity, but can melt ceramics that HVOF cannot. They occupy different niches: WC-Co wear coatings → HVOF; TBC ceramics → plasma spray.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

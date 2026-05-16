@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "metalworking\\05-MACHINING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MACHINING LANDSCAPE:\n\n  SINGLE-POINT CUTTING          MULTI-POINT CUTTING          ABRASIVE\n  (one cutting edge)            (multiple edges)              (many cutting grains)\n  ─────────────────────         ──────────────────────        ────────────────────\n  Turning (lathe)               Milling (end mill,            Grinding (wheel)\n  Boring (boring bar)            face mill)                   Honing (sticks)\n  Planning                      Drilling (drill bit)          Lapping (compound)\n  Shaping                       Reaming                       Superfinishing\n  Threading (single-point)      Broaching (pull)              EDM (spark erosion)\n  Parting/Grooving              Tapping (thread)\n\n  Coarser, faster                                             Finer, slower\n  Less accurate                                              More accurate\n  Less capital                                               More capital (grinding)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "### The Metal Cutting Zone",
+      "confidence": "candidate",
+      "text": "CUTTING GEOMETRY (orthogonal model):\n\n  WORKPIECE → moves into tool OR tool moves through workpiece\n\n  Cutting zone (chip formation):\n  ┌─────────────────────────────────────────────────────────────┐\n  │   Uncut chip thickness (t₁)                                 │\n  │   ─────────────────────────────────────────────             │\n  │                              ╱╱╱╱╱╱╱╱╱╱╱╱╱ chip flows       │\n  │                         ╱ PRIMARY         along tool face   │\n  │                    ╱ SHEAR ZONE ╲                           │\n  │               ╱   (45°±rake/2)  ╲                           │\n  │          ╱ (material shears here) ╲                         │\n  │      ─────────────────────────────╲──────                   │\n  │                        TOOL    ╲   Flank face               │\n  │                            Rake angle α                     │\n  └─────────────────────────────────────────────────────────────┘\n\nRAKE ANGLE (α): angle between tool face and perpendicular to cutting direction\n  Positive rake (tool face tilts toward workpiece direction):\n    → Lower cutting force; thinner chip; better surface finish\n    → Weaker cutting edge (sharper angle = less material behind edge)\n    → Used for: ductile materials (aluminum, copper, soft steel)\n  Negative rake:\n    → Higher cutting force; tougher edge (more material support)\n    → Used for: hard materials (hardened steel, ceramics) with ceramic/CBN tools\n    → Harder materials need stronger (more negative rake) tools\n\nRELIEF (clearance) ANGLE:\n  Angle between flank face and machined surface\n  Prevents tool heel from rubbing machined surface → must be positive\n  Too large: weak edge; Too small: rubbing → heat → tool failure\n\nCHIP FORMATION TYPES:\n  Continuous chip: ductile materials (Al, mild steel); smooth cutting\n  Segmental chip: many engineering materials; periodic fracture\n  Discontinuous chip: brittle materials (cast iron, hard plastics); broken chunks\n  Built-up edge (BUE): work material welds to tool at low speeds\n                        → changes effective rake; creates rough surface; must avoid\n                        → increase speed to avoid BUE temperature regime",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### The Three Zones of Heat Generation",
+      "confidence": "candidate",
+      "text": "HEAT IN CUTTING:\n  ~90–95% of cutting energy → HEAT (only 5–10% goes into surface work hardening)\n\n  1. PRIMARY SHEAR ZONE: highest heat generation — shear work in primary zone\n  2. SECONDARY ZONE (rake face/chip contact): friction + secondary shear\n  3. TERTIARY ZONE (flank/machined surface): minor rubbing\n\n  Heat destination:\n    60–80%: carried away in chip → good (evacuated with chip)\n    10–20%: into workpiece → bad (causes thermal distortion, residual stress)\n    5–15%: into tool → bad (tool temperature limit → tool wear, failure)\n\n  Temperature at cutting edge: 500–1200°C depending on material and conditions\n  This is the primary limit on cutting speed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Turning",
+      "confidence": "candidate",
+      "text": "TURNING PARAMETERS:\n\nSPINDLE SPEED (n, rpm):\n  Surface cutting speed: Vc = π·D·n/1000   [m/min or sfm]\n  D = diameter (mm), n = rpm\n  → Specify Vc first (material-dependent), calculate n: n = 1000·Vc/(π·D)\n\nFEED (f, mm/rev):\n  How far the tool advances per revolution of workpiece\n  Fine (0.05–0.2 mm/rev): better surface finish\n  Coarse (0.2–0.8 mm/rev): faster material removal, rougher finish\n\nDEPTH OF CUT (ap, mm):\n  Radial depth the tool penetrates into workpiece\n  Roughing: 2–8mm (maximize MRR)\n  Finishing: 0.1–0.5mm (minimize forces → better accuracy)\n\nMATERIAL REMOVAL RATE (MRR):\n  MRR = Vc · f · ap  [cm³/min]\n\nSURFACE ROUGHNESS (theoretical):\n  Ra ≈ f² / (8·r)   where r = tool nose radius\n  → Smaller feed + larger nose radius = smoother surface\n  → Actual Ra worse than theoretical due to tool wear, vibration, BUE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Lathe Machine",
+      "confidence": "candidate",
+      "text": "ENGINE LATHE / CNC TURNING CENTER:\n\n  Headstock (drives spindle + chuck) ←── WORKPIECE ──► Tailstock\n                                      Bed (ways)\n  Carriage (holds tool, traverses along Z)\n  Cross-slide (moves tool in X = radial)\n  Compound (set angle for taper turning)\n\n  Operations:\n  Turning: reduce OD\n  Facing: machine end face (flat)\n  Boring: enlarge/finish internal bore\n  Parting: cut-off to part from bar\n  Threading: feed coordinated with spindle → helical thread\n  Knurling: press knurl pattern into surface (actually forms, not cuts)\n\n  CNC turning center: same operations with NC control\n    Turret: multiple tools indexed automatically\n    Live tooling: rotating tools for milling/drilling on lathe\n    Sub-spindle: machine back of part without rechucking",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Milling",
+      "confidence": "candidate",
+      "text": "MILLING GEOMETRY:\n\nPeripheral milling:\n  CLIMB MILLING (down milling): cutter rotates in same direction as feed\n    Chip thickness: thick at entry → thin at exit\n    Advantage: less rubbing → better surface finish; lower power\n    Advantage: forces push workpiece into table → less vibration\n    Requirement: machine with backlash-free ballscrew (CNC) — otherwise backlash\n                  causes table to grab → chatter/damage\n    Standard for CNC milling\n\n  CONVENTIONAL MILLING (up milling): cutter rotates against feed\n    Chip thickness: thin at entry → thick at exit\n    More rubbing at entry → heat; worse surface; work hardening\n    Historical necessity with manual machines (backlash in lead screw)\n    Still used in special cases: hardened material, interrupted cuts\n\nFACE MILLING: large cutter flat-ends face of workpiece → flat surface\n  90% of milling stock removal in production machining\n\nEND MILLING: smaller cutter mills slot, pocket, contour, shoulder\n  2-flute: aluminum (more chip room, higher speeds)\n  4-flute: steel (more cutting edges, better surface)\n  High-helix (45°): aluminum, excellent finish and chip evacuation\n  Ball-nose: contour milling, 3D surfaces\n\nSPEEDS AND FEEDS IN MILLING:\n  Cutting speed Vc → RPM: n = 1000·Vc / (π·D)\n  Feed per tooth: fz (mm/tooth)\n  Table feed (feed rate): Vf = fz · Z · n   [mm/min]  Z = number of teeth\n  MRR = Vf · ae · ap  (ae = radial depth, ap = axial depth)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## Grinding",
+      "confidence": "candidate",
+      "text": "GRINDING WHEEL SPECIFICATION:\n  A 46 H 8 V\n  │ │  │ │ │\n  │ │  │ │ └── Bond type: V=vitrified, R=rubber, B=resinoid\n  │ │  │ └─── Structure (grain spacing): open-8, dense-1\n  │ │  └──── Grade (hardness of bond): soft-A, hard-Z\n  │ └─────── Grit size: coarse-16, fine-120, very fine-320\n  └───────── Abrasive type: A=alumina, C=silicon carbide, B=CBN, D=diamond\n\nGRINDING PARAMETERS:\n  Wheel peripheral speed: 25–35 m/s (conventional); up to 180 m/s (high-speed)\n  Workpiece speed: much slower (for OD grinding: 15–30 m/min)\n  Depth of cut: 0.001–0.05mm (much finer than turning/milling)\n  Coolant: critical — grinding generates intense local heat → burns surface if insufficient\n\nGRINDING OPERATIONS:\n  Surface grinding: flat surfaces; reciprocating table\n  Cylindrical OD grinding: between centers; wheel traverses axially\n  Internal grinding (ID): very small wheel inside bore\n  Centerless grinding: no spindle; workpiece between wheel + regulating wheel → pass-through\n  Thread grinding: precision threads (lead screws, worm gears)\n\nSURFACE INTEGRITY CONCERNS:\n  Grinding burns: blue/brown temper colors → local overheating → residual stress\n  Grinding cracks: thermal cracks → fatigue initiation sites → failure\n  Work hardening or annealing of surface depending on conditions\n  Detection: Barkhausen noise test (magnetic), nital etch\n  Prevention: correct wheel, adequate coolant, light cuts on hardened steel",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Cutting Tool Materials",
+      "confidence": "candidate",
+      "text": "TOOL MATERIAL EVOLUTION (hardness → wear resistance → allows higher Vc):\n\n  HIGH-SPEED STEEL (HSS) → Tungsten Carbide (WC) → Ceramics/Cermets → CBN → Diamond\n\n  Tool material progression (left to right = harder, faster Vc):\n\n    HSS:                700–900 HV;     Vc 15–50 m/min.\n    WC/Co carbide:      400–1800 HV;    Vc 100–400 m/min on steel.\n    Ceramics (Al₂O₃ / Si₃N₄):\n                        1600–3000 HV;   coated: up to 1000 m/min.\n    CBN:                3500 HV;        Vc 200–600 m/min;\n                        used for hard turning of hardened steel.\n    Diamond:            non-ferrous applications.\n\nHSS (High-Speed Steel, ~1900):\n  Alloyed tool steel: W, Mo, V, Co, Cr additions\n  Retains hardness to ~600°C (vs carbon steel losing hardness at 200°C)\n  Applications: drills, taps, end mills, form tools — complex shapes\n  Advantage: tough, can be reground; inexpensive\n  Speed limits: ~30–50 m/min for steel\n\nWC/Co CEMENTED CARBIDE (1920s–present, dominant):\n  WC grains (HV 2600) in cobalt binder\n  Grades: ISO P (steel), K (cast iron), M (stainless), N (nonferrous), S (superalloys)\n  WC+TiC: P grades for steel (TiC reduces crater wear)\n  WC+Co only: K grades for cast iron, non-ferrous\n  Insert grades with coatings (CVD/PVD):\n    TiN: yellow; general purpose; reduces BUE\n    TiCN: harder; wear-resistant\n    Al₂O₃: excellent at high temperature; oxidation resistant\n    TiAlN: PVD; excellent for dry machining at high speeds\n    Diamond (CVD): for non-ferrous only\n  Speeds: 100–400+ m/min depending on material and coating\n\nCERAMICS (Al₂O₃, Si₃N₄):\n  Very hard, hot-hard, oxidation resistant → very high speeds\n  Brittle: require rigid setup; no interrupted cuts; no coolant shock\n  Typical applications: high-speed cast iron, superalloy finish turning\n  Silicon nitride (Si₃N₄) whisker-reinforced: toughened for SiC-reinforced Al\n\nCBN (Cubic Boron Nitride):\n  Second hardest material after diamond; stable at high temperature\n  Can machine hardened steel (60+ HRC) → replaces grinding for some operations\n  \"Hard turning\": tight tolerances + CBN → replaces cylindrical grinding\n  Applications: hardened tool steel, hardened gears, bearing races\n\nDIAMOND (PCD and CVD):\n  Hardest material; excellent for non-ferrous\n  Cannot machine ferrous: Fe dissolves carbon → diamond diffusion wear → catastrophic\n  Applications: aluminum, copper, brass, graphite, composites, carbide\n  Speeds: very high (> 1000 m/min for aluminum); excellent surface finish",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 313,
+      "heading_context": "## CNC and G-Code",
+      "confidence": "candidate",
+      "text": "CNC EVOLUTION:\n\n  NC (1950s): MIT Servomechanism Lab + US Air Force\n    Punched tape; 2–3 axis; no computer → hard-wired logic\n    → First CNC machine: MIT 1952 milling machine\n\n  CNC (1970s): dedicated mini-computer in each machine\n    Magnetic tape, then floppy disk\n    Conversational programming (dialog at machine)\n\n  CAD/CAM integration (1980s–90s):\n    Design in CAD → post-process to G-code → machine\n    CATIA, Pro/E (now Creo), Mastercam, SurfCAM (acquired by Hexagon/Vero)\n\n  Modern CNC (2000s+):\n    5-axis simultaneous machining\n    High-speed machining (HSM): very high RPM (50,000+) + light cuts → fast material removal\n    Adaptive machining: measure part in-process; adjust program\n    Intelligent fixture: in-situ measurement, self-compensation\n    Current CAM packages: Fusion 360 CAM (Autodesk, cloud-linked CAD/CAM),\n      Mastercam (standalone, high-end shop standard), SolidCAM / HSMWorks\n      (SolidWorks integrated), Siemens NX CAM (aerospace/defense tier)\n\nG-CODE BASICS (RS-274D standard):\n  Geometric codes:\n    G00: Rapid positioning (traverse speed, not cutting)\n    G01: Linear interpolation (at programmed feed rate)\n    G02: Circular arc CW\n    G03: Circular arc CCW\n    G17/18/19: XY/XZ/YZ plane selection\n\n  Machine operation codes:\n    M03/M04: Spindle start CW/CCW\n    M05: Spindle stop\n    M06: Tool change\n    M08/M09: Coolant on/off\n    M30: End of program\n\n  Example: Turning a 25mm OD diameter on a lathe\n    N10 G21          (metric mode)\n    N20 G95          (feed per revolution)\n    N30 G97 S1500    (constant spindle speed 1500 RPM)\n    N40 T0101 M06    (select tool 1)\n    N50 M03          (spindle on CW)\n    N60 G00 X27 Z2   (rapid to starting position)\n    N70 G01 X25 F0.2 (plunge to diameter, feed 0.2mm/rev)\n    N80 Z-50         (turn for 50mm length)\n    N90 G00 X50 Z5   (rapid clear)\n    N100 M30         (end)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

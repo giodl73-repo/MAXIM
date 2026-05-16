@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:computational-photography
+kind: guide
+module: photography
+section: photography
+title: Computational Photography
+status: source-custody
+source_custody: partial
+current_path: photography/08-COMPUTATIONAL-PHOTOGRAPHY.md
+canonical_path: photography/08-COMPUTATIONAL-PHOTOGRAPHY.md
+backsource_ids: [proof-backfill:photography:08-computational-photography, git-history:photography:08-computational-photography]
+concepts: [computational, photography]
+root_concepts: [computational, photography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computational Photography
 
 ## The Big Picture

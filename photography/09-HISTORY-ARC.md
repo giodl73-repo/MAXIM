@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:history-arc
+kind: guide
+module: photography
+section: photography
+title: History Arc
+status: source-custody
+source_custody: partial
+current_path: photography/09-HISTORY-ARC.md
+canonical_path: photography/09-HISTORY-ARC.md
+backsource_ids: [proof-backfill:photography:09-history-arc, git-history:photography:09-history-arc]
+concepts: [history, arc]
+root_concepts: [history, arc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History Arc
 
 ## The Big Picture

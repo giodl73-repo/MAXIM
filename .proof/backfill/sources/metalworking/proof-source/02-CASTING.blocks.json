@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "metalworking\\02-CASTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CASTING PROCESS TAXONOMY\n\nFeed form: LIQUID METAL\n                │\n                ├── SAND CASTING — expendable sand mold, reusable pattern\n                │   Good for: large, complex iron/steel/Al castings; low volume\n                │   Limitations: rough surface finish, dimensional tolerance ~±1mm\n                │\n                ├── INVESTMENT CASTING (lost-wax) — expendable ceramic mold\n                │   Good for: complex geometry, superalloys, thin walls, tight tolerances\n                │   Limitations: expensive tooling (wax dies), slow, small size typically\n                │\n                ├── DIE CASTING — permanent steel die, high-pressure injection\n                │   Good for: Al/Zn/Mg, high volume, good surface finish\n                │   Limitations: ferrous metals mostly excluded (die life), high tool cost\n                │\n                ├── PERMANENT MOLD (gravity die) — permanent metallic mold, gravity fill\n                │   Good for: Al, Cu alloys, medium complexity, better than sand\n                │   Limitations: less complex than investment; die cost\n                │\n                ├── CENTRIFUGAL CASTING — rotation forces metal outward\n                │   Good for: pipes, cylindrical hollow parts, bi-metallic rings\n                │\n                └── CONTINUOUS CASTING — steady-state process for steel/Al\n                    Good for: flat-rolled and long products (slabs, billets, blooms)\n                    Dominant process: >95% of world steel is continuously cast",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### Process Mechanics",
+      "confidence": "candidate",
+      "text": "SAND CASTING SEQUENCE:\n\n1. PATTERN CREATION\n   Permanent pattern (wood, plastic, aluminum) dimensioned with:\n   • Draft angle (1–3°): enables withdrawal from sand without collapsing\n   • Machining allowance: extra material where precision surfaces needed\n   • Shrinkage allowance: pattern is larger than desired casting\n     (Al shrinks ~1.3%, steel ~2%)\n\n2. MOLD MAKING\n   Sand mixture packed around pattern in two halves (cope and drag)\n   Parting line: the split plane between cope and drag\n   Cores (sand shapes on metal/ceramic supports) create internal cavities\n\n3. MOLD SYSTEM DESIGN\n   Gating system: controls metal entry\n   ┌──────────────────────────────────────────────────┐\n   │  Pouring cup → sprue (vertical) → runner         │\n   │  (horizontal) → gate (into cavity) → casting     │\n   └──────────────────────────────────────────────────┘\n   Risers: reservoirs above hot spots that feed liquid metal\n           as the casting solidifies and contracts\n           (if riser is omitted → shrinkage void inside casting)\n   Chills: metal inserts to accelerate local solidification\n           (used near risers to force directional solidification toward riser)\n\n4. POURING\n   Metal poured at appropriate temperature (superheat above liquidus)\n   Too hot: gas pickup, shrinkage, grain coarsening\n   Too cold: misruns (metal solidifies before filling)\n\n5. SHAKEOUT, FETTLING\n   Sand broken out; risers and gates cut off; surface cleaned (shot blast)\n   Internal cores removed; parting line flash ground off",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## Investment Casting (Lost-Wax)",
+      "confidence": "candidate",
+      "text": "INVESTMENT CASTING PROCESS:\n\n1. WAX PATTERN INJECTION\n   Wax injected into metal die → wax patterns, accurate to final geometry\n   Multiple wax patterns attached to a wax \"tree\" (gating system)\n\n2. CERAMIC SHELL BUILDING\n   Wax tree dipped in colloidal silica slurry → stucco (ceramic grit) applied\n   Repeated 8–15 times → ceramic shell ~6–12mm thick\n   Each coat dried before next (several hours each)\n\n3. DEWAXING\n   Shell placed in steam autoclave or flash fire furnace\n   Wax melts and drains out (hence \"lost wax\")\n   Shell fired at ~1000°C to cure ceramic\n\n4. CASTING\n   Molten metal poured into hot shell (often at 800–1100°C)\n   Shell preheating prevents: thermal shock cracking + premature solidification\n   For superalloys (turbine blades): cast under vacuum to prevent oxidation\n\n5. SHELL REMOVAL\n   Ceramic shell broken away (mechanical + water blasting)\n   Individual parts cut from tree\n   Finishing: blast, grind, inspect, machine (if required)\n\nKey advantage over sand: wall thickness down to 1mm;\n  tolerances ±0.1–0.2mm; complex internal passages possible\n\nTurbine blade casting: directionally solidified (DS) and single-crystal (SX):\n┌────────────────────────────────────────────────────────────────┐\n│ CONVENTIONAL:   random polycrystalline grain structure         │\n│   Grain boundaries perpendicular to stress axis → creep failure│\n│                                                                │\n│ DIRECTIONAL SOLIDIFICATION (DS): grain boundaries parallel to  │\n│   blade axis → eliminates transverse boundaries → better creep │\n│                                                                │\n│ SINGLE CRYSTAL (SX): no grain boundaries at all                │\n│   Process: withdraw slowly from melt → crystal grows upward    │\n│   All modern high-temperature gas turbine stage-1 blades are SX│\n│   Gas path temp: 1700°C+ (above Ni melting point ~1340°C)      │\n│   Metal temperature: ~950-1050°C — kept below melting by:      │\n│     (a) ceramic TBC (ZrO2-based, ~150μm) on blade surface      │\n│     (b) internal cooling passages: compressor bleed air flows  │\n│         through channels and film-cooling holes in blade wall  │\n│   Enabled by TBC + internal convective + film cooling combined │\n└────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Die Casting",
+      "confidence": "candidate",
+      "text": "DIE CASTING CYCLE:\n\n1. Die closes (hydraulically clamped: 200–3000 tonnes)\n2. Metal injected at high pressure (70–700 MPa) and velocity (30–120 m/s)\n3. Solidification: rapid (die is water-cooled); ~0.5–5 seconds\n4. Die opens; part ejected by pins\n5. Die lubricated for next shot; scrap trimmed (flash)\n\nCycle time: 30 seconds to several minutes per part\nProduction rate: 100–1000 parts/hour depending on size\n\nMETALS:\n  Aluminum (most common): ~350°C pour, excellent fluidity, good strength/weight\n  Zinc (Zamak): ~420°C, lowest cost tooling, thin walls, good plating\n  Magnesium: lightest structural metal; growing use in automotive/electronics\n  Copper/brass: possible but high die wear; usually permanent mold instead\n\nLIMITATIONS:\n  • Ferrous metals (steel, iron): too high melting point → die life days/weeks\n    → sand or investment casting for steel\n  • Porosity: turbulent fill traps gas → cannot heat treat (gas expansion causes blistering)\n    Vacuum die casting reduces this; \"squeeze casting\" applies pressure during solidification\n  • Wall thickness minimum: ~0.8mm (Al), ~0.4mm (Zn)\n  • Parting line flash unavoidable → trimming required\n\nSURFACE FINISH: Ra 0.8–3.2 µm (can be machined, plated, anodized)\nDIMENSIONAL TOLERANCE: ±0.1–0.15mm typical (better than sand)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Continuous Casting of Steel",
+      "confidence": "candidate",
+      "text": "CONTINUOUS CASTING PROCESS:\n\nLiquid steel from ladle\n    │\n    ▼ Tundish (buffer vessel — temperature/flow control)\n    │\n    ▼ Water-cooled copper mold (oscillates to prevent sticking)\n    │  Primary solidification: skin forms as mold extracts heat\n    │  Liquid pool inside solid shell may extend 10–15m below mold\n    │\n    ▼ Secondary cooling: water sprays on strand surface\n    │  Successive rolls support and straighten the strand\n    │\n    ▼ Torch cutting at desired length\n\nSTRAND FORMATS:\n  Slab (150–300mm × 900–2100mm): for flat-rolled products (sheet, plate)\n  Bloom (150–400mm square): for structural, rails, large sections\n  Billet (60–150mm square): for bar, rod, wire, small sections\n  Round: for seamless tube making\n\nADVANTAGES OVER INGOT CASTING:\n  • No ingot reheating step → energy saving ~20%\n  • Higher yield (~98% vs ~85%): no crop losses from shrinkage cavities\n  • More uniform composition: less macro-segregation\n  • Faster: continuous production matches blast furnace output\n  • Enables thin slab casting (CSP, ISP): 50–90mm slabs go direct to hot rolling\n    → \"Endless\" strip production: cast-then-roll in one continuous pass\n\nDEFECTS:\n  • Breakout: shell rupture → liquid steel floods → emergency stop\n    (prevented by: mold level control, oscillation pattern, casting speed control)\n  • Longitudinal cracks: from uneven primary cooling or mold taper\n  • Segregation: solutes partition toward centerline during solidification\n  • Oscillation marks: surface marks from mold oscillation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Casting Defects and Remediation",
+      "confidence": "candidate",
+      "text": "DEFECT TAXONOMY:\n\nPOROSITY\n├── Shrinkage porosity:\n│   Cause: metal contracts on solidification (~2–8%); last liquid to solidify\n│          in isolated pockets has nowhere to draw from\n│   Appearance: ragged, internal voids; typically at hot spots\n│   Prevention: proper riser design (feed liquid metal to hot spots)\n│               directional solidification toward riser\n│               chills to shift thermal gradient\n│\n└── Gas porosity:\n    Cause: dissolved gas (H₂ from moisture; N₂ from air) comes out of solution\n           as metal cools and solubility drops; trapped as spherical bubbles\n    Appearance: round, smooth voids; subsurface or distributed\n    Prevention: degas molten metal (argon purging, vacuum degassing);\n                dry molds, dry tools, dry alloy additions\n\nINCLUSIONS\n  Metallic: undissolved alloy particles, intermetallics\n  Non-metallic: oxide films (common in Al), slag, refractory particles\n  Prevention: filtration (ceramic foam filters in gating system);\n              degassing; clean scrap charge\n\nCOLD SHUTS / MISRUNS\n  Cause: two metal streams meet but have cooled below fusion temperature\n         → don't bond → surface defect\n  Or: metal runs out of fluidity before filling mold\n  Prevention: higher pouring temperature; faster fill; larger gates; vacuum assist\n\nHOT TEARS / HOT CRACKING\n  Cause: solidifying metal is weak in semi-solid state; if casting cannot\n         contract freely (constrained by mold or core), it tears\n  Appearance: irregular crack, usually at hot spot\n  Prevention: adjust alloy (avoid hot-tear-prone compositions);\n              better mold/core design to allow contraction; reduce constraint\n\nSEGREGATION\n  Cause: solute elements redistribute during solidification (partition coefficient)\n  Micro-segregation: between dendrite arms → homogenized by annealing\n  Macro-segregation: centerline enrichment; inverse segregation at surface\n  Prevention: faster solidification (finer dendrite arm spacing);\n              electromagnetic stirring in continuous casting",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

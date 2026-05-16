@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-metalworking-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.metalworking.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-metalworking-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-source-corpus.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-overview.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.extraction-smelting.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-extraction-smelting.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-extraction-smelting.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.extraction-smelting.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-extraction-smelting.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.extraction-smelting.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-extraction-smelting.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-extraction-smelting.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.extraction-smelting.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/01-EXTRACTION-SMELTING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.extraction-smelting.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/01-EXTRACTION-SMELTING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.extraction-smelting.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/01-EXTRACTION-SMELTING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.extraction-smelting.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/01-EXTRACTION-SMELTING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.extraction-smelting.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/01-EXTRACTION-SMELTING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.extraction-smelting.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/01-EXTRACTION-SMELTING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/01-EXTRACTION-SMELTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.casting.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-casting.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/02-CASTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-casting.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/02-CASTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.casting.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-casting.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.casting.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-casting.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-casting.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/02-CASTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.casting.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/02-CASTING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.casting.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/02-CASTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/02-CASTING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/02-CASTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.casting.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/02-CASTING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.casting.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/02-CASTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/02-CASTING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/02-CASTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.casting.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/02-CASTING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.casting.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/02-CASTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/02-CASTING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/02-CASTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.forging.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-forging.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/03-FORGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-forging.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/03-FORGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.forging.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-forging.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.forging.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-forging.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-forging.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/03-FORGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.forging.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/03-FORGING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.forging.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/03-FORGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/03-FORGING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/03-FORGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.forging.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/03-FORGING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.forging.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/03-FORGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/03-FORGING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/03-FORGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.forging.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/03-FORGING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.forging.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/03-FORGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/03-FORGING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/03-FORGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.rolling-drawing.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-rolling-drawing.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/04-ROLLING-DRAWING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-rolling-drawing.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/04-ROLLING-DRAWING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.rolling-drawing.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-rolling-drawing.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.rolling-drawing.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-rolling-drawing.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-rolling-drawing.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/04-ROLLING-DRAWING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.rolling-drawing.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/04-ROLLING-DRAWING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.rolling-drawing.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/04-ROLLING-DRAWING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/04-ROLLING-DRAWING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/04-ROLLING-DRAWING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.rolling-drawing.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/04-ROLLING-DRAWING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.rolling-drawing.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/04-ROLLING-DRAWING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/04-ROLLING-DRAWING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/04-ROLLING-DRAWING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.rolling-drawing.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/04-ROLLING-DRAWING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.rolling-drawing.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/04-ROLLING-DRAWING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/04-ROLLING-DRAWING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/04-ROLLING-DRAWING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.machining.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-machining.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/05-MACHINING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-machining.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/05-MACHINING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.machining.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-machining.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.machining.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-machining.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-machining.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/05-MACHINING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.machining.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/05-MACHINING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.machining.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/05-MACHINING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/05-MACHINING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/05-MACHINING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.machining.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/05-MACHINING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.machining.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/05-MACHINING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/05-MACHINING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/05-MACHINING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.machining.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/05-MACHINING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.machining.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/05-MACHINING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/05-MACHINING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/05-MACHINING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.welding.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-welding.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/06-WELDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-welding.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/06-WELDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.welding.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-welding.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.welding.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-welding.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-welding.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/06-WELDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.welding.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/06-WELDING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.welding.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/06-WELDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/06-WELDING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/06-WELDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.welding.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/06-WELDING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.welding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/06-WELDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/06-WELDING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/06-WELDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.welding.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/06-WELDING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.welding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/06-WELDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/06-WELDING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/06-WELDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.heat-treatment.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-heat-treatment.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/07-HEAT-TREATMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-heat-treatment.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/07-HEAT-TREATMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.heat-treatment.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-heat-treatment.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.heat-treatment.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-heat-treatment.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-heat-treatment.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/07-HEAT-TREATMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.heat-treatment.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/07-HEAT-TREATMENT.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.heat-treatment.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/07-HEAT-TREATMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/07-HEAT-TREATMENT.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/07-HEAT-TREATMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.heat-treatment.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/07-HEAT-TREATMENT.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.heat-treatment.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/07-HEAT-TREATMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/07-HEAT-TREATMENT.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/07-HEAT-TREATMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.heat-treatment.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/07-HEAT-TREATMENT.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.heat-treatment.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/07-HEAT-TREATMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/07-HEAT-TREATMENT.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/07-HEAT-TREATMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.surface-finishing.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-surface-finishing.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/08-SURFACE-FINISHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-surface-finishing.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/08-SURFACE-FINISHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.surface-finishing.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-surface-finishing.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.surface-finishing.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-surface-finishing.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-surface-finishing.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/08-SURFACE-FINISHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.surface-finishing.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/08-SURFACE-FINISHING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.surface-finishing.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/08-SURFACE-FINISHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/08-SURFACE-FINISHING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/08-SURFACE-FINISHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.surface-finishing.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/08-SURFACE-FINISHING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.surface-finishing.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/08-SURFACE-FINISHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/08-SURFACE-FINISHING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/08-SURFACE-FINISHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.surface-finishing.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/08-SURFACE-FINISHING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.surface-finishing.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/08-SURFACE-FINISHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/08-SURFACE-FINISHING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/08-SURFACE-FINISHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.precision-metrology.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-metalworking-precision-metrology.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/09-PRECISION-METROLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-metalworking-precision-metrology.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/09-PRECISION-METROLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.precision-metrology.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-metalworking-precision-metrology.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.precision-metrology.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.metalworking.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-metalworking-precision-metrology.json",
+            "module": "metalworking",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-metalworking-precision-metrology.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/09-PRECISION-METROLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.precision-metrology.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/09-PRECISION-METROLOGY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.precision-metrology.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/09-PRECISION-METROLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/09-PRECISION-METROLOGY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/09-PRECISION-METROLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.precision-metrology.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/09-PRECISION-METROLOGY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.precision-metrology.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/09-PRECISION-METROLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/09-PRECISION-METROLOGY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/09-PRECISION-METROLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.metalworking.precision-metrology.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/metalworking/proof-source/09-PRECISION-METROLOGY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.metalworking.precision-metrology.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "metalworking",
+            "guide": "metalworking/09-PRECISION-METROLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/metalworking/proof-source/09-PRECISION-METROLOGY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "metalworking",
+        "guide": "metalworking/09-PRECISION-METROLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

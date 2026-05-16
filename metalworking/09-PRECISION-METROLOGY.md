@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:precision-metrology
+kind: guide
+module: metalworking
+section: metalworking
+title: Precision Metrology
+status: source-custody
+source_custody: partial
+current_path: metalworking/09-PRECISION-METROLOGY.md
+canonical_path: metalworking/09-PRECISION-METROLOGY.md
+backsource_ids: [proof-backfill:metalworking:09-precision-metrology, git-history:metalworking:09-precision-metrology]
+concepts: [precision, metrology]
+root_concepts: [precision, metrology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Precision Metrology
 
 ## The Big Picture

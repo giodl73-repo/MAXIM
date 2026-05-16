@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "metalworking\\06-WELDING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WELDING PROCESS LANDSCAPE:\n\n  HEAT SOURCE           PROCESS              SHIELDING        TYPICAL USE\n  ─────────────────────────────────────────────────────────────────────────\n  Electric arc          SMAW (stick)         Flux coating     Field repair, pipework\n  (consumable)          GMAW / MIG           Gas (Ar/CO₂)     Production steel/Al\n                        FCAW                 Flux core        Outdoor steel\n                        SAW                  Flux granular    Heavy plate, ship hull\n\n  Electric arc          GTAW / TIG           Gas (Ar/He)      Thin SS, Ti, root pass\n  (non-consumable)      PAW                  Gas + plasma     Precision, aero\n\n  Resistance            Spot / seam          Self (squeeze)   Automotive body panels\n  High energy           Laser / EBW          Vacuum/gas       Aero, medical, precision\n\n  No fusion             Friction stir (FSW)  None needed      Al aerospace (no HAZ)\n                        Explosive welding    None             Clad plate, dissimilar\n\nENERGY DENSITY SPECTRUM:\n  SMAW                  ~10² W/cm²  — wide HAZ, low speed\n  GMAW/SAW              ~10³ W/cm²  — moderate\n  Laser/EBW             ~10⁶ W/cm²  — narrow HAZ, high speed, high distortion risk\n\nINPUTS → WELD → OUTPUTS:\n  Voltage (V)                             Weld bead geometry\n  Current (A)           ──────────►       HAZ width and character\n  Travel speed (mm/s)   (Heat input)      Dilution ratio\n  Wire feed rate                          Residual stress + distortion\n  Shielding gas                           Microstructure of weld zone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### SMAW — Shielded Metal Arc Welding (Stick)",
+      "confidence": "candidate",
+      "text": "SMAW (ELECTRODE 7018 — LOW HYDROGEN):\n\n  Power supply                  Flux coating (calcite, rutile, or cellulosic)\n  (DCEP or AC)    Electrode     ─────────────────┐\n                    │           Core wire (ER)    │\n  60–90V OCV        │           ←────────────────┤\n  20–30V arc        ▼           Slag forms over   │\n                  ══════ arc    molten pool ───── ┘\n                  ════════════\n                  Base metal → puddle → solidifies under slag\n\nELECTRODE DESIGNATION (E7018):\n  E = electrode\n  70 = 70 ksi tensile strength\n  1 = all-position (flat/horiz/vert/overhead)\n  8 = low-hydrogen flux; DCEP or AC; ~8% iron powder\n\nSHIELDING MECHANISM:\n  Flux coating decomposes → CO₂ + CO gas shield (keeps O₂/N₂ out)\n  Slag floats on pool → covers while solidifying → remove after\n  Low-hydrogen electrodes (7018): minimize H₂ → prevent cold cracking\n\nCHARACTERISTICS:\n  Heat input: moderate (depends on travel speed + current)\n  Deposition rate: low (~1–3 kg/hr)\n  Positions: all (welder controls travel speed, angle)\n  Setup: minimal — can work in field, wind, awkward position\n  Limitations: stub loss (~50mm per electrode); stop/starts; slag removal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### GMAW — Gas Metal Arc Welding (MIG)",
+      "confidence": "candidate",
+      "text": "GMAW PROCESS:\n\n  Wire spool → wire feed motor → contact tip → arc → weld pool\n  Shielding gas nozzle surrounds wire → blankets pool\n\nTRANSFER MODES (determined by voltage, current, wire diameter, gas):\n\n  SHORT CIRCUIT  (<22V, low current):\n    Wire dips into pool → short circuits → melts off → arc re-establishes\n    ~100 Hz rate; low heat input; thin material; good out-of-position\n    Risk: incomplete fusion if parameters wrong\n\n  GLOBULAR        (intermediate — avoid in practice):\n    Large irregular droplets → spatter; poor control\n\n  SPRAY           (>26V, >200A, >80% Ar in shield gas):\n    Continuous stream of fine droplets across arc; stable; high deposition\n    High heat input → flat/horizontal only; excellent fusion\n    Typical for heavy structural steel\n\n  PULSE (GMAW-P):\n    Electronically alternates high/low current → spray transfer but lower avg heat\n    Joins spray fusion quality with positional capability\n    Required for aluminum (prevents burn-through) and some stainless\n\nGAS SELECTION:\n  C25 (75% Ar / 25% CO₂): standard for mild steel; balance arc stability vs cost\n  100% CO₂: cheaper; more spatter; deeper penetration\n  100% Ar: aluminum (CO₂ causes contamination/porosity in Al)\n  Tri-mix (Ar/He/CO₂): stainless — controls carbon contamination risk\n\nDEPOSITION: ~3–8 kg/hr; continuous wire → high productivity vs SMAW",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### GTAW — Gas Tungsten Arc Welding (TIG)",
+      "confidence": "candidate",
+      "text": "GTAW PROCESS:\n\n  Non-consumable W electrode → arc to base metal\n  Filler rod added by hand (or autogenous — no filler)\n  Inert gas (Ar or He) — 100% coverage; no flux\n\nTORCH:\n  Tungsten electrode (pure W for AC/Al; 2% ThO₂ or LaO₂ for DCEN SS/steel)\n  Cup (ceramic/glass) + gas lens → laminar shielding\n  Foot pedal amperage control → ramp up for starts; down for crater fill\n\nPOLARITY EFFECTS:\n  DCEN (electrode negative, base positive):\n    Deep penetration; narrow bead; electrode stays cool → smaller tip\n    → Standard for steel, stainless, titanium, copper\n\n  DCEP (electrode positive):\n    Shallow; wide bead; but → cathodic cleaning removes Al₂O₃ oxide\n    → Necessary for aluminum (breaks oxide before fusion)\n\n  AC (alternating): combines both — DCEP half-cycle cleans Al₂O₃;\n                    DCEN half-cycle provides penetration\n    → Standard for aluminum GTAW\n\nCHARACTERISTICS:\n  Heat input: low → precise\n  Deposition rate: very low (0.5–2 kg/hr) — speed is not the point\n  Weld quality: highest → no slag, no spatter, precise bead\n  Applications: root passes in pipe, thin-wall stainless, titanium, aero\n  Limitations: slow; requires highly skilled operator; sensitive to contamination\n\nINTER-PASS AND ROOT PASS:\n  TIG root pass → SMAW or GMAW fill passes (common pipe procedure)\n  Root pass quality determines structural integrity of full weld",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### SAW — Submerged Arc Welding",
+      "confidence": "candidate",
+      "text": "SAW PROCESS:\n\n  Bare wire electrode (continuous) → beneath granular flux blanket\n  Arc is invisible (submerged) → no UV hazard\n  Flux: fused or agglomerated (SiO₂, MnO, CaO, etc.)\n\n  Wire reel → contact tip\n  Hopper → flux blanket ────────────────────────────\n                          ══════ arc (invisible)  ══\n                          ████████ molten pool ████\n                          solidified weld + slag flux\n\nCHARACTERISTICS:\n  Heat input: very high → deep penetration; narrow weld for thick plate\n  Deposition rate: 10–40 kg/hr → highest productivity\n  Position: flat only (flux would fall off in vertical/overhead)\n  Weld quality: excellent → no atmospheric contamination\n\nAPPLICATIONS:\n  Heavy structural steel (shipbuilding, pressure vessels, pipelines)\n  Longitudinal seam welds on large diameter pipe\n  Spiral pipe production\n  Heavy plate overlay (cladding)\n\nHEAT INPUT FORMULA:\n  HI (kJ/mm) = (Voltage × Current × 60) / (1000 × Travel Speed mm/min)\n  Typical SAW: 3–5 kJ/mm vs TIG: 0.3–1 kJ/mm\n  High heat input → larger HAZ → more distortion\n  Low heat input → risk of incomplete fusion, hydrogen cracking",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Process Comparison Matrix",
+      "confidence": "candidate",
+      "text": "PROCESS COMPARISON:\n\n  Process   Shield      Position    Deposition  Quality  Cost/Setup  Skill\n  ─────────────────────────────────────────────────────────────────────────\n  SMAW      Flux coat   All         Low         Good     Very low    High\n  GMAW      Gas         All*        Mod-high    Good     Moderate    Moderate\n  FCAW      Flux+gas    All         High        Good+    Moderate    Moderate\n  GTAW      Gas         All         Very low    Highest  High        Very high\n  SAW       Flux gran   Flat only   Very high   High     High        Moderate\n  Laser     None/gas    All         Low         High     Very high   Automated\n\n  *GMAW short-circuit mode for out-of-position; spray = flat/horiz only\n\nKEY SELECTION DRIVERS:\n  Field repair, no infrastructure → SMAW\n  Production steel fabrication → GMAW (spray) or FCAW\n  Critical root pass, thin/exotic material → GTAW\n  Heavy plate, high volume → SAW\n  Automotive panels, galvanized → resistance spot\n  Aerospace aluminum structure → FSW (no fusion = no HAZ solidification crack)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Heat Affected Zone (HAZ)",
+      "confidence": "candidate",
+      "text": "WELD CROSS-SECTION ZONES:\n\n  ← PARENT METAL | HAZ |←──── WELD METAL ────→| HAZ | PARENT METAL →\n\n  Temperature during welding:\n                                ↑ Liquidus (~1500°C for steel)\n  Weld metal ──────────────────▲\n  (solidified from melt)        │\n                    ┌──────────┐│\n  Coarse-grain HAZ  │          ││ δ-ferrite + austenite → martensite (rapid cool)\n  (>1100°C)         │ CGHAL    ││ Grain growth → coarsen → lower toughness\n  ──────────────────┘          │\n  Fine-grain HAZ    ┌──────────┘\n  (900–1100°C)      │ FGHAL     Reaustenitized but rapid → fine grain → good tough.\n  ──────────────────┘\n  Intercritical HAZ ┌──────────\n  (700–900°C)       │ Partial re-austenitizing → mixed microstructure\n  ──────────────────┘\n  Tempered zone     ┌──────────\n  (<700°C)          │ Softening of previously hardened microstructure\n  ──────────────────┘\n  BASE METAL        Unaffected\n\nHAZ WIDTH:\n  Increases with heat input, preheat; decreases with high travel speed\n  Typical: SMAW = 3–10mm; TIG = 1–3mm; laser = 0.1–0.5mm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 269,
+      "heading_context": "### Martensite Formation in HAZ",
+      "confidence": "candidate",
+      "text": "MARTENSITE RISK:\n\n  Carbon equivalent (CE) predicts hardenability:\n  CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15\n\n  CE < 0.40 → no preheat needed (most structural mild steels)\n  CE 0.40–0.60 → preheat 100–200°C\n  CE > 0.60 → high preheat + post-weld heat treatment (PWHT)\n\nWHY MARTENSITE IS DANGEROUS IN HAZ:\n  Rapid cooling (quench rate from ~1000°C to ambient):\n  Austenite cannot transform to ferrite+pearlite → transforms to martensite\n  Martensite = high hardness (>500 HV vs ~150 HV for ferrite)\n  Martensite = hard + brittle + hydrogen trapping sites\n\nCOLD CRACKING (Hydrogen-Assisted Cracking — HAC):\n  Three necessary conditions:\n  1. Susceptible microstructure (martensite)\n  2. Hydrogen (from moisture in flux, electrode coating, base metal)\n  3. Tensile stress (residual stress from weld)\n  → Can occur hours to days after welding (hydrogen diffuses to stress concentration)\n  Prevention: low-hydrogen process/consumables + preheat + PWHT\n\nPREHEAT FUNCTION:\n  Slows cooling rate → martensite formation suppressed or reduced\n  Drives hydrogen out (H₂ diffuses faster at elevated temperature)\n  Reduces thermal gradient → less residual stress\n  Required temperature depends on CE, plate thickness, hydrogen level",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "## Distortion and Residual Stress",
+      "confidence": "candidate",
+      "text": "DISTORTION MECHANISMS:\n\n  Localized heating → thermal expansion → compression (constrained)\n  Cooling → contraction → tension → residual stress\n\n  ANGULAR DISTORTION (butt joint):\n    Top of weld shrinks more than bottom (more heat at surface)\n    → Joint closes at top → angular change\n\n    Before welding: two flat plates butted together at a square joint.\n    After welding:  the top of the joint closes inward, producing an\n                    angular change (V-shape distortion).\n\n  TRANSVERSE SHRINKAGE: weld metal cools → joint pulls inward\n  LONGITUDINAL SHRINKAGE: along weld axis → bowing of long members\n\nRESIDUAL STRESS DISTRIBUTION:\n  Longitudinal (along weld):\n    At weld centerline: tensile up to yield strength (≈ Fy)\n    Near HAZ boundary: compressive (balanced)\n  Transverse: tensile across weld; may reach yield in constrained joints\n\n  Residual stress + applied load can exceed local yield → fatigue + fracture risk\n  High-cycle fatigue life severely reduced by tensile residual stress\n\nDISTORTION CONTROL STRATEGIES:\n  Pre-setting: tack joints with gap/angle opposite to expected distortion\n  Backstep welding: weld short segments in opposite direction to travel\n  Clamps and fixtures: constrain joint during welding\n  Balanced welding: alternating sides; distributes stress symmetrically\n  Minimizing heat input: smaller beads; higher travel speed\n  Weld sequence: weld toward free end; don't trap shrinkage\n\nPOST-WELD CORRECTION:\n  Flame straightening: localized heating + forced cooling → controlled distortion\n  Mechanical straightening: press, rolls (must not cold-crack)\n  Vibratory stress relief (VSR): alternative to thermal for some alloys",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "## Pre- and Post-Weld Heat Treatment",
+      "confidence": "candidate",
+      "text": "PREHEAT:\n  Purpose: slow cooling → avoid martensite; drive out hydrogen; reduce residual stress\n  Applied: oxy-fuel torch, electric blankets, induction coils\n  Temperature: held throughout welding (check with temperature crayon / thermocouple)\n  Interpass temperature: minimum (keep warm) and maximum (don't overheat — austenite grain growth)\n\nPOST-WELD HEAT TREATMENT (PWHT):\n  Also: Stress Relief Heat Treatment (SRHT)\n\n  Temperature: ~595–650°C for carbon/low-alloy steel\n    (below lower critical temperature Ac1 — no phase transformation)\n  Hold time: 1 hr per inch of maximum thickness (minimum 1 hr)\n  Heating/cooling rate: controlled (<55°C/hr for thick sections) to avoid thermal shock\n\n  MECHANISMS:\n    Residual stress relief: steel creeps at 600°C → stresses relax\n    Hydrogen effusion: H₂ diffuses out rapidly at elevated temperature\n    Martensite tempering: hard martensite → tempered martensite (tougher, softer)\n    Carbide precipitation in sensitized SS (avoid PWHT 450–850°C range in austenitic SS)\n\n  REQUIRED WHEN:\n    Code requirement (ASME B31.3, AWS D1.1, ASME Section VIII)\n    Heavy sections (>32mm typically)\n    High CE steels\n    Pressure vessels, cryogenic, nuclear service\n    Hardness limit exceeded in HAZ\n\n  SOLUTION ANNEALING (austenitic stainless):\n    After welding → sensitization risk (Cr carbide precipitation at grain boundaries)\n    Full solution anneal at 1040–1120°C → re-dissolves carbides → quench\n    Alternatively: use low-carbon grades (304L, 316L) or stabilized (321, 347)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 386,
+      "heading_context": "## Non-Destructive Testing (NDT)",
+      "confidence": "candidate",
+      "text": "NDT METHOD OVERVIEW:\n\n  Method    Principle              Finds                   Limitations\n  ─────────────────────────────────────────────────────────────────────\n  VT        Visual                 Surface defects only    Resolution limit ~0.1mm\n  PT        Liquid penetrant       Surface-open defects    Surface only; clean needed\n  MT        Magnetic particle      Surface + near-surface  Ferromagnetic only\n  UT        Ultrasound             Volumetric + surface    Operator skill; geometry\n  RT        X-ray / gamma         Volumetric (all inside)  Radiation; 2D image only\n  ACFM      Eddy current variant   Surface cracks          Conductive materials only\n  TOFD      UT time-of-flight      Accurate flaw sizing    Requires calibration\n\nVT — Visual Testing:\n  First inspection step; always done\n  Inspector eyes + mirror + light; magnifying glass (10×)\n  Must meet: undercut limits, bead profile, spatter, crater cracks, size/length\n  Enhanced: Video endoscope (borescope) for inaccessible areas\n\nPT — Penetrant Testing:\n  Apply penetrant (low-viscosity dye, red or fluorescent)\n  Dwell time: 5–30 min (capillary action pulls into cracks)\n  Remove excess penetrant\n  Apply developer (white powder absorbs penetrant from crack → indication)\n  Inspect: visible light or UV (fluorescent PT)\n  Detects: surface cracks, porosity (open), laps, seams\n  NOT for: subsurface flaws; rough surfaces mask indications\n\nMT — Magnetic Particle Testing:\n  Magnetize part (yoke, coil, prod) → apply iron particles (dry or wet)\n  Magnetic flux leaks at surface/near-surface discontinuities → particles collect\n  Only works on ferromagnetic metals (steel, iron, nickel)\n  Detects: surface cracks, near-surface inclusions, lap defects\n\nUT — Ultrasonic Testing:\n  Transducer → high-frequency sound wave (~1–10 MHz) into material\n  Sound reflects at interfaces (voids, cracks, inclusions, back wall)\n  Echo time-of-flight → distance to reflector\n  Amplitude → size estimate (with calibration)\n\n  SCAN TYPES:\n    A-scan: single point, amplitude vs time (oscilloscope view)\n    B-scan: line scan → cross-section image\n    C-scan: area scan → plan view (phased array, TOFD)\n\n  Phased array UT (PAUT): electronically steered/focused beam\n    → Replace multiple angle probes; real-time image; code-compliant\n\nRT — Radiographic Testing:\n  X-ray (60–400 kV) or gamma (Ir-192, Co-60, Se-75) source\n  Film or digital detector behind part\n  Dense inclusions absorb more → lighter on film; voids → darker\n  Detects: porosity, slag, lack of fusion, cracks (if oriented to beam)\n  Code films: IQI (image quality indicator) mandatory on every shot\n  Limitations: radiation safety; 2D projection misses cracks perpendicular to beam\n\nNDT SELECTION BY WELD DEFECT TYPE:\n  Surface crack → VT + PT or MT\n  Porosity/slag → RT (most intuitive) or UT\n  Lack of fusion → UT (especially PAUT) or RT\n  Undercut → VT + MT\n  Lamellar tear → UT\n  Root crack in pipe → RT or TOFD",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 457,
+      "heading_context": "## Weld Procedure Qualification (WPS/PQR)",
+      "confidence": "candidate",
+      "text": "QUALIFICATION SYSTEM (AWS D1.1, ASME Section IX):\n\n  WPS (Weld Procedure Specification):\n    Written document specifying all essential variables:\n    → Base metal (P-number in ASME; group in AWS)\n    → Filler metal (F-number, A-number)\n    → Process (GMAW, GTAW, etc.)\n    → Preheat + interpass temperature\n    → Post-weld heat treatment\n    → Position\n    → Joint design + backing\n    → Electrical parameters (voltage, current, wire feed)\n    → Travel speed → heat input range\n\n  PQR (Procedure Qualification Record):\n    Actual test weld made to the WPS\n    Test specimens extracted → destructive testing\n    → Tensile: must meet base metal UTS minimum\n    → Bend: root + face bend (2 of each) — no cracks >3mm\n    → Charpy impact (if required by code/service temp)\n    → Macro-etch: cross-section examination\n    → Hardness traverse (HAZ hardness limit, e.g., 248 HV for sour service)\n    PQR supports the WPS → must be kept as permanent record\n\n  WELDER QUALIFICATION:\n    Separate from WPS/PQR — qualifies the individual welder\n    Welder performs a test groove weld → destructive + visual examination\n    Passes → qualified for position, process, material group, thickness range\n    Qualification expires if welder stops welding that process for >6 months\n\nESSENTIAL VARIABLES:\n  Change outside qualified range → new PQR required\n  Examples: base metal P-number change; filler metal F-number change;\n            PWHT added/removed; position change (1G only → must retest for 6G)\n  Non-essential variables: can change on WPS without re-qualification (travel speed, bead width)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

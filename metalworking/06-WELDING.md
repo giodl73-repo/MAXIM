@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:welding
+kind: guide
+module: metalworking
+section: metalworking
+title: Welding
+status: source-custody
+source_custody: partial
+current_path: metalworking/06-WELDING.md
+canonical_path: metalworking/06-WELDING.md
+backsource_ids: [proof-backfill:metalworking:06-welding, git-history:metalworking:06-welding]
+concepts: [welding]
+root_concepts: [welding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Welding
 
 ## The Big Picture

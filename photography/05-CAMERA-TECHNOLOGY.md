@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:camera-technology
+kind: guide
+module: photography
+section: photography
+title: Camera Technology
+status: source-custody
+source_custody: partial
+current_path: photography/05-CAMERA-TECHNOLOGY.md
+canonical_path: photography/05-CAMERA-TECHNOLOGY.md
+backsource_ids: [proof-backfill:photography:05-camera-technology, git-history:photography:05-camera-technology]
+concepts: [camera, technology]
+root_concepts: [camera, technology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Camera Technology
 
 ## The Big Picture
