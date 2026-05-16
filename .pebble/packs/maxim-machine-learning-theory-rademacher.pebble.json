@@ -1,0 +1,2029 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-machine-learning-theory-rademacher",
+  "source": "../../machine-learning-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-RADEMACHER.md#000",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "# Rademacher Complexity and Uniform Convergence"
+    },
+    {
+      "id": "03-RADEMACHER.md#001",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-RADEMACHER.md#002",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Rademacher complexity is a data-dependent measure of hypothesis class richness that produces tighter, more practical generalization bounds than VC dimension — and extends naturally to real-valued functions and arbitrary loss functions."
+    },
+    {
+      "id": "03-RADEMACHER.md#003",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\n+──────────────────────────────────────────────────────────────────+\n|              RADEMACHER COMPLEXITY FRAMEWORK                     |\n|                                                                  |\n|  RADEMACHER RANDOM VARIABLE                                      |\n|  σ takes values {-1, +1} with equal probability                  |\n|                                                                  |\n|  EMPIRICAL RADEMACHER COMPLEXITY                                 |\n|  Given sample S = {x₁,...,xₘ}:                                   |\n|    R̂_S(H) = E_σ[ sup_{h∈H} (1/m) Σᵢ σᵢ h(xᵢ) ]                   |\n|                                                                  |\n|  RADEMACHER COMPLEXITY                                           |\n|    R_m(H) = E_S[R̂_S(H)]                                          |\n|                                                                  |\n|  INTUITION: How well can H correlate with pure random ±1 noise?  |\n|  If H can correlate perfectly → rich class → bad generalization  |\n|  If H cannot correlate → simple class → good generalization      |\n+──────────────────────────────────────────────────────────────────+\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#004",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#005",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Intuition via Memorization"
+    },
+    {
+      "id": "03-RADEMACHER.md#006",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nTHOUGHT EXPERIMENT\n──────────────────\nLet H = {all possible functions X → {-1, +1}}"
+    },
+    {
+      "id": "03-RADEMACHER.md#007",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Any labeling σ ∈ {-1,+1}^m of sample S = {x₁,...,xₘ}\n  is achieved by some h ∈ H."
+    },
+    {
+      "id": "03-RADEMACHER.md#008",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "sup_{h∈H} (1/m) Σᵢ σᵢ h(xᵢ) = (1/m) Σᵢ |σᵢ| = 1"
+    },
+    {
+      "id": "03-RADEMACHER.md#009",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R̂_S(H) = E_σ[1] = 1"
+    },
+    {
+      "id": "03-RADEMACHER.md#010",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Maximal Rademacher complexity → can shatter everything\n  → VC dim = ∞ → no generalization guarantee."
+    },
+    {
+      "id": "03-RADEMACHER.md#011",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "RESTRICTED H = halfspaces in ℝⁿ, m samples"
+    },
+    {
+      "id": "03-RADEMACHER.md#012",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Random ±1 labeling: halfspace cannot fit pure noise well\n  sup achieves something like O(√(n/m)) in expectation\n  This is the core of why halfspaces generalize.\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#013",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#014",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## The Rademacher Generalization Theorem"
+    },
+    {
+      "id": "03-RADEMACHER.md#015",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nTHEOREM (Two-sided bound)\n──────────────────────────\nLet H be a class of functions h: X → [0,1].\nLet S be m iid samples from D. For any δ ∈ (0,1),\nwith probability ≥ 1-δ over choice of S:"
+    },
+    {
+      "id": "03-RADEMACHER.md#016",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "For ALL h ∈ H simultaneously:"
+    },
+    {
+      "id": "03-RADEMACHER.md#017",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R(h) ≤ R_S(h) + 2·R_m(H) + √(log(1/δ)/(2m))"
+    },
+    {
+      "id": "03-RADEMACHER.md#018",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R(h) ≤ R_S(h) + 2·R̂_S(H) + 3√(log(2/δ)/(2m))"
+    },
+    {
+      "id": "03-RADEMACHER.md#019",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "EQUIVALENT READING\n  Generalization gap ≤ 2 × (how well H fits random noise) + δ-term"
+    },
+    {
+      "id": "03-RADEMACHER.md#020",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCES\n  • Bound is uniform over all h ∈ H simultaneously\n  • Data-dependent version (R̂_S) is computable from S\n  • R̂_S adapts to actual distribution, not worst case\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#021",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#022",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Bridge: Metric Entropy and Covering Numbers → Rademacher Complexity"
+    },
+    {
+      "id": "03-RADEMACHER.md#023",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Rademacher complexity is a repackaging of the theory of suprema of empirical processes, which lives in classical functional analysis via metric entropy."
+    },
+    {
+      "id": "03-RADEMACHER.md#024",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nCOVERING NUMBERS AND ε-NETS\n  N(ε, H, ‖·‖_∞) = minimum number of ε-balls (in sup-norm)\n                    needed to cover H restricted to any m points.\n  log N(ε, H, ‖·‖_∞) = metric entropy at scale ε."
+    },
+    {
+      "id": "03-RADEMACHER.md#025",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "DUDLEY'S ENTROPY INTEGRAL (Dudley 1967)\n  R_m(H) ≤ O( (1/√m) · ∫₀^∞ √(log N(ε, H, ‖·‖_∞)) dε )"
+    },
+    {
+      "id": "03-RADEMACHER.md#026",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Intuition: Integrate over scales ε. At each scale, log N(ε) bits\n  of randomness must be overcome by the sample. The integral\n  accumulates these costs across all scales."
+    },
+    {
+      "id": "03-RADEMACHER.md#027",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "CONNECTION TO GAUSSIAN PROCESSES\n  The same Dudley integral bounds E[sup_{h∈H} G_h] where G_h is a\n  Gaussian process indexed by H. Rademacher and Gaussian complexity\n  are related by:\n    R_m(H) ≤ √(π/2) · G_m(H)   (comparison inequality)\n  where G_m(H) = E_g[sup_{h∈H} (1/m) Σᵢ gᵢ h(xᵢ)], gᵢ ~ N(0,1)."
+    },
+    {
+      "id": "03-RADEMACHER.md#028",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "EXAMPLES OF DUDLEY INTEGRAL COMPUTATIONS\n  Linear classifiers ‖w‖₂ ≤ B, ‖x‖₂ ≤ C:\n    N(ε, H, ‖·‖_∞) ≤ (2BC/ε)^n  (covering in ℝⁿ)\n    Dudley integral → R_m(H) ≤ O(BC/√m) — matches direct computation."
+    },
+    {
+      "id": "03-RADEMACHER.md#029",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "VC class with VCdim d:\n    log N(ε, H) ≤ d log(1/ε) + O(d)  (Haussler 1995)\n    Dudley → R_m(H) ≤ O(√(d/m))  — recovers VC bound up to logs."
+    },
+    {
+      "id": "03-RADEMACHER.md#030",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "CHAINING (generic chaining, Talagrand)\n  Dudley's integral is not always tight. The generic chaining\n  (Talagrand 1996) gives a matching upper and lower bound via\n  γ₂ functional — the optimal majorizing measure. For well-structured\n  classes (e.g., empirical risk over Lipschitz losses), chaining is\n  the sharpest tool available.\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#031",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "The covering number perspective makes explicit *why* simpler hypothesis classes generalize: they are \"small\" in metric entropy, which bounds how well they can fit pure noise (Rademacher complexity). The whole generalization theory is, at its core, the theory of empirical process suprema."
+    },
+    {
+      "id": "03-RADEMACHER.md#032",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Proof Sketch: Symmetrization"
+    },
+    {
+      "id": "03-RADEMACHER.md#033",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "The key idea converts a distributional question into a combinatorial one:"
+    },
+    {
+      "id": "03-RADEMACHER.md#034",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nPROOF SKETCH (one-sided version)\n──────────────────────────────────"
+    },
+    {
+      "id": "03-RADEMACHER.md#035",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "GOAL: Bound E_S[ sup_{h∈H} (R(h) - R_S(h)) ]"
+    },
+    {
+      "id": "03-RADEMACHER.md#036",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "STEP 1: Ghost sample\n  Introduce S' = {x'₁,...,x'ₘ} iid from D (a \"ghost sample\").\n  R(h) = E_{S'}[R_{S'}(h)]"
+    },
+    {
+      "id": "03-RADEMACHER.md#037",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "E_S[ sup_h (R(h) - R_S(h)) ]\n  = E_S[ sup_h (E_{S'}[R_{S'}(h)] - R_S(h)) ]\n  ≤ E_{S,S'}[ sup_h (R_{S'}(h) - R_S(h)) ]    [Jensen's inequality]"
+    },
+    {
+      "id": "03-RADEMACHER.md#038",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "STEP 2: Symmetrization\n  R_{S'}(h) - R_S(h) = (1/m) Σᵢ σᵢ (h(x'ᵢ) - h(xᵢ))\n  where σᵢ ∈ {-1,+1} are iid Rademacher (flipping labels symmetrically)"
+    },
+    {
+      "id": "03-RADEMACHER.md#039",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "STEP 3: Recognize Rademacher complexity\n  E_{S,S',σ}[ sup_h (1/m) Σᵢ σᵢ (h(x'ᵢ) - h(xᵢ)) ]\n  ≤ 2 · R_m(H)"
+    },
+    {
+      "id": "03-RADEMACHER.md#040",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "→ Generalization gap ≤ 2·R_m(H) + concentration terms\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#041",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "McDiarmid's inequality provides the concentration: R̂_S(H) is bounded and each sample changes it by at most 2/m, so it concentrates around its mean."
+    },
+    {
+      "id": "03-RADEMACHER.md#042",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#043",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Contraction Lemma (Ledoux-Talagrand)"
+    },
+    {
+      "id": "03-RADEMACHER.md#044",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "This allows Rademacher complexity to propagate through Lipschitz functions — critical for neural network analysis:"
+    },
+    {
+      "id": "03-RADEMACHER.md#045",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nCONTRACTION LEMMA\n──────────────────\nIf φ: ℝ → ℝ is L-Lipschitz, then:"
+    },
+    {
+      "id": "03-RADEMACHER.md#046",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R_m(φ ∘ H) ≤ L · R_m(H)"
+    },
+    {
+      "id": "03-RADEMACHER.md#047",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "EXAMPLE\n  H = linear functions, φ = sigmoid (L = 1/4)\n  R_m(sigmoid ∘ H) ≤ (1/4) · R_m(H)"
+    },
+    {
+      "id": "03-RADEMACHER.md#048",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "For ReLU (L = 1):\n  R_m(ReLU ∘ H) ≤ R_m(H)"
+    },
+    {
+      "id": "03-RADEMACHER.md#049",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Chain rule through layers:\n  Each Lipschitz activation multiplies Rademacher by L.\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#050",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#051",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Computing Rademacher Complexity: Key Results"
+    },
+    {
+      "id": "03-RADEMACHER.md#052",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nLINEAR HYPOTHESES\n  H = {x ↦ w·x : ||w||₂ ≤ B}, ||x||₂ ≤ C"
+    },
+    {
+      "id": "03-RADEMACHER.md#053",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R_m(H) = B·C/√m"
+    },
+    {
+      "id": "03-RADEMACHER.md#054",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "PROOF OUTLINE:\n  E_σ[sup_w (B/m) ||Σᵢ σᵢ xᵢ||₂]\n  ≤ (B/m) E[||Σᵢ σᵢ xᵢ||₂]\n  ≤ (B/m) √(E[||Σᵢ σᵢ xᵢ||₂²])   [Jensen]\n  = (B/m) √(Σᵢ ||xᵢ||₂²)\n  ≤ B·C/√m"
+    },
+    {
+      "id": "03-RADEMACHER.md#055",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "FINITE HYPOTHESIS CLASS\n  H = {h₁,...,h_N}, hᵢ ∈ {-1,+1}^X"
+    },
+    {
+      "id": "03-RADEMACHER.md#056",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R_m(H) ≤ √(2 log N / m)"
+    },
+    {
+      "id": "03-RADEMACHER.md#057",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "This recovers the finite-class PAC bound."
+    },
+    {
+      "id": "03-RADEMACHER.md#058",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "KERNEL METHODS / RKHS\n  H = {x ↦ ⟨w, φ(x)⟩ : ||w||_H ≤ B}, where φ: X → H (feature map)"
+    },
+    {
+      "id": "03-RADEMACHER.md#059",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "R_m(H) ≤ B · √(tr(K)/m)"
+    },
+    {
+      "id": "03-RADEMACHER.md#060",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "where K is the Gram matrix: Kᵢⱼ = k(xᵢ, xⱼ) = ⟨φ(xᵢ), φ(xⱼ)⟩"
+    },
+    {
+      "id": "03-RADEMACHER.md#061",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Key: depends only on trace of kernel matrix — data-dependent.\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#062",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#063",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Rademacher vs VC: A Comparison"
+    },
+    {
+      "id": "03-RADEMACHER.md#064",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "```\nPROPERTY              VC DIMENSION              RADEMACHER COMPLEXITY\n──────────────────    ──────────────────        ──────────────────────\nDistribution          Distribution-free         Data-dependent\nType                  Binary 0/1 loss           Any bounded loss\nComputability         Often combinatorial       Can be estimated\n                      (exact computation)       from data"
+    },
+    {
+      "id": "03-RADEMACHER.md#065",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Bound form            O(√(d/m))                 O(R_m(H) + √(log/m))\nTightness             Tight for worst-case D    Tighter in practice\nDependency on data    None (only on H)          Yes — adapts to D\nReal-valued outputs   Not directly              Yes — extends naturally\nMargin bounds         Via fat-shattering dim    Directly via RKHS"
+    },
+    {
+      "id": "03-RADEMACHER.md#066",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "WHEN TO USE\nVC:       Analysis of combinatorial hypothesis classes\n          Intuition and pedagogy\n          When you need distribution-free statements"
+    },
+    {
+      "id": "03-RADEMACHER.md#067",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Rademacher: Real-valued hypothesis classes\n            Kernel methods and neural nets\n            When you have a specific distribution in mind\n            Data-dependent adaptive analysis\n```"
+    },
+    {
+      "id": "03-RADEMACHER.md#068",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RADEMACHER.md#069",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "**Gaussian complexity and when to use it.** The Rademacher-Gaussian comparison R_m(H) ≤ √(π/2) · G_m(H) (from the comparison theorem for subgaussian processes) means Gaussian complexity provides valid, sometimes tighter upper bounds. For convex symmetric classes, Gaussian integration by parts gives closed-form G_m(H) where Rademacher computation requires a direct argument. For the RKHS ball {f : ‖f‖_H ≤ B}, Gaussian complexity G_m = B√(tr(K)/m) (same as the direct Rademacher bound), confirming the comparison is tight in this case. For neural network Rademacher bounds (Bartlett et al.), Gaussian complexity is the intermediate quantity that makes the spectral norm bound tractable."
+    },
+    {
+      "id": "03-RADEMACHER.md#070",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "## Uniform Convergence"
+    },
+    {
+      "id": "03-RADEMACHER.md#071",
+      "path": [
+        "03-RADEMACHER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]",
+        "canonical_path": "machine-learning-theory/03-RADEMACHER.md",
+        "concepts": "[rademacher]",
+        "current_path": "machine-learning-theory/03-RADEMACHER.md",
+        "id": "maxim:machine-learning-theory:rademacher",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rademacher]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rademacher Complexity and Uniform Convergence",
+        "updated": "null"
+      },
+      "text": "Rademacher complexity is the central tool for proving uniform convergence:"
+    }
+  ],
+  "refs": [
+    "03-RADEMACHER.md"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:open-problems
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Open Problems in Machine Learning Theory
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/09-OPEN-PROBLEMS.md
+canonical_path: machine-learning-theory/09-OPEN-PROBLEMS.md
+backsource_ids: [proof-backfill:machine-learning-theory:09-open-problems, git-history:machine-learning-theory:09-open-problems]
+concepts: [open, problems]
+root_concepts: [open, problems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Open Problems in Machine Learning Theory
 
 ## The Big Picture

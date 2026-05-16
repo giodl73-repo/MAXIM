@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:rademacher
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Rademacher Complexity and Uniform Convergence
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/03-RADEMACHER.md
+canonical_path: machine-learning-theory/03-RADEMACHER.md
+backsource_ids: [proof-backfill:machine-learning-theory:03-rademacher, git-history:machine-learning-theory:03-rademacher]
+concepts: [rademacher]
+root_concepts: [rademacher]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rademacher Complexity and Uniform Convergence
 
 ## The Big Picture

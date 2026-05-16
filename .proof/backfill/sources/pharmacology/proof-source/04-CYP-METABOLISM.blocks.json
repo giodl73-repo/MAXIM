@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\04-CYP-METABOLISM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  CYP450 SYSTEM LANDSCAPE                         |\n|                                                                  |\n|  LOCATION                                                        |\n|  Primarily liver (hepatocytes), also intestine, lung, brain      |\n|                                                                  |\n|  MECHANISM                                                       |\n|  Drug (substrate) + O₂ + NADPH + CYP → oxidized drug + H₂O       |\n|  (monooxygenation: inserts one oxygen atom into the drug)        |\n|                                                                  |\n|  WHY IT MATTERS                                                  |\n|  ~90% of clinically used drugs are CYP substrates                |\n|  DDIs via CYP: 20-30% of adverse drug reactions                  |\n|  Genetic variants in CYP: explain 15-25% of drug response        |\n|                                                                  |\n|  CYP NOMENCLATURE                                                |\n|  CYP[family][subfamily][isoform]                                 |\n|  CYP3A4 = family 3, subfamily A, isoform 4                       |\n|  Clinically relevant: CYP3A4, CYP2D6, CYP2C9, CYP2C19, CYP1A2    |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## The Major CYP Enzymes",
+      "confidence": "candidate",
+      "text": "CYP3A4 / CYP3A5\n─────────────────\n  Fraction of drugs: ~50% of all drugs (highest)\n  Location: liver AND gut wall (important for first-pass)\n  Substrate examples:\n    Statins: simvastatin, lovastatin (NOT pravastatin, rosuvastatin)\n    Calcium channel blockers: amlodipine, diltiazem, verapamil\n    Immunosuppressants: cyclosporine, tacrolimus, sirolimus\n    HIV drugs: most protease inhibitors and NNRTIs\n    Benzodiazepines: triazolam, midazolam (NOT diazepam→CYP2C19)\n    Opioids: fentanyl, oxycodone (NOT morphine)\n    Antibiotics: clarithromycin, erythromycin (NOT azithromycin)\n  Key inhibitors: grapefruit juice, ketoconazole, ritonavir\n  Key inducers: rifampin, carbamazepine, St. John's Wort\n\nCYP2D6\n───────\n  Fraction of drugs: ~25%\n  Genetic variants: most polymorphic CYP enzyme (see below)\n  Substrate examples:\n    Antidepressants: fluoxetine, paroxetine, tricyclics\n    Antipsychotics: haloperidol, risperidone, aripiprazole\n    Opioids: codeine → morphine (activation!), tramadol\n    Antiarrhythmics: flecainide, propafenone\n    Beta-blockers: metoprolol, carvedilol, propranolol\n  Key inhibitors: fluoxetine, paroxetine (self-inhibiting!) quinidine\n  NO major inducers (unusual among CYPs)\n\nCYP2C9\n───────\n  Fraction of drugs: ~15%\n  Substrate examples:\n    NSAIDs: ibuprofen, naproxen, celecoxib\n    Anticoagulants: warfarin (S-enantiomer), acenocoumarol\n    Antiepileptics: phenytoin (narrow TI!)\n    Oral hypoglycemics: glipizide, glimepiride\n  Key inhibitors: fluconazole, amiodarone, metronidazole\n  Key inducers: rifampin, carbamazepine (induce this too)\n\nCYP2C19\n────────\n  Fraction of drugs: ~10%\n  Substrate examples:\n    PPIs: omeprazole, lansoprazole, pantoprazole (major route)\n    Antiplatelet: clopidogrel (prodrug → activation by CYP2C19!)\n    Benzodiazepines: diazepam, clobazam\n    Antifungals: voriconazole\n    Antidepressants: escitalopram, citalopram\n  Key inhibitors: omeprazole (self-inhibiting), fluconazole\n  Key inducers: rifampin\n\nCYP1A2\n───────\n  Fraction of drugs: ~5%\n  Substrate examples:\n    Xanthines: theophylline, caffeine\n    Antipsychotics: clozapine, olanzapine (narrow TI for clozapine)\n    Anticoagulants: warfarin (R-enantiomer, minor)\n  Key inhibitors: ciprofloxacin, fluvoxamine, cimetidine\n  Key inducers: smoking (tobacco), charbroiled meat, omeprazole",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## Inhibition: Mechanism and Clinical Impact",
+      "confidence": "candidate",
+      "text": "CYP INHIBITION → SUBSTRATE CONCENTRATION INCREASES\n────────────────────────────────────────────────────\n\nREVERSIBLE INHIBITION (competitive)\n  Inhibitor competes with substrate for active site.\n  Effect immediate; reverses when inhibitor cleared.\n  Magnitude: depends on Cinhib / Ki ratio.\n  Quantified by DDI ratio = AUC_with / AUC_without\n\n  AUC ratio = 1 + [I] / Ki    (simple competitive model)\n\n  Example: Ketoconazole inhibits CYP3A4.\n    If simvastatin is CYP3A4 substrate:\n    Cmax of simvastatin ↑ 15-20×!\n    Risk: severe myopathy/rhabdomyolysis.\n    Clinical decision: contraindicated combination.\n\nMECHANISM-BASED (IRREVERSIBLE) INHIBITION\n  Inhibitor is activated by CYP to form reactive intermediate.\n  Intermediate covalently binds and inactivates the enzyme.\n  Effect is delayed (needs multiple doses) but long-lasting.\n  Recovery requires new CYP synthesis (days to weeks).\n\n  Examples:\n    Erythromycin: nitroso intermediate binds CYP3A4\n    Diltiazem, verapamil: mechanism-based CYP3A4 inhibitors\n    Ritonavir: potent mechanism-based CYP3A4 inhibitor\n    → Ritonavir \"boosting\": deliberately uses CYP3A4 inhibition\n       to increase levels of other HIV drugs (lopinavir/ritonavir)\n\n  Time course of inhibition recovery:\n    After stopping erythromycin: DDI lasts 1-2 weeks.\n    After stopping amiodarone (mechanism-based CYP2D6 + 2C9):\n    Effects last months (drug has 40-day half-life + irreversible).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "## Induction: Mechanism and Clinical Impact",
+      "confidence": "candidate",
+      "text": "CYP INDUCTION → SUBSTRATE CONCENTRATION DECREASES\n────────────────────────────────────────────────────\nInducer activates nuclear receptors (PXR, CAR, AhR) which upregulate\nCYP transcription → more enzyme → faster substrate metabolism.\n\nONSET: Gradual (enzyme synthesis takes days).\n  Full effect: 1-2 weeks.\n  Offset after stopping inducer: 1-2 weeks.\n\nCLINICAL CONSEQUENCE: Therapeutic failure\n\n  EXAMPLE: Rifampin (potent CYP3A4 inducer)\n    Patient on oral contraceptive (ethinyl estradiol, CYP3A4 substrate)\n    Starts rifampin for TB treatment\n    → Estrogen metabolism ↑ → plasma levels drop → contraceptive failure\n    → Pregnancy despite \"taking the pill\"\n    Management: use backup contraception; switch to non-hormonal method.\n\n  EXAMPLE: St. John's Wort (OTC herbal, CYP3A4 inducer)\n    Patient on cyclosporine (immunosuppressant, CYP3A4 substrate)\n    Starts St. John's Wort for depression\n    → Cyclosporine levels fall → rejection episode in transplant patient\n    This has caused documented organ rejections.\n\nKEY INDUCERS (remember these)\n  Rifampin    — strongest; CYP3A4, CYP2C9, CYP2C19, P-gp\n  Carbamazepine — anticonvulsant; induces CYP3A4 and its OWN metabolism\n  Phenytoin   — anticonvulsant; strong CYP3A4 inducer\n  St. John's Wort — OTC herbal; patients don't disclose!\n  Dexamethasone — high-dose steroid; weak-moderate CYP3A4 induction\n  Smoking     — CYP1A2 induction (clozapine dose doubles in smokers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## CYP Polymorphisms",
+      "confidence": "candidate",
+      "text": "GENETIC VARIANTS IN CYP ENZYMES\n─────────────────────────────────\nCYP2D6: Most variable. 100+ alleles described.\n\n  Phenotype           CYP2D6 genotype              Prevalence\n  ─────────────────   ──────────────────────────   ──────────────────────\n  Poor metabolizer    2 loss-of-function alleles   5-10% Europeans/Asians\n                                                   1-2% Africans\n  Intermediate        1 functional + 1 null        30-40% of population\n  Extensive (normal)  2 functional alleles         ~50% Europeans\n  Ultrarapid          Gene duplication (>2 copies) 1-7% Europeans\n                                                   10-30% North Africans\n\nCLINICAL CONSEQUENCES OF CYP2D6 POLYMORPHISM\n\n  CODEINE → MORPHINE (via CYP2D6)\n    Poor metabolizer: codeine has NO analgesic effect (cannot convert)\n    Ultrarapid: codeine → excess morphine → TOXICITY\n    Fatal case: breastfeeding mother who was ultrarapid CYP2D6;\n    infant died of morphine toxicity from breast milk.\n    FDA warning: ultrarapid CYP2D6 metabolizers should not use codeine.\n\n  ANTIDEPRESSANTS\n    Poor metabolizer: standard doses → toxic concentrations of TCAs/fluoxetine\n    Ultrarapid: standard doses → subtherapeutic → treatment failure\n    CYP2D6 genotyping can guide antidepressant selection.\n\nCYP2C19 POLYMORPHISM\n  ~20% Asians, 2-5% Caucasians are poor CYP2C19 metabolizers.\n\n  CLOPIDOGREL (prodrug → active thienopyridine via CYP2C19)\n    Poor metabolizer: clopidogrel not activated → no antiplatelet effect\n    → Stent thrombosis despite \"antiplatelet therapy\"\n    FDA Black Box Warning: genotype patients if high cardiovascular risk.\n    Alternative: prasugrel, ticagrelor (not CYP2C19 dependent).\n\n  PPIs\n    Poor metabolizers have higher PPI levels → better acid suppression\n    → Actually beneficial for H. pylori eradication.\n\nCYP2C9 POLYMORPHISM\n  Poor metabolizers: reduced warfarin dose required.\n  VKORC1 + CYP2C9 genotyping → pharmacogenomic warfarin dosing algorithm.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Phase II Enzymes: UGT, NAT, TPMT",
+      "confidence": "candidate",
+      "text": "UDP-GLUCURONOSYLTRANSFERASE (UGT)\n──────────────────────────────────\n  Adds glucuronic acid to drug → water-soluble conjugate → excreted.\n  UGT1A1: bilirubin conjugation; Gilbert's syndrome (reduced UGT1A1 activity)\n\n  IRINOTECAN (colon cancer):\n    Prodrug → SN-38 (active, toxic) by carboxylesterase\n    SN-38 → SN-38-glucuronide (inactive) by UGT1A1\n    UGT1A1*28 (Gilbert's polymorphism): reduced UGT1A1 → SN-38 accumulates\n    → Severe diarrhea and neutropenia at standard doses.\n    FDA label includes UGT1A1 genotype recommendation for dose reduction.\n\nN-ACETYLTRANSFERASE (NAT2)\n  Acetylates drugs including isoniazid, hydralazine, procainamide.\n  Slow acetylators vs fast acetylators (bimodal distribution).\n  ~50% of Caucasians are slow acetylators; ~10% of Japanese.\n\n  ISONIAZID (TB treatment):\n    Slow acetylator: higher isoniazid levels → higher risk of peripheral neuropathy\n    Fast acetylator: lower isoniazid levels + more acetylhydrazine (hepatotoxic)\n    Management: supplement B6 in slow acetylators; monitor LFTs in fast.\n\nTHIOPURINE METHYLTRANSFERASE (TPMT)\n  Inactivates thiopurines (azathioprine, 6-mercaptopurine, thioguanine).\n  1/300 people have very low or no TPMT activity.\n  Low TPMT: active drug accumulates → severe myelosuppression.\n  Standard practice: test TPMT before starting azathioprine in IBD, transplant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "## Engineering Bridge: CYP as a Shared Resource Pool",
+      "confidence": "candidate",
+      "text": "  CYP SYSTEM                    SYSTEMS / CONCURRENCY PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  CYP enzyme (e.g., CYP3A4)     Worker thread pool with finite capacity:\n  Km = substrate concentration  Km ~ inverse of binding affinity ≈ the\n  at half-maximal velocity      rate at which the substrate \"captures\" a\n                                free worker. Low Km → high affinity →\n                                substrate monopolizes pool at low [drug].\n\n  Competitive CYP inhibition    Priority inversion / lock contention:\n  (e.g., ketoconazole + simva)  inhibitor occupies the active site while\n                                substrate is waiting. Ki is the inhibitor's\n                                \"grip strength.\" The substrate AUC increases\n                                by (1 + [I]/Ki) — exactly how throughput\n                                decreases when a high-priority job holds a\n                                shared resource.\n\n  Mechanism-based inhibition    Permanent worker thread failure:\n  (e.g., grapefruit, erythromycin) inhibitor covalently inactivates CYP →\n                                enzyme is gone. Effect outlasts drug\n                                clearance — the thread pool stays reduced\n                                until new enzyme is synthesized (6-18 hr).\n                                No amount of substrate clearance reverses it;\n                                the capacity is truly lost.\n\n  CYP induction                 Autoscaling: spinning up more workers:\n  (e.g., rifampin + CYP3A4)    inducer activates nuclear receptors\n                                (PXR, CAR) → transcription of more CYP →\n                                more enzyme → more capacity. Effect develops\n                                over 1-2 weeks (time to synthesize new\n                                enzyme pool). Abruptly stopping the inducer:\n                                pool collapses back to baseline over ~2 weeks.\n\n  Substrate-inhibitor-inducer   Multi-resource scheduling problem:\n  triples (complex DDIs)        three drugs on the same CYP → predict the\n                                net effect from Ki, Km, [I], [inducer].\n                                PBPK models are the formal solution —\n                                full mechanistic models of the pipeline\n                                with capacity, occupancy, and induction\n                                dynamics.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "## Clinical Decision Framework for DDIs",
+      "confidence": "candidate",
+      "text": "DDI RISK ASSESSMENT\n──────────────────────\n\nStep 1: Identify if either drug is a CYP substrate, inhibitor, or inducer.\nStep 2: Match CYP enzyme (3A4? 2D6? 2C9?).\nStep 3: Estimate magnitude:\n         Weak inhibitor: AUC change <2×\n         Moderate:       2-5× AUC change\n         Strong:         >5× AUC change\nStep 4: Assess clinical consequence:\n         Narrow TI substrate? → High risk\n         Wide TI substrate? → Usually manageable\nStep 5: Choose action:\n         Contraindicated / Avoid / Use with caution + monitoring / Acceptable\n\nDDI MATRIX (selected)\n  Inhibitor    Substrate(s)              Clinical consequence\n  ──────────── ────────────────────────  ───────────────────────────────\n  Ketoconazole Simvastatin, tacrolimus   10-20× AUC → rhabdomyolysis, nephrotoxicity\n  Fluoxetine   Tamoxifen (→ active met)  ↓ Active metabolite → therapy failure\n  Rifampin     Oral contraceptives       Contraceptive failure\n  Ritonavir    Most HIV PI/NNRTI         Used intentionally to boost drug levels\n  Ciprofloxacin Clozapine, theophylline  1A2 inhibition → toxicity\n  Amiodarone   Warfarin, digoxin        Bleeding, digoxin toxicity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

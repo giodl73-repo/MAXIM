@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              MACHINE LEARNING THEORY LANDSCAPE                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  COMPUTATIONAL          STATISTICAL           OPTIMIZATION       |\n|  LEARNING THEORY        LEARNING THEORY       THEORY             |\n|  ──────────────         ───────────────       ────────────       |\n|  Valiant 1984           Vapnik 1971–95        SGD analysis       |\n|  PAC Learning           VC Dimension          Implicit reg.      |\n|  Tractability           Generalization        Why SGD works      |\n|  Sample complexity      bounds                                   |\n|                         Rademacher complexity                    |\n|                                                                  |\n+------------------------------------------------------------------+\n|                                |                                 |\n|                                v                                 |\n+------------------------------------------------------------------+\n|              MODERN ML PHENOMENOLOGY (2018–present)              |\n|  Double Descent  ·  Neural Tangent Kernel  ·  Benign Overfitting |\n|  Grokking  ·  Mechanistic Interpretability  ·  Scaling Laws      |\n|  \"Classical theory fails for overparameterized models.           |\n|   Here is the emerging framework.\"                               |\n+──────────────────────────────────────────────────────────────────+\n|                                |                                 |\n|                                v                                 |\n+──────────────────────────────────────────────────────────────────+\n|              INFORMATION-THEORETIC PERSPECTIVE                   |\n|  PAC-Bayes  ·  Mutual Information  ·  MDL                        |\n|  \"Compression = Generalization\"                                  |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## The Central Question",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  GENERALIZATION PROBLEM                          |\n|                                                                  |\n|  TRAINING DATA                   TRUE DISTRIBUTION               |\n|  m samples from D                                                |\n|                                                                  |\n|  Empirical Risk:  R_S(h) = (1/m) Σᵢ loss(h(xᵢ), yᵢ)              |\n|  True Risk:       R(h)   = E_{(x,y)~D}[loss(h(x), y)]            |\n|                                                                  |\n|  Generalization gap:  R(h) - R_S(h)                              |\n|                                                                  |\n|  Classical theory:  bound this gap via complexity of H           |\n|  Modern reality:    gap stays small even when H is enormous      |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Bridge: Classical Statistics → ML Generalization Theory",
+      "confidence": "candidate",
+      "text": "CLASSICAL STATISTICS                 ML GENERALIZATION THEORY\n────────────────────────────────     ────────────────────────────────────\nCramér-Rao lower bound               Sample complexity lower bounds\n  Var(θ̂) ≥ 1/I(θ) for unbiased θ̂    m = Ω(d/ε²) is tight — no learner\n  — fundamental estimation limit       beats it, parallel to C-R structure\n\nMinimax estimation (Le Cam)          Distribution-free PAC lower bounds\n  min_{θ̂} max_{P} E[loss(θ̂, θ)]      min_{A} max_{D, c*} Pr[err > ε]\n  — worst case over distributions      — worst case over distributions D\n\nFano's inequality                    Sample complexity lower bounds\n  P_e ≥ 1 - (I(X;Y) + 1)/log|M|     m = Ω(d/ε²) in agnostic PAC\n  — information-theoretic lower bd     — via packing in hypothesis space\n\nLe Cam's two-point method            VC lower bounds\n  Binary hypothesis test → lower       Embed binary testing in shattering;\n  bound on minimax risk                VCdim = d → Ω(d/ε²) samples needed\n\nM-estimators                         Empirical risk minimization\n  θ̂ = argmin Σᵢ ρ(xᵢ, θ)             h_ERM = argmin R_S(h)\n  Influence functions / robustness     Stability analysis (Bousquet-Elisseeff)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Taxonomy of Generalization Bounds",
+      "confidence": "candidate",
+      "text": "GENERALIZATION BOUNDS\n├── Combinatorial complexity\n│   ├── VC Dimension          binary classification, 0/1 loss, distribution-free\n│   ├── Natarajan Dimension   multiclass extension\n│   └── Fat-shattering Dim    real-valued functions, margin classifiers\n│\n├── Functional complexity\n│   ├── Rademacher Complexity  data-dependent, applies to any bounded loss\n│   ├── Gaussian Complexity    related, sometimes tighter in continuous settings\n│   └── Covering Numbers       metric entropy; exponential in parameter count\n│\n├── Algorithmic stability\n│   ├── Uniform stability      Bousquet & Elisseeff 2002; ERM algorithms\n│   └── On-average stability   Hardt, Recht, Singer 2016; SGD analysis\n│\n├── Information-theoretic\n│   ├── PAC-Bayes              McAllester; bounds via KL(Q||P) from prior\n│   ├── Mutual information     Russo & Zou 2016; I(W; S) controls gap\n│   └── CMI (conditional MI)   Steinke & Zakynthinou 2020; tighter\n│\n└── Optimization-based\n    ├── Neural Tangent Kernel  Jacot 2018; infinite-width limit\n    ├── Mean field theory      large but finite width\n    └── PAC-Bayes + SGD        implicit regularization via trajectory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Learning Models: A Taxonomy",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  FORMAL LEARNING MODELS                          |\n|                                                                  |\n|  REALIZABILITY SETTING (target in H)                             |\n|  ─────────────────────────────────                               |\n|  PAC Learning (Valiant 1984)                                     |\n|  • There exists h* ∈ H with R(h*) = 0                            |\n|  • Goal: find h with R(h) ≤ ε with prob ≥ 1-δ                    |\n|  • Sample complexity: m = O(log|H|/ε) finite H,                  |\n|    or O(VC(H)/ε) for infinite H                                  |\n|                                                                  |\n|  AGNOSTIC SETTING (no assumption on target)                      |\n|  ───────────────────────────────────────                         |\n|  Agnostic PAC / Statistical Learning Theory                      |\n|  • Compete with best h ∈ H (which may have nonzero error)        |\n|  • Goal: R(h) ≤ min_{h*∈H} R(h*) + ε with prob ≥ 1-δ             |\n|  • Sample complexity driven by VC dimension                      |\n|                                                                  |\n|  ONLINE LEARNING                                                 |\n|  ─────────────                                                   |\n|  • Adversarial: no distributional assumptions                    |\n|  • Regret vs best fixed h ∈ H in hindsight                       |\n|  • Littlestone dimension replaces VC dimension                   |\n|                                                                  |\n|  BAYESIAN / PAC-BAYES                                            |\n|  ────────────────────                                            |\n|  • Prior P over H, posterior Q after seeing S                    |\n|  • Bound involves KL(Q || P): complexity = surprise from prior   |\n|                                                                  |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## Sample Complexity vs Computational Complexity",
+      "confidence": "candidate",
+      "text": "SAMPLE COMPLEXITY               COMPUTATIONAL COMPLEXITY\n─────────────────               ────────────────────────\nHow many examples               How much time / compute\nto learn accurately?            to find the hypothesis?\n\nBounded by VC dimension,        Separate question entirely.\nRademacher complexity,          A class can be PAC-learnable\nPAC-Bayes KL term.              in finite samples but NP-hard\n                                to find the ERM.\nSEPARABLE: these are\nindependent axes.               Example: Learning intersections\n                                of halfspaces — small VC dim,\nAn efficient PAC learner        computationally hard.\nmust achieve BOTH.\n                                DNF formulas: VC-dim = n,\n                                learning is hard unless\n                                RP = NP (Kearns & Valiant).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Classical Learnability Hierarchy",
+      "confidence": "candidate",
+      "text": "CONCEPT CLASSES (efficient PAC learnability)\n│\n├── EFFICIENTLY PAC-LEARNABLE\n│   ├── Halfspaces (linear classifiers) — LP or perceptron\n│   ├── Decision lists — greedy algorithm works\n│   ├── DFAs from membership queries — Angluin L* algorithm\n│   └── Monotone DNF — polynomial-time with random examples\n│\n├── POLYNOMIAL SAMPLES, HARD TO FIND ERM\n│   ├── Depth-2 threshold networks\n│   ├── DNF formulas — PAC with poly samples, no efficient learner known\n│   └── Intersections of halfspaces\n│\n└── PROVABLY HARD (under cryptographic assumptions)\n    ├── General neural networks (improper learning hardness)\n    ├── Sparse parity with noise — hardness from learning parities\n    └── Planted clique reductions — various geometric problems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## The Modern Problem: Theory vs Practice Gap",
+      "confidence": "candidate",
+      "text": "CLASSICAL THEORY PREDICTION      WHAT ACTUALLY HAPPENS\n────────────────────────────     ─────────────────────\nMore parameters → more           Neural nets with 10⁸ params\noverfitting                      generalize well\n\nBias-variance tradeoff:          Double descent: test error\noptimal at intermediate          decreases again past\nmodel size                       interpolation threshold\n\nExplicit regularization          Unregularized SGD on neural\nrequired for generalization      nets generalizes on MNIST\n\nKernel machines optimal for      Neural nets dramatically\nbounded-norm function classes    outperform kernel methods\n                                 on same function class",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 328,
+      "heading_context": "## Mathematical Prerequisites",
+      "confidence": "candidate",
+      "text": "CLASSICAL OPTIMIZATION THEORY        ML THEORY ADDS\n──────────────────────────────────   ────────────────────────────────────────\nConvergence to global/local min      Which minimum the algorithm finds matters:\n  — unique for strongly convex         implicit regularization selects among\n  — multiple local optima otherwise    infinitely many global minima in\n                                       overparameterized settings\n\nConvergence rate O(1/√T)            Generalization of the iterate, not just\n  — standard for nonconvex SGD        convergence — stability analysis\n                                       (Hardt-Recht-Singer: uniform stability\n                                        of SGD controls generalization gap)\n\nSmooth convergence theory            Phase transitions: grokking, loss spikes,\n  — loss decreases monotonically      double descent — non-monotone dynamics\n                                       not covered by classical theory\n\nKKT conditions + duality             Lagrangian relaxations appear in:\n  — constraint satisfaction           PAC-Bayes (Lagrangian over posteriors)\n                                       SVM dual (kernelizes the primal)\n                                       Mirror descent (implicit regularization)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

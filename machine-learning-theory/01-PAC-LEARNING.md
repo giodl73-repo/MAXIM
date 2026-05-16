@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:pac-learning
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: PAC Learning: Valiant Framework
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/01-PAC-LEARNING.md
+canonical_path: machine-learning-theory/01-PAC-LEARNING.md
+backsource_ids: [proof-backfill:machine-learning-theory:01-pac-learning, git-history:machine-learning-theory:01-pac-learning]
+concepts: [pac, learning]
+root_concepts: [pac, learning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # PAC Learning: Valiant Framework
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:cyp-metabolism
+kind: guide
+module: pharmacology
+section: pharmacology
+title: CYP450 Metabolism and Drug Interactions
+status: source-custody
+source_custody: partial
+current_path: pharmacology/04-CYP-METABOLISM.md
+canonical_path: pharmacology/04-CYP-METABOLISM.md
+backsource_ids: [proof-backfill:pharmacology:04-cyp-metabolism, git-history:pharmacology:04-cyp-metabolism]
+concepts: [cyp, metabolism]
+root_concepts: [cyp, metabolism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # CYP450 Metabolism and Drug Interactions
 
 ## The Big Picture

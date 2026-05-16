@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:double-descent
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Double Descent and Modern ML Phenomenology
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/07-DOUBLE-DESCENT.md
+canonical_path: machine-learning-theory/07-DOUBLE-DESCENT.md
+backsource_ids: [proof-backfill:machine-learning-theory:07-double-descent, git-history:machine-learning-theory:07-double-descent]
+concepts: [double, descent]
+root_concepts: [double, descent]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Double Descent and Modern ML Phenomenology
 
 ## The Big Picture

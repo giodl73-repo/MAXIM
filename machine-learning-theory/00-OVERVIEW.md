@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:overview
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Machine Learning Theory - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/00-OVERVIEW.md
+canonical_path: machine-learning-theory/00-OVERVIEW.md
+backsource_ids: [proof-backfill:machine-learning-theory:00-overview, git-history:machine-learning-theory:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Machine Learning Theory — Landscape and Taxonomy
 
 ## The Big Picture
@@ -18,18 +37,18 @@ ML theory asks: *why does learning work at all?* Three lineages of answer, conve
 |  Sample complexity      bounds                                   |
 |                         Rademacher complexity                    |
 |                                                                  |
-+────────────────────────────────┬─────────────────────────────────+
-                                 |
-                                 v
-+────────────────────────────────────────────────────────────────--+
++------------------------------------------------------------------+
+|                                |                                 |
+|                                v                                 |
++------------------------------------------------------------------+
 |              MODERN ML PHENOMENOLOGY (2018–present)              |
 |  Double Descent  ·  Neural Tangent Kernel  ·  Benign Overfitting |
 |  Grokking  ·  Mechanistic Interpretability  ·  Scaling Laws      |
 |  "Classical theory fails for overparameterized models.           |
 |   Here is the emerging framework."                               |
 +──────────────────────────────────────────────────────────────────+
-                                 |
-                                 v
+|                                |                                 |
+|                                v                                 |
 +──────────────────────────────────────────────────────────────────+
 |              INFORMATION-THEORETIC PERSPECTIVE                   |
 |  PAC-Bayes  ·  Mutual Information  ·  MDL                        |
@@ -44,20 +63,20 @@ ML theory asks: *why does learning work at all?* Three lineages of answer, conve
 You have a hypothesis class H (e.g., all linear classifiers, all depth-3 networks). You train on m samples from distribution D. Will your learned hypothesis generalize?
 
 ```
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 |                  GENERALIZATION PROBLEM                          |
 |                                                                  |
-|  TRAINING DATA                   TRUE DISTRIBUTION              |
-|  m samples from D                                               |
+|  TRAINING DATA                   TRUE DISTRIBUTION               |
+|  m samples from D                                                |
 |                                                                  |
-|  Empirical Risk:  R_S(h) = (1/m) Σᵢ loss(h(xᵢ), yᵢ)            |
-|  True Risk:       R(h)   = E_{(x,y)~D}[loss(h(x), y)]           |
+|  Empirical Risk:  R_S(h) = (1/m) Σᵢ loss(h(xᵢ), yᵢ)              |
+|  True Risk:       R(h)   = E_{(x,y)~D}[loss(h(x), y)]            |
 |                                                                  |
-|  Generalization gap:  R(h) - R_S(h)                             |
+|  Generalization gap:  R(h) - R_S(h)                              |
 |                                                                  |
 |  Classical theory:  bound this gap via complexity of H           |
 |  Modern reality:    gap stays small even when H is enormous      |
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 ```
 
 Classical theory bounds the generalization gap using measures of hypothesis class complexity. Modern theory asks why overparameterized models violate these predictions while still generalizing.
@@ -128,28 +147,28 @@ GENERALIZATION BOUNDS
 ## Learning Models: A Taxonomy
 
 ```
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 |                  FORMAL LEARNING MODELS                          |
 |                                                                  |
-|  REALIZABILITY SETTING (target in H)                            |
+|  REALIZABILITY SETTING (target in H)                             |
 |  ─────────────────────────────────                               |
-|  PAC Learning (Valiant 1984)                                    |
-|  • There exists h* ∈ H with R(h*) = 0                           |
-|  • Goal: find h with R(h) ≤ ε with prob ≥ 1-δ                   |
-|  • Sample complexity: m = O(log|H|/ε) finite H,                 |
+|  PAC Learning (Valiant 1984)                                     |
+|  • There exists h* ∈ H with R(h*) = 0                            |
+|  • Goal: find h with R(h) ≤ ε with prob ≥ 1-δ                    |
+|  • Sample complexity: m = O(log|H|/ε) finite H,                  |
 |    or O(VC(H)/ε) for infinite H                                  |
 |                                                                  |
-|  AGNOSTIC SETTING (no assumption on target)                     |
+|  AGNOSTIC SETTING (no assumption on target)                      |
 |  ───────────────────────────────────────                         |
-|  Agnostic PAC / Statistical Learning Theory                     |
+|  Agnostic PAC / Statistical Learning Theory                      |
 |  • Compete with best h ∈ H (which may have nonzero error)        |
-|  • Goal: R(h) ≤ min_{h*∈H} R(h*) + ε with prob ≥ 1-δ           |
+|  • Goal: R(h) ≤ min_{h*∈H} R(h*) + ε with prob ≥ 1-δ             |
 |  • Sample complexity driven by VC dimension                      |
 |                                                                  |
 |  ONLINE LEARNING                                                 |
 |  ─────────────                                                   |
 |  • Adversarial: no distributional assumptions                    |
-|  • Regret vs best fixed h ∈ H in hindsight                      |
+|  • Regret vs best fixed h ∈ H in hindsight                       |
 |  • Littlestone dimension replaces VC dimension                   |
 |                                                                  |
 |  BAYESIAN / PAC-BAYES                                            |
@@ -157,7 +176,7 @@ GENERALIZATION BOUNDS
 |  • Prior P over H, posterior Q after seeing S                    |
 |  • Bound involves KL(Q || P): complexity = surprise from prior   |
 |                                                                  |
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 ```
 
 ---

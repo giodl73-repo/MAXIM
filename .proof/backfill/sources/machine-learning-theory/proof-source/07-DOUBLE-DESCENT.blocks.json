@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\07-DOUBLE-DESCENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  DOUBLE DESCENT CURVE                            |\n|                                                                  |\n|  Error                                                           |\n|    │                                                             |\n|    │ ╲                         │                                 |\n|    │  ╲          Classical     │     Overparameterized           |\n|    │   ╲         regime        │     regime                      |\n|    │    ╲                      │                                 |\n|    │     ╲    ╱────            │╲                                |\n|    │      ╲  ╱  Second         │ ╲                               |\n|    │       ╲╱   descent        │  ╲──────────────                |\n|    │        ╲                  │                                 |\n|    │         ╲           PEAK  │  Second descent                 |\n|    │          ╲────────── ███  │  to low test error              |\n|    │           Classical  ███  │                                 |\n|    │           U-curve    ███  │                                 |\n|    └─────────────────────████──┼────────────────→ Model params   |\n|                           ████                                   |\n|                     Interpolation threshold                      |\n|                     (params ≈ training data size)               |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## The Interpolation Threshold",
+      "confidence": "candidate",
+      "text": "KEY DEFINITIONS\n────────────────\nUNDERPARAMETERIZED REGIME:  P < m\n  More training points than parameters.\n  Cannot fit training data exactly.\n  Classical statistics applies.\n\nINTERPOLATION THRESHOLD:  P ≈ m\n  Number of parameters ≈ number of training examples.\n  Model just barely fits the training data.\n  This is the WORST point — test error peaks here.\n\nOVERPARAMETERIZED REGIME:  P >> m\n  Many more parameters than training points.\n  Interpolates training data exactly (zero training error).\n  Multiple interpolators exist — model picks the \"simplest.\"\n  Test error decreases again — often below classical optimum.\n\nWHY IS THE PEAK AT P ≈ m?\n  At the threshold, the model barely interpolates —\n  it must bend sharply to fit every training point.\n  Like fitting an exact-degree polynomial through n+1 points:\n  the polynomial oscillates wildly.\n  Adding more parameters gives freedom to interpolate smoothly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "## Bridge: Statistical Mechanics → Double Descent as Phase Transition",
+      "confidence": "candidate",
+      "text": "PHASE TRANSITION AT P = m\n  Below threshold (P < m):\n    Unique solution θ to y = Xθ does not exist.\n    Minimum residual solution has nonzero training error.\n    System is \"paramagnetic\" — no ordered state.\n\n  At threshold (P = m):\n    Unique solution barely exists; XᵀX is ill-conditioned.\n    Singular point: small perturbation → large solution change.\n    System is at the critical point.\n\n  Above threshold (P > m):\n    Infinitely many solutions. Minimum-norm interpolant is selected.\n    System enters \"ordered phase\" — minimum-norm acts as order parameter.\n\nREPLICA METHOD (Parisi 1979, Mézard-Parisi-Virasoro 1987)\n  The replica method computes the free energy of a disordered system\n  by analytically continuing the integer replica count n → 0:\n\n    F = -lim_{n→0} (∂/∂n) log E[Z^n]\n\n  Applied to linear regression with Gaussian X (Hastie et al. 2019):\n  The replica calculation gives exact formulas for test risk at all\n  values of γ = P/m, recovering:\n\n    Excess risk (underparameterized, γ < 1):  ~ σ²γ/(1-γ)  → ∞ as γ → 1\n    Excess risk (overparameterized, γ > 1):   ~ σ²γ/(γ-1)  → ∞ as γ → 1\n\n  The divergence at γ = 1 from both sides is the double descent peak.\n  Replica method gives this exact formula; RMT (Marchenko-Pastur) confirms it.\n\nSPIN GLASS ANALOGY\n  The loss landscape of an overparameterized network resembles a spin glass:\n  many near-equivalent minima (metastable states) separated by barriers.\n\n  SK model energy: E(σ) = -(1/√N) Σᵢ<ⱼ Jᵢⱼ σᵢ σⱼ\n  Neural net loss:  L(θ) = (1/m) Σᵢ ℓ(f(xᵢ;θ), yᵢ)\n\n  Parisi's replica symmetry breaking: the correct free energy of the SK model\n  requires a hierarchical structure of \"broken symmetry\" among replicas.\n  Analogously, the generalization landscape of deep networks may require\n  hierarchical understanding of which minima SGD finds.\n\nFREE ENERGY LANDSCAPE AND GROKKING\n  Grokking (Power et al. 2022) corresponds to a first-order phase transition:\n    • High-energy state: memorization solution (high norm)\n    • Low-energy state: generalization solution (low norm)\n    • Weight decay = temperature that drives the system toward low-energy state\n  The sudden generalization is the system tunneling through the barrier\n  between metastable (memorization) and stable (generalization) states.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Benign Overfitting",
+      "confidence": "candidate",
+      "text": "BENIGN OVERFITTING (Bartlett et al. 2020)\n──────────────────────────────────────────\nA model \"benignly overfits\" if:\n  (1) It interpolates training data exactly (zero training error)\n  (2) Its test error approaches Bayes optimal error\n\nCONDITIONS FOR BENIGN OVERFITTING (in linear regression)\n  Consider y = Xθ* + ε where X ∈ ℝ^{m×P}, P >> m.\n\n  Let eigenvalues of XᵀX be λ₁ ≥ λ₂ ≥ ... ≥ λ_P.\n\n  Benign overfitting occurs when:\n  (1) The \"effective rank\" of X is large:\n      k* (spike dimensions) << effective remaining rank\n  (2) The \"tail eigenvalues\" decay slowly (many small eigenvalues)\n  (3) True signal lives in the spike directions; noise is spread thin\n\n  Intuition: Many small eigenvalues = many directions to absorb noise.\n             Signal in dominant directions stays intact.\n             Model interpolates noise via tiny movements in null space.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Linear Regression Analysis: The Full Picture",
+      "confidence": "candidate",
+      "text": "MINIMUM NORM LEAST SQUARES (MNLS)\n───────────────────────────────────\nIn overparameterized linear regression (P > m), infinitely many\nθ satisfy Xθ = y. The pseudoinverse gives the minimum-norm one:\n\n  θ̂_MNLS = X†y = Xᵀ(XXᵀ)⁻¹y\n\nEXCESS RISK DECOMPOSITION\n  E[||θ̂_MNLS - θ*||²] = BIAS² + VARIANCE\n\n  BIAS²    = ||θ*_⊥||²  (signal outside row space of X)\n  VARIANCE = σ² · tr((XXᵀ)⁻¹) / m\n\n  As P → ∞ (overparameterized), new coordinates added:\n    • These new coords don't affect bias (signal already in row space)\n    • They reduce variance (more directions → smaller pseudoinverse)\n    → Double descent: adding parameters can reduce error.\n\nEXPLICIT FORMULAS (Gaussian design X)\n  Underparameterized (γ = P/m < 1):\n    Excess risk ~ σ² γ/(1-γ)   → ∞ as γ → 1⁻\n\n  Interpolation threshold (γ = 1):\n    Excess risk = ∞ (matrix not invertible)\n\n  Overparameterized (γ > 1):\n    Excess risk ~ σ²·γ/(γ-1) + ||θ*||²·1/(γ-1)\n    → Decreases as γ increases!\n    → Optimal γ = ∞ if no bias (||θ*_⊥||² → 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Epoch-wise Double Descent",
+      "confidence": "candidate",
+      "text": "EPOCH-WISE DOUBLE DESCENT\n───────────────────────────\nFor a fixed (potentially underparameterized) model,\ntest error can peak at intermediate training epochs:\n\n  Error\n    │\n    │╲      Peak at intermediate epochs\n    │ ╲    ╱\n    │  ╲  ╱\n    │   ╲╱\n    │    ╲────────  Second descent as training continues\n    │\n    └────────────────────────────→ Training epochs\n\nMECHANISM\n  Early training: bias dominates (model too simple to fit data)\n  Middle training: model fits data but also memorizes noise\n  Late training: implicit regularization of SGD takes over,\n                 model finds \"smoother\" solution\n  (Or: early stopping is implicitly regularizing)\n\nPRACTICAL IMPLICATION\n  Early stopping is not obviously better than training to convergence\n  for overparameterized models. This is counterintuitive from\n  classical bias-variance theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Grokking: Delayed Generalization",
+      "confidence": "candidate",
+      "text": "GROKKING (Power et al. 2022)\n──────────────────────────────\nA striking empirical phenomenon:\n  (1) Model memorizes training data quickly (training accuracy = 100%)\n  (2) Generalization is poor for many epochs\n  (3) After very long training, generalization suddenly improves dramatically\n  (4) \"Phase transition\" in generalization hundreds of epochs after overfitting\n\n  Error\n    │\n    │──────────────────────────────  Train error (drops fast, stays low)\n    │\n    │              ╲─────────────   Test error (drops much later)\n    │─────────────╱\n    └────────────────────────────→ Training epochs\n          ↑               ↑\n     \"Memorizes\"     \"Generalizes\"\n     quickly          after delay\n\nHYPOTHESIZED MECHANISM\n  Weight decay + long training = implicit regularization.\n  Two competing solutions:\n    • Memorization solution (large norm, memorizes examples)\n    • Generalization solution (small norm, learns true pattern)\n  Initially, memorization is found first (gradient is large).\n  Over time, weight decay kills memorization solution.\n  Generalization solution has smaller norm → survives.\n\nTHEORETICAL UNDERSTANDING\n  Still incomplete. Connected to:\n    • Implicit regularization of SGD toward minimum norm\n    • Phase transitions in representation learning\n    • Circuit formation in networks (mechanistic interpretability)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 287,
+      "heading_context": "## Scaling Laws",
+      "confidence": "candidate",
+      "text": "NEURAL SCALING LAWS (Kaplan et al. 2020, Hoffmann et al. 2022)\n───────────────────────────────────────────────────────────────\nFor language models, test loss follows power laws:\n\n  L(N) ~ N^{-α_N}   (scaling with model parameters N)\n  L(D) ~ D^{-α_D}   (scaling with data D)\n  L(C) ~ C^{-α_C}   (scaling with compute C)\n\nEmpirically (GPT family):  α_N ≈ α_D ≈ 0.05–0.1\n\nOPTIMAL COMPUTE ALLOCATION (Chinchilla, Hoffmann 2022)\n  For fixed compute budget C:\n    Optimal N ~ √C  (model size)\n    Optimal D ~ √C  (data size)\n    N ≈ D (parameters ≈ tokens)\n\n  Earlier practice (GPT-3 era): N >> D (model too big for data)\n  Chinchilla insight: reduce N, increase D → better loss per FLOP\n\nTHEORY CONNECTION\n  Power law scaling = effective dimension of the task?\n  Benign overfitting: model needs enough parameters to fit task\n  without fitting noise. Scaling laws suggest smooth tradeoff.\n  No sharp double descent peak — overparameterized regime throughout.\n\n**Partial theory of power law exponents.** If the true function has Sobolev smoothness β in d effective dimensions (on the data manifold), the optimal statistical rate is m^{-2β/(2β+d)} for kernel/nonparametric regression. This matches the empirical scaling L(D) ~ D^{-α_D} if α_D = 2β/(2β+d). For α_D ≈ 0.1, this gives 2β/(2β+d) = 0.1 → d/β ≈ 18 — high effective dimension relative to smoothness, consistent with language being a high-dimensional, moderately smooth task. Similarly, parameter scaling L(N) ~ N^{-α_N} connects to approximation theory: the number of parameters needed to approximate a β-smooth function to error ε in d dimensions is N ~ ε^{-d/β}, inverting to ε ~ N^{-β/d}. The empirical exponent is theoretically meaningful, not arbitrary.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "## Implicit Regularization of SGD",
+      "confidence": "candidate",
+      "text": "WHY SGD FINDS GOOD SOLUTIONS IN OVERPARAMETERIZED MODELS\n──────────────────────────────────────────────────────────\nMINIMUM NORM CONJECTURE\n  SGD with small learning rate on overparameterized linear models\n  converges to minimum-norm interpolant (same as MNLS).\n\n  Intuition: Gradient descent with zero initialization moves in\n  the row space of X. The minimum-norm solution is the projection\n  of θ* onto row space — exactly what gradient descent finds.\n\nMOMENTUM AND ADAPTIVE METHODS\n  Adam, AdaGrad: different implicit regularization than SGD.\n  Adaptive methods may find different (not minimum-norm) solutions.\n  Empirically, SGD + momentum often generalizes better than Adam\n  on image classification — possibly because SGD's implicit\n  regularization is better aligned with the true task.\n\n**Mirror descent and implicit regularization.** The generalization difference between SGD and adaptive optimizers follows from mirror descent theory. Each optimizer is a mirror descent with a different Bregman divergence B_ψ(θ, θ'):\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "## Implicit Regularization of SGD",
+      "confidence": "candidate",
+      "text": "  SGD:    ψ(θ) = ½‖θ‖₂²   →  B_ψ = ½‖θ - θ'‖₂²  (Euclidean)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

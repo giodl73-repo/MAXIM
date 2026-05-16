@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:overview
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Pharmacology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: pharmacology/00-OVERVIEW.md
+canonical_path: pharmacology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:pharmacology:00-overview, git-history:pharmacology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pharmacology — Landscape and Taxonomy
 
 ## The Big Picture
@@ -8,25 +27,25 @@ Pharmacology is the science of how drugs interact with biological systems — wh
 +──────────────────────────────────────────────────────────────────+
 |                  PHARMACOLOGY LANDSCAPE                          |
 |                                                                  |
-|  PHARMACOKINETICS (PK)        PHARMACODYNAMICS (PD)             |
-|  "What the body does          "What the drug does               |
-|   to the drug"                 to the body"                     |
-|  ────────────────             ────────────────────              |
-|  Absorption                   Receptor binding                  |
-|  Distribution                 Signal transduction               |
-|  Metabolism                   Dose-response                     |
-|  Excretion                    EC50, Emax                        |
-|  Half-life, Cmax              Therapeutic index                 |
+|  PHARMACOKINETICS (PK)        PHARMACODYNAMICS (PD)              |
+|  "What the body does          "What the drug does                |
+|   to the drug"                 to the body"                      |
+|  ────────────────             ────────────────────               |
+|  Absorption                   Receptor binding                   |
+|  Distribution                 Signal transduction                |
+|  Metabolism                   Dose-response                      |
+|  Excretion                    EC50, Emax                         |
+|  Half-life, Cmax              Therapeutic index                  |
 |                                                                  |
 |  PK/PD RELATIONSHIP                                              |
-|  Drug concentration in plasma (PK) → Effect at target (PD)      |
+|  Drug concentration in plasma (PK) → Effect at target (PD)       |
 |                                                                  |
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 |                DRUG DEVELOPMENT PIPELINE                         |
 |                                                                  |
-|  Target  → Lead   → Preclinical → Phase I → Phase II →          |
+|  Target  → Lead   → Preclinical → Phase I → Phase II →           |
 |  ID         discovery  testing      Safety    Efficacy           |
-|               → Phase III → FDA review → Market → PV            |
+|               → Phase III → FDA review → Market → PV             |
 |                  Large RCT          NDA/BLA      Surveillance    |
 +──────────────────────────────────────────────────────────────────+
 ```
@@ -37,12 +56,12 @@ Pharmacology is the science of how drugs interact with biological systems — wh
 
 ```
 AXIS 1: SITE OF ACTION
-  ┌─────────────────────────────────────────────┐
-  │ Extracellular:  Receptors (GPCR, ligand-gated ions)        │
+  ┌─────────────────────────────────────────────────────────────┐
+  │ Extracellular:  Receptors (GPCR, ligand-gated ions)         │
   │ Cell surface:   Enzymes, transporters, growth factor Rs     │
   │ Intracellular:  Nuclear receptors, intracellular enzymes    │
   │ Nucleic acid:   DNA intercalation, RNA-targeting            │
-  └─────────────────────────────────────────────┘
+  └─────────────────────────────────────────────────────────────┘
 
 AXIS 2: TYPE OF DRUG-TARGET INTERACTION
   Agonist:      Activates receptor → full or partial response
@@ -66,7 +85,7 @@ AXIS 4: PHARMACOKINETIC PROPERTIES
 ## Drug Classes by Mechanism
 
 ```
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 |              MAJOR DRUG MECHANISMS                               |
 |                                                                  |
 |  RECEPTOR-ACTING                                                 |
@@ -95,7 +114,7 @@ AXIS 4: PHARMACOKINETIC PROPERTIES
 |  Topoisomerase inhibitors: unwind DNA (doxorubicin, CPT-11)      |
 |  Antimetabolites: fake nucleotides (methotrexate, 5-FU)          |
 |  Antisense / siRNA: RNA targeting                                |
-+─────────────────────────────────────────────────────────────────+
++──────────────────────────────────────────────────────────────────+
 ```
 
 ---

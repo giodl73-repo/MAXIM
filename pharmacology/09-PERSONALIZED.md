@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:personalized
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Pharmacogenomics and Personalized Medicine
+status: source-custody
+source_custody: partial
+current_path: pharmacology/09-PERSONALIZED.md
+canonical_path: pharmacology/09-PERSONALIZED.md
+backsource_ids: [proof-backfill:pharmacology:09-personalized, git-history:pharmacology:09-personalized]
+concepts: [personalized]
+root_concepts: [personalized]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pharmacogenomics and Personalized Medicine
 
 ## The Big Picture
@@ -14,7 +33,7 @@ Pharmacogenomics (PGx) is the study of how genetic variation affects drug respon
 |  CYP enzymes    →  PM/IM/EM/UM         →   Dose adjustment       |
 |  Transporters   →  ↓/↑ drug uptake     →   Efficacy/toxicity     |
 |  Drug targets   →  Altered target       →   Response or failure  |
-|  HLA alleles    →  Immune reactions     →   Severe hypersensitivity|
+|  HLA alleles    →  Immune reactions     →   Severe hypersens.    |
 |  Ion channels   →  Altered electrophys  →   QT prolongation      |
 |                                                                  |
 |  PHARMACOGENOMIC TESTING                                         |

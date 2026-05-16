@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:vc-dimension
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: VC Dimension and Shattering
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/02-VC-DIMENSION.md
+canonical_path: machine-learning-theory/02-VC-DIMENSION.md
+backsource_ids: [proof-backfill:machine-learning-theory:02-vc-dimension, git-history:machine-learning-theory:02-vc-dimension]
+concepts: [vc, dimension]
+root_concepts: [vc, dimension]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # VC Dimension and Shattering
 
 ## The Big Picture

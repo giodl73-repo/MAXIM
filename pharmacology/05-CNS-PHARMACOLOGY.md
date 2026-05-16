@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:cns-pharmacology
+kind: guide
+module: pharmacology
+section: pharmacology
+title: CNS Pharmacology: Neurotransmitters and Targets
+status: source-custody
+source_custody: partial
+current_path: pharmacology/05-CNS-PHARMACOLOGY.md
+canonical_path: pharmacology/05-CNS-PHARMACOLOGY.md
+backsource_ids: [proof-backfill:pharmacology:05-cns-pharmacology, git-history:pharmacology:05-cns-pharmacology]
+concepts: [cns, pharmacology]
+root_concepts: [cns, pharmacology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # CNS Pharmacology: Neurotransmitters and Targets
 
 ## The Big Picture

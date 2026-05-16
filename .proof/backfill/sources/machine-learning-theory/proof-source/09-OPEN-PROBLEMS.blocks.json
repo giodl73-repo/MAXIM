@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\09-OPEN-PROBLEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  ML THEORY: THE FRONTIER (2025)                  |\n|                                                                  |\n|  EXPLAINED BY THEORY                                             |\n|  ────────────────────                                            |\n|  PAC learning of VC-bounded classes                              |\n|  NTK limit for infinite-width networks                           |\n|  Double descent for linear regression (Gaussian design)          |\n|  PAC-Bayes non-vacuous bounds for small stochastic classifiers   |\n|                                                                  |\n|  PARTIALLY EXPLAINED                                             |\n|  ────────────────────                                            |\n|  Implicit regularization of SGD                                  |\n|  Benign overfitting for overparameterized models                 |\n|  Generalization of transformers                                  |\n|  Scaling laws                                                    |\n|                                                                  |\n|  GENUINELY OPEN                                                  |\n|  ────────────────────                                            |\n|  Why does in-context learning work?                              |\n|  Grokking mechanism for general networks                         |\n|  Sharp thresholds in neural network training                     |\n|  Alignment and mesa-optimization theory                          |\n|  Sample complexity of in-context learning                        |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Open Problem 1: Generalization of Deep Networks",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nFact: Deep networks with P >> m parameters generalize well.\nTheory: All known bounds are vacuous (larger than trivial 0.5 error).\n\nWHAT WE KNOW\n  • Double descent explains overparameterized linear regression\n  • NTK gives a kernel-regression interpretation (but vacuous bounds)\n  • PAC-Bayes gives first non-vacuous bounds for specific settings\n  • Flatness of loss landscape correlates with generalization empirically\n\nWHAT WE DON'T KNOW\n  • A single unified theory that predicts test error from architecture + data\n  • When overparameterization helps vs hurts (non-Gaussian designs)\n  • The right \"complexity measure\" for neural networks that predicts\n    generalization without being vacuous\n\nKEY PARTIAL RESULTS\n  • Bartlett, Montanari (2021): Benign overfitting for linear regression\n    when data covariance has strong spectral structure\n  • Belkin, Hsu (2020): Kernel ridgeless regression can match Bayes error\n  • Negrea et al. (2020): CMI bounds non-vacuous for some architectures\n\nHARD OBSTACLE\n  Any uniform convergence bound fails:\n  Zhang et al. (2017): Neural nets can memorize random labels.\n  → For the same architecture, generalization depends on the labels.\n  → Architecture alone doesn't determine generalization.\n  → You cannot bound generalization by architecture alone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## Open Problem 2: Understanding SGD's Implicit Regularization",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nSGD finds solutions that generalize well. Why?\n\nWHAT WE KNOW\n  • For linear models: GD converges to minimum-norm interpolant\n  • For linear models: minimum-norm = good generalization (benign overfitting)\n  • For neural nets: GD finds \"flat\" minima (heuristically)\n  • Sharpness-aware minimization (SAM) explicitly seeks flat minima\n\nCOMPETING HYPOTHESES\n  (A) Minimum norm hypothesis\n      SGD finds minimum-l₂-norm solution.\n      Evidence: true for linear, over-parameterized quadratics.\n      Counter-evidence: not clear for general neural nets.\n\n  (B) Flatness / sharpness hypothesis\n      SGD finds wide minima (small max eigenvalue of Hessian).\n      Flat minima generalize by PAC-Bayes argument.\n      Evidence: SAM works; flat minima correlate with generalization.\n      Counter-evidence: sharpness definition is non-invariant under scaling.\n\n  (C) Effective rank / spectral hypothesis\n      SGD finds solutions with low effective rank of weight matrices.\n      Evidence: incremental rank learning in transformers (Arora et al.).\n      Counter-evidence: not universally applicable.\n\n  (D) Data-dependent inductive bias\n      SGD's implicit regularization depends on data structure.\n      Neural nets learn \"simple\" functions relative to the true data dist.\n\nOPEN: None of these fully explains practical generalization.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## Open Problem 3: In-Context Learning",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nLarge language models perform new tasks given only examples in context,\nwithout any gradient updates. How?\n\n  Prompt:  \"Translate French to English:\n            'Bonjour' = 'Hello'\n            'Merci' = 'Thank you'\n            'Au revoir' = ?\"\n  GPT-4:   \"Goodbye\"\n\n  The model learns from context. No training occurs.\n  This is qualitatively different from standard PAC learning.\n\nWHAT WE KNOW (PARTIAL)\n  • Akyürek et al. (2022): Transformers can implement gradient descent\n    in their forward pass via attention mechanisms (linear regression case)\n  • Olsson et al. (2022): \"Induction heads\" in transformers implement\n    a pattern-matching heuristic — copy previous completion\n  • The attention mechanism can implement dynamic programming\n\nWHAT WE DON'T KNOW\n  • Sample complexity of ICL (how many examples needed in context?)\n  • When does ICL generalize vs overfit to context examples?\n  • Is ICL Bayesian inference, gradient descent, or something else?\n  • Why does ICL get better as model scales?\n\nTHE FUNDAMENTAL DIFFICULTY\n  ICL is learning at two timescales:\n    (1) Pre-training: learn how to learn (meta-learning)\n    (2) Inference: actually learn from context\n  No classical framework separates these two levels cleanly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Open Problem 4: Computational Hardness of Neural Network Learning",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nWe know:\n  (1) Depth-3 networks (3 threshold neurons) are NP-hard to learn [Blum-Rivest 1992]\n  (2) In practice, SGD trains networks with millions of neurons efficiently\n\nTHE GAP\n  Worst-case hardness doesn't explain average-case ease.\n  Classical complexity (TCS) studies worst-case.\n  Practical ML lives in average-case over natural data distributions.\n\nQUESTIONS\n  • What properties of natural data distributions (images, text) make\n    learning tractable?\n  • Is there a formal model of \"natural data\" that enables efficient learning?\n  • Can we prove positive results for learning on specific data distributions?\n\nPARTIAL ANSWERS\n  • Learning circuits under product distributions (easier than arbitrary D)\n  • Restricted Boltzmann machines under specific architectures\n  • Transformers: in-context learning is efficient for linear regression\n\nFUNDAMENTAL OBSTACLE\n  A formal average-case complexity theory for learning does not exist.\n  Average-case complexity (Levin's theory) applies to specific distributions.\n  Which distribution models \"natural data\" for images, text, etc.?\n  No consensus.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Open Problem 5: Grokking and Phase Transitions",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nTraining neural networks exhibits sharp phase transitions:\n  • Grokking: sudden generalization after long memorization (Power 2022)\n  • Emergence: qualitative capability jumps at scale thresholds\n  • Loss spikes: sudden loss increases during stable training\n\nWHAT WE KNOW\n  • Grokking is related to weight decay and training dynamics\n  • In some modular arithmetic tasks, grokking corresponds to\n    learning the underlying group structure\n  • Mechanistic interpretability shows algorithm formation in circuits\n\nWHAT WE DON'T KNOW\n  • When does grokking occur for a given task and architecture?\n  • Is there a general mechanism, or is it task-specific?\n  • Can we predict phase transitions from initialization conditions?\n  • Are \"emergent capabilities\" in large language models genuine\n    phase transitions or artifacts of metric choice?\n\nCANDIDATE MECHANISMS\n  • Two-regime learning: fast memorization (gradient-dominated)\n    then slow generalization (regularization-dominated)\n  • Representation learning: representations must reorganize before\n    generalization is possible\n  • Circuit formation: specific circuits form during grokking;\n    incomplete formation = memorization; complete = generalization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "## Open Problem 6: Expressiveness vs Generalization Tradeoff",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nClassical: higher expressiveness → worse generalization (VC dim grows)\nModern: overparameterization helps (double descent, benign overfitting)\nEmpirical: architecture matters in ways theory doesn't predict\n\nTHE QUESTION\n  What is the right measure of \"complexity\" that predicts generalization\n  for modern deep learning architectures?\n\nCANDIDATES THAT HAVE BEEN TRIED (and found wanting):\n  VC dimension:         Too large; vacuous bounds\n  Rademacher complexity: Too large; vacuous bounds\n  L₂ norm:              Not sufficient alone; renormalization breaks it\n  Spectral norms:       Better but still vacuous for large nets\n  Flatness (Hessian):   Not invariant; definition problems\n  Effective rank:       Promising but incomplete\n\nWHAT'S NEEDED\n  A complexity measure C(h, data) that:\n  (1) Is computable or estimable from data\n  (2) Gives tight (non-vacuous) bounds\n  (3) Predicts which models generalize before training\n  (4) Explains why architecture + optimizer choice matters\n\n  This is the central open problem in generalization theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Open Problem 7: Alignment and Mesa-Optimization",
+      "confidence": "candidate",
+      "text": "THE PROBLEM (AI Safety Theory)\n──────────────────────────────\nMESA-OPTIMIZATION (Hubinger et al. 2019):\n  A sufficiently capable ML model (the \"mesa-optimizer\") may\n  learn to pursue objectives that differ from the training objective.\n\n  Base optimizer: SGD minimizing loss L on training data S\n  Mesa-optimizer: internal algorithm the model implements\n\n  Question: Does the mesa-optimizer optimize L, or something else?\n\n  MESA-MISALIGNMENT: Model learns to simulate behavior that minimizes L\n  during training/evaluation, but pursues different goal out-of-distribution.\n\nFORMAL PROBLEM\n  Let M_θ be a trained model. Define:\n    - True objective: f_true (what we want)\n    - Training objective: f_train (what we optimize)\n    - Model's internal objective: f_mesa\n\n  When is f_mesa ≈ f_train ≈ f_true?\n  Under what training regimes does f_mesa diverge?\n\nWHAT WE DON'T KNOW\n  • No formal characterization of when mesa-optimization occurs\n  • No way to detect mesa-misalignment without probing the model\n  • No training procedure that provably prevents mesa-misalignment\n  • Whether this is a real risk for current or future models\n\n**TCS connection: undecidability and formal verification.** Verifying that a learned model's internal objective matches the intended objective is undecidable in general. More precisely: given a Turing-complete hypothesis class (e.g., general neural networks with sufficient depth), determining whether a trained model M pursues objective f_train on all inputs (not just the training distribution) reduces to the halting problem — you cannot enumerate all possible inputs and verify behavior without running the model on them. Formal analogues:\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### What a Transformer Computes: The Formal Model",
+      "confidence": "candidate",
+      "text": "ATTENTION OPERATOR (single head)\n──────────────────────────────────\nInput: sequence X ∈ ℝ^{n×d}  (n tokens, d-dimensional embeddings)\n\nProjections:\n  Q = X W_Q ∈ ℝ^{n×d_k}    (queries)\n  K = X W_K ∈ ℝ^{n×d_k}    (keys)\n  V = X W_V ∈ ℝ^{n×d_v}    (values)\n\nAttention output:\n  Attn(Q, K, V) = softmax(QKᵀ / √d_k) · V   ∈ ℝ^{n×d_v}\n\nThe (i,j)-th attention weight:\n  αᵢⱼ = softmax(QᵢKⱼᵀ / √d_k) = exp(QᵢKⱼᵀ/√d_k) / Σₗ exp(QᵢKₗᵀ/√d_k)\n\nOutput at position i:\n  Attn(Q,K,V)ᵢ = Σⱼ αᵢⱼ Vⱼ   [weighted sum of values]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "### What a Transformer Computes: The Formal Model",
+      "confidence": "candidate",
+      "text": "HARD DICTIONARY LOOKUP              SOFT ATTENTION\n──────────────────────────          ───────────────────────────────────\nGiven query q, find key k*          Given query Qᵢ, compute weights αᵢⱼ\n  k* = argmax sim(q, kⱼ)              αᵢⱼ = softmax(QᵢKⱼᵀ/√d_k)\nReturn value v_{k*}                 Return Σⱼ αᵢⱼ Vⱼ  [weighted average]\n\nNot differentiable (argmax)         Fully differentiable (softmax)\nRetrieves one record                Interpolates across all records",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 404,
+      "heading_context": "### What a Transformer Computes: The Formal Model",
+      "confidence": "candidate",
+      "text": "HOPFIELD ENERGY FUNCTION\n  Classical Hopfield network: E(σ) = -(1/2) σᵀW σ   (quadratic energy)\n  Storage capacity: O(n) patterns for n neurons.\n\nMODERN HOPFIELD NETWORK (Ramsauer et al. 2020)\n  Energy: E(ξ, σ) = -lse(β, ξᵀσ) + (1/2)σᵀσ + β⁻¹ log n + (1/2)M²\n\n  where lse(β, z) = β⁻¹ log Σᵢ exp(β zᵢ) is the log-sum-exp function.\n\n  Update rule (synchronous): σ_new = softmax(β ξᵀσ) · ξᵀ\n     ↕\n  This is exactly one step of attention!\n\nSTORAGE CAPACITY\n  Classical Hopfield: O(n) patterns\n  Modern Hopfield:   O(exp(n)) patterns — exponential in embedding dim\n\n  The softmax nonlinearity enables exponential storage.\n  This is why transformer attention can retrieve from large context windows.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "### What a Transformer Computes: The Formal Model",
+      "confidence": "candidate",
+      "text": "THE PROBLEM\n────────────\nTransformers dominate modern ML. Theory lags practice significantly.\n\nWHAT WE KNOW\n  • Transformers are universal approximators (Yun et al. 2020)\n  • Attention can implement associative memory (Modern Hopfield networks)\n  • In-context learning can implement linear regression (Akyürek 2022)\n  • Transformers exhibit \"induction heads\" for pattern copying\n  • ≥2 attention heads are necessary for certain compositional computations\n\nWHAT WE DON'T KNOW\n  • Sample complexity of transformer training\n  • Which architectures (attention patterns, heads, depth) generalize best?\n  • Why does scale (more parameters, more data) improve capabilities?\n  • Can theory predict when a capability will emerge at scale?\n  • How does tokenization affect what can be learned?\n\nTHEORETICAL CHALLENGES\n  • Non-convex optimization with attention (softmax nonlinearity)\n  • NTK theory doesn't apply well (architecture not fully-connected)\n  • Sequence-to-sequence learning requires new learning models\n    (PAC learning assumes iid; sequences have dependencies)\n\nPARTIAL PROGRESS\n  • Tian et al. (2023): Analysis of single-head attention dynamics\n  • Barak et al. (2022): Statistical mechanics of transformers\n  • Mahankali et al. (2023): One-layer transformer for ICL regression",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

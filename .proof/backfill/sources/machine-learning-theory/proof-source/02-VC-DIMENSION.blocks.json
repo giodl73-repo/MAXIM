@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\02-VC-DIMENSION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  VC DIMENSION FRAMEWORK                          |\n|                                                                  |\n|  SHATTERING                                                      |\n|  H shatters a set C = {x₁,...,xd} iff for every labeling         |\n|  y: C → {0,1}, there exists h ∈ H with h(xᵢ) = yᵢ for all i      |\n|                                                                  |\n|  VC DIMENSION                                                    |\n|  VCdim(H) = largest d such that some set of d points is          |\n|             shattered by H                                       |\n|           = ∞ if H shatters sets of every size                   |\n|                                                                  |\n|  FUNDAMENTAL THEOREM OF STATISTICAL LEARNING                     |\n|  The following are equivalent for binary classification:         |\n|  (1) H has finite VC dimension                                   |\n|  (2) H is PAC learnable (realizable)                             |\n|  (3) H is agnostic PAC learnable                                 |\n|  (4) H has the uniform convergence property                      |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Shattering: Step by Step",
+      "confidence": "candidate",
+      "text": "Can H shatter 2 points {x₁, x₂} with x₁ < x₂?\n\n  Labeling (0,0):  use interval [∞, -∞] (empty) — no point inside  ✓\n  Labeling (1,0):  use interval [x₁, x₁]                           ✓\n  Labeling (0,1):  use interval [x₂, x₂]                           ✓\n  Labeling (1,1):  use interval [x₁, x₂]                           ✓\n  → Yes, H shatters {x₁, x₂}\n\nCan H shatter 3 points {x₁, x₂, x₃} with x₁ < x₂ < x₃?\n\n  Try labeling (1,0,1): need h with h(x₁)=1, h(x₂)=0, h(x₃)=1\n  An interval must be contiguous — cannot classify x₁ and x₃\n  positive while x₂ is negative.\n  → No set of 3 points is shattered.\n\nVCdim(H) = 2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 124,
+      "heading_context": "## The VC Generalization Bound",
+      "confidence": "candidate",
+      "text": "MAIN THEOREM (VC Generalization Bound)\n────────────────────────────────────────\n\nFor any distribution D, any δ ∈ (0,1), with probability ≥ 1-δ\nover the draw of m iid samples, uniformly for all h ∈ H:\n\n  |R(h) - R_S(h)| ≤ √( (8/m) · [d·ln(2em/d) + ln(4/δ)] )\n\nwhere d = VCdim(H).\n\nSAMPLE COMPLEXITY CONSEQUENCE\n  To ensure generalization gap < ε with probability ≥ 1-δ,\n  it suffices to have:\n    m = O( (d · ln(1/ε) + ln(1/δ)) / ε² )\n\nAGNOSTIC ERM BOUND\n  If h_ERM = argmin_{h∈H} R_S(h), then:\n    R(h_ERM) ≤ min_{h∈H} R(h) + 2√(d/m) + small δ-term",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Computing VC Dimension: Methods",
+      "confidence": "candidate",
+      "text": "+─────────────────────────────────────────────────────────────────+\n|                COMPUTING VCdim: TWO STEPS                       |\n|                                                                 |\n|  STEP 1: LOWER BOUND                                            |\n|  Exhibit a set of d points that H shatters.                     |\n|  One construction achieves every labeling → d is achievable.    |\n|                                                                 |\n|  STEP 2: UPPER BOUND                                            |\n|  Show no set of d+1 points can be shattered.                    |\n|  Must hold for ALL sets of d+1 points, not just specific ones.  |\n|                                                                 |\n|  COMMON UPPER BOUND TECHNIQUES                                  |\n|  • Dimension counting: parameterized by k real numbers          |\n|    → VCdim ≤ k (usually; need to be careful)                    |\n|  • Direct case analysis: enumerate all labelings                |\n|  • Radon's theorem: convex position argument for halfspaces     |\n+─────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## Structural Properties",
+      "confidence": "candidate",
+      "text": "MONOTONICITY\n  H₁ ⊆ H₂  →  VCdim(H₁) ≤ VCdim(H₂)\n  Larger hypothesis class ≥ larger VC dimension.\n\nCOMPOSITION\n  H₁ composed with H₂: VCdim ≤ 2·VCdim(H₁)·log(VCdim(H₁)) + ...\n  (messy; the point is it stays bounded)\n\nINTERSECTION\n  VCdim(H₁ ∩ H₂) ≤ VCdim(H₁) + VCdim(H₂) + 1\n\nUNION\n  VCdim(H₁ ∪ H₂) ≤ 2(d₁ + d₂) log(2e(d₁ + d₂))\n  where d₁ = VCdim(H₁), d₂ = VCdim(H₂).\n  Derived via Sauer's lemma: Π_{H₁∪H₂}(m) ≤ Π_{H₁}(m) + Π_{H₂}(m)\n  ≤ 2(em/d₁)^{d₁} when m > d₁+d₂; invert to get the VC bound.\n\nFUNCTION COMPOSITION\n  If g: Y → Z and H maps X → Y, then:\n  VCdim(g ∘ H) ≤ VCdim(H)  (labels get coarser; can only decrease)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## VC Dimension for Neural Networks",
+      "confidence": "candidate",
+      "text": "SHALLOW NETWORKS (single hidden layer)\n  n inputs, k hidden units (threshold activations)\n  VCdim = O(nk log(nk))      — Baum & Haussler 1989\n  VCdim = Ω(nk)              — lower bound exists\n\nDEEP NETWORKS\n  L layers, W total weights\n  VCdim = O(W·L·log W)       — Goldberg & Jerrum\n  VCdim = Ω(W·L)             — Bartlett et al.\n\nMODERN LARGE NETWORKS\n  GPT-3: ~175 billion parameters\n  VCdim ≈ O(W·L·log W) ≈ 10¹²\n  Training set: ~300 billion tokens ≈ 3×10¹¹\n\n  → VCdim ≈ training set size\n  → Classical VC bound: √(VC/m) ≈ O(1) ← vacuous!\n\n  Classical theory gives USELESS bounds for modern deep learning.\n  This is the theoretical crisis that motivated NTK, double descent.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "## Natarajan Dimension: Multiclass Extension",
+      "confidence": "candidate",
+      "text": "NATARAJAN DIMENSION\n  H: X → {1,...,k}\n  H N-shatters a set C if for every function f: C → {1,...,k},\n  there exists h ∈ H with h(xᵢ) = f(xᵢ) for all xᵢ ∈ C.\n\n  Wait — that would be the trivial generalization.\n\n  ACTUAL DEFINITION:\n  H N-shatters C if there exist two functions f₁, f₂: C → {1,...,k}\n  with f₁(x) ≠ f₂(x) for all x ∈ C, and for every T ⊆ C,\n  there exists h ∈ H with h(xᵢ) = f₁(xᵢ) for xᵢ ∈ T\n                         and h(xᵢ) = f₂(xᵢ) for xᵢ ∉ T.\n\nNdim(H) = max size of N-shattered set\n\nMULTICLASS FUNDAMENTAL THEOREM\n  H is multiclass PAC-learnable iff Ndim(H) < ∞.\n\nMULTICLASS SAMPLE COMPLEXITY (agnostic)\n  m = Θ( (Ndim(H) · log(k) + log(1/δ)) / ε² )\n\n  where k = number of classes.\n  — Ndim(H) plays the role of d = VCdim\n  — Extra log(k) factor captures the increased label complexity\n  — Binary case: k=2, log(k)=1, Ndim = VCdim → recovers VC bound",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:neural-tangent
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Neural Tangent Kernel and Infinite-Width Networks
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/06-NEURAL-TANGENT.md
+canonical_path: machine-learning-theory/06-NEURAL-TANGENT.md
+backsource_ids: [proof-backfill:machine-learning-theory:06-neural-tangent, git-history:machine-learning-theory:06-neural-tangent]
+concepts: [neural, tangent]
+root_concepts: [neural, tangent]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neural Tangent Kernel and Infinite-Width Networks
 
 ## The Big Picture
