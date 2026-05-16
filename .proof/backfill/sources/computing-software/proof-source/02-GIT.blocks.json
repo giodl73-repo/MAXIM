@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\02-GIT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                     GIT MENTAL MODEL\n\n  REMOTE (GitHub / Azure DevOps / GitLab):\n  +----------------------------------------------------------+\n  | origin/main      origin/feat-auth    origin/feat-ui      |\n  +----------------------------------------------------------+\n        ↑ ↓  push / pull\n\n  LOCAL CLONE (your machine):\n  +----------------------------------------------------------+\n  |  main         feat-auth       feat-ui                    |\n  |                                                          |\n  |  WORKING      STAGING         COMMIT                     |\n  |  TREE    -->  AREA (index) --> HISTORY (.git/)           |\n  +----------------------------------------------------------+\n\n  Each developer has their own full LOCAL copy of history.\n  \"origin\" is a named pointer to the shared remote.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 54,
+      "heading_context": "### Source Depot → Git: The Inversion of Ownership",
+      "confidence": "candidate",
+      "text": "  SOURCE DEPOT MENTAL MODEL           GIT MENTAL MODEL\n  ========================            ================\n\n  Server holds the depot.             Every clone IS the depot.\n\n  +-------------------+               +-------------------+\n  |   SD SERVER       |               |   origin (GitHub) |\n  |   (the truth)     |               |   (just a clone   |\n  |   Full history    |               |    everyone agrees|\n  |   All branches    |               |    is canonical)  |\n  +-------------------+               +-------------------+\n           |                                   |\n           | enlistment:                       | git clone:\n           | \"map these depot                  | \"give me the ENTIRE\n           |  paths to my local                |  repository — all history,\n           |  workspace\"                        |  all branches, all objects\"\n           v                                   v\n  +-------------------+               +-------------------+\n  |   LOCAL MACHINE   |               |   LOCAL MACHINE   |\n  |   Only files in   |               |   .git/ = full    |\n  |   your client     |               |   object store    |\n  |   spec mappings   |               |   (the whole repo)|\n  |   (a view)        |               |   working tree =  |\n  +-------------------+               |   checked-out     |\n                                      |   snapshot        |\n                                      +-------------------+\n\n  SD: \"I have a view into the server\"\n  Git: \"I have the server — origin is just a named remote I sync with\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## The Three Trees",
+      "confidence": "candidate",
+      "text": "  WORKING TREE          STAGING AREA            COMMIT HISTORY\n  (your files)          (the index)             (.git/objects)\n  ------------          -----------             --------------\n  What you see          What's been             Permanent\n  in your editor.       marked for the          snapshots.\n                        next commit.            SHA-addressed.\n\n  git add -->           git commit -->\n\n  Untracked files       Staged changes          Committed changes\n  Modified files        (diff vs last           (diff vs parent)\n  Deleted files          commit)\n\n  git diff              git diff --staged       git log\n  (working vs staged)   (staged vs HEAD)        (history)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 129,
+      "heading_context": "### Commits Are Snapshots, Not Diffs",
+      "confidence": "candidate",
+      "text": "  Source Depot / TFS mindset:          Git reality:\n  +----------------------------+        +-----------------------------+\n  | Changeset = set of diffs   |        | Commit = full snapshot      |\n  | against previous version   |        | of ALL tracked files        |\n  | File A: lines 3-7 changed  |        | SHA: a3f1c9d...             |\n  | File B: added lines 11-14  |        | Parent: 82be4a1...          |\n  +----------------------------+        | Tree: [all files @ this pt] |\n                                        +-----------------------------+\n\n  Git stores snapshots. Diffs are computed on-demand from comparing\n  two snapshots. This is why git log -p works and why blame is fast.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### HEAD — Where You Are",
+      "confidence": "candidate",
+      "text": "  HEAD is a pointer. It usually points to a branch, which points to a commit.\n\n  main -------> a3f1c9d  <--- HEAD\n    |\n    v\n  You're on main. Commits go here.\n\n  After: git checkout feat-auth\n\n  main -------> a3f1c9d\n  feat-auth --> 82be4a1  <--- HEAD\n\n  After: git checkout a3f1c9d  (detached HEAD)\n\n  main -------> a3f1c9d  <--- HEAD (directly)\n  feat-auth --> 82be4a1\n\n  Detached HEAD = you're looking at a commit, not a branch.\n  New commits here go nowhere (no branch tracks them) unless you create one.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 373,
+      "heading_context": "### The Golden Rule of Rebase",
+      "confidence": "candidate",
+      "text": "  +-----------------------------------------------+\n  |  NEVER rebase commits that exist on a         |\n  |  remote branch others have pulled from.       |\n  |                                               |\n  |  Rebase = rewrite history = new SHAs.         |\n  |  Others' local branches still point to        |\n  |  the OLD SHAs. Chaos follows.                 |\n  |                                               |\n  |  Safe: rebase your LOCAL feature branch       |\n  |        before opening a PR.                   |\n  |  Safe: rebase interactively to clean up       |\n  |        your own unpushed commits.             |\n  +-----------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 391,
+      "heading_context": "### Squash Merge",
+      "confidence": "candidate",
+      "text": "  A middle path: take all commits from a branch, squash to ONE,\n  merge that onto main.\n\n  git merge --squash feat-auth\n  git commit -m \"Add auth feature (#123)\"\n\n  Result: Linear main. No merge commit. One commit per feature.\n  Trade-off: You lose granular history of the feature branch.\n\n  GitHub/Azure DevOps PR merge options:\n  +-----------------+-----------------------------------+\n  | Merge commit    | Preserves all commits + adds merge|\n  | Squash merge    | Squashes all to one commit        |\n  | Rebase merge    | Replays commits linearly, no merge|\n  +-----------------+-----------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 413,
+      "heading_context": "## Undoing Things",
+      "confidence": "candidate",
+      "text": "  UNDO SCENARIOS\n\n  +---------------------------------+------------------------------------+\n  | Situation                       | Command                            |\n  +---------------------------------+------------------------------------+\n  | Unstage a file (keep changes)   | git restore --staged file.txt      |\n  |                                 | (old: git reset HEAD file.txt)     |\n  +---------------------------------+------------------------------------+\n  | Discard working tree changes    | git restore file.txt               |\n  | (DESTRUCTIVE — no undo)         | (old: git checkout -- file.txt)    |\n  +---------------------------------+------------------------------------+\n  | Amend the last commit message   | git commit --amend                 |\n  | (ONLY if not yet pushed)        |                                    |\n  +---------------------------------+------------------------------------+\n  | Undo last commit, keep changes  | git reset --soft HEAD~1            |\n  | staged (not yet pushed)         | (moves HEAD back 1, keeps index)   |\n  +---------------------------------+------------------------------------+\n  | Undo last commit, unstage too   | git reset --mixed HEAD~1           |\n  | (default reset behavior)        | (moves HEAD back 1, clears index)  |\n  +---------------------------------+------------------------------------+\n  | Undo commit, discard changes    | git reset --hard HEAD~1            |\n  | (DESTRUCTIVE — loses work)      |                                    |\n  +---------------------------------+------------------------------------+\n  | Undo a commit safely (already   | git revert <sha>                   |\n  | pushed / shared)                | Creates a NEW commit that undoes it|\n  +---------------------------------+------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 521,
+      "heading_context": "### GitHub Flow (simple, modern standard)",
+      "confidence": "candidate",
+      "text": "  main is always deployable.\n\n  main\n  |\n  +--- feature branch\n  |         |\n  |    (commits)\n  |         |\n  |    pull request\n  |         |\n  |    code review\n  |         |\n  |    merge to main\n  |         |\n  +<--------+\n  |\n  deploy\n\n  Rules:\n  1. Branch from main.\n  2. Open a PR early (even draft) for visibility.\n  3. Review + CI must pass before merge.\n  4. Merge to main = ready to deploy.\n  5. Delete branch after merge.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 577,
+      "heading_context": "## Remotes and Forks",
+      "confidence": "candidate",
+      "text": "  FORK WORKFLOW (open source / cross-team)\n\n  +---------------------+         +----------------------+\n  |  upstream (original)|         |  origin (your fork)  |\n  |  github.com/org/repo|         |  github.com/you/repo |\n  +---------------------+         +----------------------+\n            |                               |\n            |  fork (GitHub UI)             |  clone\n            +-----------------------------> |\n                                            v\n                                   +----------------+\n                                   |  LOCAL CLONE   |\n                                   |  origin = fork |\n                                   |  upstream = org|\n                                   +----------------+\n\n  git remote add upstream https://github.com/org/repo.git\n\n  Sync with upstream:\n  git fetch upstream\n  git rebase upstream/main    (or: git merge upstream/main)\n  git push origin main        (update your fork)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 627,
+      "heading_context": "### Azure DevOps Branch Policies → GitHub Branch Protection Rules",
+      "confidence": "candidate",
+      "text": "You built branch policies in VSTS/ADO. GitHub calls them \"branch protection rules\" and configures them in repo **Settings → Branches → Add rule** rather than in the pipeline. The concepts map directly:",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 814,
+      "heading_context": "### \"git rebase vs git merge — just tell me what to use\"",
+      "confidence": "candidate",
+      "text": "  For feature branches before PR:     git rebase main\n    -> Clean, linear history for reviewers.\n    -> Your branch replays on top of latest main.\n\n  For integrating after PR approval:  Let the platform do it.\n    -> GitHub/Azure DevOps handles the merge strategy.\n    -> Configure \"squash merge\" for clean main history.\n\n  For long-lived integration branch:  git merge\n    -> Preserves the real history of what happened.\n    -> Merge commits show integration points.\n\n  Never rebase shared/remote branches.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\00-SENTINEL-THESIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 31,
+      "heading_context": "## The Landscape: Three Domains, One Principle",
+      "confidence": "candidate",
+      "text": "THE SENTINEL'S DOMAIN\n======================================================================================\n\n                  FLP IMPOSSIBILITY (1985)\n              \"No deterministic async protocol\n               solves consensus with one crash.\"\n                          │\n                          ▼\n                ┌─────────────────────┐\n                │   THEORETICAL FLOOR │\n                └─────────────────────┘\n                          │\n        ┌─────────────────┼─────────────────┐\n        ▼                 ▼                 ▼\n\n  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────────┐\n  │  DISTRIBUTED     │ │  SECURITY        │ │  CLOUD               │\n  │  SYSTEMS         │ │  ENGINEERING     │ │  ARCHITECTURE        │\n  │                  │ │                  │ │                      │\n  │  \"Who has the    │ │  \"Who do you     │ │  \"Where do you       │\n  │   truth?\"        │ │   trust?\"        │ │   put the truth?\"    │\n  │                  │ │                  │ │                      │\n  │  Consensus       │ │  Trust models    │ │  Redundancy          │\n  │  Replication     │ │  Verification    │ │  Isolation           │\n  │  Consistency     │ │  Zero-trust      │ │  Elasticity          │\n  │  Fault tolerance │ │  Threat modeling │ │  Shared-nothing      │\n  └──────────────────┘ └──────────────────┘ └──────────────────────┘\n\n                        ▼  combined yield:\n                ┌───────────────────┐\n                │  THE SENTINEL'S   │\n                │  PRINCIPLE:       │\n                │                   │\n                │  No single point  │\n                │  of truth.        │\n                │  No single point  │\n                │  of trust.        │\n                │  No single point  │\n                │  of failure.      │\n                └───────────────────┘\n\nCONSTRAINT FLOW:\n  FLP impossibility ──► CAP theorem ──► Byzantine fault tolerance ──► Zero trust\n  (theory floor)        (design bound)   (consensus protocol)         (security posture)\n\n  \"You cannot have      \"You must         \"You need 3f+1          \"Every request is\n   perfect consensus     choose between     honest nodes to         untrusted until\n   in async systems.\"    C and A during     tolerate f              verified, every\n                         partitions.\"       Byzantine faults.\"      network is hostile.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 89,
+      "heading_context": "## The Load-Bearing Insight",
+      "confidence": "candidate",
+      "text": "### 1. FLP Impossibility (Fischer, Lynch, Paterson, 1985)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### 1. FLP Impossibility (Fischer, Lynch, Paterson, 1985)",
+      "confidence": "candidate",
+      "text": "FLP ASSUMPTION SET                      ESCAPE ROUTES\n┌────────────────────────────────┐      ┌─────────────────────────────────┐\n│ 1. Fully asynchronous          │  ──► │ Partial synchrony (Paxos, Raft) │\n│ 2. Deterministic protocol      │  ──► │ Randomization (Ben-Or)          │\n│ 3. Even one crash failure      │  ──► │ Failure detectors (Chandra-T.)  │\n│ 4. Agreement + validity +      │      │ Timeouts + leader election      │\n│    termination all required    │      │   (practical systems)           │\n└────────────────────────────────┘      └─────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 106,
+      "heading_context": "### 1. FLP Impossibility (Fischer, Lynch, Paterson, 1985)",
+      "confidence": "candidate",
+      "text": "### 2. CAP Theorem (Brewer, 2000; Gilbert-Lynch proof, 2002)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 115,
+      "heading_context": "### 2. CAP Theorem (Brewer, 2000; Gilbert-Lynch proof, 2002)",
+      "confidence": "candidate",
+      "text": "### 3. Byzantine Fault Tolerance (Lamport, Shostak, Pease, 1982)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "### 3. Byzantine Fault Tolerance (Lamport, Shostak, Pease, 1982)",
+      "confidence": "candidate",
+      "text": "FAULT MODEL HIERARCHY (strictest → most lenient)\n┌──────────────────────────────────────────────────────────────────┐\n│  BYZANTINE          n >= 3f + 1     Arbitrary behavior, lying    │\n│  ──────────────────────────────────────────────────────────────  │\n│  AUTHENTICATED BYZ  n >= 3f + 1     Byzantine + digital sigs     │\n│  ──────────────────────────────────────────────────────────────  │\n│  CRASH-RECOVERY     n >= 2f + 1     Stop + restart with state    │\n│  ──────────────────────────────────────────────────────────────  │\n│  CRASH-STOP         n >= 2f + 1     Stop permanently, silent     │\n│  ──────────────────────────────────────────────────────────────  │\n│  FAIL-STOP          n >= f + 1      Stop, detectable by others   │\n└──────────────────────────────────────────────────────────────────┘\n\nWhy 3f + 1?\n  f nodes can lie.\n  f nodes can be silent (crashed).\n  You still need f + 1 honest, responsive nodes to form a majority.\n  f + f + (f + 1) = 3f + 1.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Three Domains, One Principle",
+      "confidence": "candidate",
+      "text": "┌─────────────────┬──────────────────────┬──────────────────────────┐\n│  DOMAIN         │  THE QUESTION        │  THE SENTINEL'S ANSWER   │\n├─────────────────┼──────────────────────┼──────────────────────────┤\n│  Distributed     │  Who has the         │  Nobody. Consensus       │\n│  Systems         │  authoritative       │  protocols among         │\n│                  │  state?              │  quorums hold the        │\n│                  │                      │  truth collectively.     │\n├─────────────────┼──────────────────────┼──────────────────────────┤\n│  Security       │  Who is allowed      │  Nobody by default.      │\n│  Engineering    │  to act?             │  Every request is        │\n│                 │                      │  authenticated,          │\n│                 │                      │  authorized, encrypted,  │\n│                 │                      │  and audited.            │\n├─────────────────┼──────────────────────┼──────────────────────────┤\n│  Cloud           │  Where does the      │  Nowhere permanently.    │\n│  Architecture    │  system run?         │  Cattle not pets.        │\n│                  │                      │  Immutable deploys.      │\n│                  │                      │  Multi-AZ. Multi-region. │\n│                  │                      │  Everything fails.       │\n└─────────────────┴──────────────────────┴──────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "## The Bridge: Source Depot to Git, Centralized to Distributed",
+      "confidence": "candidate",
+      "text": "SOURCE DEPOT (centralized):\n\n  CENTRAL SERVER holds THE truth\n    [ master history (authoritative) ]\n              │\n       ┌──────┴──────┐\n       ▼             ▼\n    client        client\n    (thin)        (thin)\n\n  Single point of failure. Single point of trust.\n\nGIT (distributed):\n\n  EVERY CLONE IS A FULL REPLICA\n    [ clone A (full) ]   [ clone B (full) ]\n            │                    │\n            └────────┬───────────┘\n                     ▼\n              merge/rebase (consensus)\n\n  No single point of failure. Any clone can\n  reconstruct the full history.\n\nSENTINEL LENS:\n  Source Depot = trust a single server       (cathedral)\n  Git          = trust is distributed        (bazaar)\n  GitHub/ADO   = adds a \"blessed\" remote     (consensus on where origin is)\n\nThe same shift happened everywhere:\n  Mainframe   → Client/server → Microservices → Serverless\n  Single DB   → Primary/replica → Sharded → CRDTs\n  VPN gateway → Firewall perimeter → Zero-trust network\n  One admin   → RBAC → ABAC → Just-in-time PAM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## Consensus as the Unifying Abstraction",
+      "confidence": "candidate",
+      "text": "CONSENSUS INSTANCES ACROSS THE THREE DOMAINS\n\nDISTRIBUTED SYSTEMS:\n  Paxos proposer ──► acceptors ──► majority agree ──► value decided\n  Raft leader    ──► followers  ──► majority ack  ──► log committed\n  2PC coordinator ──► participants ──► all vote yes ──► commit\n\nSECURITY:\n  OAuth flow: client ──► auth server ──► resource server validates token\n  mTLS:       client cert ──► server cert ──► mutual verification\n  MFA:        factor 1 ──► factor 2 ──► (factor 3) ──► access granted\n  Multi-party approval: n of m approvers sign off ──► action authorized\n\nCLOUD:\n  Load balancer ──► health check ──► healthy nodes serve traffic\n  K8s scheduler ──► etcd consensus ──► pod placement decided\n  Blue/green:     canary traffic ──► metrics pass ──► full rollover\n  Write quorum:   write to w replicas ──► ack after w responses",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 266,
+      "heading_context": "## The Sentinel's Posture: Design Principles",
+      "confidence": "candidate",
+      "text": "### 1. Assume Failure",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 276,
+      "heading_context": "### 1. Assume Failure",
+      "confidence": "candidate",
+      "text": "### 2. Trust Nothing Implicitly",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 286,
+      "heading_context": "### 2. Trust Nothing Implicitly",
+      "confidence": "candidate",
+      "text": "### 3. Make Failure Observable",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 296,
+      "heading_context": "### 3. Make Failure Observable",
+      "confidence": "candidate",
+      "text": "### 4. Bound the Blast Radius",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 306,
+      "heading_context": "### 4. Bound the Blast Radius",
+      "confidence": "candidate",
+      "text": "### 5. Prefer Determinism Under Pressure",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "## The Sentinel's Constraint Stack",
+      "confidence": "candidate",
+      "text": "CONSTRAINT HIERARCHY (top dominates)\n┌──────────────────────────────────────────────────────────────────────┐\n│  PHYSICS                                                             │\n│  Speed of light: cross-continent RTT ~ 60-80 ms (irreducible)        │\n│  Cannot coordinate faster than c allows.                             │\n├──────────────────────────────────────────────────────────────────────┤\n│  IMPOSSIBILITY RESULTS                                               │\n│  FLP: no deterministic async consensus with 1 crash                  │\n│  CAP: C + A + P impossible simultaneously                            │\n│  Two Generals: no guaranteed agreement over unreliable channel       │\n├──────────────────────────────────────────────────────────────────────┤\n│  PROTOCOL BOUNDS                                                     │\n│  BFT: need 3f+1 nodes for f Byzantine faults                         │\n│  Paxos/Raft: need 2f+1 nodes for f crash faults                      │\n│  Quorum intersection: R + W > N for linearizability                  │\n├──────────────────────────────────────────────────────────────────────┤\n│  ENGINEERING TRADE-OFFS                                              │\n│  Latency vs. consistency (strong consistency = more round trips)     │\n│  Availability vs. correctness (AP vs CP during partition)            │\n│  Security vs. usability (MFA friction vs. credential theft risk)     │\n│  Cost vs. redundancy (multi-region doubles infra spend)              │\n├──────────────────────────────────────────────────────────────────────┤\n│  OPERATIONAL REALITY                                                 │\n│  Human error: #1 cause of outages (misconfiguration, bad deploy)     │\n│  Organizational boundaries: Conway's Law shapes failure domains      │\n│  Regulatory: GDPR data residency, FedRAMP boundary, PCI scope        │\n└──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "## Cross-Volume Connections",
+      "confidence": "candidate",
+      "text": "INBOUND (theory feeds the Sentinel):\n  cryptography/   ──► Primitives: AES, ECDSA, TLS, Argon2id\n  mathematics/    ──► Probability (quorum math), graph theory (network topology)\n  computing/21    ──► Automata, formal verification of protocols\n  computing/23    ──► Type theory → protocol verification (session types)\n\nOUTBOUND (the Sentinel constrains everything):\n  computing/12    ──► Kubernetes = etcd (Raft) + scheduler + RBAC\n  computing/13    ──► CI/CD = trust chain from commit to production\n  computing/15    ──► Observability = the Sentinel's eyes\n  computing/17    ──► Cloud-native = all three domains fused\n  computing/24    ──► Networking = the unreliable channel FLP warns about",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 419,
+      "heading_context": "## Reading Order",
+      "confidence": "candidate",
+      "text": "RECOMMENDED SEQUENCE:\n\n1. This file                          ← thesis and landscape\n2. distributed-systems/00-OVERVIEW    ← problem space, FLP, CAP\n3. distributed-systems/01-CAP         ← the constraint you cannot escape\n4. distributed-systems/03-CONSENSUS   ← Paxos, Raft, BFT\n5. security-engineering/00-OVERVIEW   ← threat surface, adversary models\n6. security-engineering/02-SECURE-DESIGN ← zero-trust, defense-in-depth\n7. cloud-architecture/00-OVERVIEW     ← where theory meets infrastructure\n8. cloud-architecture/01-CLOUD-MODELS ← the abstraction spectrum\n\nTHEN BRANCH BY NEED:\n  Building a distributed DB?     → distributed-systems/04, 05, 06\n  Standing up security practice? → security-engineering/01, 03, 04\n  Designing cloud infra?         → cloud-architecture/02, 03, 04\n  Incident prep?                 → security-engineering/07, 08\n  Cost optimization?             → cloud-architecture/08",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

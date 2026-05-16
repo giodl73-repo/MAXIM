@@ -1,0 +1,261 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\00-SENTINEL-THESIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## Three Domains, One Principle",
+      "headers": [
+        "Concept",
+        "Distributed Systems",
+        "Security Engineering",
+        "Cloud Architecture"
+      ],
+      "rows": [
+        [
+          "**Core problem**",
+          "Agreement without central authority",
+          "Trust without perimeter",
+          "Reliability without permanence"
+        ],
+        [
+          "**Theoretical bound**",
+          "FLP impossibility",
+          "Rice's theorem (undecidable properties of programs)",
+          "CAP trade-offs on every design choice"
+        ],
+        [
+          "**Protocol class**",
+          "Paxos, Raft, PBFT",
+          "TLS, OAuth 2.0, OIDC, mTLS",
+          "Load balancers, health checks, circuit breakers"
+        ],
+        [
+          "**Failure assumption**",
+          "Nodes crash or go Byzantine",
+          "Adversaries are active",
+          "Infrastructure is ephemeral"
+        ],
+        [
+          "**Redundancy model**",
+          "Replicas (leader + followers)",
+          "Defense in depth (layered controls)",
+          "AZs, regions, multi-cloud"
+        ],
+        [
+          "**Quorum concept**",
+          "Majority of replicas agree",
+          "Multi-factor authentication, multi-party approval",
+          "Writes ack'd by majority of replicas"
+        ],
+        [
+          "**Consistency model**",
+          "Linearizable, causal, eventual",
+          "Least privilege (no implicit access)",
+          "Strong consistency costs latency"
+        ],
+        [
+          "**Partition response**",
+          "CP: reject / AP: serve stale",
+          "Network segmentation, microsegmentation",
+          "Failover to healthy region"
+        ],
+        [
+          "**Verification**",
+          "Cryptographic signatures on votes",
+          "Zero-trust: verify every call",
+          "Health probes, readiness checks"
+        ],
+        [
+          "**Rollback**",
+          "Log-based recovery, WAL",
+          "Incident response, forensic timeline",
+          "Blue/green deploy, rollback to last-known-good"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 270,
+      "heading_context": "## The Sentinel's Posture: Design Principles",
+      "headers": [
+        "Domain",
+        "Manifestation"
+      ],
+      "rows": [
+        [
+          "Distributed",
+          "Crash-stop and Byzantine fault models"
+        ],
+        [
+          "Security",
+          "Assume breach (Microsoft's post-2020 posture)"
+        ],
+        [
+          "Cloud",
+          "Design for AZ failure, region failure, service failure"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 280,
+      "heading_context": "## The Sentinel's Posture: Design Principles",
+      "headers": [
+        "Domain",
+        "Manifestation"
+      ],
+      "rows": [
+        [
+          "Distributed",
+          "Cryptographic signatures on consensus votes"
+        ],
+        [
+          "Security",
+          "Zero-trust: verify identity + device + context on every call"
+        ],
+        [
+          "Cloud",
+          "mTLS between services, managed identities, no hardcoded creds"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 290,
+      "heading_context": "## The Sentinel's Posture: Design Principles",
+      "headers": [
+        "Domain",
+        "Manifestation"
+      ],
+      "rows": [
+        [
+          "Distributed",
+          "Heartbeat protocols, failure detectors, vector clocks"
+        ],
+        [
+          "Security",
+          "SIEM, audit logs, intrusion detection, threat hunting"
+        ],
+        [
+          "Cloud",
+          "OpenTelemetry, distributed tracing, health endpoints"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 300,
+      "heading_context": "## The Sentinel's Posture: Design Principles",
+      "headers": [
+        "Domain",
+        "Manifestation"
+      ],
+      "rows": [
+        [
+          "Distributed",
+          "Partition tolerance, quorum writes, idempotent operations"
+        ],
+        [
+          "Security",
+          "Network segmentation, least privilege, break-glass procedures"
+        ],
+        [
+          "Cloud",
+          "AZ isolation, bulkhead pattern, circuit breakers, rate limits"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 310,
+      "heading_context": "## The Sentinel's Posture: Design Principles",
+      "headers": [
+        "Domain",
+        "Manifestation"
+      ],
+      "rows": [
+        [
+          "Distributed",
+          "CP systems reject requests rather than serve stale data"
+        ],
+        [
+          "Security",
+          "Fail-closed (deny by default) rather than fail-open"
+        ],
+        [
+          "Cloud",
+          "Return 503 with Retry-After rather than serve corrupted responses"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 377,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "You need to...",
+        "Start here",
+        "Key constraint"
+      ],
+      "rows": [
+        [
+          "Choose a consistency model for your distributed DB",
+          "`distributed-systems/02-CONSISTENCY-MODELS.md`",
+          "CAP: CP or AP during partition?"
+        ],
+        [
+          "Understand why your 5-node cluster tolerates 2 failures",
+          "`distributed-systems/03-CONSENSUS.md`",
+          "Raft/Paxos: n = 2f+1"
+        ],
+        [
+          "Design for Byzantine actors (blockchain, adversarial env)",
+          "`distributed-systems/03-CONSENSUS.md`",
+          "BFT: n = 3f+1"
+        ],
+        [
+          "Threat model a new service",
+          "`security-engineering/01-THREAT-MODELING.md`",
+          "STRIDE per component"
+        ],
+        [
+          "Decide between VPN and zero-trust",
+          "`security-engineering/06-NETWORK-SECURITY.md`",
+          "Zero-trust: verify every call, not the pipe"
+        ],
+        [
+          "Plan incident response before you need it",
+          "`security-engineering/07-INCIDENT-RESPONSE.md`",
+          "NIST 800-61 framework"
+        ],
+        [
+          "Pick IaaS vs. PaaS vs. FaaS for a workload",
+          "`cloud-architecture/01-CLOUD-MODELS.md`",
+          "Shared responsibility boundary"
+        ],
+        [
+          "Design for multi-region failover",
+          "`cloud-architecture/04-NETWORKING.md`",
+          "Physics: latency is bounded by c"
+        ],
+        [
+          "Rightsize cloud spend",
+          "`cloud-architecture/08-COST-OPTIMIZATION.md`",
+          "FinOps: measure, then cut"
+        ],
+        [
+          "Secure inter-service communication",
+          "`security-engineering/02-SECURE-DESIGN.md` + `computing/25-SECURITY.md`",
+          "mTLS + managed identity + least privilege"
+        ],
+        [
+          "Understand why Spanner uses atomic clocks",
+          "`distributed-systems/05-DISTRIBUTED-TXN.md`",
+          "TrueTime: bounded clock uncertainty as consensus shortcut"
+        ]
+      ]
+    }
+  ]
+}

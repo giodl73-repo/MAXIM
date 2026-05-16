@@ -1,0 +1,184 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\01-PACKAGE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 64,
+      "heading_context": "## Layer 1: System / OS Package Managers",
+      "headers": [
+        "Manager",
+        "OS",
+        "Registry",
+        "Installs"
+      ],
+      "rows": [
+        [
+          "**winget**",
+          "Windows",
+          "Microsoft Store / winget repo",
+          "Apps, tools, runtimes"
+        ],
+        [
+          "**choco**",
+          "Windows",
+          "chocolatey.org",
+          "Apps, tools, runtimes, dev tools"
+        ],
+        [
+          "**scoop**",
+          "Windows",
+          "GitHub buckets",
+          "CLI tools, dev tools (no admin needed)"
+        ],
+        [
+          "**apt**",
+          "Debian/Ubuntu",
+          "distro repos",
+          "Everything on Linux"
+        ],
+        [
+          "**brew**",
+          "macOS (+ Linux)",
+          "Homebrew formulae",
+          "CLI tools, apps, runtimes"
+        ],
+        [
+          "**snap**",
+          "Linux",
+          "Snap Store",
+          "Sandboxed apps"
+        ],
+        [
+          "**flatpak**",
+          "Linux",
+          "Flathub",
+          "Sandboxed desktop apps"
+        ],
+        [
+          "**pacman**",
+          "Arch Linux",
+          "Arch repos + AUR",
+          "Everything on Arch"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 261,
+      "heading_context": "## Layer 2: Language / Runtime Package Managers",
+      "headers": [
+        "Language",
+        "Manager",
+        "Registry",
+        "Project File",
+        "Lock File"
+      ],
+      "rows": [
+        [
+          "**Rust**",
+          "cargo",
+          "crates.io",
+          "Cargo.toml",
+          "Cargo.lock"
+        ],
+        [
+          "**Go**",
+          "go mod",
+          "proxy.golang.org",
+          "go.mod",
+          "go.sum"
+        ],
+        [
+          "**Ruby**",
+          "gem / bundler",
+          "rubygems.org",
+          "Gemfile",
+          "Gemfile.lock"
+        ],
+        [
+          "**PHP**",
+          "composer",
+          "packagist.org",
+          "composer.json",
+          "composer.lock"
+        ],
+        [
+          "**Java**",
+          "maven",
+          "Maven Central",
+          "pom.xml",
+          "-"
+        ],
+        [
+          "**Java**",
+          "gradle",
+          "Maven Central",
+          "build.gradle",
+          "gradle.lockfile"
+        ],
+        [
+          "**Swift**",
+          "SPM",
+          "GitHub/custom",
+          "Package.swift",
+          "Package.resolved"
+        ],
+        [
+          "**Dart**",
+          "pub",
+          "pub.dev",
+          "pubspec.yaml",
+          "pubspec.lock"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 524,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Install Python/Node/.NET on Windows",
+          "`winget` or `choco`"
+        ],
+        [
+          "Install a CLI tool I use everywhere",
+          "System PM (`choco install ripgrep`)"
+        ],
+        [
+          "Add a Python library to my project",
+          "`pip install` (in a venv) or `uv add`"
+        ],
+        [
+          "Add a JS library to my project",
+          "`npm install` or `pnpm add`"
+        ],
+        [
+          "Add a .NET library to my project",
+          "`dotnet add package`"
+        ],
+        [
+          "Run different Node versions per project",
+          "`nvm`, `fnm`, or `volta`"
+        ],
+        [
+          "Run different Python versions per project",
+          "`pyenv` or `uv`"
+        ],
+        [
+          "Ship my whole environment reproducibly",
+          "Docker"
+        ],
+        [
+          "Manage a monorepo with many packages",
+          "`pnpm workspaces`, `nx`, or `turborepo`"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\01-PACKAGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|                    SYSTEM / OS LAYER                          |\n|  winget, choco, apt, brew, scoop                              |\n|  Installs: runtimes, tools, apps, drivers                     |\n+---------------------------------------------------------------+\n        |           |           |           |           |\n        v           v           v           v           v\n   +---------+ +---------+ +---------+ +---------+ +---------+\n   | Python  | | Node.js | | .NET    | | Rust    | | Java    |\n   | RUNTIME | | RUNTIME | | RUNTIME | | RUNTIME | | RUNTIME |\n   +---------+ +---------+ +---------+ +---------+ +---------+\n        |           |           |           |           |\n        v           v           v           v           v\n   +---------+ +---------+ +---------+ +---------+ +---------+\n   |  pip    | |  npm    | |  nuget  | |  cargo  | |  maven  |\n   | poetry  | |  pnpm   | |  dotnet | |         | | gradle  |\n   |  uv     | |  yarn   | |         | |         | |         |\n   | LANG PM | | LANG PM | | LANG PM | | LANG PM | | LANG PM |\n   +---------+ +---------+ +---------+ +---------+ +---------+\n        |           |           |           |           |\n        v           v           v           v           v\n   +---------+ +---------+ +---------+ +---------+ +---------+\n   |requests | | react   | |Newtonsft| | serde   | | spring  |\n   |numpy    | | express | |EF Core  | | tokio   | | jackson |\n   | LIBS    | | LIBS    | | LIBS    | | LIBS    | | LIBS    |\n   +---------+ +---------+ +---------+ +---------+ +---------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "### Windows: winget vs choco vs scoop",
+      "confidence": "candidate",
+      "text": "                  +------------------+\n                  |    YOU WANT TO   |\n                  |  INSTALL STUFF   |\n                  +------------------+\n                     /     |     \\\n                    /      |      \\\n                   v       v       v\n            +--------+ +--------+ +--------+\n            | winget | | choco  | | scoop  |\n            +--------+ +--------+ +--------+\n            |Built-in| |Most    | |No admin|\n            |to Win11| |packages| |needed  |\n            |Simple  | |Auto-   | |Dev-tool|\n            |        | |update  | |focused |\n            +--------+ +--------+ +--------+\n\n  Think of it as:\n  - winget = Windows \"app store\" from the command line\n  - choco  = apt/brew for Windows (broadest catalog)\n  - scoop  = lightweight, no-admin, CLI-tool focused",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 127,
+      "heading_context": "### The Major Ecosystems",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                        LANGUAGE LAYER                            |\n|                                                                  |\n|  PYTHON          NODE.JS         .NET           RUST             |\n|  -------         --------        -----          -----            |\n|  Registry:       Registry:       Registry:      Registry:        |\n|  PyPI             npmjs.com      nuget.org      crates.io        |\n|                                                                  |\n|  Managers:       Managers:       Manager:       Manager:         |\n|  pip             npm             dotnet CLI     cargo            |\n|  poetry          pnpm            (nuget CLI)                     |\n|  uv              yarn                                            |\n|  conda           bun                                             |\n|                                                                  |\n|  Lock file:      Lock file:      Lock file:     Lock file:       |\n|  requirements.   package-        packages.      Cargo.lock       |\n|  txt / poetry.   lock.json       lock.json                       |\n|  lock / uv.lock                                                  |\n|                                                                  |\n|  Project file:   Project file:   Project file:  Project file:    |\n|  pyproject.toml  package.json    .csproj        Cargo.toml       |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 156,
+      "heading_context": "### Python Ecosystem (the most confusing one)",
+      "confidence": "candidate",
+      "text": "                    PYTHON PACKAGING\n                    ================\n\n  +----------+    The OG. Comes with Python.\n  |   pip    |    pip install requests\n  +----------+    No lock file. No environments.\n       |\n       v\n  +----------+    pip + virtual environments.\n  | venv/    |    Isolates per-project dependencies.\n  | virtualenv    python -m venv .venv\n  +----------+    source .venv/bin/activate\n       |\n       v\n  +----------+    pip + venv + lock file + publishing.\n  | poetry   |    poetry add requests\n  +----------+    Closest to npm's experience.\n       |\n       v\n  +----------+    Blazing fast pip/poetry replacement.\n  |    uv    |    Written in Rust. Drop-in compatible.\n  +----------+    uv pip install requests\n       |\n       |          Totally separate ecosystem.\n       v          Installs Python ITSELF + packages.\n  +----------+    Has its own package repo (conda-forge).\n  |  conda   |    Used heavily in data science.\n  +----------+    conda install numpy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 194,
+      "heading_context": "### Node.js Ecosystem",
+      "confidence": "candidate",
+      "text": "                    NODE.JS PACKAGING\n                    =================\n\n  +----------+    Comes with Node.js.\n  |   npm    |    npm install react\n  +----------+    The default. Everyone has it.\n       |\n  +----------+    Faster, stricter, disk-efficient.\n  |   pnpm   |    Uses symlinks + content-addressable store.\n  +----------+    pnpm install react\n       |\n  +----------+    Facebook's alternative to npm.\n  |   yarn   |    yarn add react\n  +----------+    Plug'n'Play mode (no node_modules).\n       |\n  +----------+    Runtime + package manager + bundler.\n  |   bun    |    All-in-one. Written in Zig.\n  +----------+    bun install react",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "### Node.js Ecosystem",
+      "confidence": "candidate",
+      "text": "  Same registry (npmjs.com)\n  Same project file (package.json)\n  Different lock files:\n    npm  -> package-lock.json\n    pnpm -> pnpm-lock.yaml\n    yarn -> yarn.lock\n    bun  -> bun.lockb",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "### .NET Ecosystem",
+      "confidence": "candidate",
+      "text": "                    .NET PACKAGING\n                    ==============\n\n  +-------------+\n  | dotnet CLI  |\n  +-------------+\n  Command: dotnet add package Newtonsoft.Json — The one and only. Simple.\n         |\n         v\n  +-------------+\n  |  nuget.org  |\n  +-------------+\n  The registry. Like PyPI or npmjs.\n         |\n         v\n  +-------------+\n  |   .csproj   |\n  +-------------+\n  Project file. Lists dependencies. <PackageReference Include=\"...\" />\n         |\n         v\n  +-------------------+\n  | packages.lock.json|\n  +-------------------+\n  Lock file (opt-in).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 278,
+      "heading_context": "## Layer 3: Meta / Cross-Language Managers",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------+\n|                     META LAYER                                 |\n|                                                                |\n|  CONTAINERS        VERSION MGR       MONOREPO        TASK      |\n|  ----------        -----------       --------        ------    |\n|  docker            asdf              nx              make      |\n|  podman            mise (rtx)        turborepo       just      |\n|  nix               pyenv             lerna           task      |\n|                    nvm               pnpm workspaces           |\n|                    fnm                                         |\n|                    volta                                       |\n+----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 297,
+      "heading_context": "### Version Managers — \"Which Python/Node do I use?\"",
+      "confidence": "candidate",
+      "text": "  Problem: Project A needs Node 18, Project B needs Node 22.\n\n  Solution: Version managers.\n\n  For Node.js:\n  +-------+     +---------+     +--------+\n  |  nvm  | or  |  volta  | or  |  fnm   |\n  +-------+     +---------+     +--------+\n       |\n       v\n  Switches which `node` is on your PATH\n  based on the project you're in.\n\n  For Python:\n  +--------+     +-------+\n  | pyenv  | or  |  uv   |\n  +--------+     +-------+\n       |\n       v\n  Switches which `python` is on your PATH.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 322,
+      "heading_context": "### Docker / Containers — \"Ship the whole environment\"",
+      "confidence": "candidate",
+      "text": "  Without Docker:                    With Docker:\n  +-----------+                      +-------------------+\n  | Your code |                      | Container         |\n  | + deps    |                      | +---------------+ |\n  | depend on |                      | | OS (Ubuntu)   | |\n  | YOUR OS   |  -- \"works on my    | | Python 3.12   | |\n  | YOUR Python    machine\" -->      | | pip packages  | |\n  | YOUR Node  |                     | | Node 22       | |\n  +-----------+                      | | npm packages  | |\n                                     | | Your code     | |\n                                     | +---------------+ |\n                                     +-------------------+\n                                     Ships EVERYTHING.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 373,
+      "heading_context": "## How They All Nest Together",
+      "confidence": "candidate",
+      "text": "choco install nodejs python         <-- System layer\n     |\n     +---> node + npm on PATH\n     +---> python + pip on PATH\n              |\n              +---> npm install      <-- Node packages (frontend)\n              |     package.json\n              |     node_modules/\n              |       react/\n              |       webpack/\n              |\n              +---> pip install      <-- Python packages (backend)\n                    requirements.txt\n                    .venv/\n                      django/\n                      celery/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 430,
+      "heading_context": "### Global vs Local Install",
+      "confidence": "candidate",
+      "text": "  GLOBAL                              LOCAL (per-project)\n  ------                              -------------------\n  npm install -g typescript           npm install typescript\n  pip install black                   pip install black (in venv)\n\n  Goes in a system-wide location.     Goes in node_modules/ or .venv/\n  Available everywhere.               Available only in this project.\n  Version conflicts across projects.  Each project has its own version.\n\n  Rule of thumb:\n  - CLI tools you use everywhere -> global (typescript, black, eslint)\n  - Libraries your code imports  -> local (react, django, numpy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 498,
+      "heading_context": "## Your Windows Setup (Practical Map)",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------+\n|  SYSTEM LAYER (pick one or two)                           |\n|                                                           |\n|  choco / winget / scoop                                   |\n|  Install: python, nodejs, dotnet-sdk, rust, git, vscode   |\n+-----------------------------------------------------------+\n         |              |              |\n         v              v              v\n  +-----------+  +-----------+  +-----------+\n  | Python    |  | Node.js   |  | .NET SDK  |\n  | 3.12      |  | 22 LTS    |  | 9.0       |\n  +-----------+  +-----------+  +-----------+\n  | pip / uv  |  | npm /pnpm |  | dotnet    |\n  | venv      |  |           |  |           |\n  +-----------+  +-----------+  +-----------+\n  | django    |  | react     |  | EF Core   |\n  | numpy     |  | express   |  | ASP.NET   |\n  | pandas    |  | vite      |  | xunit     |\n  +-----------+  +-----------+  +-----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

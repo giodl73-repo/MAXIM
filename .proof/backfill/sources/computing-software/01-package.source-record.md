@@ -24,10 +24,13 @@ updated: null
 |---|---|
 | Current MAXIM file | `computing/01-PACKAGE.md` |
 | PROOF source artifact | `.proof/backfill/sources/computing-software/proof-source/01-PACKAGE.source.md` |
+| PROOF table sidecar | `.proof/backfill/sources/computing-software/proof-source/01-PACKAGE.tables.json` |
+| PROOF block sidecar | `.proof/backfill/sources/computing-software/proof-source/01-PACKAGE.blocks.json` |
 | Backfill report | `.proof/backfill/sources/computing-software/backfill-report.json` |
 | PROOF classification | `literal_markdown` |
 | PROOF confidence | `high` |
 | Round trip | `passed` |
+| Structured extraction | `3` markdown tables, `13` visual/block candidates |
 | Git provenance | `6d4e034363e7a8646b813f96a1292e7b72293689`, `4e0d7aa7ef1273f22643eef4cd9f024a34cb2d2e`, `1b27cd00eaeb39a556ce521e9557ef71029797e4`, `3579f4388e0c67bc59351235c76c526ee9b9e9eb`, `13a1513a44fb7bfa945004302cb8d6cfc2b41ca8`, `29204ca00c85d5f3c428bf59d150376b9c6b04af` |
 
 ## Custody note
