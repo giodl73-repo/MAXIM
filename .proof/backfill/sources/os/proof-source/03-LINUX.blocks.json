@@ -1,0 +1,292 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\03-LINUX.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture — Linux System Architecture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         USERSPACE                                           │\n│                                                                             │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────────────┐   │\n│  │  systemd     │  │  bash / zsh  │  │  Docker /    │  │  Your App      │ │\n│  │  (PID 1)     │  │  (shell)     │  │  containerd  │  │  (Node, Python,│ │\n│  │  services,   │  │  scripts,    │  │  (container  │  │  .NET, etc.)   │ │\n│  │  timers,     │  │  job ctrl    │  │  runtime)    │  │                │ │\n│  │  journald    │  │              │  │              │  │                │ │\n│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └───────┬────────┘ │\n│         │                 │                  │                  │          │\n│  ┌──────┴─────────────────┴──────────────────┴──────────────────┴────────┐ │\n│  │                    glibc / musl (C standard library)                  │ │\n│  │   open(), read(), write(), fork(), mmap(), socket(), ...              │ │\n│  │   Wraps raw syscall numbers with portable function calls              │ │\n│  └───────────────────────────────────┬───────────────────────────────────┘ │\n└──────────────────────────────────────┼──────────────────────────────────────┘\n                           SYSCALL BOUNDARY (ring 3 → ring 0)\n                    (x86-64: SYSCALL instruction; ARM64: SVC #0)\n┌──────────────────────────────────────┼──────────────────────────────────────┐\n│                         KERNEL SPACE │                                      │\n│                                      ▼                                      │\n│  ┌───────────────────────────────────────────────────────────────────────┐  │\n│  │                       LINUX KERNEL (monolithic)                       │  │\n│  │                                                                       │  │\n│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌─────────────────┐ │  │\n│  │  │ Scheduler  │  │  Memory    │  │  VFS       │  │  Network Stack  │ │  │\n│  │  │            │  │  Manager   │  │ (Virtual   │  │                 │ │  │\n│  │  │ CFS        │  │            │  │ Filesystem)│  │  TCP/IP, UDP    │ │  │\n│  │  │ real-time  │  │  mmap      │  │            │  │  Netfilter      │ │  │\n│  │  │ deadline   │  │  brk/sbrk  │  │  ext4 xfs  │  │  nftables       │ │  │\n│  │  │ FIFO/RR    │  │  OOM kill  │  │  btrfs     │  │  eBPF hooks     │ │  │\n│  │  │ cgroups    │  │  huge pages│  │  overlayfs │  │  AF_UNIX        │ │  │\n│  │  └────────────┘  └────────────┘  │  /proc /sys│  └─────────────────┘ │  │\n│  │                                  │  /dev      │                       │  │\n│  │  ┌────────────┐  ┌────────────┐  └────────────┘  ┌─────────────────┐ │  │\n│  │  │  Namespaces│  │  cgroups   │                  │ Device Drivers  │ │  │\n│  │  │  pid net   │  │  v2 unified│                  │                 │ │  │\n│  │  │  mnt uts   │  │  hierarchy │                  │  block (disk)   │ │  │\n│  │  │  ipc user  │  │  (container│                  │  char (tty)     │ │  │\n│  │  │  cgroup    │  │  isolation)│                  │  net (NIC)      │ │  │\n│  │  └────────────┘  └────────────┘                   └─────────────────┘ │ │\n│  └───────────────────────────────────────────────────────────────────────┘  │\n│                                      │                                      │\n│                                      ▼                                      │\n│  ┌──────────────────────────── HARDWARE ─────────────────────────────────┐  │\n│  │  CPU + MMU     RAM (DRAM)     NVMe / SSD      NIC          GPU        │  │\n│  └───────────────────────────────────────────────────────────────────────┘  │\n└─────────────────────────────────────────────────────────────────────────────┘\n\nEverything is a file:\n  /proc/PID/     — process internals exposed as files (no disk I/O)\n  /sys/          — kernel object model (devices, drivers) as a live filesystem\n  /dev/          — device nodes (read /dev/urandom, write /dev/null)\n  Unix sockets   — IPC via filesystem paths (/run/docker.sock)\n  pipes          — anonymous files connecting stdout→stdin",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## Distro Families — Know Which One You're On",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         LINUX DISTRO LANDSCAPE                              │\n│                                                                             │\n│  DEBIAN FAMILY               RHEL FAMILY              ARCH FAMILY           │\n│  ─────────────               ───────────              ───────────           │\n│  Debian (upstream)           RHEL (Red Hat, $)        Arch Linux            │\n│   └─ Ubuntu                   └─ CentOS Stream         └─ Manjaro           │\n│       ├─ Ubuntu Server         └─ Rocky Linux           └─ EndeavourOS      │\n│       ├─ Ubuntu Desktop        └─ AlmaLinux             └─ Garuda           │\n│       └─ Mint, Pop!_OS         └─ Fedora (upstream)    AUR = community pkgs │\n│                                └─ Amazon Linux 2023                         │\n│  Package: .deb                 └─ Azure Linux (CBL)    Package: pkg.tar.zst │\n│  Tool: apt + dpkg             Package: .rpm            Tool: pacman         │\n│  Repo: /etc/apt/sources.list  Tool: dnf / yum                               │\n│                               Repo: /etc/yum.repos.d/                       │\n│                                                                             │\n│  IMMUTABLE / CONTAINER-FIRST                                                │\n│  ────────────────────────────                                               │\n│  Fedora Silverblue   — rpm-ostree atomic updates, Flatpak for apps          │\n│  NixOS               — declarative entire system in Nix expressions         │\n│  Flatcar             — designed for containers only (runs on AKS nodes)     │\n│  Azure Linux         — Microsoft's CBL-Mariner, used for AKS + Azure VMs    │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### Essential Package Commands Side-by-Side",
+      "confidence": "candidate",
+      "text": "Task                    apt (Debian/Ubuntu)           dnf (RHEL/Fedora)\n────────────────────    ──────────────────────────    ─────────────────────────\nInstall                 apt install nginx             dnf install nginx\nRemove                  apt remove nginx              dnf remove nginx\nRemove + config         apt purge nginx               dnf remove nginx (purges)\nUpdate metadata         apt update                    dnf check-update\nUpgrade all             apt upgrade                   dnf upgrade\nSearch                  apt search nginx              dnf search nginx\nShow package info       apt show nginx                dnf info nginx\nList installed          dpkg -l                       rpm -qa\nWhich pkg owns file     dpkg -S /usr/bin/nginx        rpm -qf /usr/bin/nginx\nList pkg files          dpkg -L nginx                 rpm -ql nginx\nAdd repo (apt)          add-apt-repository ppa:...    dnf config-manager --add-repo URL\nAdd repo (manual)       /etc/apt/sources.list.d/      /etc/yum.repos.d/custom.repo",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Filesystem Hierarchy Standard (FHS)",
+      "confidence": "candidate",
+      "text": "/\n├── bin  ─── (symlink → /usr/bin on modern distros)\n├── sbin ─── (symlink → /usr/sbin on modern distros)\n├── lib  ─── (symlink → /usr/lib on modern distros)\n│\n├── usr/                   The real programs\n│   ├── bin/               All user-runnable binaries: bash, ls, python3\n│   ├── sbin/              System admin binaries: sshd, iptables, fdisk\n│   ├── lib/               Shared libraries (.so files — Linux's .dll equivalent)\n│   ├── lib64/             64-bit libs on mixed systems\n│   ├── include/           C header files\n│   ├── share/             Architecture-independent data (man pages, locales)\n│   └── local/             Admin-installed programs (not managed by package manager)\n│       ├── bin/           Your compiled tools, scripts\n│       └── lib/\n│\n├── etc/                   All system configuration — text files, no registry\n│   ├── hostname           One line: the machine's hostname\n│   ├── hosts              Static DNS overrides (like C:\\Windows\\System32\\drivers\\etc\\hosts)\n│   ├── resolv.conf        DNS server list (may be managed by systemd-resolved)\n│   ├── fstab              Filesystem mount table (like Windows disk management, but text)\n│   ├── passwd             User accounts (no passwords here — they moved to shadow)\n│   ├── shadow             Hashed passwords (root-only readable)\n│   ├── group              Group definitions\n│   ├── sudoers            sudo rules (edit with visudo — validates before saving)\n│   ├── ssh/sshd_config    SSH server config\n│   └── systemd/system/    Unit files for locally installed services\n│\n├── var/                   Variable data — changes at runtime\n│   ├── log/               Traditional log files (syslog, auth.log, etc.)\n│   ├── spool/             Print queues, mail queues\n│   ├── lib/               Persistent app data (databases, package manager state)\n│   └── cache/             Cached data (apt downloads, etc.)\n│\n├── run/                   Runtime data — tmpfs, cleared on boot\n│   ├── docker.sock        Docker daemon Unix socket\n│   ├── systemd/           systemd runtime state\n│   └── *.pid              PID files for running daemons\n│\n├── proc/                  NOT on disk — kernel exposes process/system info here\n│   ├── <PID>/             One directory per running process\n│   │   ├── cmdline        Full command line (null-separated)\n│   │   ├── environ        Environment variables\n│   │   ├── maps           Memory map (VMA layout)\n│   │   ├── fd/            Open file descriptors (symlinks to actual files)\n│   │   ├── status         Human-readable process status\n│   │   └── net/tcp        TCP connections this process has\n│   ├── cpuinfo            CPU model, cores, flags\n│   ├── meminfo            RAM stats (like Task Manager → Performance)\n│   ├── sys/               Kernel parameters (readable/writable — sysctl lives here)\n│   │   └── net/ipv4/      e.g., ip_forward, tcp_keepalive_time\n│   └── loadavg            1m, 5m, 15m load averages\n│\n├── sys/                   Kernel device model — sysfs\n│   ├── block/             Block devices (disks)\n│   ├── bus/               PCI, USB, etc.\n│   ├── class/net/         Network interfaces\n│   └── fs/cgroup/         cgroup v2 hierarchy (container resource limits)\n│\n├── dev/                   Device files — I/O to hardware via read/write\n│   ├── sda, nvme0n1       Block devices (disks)\n│   ├── tty0, pts/0        Terminals\n│   ├── null               Discard everything written, return EOF on read\n│   ├── zero               Infinite stream of null bytes\n│   ├── urandom            Cryptographically secure random bytes\n│   └── loop0, loop1       Loop devices (mount disk images as if real disks)\n│\n├── home/                  User home directories: /home/alice, /home/bob\n├── root/                  root user's home (NOT /home/root)\n├── tmp/                   Tmpfs — cleared on reboot; world-writable with sticky bit\n├── opt/                   Vendor-installed monolithic packages (Oracle, IBM, etc.)\n├── srv/                   Data served by this machine (web roots, FTP roots)\n└── boot/                  Kernel images, initramfs, GRUB config",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## systemd — The Full Story",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                     SYSTEMD OBJECT MODEL                                 │\n│                                                                          │\n│  Unit Types:                                                             │\n│  .service   — a daemon process (nginx, sshd, your app)                   │\n│  .timer     — scheduled work (replaces cron)                             │\n│  .socket    — socket-activated service (starts on first connection)      │\n│  .mount     — filesystem mount point                                     │\n│  .target    — group of units / runlevel equivalent                       │\n│  .path      — watch a filesystem path, start service on change           │\n│  .slice     — cgroup hierarchy node for resource limits                  │\n│                                                                          │\n│  Unit file locations (in priority order, last wins):                     │\n│  /usr/lib/systemd/system/    ← package-installed (don't edit)            │\n│  /etc/systemd/system/        ← admin overrides — this is yours           │\n│  /etc/systemd/system/foo.service.d/override.conf  ← drop-in overrides    │\n│  ~/.config/systemd/user/     ← user services (run without root)          │\n│                                                                          │\n│  Config override pattern (preferred over editing package files):         │\n│  systemctl edit nginx    ← creates .d/override.conf automatically        │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "### Targets (systemd's runlevel equivalent)",
+      "confidence": "candidate",
+      "text": "SysV runlevel → systemd target\n────────────────────────────────────────────────────────────\n0  (halt)         → poweroff.target\n1  (single user)  → rescue.target\n3  (multi-user)   → multi-user.target    ← servers live here\n5  (graphical)    → graphical.target     ← desktops\n6  (reboot)       → reboot.target\n\nAzure VMs and containers boot to multi-user.target.\nNo display manager. No GUI. That's correct.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 455,
+      "heading_context": "## Containers = Linux Primitives",
+      "confidence": "candidate",
+      "text": "docker run --rm -p 8080:80 nginx\n   │\n   ├─► clone() with flags:\n   │     CLONE_NEWPID   ─── new PID namespace (container's nginx is PID 1)\n   │     CLONE_NEWNET   ─── new network namespace (container gets eth0)\n   │     CLONE_NEWNS    ─── new mount namespace (container's own / filesystem)\n   │     CLONE_NEWUTS   ─── new UTS namespace (container gets its own hostname)\n   │     CLONE_NEWIPC   ─── new IPC namespace (isolated shared memory, semaphores)\n   │     CLONE_NEWUSER  ─── user namespace (map container root → unprivileged host uid)\n   │     CLONE_NEWCGROUP─── new cgroup namespace\n   │\n   ├─► cgroup v2:\n   │     /sys/fs/cgroup/docker/<container-id>/\n   │     cpu.max        = \"500000 1000000\"  (CPUQuota=50%)\n   │     memory.max     = \"536870912\"       (512MB)\n   │     pids.max       = 256\n   │\n   ├─► overlayfs mount:\n   │     Lower layers:  nginx image layers (read-only)\n   │     Upper layer:   container-specific changes (read-write)\n   │     Work dir:      overlayfs scratch space\n   │     Result:        appears to container as normal / filesystem\n   │\n   ├─► seccomp-bpf filter:\n   │     Blocks ~40 dangerous syscalls (mount, kexec_load, ptrace, etc.)\n   │     Container cannot load kernel modules or reboot host\n   │\n   └─► capabilities drop:\n         Default: only CAP_NET_BIND_SERVICE and ~14 safe caps remain\n         Dropped: CAP_SYS_ADMIN, CAP_NET_ADMIN, CAP_SYS_MODULE, etc.\n         --privileged: restore ALL caps (essentially root on host — never in prod)\n         --cap-add CAP_NET_BIND_SERVICE: add one specific cap back",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 503,
+      "heading_context": "### Namespaces — What Each Isolates",
+      "confidence": "candidate",
+      "text": "### cgroups v1 vs v2",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 505,
+      "heading_context": "### cgroups v1 vs v2",
+      "confidence": "candidate",
+      "text": "cgroups v1 (legacy — still present, avoid for new work)\n─────────────────────────────────────────────────────\nMultiple hierarchies — each resource controller (cpu, memory, blkio)\nhas its own separate tree. You can attach a process to different\npositions in different trees. Powerful, but complex and inconsistent.\n\n/sys/fs/cgroup/memory/docker/<id>/memory.limit_in_bytes\n/sys/fs/cgroup/cpu/docker/<id>/cpu.cfs_quota_us\n/sys/fs/cgroup/blkio/docker/<id>/blkio.throttle.read_bps_device\n\ncgroups v2 (unified — use this)\n─────────────────────────────────────────────────────\nSingle unified hierarchy. All controllers under one tree.\nConsistent semantics. Required for rootless containers.\nEnabled by default: Ubuntu 22.04+, Fedora 31+, RHEL 9+, AKS 1.25+\n\n/sys/fs/cgroup/docker/<id>/\n  memory.max        (hard limit — OOM kill)\n  memory.high       (soft limit — throttle before kill)\n  cpu.max           (quota/period format: \"500000 1000000\" = 50%)\n  io.max            (IOPS and bandwidth limits per device)\n  pids.max          (process/thread count limit)\n\nCheck which you have:\n  stat -fc %T /sys/fs/cgroup/   # \"tmpfs\" = v1, \"cgroup2fs\" = v2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 535,
+      "heading_context": "### overlayfs — How Image Layers Work",
+      "confidence": "candidate",
+      "text": "Image on disk:               What container sees:\n─────────────                ────────────────────\nLayer 3 (your app)           /app/server.js       ← from layer 3 (upper)\nLayer 2 (node_modules)       /app/node_modules/   ← from layer 2\nLayer 1 (node:20 base)       /usr/local/bin/node  ← from layer 1\nLayer 0 (debian base)        /bin/bash            ← from layer 0\n\nContainer writes /etc/hosts  → goes into ephemeral upper layer (lost on container exit)\nContainer writes /data/db    → if /data is a volume mount, goes to host filesystem\n\nThis is why:\n  - docker pull is fast (reuse layers)\n  - \"container is read-only\" advice — mutations lost on container stop\n  - volumes exist — to persist data across container restarts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 558,
+      "heading_context": "## eBPF — The Modern Linux Superpower",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                         eBPF ARCHITECTURE                                │\n│                                                                          │\n│  Your tool (bpftrace script, Cilium, Falco)                              │\n│       │                                                                  │\n│       ▼                                                                  │\n│  BPF bytecode  ──► Verifier (safety check: no loops, bounded mem access) │\n│       │                                                                  │\n│       ▼                                                                  │\n│  JIT compiler  ──► native CPU instructions                               │\n│       │                                                                  │\n│       ▼                                                                  │\n│  Attached to hook:                                                       │\n│  ┌──────────────┬──────────────┬──────────────┬──────────────┐           │\n│  │  kprobe      │  tracepoint  │  XDP         │  tc (traffic │          │\n│  │  (kernel fn  │  (kernel     │  (earliest   │  control)    │          │\n│  │  entry/exit) │  static pts) │  network     │  (ingress/   │          │\n│  │              │              │  hook)       │  egress)     │          │\n│  │  uprobe      │  USDT        │  socket      │  cgroup sock │          │\n│  │  (user fn)   │  (user-space │  filter      │  (per cgroup │          │\n│  │              │  tracepoints)│              │  filtering)  │          │\n│  └──────────────┴──────────────┴──────────────┴──────────────┘          │\n│       │                                                                   │\n│       ▼                                                                   │\n│  BPF Maps (shared memory between kernel BPF prog and user-space tool)    │\n│  hash, array, ringbuf, lpm_trie, perf_event_array, ...                   │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 901,
+      "heading_context": "### Conditionals",
+      "confidence": "candidate",
+      "text": "# [[ ]] is bash's extended test — prefer over [ ] (no word splitting, no glob)\n[[ -f \"$path\" ]]        # is a regular file\n[[ -d \"$path\" ]]        # is a directory\n[[ -e \"$path\" ]]        # exists (any type)\n[[ -r \"$path\" ]]        # readable\n[[ -x \"$path\" ]]        # executable\n[[ -z \"$var\" ]]         # string is empty\n[[ -n \"$var\" ]]         # string is non-empty\n[[ \"$a\" == \"$b\" ]]      # string equality\n[[ \"$a\" != \"$b\" ]]      # string inequality\n[[ \"$a\" =~ ^[0-9]+$ ]] # regex match (bash 3.2+)\n[[ $n -eq 5 ]]          # numeric equality\n[[ $n -lt 10 ]]         # numeric less than\n[[ $n -ge 1 ]]          # numeric greater-or-equal\n[[ -f \"$f\" && -r \"$f\" ]]  # AND\n[[ -z \"$a\" || -z \"$b\" ]]  # OR\n\nif [[ -f \"$config\" ]]; then\n    echo \"config exists\"\nelif [[ -d \"$config\" ]]; then\n    echo \"config is a directory\"\nelse\n    echo \"config not found\"\nfi",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 1007,
+      "heading_context": "### Shell Init Files — Which Runs When",
+      "confidence": "candidate",
+      "text": "Login shell (ssh login, su -, sudo -i):\n  /etc/profile       ← system-wide; sources /etc/profile.d/*.sh\n  ~/.bash_profile    ← user; if not found, tries ~/.bash_login, then ~/.profile\n\nInteractive non-login shell (new terminal in GUI, bash in bash):\n  /etc/bash.bashrc   ← system-wide interactive config\n  ~/.bashrc          ← user interactive config\n\nNon-interactive shell (shell scripts, cron jobs):\n  Nothing sourced by default\n  $BASH_ENV          ← if set, this file is sourced\n\nPractical rule:\n  Put PATH changes and exports → ~/.bash_profile (runs on SSH login)\n  Put aliases and functions    → ~/.bashrc (runs in interactive shells)\n  Source ~/.bashrc from ~/.bash_profile to get both in login shells:\n    [[ -f ~/.bashrc ]] && source ~/.bashrc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 1033,
+      "heading_context": "### Permission Model Comparison — Windows vs Linux vs macOS",
+      "confidence": "candidate",
+      "text": "PERMISSION MODELS AT A GLANCE\n═══════════════════════════════════════════════════════════════════════\n\n  Layer            Windows (NTFS)              Linux POSIX            Linux Extended (optional)\n  ──────────       ────────────────────────    ──────────────────     ─────────────────────────\n  DAC model        Full ACL: per-user/group    3-bucket: owner/       POSIX ACL (getfacl/setfacl)\n                   allow AND deny ACEs         group/other            Adds per-user entries but\n                   Any SID can get an ACE      No deny entries in     still no audit entries\n                   in DACL                     standard POSIX\n  Deny ACEs        Yes — explicit deny wins    No — cannot deny a     ACL mask concept only\n                   over allow for same SID     specific user          (no explicit deny)\n  Audit entries    SACL — separate from DACL   auditd rules on        auditd + inotify\n                   Each ACE is audited         file path              (separate from permissions)\n  Inherit          Yes — directory ACEs        umask applies to       setfacl --default\n                   propagate to children       new files; no          sets default ACEs\n                   (with propagation flags)    per-entry inherit      for new files in dir\n  Identity         SID (binary, stable across  uid/gid (integer,      uid/gid + name lookup\n                   renames + moves)            per-machine unless     via LDAP/SSSD)\n                                               LDAP/AD)\n  Check on open    Full access check at open   Owner check at open    Same as POSIX\n  (not on read)    against token + DACL        (rwx vs uid/gid)\n  Elevation path   UAC → new elevated token    setuid bit / sudo      same\n  Mandatory        Integrity Levels            SELinux / AppArmor     (MAC, separate layer)\n  (MAC)            (Low/Med/High/System)       (optional)\n\nKey gap: Linux POSIX has no per-user deny. If alice is in a group that\nhas read access, you cannot deny alice specifically in POSIX mode.\nYou need POSIX ACLs (setfacl) or SELinux policy for that.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 1110,
+      "heading_context": "### The Permission Model",
+      "confidence": "candidate",
+      "text": "ls -la /etc/shadow\n-rw-r----- 1 root shadow 1234 Jan 15 10:00 /etc/shadow\n│├┤├┤├┤    │ │    │\n││ │ │ │   │ │    └── group name\n││ │ │ └── other: --- (no permissions)\n││ │ └──── group: r-- (read only)\n││ └────── owner: rw- (read + write)\n│└──────── file type: - = regular file\n└───────── (just the dash at position 0)\n\nPermission bits: r=4, w=2, x=1\nchmod 755 = rwxr-xr-x = owner:7 group:5 other:5\nchmod 644 = rw-r--r-- = standard for config files\nchmod 600 = rw------- = SSH private keys (MUST be this)\nchmod 777 = rwxrwxrwx = never in production\n\nchmod u+x script.sh     # add execute for owner (symbolic)\nchmod go-w file         # remove write for group and other\nchown alice:devs file   # change owner AND group\nchown alice file        # change owner only\nchgrp devs file         # change group only\nchown -R alice /var/app # recursive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 1221,
+      "heading_context": "### ACLs — Beyond owner/group/other",
+      "confidence": "candidate",
+      "text": "# Standard chmod only has owner, group, other — ACLs add per-user/per-group entries\ngetfacl /var/www/html           # show current ACLs\nsetfacl -m u:alice:rw file.txt  # give alice read+write\nsetfacl -m g:devs:r- file.txt   # give devs group read\nsetfacl -m o::- file.txt        # remove all perms from \"other\"\nsetfacl -R -m u:alice:rX /var/www  # recursive, X = execute only if dir or already executable\nsetfacl -x u:alice file.txt     # remove alice's ACL entry\nsetfacl -b file.txt             # remove all ACL entries\n\n# Default ACLs on directories (inherited by new files)\nsetfacl -d -m u:alice:rw /shared   # new files in /shared will give alice rw\n\nls -la shows + if ACL exists: -rw-rw-r--+ alice alice 0 file.txt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 1241,
+      "heading_context": "## Networking",
+      "confidence": "candidate",
+      "text": "### The iproute2 Suite (Replace ifconfig/route)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 1290,
+      "heading_context": "### DNS Configuration",
+      "confidence": "candidate",
+      "text": "Modern Ubuntu/Debian: systemd-resolved (DO NOT edit /etc/resolv.conf directly)\n  /etc/resolv.conf → symlink to /run/systemd/resolve/stub-resolv.conf\n  resolvectl status          ← show current DNS servers per-link\n  resolvectl query hostname  ← DNS lookup via resolved\n  resolvectl flush-caches    ← clear DNS cache (like ipconfig /flushdns on Windows)\n\n  Edit DNS: /etc/netplan/*.yaml (Ubuntu), or NetworkManager connection config\n\nRHEL/Rocky: NetworkManager manages /etc/resolv.conf\n  nmcli dev show | grep DNS\n  nmcli connection modify eth0 ipv4.dns \"8.8.8.8 1.1.1.1\"\n\n/etc/hosts:\n  127.0.0.1   localhost\n  ::1         localhost\n  10.0.0.5    mydb.internal    ← static override, consulted before DNS\n  Equivalent to C:\\Windows\\System32\\drivers\\etc\\hosts\n\n  On Azure VMs: Azure DNS is 168.63.129.16 — DO NOT block this IP;\n  it provides DHCP, DNS, health probe, and IMDS connectivity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 1429,
+      "heading_context": "### LVM — Logical Volume Manager",
+      "confidence": "candidate",
+      "text": "Physical World:              LVM World:\n──────────────               ──────────\n/dev/sdb (100GB)    ──►  PV (Physical Volume)\n/dev/sdc (200GB)    ──►  PV\n                          │\n                          ▼\n                     VG (Volume Group) = pool of all PV space\n                          │\n                    ┌─────┴─────┐\n                    ▼           ▼\n                    LV          LV       (Logical Volumes — like partitions but flexible)\n                  /data (150GB) /backup (100GB)\n                    │           │\n                 mkfs.ext4   mkfs.xfs\n                    │\n                 mount → /data\n\nBenefits: resize live, snapshots, span multiple disks, RAID within LVM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 1474,
+      "heading_context": "### Azure-Specific Storage",
+      "confidence": "candidate",
+      "text": "Azure VM Disk Types:\n─────────────────────────────────────────────────────────────────────\nUltra Disk      — sub-ms latency, configurable IOPS; databases only\nPremium SSD v2  — best general purpose; flexible IOPS/throughput\nPremium SSD     — predictable performance; most prod workloads\nStandard SSD    — dev/test, infrequent access\nStandard HDD    — backup, archival, tolerates high latency\n\nAzure VM disk caching (set per disk in Portal or CLI):\n  None          — write-through; safe for database data files\n  ReadOnly      — cache reads; great for OS disk, read-heavy data\n  ReadWrite     — cache reads and writes; ONLY for OS disk (risky for data)\n\nTemporary disk (/dev/sdb → /mnt on Ubuntu Azure VMs):\n  D: drive equivalent. Data is LOST when VM is deallocated or resized.\n  Use only for scratch space, temp files, swap.\n  Size depends on VM SKU.\n\nAzure Files (SMB/NFS): mount as CIFS or NFS\n  mount -t cifs //storage.file.core.windows.net/share /mnt/share \\\n    -o vers=3.0,username=...,password=...,dir_mode=0777,file_mode=0777",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 1631,
+      "heading_context": "# The temporary port 22 NSG inbound rule trick: add/remove via Portal",
+      "confidence": "candidate",
+      "text": "### Fail2ban — Brute Force Protection",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 1681,
+      "heading_context": "### Security Quick-Reference",
+      "confidence": "candidate",
+      "text": "Task                              Command\n───────────────────────────────────────────────────────────────────────────\nFind world-writable files         find / -perm -0002 -not -path \"*/proc/*\" 2>/dev/null\nFind setuid binaries              find / -perm -4000 -type f 2>/dev/null\nCheck listening ports             ss -tlnp\nCheck logged-in users             who, w, last\nCheck failed logins               lastb, faillog, ausearch -m FAILED_LOGIN\nCheck sudo usage                  ausearch -m USER_CMD -ts today\nCheck recently modified files     find /etc -mtime -1 -type f\nShow user's groups                groups alice, id alice\nCheck passwd/shadow integrity     pwck, grpck\nVerify package integrity (RPM)    rpm -Va\nVerify package integrity (deb)    debsums -c\nCheck open files by user          lsof -u alice\nView kernel security params       sysctl -a | grep -E \"(randomize|dmesg|kptr|ptrace)\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 1705,
+      "heading_context": "## Filesystem Event Watching — inotify / fanotify",
+      "confidence": "candidate",
+      "text": "FILESYSTEM NOTIFICATION APIs\n═════════════════════════════════════════════════════════════════════════\n\n  Linux                          Windows                        macOS\n  ──────────────────────         ──────────────────────         ──────────────────────\n  inotify (since 2.6.13)         ReadDirectoryChangesW()        FSEvents (high-level)\n  fanotify (since 2.6.36)        FileSystemWatcher (.NET)       kqueue EVFILT_VNODE\n\n  Model:                         Model:                         Model:\n    inotify_create() → fd          open handle with             FSEventStreamCreate()\n    inotify_add_watch(fd, path,      FILE_FLAG_OVERLAPPED        → callback with event\n      IN_MODIFY|IN_CREATE|...)      + FILE_LIST_DIRECTORY      kqueue: per-inode watch\n    poll/select/epoll on fd        ReadDirectoryChangesW()\n    read(fd) → inotify_event        (overlapped)\n\n  Granularity:                   Granularity:                   Granularity:\n    inotify: file-level events     directory-level only          FSEvents: path-based\n    fanotify: filesystem-wide      (reports path, not inode)     coalesced (may batch)\n    (used by AV, audit daemons)    can miss renames in rapid     kqueue: single file/dir\n\n  Limits (common pain point):    No such limits                 No such limits\n    /proc/sys/fs/inotify/\n      max_user_watches (default 8192)\n      max_user_instances (128)\n      max_queued_events (16384)\n    Fix for IDE / container dev:\n      echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf\n      sysctl -p\n\n  fanotify vs inotify:\n    fanotify: intercept + allow/deny (used by antivirus)\n    fanotify: global mount-point scope, not per-path\n    fanotify: needs CAP_SYS_ADMIN\n    inotify: simpler, per-path, no privileges needed\n\nWatch events (inotify):\n  IN_ACCESS       file read\n  IN_MODIFY       file written (content changed)\n  IN_CLOSE_WRITE  file closed after write (more reliable than IN_MODIFY for full writes)\n  IN_CREATE       file/dir created in watched directory\n  IN_DELETE       file/dir deleted\n  IN_MOVED_FROM / IN_MOVED_TO   rename (paired by cookie field)\n  IN_ATTRIB       metadata changed (chmod, chown, xattr)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 1767,
+      "heading_context": "### RSS vs VSZ vs PSS vs USS",
+      "confidence": "candidate",
+      "text": "MEMORY METRIC DEFINITIONS\n════════════════════════════════════════════════════════════════════\n\n  Metric   What it measures                          When to use\n  ──────   ──────────────────────────────────────    ──────────────────────────\n  VSZ      Virtual address space size                Meaningless for memory pressure;\n  (VIRT)   Total mapped: code+heap+stack+mmap        a 100GB mmap has huge VSZ but\n           Includes not-yet-faulted pages            uses no RAM\n           Includes shared libs (full size counted)\n\n  RSS      Resident Set Size: pages currently in RAM  Rough estimate; double-counts\n  (RES)    Includes shared libs (counted per proc)    shared pages\n           Does NOT include swapped-out pages         Sum of all RSS > physical RAM\n           top/htop show this as \"RES\"                is normal (shared libs)\n\n  PSS      Proportional Set Size                     Best for \"how much does this\n           RSS but shared pages divided by           process actually cost?\"\n           number of sharers                         sum(PSS for all procs) ≈ total used\n           /proc/PID/smaps_rollup → Pss field\n\n  USS      Unique Set Size: pages unique to this     Best for finding memory leaks\n           process (not shared with anyone)          USS grows = this process is leaking\n           /proc/PID/smaps → Private_Clean + Private_Dirty\n\n  Practical hierarchy:\n    VSZ ≥ RSS ≥ PSS ≥ USS\n    For memory leak investigation: watch USS\n    For capacity planning: PSS\n    For quick eyeball: RSS (but don't sum it)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 1848,
+      "heading_context": "### Huge Pages",
+      "confidence": "candidate",
+      "text": "HUGE PAGES — WHEN AND WHY\n══════════════════════════\n\n  Standard page: 4KB (x86-64 default)\n  Huge page:     2MB (standard huge page) or 1GB (gigantic page)\n\n  Why they matter:\n    TLB (Translation Lookaside Buffer) has limited entries (~1500 on modern Intel)\n    4KB pages → 1500 TLB entries → covers 6MB of address space\n    2MB pages → 1500 TLB entries → covers 3GB of address space\n    For large working sets (databases, ML): huge pages eliminate TLB misses\n    Real-world impact: PostgreSQL, Redis, JVM GC heap — 5-20% throughput gain\n\n  Two mechanisms:\n\n  1. Transparent Huge Pages (THP) — kernel decides automatically\n     /sys/kernel/mm/transparent_hugepage/enabled\n       [always] madvise never\n     madvise = only when process explicitly requests via madvise(MADV_HUGEPAGE)\n\n     THP gotcha: can cause latency spikes on write (page split + promote)\n     Redis/MongoDB/Cassandra documentation says: set THP to madvise or never\n     echo madvise > /sys/kernel/mm/transparent_hugepage/enabled\n\n  2. Explicit huge pages — pre-allocated, reserved\n     sysctl vm.nr_hugepages=1024       # reserve 1024 × 2MB = 2GB\n     cat /proc/meminfo | grep Huge     # HugePages_Total / Free / Reserved\n     Applications: mmap with MAP_HUGETLB, or mount hugetlbfs\n\n  Check THP activity:\n    grep -i huge /proc/vmstat          # thp_fault_alloc, thp_collapse_alloc\n    numastat -m                        # NUMA node memory breakdown",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "ascii_table_candidate",
+      "line": 1946,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**eBPF requires kernel 4.4+ for basics, 5.x+ for advanced features.** bpftrace works well on kernel 4.9+. cgroup v2 eBPF attachments need 5.2+. BTF (BPF Type Format — CO-RE portability) needs 5.4+. Azure VMs run Ubuntu 22.04 (kernel 5.15) or later, so you generally have full eBPF capability. Check: `uname -r`.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

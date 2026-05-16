@@ -1,0 +1,787 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\02-WINDOWS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Windows Architecture — Full Stack (from silicon to your app)\n=============================================================\n\n  +------------------------------------------------------------------+\n  |  YOUR APPLICATION LAYER                                          |\n  |  WinForms / WPF / WinUI 3 / MAUI / Console / ASP.NET             |\n  +------------------------------------------------------------------+\n  |  .NET RUNTIME (CLR / CoreCLR)                                    |\n  |  BCL, GC, JIT (RyuJIT), type system, P/Invoke bridge            |\n  +------------------------------------------------------------------+\n  |  WINDOWS RUNTIME (WinRT) — COM-based, projectable to .NET/JS/C++|\n  |  UWP APIs, WinApp SDK APIs, sensor/device APIs                   |\n  +------------------------------------------------------------------+\n  |  WIN32 API / Windows API                                         |\n  |  CreateProcess, CreateFile, VirtualAlloc, WaitForSingleObject    |\n  |  The 30-year stable ABI layer. Everything reaches down to here.  |\n  +------------------------------------------------------------------+\n  |  WINDOWS SUBSYSTEM (CSR / CSRSS)                                 |\n  |  User-mode side of Win32 personality (console, session mgmt)     |\n  +------------------------------------------------------------------+\n  |  NT EXECUTIVE (ring 0)                                           |\n  |  +-----------+ +-----------+ +-----------+ +-----------+         |\n  |  | Object    | | Process / | | I/O       | | Security  |         |\n  |  | Manager   | | Thread    | | Manager   | | Reference |         |\n  |  +-----------+ +-----------+ +-----------+ | Monitor   |         |\n  |  +-----------+ +-----------+ +-----------+ +-----------+         |\n  |  | Memory    | | Cache     | | Plug&Play | | Power     |         |\n  |  | Manager   | | Manager   | | Manager   | | Manager   |         |\n  |  +-----------+ +-----------+ +-----------+ +-----------+         |\n  |  win32k.sys (GDI, USER, DWM) — kernel-mode graphics              |\n  +------------------------------------------------------------------+\n  |  NT KERNEL (ntoskrnl.exe)                                        |\n  |  Scheduler, interrupt dispatch, synchronization, DPC/APC         |\n  +------------------------------------------------------------------+\n  |  KERNEL-MODE DRIVERS (ring 0)                                    |\n  |  WDM/KMDF drivers, filter drivers, miniport drivers              |\n  +------------------------------------------------------------------+\n  |  HAL (Hardware Abstraction Layer)                                |\n  |  hal.dll — normalizes chipset/ACPI/interrupt controller diffs    |\n  +------------------------------------------------------------------+\n  |  UEFI / FIRMWARE                                                 |\n  +------------------------------------------------------------------+\n  |  HARDWARE                                                        |\n  +------------------------------------------------------------------+\n\nKey design principle: Windows NT is a hybrid kernel.\n\"Executive\" services run in ring 0 but are structured as loosely coupled\nmanagers communicating through object handles — not a true microkernel,\nbut not a monolith either. Dave Cutler's VAX/VMS heritage shows here.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## Section 1 — NT Kernel Architecture: Quick Orientation",
+      "confidence": "candidate",
+      "text": "Ring Model on Windows\n=====================\n\n  Ring 3 (User Mode)              Ring 0 (Kernel Mode)\n  ──────────────────              ────────────────────\n  Your app                        ntoskrnl.exe\n  .NET CLR                        hal.dll\n  Win32 DLLs (kernel32, user32)  win32k.sys\n  CSRSS (console subsystem)       KM drivers\n  LSASS (auth subsystem)\n  Services.exe\n\n  Crossing the boundary = syscall (INT 2Eh / SYSFAST)\n  Expensive: the .NET JIT batch-groups P/Invoke calls to minimize crossings.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 114,
+      "heading_context": "## Section 1 — NT Kernel Architecture: Quick Orientation",
+      "confidence": "candidate",
+      "text": "### Win32 → WinRT → WinUI layering",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "### Win32 → WinRT → WinUI layering",
+      "confidence": "candidate",
+      "text": "API Genealogy\n=============\n\n  1985  Win16 (16-bit, segmented memory, Windows 1.x–3.x)\n          │\n  1993  Win32 (flat 32-bit, NT 3.1) — THE stable ABI\n          │\n  2002  .NET 1.0 / CLR — managed wrapper over Win32\n          │         │\n          │    WinForms (Win32 wrappers)\n          │         │\n  2006  WPF (milcore/DirectX-backed, XAML, separate from Win32 GDI)\n          │\n  2012  WinRT (COM-based, projectable to C++/C#/JS, UWP sandboxed)\n          │\n  2021  WinApp SDK + WinUI 3\n          Decoupled from OS shipping cycle\n          WinRT APIs without UWP sandbox\n          Works in packaged or unpackaged mode\n          │\n        MAUI (.NET 6+)\n          Cross-platform: Windows/Mac/iOS/Android\n          Wraps WinUI 3 on Windows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### PE Format & DLL Evolution",
+      "confidence": "candidate",
+      "text": "PE (Portable Executable) Format — still the same since NT 3.1\n==============================================================\n\n  PE Header\n  ├─ DOS stub (\"This program cannot be run in DOS mode\")\n  ├─ COFF Header (machine type, section count, timestamp)\n  ├─ Optional Header (ImageBase, EntryPoint, Subsystem: GUI/CUI)\n  └─ Section Table\n      ├─ .text   — executable code\n      ├─ .rdata  — read-only data, import/export tables\n      ├─ .data   — initialized globals\n      ├─ .reloc  — base relocation table\n      └─ .rsrc   — resources (icons, manifests, strings)\n\nDLL Hell Problem → Side-by-Side Assemblies → MSIX\n==================================================\n\n  DLL Hell (Win9x era)\n    \"Last installer wins\" — shared DLLs in System32\n    App A needs msvcp.dll 6.0, App B installs 5.0 → App A breaks\n\n  Side-by-Side (WinSxS) — XP/Vista\n    Multiple versions in C:\\Windows\\WinSxS\n    Manifest in PE says exactly which version to bind\n    Fusion loader (SxS loader) resolves at runtime\n    Problem: WinSxS bloat, complex manifests, still in-proc shared DLLs\n\n  .NET GAC — same idea for managed assemblies\n    C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\\n    Strong-named assemblies, version-specific binding\n    .NET Core/5+ killed the GAC — everything is local now\n\n  MSIX (2018+)\n    Container-like: app gets its own virtual file system + registry view\n    Installed to C:\\Program Files\\WindowsApps\\<package>\\\n    OS merges app's virtual FS with real FS at runtime\n    Uninstall is clean — no registry/file debris\n    AppX manifests declare capabilities, version, dependencies\n    WinGet delivers MSIX packages",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### The Full Genealogy",
+      "confidence": "candidate",
+      "text": "Desktop App Framework Timeline\n================================\n\n  2002  WinForms 1.0\n        ├─ Win32 control wrappers (Button → CreateWindowEx(\"BUTTON\"...))\n        ├─ Designer-based, drag-drop UI\n        ├─ GDI rendering\n        ├─ Event model: delegates/events\n        └─ Status 2024: SUPPORTED, shipping in .NET 8/9 on Windows only\n                        Not deprecated. Massive enterprise install base.\n\n  2006  WPF 3.0\n        ├─ XAML markup + code-behind\n        ├─ DirectX/milcore rendering (GPU-accelerated, independent of GDI)\n        ├─ Data binding, styles, templates, animations\n        ├─ MVVM pattern (INotifyPropertyChanged, ICommand)\n        ├─ Dependency properties + routed events\n        └─ Status 2024: SUPPORTED, shipping in .NET 8/9 on Windows only\n                        Not deprecated. Best choice for rich desktop on Windows.\n\n  2012  UWP / WinRT\n        ├─ Sandboxed (AppContainer), store-only distribution\n        ├─ WinRT APIs (COM projection)\n        ├─ XAML UI (different namespace from WPF XAML)\n        ├─ Fluent Design System\n        └─ Status 2024: MAINTENANCE MODE — Microsoft moved on\n                        Do not start new UWP projects.\n\n  2021  WinUI 3 + WinApp SDK\n        ├─ WinRT APIs decoupled from Windows shipping cycle (NuGet-distributed)\n        ├─ Fluent Design, modern controls\n        ├─ Packaged (MSIX) or Unpackaged (no sandbox, no store required)\n        ├─ XAML Islands: embed WinUI 3 controls in WPF/WinForms\n        └─ Status 2024: ACTIVE — Microsoft's strategic bet for new Windows UI\n\n  2022  .NET MAUI (Multi-platform App UI)\n        ├─ Successor to Xamarin.Forms\n        ├─ Single codebase: Windows/macOS/iOS/Android\n        ├─ Renders to native controls on each platform\n        ├─ WinUI 3 on Windows, AppKit on macOS, UIKit on iOS\n        └─ Status 2024: ACTIVE — best choice if cross-platform required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "### WPF — What You Need to Remember",
+      "confidence": "candidate",
+      "text": "WPF Architecture\n================\n\n  Your XAML + C#\n         │\n  ┌──────▼──────────────────────────────────┐\n  │  PresentationFramework.dll              │\n  │  Controls, data binding, MVVM support   │\n  │  INotifyPropertyChanged, ObservableCollection│\n  │  XAML parser → visual tree              │\n  └──────┬──────────────────────────────────┘\n         │\n  ┌──────▼──────────────────────────────────┐\n  │  milcore.dll (Media Integration Layer)  │\n  │  Composition engine, animation, layout  │\n  │  Retained-mode scene graph              │\n  └──────┬──────────────────────────────────┘\n         │\n  ┌──────▼──────────────────────────────────┐\n  │  DirectX / D3D                          │\n  │  Actual GPU rendering                   │\n  └─────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "### WPF — What You Need to Remember",
+      "confidence": "candidate",
+      "text": "MVVM Wiring in WPF (the pattern you know — quick recap)\n=======================================================\n\n  View (.xaml)              ViewModel (C#)           Model (C#)\n  ────────────              ──────────────           ──────────\n  DataContext = VM          : INotifyPropertyChanged  Domain objects\n                            ObservableCollection<T>  Repository/service\n  {Binding Property}   ◄──► public string Property   Business logic\n  {Binding Command}    ◄──► ICommand SaveCommand\n  DataTrigger, Style        RaisePropertyChanged()\n\nModern: Community Toolkit MVVM (NuGet: CommunityToolkit.Mvvm)\n  [ObservableProperty]  → generates INPC boilerplate\n  [RelayCommand]        → generates ICommand\n  Source generators at build time — no reflection overhead.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 283,
+      "heading_context": "### WPF — What You Need to Remember",
+      "confidence": "candidate",
+      "text": "### WinUI 3 + WinApp SDK — the Delta from WPF/UWP",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### WinUI 3 + WinApp SDK — the Delta from WPF/UWP",
+      "confidence": "candidate",
+      "text": "WinApp SDK vs UWP vs WPF\n========================\n\n  Feature               WPF         UWP         WinUI 3 / WinApp SDK\n  ─────────────────     ───         ───         ────────────────────\n  Runs on .NET 8        YES         No          YES\n  Runs unpackaged       YES         No          YES (unpackaged mode)\n  MSIX packaging        Optional    Required    Optional\n  Win32 API access      Full        Restricted  Full\n  XAML dialect          WPF XAML    UWP XAML    WinUI XAML (≈ UWP)\n  Fluent controls       Via library Built-in    Built-in (latest)\n  XAML Islands          N/A         N/A         Host WinUI in WPF\n  Shipping cadence      .NET cycle  OS cycle    NuGet (decoupled)\n  Store distribution    Via Bridge  Native      Native\n  Use for               Existing    Legacy      New UI projects\n                        enterprise  (avoid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### Packaging: msix vs installer vs winget",
+      "confidence": "candidate",
+      "text": "Distribution Options in 2024\n=============================\n\n  ┌────────────────┬──────────────────────────────────────────────────┐\n  │ Method         │ Details                                          │\n  ├────────────────┼──────────────────────────────────────────────────┤\n  │ MSIX           │ Containerized install, clean uninstall, signed   │\n  │                │ Required for Store. Supported by winget.         │\n  │                │ .msixbundle for multi-arch. Best choice for new. │\n  ├────────────────┼──────────────────────────────────────────────────┤\n  │ Traditional    │ NSIS, WiX, InstallShield                         │\n  │ Installer      │ Still valid for legacy apps, driver installs,    │\n  │                │ anything needing deep system access              │\n  ├────────────────┼──────────────────────────────────────────────────┤\n  │ ClickOnce      │ .NET-era web-based deployment                    │\n  │                │ Still works. Not recommended for new projects.   │\n  ├────────────────┼──────────────────────────────────────────────────┤\n  │ Portable       │ xcopy install — no installer at all              │\n  │ (xcopy)        │ Works if app is fully self-contained             │\n  │                │ dotnet publish --self-contained                  │\n  ├────────────────┼──────────────────────────────────────────────────┤\n  │ winget manifest│ YAML in winget-pkgs repo on GitHub               │\n  │                │ Points to your installer/MSIX URL                │\n  │                │ winget install YourApp.YourApp                   │\n  └────────────────┴──────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Windows Service Lifecycle",
+      "confidence": "candidate",
+      "text": "Windows Service Lifecycle\n==========================\n\n  SCM (Services Control Manager — services.exe)\n         │\n         │  StartService()\n         ▼\n  ┌──────────────────────────────────────────┐\n  │  SERVICE_START_PENDING                   │\n  │  OnStart() called — do setup, return fast│\n  └──────────────────┬───────────────────────┘\n                     │ SetServiceStatus(RUNNING)\n                     ▼\n  ┌──────────────────────────────────────────┐\n  │  SERVICE_RUNNING                         │\n  │  Main work happens on background threads │\n  └──────┬──────────────────────────────────┘\n         │ StopService() / shutdown\n         ▼\n  ┌──────────────────────────────────────────┐\n  │  SERVICE_STOP_PENDING                    │\n  │  OnStop() — signal threads, cleanup      │\n  └──────────────────┬───────────────────────┘\n                     ▼\n              SERVICE_STOPPED\n\n  Recovery Actions (per-failure config in SCM):\n    First failure:   Restart the service\n    Second failure:  Restart the service\n    Subsequent:      Run a program / Reboot",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 375,
+      "heading_context": "### Worker Service — The Modern Replacement",
+      "confidence": "candidate",
+      "text": "Old World → New World: Windows Services\n========================================\n\n  Old World (.NET Framework)          New World (.NET 5+)\n  ──────────────────────────          ──────────────────\n  System.ServiceProcess               Microsoft.Extensions.Hosting\n  ServiceBase derived class           IHostedService / BackgroundService\n  OnStart() / OnStop()                StartAsync() / StopAsync()\n  InstallUtil.exe to register         sc.exe create OR MSIX OR systemd\n  App.config                          appsettings.json + IConfiguration\n  Manual DI wiring                    Built-in DI (IServiceCollection)\n  No cancellation token               CancellationToken throughout",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 390,
+      "heading_context": "### Worker Service — The Modern Replacement",
+      "confidence": "candidate",
+      "text": "Worker Service Pattern (.NET 6+)\n=================================\n\n  // Program.cs — the whole host setup\n  IHost host = Host.CreateDefaultBuilder(args)\n      .UseWindowsService()                    // SCM integration on Windows\n      .ConfigureServices(services =>\n      {\n          services.AddHostedService<MyWorker>();\n          services.AddSingleton<IMyService, MyService>();\n      })\n      .Build();\n\n  await host.RunAsync();\n\n  // MyWorker.cs\n  public class MyWorker : BackgroundService\n  {\n      protected override async Task ExecuteAsync(CancellationToken ct)\n      {\n          while (!ct.IsCancellationRequested)\n          {\n              await DoWorkAsync();\n              await Task.Delay(TimeSpan.FromMinutes(1), ct);\n          }\n      }\n  }\n\n  // Register with SCM:\n  sc create MyWorker binpath= \"C:\\MyApp\\MyWorker.exe\"\n  sc start MyWorker",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 426,
+      "heading_context": "### Service Account Types",
+      "confidence": "candidate",
+      "text": "Service Account Selection\n==========================\n\n  Account             Network Access   Local Privs   Use When\n  ───────             ──────────────   ───────────   ────────\n  LocalSystem         YES (machine)    FULL          Avoid — over-privileged\n  LocalService        Limited          Low           No network needed\n  NetworkService      YES (machine)    Low           Network, minimal local\n  gMSA                YES              Configurable  Enterprise — BEST CHOICE\n  (group Managed                                     Auto-rotating password\n   Service Account)                                  No password mgmt burden\n  Named user          YES (creds)      Configurable  Legacy, avoid if possible\n\n  For new services in AD environments: always gMSA.\n  gMSA setup: New-ADServiceAccount, Install-ADServiceAccount, set in SCM.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 446,
+      "heading_context": "### Service Management Commands",
+      "confidence": "candidate",
+      "text": "Service Management\n==================\n\n  sc.exe (Win32)                   PowerShell equivalent\n  ──────────────                   ─────────────────────\n  sc query MyService               Get-Service MyService\n  sc start MyService               Start-Service MyService\n  sc stop  MyService               Stop-Service MyService\n  sc config MyService start=auto   Set-Service MyService -StartupType Automatic\n  sc failure MyService             (use sc.exe — no PS equivalent)\n    reset=86400 actions=restart/5000\n  sc delete MyService              Remove-Service MyService  (.NET 6 PS only)\n  sc qc MyService                  Get-Service | Format-List *\n\n  Dependencies:\n    sc config MyService depend=MSSQLSERVER  (depends on SQL)\n    sc config MyService depend=              (clear deps)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 472,
+      "heading_context": "### Shell Landscape",
+      "confidence": "candidate",
+      "text": "Shell Comparison\n=================\n\n  Shell            Type         Use When\n  ─────            ────         ────────\n  cmd.exe          Text pipe    Legacy scripts, batch files (.bat/.cmd)\n                                Batch for loops, basic file ops\n                                Fastest startup, always present\n\n  PowerShell 5.1   Object pipe  Windows-only, built into Win10/11/Server\n  (powershell.exe) .NET FW      Admin scripts, full WMI/COM access\n                                All Windows admins have this\n\n  PowerShell 7     Object pipe  Cross-platform (Win/Mac/Linux)\n  (pwsh.exe)       .NET 8+      Install separately (winget/MSI)\n                                New features, parallel foreach, etc.\n                                Prefer for new scripts\n\n  Git Bash         Text pipe    Git operations from a Unix-like env\n  (bash via MSYS2) POSIX-ish    Not for Windows admin — weak Win integration\n\n  WSL2 bash        Text pipe    Real Linux. Full Linux toolchain.\n                                Build/test Linux targets on Windows\n                                Docker, make, gcc, etc.\n\n  Rule of thumb:\n    Windows admin scripts   → PowerShell 7 (or 5.1 if portability needed)\n    Git operations          → Git Bash or PowerShell\n    Linux build toolchain   → WSL2\n    Legacy automation       → cmd.exe batch (maintain, don't write new)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 507,
+      "heading_context": "### Object Pipeline — the key insight",
+      "confidence": "candidate",
+      "text": "PowerShell Object Pipeline vs Bash Text Pipeline\n=================================================\n\n  Bash (text):                     PowerShell (objects):\n  ────────────                     ─────────────────────\n  ps aux | grep myapp              Get-Process | Where-Object Name -eq myapp\n  | awk '{print $2}'               | Select-Object Id, CPU, WorkingSet\n\n  ps aux outputs TEXT              Get-Process outputs Process[] objects\n  grep does text matching          Where-Object filters on .Name property\n  awk parses column positions      Select-Object picks properties by name\n\n  Bash: fragile to column changes  PowerShell: schema-stable, type-safe\n\n  Practical consequence:\n    $procs = Get-Process | Where CPU -gt 10\n    $procs[0].Id                    # direct property access, no parsing\n    $procs | Stop-Process           # pipe objects directly to next cmdlet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 613,
+      "heading_context": "# Firewall rule: TCP 5985 (HTTP) or 5986 (HTTPS)",
+      "confidence": "candidate",
+      "text": "### PowerShell 5.1 vs 7 Differences",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 615,
+      "heading_context": "### PowerShell 5.1 vs 7 Differences",
+      "confidence": "candidate",
+      "text": "PS 5.1 vs PS 7 — What Changed\n==============================\n\n  Feature                  PS 5.1              PS 7\n  ─────────────────────    ──────              ────\n  Runtime                  .NET Framework 4.x  .NET 8+\n  OS                       Windows only        Win/Mac/Linux\n  Startup exe              powershell.exe      pwsh.exe\n  Parallel ForEach         Runspaces (manual)  ForEach-Object -Parallel\n  Null coalescing          No                  $x ??= 'default'\n  Ternary operator         No                  $a ? $b : $c\n  Pipeline chain ops       No                  cmd && cmd || cmd\n  ErrorView                CategoryView        ConciseView (cleaner)\n  PSReadLine               Optional            Built-in\n  SSH remoting             No                  Yes (SSH transport)\n  COM object access        Full                Full\n  WMI (Get-WmiObject)      Yes                 Use Get-CimInstance instead\n  Module compat            Full Windows        Some Win-only modules work via\n                                               Windows Compatibility layer\n\n  In your scripts: prefer Get-CimInstance over Get-WmiObject.\n  CimCmdlets work in both 5.1 and 7.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 646,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "WSL2 Architecture\n==================\n\n  Windows Host\n  ┌───────────────────────────────────────────────────────┐\n  │                                                       │\n  │   Windows processes     Hyper-V Utility VM            │\n  │   ┌─────────────┐       ┌──────────────────────────┐  │\n  │   │ VS Code     │       │  Real Linux kernel        │  │\n  │   │ Docker Desk │◄─────►│  (Microsoft fork of       │  │\n  │   │ Windows app │  9P   │   mainline kernel)        │  │\n  │   └─────────────┘  FS   │                           │  │\n  │                    proto│  Ubuntu / Debian / etc.   │  │\n  │   ┌─────────────┐       │  (full distro userland)   │  │\n  │   │ wsl.exe     │       │                           │  │\n  │   └──────┬──────┘       │  /mnt/c → Windows C:\\    │  │\n  │          │  shell →     └──────────────────────────┘  │\n  │          └──────────────────────────────────────────►  │\n  │                                                       │\n  └───────────────────────────────────────────────────────┘\n\n  Key facts:\n  - Real Linux kernel (not a compatibility layer like WSL1)\n  - Full syscall compatibility (unlike WSL1 which translated syscalls)\n  - Separate network namespace (has its own IP on 172.x.x.x)\n  - Windows ↔ Linux filesystem access via Plan 9 (9P) protocol\n  - WSLg: Wayland/X11 server built into Windows for GUI apps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 678,
+      "heading_context": "### Filesystem Performance Caveat",
+      "confidence": "candidate",
+      "text": "WSL2 Filesystem Access — Know This\n====================================\n\n  Scenario                      Performance    Recommendation\n  ────────                      ───────────    ──────────────\n  Linux files in WSL2            Fast           ~/projects/ — keep here\n  (ext4 inside the VHDX)\n\n  Windows files via /mnt/c       SLOW           Avoid for build output\n  (9P network protocol)          (~3-5x slower) Don't put node_modules here\n\n  Windows files via \\\\wsl$\\     Reasonable     OK for occasional access\n  (Windows accessing WSL2 FS)    Fast reads\n\n  Rule: If you're doing Linux builds, keep the source in WSL2 filesystem.\n  Only use /mnt/c for git checkout if your Windows tools also need the files.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "ascii_table_candidate",
+      "line": 699,
+      "heading_context": "### Essential WSL Commands",
+      "confidence": "candidate",
+      "text": "WSL Management (run from Windows PowerShell/cmd)\n=================================================\n\n  wsl                          # launch default distro\n  wsl -d Ubuntu-22.04          # launch specific distro\n  wsl --list --verbose         # list distros + state + version\n  wsl --list --online          # available distros from store\n  wsl --install Ubuntu-22.04   # install a distro\n  wsl --shutdown               # stop all running distros\n  wsl --terminate Ubuntu       # stop specific distro\n  wsl --export Ubuntu ubuntu.tar    # backup\n  wsl --import Ubuntu C:\\wsl ubuntu.tar  # restore\n  wsl --set-version Ubuntu 2        # upgrade WSL1→WSL2\n  wsl --set-default-version 2       # new installs default to WSL2\n  wsl --update                      # update WSL kernel\n\n  From inside WSL2:\n  explorer.exe .               # open Windows Explorer in current Linux dir\n  notepad.exe myfile.txt       # open Windows app on Linux file\n  /mnt/c/Windows/System32/...  # access Windows executables\n  wslpath -w ~/projects        # convert WSL path to Windows path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 723,
+      "heading_context": "### Essential WSL Commands",
+      "confidence": "candidate",
+      "text": "### Docker Desktop + WSL2",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 725,
+      "heading_context": "### Docker Desktop + WSL2",
+      "confidence": "candidate",
+      "text": "Docker Desktop WSL2 Backend\n============================\n\n  Old (Hyper-V backend):         New (WSL2 backend):\n  ──────────────────────         ──────────────────\n  Separate Hyper-V VM            Docker engine runs inside WSL2 VM\n  4GB+ RAM reserved upfront      Memory dynamically allocated\n  Slow filesystem mounts         Linux containers mount from WSL2 FS (fast)\n  Poor Linux compat              Full Linux kernel compatibility\n\n  After enabling WSL2 backend in Docker Desktop:\n    - Docker daemon runs in WSL2\n    - docker CLI works from both Windows PowerShell AND WSL2 bash\n    - docker run mounts volumes faster (staying in Linux FS)\n    - Named distros can use Docker: wsl --list shows docker-desktop VMs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 743,
+      "heading_context": "### Docker Desktop + WSL2",
+      "confidence": "candidate",
+      "text": "### WSL2 vs Alternatives",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 745,
+      "heading_context": "### WSL2 vs Alternatives",
+      "confidence": "candidate",
+      "text": "Which Shell/Environment To Use\n================================\n\n  Need                              Use\n  ────                              ───\n  Windows admin scripting           PowerShell 7\n  Run Linux build tools (make,gcc)  WSL2\n  Git on Windows                    Git for Windows (git bash) or WSL2\n  Docker containers (Linux)         Docker Desktop + WSL2 backend\n  POSIX scripting on Windows        WSL2 (bash in Linux)\n  Cross-compile for Linux           WSL2\n  Windows-only tools (MSBuild etc)  Windows PowerShell / native\n  Port Unix scripts to Windows      WSL2 — don't port, just run there\n  Terminal emulator                 Windows Terminal (tabbed, all shells)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 768,
+      "heading_context": "### Token Anatomy",
+      "confidence": "candidate",
+      "text": "Access Token — What \"who are you\" means to the kernel\n=======================================================\n\n  Every process/thread has an access token (kernel object).\n\n  Token fields:\n  ┌─────────────────────────────────────────────────────────┐\n  │  User SID        S-1-5-21-<domain>-<RID>                │\n  │  Group SIDs      [Domain Users, Administrators, ...]    │\n  │  Privileges      [SeDebugPrivilege, SeShutdownPrivilege] │\n  │  Integrity Level [Low | Medium | High | System]         │\n  │  Session ID      1 (interactive) or 0 (services)        │\n  │  LogonSession    reference to logon session in LSASS    │\n  │  Token Type      Primary (process) or Impersonation     │\n  └─────────────────────────────────────────────────────────┘\n\n  SID anatomy:  S-1-5-21-XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX-RID\n                  │ │  │  └──────────────────────────────────── domain\n                  │ │  └─ NT Authority identifier\n                  │ └── revision (always 1)\n                  └─ SID prefix\n\n  Well-known SIDs:\n    S-1-5-18    LocalSystem\n    S-1-5-19    LocalService\n    S-1-5-20    NetworkService\n    S-1-1-0     Everyone\n    S-1-5-32-544  BUILTIN\\Administrators",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 801,
+      "heading_context": "### UAC Flow",
+      "confidence": "candidate",
+      "text": "UAC: Filtered Token vs Linked Token\n=====================================\n\n  User logs in as local Administrator:\n\n  LSASS creates TWO tokens:\n  ┌─────────────────────────┐   ┌─────────────────────────┐\n  │  Filtered Token         │   │  Full Token (linked)    │\n  │  ─────────────          │   │  ──────────────────     │\n  │  Admin SID stripped     │   │  Admin SID present      │\n  │  Privileges stripped    │   │  All privileges         │\n  │  Integrity: Medium      │   │  Integrity: High        │\n  └──────────┬──────────────┘   └──────────┬──────────────┘\n             │ used by default              │ used after consent prompt\n             ▼                              ▼\n      Normal processes               Elevated processes\n      (Explorer, apps)               (mmc.exe, regedit as admin)\n\n  When you click \"Run as Administrator\":\n    AppInfo service receives request\n    Credential/consent prompt (consent.exe on secure desktop)\n    User approves → full token used for new process\n    Full token = High integrity level\n\n  Why integrity levels matter:\n    Low   = IE Protected Mode, sandboxed processes\n    Medium = normal user apps\n    High  = admin apps (after UAC)\n    System = services, kernel drivers\n\n  A Medium integrity process CANNOT write to a High integrity process's memory.\n  This is why malware injecting into elevated processes requires UAC bypass.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 838,
+      "heading_context": "### LSASS and Credential Security",
+      "confidence": "candidate",
+      "text": "LSASS (Local Security Authority Subsystem Service)\n===================================================\n\n  What it holds:\n  ┌────────────────────────────────────────────────────────┐\n  │  LSA process (lsass.exe)                               │\n  │  ├─ Kerberos tickets (TGT + service tickets)           │\n  │  ├─ NTLM hashes (WDigest when enabled — legacy)        │\n  │  ├─ Logon sessions (linked to tokens)                  │\n  │  ├─ Cached credentials (domain logon cache)            │\n  │  └─ LSA secrets (service account passwords, etc.)      │\n  └────────────────────────────────────────────────────────┘\n\n  Mimikatz attack: dump LSASS memory → extract cleartext creds\n    sekurlsa::logonpasswords   (WDigest — requires WDigest enabled)\n    sekurlsa::tickets          (Kerberos tickets — pass-the-ticket)\n    lsadump::sam               (local SAM hashes)\n\n  Defenses:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Credential Guard (Win10 1511+)                              │\n  │  ──────────────────────────────                              │\n  │  Moves credential material into isolated VBS (Virtualization │\n  │  Based Security) container — separate Hyper-V partition.     │\n  │  LSASS runs as \"protected process\" — no memory read even as  │\n  │  SYSTEM. Kerberos/NTLM hashes never in normal kernel memory. │\n  │                                                              │\n  │  PPL (Protected Process Light) for LSASS                     │\n  │  Prevents even admin processes from injecting into LSASS.    │\n  │  Set via: HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa          │\n  │           RunAsPPL = 1                                       │\n  └──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 875,
+      "heading_context": "### Windows Defender & Code Integrity",
+      "confidence": "candidate",
+      "text": "Windows Defender Stack\n=======================\n\n  ┌─────────────────────────────────────────────────────────┐\n  │  Microsoft Defender Antivirus (MDAV)                    │\n  │  Real-time file scan (AMSI), cloud-based detonation     │\n  ├─────────────────────────────────────────────────────────┤\n  │  Attack Surface Reduction (ASR) Rules                   │\n  │  Block Office macros spawning child processes           │\n  │  Block credential stealing from LSASS                   │\n  │  Block unsigned executables from USB/network            │\n  │  ~20 rules — configurable via Intune/GP/PowerShell      │\n  ├─────────────────────────────────────────────────────────┤\n  │  WDAC (Windows Defender Application Control)            │\n  │  Kernel-level code integrity policy                     │\n  │  Replaces AppLocker (more secure — can't be bypassed by │\n  │  admin without reboot)                                  │\n  │  Allow-list: only signed/known code runs                │\n  │  Policy files: .xml → compiled .p7b → deployed via GP   │\n  ├─────────────────────────────────────────────────────────┤\n  │  Secure Boot + UEFI firmware protection                 │\n  │  VBS (Virtualization Based Security)                    │\n  │  HVCI (Hypervisor-Protected Code Integrity)             │\n  └─────────────────────────────────────────────────────────┘\n\n  ASR rule quick deploy (PowerShell, MDE/Intune):\n    Set-MpPreference -AttackSurfaceReductionRules_Ids <GUID> `\n                     -AttackSurfaceReductionRules_Actions Enabled",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 908,
+      "heading_context": "### Windows Hello for Business",
+      "confidence": "candidate",
+      "text": "WHfB — FIDO2 on Windows\n========================\n\n  Traditional password auth:\n    User → LSASS → DC (Kerberos AS-REQ with password hash)\n    Password hash in memory → Mimikatz risk\n\n  WHfB auth:\n    User → PIN/biometric unlocks TPM-bound private key\n    TPM creates signature → presented to DC as Kerberos proof\n    Private key NEVER leaves TPM → no hash in memory\n    PIN is local gesture, not transmitted anywhere\n\n  Deployment: Azure AD joined or Hybrid (requires PKI for hybrid)\n  Hardware: TPM 2.0 required (all Win11 devices have this)\n\n  For your environment (Microsoft IT): already deployed, you're using it.\n  When building enterprise apps: don't force password auth — rely on\n  Windows-integrated auth (Negotiate/Kerberos) which WHfB satisfies.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 932,
+      "heading_context": "### Group Policy / Intune",
+      "confidence": "candidate",
+      "text": "Enterprise Management Layer\n============================\n\n  Group Policy (on-prem / hybrid)      Intune (cloud / MDM)\n  ─────────────────────────────        ─────────────────────\n  AD-backed, GPO objects               Entra ID backed\n  Machine + User policy                Machine + User policy\n  Applies at logon / refresh (90min)   Applies via MDM check-in\n  gpedit.msc (local)                   portal.azure.com\n  gpupdate /force                      Sync-MDMPolicy (PowerShell)\n  gpresult /r                          Intune Management Extension logs\n  Thousands of settings                Subset + custom OMA-URI/ADMX\n  LAPS integration (on-prem LAPS)      LAPS cloud (2023)\n\n  Reading applied policy:\n    gpresult /h report.html            # full HTML policy report\n    rsop.msc                           # Resultant Set of Policy GUI\n    Get-GPResultantSetOfPolicy         # PowerShell",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "diagram_like",
+      "line": 959,
+      "heading_context": "### Hive Files on Disk",
+      "confidence": "candidate",
+      "text": "Registry Hive → File Mapping\n==============================\n\n  Registry Hive          File on Disk\n  ─────────────────      ─────────────────────────────────────────────\n  HKLM\\SAM               C:\\Windows\\System32\\config\\SAM\n  HKLM\\SECURITY          C:\\Windows\\System32\\config\\SECURITY\n  HKLM\\SOFTWARE          C:\\Windows\\System32\\config\\SOFTWARE\n  HKLM\\SYSTEM            C:\\Windows\\System32\\config\\SYSTEM\n  HKLM\\HARDWARE          In-memory only (rebuilt at boot from hardware scan)\n  HKU\\.DEFAULT           C:\\Windows\\System32\\config\\DEFAULT\n  HKU\\<SID>              C:\\Users\\<username>\\NTUSER.DAT\n  HKCU                   Alias → HKU\\<current-user-SID>\n  HKCR                   Merged view: HKLM\\SOFTWARE\\Classes + HKCU\\SOFTWARE\\Classes\n\n  Files are in proprietary binary format (not text).\n  reg.exe export → .reg file (text representation)\n  Offline access: reg load, reg unload (mount foreign hive)\n    reg load HKLM\\TEMP C:\\Users\\olduser\\NTUSER.DAT\n    reg query HKLM\\TEMP\\...\n    reg unload HKLM\\TEMP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "diagram_like",
+      "line": 985,
+      "heading_context": "### What Lives Where",
+      "confidence": "candidate",
+      "text": "HKLM vs HKCU vs HKCR\n======================\n\n  HKLM (HKEY_LOCAL_MACHINE) — machine-wide\n  ├─ HARDWARE\\    — current hardware (volatile, rebuilt at boot)\n  ├─ SAM\\         — local accounts DB (only accessible as SYSTEM)\n  ├─ SECURITY\\    — LSA secrets, policy (only accessible as SYSTEM)\n  ├─ SOFTWARE\\    — machine-wide app settings, installed software\n  │   ├─ Microsoft\\Windows NT\\CurrentVersion\\  — OS info, ProfileList\n  │   ├─ Microsoft\\Windows\\CurrentVersion\\Run\\ — system-wide autostart\n  │   └─ Classes\\  — machine-wide COM registration, file associations\n  └─ SYSTEM\\      — device drivers, services, boot config\n      └─ CurrentControlSet\\Services\\ — every service/driver config\n\n  HKCU (HKEY_CURRENT_USER) — per-user, maps to NTUSER.DAT\n  ├─ SOFTWARE\\    — per-user app settings\n  ├─ SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\ — user autostart\n  ├─ SOFTWARE\\Classes\\  — per-user file associations (overrides HKLM)\n  └─ Environment\\ — user environment variables\n\n  HKCR (HKEY_CLASSES_ROOT) — merged view\n    Read:  merge of HKCU\\SOFTWARE\\Classes over HKLM\\SOFTWARE\\Classes\n    Write: goes to HKCU\\SOFTWARE\\Classes (UAC protected)\n    Used for: COM ProgID lookup, file extension handlers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "chart_like",
+      "line": 1012,
+      "heading_context": "### What Lives Where",
+      "confidence": "candidate",
+      "text": "### Registry Virtualization and WOW64",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "diagram_like",
+      "line": 1014,
+      "heading_context": "### Registry Virtualization and WOW64",
+      "confidence": "candidate",
+      "text": "Two Important Redirections\n===========================\n\n  1. UAC Registry Virtualization (Vista+)\n     ─────────────────────────────────────\n     Non-elevated 32/64-bit apps writing to HKLM\\SOFTWARE get\n     silently redirected to:\n       HKCU\\SOFTWARE\\Classes\\VirtualStore\\MACHINE\\SOFTWARE\\\n\n     The app thinks it wrote to HKLM but actually wrote to HKCU.\n     Purpose: old apps that assumed they ran as admin still work.\n     Applies only to legacy apps without a requestedExecutionLevel\n     manifest. Any app with a manifest gets real access denied.\n\n  2. WOW64 Registry Redirection (32-bit apps on 64-bit Windows)\n     ─────────────────────────────────────────────────────────────\n     32-bit process writes to HKLM\\SOFTWARE → redirected to:\n       HKLM\\SOFTWARE\\Wow6432Node\\\n\n     64-bit process writes to HKLM\\SOFTWARE → goes to real path\n\n     Why: 32-bit and 64-bit COM registrations need to coexist.\n\n     Gotcha: If your build pipeline runs 32-bit MSBuild and reads\n     registry for a 64-bit installed tool, it may find nothing.\n     Fix: explicitly open Wow6432Node or use RegOpenKeyEx with\n     KEY_WOW64_64KEY flag.\n\n     Shared keys (not redirected): HKLM\\SYSTEM, HKLM\\HARDWARE,\n     HKLM\\SOFTWARE\\Microsoft\\Windows NT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "diagram_like",
+      "line": 1049,
+      "heading_context": "### Autostart Locations",
+      "confidence": "candidate",
+      "text": "Autostart Registry Keys — Admin + Security Awareness\n======================================================\n\n  Key                                                    Scope\n  ───                                                    ─────\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run    Machine (all users)\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce Machine (runs once, deletes)\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run    User\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce User (runs once, deletes)\n  HKLM\\SYSTEM\\CurrentControlSet\\Services                Services + drivers\n  HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\\n    Winlogon\\Shell                                       Shell (default: explorer.exe)\n    Winlogon\\Userinit                                    Logon script\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\\n    Explorer\\Shell Folders                               User shell folders\n\n  Tooling:\n    Autoruns (Sysinternals) — the definitive tool to see everything\n    that runs at startup across all these locations + services + tasks\n\n  PowerShell check:\n    Get-ItemProperty \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\"\n    Get-ItemProperty \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "diagram_like",
+      "line": 1109,
+      "heading_context": "### Event Log Architecture",
+      "confidence": "candidate",
+      "text": "Windows Event Log Architecture\n================================\n\n  ┌──────────────────────────────────────────────────────────┐\n  │                  Event Log Consumers                     │\n  │   Event Viewer  wevtutil  Get-WinEvent  SIEM/Splunk      │\n  └───────────────────────────┬──────────────────────────────┘\n                              │  Windows Event Log API\n  ┌───────────────────────────▼──────────────────────────────┐\n  │                  Windows Event Log Service               │\n  │   Manages .evtx files, subscriptions, forwarding         │\n  └───────────────────────────┬──────────────────────────────┘\n  Three log channel families:\n\n  Windows Logs:\n    Application, Security, System, Setup, Forwarded Events.\n\n  Applications and Services Logs:\n    Microsoft/Windows/...; PowerShell; TaskScheduler; DHCP Client.\n\n  ETW Providers:\n    .NET CLR, ASPNET, WinHTTP, DNS Client, Kernel, Storage, etc.\n    Write-EventLog / EventSource (managed APIs).\n\n  .evtx file location: C:\\Windows\\System32\\winevt\\Logs\\\n  Security log size: check + set via Event Viewer → Log Properties\n  Security audit: gpedit → Security Settings → Advanced Audit Policy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "diagram_like",
+      "line": 1141,
+      "heading_context": "### ETW — Event Tracing for Windows",
+      "confidence": "candidate",
+      "text": "ETW Architecture — the instrumentation substrate\n==================================================\n\n  ┌──────────────────────────────────────────────────────────┐\n  │  ETW PROVIDER (writes events)                            │\n  │  .NET: EventSource derived class                         │\n  │  Native: TRACELOGGING_DECLARE_PROVIDER or classic ETW    │\n  │  Kernel: built-in providers (Process, Thread, Disk, etc.)│\n  └────────────────────────┬─────────────────────────────────┘\n                           │ ETW kernel buffer (per-CPU ring buffers)\n  ┌────────────────────────▼─────────────────────────────────┐\n  │  ETW SESSION (what you create to collect)                │\n  │  xperf, PerfView, logman, WPR                            │\n  │  Circular buffer or file mode                            │\n  └────────────────────────┬─────────────────────────────────┘\n                           │\n  ┌────────────────────────▼─────────────────────────────────┐\n  │  ETW CONSUMER (reads / analyzes)                         │\n  │  PerfView — .NET GC/JIT/allocations, thread time         │\n  │  WPA (Windows Performance Analyzer) — system-wide        │\n  │  xperf / xperfview — low-level kernel events             │\n  │  Your code via TraceEvent NuGet                          │\n  └──────────────────────────────────────────────────────────┘\n\n  Real-time production tracing: zero allocation when disabled.\n  ETW events are dropped if no session subscribes — no overhead.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "diagram_like",
+      "line": 1172,
+      "heading_context": "### PerfView for .NET Analysis",
+      "confidence": "candidate",
+      "text": "PerfView Quick Reference\n=========================\n\n  Download: github.com/microsoft/perfview (free, Microsoft tool)\n  PerfView is the definitive .NET performance tool — ETW-based.\n\n  Collect a trace:\n    Collect → Accept (30-60 sec capture) → Stop\n\n  What to look at:\n    GC Heap Alloc Stacks   → where are you allocating?\n    Thread Time Stacks     → where is wall-clock time going?\n    JIT Stats              → startup JIT cost\n    GC Stats               → GC pause times, Gen0/1/2 counts\n    Events                 → raw ETW events\n\n  CPU sampling:\n    Events → CPU Stacks → flame graph via \"Flame Graph\" button\n\n  Memory investigation:\n    Memory → Heap Snapshots (requires snapshot collection)\n    Memory → GC Heap Alloc Stacks (allocation traces)\n\n  For production profiling without stopping the process:\n    dotnet-trace (built into .NET SDK):\n      dotnet trace collect -p <PID> --profile gc-verbose\n      dotnet trace convert --format Speedscope trace.nettrace",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "diagram_like",
+      "line": 1243,
+      "heading_context": "### Modern .NET Logging → ETW",
+      "confidence": "candidate",
+      "text": "Microsoft.Extensions.Logging → ETW\n=====================================\n\n  In .NET apps (ASP.NET, Worker Service):\n\n  // Program.cs\n  builder.Logging.AddEventLog(settings =>\n  {\n      settings.SourceName = \"MyApp\";    // creates source in Application log\n  });\n\n  // Or ETW provider via EventSource:\n  [EventSource(Name = \"MyCompany-MyApp\")]\n  class AppEventSource : EventSource\n  {\n      public static readonly AppEventSource Log = new();\n\n      [Event(1, Level = EventLevel.Informational)]\n      public void RequestStart(string path) =>\n          WriteEvent(1, path);\n  }\n\n  // Consume with PerfView or dotnet-trace during development.\n  // In production: forward Windows Event Log to Azure Monitor.\n\n  Azure Monitor → Windows Event Log forwarding:\n    Azure Monitor Agent (AMA) replaces MMA/OMS agent\n    Data Collection Rule (DCR) specifies which logs to ship\n    Destination: Log Analytics Workspace\n    Query: KQL in Azure Monitor Logs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "diagram_like",
+      "line": 1282,
+      "heading_context": "### Network Stack Architecture",
+      "confidence": "candidate",
+      "text": "Windows Network Stack\n======================\n\n  User Mode                          Kernel Mode\n  ─────────                          ────────────\n  Your app (WinSock API)             AFD.sys (Ancillary Function Driver)\n  ws2_32.dll (WinSock 2)      ───►   TCPIP.sys (TCP/IP stack)\n  mswsock.dll (WinSock SPI)          NDIS (Network Driver Interface)\n                                     NIC Driver\n  Named Pipes:\n  kernel32.dll (CreateNamedPipe)     NPFS.sys (Named Pipe FS)\n\n  HTTP.sys (kernel HTTP stack):\n  Used by IIS, WCF, HttpListener, ASP.NET Core (Kestrel delegates to OS TLS)\n  Allows multiple apps to share port 80/443 via URL reservation:\n    netsh http add urlacl url=http://+:8080/ user=DOMAIN\\svcaccount",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-44",
+      "kind": "diagram_like",
+      "line": 1303,
+      "heading_context": "### Named Pipes and AF_UNIX",
+      "confidence": "candidate",
+      "text": "IPC Options on Modern Windows\n===============================\n\n  Mechanism        Where        Use\n  ─────────        ─────        ───\n  Named Pipes      \\\\.\\pipe\\    Traditional Windows IPC, fast same-machine\n                                Cross-process, language-neutral\n                                Used by SQL Server, ADO.NET local connections\n\n  AF_UNIX sockets  Since 1803   POSIX-compatible unix domain sockets\n                                Works between WSL2 and Windows processes\n                                Same API as Linux — no refactoring needed\n\n  gRPC via TCP     Loopback     Modern IPC, proto3, cross-language\n                                Slightly more overhead than named pipes\n                                But: streaming, bidirectional, .NET/Java/Go all speak it\n\n  Memory-Mapped    Section obj  Shared memory, fastest for large data\n  Files            (kernel)     Use with Mutex/EventWaitHandle for signaling\n\n  WCF was often named pipes locally — gRPC is the modern replacement for that.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-45",
+      "kind": "diagram_like",
+      "line": 1404,
+      "heading_context": "### Proxy Configuration",
+      "confidence": "candidate",
+      "text": "WINHTTP vs WININET Proxy — the gotcha\n========================================\n\n  WININET (Internet Explorer / WinINet stack):\n    Used by: IE, old COM-based HTTP, .NET Framework HttpWebRequest (partially)\n    Config:  Internet Options → Connections → LAN Settings\n             or: netsh winhttp import proxy source=ie (copies IE settings to WinHTTP)\n    Registry: HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\n  WINHTTP (lower-level Windows HTTP):\n    Used by: WinUpdate, BITS, .NET Core HttpClient (on Windows via WinHttpHandler)\n             Some enterprise tools, WSUS, etc.\n    Config:  netsh winhttp set proxy proxy-server=\"http=myproxy:8080\"\n             netsh winhttp show proxy\n             netsh winhttp reset proxy\n\n  .NET Core / .NET 5+ HttpClient:\n    Uses WINHTTP on Windows by default\n    Respects HTTPS_PROXY / HTTP_PROXY env vars (cross-platform)\n    Or: set proxy in HttpClientHandler\n\n  Gotcha: \"My app works on my machine but not on the server\"\n    → Server might have no proxy set in WinHTTP\n    → Run: netsh winhttp show proxy on the server\n    → Fix: netsh winhttp set proxy or set HTTP_PROXY env var",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-46",
+      "kind": "diagram_like",
+      "line": 1436,
+      "heading_context": "## Section 10 — Package Management (Modern Windows)",
+      "confidence": "candidate",
+      "text": "Windows Package Manager Landscape\n===================================\n\n  Manager     Backed By       Registry              Install Location    Admin?\n  ────────    ─────────       ────────              ────────────────    ──────\n  winget      Microsoft       WinGet repo +         Varies by package   Varies\n              (built-in       MS Store +                                (per-machine\n              Win10/11)       custom sources                            = yes)\n\n  choco       Chocolatey      chocolatey.org        Usually Program     Usually\n              community       (community)           Files or tools\\     yes\n                              C4B (enterprise)\n\n  scoop       Community       GitHub buckets        %USERPROFILE%\\      NO\n                              (JSON manifests)      scoop\\apps\\         (user-space\n                                                                        installs)\n\n  Comparison:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  winget install Git.Git              # from winget repo          │\n  │  choco install git                   # from chocolatey           │\n  │  scoop install git                   # from scoop bucket         │\n  └──────────────────────────────────────────────────────────────────┘\n  All three install the same git. Pick one.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-47",
+      "kind": "diagram_like",
+      "line": 1499,
+      "heading_context": "### MSIX Packaging",
+      "confidence": "candidate",
+      "text": "Packaging an Existing App as MSIX\n===================================\n\n  Tools:\n    MSIX Packaging Tool (from Store) — GUI, installs app in capture mode\n    WiX v4 → MSIX output (build pipeline)\n    Visual Studio → Publish → MSIX\n\n  MSIX structure:\n    MyApp.msix (ZIP container)\n    ├─ AppxManifest.xml         — identity, capabilities, entry points\n    ├─ AppxBlockMap.xml         — content hash map\n    ├─ AppxSignature.p7x        — code signing certificate\n    ├─ Assets\\                  — logos, tiles\n    └─ VFS\\                     — virtual file system overlay\n        ├─ ProgramFilesX64\\MyApp\\\n        └─ Windows\\System32\\    — any DLLs app needs\n\n  Key manifest elements:\n    <Identity Name=\"Contoso.MyApp\" Version=\"1.0.0.0\"\n              Publisher=\"CN=Contoso\" ProcessorArchitecture=\"x64\"/>\n    <Capabilities>\n        <Capability Name=\"internetClient\"/>\n        <rescap:Capability Name=\"runFullTrust\"/>   ← for unpackaged-style access\n    </Capabilities>\n\n  Signing (required for sideload/enterprise):\n    signtool sign /fd SHA256 /a MyApp.msix    # uses cert from store\n    # Or: New-SelfSignedCertificate + Export-PfxCertificate for dev",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-48",
+      "kind": "diagram_like",
+      "line": 1537,
+      "heading_context": "### The .csproj Evolution",
+      "confidence": "candidate",
+      "text": "Old-Style vs SDK-Style .csproj\n================================\n\n  Old-Style (.NET Framework, pre-2017)\n  ──────────────────────────────────────\n  <?xml version=\"1.0\" encoding=\"utf-8\"?>\n  <Project ToolsVersion=\"15.0\" xmlns=\"...msbuild/2003\">\n    <Import Project=\"$(MSBuildExtensionsPath)\\...Microsoft.CSharp.targets\"/>\n    <PropertyGroup>\n      <Configuration>Debug</Configuration>\n      <Platform>AnyCPU</Platform>\n      <OutputType>Library</OutputType>\n      <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>\n      <AssemblyName>MyLib</AssemblyName>\n    </PropertyGroup>\n    <ItemGroup>\n      <Compile Include=\"Class1.cs\"/>     ← EVERY file listed explicitly\n      <Compile Include=\"Class2.cs\"/>\n      <Compile Include=\"Utilities\\Helper.cs\"/>\n    </ItemGroup>\n    <ItemGroup>\n      <Reference Include=\"System\"/>\n      <Reference Include=\"System.Data\"/>\n    </ItemGroup>\n    <ItemGroup>\n      <PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.0\"/>\n    </ItemGroup>\n  </Project>\n\n  SDK-Style (.NET Core / .NET 5+)\n  ─────────────────────────────────\n  <Project Sdk=\"Microsoft.NET.Sdk\">    ← this one line does everything\n    <PropertyGroup>\n      <OutputType>Library</OutputType>\n      <TargetFramework>net8.0</TargetFramework>  ← or net8.0-windows\n    </PropertyGroup>\n    <ItemGroup>\n      <PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.3\"/>\n    </ItemGroup>\n  </Project>\n  ← No file listing — all .cs in the directory tree are implicitly included\n  ← No explicit framework assembly references — implicit by TFM\n  ← Entire MSBuild SDK imported by the Sdk= attribute\n\n  Multi-targeting:\n    <TargetFrameworks>net8.0;net48;net8.0-windows</TargetFrameworks>\n    Build produces one output per TFM. #if NET8_0 / #if WINDOWS in code.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-49",
+      "kind": "diagram_like",
+      "line": 1589,
+      "heading_context": "### MSBuild Architecture (from your background)",
+      "confidence": "candidate",
+      "text": "MSBuild — What's Still True\n=============================\n\n  MSBuild is still the build engine. dotnet build calls MSBuild.\n\n  Key concepts (you know these — vocabulary check):\n  ┌───────────────────────────────────────────────────────────────┐\n  │  Property    — $(TargetFramework), $(Configuration)           │\n  │  Item        — @(Compile), @(Content), @(PackageReference)    │\n  │  Target      — named execution unit (BeforeBuild, Build, etc)│\n  │  Task        — action within a target (Csc, Copy, Exec, etc)  │\n  │  Import      — pull in another .props or .targets file        │\n  │  SDK         — \"Sdk=\" attribute = shorthand for SDK import    │\n  └───────────────────────────────────────────────────────────────┘\n\n  Build hook points:\n    BeforeBuild / AfterBuild  — common extension points\n    BeforePublish / AfterPublish\n    PrepareForBuild\n    CoreCompile  — the actual C# compilation step\n\n  Directory.Build.props / Directory.Build.targets:\n    Place in repo root. All projects under it inherit automatically.\n    Great for: central version pinning, shared properties, lint rules.\n\n    // Directory.Build.props (at repo root)\n    <Project>\n      <PropertyGroup>\n        <Nullable>enable</Nullable>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>\n      </PropertyGroup>\n    </Project>\n\n  Central Package Management (CPM) — NuGet 6.2+:\n    Directory.Packages.props at repo root:\n    <Project>\n      <PropertyGroup>\n        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>\n      </PropertyGroup>\n      <ItemGroup>\n        <PackageVersion Include=\"Newtonsoft.Json\" Version=\"13.0.3\"/>\n      </ItemGroup>\n    </Project>\n    Then in .csproj: <PackageReference Include=\"Newtonsoft.Json\"/> (no Version)\n    Single source of truth for all package versions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-50",
+      "kind": "diagram_like",
+      "line": 1640,
+      "heading_context": "### NuGet Evolution",
+      "confidence": "candidate",
+      "text": "NuGet: packages.config → PackageReference\n==========================================\n\n  packages.config (old)              PackageReference (current)\n  ─────────────────────              ──────────────────────────\n  Separate XML file                  Inline in .csproj\n  References listed in project too   Single entry\n  packages\\ folder in repo           Global cache (~/.nuget/packages)\n  Transitive deps manually managed   Automatic transitive resolution\n  Install-Package (PM Console)       Add directly to .csproj or:\n                                     dotnet add package Newtonsoft.Json\n                                     Right-click → Manage NuGet Packages\n\n  NuGet cache locations:\n    %USERPROFILE%\\.nuget\\packages\\    ← global package cache\n    %LOCALAPPDATA%\\NuGet\\v3-cache\\    ← HTTP cache\n\n  Useful:\n    dotnet nuget locals all --list    ← show cache locations\n    dotnet nuget locals all --clear   ← nuke all caches\n    dotnet restore --no-cache         ← force redownload",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-51",
+      "kind": "diagram_like",
+      "line": 1714,
+      "heading_context": "### Configuration Files",
+      "confidence": "candidate",
+      "text": "Configuration File Landscape (.NET 6+)\n=======================================\n\n  launchSettings.json  (in Properties/)\n    Development-only. Sets env vars, URLs, launch profiles.\n    Used by 'dotnet run' and VS F5.\n    NOT deployed to production.\n\n    {\n      \"profiles\": {\n        \"http\": {\n          \"commandName\": \"Project\",\n          \"launchBrowser\": true,\n          \"environmentVariables\": {\n            \"ASPNETCORE_ENVIRONMENT\": \"Development\"\n          },\n          \"applicationUrl\": \"http://localhost:5000\"\n        }\n      }\n    }\n\n  appsettings.json  (deploy WITH the app)\n    Base configuration. Overridden by:\n    appsettings.Development.json\n    appsettings.Production.json\n    Environment variables (ASPNETCORE_ prefix for ASP.NET)\n    User secrets (dev only, outside repo)\n    Azure App Configuration / Key Vault (production)\n\n  User Secrets (dev — never commit credentials):\n    dotnet user-secrets init\n    dotnet user-secrets set \"ConnectionStrings:Db\" \"Server=.;...\"\n    dotnet user-secrets list\n    Stored: %APPDATA%\\Microsoft\\UserSecrets\\<project-GUID>\\secrets.json\n\n  Priority (highest wins):\n    Key Vault / App Config → Env vars → appsettings.{env}.json\n    → appsettings.json → compiled defaults",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-52",
+      "kind": "diagram_like",
+      "line": 1759,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Desktop App Framework — What to Use When\n==========================================\n\n  Situation                              Recommendation\n  ─────────                              ──────────────\n  New rich desktop app, Windows only     WinUI 3 + WinApp SDK\n  New app, needs Win + Mac + mobile      MAUI\n  Existing WPF app — maintain/extend     Stay WPF (.NET 8+ supported)\n  Existing WinForms — maintain/extend    Stay WinForms (.NET 8+ supported)\n  Embed modern UI in old WPF             XAML Islands (WinUI in WPF)\n  UWP app migration                      WinUI 3 (Microsoft's migration path)\n  Cross-platform CLI tool                .NET 8 Console + dotnet publish\n  Web app served on Windows              ASP.NET Core (no native UI needed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-53",
+      "kind": "diagram_like",
+      "line": 1775,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Background Processing — What to Use When\n==========================================\n\n  Situation                              Recommendation\n  ─────────                              ──────────────\n  New Windows background service         Worker Service + UseWindowsService()\n  Long-running scheduled work            Worker Service + hosted services\n  Maintain old Windows Service           Migrate to Worker Service when touching\n  Needs AD/gMSA identity                 Worker Service + gMSA service account\n  Scheduled task (not continuous)        Windows Task Scheduler (schtasks.exe)\n  Container-based (Docker/K8s)           Worker Service (UseWindowsService() skipped on Linux)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-54",
+      "kind": "diagram_like",
+      "line": 1789,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Shell / Scripting — What to Use When\n======================================\n\n  Situation                              Recommendation\n  ─────────                              ──────────────\n  Windows admin automation               PowerShell 7 (pwsh)\n  Legacy script maintenance              PowerShell 5.1 (powershell.exe)\n  Quick one-off: services, registry      PowerShell (either version)\n  Linux build tools on Windows           WSL2\n  Docker Linux containers                Docker Desktop + WSL2 backend\n  Git operations                         Git for Windows (any shell) or WSL2\n  Cross-platform scripts (Win+Linux)     PowerShell 7 or bash in WSL2\n  Old .bat files that work               Leave as cmd.exe, don't rewrite",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-55",
+      "kind": "diagram_like",
+      "line": 1805,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "IPC / Communication — What to Use When\n========================================\n\n  Situation                              Recommendation\n  ─────────                              ──────────────\n  Same machine, .NET both sides          gRPC over named pipe OR loopback TCP\n  Same machine, cross-language           gRPC over loopback TCP or AF_UNIX\n  Replacing WCF named pipe binding       gRPC with Named Pipe transport\n  Replacing WCF netTcpBinding            gRPC over TCP\n  Replacing WCF basicHttpBinding         REST (ASP.NET Core minimal API)\n  High-throughput binary same-machine    Memory-mapped file + EventWaitHandle\n  Database local connection              Named pipe (SQL Server default)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-56",
+      "kind": "diagram_like",
+      "line": 1820,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Package Distribution — What to Use When\n=========================================\n\n  Situation                              Recommendation\n  ─────────                              ──────────────\n  New app for Store / winget             MSIX\n  Enterprise deployment (Intune/SCCM)   MSIX or traditional installer\n  Dev tool, no admin required            winget (scoop for user-space)\n  Legacy app, complex installer needs   WiX v4 (traditional installer)\n  Simple xcopy-deployable .exe           dotnet publish self-contained\n  Internal tooling / dev machines        winget + custom source or scoop",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-57",
+      "kind": "diagram_like",
+      "line": 1834,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Security Controls — What to Use When\n======================================\n\n  Situation                              Use\n  ─────────                              ───\n  Prevent privileged process access      Credential Guard (VBS)\n  Code signing enforcement               WDAC policy\n  Reduce attack surface                  ASR rules via Intune\n  Service identity management            gMSA (group Managed Service Account)\n  Developer workstation password-less    WHfB (already deployed at Microsoft)\n  Registry/filesystem audit              Enable Security audit policy + SACL\n  App allow-listing                      WDAC (preferred over AppLocker)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-58",
+      "kind": "diagram_like",
+      "line": 1919,
+      "heading_context": "### VBS / HVCI / Credential Guard",
+      "confidence": "candidate",
+      "text": "  │\n  ├─ Hyper-V Hypervisor (Ring -1 / VMX root mode)\n  │   ├─ Virtual Trust Level 0 (VTL0) — Normal World\n  │   │   ├─ NT Kernel (ring 0) — ntoskrnl.exe, drivers\n  │   │   └─ User space (ring 3) — your apps, even SYSTEM processes\n  │   │\n  │   └─ Virtual Trust Level 1 (VTL1) — Secure World\n  │       ├─ Secure kernel (securekernel.exe)\n  │       ├─ Isolated User Mode (IUM) — trustlets\n  │       │   ├─ lsaiso.exe  ← Credential Guard isolate\n  │       │   │   Holds NTLM hashes, Kerberos TGTs in VSM\n  │       │   │   Even kernel-mode rootkit in VTL0 cannot reach them\n  │       │   └─ Other VSM trustlets (TPM virt, attestation)\n  │       └─ HVCI enforcement (see below)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-59",
+      "kind": "diagram_like",
+      "line": 1952,
+      "heading_context": "### Kernel Patch Protection (KPP / PatchGuard)",
+      "confidence": "candidate",
+      "text": "  ├─ SSDT (System Service Descriptor Table) — syscall dispatch table\n  ├─ IDT (Interrupt Descriptor Table) — interrupt handler pointers\n  ├─ GDT (Global Descriptor Table)\n  ├─ MSRs (Model-Specific Registers) — LSTAR (syscall entry point)\n  ├─ Kernel code pages — key ntoskrnl functions\n  └─ Critical kernel data structures (KPCR, KPRCB, etc.)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-60",
+      "kind": "diagram_like",
+      "line": 1983,
+      "heading_context": "### PPL (Protected Process Light) Trust Hierarchy",
+      "confidence": "candidate",
+      "text": "  ─────────────────   ─────   ─────────────────────────────────────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-61",
+      "kind": "diagram_like",
+      "line": 1992,
+      "heading_context": "### PPL (Protected Process Light) Trust Hierarchy",
+      "confidence": "candidate",
+      "text": "    Higher protection level process → cannot be opened for memory read/write",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-62",
+      "kind": "diagram_like",
+      "line": 2001,
+      "heading_context": "### PPL (Protected Process Light) Trust Hierarchy",
+      "confidence": "candidate",
+      "text": "    Enable: HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa → RunAsPPL = 1",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-63",
+      "kind": "diagram_like",
+      "line": 2019,
+      "heading_context": "### Windows I/O Model — IOCP and Overlapped I/O",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────┐\n  │                     YOUR APPLICATION                            │\n  │                                                                 │\n  │  CreateFile(handle, ..., FILE_FLAG_OVERLAPPED)                  │\n  │  ReadFile(handle, buf, size, NULL, &overlapped)  ← returns fast │\n  │         │                                                       │\n  │         │ (I/O queued to kernel; thread continues)              │\n  │         ▼                                                       │\n  │  GetQueuedCompletionStatus(iocp, &bytes, &key, &overlapped, -1) │\n  │         │ ← thread blocks HERE (not during I/O)                 │\n  │         ▼                                                       │\n  │  Process completion — overlapped.Internal = status              │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-64",
+      "kind": "diagram_like",
+      "line": 2033,
+      "heading_context": "### Windows I/O Model — IOCP and Overlapped I/O",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────┐\n  │                     KERNEL                                      │\n  │                                                                 │\n  │  I/O Request Packet (IRP) → I/O Manager → driver stack         │\n  │         │                                                       │\n  │         │ DMA / hardware completes I/O                          │\n  │         ▼                                                       │\n  │  I/O completion routine (APC) or IOCP queue                     │\n  │  → completion packet queued to IOCP object                      │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-65",
+      "kind": "diagram_like",
+      "line": 2049,
+      "heading_context": "### Windows I/O Model — IOCP and Overlapped I/O",
+      "confidence": "candidate",
+      "text": "    Ideal: threadCount = 0 → use CPU count threads",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-66",
+      "kind": "diagram_like",
+      "line": 2053,
+      "heading_context": "### Windows I/O Model — IOCP and Overlapped I/O",
+      "confidence": "candidate",
+      "text": "    async/await over Socket, Stream, HttpClient → overlapped I/O → IOCP",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-67",
+      "kind": "diagram_like",
+      "line": 2062,
+      "heading_context": "### Windows I/O Model — IOCP and Overlapped I/O",
+      "confidence": "candidate",
+      "text": "  ──────────       ──────────────────   ──────────────     ──────────────    ──────────────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-68",
+      "kind": "diagram_like",
+      "line": 2081,
+      "heading_context": "### Configuration Store Cross-OS Bridge",
+      "confidence": "candidate",
+      "text": "  ────────────────               ──────────────────────         ───────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-69",
+      "kind": "diagram_like",
+      "line": 2090,
+      "heading_context": "### Configuration Store Cross-OS Bridge",
+      "confidence": "candidate",
+      "text": "  Hive → memory mapping:         No caching layer:              CFPreferences in-memory cache:\n    OS maps hive into kernel       cat /etc/nginx.conf            defaults write ... → cache\n    memory; reads are fast         reads disk every time          defaults synchronize → flush",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-70",
+      "kind": "diagram_like",
+      "line": 2109,
+      "heading_context": "### Configuration Store Cross-OS Bridge",
+      "confidence": "candidate",
+      "text": "    regedit → Permissions menu      No per-key sub-entry ACLs     No sub-entry ACLs",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-71",
+      "kind": "diagram_like",
+      "line": 2144,
+      "heading_context": "## Appendix: Sysinternals Tools Every Windows Developer Should Know",
+      "confidence": "candidate",
+      "text": "                      psexec -s cmd  → cmd.exe as SYSTEM",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\07-CROSS-PLATFORM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# Cross-Platform Development Reference",
+      "confidence": "candidate",
+      "text": "OS-LEVEL DIVERGENCE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  PROCESS MODEL               FILESYSTEM                    IPC / ASYNC\n  ─────────────────────────   ─────────────────────────     ─────────────────────────\n  Windows                     Windows                       Windows\n  CreateProcess()             C:\\foo\\bar (backslash)        Named pipe \\\\.\\pipe\\name\n  No fork() — fresh           Drive letters (C:, D:)        IOCP (completion-based)\n  process from scratch        NTFS: case-insensitive        Winsock TCP/UDP\n  Explicit handle inherit     MAX_PATH=260 (legacy)\n  Job Objects for groups      CRLF line endings\n\n  Linux                       Linux                         Linux\n  fork() + exec()             /foo/bar (forward slash)      Unix domain socket /tmp/x.sock\n  COW clone then replace      No drive letters              epoll / io_uring (readiness)\n  All fds inherited           ext4: case-sensitive          POSIX sockets TCP/UDP\n  unless O_CLOEXEC            LF line endings               Netlink (kernel ↔ userspace)\n  clone() for threads         No max path (POSIX: 4096)     D-Bus (desktop services)\n\n  macOS                       macOS                         macOS\n  posix_spawn() preferred     /foo/bar                      Unix domain socket (same as Linux)\n  fork() works but restricted APFS: case-insensitive        kqueue (readiness, plus file watch)\n  in sandboxed/App Store apps by default                    Mach ports (XPC services)\n  Same fd inherit as Linux    LF line endings               XPC (high-level Mach IPC)\n                              HFS+: NFD Unicode normalize\n\n  UNICODE / ENCODING          SIGNALS                       CONFIG STORE\n  ─────────────────────────   ─────────────────────────     ─────────────────────────\n  Windows: UTF-16 internal    Windows: no POSIX signals     Windows: Registry (binary DB)\n  NFKC normalization          SetConsoleCtrlHandler         Linux: /etc text files\n  char = UTF-16 in Win32 API  (Ctrl+C only)                macOS: .plist files\n  Filenames: Unicode (UTF-16) WM_CLOSE for GUI windows      Both: env vars for 12-factor\n\n  Linux: no normalization     Linux: full POSIX signals\n  Bytes on disk               SIGTERM/SIGKILL/SIGHUP etc.\n  Filename: byte strings      signalfd for event-loop\n  (usually UTF-8 by convention but not enforced)\n\n  macOS: NFC (HFS+ uses NFD)  macOS: POSIX signals + kqueue\n  Same filename, different    EVFILT_SIGNAL preferred\n  byte representation than    in multi-threaded apps\n  Linux (NFD) for some chars",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "### Filesystem Path Differences",
+      "confidence": "candidate",
+      "text": "PATH DIFFERENCES — PRODUCTION BUGS HIDING HERE\n═══════════════════════════════════════════════════════════════════════════\n\n  Attribute          Windows                Linux / most POSIX    macOS\n  ──────────         ─────────────────────  ──────────────────    ──────────────────────\n  Separator          \\  (backslash)          /  (forward slash)    /  (forward slash)\n  Alt separator      /  (also accepted       (none)                (none)\n                      by most Windows APIs)\n  Drive letters      C:\\, D:\\, \\\\server\\sh  No                    No\n  Root               C:\\  or \\\\server\\share  /                     /\n  Case sensitivity   Insensitive+preserving  Sensitive (ext4)      Insensitive by default\n                     (NTFS default)          Sensitive (xfs, btrfs) Can be formatted sensitive\n  Max path length    260 chars (legacy)      ~4096 bytes           ~1024 bytes\n                     32767 with \\\\?\\ prefix  per component: 255    per component: 255\n  Null char in path  Not allowed             Not allowed           Not allowed\n  Other reserved     CON, PRN, AUX, NUL,    No reserved names     No reserved names\n  names              COM1-9, LPT1-9\n                     Cannot be filenames\n  Trailing spaces    Stripped silently       Valid (unusual)        Valid (unusual)\n  Symlinks           Require Admin or        Standard               Standard; /etc → /private/etc\n                     Developer Mode; are\n                     not followed by all\n                     tools (Explorer hides)\n\n  Path separator in code — the right way:\n    Python:    pathlib.Path('a') / 'b' / 'c'  (OS-native, correct everywhere)\n    .NET:      Path.Combine(\"a\", \"b\", \"c\")     (correct; avoids \\ vs / issue)\n    Node.js:   path.join('a', 'b', 'c')        (correct)\n    Wrong:     \"a\" + \"/\" + \"b\"                  (fails on Windows if dir has C:\\)\n    Also wrong: \"a\\\\b\"                          (fails on Linux/macOS)\n\n  Max path gotcha on Windows:\n    Legacy Win32 APIs enforce MAX_PATH=260.\n    Opt-in to long paths: HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\\n      LongPathsEnabled=1  (Windows 10 1607+)\n    OR use \\\\?\\ prefix: \\\\?\\C:\\very\\long\\path\n    .NET: automatically uses \\\\?\\ prefix for long paths in .NET 6+\n    Docker on Windows: /var/lib/docker paths can exceed 260 — enable long paths",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Line Endings — CRLF vs LF",
+      "confidence": "candidate",
+      "text": "LINE ENDING SEMANTICS\n═══════════════════════════════════════════════════════════════════════════\n\n  Windows:  \\r\\n  (CRLF, 0x0D 0x0A)  — text mode default since MS-DOS\n  Linux:    \\n    (LF, 0x0A)          — POSIX standard\n  macOS:    \\n    (LF, 0x0A)          — changed from \\r in OS X 10.0\n  Old Mac:  \\r    (CR, 0x0D)          — pre-OS X; still used by some Excel exports\n\n  The production bug:\n    Developer on Windows checks in shell script\n    git config core.autocrlf = true (Windows default in Git for Windows)\n    Git converts LF → CRLF on checkout\n    Script.sh checked out on Windows → contains CRLF\n    CI runs in Docker (Linux) → #!/bin/bash\\r — shebang has trailing \\r\n    bash: cannot execute: No such file  (or similar cryptic error)\n\n  Fix: .gitattributes (committed to repo, overrides local config)\n    # .gitattributes\n    * text=auto                   # auto-detect text files, normalize to LF in repo\n    *.sh text eol=lf              # always LF for shell scripts\n    *.bat text eol=crlf           # always CRLF for batch files\n    *.ps1 text eol=crlf           # PowerShell on Windows wants CRLF\n    *.sln text eol=crlf           # Visual Studio solution files\n    *.png binary                  # no conversion for binary files\n\n  git config audit:\n    git config core.autocrlf      # true (Win) / input (Mac/Linux) / false (no convert)\n    git config core.eol           # lf / crlf / native\n\n  Check for CRLFs in existing files:\n    file script.sh                # \"with CRLF line terminators\" if CRLF\n    cat -A script.sh | head       # ^M at end of lines = CR (\\r)\n\n  Fix CRLFs in place:\n    sed -i 's/\\r//' script.sh      # Linux/macOS\n    dos2unix script.sh             # if dos2unix installed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Case Sensitivity Bugs",
+      "confidence": "candidate",
+      "text": "CASE SENSITIVITY TRAP\n═══════════════════════════════════════════════════════════════════════════\n\n  Windows (NTFS):  case-insensitive, case-preserving\n    FOO.TXT and foo.txt are the SAME file — last write wins\n  Linux (ext4):    case-sensitive\n    FOO.TXT and foo.txt are DIFFERENT files — can coexist\n  macOS (APFS):    case-insensitive by default\n    Same as Windows by default; developer machines can run case-sensitive APFS\n\n  The bug pattern:\n    Developer on Windows or macOS: import './Utils'\n    utils.ts exists on disk as utils.ts (lowercase)\n    Works: Windows/macOS filesystem resolves 'Utils' → 'utils.ts'\n    Fails: Linux CI (Docker, GitHub Actions Ubuntu) — 'Utils' ≠ 'utils.ts'\n\n  Detectors:\n    TypeScript: \"forceConsistentCasingInFileNames\": true  in tsconfig.json\n    ESLint: import/no-unresolved (with case-sensitive resolver)\n    CI: run on Linux even if devs use Windows/Mac\n\n  Docker on Windows:\n    Docker Desktop mounts C:\\ via VirtioFS / Hyper-V 9P\n    The container filesystem IS case-sensitive (Linux ext4)\n    Code that works when run natively on Windows may fail in your Docker container\n\n  Git case sensitivity:\n    git mv Readme.md README.md   # might silently do nothing on case-insensitive FS\n    Use: git mv Readme.md tmp && git mv tmp README.md  (two-step)\n    Or:  git config core.ignorecase false  (use carefully)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Unicode Normalization — The Silent Gotcha",
+      "confidence": "candidate",
+      "text": "UNICODE NORMALIZATION ACROSS OSes\n═══════════════════════════════════════════════════════════════════════════\n\n  Forms:\n    NFC  (Canonical Decomposition + Canonical Composition)    — used by Windows, Linux common\n    NFD  (Canonical Decomposition)                            — used by macOS HFS+ filesystem\n    NFKC (Compatibility Decomposition + Composition)          — Windows Registry, some Win32 APIs\n    NFD  and NFC differ for composed characters like é:\n      NFC: U+00E9 (single code point: é)\n      NFD: U+0065 U+0301 (e + combining acute accent — two code points)\n\n  macOS HFS+ (legacy, not APFS): stores filenames in NFD\n  macOS APFS: preserves whatever form you write (no normalization)\n  Linux: no normalization — bytes in, bytes out\n  Windows: NTFS stores as UTF-16, no normalization enforced\n\n  The bug:\n    File created on macOS HFS+ with filename \"café\" → stored as NFD on disk\n    Copied to Linux (rsync, scp) → arrives as NFD byte sequence\n    Linux program: filename == \"café\" (NFC comparison) → NOT EQUAL\n    Strings look identical on screen, compare unequal in code\n\n  Fix in code:\n    Python:  unicodedata.normalize('NFC', filename)\n    JS/TS:   filename.normalize('NFC')\n    .NET:    string.Normalize(NormalizationForm.FormC)\n\n  Practical rule: normalize to NFC at IO boundaries\n  (when reading filenames, user input, or data from other systems)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "### Process Creation Model — Cross-OS Bridge",
+      "confidence": "candidate",
+      "text": "PROCESS CREATION MODELS\n═══════════════════════════════════════════════════════════════════════════\n\n  Windows: CreateProcess()          Linux: fork() + exec()        macOS: posix_spawn() preferred\n  ─────────────────────────         ─────────────────────────     ───────────────────────────────\n  Fresh process from scratch         Clone current process          Combination: avoids full fork\n  No fork() at all                   (COW copy of address space)    overhead; preferred on Apple\n  All handles must be explicit:       → exec() replaces image        Silicon and in sandboxed apps\n    bInheritHandle = TRUE on          All fds inherited unless       (fork is restricted in some\n    SECURITY_ATTRIBUTES, or           O_CLOEXEC set at open time     App Store / sandbox contexts)\n    UpdateProcThreadAttribute()       (or SOCK_CLOEXEC, etc.)       iOS: fork() not available at all\n    for handle list\n\n  Security context:                  Security context:              Security context:\n    Token explicitly specified         uid/gid inherited from parent  uid/gid inherited; can setuid\n    or inherits calling process token  setuid executable changes uid  posix_spawn actions can\n    CreateProcessAsUser() for           post-exec                      chdir, dup2, close fds\n    impersonation\n\n  fd/handle inheritance:             fd inheritance:                fd inheritance:\n    Explicit opt-in per handle         All fds unless O_CLOEXEC       posix_spawn_file_actions:\n    DuplicateHandle() to share          (Python subprocess,            explicit file action list\n    across non-related processes        subprocess32, Go exec.Cmd      (not inherited by default\n                                        all set O_CLOEXEC by default)   without explicit action)\n\n  Env vars:                          Env vars:                      Env vars:\n    lpEnvironment param or inherit     environ[] inherited           Same as Linux fork/exec\n    CreateProcess always starts fresh   (unless execve() with new env)(posix_spawn with new env)\n\n  Process group / session:           Process group / session:       Same as Linux\n    Job Objects (Windows-specific)     setsid() / setpgid()          setpgid() / setsid()\n    → CPU/memory limits per group      process groups for signal      (no Job Objects)\n    → on child, kill all               delivery to group\n\n  Security implication of no fork on Windows:\n    Every new process starts clean — no accidental fd/secret inheritance\n    Explicit handle list forces developer to think about what is shared\n    Linux/macOS: a fd opened before fork() is silently inherited by child\n    unless O_CLOEXEC was set — common security bug in servers that use fork()\n\n  Cross-platform process launcher libraries:\n    Python:     subprocess.Popen() — handles all three platforms\n    Node.js:    child_process.spawn() — handles all three\n    Rust:       std::process::Command — handles all three\n    .NET:       Process.Start(ProcessStartInfo) — handles all three\n    Go:         os/exec.Command — handles all three\n    All abstract fork+exec (Unix) or CreateProcess (Windows) behind one API.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "### Cross-Platform IPC — Named Pipes vs Unix Domain Sockets",
+      "confidence": "candidate",
+      "text": "LOCAL IPC MECHANISMS — CROSS-PLATFORM COMPARISON\n═══════════════════════════════════════════════════════════════════════════\n\n  Windows Named Pipe               Unix Domain Socket (Linux + macOS)\n  ────────────────────────────     ────────────────────────────────────────\n  Address: \\\\.\\pipe\\myserver       Address: /tmp/myserver.sock  (filesystem path)\n  or \\\\hostname\\pipe\\myserver      (no remote addressing for AF_UNIX)\n\n  API:                             API:\n    Server: CreateNamedPipe()        Server: socket(AF_UNIX, SOCK_STREAM, 0)\n    Client: CreateFile(\\\\.\\pipe\\...) bind(/tmp/sock) → listen() → accept()\n    Both: ReadFile() / WriteFile()   Client: connect(/tmp/sock)\n    Async: overlapped I/O + IOCP     Both: read() / write() / send() / recv()\n                                     Async: epoll / kqueue / io_uring\n\n  .NET:                            .NET (5+):\n    NamedPipeServerStream            UnixDomainSocketEndPoint\n    NamedPipeClientStream            Same Socket API as TCP\n\n  Permissions:                     Permissions:\n    ACL on pipe object               Filesystem permissions on socket path\n    OpenNamedPipe with access flags  chmod / chown on /tmp/sock\n                                     (directory execute bit needed too)\n\n  Visual Studio / VS Code use case:\n    Language Server Protocol (LSP) must support both:\n    Windows:  \\\\.\\pipe\\vscode-<extension>\n    Linux:    /tmp/vscode-<extension>.sock\n    macOS:    /tmp/vscode-<extension>.sock (same as Linux)\n\n  Cross-platform server that supports both:",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "## The Landscape — Big Picture",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────────────┐\n  │  Target Platforms                                                           │\n  │                                                                             │\n  │  iOS ──────────────────────────────────────────────────────┐                │\n  │  Android ──────────────────────────────────────────────────┤                │\n  │  Windows ──────────────────────────────────────────────────┤                │\n  │  macOS ────────────────────────────────────────────────────┤                │\n  │  Linux ────────────────────────────────────────────────────┤                │\n  │  Web ──────────────────────────────────────────────────────┘                │\n  │                         ▲                                                   │\n  │  ONE CODEBASE ───────────┘ (aspiration)                                     │\n  │                                                                             │\n  │  ┌─────────────┬──────────────┬─────────────┬────────────┬───────────┐      │\n  │  │  .NET MAUI  │ React Native │   Flutter   │  Electron  │   Tauri   │    │\n  │  │  C# / XAML  │  JS / TS     │    Dart     │  JS + Node │  JS + Rust│    │\n  │  │  iOS/And/   │  iOS/Android │  iOS/And/   │  Windows/  │  Win/Mac/ │    │\n  │  │  Win/macOS  │  Web(limited)│  Win/Mac/   │  macOS/    │  Linux    │    │\n  │  │             │              │  Linux/Web  │  Linux     │           │    │\n  │  └─────────────┴──────────────┴─────────────┴────────────┴───────────┘    │\n  │                                                                             │\n  │  ┌──────────────────────────────────────────────────────────────────────┐  │\n  │  │  Capacitor / Ionic — web app wrapped in native shell                 │  │\n  │  └──────────────────────────────────────────────────────────────────────┘  │\n  └─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "## The Abstraction Spectrum",
+      "confidence": "candidate",
+      "text": "  FULLY NATIVE ◄─────────────────────────────────────────────► WEBVIEW WRAPPER\n  100% native perf                                              pure web in shell\n  most code                                                     least code\n  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────────┐\n  │ Swift    │   │ Flutter  │   │  MAUI    │   │  React   │   │  Electron /  │\n  │ Kotlin   │   │          │   │          │   │  Native  │   │  Capacitor / │\n  │ (native) │   │ Custom   │   │ Handler- │   │          │   │  Tauri       │\n  │          │   │ renderer │   │ mapped   │   │ Native   │   │              │\n  │ 2 repos  │   │ (Skia/   │   │ native   │   │ widgets  │   │ Chromium /   │\n  │ 2 teams  │   │ Impeller)│   │ widgets  │   │ via JS   │   │ OS webview   │\n  │          │   │          │   │          │   │ bridge   │   │              │\n  │ All APIs │   │ Any look │   │ Natve    │   │ Mostly   │   │ Web APIs     │\n  │ day one  │   │ cross-   │   │ look on  │   │ native   │   │ + some       │\n  │          │   │ platform │   │ each OS  │   │ feel     │   │ native APIs  │\n  └──────────┘   └──────────┘   └──────────┘   └──────────┘   └──────────────┘\n\n  Trade-off axis:\n  ┌─────────────────────────────────────────────────────────────────────────────┐\n  │  ←── higher: performance, API access, native feel, new OS feature support   │\n  │  ←── lower:  code sharing, hiring pool, iteration speed, cost               │\n  │                                                                             │\n  │  →── higher: code sharing %, web skills leverage, prototype speed           │\n  │  →── lower:  performance, native API coverage, platform authenticity        │\n  └─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  ┌───────────────────────────────────────────────────────────────────┐\n  │  Your MAUI App (C# / XAML)                                        │\n  │  ┌──────────────────────────────────────────────────────────┐     │\n  │  │  MAUI Shell: navigation, tabs, flyout menu              │     │\n  │  │  ContentPage, ContentView, DataTemplate, ControlTemplate│     │\n  │  └──────────────────────────────────────────────────────────┘     │\n  │  ┌──────────────────────────────────────────────────────────┐     │\n  │  │  Handlers (new in MAUI — replace Xamarin Renderers)      │     │\n  │  │  Button handler → UIButton (iOS) / android.Button (And)  │     │\n  │  │  Label handler  → UILabel  (iOS) / android.TextView      │     │\n  │  │  Custom handlers: override per platform                  │     │\n  │  └──────────────────────────────────────────────────────────┘     │\n  │                                                                   │\n  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────────┐ │\n  │  │  iOS     │  │ Android  │  │ Windows  │  │ macOS (Catalyst) │ │\n  │  │  .NET    │  │  .NET    │  │  .NET    │  │  .NET            │ │\n  │  │  for iOS │  │  for And │  │  for Win │  │  for macOS       │ │\n  │  └──────────┘  └──────────┘  └──────────┘  └──────────────────┘ │\n  └───────────────────────────────────────────────────────────────────┘\n\n  Single project with platform folders:\n  MyApp/\n  ├── MyApp.csproj    ← multi-targeted: net8.0-ios; net8.0-android; net8.0-windows; net8.0-maccatalyst\n  ├── Platforms/\n  │   ├── Android/    ← AndroidManifest.xml, MainActivity.cs, platform code\n  │   ├── iOS/        ← Info.plist, AppDelegate.cs, platform code\n  │   ├── Windows/    ← Package.appxmanifest, App.xaml, platform code\n  │   └── MacCatalyst/\n  ├── Resources/\n  │   ├── Images/     ← single source image, MAUI generates all densities\n  │   ├── Fonts/\n  │   └── Raw/\n  └── ViewModels/, Views/, Models/, Services/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "using CommunityToolkit.Mvvm.ComponentModel;\nusing CommunityToolkit.Mvvm.Input;\n\n// [ObservableProperty] generates: property, backing field, OnXChanged partial method,\n// INotifyPropertyChanged notifications — all via source generator\n[ObservableObject]\npublic partial class UserViewModel\n{\n    [ObservableProperty]\n    [NotifyPropertyChangedFor(nameof(FullName))]   // also notifies FullName\n    [NotifyCanExecuteChangedFor(nameof(SaveCommand))]  // revalidates command\n    private string _firstName = string.Empty;\n\n    [ObservableProperty]\n    private string _lastName = string.Empty;\n\n    public string FullName => $\"{FirstName} {LastName}\";\n\n    // [RelayCommand] generates ICommand property with execute + canExecute wiring\n    [RelayCommand(CanExecute = nameof(CanSave))]\n    private async Task SaveAsync(CancellationToken cancellationToken)\n    {\n        await _userService.SaveAsync(new User(FirstName, LastName), cancellationToken);\n    }\n\n    private bool CanSave() => !string.IsNullOrWhiteSpace(FirstName);\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 566,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  JS Thread                    Bridge                   Native Thread\n  ┌─────────────────┐         ┌─────────────────┐       ┌──────────────────┐\n  │  React + JS     │ async   │ JSON serialized │ async │  iOS / Android   │\n  │  business logic │────────▶│ message queue   │──────▶│  UI rendering    │\n  │                 │◀────────│                 │◀──────│  Native modules  │\n  └─────────────────┘         └─────────────────┘       └──────────────────┘\n  Problem: every UI update = serialization + async round-trip = jank",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 577,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  JS Thread                              Native Thread\n  ┌──────────────────────────────┐       ┌──────────────────────────────┐\n  │  Hermes JS Engine            │       │  Fabric (new renderer)       │\n  │  + JSI (C++ bindings)        │──────▶│  Synchronous UI updates      │\n  │                              │       │                              │\n  │  TurboModules                │──────▶│  TurboModules: lazy-load,    │\n  │  (typed, lazy native mods)   │       │  direct C++ access, typed    │\n  └──────────────────────────────┘       └──────────────────────────────┘\n  Result: synchronous JS→native calls, no serialization overhead",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 590,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────┐\n  │  Expo SDK                                                        │\n  │  ├── Managed workflow: expo prebuild generates native code       │\n  │  │   No Xcode/Android Studio needed for most development         │\n  │  │   Expo Go app: instant preview on device without build        │\n  │  │                                                               │\n  │  ├── Bare workflow: ejected, full native project access          │\n  │  │   Run: npx expo prebuild → generates ios/ and android/        │\n  │  │                                                               │\n  │  └── EAS (Expo Application Services)                             │\n  │      ├── EAS Build: cloud build for iOS + Android                │\n  │      ├── EAS Submit: automated App Store + Play Store submission │\n  │      └── EAS Update: OTA updates to JS bundle (no store review)  │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 608,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "import React, { useState, useEffect } from 'react';\nimport {\n  View, Text, FlatList, TouchableOpacity,\n  StyleSheet, ActivityIndicator, Platform\n} from 'react-native';\n\n// Platform-specific code\nconst buttonStyle = Platform.select({\n  ios: { borderRadius: 12 },\n  android: { borderRadius: 4 },\n});\n\n// Component — same React patterns as web\nfunction UserList({ navigation }) {\n  const [users, setUsers] = useState<User[]>([]);\n  const [loading, setLoading] = useState(true);\n\n  useEffect(() => {\n    fetchUsers().then(data => {\n      setUsers(data);\n      setLoading(false);\n    });\n  }, []);\n\n  if (loading) return <ActivityIndicator style={styles.center} />;\n\n  return (\n    <FlatList\n      data={users}\n      keyExtractor={item => item.id}\n      renderItem={({ item }) => (\n        <TouchableOpacity\n          style={styles.row}\n          onPress={() => navigation.navigate('Detail', { userId: item.id })}\n        >\n          <Text style={styles.name}>{item.name}</Text>\n        </TouchableOpacity>\n      )}\n    />\n  );\n}\n\n// StyleSheet.create — NOT CSS; maps to native layout (Yoga flex engine)\nconst styles = StyleSheet.create({\n  center: { flex: 1, alignItems: 'center', justifyContent: 'center' },\n  row: { padding: 16, borderBottomWidth: StyleSheet.hairlineWidth },\n  name: { fontSize: 16, fontWeight: '600' },\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 694,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "- You need Web + iOS + Android from one team",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 708,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Your Dart Code                                                      │\n  │  Widget tree: everything is a widget                                 │\n  │  StatelessWidget / StatefulWidget / InheritedWidget                  │\n  └─────────────────────────────────────┬────────────────────────────────┘\n                                        │ compiled to\n  ┌─────────────────────────────────────▼────────────────────────────────┐\n  │  Dart VM (debug) / AOT native code (release)                         │\n  │  Dart → arm64 / x86_64 machine code via dart2native                  │\n  └─────────────────────────────────────┬────────────────────────────────┘\n                                        │ calls\n  ┌─────────────────────────────────────▼────────────────────────────────┐\n  │  Flutter Engine (C++)                                                │\n  │  Skia (older) / Impeller (newer, iOS default, Android GA in 3.x)     │\n  │  Text layout, image decoding, canvas API                             │\n  └─────────────────────────────────────┬────────────────────────────────┘\n                                        │ renders to\n  ┌─────────────────────────────────────▼────────────────────────────────┐\n  │  Platform Canvas                                                     │\n  │  iOS: Metal surface  │  Android: Vulkan/GL surface  │  Web: Canvas   │\n  └──────────────────────┴────────────────────────────────┴──────────────┘\n\n  KEY INSIGHT: Flutter bypasses the OS's native widget system entirely.\n  It draws every pixel itself. Your app looks identical on iOS and Android.\n  This is a design choice — platform purists object; designers love it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 737,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "// Everything is immutable configuration (Widget)\n// Flutter diffs the widget tree → generates Element tree → renders RenderObject tree\n\nclass UserCard extends StatelessWidget {\n  const UserCard({\n    super.key,\n    required this.user,\n    required this.onFollow,\n  });\n\n  final User user;\n  final VoidCallback onFollow;\n\n  @override\n  Widget build(BuildContext context) {\n    return Card(\n      child: Padding(\n        padding: const EdgeInsets.all(16),\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          children: [\n            Text(user.name, style: Theme.of(context).textTheme.titleMedium),\n            const SizedBox(height: 8),\n            Text(user.bio),\n            ElevatedButton(\n              onPressed: onFollow,\n              child: const Text('Follow'),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n\n// StatefulWidget — for local mutable state\nclass Counter extends StatefulWidget {\n  const Counter({super.key});\n  @override\n  State<Counter> createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int _count = 0;\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      children: [\n        Text('Count: $_count'),\n        ElevatedButton(\n          onPressed: () => setState(() => _count++),  // setState triggers rebuild\n          child: const Text('Increment'),\n        ),\n      ],\n    );\n  }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 799,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  setState (trivial)\n  │ → fine for local UI state within one widget\n  │\n  InheritedWidget (manual)\n  │ → Flutter's built-in prop drilling solution; low-level\n  │\n  Provider (simple)\n  │ → ChangeNotifier + ChangeNotifierProvider; beginner-friendly\n  │\n  Riverpod (intermediate — recommended for most apps)\n  │ → type-safe, testable, no BuildContext required for providers\n  │ → ref.watch(), ref.read(), AsyncNotifierProvider\n  │\n  Bloc (large teams / complex apps)\n  │ → Events in → States out; strict unidirectional data flow\n  │ → BlocBuilder, BlocListener, BlocConsumer\n  └─ most predictable; most boilerplate; best for regulated industries",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 820,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "import 'package:flutter_riverpod/flutter_riverpod.dart';\n\n// Provider definition — lives outside widget tree\n@riverpod\nFuture<List<User>> users(UsersRef ref) async {\n  final repo = ref.watch(userRepositoryProvider);\n  return repo.getUsers();\n}\n\n// Widget consumes provider\nclass UserListScreen extends ConsumerWidget {\n  const UserListScreen({super.key});\n\n  @override\n  Widget build(BuildContext context, WidgetRef ref) {\n    final usersAsync = ref.watch(usersProvider);\n\n    return usersAsync.when(\n      loading: () => const CircularProgressIndicator(),\n      error: (error, stack) => Text('Error: $error'),\n      data: (users) => ListView.builder(\n        itemCount: users.length,\n        itemBuilder: (context, index) => UserCard(\n          user: users[index],\n          onFollow: () => ref.read(usersProvider.notifier).followUser(users[index].id),\n        ),\n      ),\n    );\n  }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 868,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "// Android side (Kotlin)\nMethodChannel(flutterEngine.dartExecutor.binaryMessenger, \"com.example.myapp/native\")\n    .setMethodCallHandler { call, result ->\n        if (call.method == \"getBatteryLevel\") {\n            val level = getBatteryLevel()\n            if (level != -1) result.success(level)\n            else result.error(\"UNAVAILABLE\", \"Battery level not available\", null)\n        } else {\n            result.notImplemented()\n        }\n    }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 927,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  ┌───────────────────────────────────────────────────────────────────────┐\n  │  Electron Application                                                 │\n  │                                                                       │\n  │  ┌─────────────────────────────────────────────────────────────┐      │\n  │  │  Main Process  (Node.js)                                    │     │\n  │  │  app.ts / main.ts                                          │     │\n  │  │  ├── BrowserWindow management                              │     │\n  │  │  ├── Native menus, system tray, notifications              │     │\n  │  │  ├── File system, OS APIs                                  │     │\n  │  │  ├── Auto-updater                                          │     │\n  │  │  └── ipcMain.handle('channel', handler)                    │     │\n  │  └──────────────────────────┬──────────────────────────────────┘     │\n  │                             │  IPC (inter-process communication)      │\n  │  ┌──────────────────────────▼──────────────────────────────────┐     │\n  │  │  Preload Script  (bridge — runs in renderer, has Node access)│    │\n  │  │  contextBridge.exposeInMainWorld('api', {                   │     │\n  │  │    readFile: (path) => ipcRenderer.invoke('read-file', path)│     │\n  │  │  })                                                         │     │\n  │  └──────────────────────────┬──────────────────────────────────┘     │\n  │                             │  contextIsolation boundary              │\n  │  ┌──────────────────────────▼──────────────────────────────────┐     │\n  │  │  Renderer Process  (Chromium — one per BrowserWindow)       │     │\n  │  │  Your React / Vue / Svelte / vanilla web app                │     │\n  │  │  window.api.readFile(path)  ← uses exposed API only         │     │\n  │  │  NO direct Node access (contextIsolation = true)            │     │\n  │  └─────────────────────────────────────────────────────────────┘     │\n  └───────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 958,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "// preload.ts — runs in renderer context WITH Node access\n// This is the ONLY safe way to expose native APIs\nimport { contextBridge, ipcRenderer } from 'electron';\n\ncontextBridge.exposeInMainWorld('api', {\n  // Only expose what you need — principle of least privilege\n  readFile: (path: string) => ipcRenderer.invoke('read-file', path),\n  writeFile: (path: string, data: string) => ipcRenderer.invoke('write-file', path, data),\n  openFile: () => ipcRenderer.invoke('open-file-dialog'),\n  onUpdateAvailable: (cb: () => void) => ipcRenderer.on('update-available', cb),\n});\n\n// main.ts — main process handles the IPCs\nimport { ipcMain, dialog, app } from 'electron';\nimport { readFile, writeFile } from 'fs/promises';\n\nipcMain.handle('read-file', async (event, path: string) => {\n  return readFile(path, 'utf-8');\n});\n\nipcMain.handle('open-file-dialog', async () => {\n  const result = await dialog.showOpenDialog({\n    properties: ['openFile'],\n    filters: [{ name: 'Text Files', extensions: ['txt', 'md'] }]\n  });\n  return result.filePaths[0];\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 1071,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Tauri Application                                                   │\n  │                                                                      │\n  │  ┌─────────────────────────────────────────────────────────────┐     │\n  │  │  Rust Core                                                  │    │\n  │  │  src-tauri/src/main.rs                                     │    │\n  │  │  ├── #[tauri::command] fn my_command() → exposed to JS     │    │\n  │  │  ├── App state management (Arc<Mutex<T>>)                   │    │\n  │  │  ├── File system, OS APIs                                   │    │\n  │  │  └── tauri-plugin-* (fs, http, notification, shell, store) │    │\n  │  └──────────────────────────┬──────────────────────────────────┘    │\n  │                             │  invoke() / Tauri IPC                  │\n  │  ┌──────────────────────────▼──────────────────────────────────┐    │\n  │  │  OS WebView (no bundled Chromium)                           │    │\n  │  │  macOS: WKWebView                                           │    │\n  │  │  Windows: WebView2 (Edge/Chromium-based, ships with Win 11) │    │\n  │  │  Linux: webkit2gtk                                          │    │\n  │  │                                                             │    │\n  │  │  Your web app: React / Vue / Svelte / Solid / vanilla       │    │\n  │  └─────────────────────────────────────────────────────────────┘    │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  Size comparison:\n  Electron: 50-150 MB install (bundles Chromium)\n  Tauri:     3-10 MB install  (uses OS webview)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 1178,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Capacitor Application                                               │\n  │                                                                      │\n  │  Your Web App (React / Vue / Angular / Svelte / plain HTML)          │\n  │  ┌──────────────────────────────────────────────────────────────┐    │\n  │  │  Web assets (index.html, JS bundle, CSS)                    │   │\n  │  └──────────────────────────────┬───────────────────────────────┘   │\n  │                                 │                                    │\n  │  ┌──────────────────────────────▼───────────────────────────────┐   │\n  │  │  Capacitor Bridge (JS ↔ Native)                              │   │\n  │  │  @capacitor/core  — plugin API surface                       │   │\n  │  │  @capacitor/camera, @capacitor/filesystem, @capacitor/push   │   │\n  │  └─────┬───────────────────────────────────────────────────┬───┘    │\n  │        │                                                   │        │\n  │  ┌─────▼────────────────┐                    ┌────────────▼──────┐ │\n  │  │  iOS Native Shell    │                    │ Android Native    │ │\n  │  │  WKWebView           │                    │ Shell             │ │\n  │  │  CapacitorPlugin.m   │                    │ WebView           │ │\n  │  │                      │                    │ CapacitorPlugin.kt│ │\n  │  └──────────────────────┘                    └───────────────────┘ │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 1238,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "// Ionic components adapt to platform look\nimport { IonContent, IonHeader, IonList, IonItem, IonLabel, IonPage, IonToolbar } from '@ionic/react';\n\nfunction UserListPage() {\n  return (\n    <IonPage>\n      <IonHeader>\n        <IonToolbar>\n          <IonTitle>Users</IonTitle>\n        </IonToolbar>\n      </IonHeader>\n      <IonContent>\n        <IonList>\n          {users.map(user => (\n            <IonItem key={user.id} routerLink={`/user/${user.id}`}>\n              <IonLabel>{user.name}</IonLabel>\n            </IonItem>\n          ))}\n        </IonList>\n      </IonContent>\n    </IonPage>\n  );\n}\n// IonList, IonItem, etc. render with iOS or Material styling depending on platform",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 1266,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  Capacitor Live Update allows you to push JS/CSS/HTML changes to\n  production apps WITHOUT going through App Store / Play Store review.\n\n  This works because:\n  - App Store rules allow updating JS bundles (interpreted code)\n  - Only native code changes require store review\n\n  Workflow:\n  npm run build → npx cap sync → upload bundle → users get update on next app launch\n\n  Restriction: Cannot change native code (Swift/Kotlin/plugins) via live update",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 1297,
+      "heading_context": "## Code Sharing Strategies",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────┐\n  │  What you CAN share across platforms                               │\n  │                                                                    │\n  │  ┌────────────────────────────────────────────────────────────┐    │\n  │  │  Business Logic (the most valuable)                        │   │\n  │  │  - API clients (Retrofit/Axios/fetch wrappers)             │   │\n  │  │  - Data models / DTOs                                      │   │\n  │  │  - Validation rules                                        │   │\n  │  │  - Calculation / domain logic                             │   │\n  │  │  - State management (Redux store, ViewModel logic)        │   │\n  │  └────────────────────────────────────────────────────────────┘   │\n  │  ┌────────────────────────────────────────────────────────────┐   │\n  │  │  Infrastructure                                            │   │\n  │  │  - Authentication flow                                     │   │\n  │  │  - Analytics events                                        │   │\n  │  │  - Feature flags                                           │   │\n  │  │  - Error tracking setup                                    │   │\n  │  └────────────────────────────────────────────────────────────┘   │\n  └────────────────────────────────────────────────────────────────────┘\n\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  What you should NOT share (or share only thinly)                  │\n  │                                                                    │\n  │  - UI components (each platform has different idioms)              │\n  │  - Navigation (Stack vs NavController vs NavHost differ)           │\n  │  - Platform-specific APIs (camera, biometrics, push notifications)│\n  │  - Styling (iOS HIG vs Material Design vs Win Fluent)              │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 1329,
+      "heading_context": "## Code Sharing Strategies",
+      "confidence": "candidate",
+      "text": "  apps/\n  ├── web/              ← Next.js or Vite web app\n  ├── mobile/           ← React Native / Expo app\n  └── desktop/          ← Electron or Tauri app\n\n  packages/\n  ├── api-client/       ← shared: typed API client (axios + zod schemas)\n  ├── state/            ← shared: Zustand stores + hooks\n  ├── validation/       ← shared: zod schemas (same schemas on web + mobile)\n  ├── ui-web/           ← web-specific: shadcn/ui components\n  └── ui-mobile/        ← mobile-specific: RN components",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "ascii_table_candidate",
+      "line": 1366,
+      "heading_context": "# Build only affected packages",
+      "confidence": "candidate",
+      "text": "<!-- Shared.Core.csproj — pure .NET, no UI -->\n<Project Sdk=\"Microsoft.NET.Sdk\">\n  <PropertyGroup>\n    <!-- Targets all MAUI platforms + ASP.NET server + tests -->\n    <TargetFrameworks>net8.0;net8.0-ios;net8.0-android;net8.0-windows10.0.19041.0</TargetFrameworks>\n  </PropertyGroup>\n</Project>\n\n<!-- MyApp.csproj — MAUI UI layer -->\n<Project Sdk=\"Microsoft.NET.Sdk.Maui\">\n  <ItemGroup>\n    <ProjectReference Include=\"..\\Shared.Core\\Shared.Core.csproj\" />\n  </ItemGroup>\n</Project>\n\n<!-- MyApi.csproj — ASP.NET backend -->\n<Project Sdk=\"Microsoft.NET.Sdk.Web\">\n  <ItemGroup>\n    <ProjectReference Include=\"..\\Shared.Core\\Shared.Core.csproj\" />\n  </ItemGroup>\n</Project>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "ascii_table_candidate",
+      "line": 1434,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "  React Native: cross-platform mobile (iOS + Android). Desktop is minimal.\n  Flutter:      cross-platform all-targets (mobile + desktop + web). Still maturing outside mobile.\n  MAUI:         cross-platform all-targets (mobile + desktop). Web via Blazor Hybrid.\n  Electron:     cross-platform desktop only. Not mobile.\n  Tauri:        cross-platform desktop + mobile (2.0). Maturing.\n  Capacitor:    cross-platform mobile + web. Desktop via Electron (separate).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

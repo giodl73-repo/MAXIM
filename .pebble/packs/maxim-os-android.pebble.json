@@ -1,0 +1,3093 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-os-android",
+  "source": "../../os",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-ANDROID.md#000",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "# Android Developer Reference"
+    },
+    {
+      "id": "06-ANDROID.md#001",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## The Android Stack — Big Picture"
+    },
+    {
+      "id": "06-ANDROID.md#002",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────┐\n│                          YOUR APP                                   │\n│   Activities · Fragments · Services · BroadcastReceivers · Providers│\n└────────────────────────────┬────────────────────────────────────────┘\n                             │ calls\n┌────────────────────────────▼────────────────────────────────────────┐\n│                     ANDROID FRAMEWORK                               │\n│  ActivityManager · WindowManager · PackageManager · NotificationMgr │\n│  ContentResolver · TelephonyManager · LocationManager · etc.        │\n└────────────────────────────┬────────────────────────────────────────┘\n                             │\n┌────────────────────────────▼────────────────────────────────────────┐\n│               ANDROID RUNTIME (ART) + CORE LIBRARIES                │\n│  ART: AOT compilation + JIT profiling + GC                          │\n│  Java API layer: java.*, android.*, androidx.*                      │\n│  Native libs: OpenGL ES, libc (Bionic), media, SQLite, WebKit       │\n└────────────┬───────────────────────────┬────────────────────────────┘\n             │                           │\n┌────────────▼──────────┐   ┌────────────▼────────────────────────────┐\n│   HAL (Hardware       │   │  NATIVE DAEMONS                         │\n│   Abstraction Layer)  │   │  SurfaceFlinger (compositor)            │\n│   camera.default.so   │   │  AudioFlinger (audio mixer)             │\n│   gps.default.so      │   │  ServiceManager (Binder registry)       │\n│   sensors.default.so  │   │  Zygote (app spawner)                   │\n└────────────┬──────────┘   └────────────┬────────────────────────────┘\n             │                           │\n┌────────────▼───────────────────────────▼────────────────────────────┐\n│                   LINUX KERNEL (modified)                           │\n│  Binder IPC driver · Wakelocks · Low Memory Killer (LMK)            │\n│  Ashmen (shared memory) · ION allocator · USB Gadget driver         │\n└─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "06-ANDROID.md#003",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Android is NOT standard Linux.**  Key divergences:"
+    },
+    {
+      "id": "06-ANDROID.md#004",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "| Aspect               | Standard Linux            | Android                              |\n|----------------------|---------------------------|--------------------------------------|\n| IPC mechanism        | Unix domain sockets       | Binder (kernel driver, one-copy IPC) |\n| C library            | glibc                     | Bionic (lighter, BSD-derived)        |\n| Init                 | systemd / SysVinit        | init → Zygote → SystemServer         |\n| Display server       | X11 / Wayland             | SurfaceFlinger (no X11 ever)         |\n| App isolation        | uid/gid only              | uid per-app + SELinux + seccomp      |\n| Package manager      | apt/rpm                   | PackageManager service               |\n| Log system           | syslog / journald         | logd + logcat (circular ring buffer) |"
+    },
+    {
+      "id": "06-ANDROID.md#005",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-ANDROID.md#006",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## Android Runtime (ART) — How Apps Actually Execute"
+    },
+    {
+      "id": "06-ANDROID.md#007",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  Source: .java / .kt\n        │\n        ▼ (kotlinc / javac)\n  .class bytecode\n        │\n        ▼ (d8 / R8 in AGP)\n  .dex (Dalvik EXecutable) — inside .apk / .aab\n        │\n        ▼ (at install time)\n  ┌─────────────────────────────────────────────┐\n  │  ART  (Android Runtime)                     │\n  │                                             │\n  │  AOT: dex2oat → .oat (native machine code)  │\n  │       compiled at install / after boot      │\n  │                                             │\n  │  JIT: profile-guided; hotspot methods       │\n  │       compiled during first run sessions    │\n  │       profile saved to /data/misc/profiles/ │\n  │                                             │\n  │  GC: Concurrent Copying GC (CC) — low pause│\n  └─────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "06-ANDROID.md#008",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Profile-guided compilation** — the real story:\n1. First install: mostly interpreted + JIT\n2. Device charges at night → `speed-profile` compilation via `BackgroundDexOptService`\n3. Subsequent boots: hotspot code runs as pre-compiled native code\n4. On-device profiles also uploaded (with consent) → used to pre-optimize Play-distributed APKs at install"
+    },
+    {
+      "id": "06-ANDROID.md#009",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Zygote — the app spawning model:**\n```\n  boot\n   │\n   ▼\n  init → Zygote starts\n          │  pre-loads: Android framework classes, common resources\n          │  opens a socket: /dev/socket/zygote\n          │\n          │  ActivityManager requests new app\n          ▼\n      fork()  ← copy-on-write; near-instant; shared framework pages\n          │\n          ▼\n      new process: your app\n          │  copy-on-write pages diverge only when written\n          ▼\n      Application.onCreate() → Activity.onCreate()\n```"
+    },
+    {
+      "id": "06-ANDROID.md#010",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Why this matters:** App cold starts in ~50-100ms because the JVM and framework are already loaded. The fork cost is nearly zero. Compare to .NET: every process boots the CLR fresh — no Zygote equivalent."
+    },
+    {
+      "id": "06-ANDROID.md#011",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**SystemServer** — spawned from Zygote on boot, runs all Android services:\n- ActivityManagerService (app lifecycle)\n- WindowManagerService (window stacking, input dispatch)\n- PackageManagerService (APK installation, queries)\n- PowerManagerService (wakelocks, screen off)\n- ~50 more services — all in one process, communicate via Binder"
+    },
+    {
+      "id": "06-ANDROID.md#012",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-ANDROID.md#013",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## The Four App Components (+ two supporting mechanisms)"
+    },
+    {
+      "id": "06-ANDROID.md#014",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Android apps are not monolithic executables. The OS **assembles** an app from declared components."
+    },
+    {
+      "id": "06-ANDROID.md#015",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Your App Process                                            │\n  │                                                              │\n  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐     │\n  │  │ Activity │  │ Fragment │  │ Service  │  │ Broadcast  │  │\n  │  │ (screen) │  │ (UI unit)│  │ (bg work)│  │ Receiver   │  │\n  │  └──────────┘  └──────────┘  └──────────┘  └───────────┘  │\n  │        ▲                                          │         │\n  │        │ resolves to                              │ fires   │\n  │  ┌─────┴──────────────────────────────────────────▼──────┐  │\n  │  │                      Intent                           │  │\n  │  │  (the Android message bus — all component wiring)     │  │\n  │  └──────────────────────────────────────────────────────┘   │\n  │                                                              │\n  │  ┌──────────────────────────────────────────────────────┐   │\n  │  │  ContentProvider  (structured data sharing via URI)  │   │\n  │  └──────────────────────────────────────────────────────┘   │\n  └──────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "06-ANDROID.md#016",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### Activity — A Screen With UI"
+    },
+    {
+      "id": "06-ANDROID.md#017",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n           onCreate()   ← Bundle savedInstanceState (rotation/kill)\n               │\n           onStart()    ← visible but not interactive\n               │\n           onResume()   ← foreground, interactive ← ── ┐\n               │                                        │\n           [user navigates away]                        │\n               │                                        │\n           onPause()    ← partially hidden              │ returns\n               │         save quick state here          │\n           onStop()     ← fully hidden                  │\n               │         can be killed here (no callback│\n           onDestroy()  ← rotating, finishing, killed   │\n                                                   onRestart()\n```"
+    },
+    {
+      "id": "06-ANDROID.md#018",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Configuration changes** (rotation, locale): default kills + recreates Activity. Override with `android:configChanges=\"orientation|screenSize\"` in manifest — then `onConfigurationChanged()` fires instead. ViewModel survives rotation automatically — use that."
+    },
+    {
+      "id": "06-ANDROID.md#019",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### Activity Lifecycle — Universal Resource-Scoped Lifecycle Bridge"
+    },
+    {
+      "id": "06-ANDROID.md#020",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\nRESOURCE-SCOPED LIFECYCLE — CROSS-PLATFORM COMPARISON\n════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "06-ANDROID.md#021",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Android Activity        iOS UIViewController     ASP.NET Controller        Node.js Express route\n  ──────────────────      ─────────────────────    ──────────────────────    ─────────────────────\n  onCreate()              init()                   constructor               (route handler called)\n  onStart()               viewDidLoad()            (no equiv — stateless)    (no equiv)\n  onResume()              viewWillAppear()          before_action filters     middleware chain\n  [user interacts]        [visible + interactive]  [handler executes]        [handler executes]\n  onPause()               viewWillDisappear()       after_action filters      (response sent)\n  onStop()                viewDidDisappear()        Dispose() if IDisposable  (GC)\n  onDestroy()             deinit                   (GC)                      (GC)"
+    },
+    {
+      "id": "06-ANDROID.md#022",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Key: Android Activity is stateful (survives orientation via ViewModel);\n  web controllers are stateless (new instance per request).\n  The \"pause/stop\" callbacks have no web equivalent."
+    },
+    {
+      "id": "06-ANDROID.md#023",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Universal pattern across all:\n    acquire resources (DB connections, file handles) at start/create\n    release resources (unsubscribe, close) at stop/destroy\n    Never hold resources across the pause/stop boundary\n    Never do slow work in onCreate/init — defer to background\n```"
+    },
+    {
+      "id": "06-ANDROID.md#024",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### Binder IPC — Universal Typed RPC Bridge"
+    },
+    {
+      "id": "06-ANDROID.md#025",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\nTYPED IPC / RPC MECHANISMS — CROSS-PLATFORM COMPARISON\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "06-ANDROID.md#026",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Android Binder        Windows COM/DCOM          D-Bus (Linux desktop)      gRPC (any platform)\n  ──────────────────    ──────────────────────     ────────────────────────    ──────────────────────\n  Kernel driver         COM+ / DCOM via            IPC daemon                  Language-neutral IDL\n  (/dev/binder)         NT LPC + RPC runtime       (message daemon)            over HTTP/2 + TLS"
+    },
+    {
+      "id": "06-ANDROID.md#027",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "IDL: AIDL             IDL: MIDL / TypeLib        IDL: XML introspection     IDL: Protocol Buffers\n  .aidl file → Java/Kt  .idl/.tlb → proxy stubs   D-Bus introspection XML    .proto → generated stubs"
+    },
+    {
+      "id": "06-ANDROID.md#028",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Transport: 1 copy      Transport: LRPC (in-proc)  Transport: Unix socket     Transport: HTTP/2\n  (kernel maps one buf)  or TCP/IP for remote        or TCP/IP                  (any network)"
+    },
+    {
+      "id": "06-ANDROID.md#029",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Identity/security:    Identity: SID/token         Identity: Unix uid/gid     Identity: TLS certs /\n  uid + selinux label   Access: COM permissions      Access: polkit rules        JWT / mTLS\n  (enforced by kernel)  (HKCR\\CLSID ACLs)           (user must auth action)"
+    },
+    {
+      "id": "06-ANDROID.md#030",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Async model:          Async: COM apartments        Async: async_call()        Async: streaming RPCs\n  oneway (fire-forget)  STA/MTA thread model         (rarely used)              (bidirectional streams)\n  synchronous default   (causes UI deadlocks)"
+    },
+    {
+      "id": "06-ANDROID.md#031",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Discovery:            Discovery: CoCreateInstance   Discovery: dbus-send       Discovery: service mesh /\n  ServiceManager        HKCR\\CLSID\\{...} registry     --dest=com.x.y            DNS-SD / Kubernetes SVC\n  + AIDL interface name  (in-process: DLL load)"
+    },
+    {
+      "id": "06-ANDROID.md#032",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "The universal pattern:\n  1. Define interface (AIDL / MIDL / D-Bus XML / .proto)\n  2. Generate client proxy + server stub from IDL\n  3. Client calls proxy as if local object\n  4. Framework serializes call, transports to server, deserializes, invokes\n  5. Server returns result; framework serializes back to client"
+    },
+    {
+      "id": "06-ANDROID.md#033",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Binder-specific advantages over generic Unix domain sockets:\n    - One kernel copy (vs two for socket: sender→kernel→receiver)\n    - Caller UID/PID automatically verified (cannot be spoofed by client)\n    - Works with Android's per-app UID security model natively\n    - Death notifications: linkToDeath() — know when server process dies\n```"
+    },
+    {
+      "id": "06-ANDROID.md#034",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### WorkManager — Universal Deferred Job Queue Bridge"
+    },
+    {
+      "id": "06-ANDROID.md#035",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\nDEFERRED JOB QUEUE — CROSS-PLATFORM COMPARISON\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "06-ANDROID.md#036",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Android WorkManager    Linux systemd timer     Python Celery         Java Quartz\n  ──────────────────     ───────────────────     ─────────────────     ───────────────────\n  OneTimeWorkRequest     .service + .timer       @app.task (async)     @DisallowConcurrent\n  PeriodicWorkRequest    OnCalendar / OnUnitActiveSec  beat schedule   CronTrigger"
+    },
+    {
+      "id": "06-ANDROID.md#037",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Guarantee:             Guarantee:              Guarantee:            Guarantee:\n  EXACTLY_ONCE on device At-least-once           At-least-once         At-least-once\n  (works across reboots  (persistent timer)      (depends on broker)   (JDBC store)\n   and app restarts)"
+    },
+    {
+      "id": "06-ANDROID.md#038",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Constraints:           Constraints:            Constraints:          Constraints:\n  NetworkType.CONNECTED  After=network.target    (queue routing)       (no built-in)\n  requiresCharging()     Requires=power.target   priority routing      (implement in job)\n  requiresStorageNotLow()"
+    },
+    {
+      "id": "06-ANDROID.md#039",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Chaining:              No native chaining      Chord, Chain          JobChainingJobDetail\n  WorkContinuation       (use ExecStartPre)      (group of subtasks)   Chaining API"
+    },
+    {
+      "id": "06-ANDROID.md#040",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "All share the same mental model:\n  1. Define work unit with inputs\n  2. Attach constraints / schedule\n  3. Enqueue to a persistent store\n  4. Worker execution engine runs it when constraints met\n  5. Results returned via output / callback\n```"
+    },
+    {
+      "id": "06-ANDROID.md#041",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Task and back stack:** Activities stack per task. `Intent.FLAG_ACTIVITY_NEW_TASK`, `FLAG_ACTIVITY_CLEAR_TOP`, `FLAG_ACTIVITY_SINGLE_TOP` control stack behavior."
+    },
+    {
+      "id": "06-ANDROID.md#042",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### Fragment — Reusable UI Unit"
+    },
+    {
+      "id": "06-ANDROID.md#043",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```kotlin\nclass MyFragment : Fragment(R.layout.fragment_my) {"
+    },
+    {
+      "id": "06-ANDROID.md#044",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\n        // view is ready — bind UI here\n        // Do NOT start coroutines in onCreate; view may not exist yet\n    }"
+    },
+    {
+      "id": "06-ANDROID.md#045",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "override fun onDestroyView() {\n        super.onDestroyView()\n        // view destroyed but fragment instance may survive\n        // null out any view references to avoid leaks\n    }\n}\n```"
+    },
+    {
+      "id": "06-ANDROID.md#046",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Fragment lifecycle is more complex than Activity — the view lifecycle is separate from the fragment lifecycle. Key rule: collect Flows in `viewLifecycleOwner`, not `this` (fragment)."
+    },
+    {
+      "id": "06-ANDROID.md#047",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**FragmentManager back stack:** `addToBackStack(\"name\")` when committing — back button pops it."
+    },
+    {
+      "id": "06-ANDROID.md#048",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### Service — Background Work"
+    },
+    {
+      "id": "06-ANDROID.md#049",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  ┌─────────────────┬──────────────────────────────────────────┐\n  │ Service Type    │ Description                              │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ Started         │ startService() / startForegroundService() │\n  │                 │ runs until stopSelf() or stopService()   │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ Bound           │ bindService() — client/server IPC        │\n  │                 │ destroyed when last client unbinds       │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ Foreground      │ MUST show persistent notification        │\n  │                 │ protected from LMK; required for music,  │\n  │                 │ GPS tracking, file download              │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ IntentService   │ DEPRECATED — use WorkManager instead     │\n  └─────────────────┴──────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "06-ANDROID.md#050",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Background execution limits (API 26+): apps in background can't start services freely. Use:\n- **WorkManager**: deferrable, guaranteed, battery-friendly\n- **ForegroundService**: for user-facing ongoing ops\n- **JobScheduler / WorkManager**: for deferred background work"
+    },
+    {
+      "id": "06-ANDROID.md#051",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### BroadcastReceiver — System + App Events"
+    },
+    {
+      "id": "06-ANDROID.md#052",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```kotlin\n// Dynamic registration (in Activity/Fragment)\nval receiver = object : BroadcastReceiver() {\n    override fun onReceive(context: Context, intent: Intent) {\n        // runs on main thread — do minimal work\n        // launch a Service or WorkManager task for real work\n    }\n}\nregisterReceiver(receiver, IntentFilter(Intent.ACTION_BATTERY_LOW))\n// Must unregister in onStop/onDestroy to avoid leaks"
+    },
+    {
+      "id": "06-ANDROID.md#053",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// Static registration in manifest — receives when app is not running\n// but most system broadcasts removed from static registration (API 26+)\n```"
+    },
+    {
+      "id": "06-ANDROID.md#054",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Ordered broadcasts:** sent to receivers in declared priority order. Each can consume or modify."
+    },
+    {
+      "id": "06-ANDROID.md#055",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### ContentProvider — Structured Data Sharing"
+    },
+    {
+      "id": "06-ANDROID.md#056",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  App A                              App B\n  ┌──────────────────┐               ┌──────────────────────────┐\n  │  ContentResolver │               │  ContentProvider         │\n  │                  │               │  authority: com.b.data   │\n  │  query(          │  Binder IPC   │                          │\n  │   content://     │──────────────▶│  query()                 │\n  │   com.b.data/    │               │  insert()                │\n  │   items/42       │               │  update()                │\n  │  )               │◀──────────────│  delete()                │\n  └──────────────────┘  Cursor       │  getType() → MIME        │\n                                     └──────────────────────────┘\n```"
+    },
+    {
+      "id": "06-ANDROID.md#057",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "Permissions: `android:readPermission` + `android:writePermission` on the `<provider>` element. FileProvider (from Jetpack) is the standard way to share files — maps filesystem paths to `content://` URIs."
+    },
+    {
+      "id": "06-ANDROID.md#058",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "### Intent — The Message Bus"
+    },
+    {
+      "id": "06-ANDROID.md#059",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  Explicit Intent                    Implicit Intent\n  ┌────────────────────────────┐    ┌────────────────────────────┐\n  │ Intent(this,               │    │ Intent(Intent.ACTION_VIEW) │\n  │   DetailActivity::class)   │    │  .setData(Uri.parse(url))  │\n  │ startActivity(intent)      │    │ startActivity(intent)      │\n  └────────────────────────────┘    └────────────┬───────────────┘\n                                                 │\n                                    PackageManager resolves via\n                                    IntentFilter matching:\n                                    - action: VIEW\n                                    - category: BROWSABLE\n                                    - data scheme: https\n                                    → Chrome, Firefox, your custom browser\n```"
+    },
+    {
+      "id": "06-ANDROID.md#060",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**IntentFilter** in manifest declares what implicit intents a component can handle. Multiple apps can match — user picks (or default set). Critical for deep links: `action=VIEW, category=BROWSABLE, data=scheme/host/path`."
+    },
+    {
+      "id": "06-ANDROID.md#061",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**PendingIntent** — a token representing a future Intent execution with your app's permissions:\n```kotlin\n// Required for: Notifications, AlarmManager, Widgets\nval intent = Intent(context, MyActivity::class.java)\nval pending = PendingIntent.getActivity(\n    context,\n    requestCode,\n    intent,\n    PendingIntent.FLAG_IMMUTABLE  // required API 31+; use FLAG_MUTABLE only if needed\n)\n```"
+    },
+    {
+      "id": "06-ANDROID.md#062",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-ANDROID.md#063",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## AndroidManifest.xml — The App's Contract With the OS"
+    },
+    {
+      "id": "06-ANDROID.md#064",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```xml\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest\n    package=\"com.example.myapp\"\n    xmlns:android=\"http://schemas.android.com/apk/res/android\">"
+    },
+    {
+      "id": "06-ANDROID.md#065",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<!-- Permissions you need -->\n    <uses-permission android:name=\"android.permission.INTERNET\" />\n    <uses-permission android:name=\"android.permission.CAMERA\" />  <!-- dangerous -->\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />  <!-- dangerous -->"
+    },
+    {
+      "id": "06-ANDROID.md#066",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<!-- Apps you intend to interact with (API 30+ package visibility) -->\n    <queries>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\" />\n            <category android:name=\"android.intent.category.BROWSABLE\" />\n        </intent>\n        <package android:name=\"com.specific.app\" />\n    </queries>"
+    },
+    {
+      "id": "06-ANDROID.md#067",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<uses-sdk\n        android:minSdkVersion=\"24\"\n        android:targetSdkVersion=\"34\" />\n    <!-- compileSdkVersion goes in build.gradle, not here -->"
+    },
+    {
+      "id": "06-ANDROID.md#068",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<application\n        android:name=\".MyApplication\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:theme=\"@style/Theme.MyApp\">"
+    },
+    {
+      "id": "06-ANDROID.md#069",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\"   <!-- required API 31+ if has intent-filter -->\n            android:launchMode=\"singleTop\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n            <!-- Deep link -->\n            <intent-filter android:autoVerify=\"true\">\n                <action android:name=\"android.intent.action.VIEW\" />\n                <category android:name=\"android.intent.category.DEFAULT\" />\n                <category android:name=\"android.intent.category.BROWSABLE\" />\n                <data android:scheme=\"https\" android:host=\"example.com\" android:pathPrefix=\"/app/\" />\n            </intent-filter>\n        </activity>"
+    },
+    {
+      "id": "06-ANDROID.md#070",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<service\n            android:name=\".DownloadService\"\n            android:exported=\"false\"\n            android:foregroundServiceType=\"dataSync\" />  <!-- required API 34+ -->"
+    },
+    {
+      "id": "06-ANDROID.md#071",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<receiver\n            android:name=\".BootReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\" />\n            </intent-filter>\n        </receiver>"
+    },
+    {
+      "id": "06-ANDROID.md#072",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "<provider\n            android:name=\"androidx.core.content.FileProvider\"\n            android:authorities=\"${applicationId}.fileprovider\"\n            android:exported=\"false\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/file_paths\" />\n        </provider>"
+    },
+    {
+      "id": "06-ANDROID.md#073",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "</application>\n</manifest>\n```"
+    },
+    {
+      "id": "06-ANDROID.md#074",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Permission tiers:**"
+    },
+    {
+      "id": "06-ANDROID.md#075",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "| Tier        | Examples                          | Grant method                        |\n|-------------|-----------------------------------|-------------------------------------|\n| Normal      | INTERNET, VIBRATE, NFC            | Granted at install, no dialog       |\n| Dangerous   | CAMERA, LOCATION, CONTACTS, MIC   | Runtime dialog (API 23+)            |\n| Signature   | BIND_ACCESSIBILITY_SERVICE        | Only granted to apps signed with same key |\n| Special     | MANAGE_EXTERNAL_STORAGE, OVERLAY  | User navigates to Settings manually |"
+    },
+    {
+      "id": "06-ANDROID.md#076",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Runtime permission pattern (API 23+):**\n```kotlin\n// In Activity/Fragment — use Activity Result API (not deprecated requestPermissions)\nval requestPermissionLauncher = registerForActivityResult(\n    ActivityResultContracts.RequestPermission()\n) { isGranted ->\n    if (isGranted) doTheThing()\n    else showRationale()\n}"
+    },
+    {
+      "id": "06-ANDROID.md#077",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// Check before requesting\nif (ContextCompat.checkSelfPermission(this, CAMERA) == PERMISSION_GRANTED) {\n    doTheThing()\n} else {\n    requestPermissionLauncher.launch(CAMERA)\n}\n```"
+    },
+    {
+      "id": "06-ANDROID.md#078",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-ANDROID.md#079",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## Gradle Build System"
+    },
+    {
+      "id": "06-ANDROID.md#080",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  project/\n  ├── settings.gradle(.kts)       ← project name + module list\n  ├── build.gradle(.kts)          ← project-level: classpath deps (AGP, Kotlin plugin)\n  ├── gradle/\n  │   ├── wrapper/\n  │   │   └── gradle-wrapper.properties  ← pin Gradle version\n  │   └── libs.versions.toml      ← version catalog (modern)\n  ├── app/\n  │   └── build.gradle(.kts)      ← module-level: android{} + dependencies\n  └── feature-login/\n      └── build.gradle(.kts)      ← another module\n```"
+    },
+    {
+      "id": "06-ANDROID.md#081",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Module-level build.gradle (Kotlin DSL):**\n```kotlin\nplugins {\n    alias(libs.plugins.android.application)  // com.android.application\n    alias(libs.plugins.kotlin.android)\n    alias(libs.plugins.hilt)\n    alias(libs.plugins.ksp)                  // Kotlin Symbol Processing (replaces kapt)\n}"
+    },
+    {
+      "id": "06-ANDROID.md#082",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "android {\n    namespace = \"com.example.myapp\"\n    compileSdk = 35"
+    },
+    {
+      "id": "06-ANDROID.md#083",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "defaultConfig {\n        applicationId = \"com.example.myapp\"\n        minSdk = 26\n        targetSdk = 35\n        versionCode = 42\n        versionName = \"3.1.0\"\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\n    }"
+    },
+    {
+      "id": "06-ANDROID.md#084",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "buildTypes {\n        debug {\n            applicationIdSuffix = \".debug\"\n            versionNameSuffix = \"-debug\"\n            isDebuggable = true\n        }\n        release {\n            isMinifyEnabled = true        // R8 / ProGuard obfuscation + shrinking\n            isShrinkResources = true      // remove unused resources\n            proguardFiles(\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\n                \"proguard-rules.pro\"\n            )\n            signingConfig = signingConfigs.getByName(\"release\")\n        }\n    }"
+    },
+    {
+      "id": "06-ANDROID.md#085",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "flavorDimensions += \"tier\"\n    productFlavors {\n        create(\"free\") { dimension = \"tier\" }\n        create(\"paid\") {\n            dimension = \"tier\"\n            applicationIdSuffix = \".paid\"\n        }\n    }\n    // Build variants = free-debug, free-release, paid-debug, paid-release"
+    },
+    {
+      "id": "06-ANDROID.md#086",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "buildFeatures {\n        compose = true\n        buildConfig = true\n    }\n    composeOptions {\n        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()\n    }\n}"
+    },
+    {
+      "id": "06-ANDROID.md#087",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "dependencies {\n    implementation(libs.androidx.core.ktx)\n    implementation(libs.androidx.lifecycle.viewmodel.ktx)\n    implementation(platform(libs.androidx.compose.bom))  // BOM manages compose versions\n    implementation(libs.androidx.compose.ui)\n    implementation(libs.androidx.compose.material3)\n    implementation(libs.hilt.android)\n    ksp(libs.hilt.compiler)"
+    },
+    {
+      "id": "06-ANDROID.md#088",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// Scope qualifiers:\n    // implementation    — available to this module, NOT exposed to modules depending on this\n    // api               — available to this module AND exposed to dependents (use sparingly)\n    // runtimeOnly       — only at runtime (not compile time) — JDBC drivers, logging impls\n    // testImplementation — test source set only\n    // androidTestImplementation — instrumented test source set only\n    // debugImplementation — debug build type only\n}\n```"
+    },
+    {
+      "id": "06-ANDROID.md#089",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Version catalog (gradle/libs.versions.toml):**\n```toml\n[versions]\nagp = \"8.5.0\"\nkotlin = \"2.0.0\"\ncompose-bom = \"2024.09.00\"\nhilt = \"2.51.1\"\nroom = \"2.6.1\""
+    },
+    {
+      "id": "06-ANDROID.md#090",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "[libraries]\nandroidx-core-ktx = { group = \"androidx.core\", name = \"core-ktx\", version.ref = \"kotlin\" }\nhilt-android = { group = \"com.google.dagger\", name = \"hilt-android\", version.ref = \"hilt\" }\nhilt-compiler = { group = \"com.google.dagger\", name = \"hilt-compiler\", version.ref = \"hilt\" }\nandroidx-compose-bom = { group = \"androidx.compose\", name = \"compose-bom\", version.ref = \"compose-bom\" }"
+    },
+    {
+      "id": "06-ANDROID.md#091",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "[plugins]\nandroid-application = { id = \"com.android.application\", version.ref = \"agp\" }\nkotlin-android = { id = \"org.jetbrains.kotlin.android\", version.ref = \"kotlin\" }\nhilt = { id = \"com.google.dagger.hilt.android\", version.ref = \"hilt\" }\n```"
+    },
+    {
+      "id": "06-ANDROID.md#092",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Old world bridge:** Gradle is to Android what MSBuild is to .NET. The `.gradle` / `.gradle.kts` files are like `.csproj` files. AGP (Android Gradle Plugin) is the equivalent of the .NET SDK / Microsoft.CSharp.targets. The `libs.versions.toml` catalog is like `Directory.Packages.props` (central package management in .NET)."
+    },
+    {
+      "id": "06-ANDROID.md#093",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-ANDROID.md#094",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## Jetpack Compose — Modern UI"
+    },
+    {
+      "id": "06-ANDROID.md#095",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  Traditional Android (Views)          Compose\n  ┌───────────────────────────┐        ┌───────────────────────────────┐\n  │ XML layout inflation      │        │ @Composable functions         │\n  │ View.findViewById()       │        │ State → UI (pure function)    │\n  │ Adapter + RecyclerView    │        │ LazyColumn (same concept)     │\n  │ ViewHolder pattern        │        │ No XML, no inflation          │\n  │ setText(), setVisibility()│        │ Recomposition on state change │\n  └───────────────────────────┘        └───────────────────────────────┘\n```"
+    },
+    {
+      "id": "06-ANDROID.md#096",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**The mental model:** Composable functions are pure functions from state to UI description. When state changes, Compose re-runs only the affected composables (smart recomposition)."
+    },
+    {
+      "id": "06-ANDROID.md#097",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```kotlin\n@Composable\nfun UserCard(\n    user: User,\n    onFollow: (User) -> Unit,   // events flow UP (state hoisting)\n    modifier: Modifier = Modifier\n) {\n    Card(modifier = modifier.padding(16.dp)) {\n        Column {\n            Text(text = user.name, style = MaterialTheme.typography.titleMedium)\n            Text(text = user.bio)\n            Button(onClick = { onFollow(user) }) {\n                Text(\"Follow\")\n            }\n        }\n    }\n}"
+    },
+    {
+      "id": "06-ANDROID.md#098",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// State lives in ViewModel, flows down\n@Composable\nfun UserListScreen(viewModel: UserViewModel = hiltViewModel()) {\n    val uiState by viewModel.uiState.collectAsStateWithLifecycle()"
+    },
+    {
+      "id": "06-ANDROID.md#099",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "when (uiState) {\n        is UiState.Loading -> CircularProgressIndicator()\n        is UiState.Success -> LazyColumn {\n            items(uiState.users, key = { it.id }) { user ->\n                UserCard(\n                    user = user,\n                    onFollow = viewModel::followUser\n                )\n            }\n        }\n        is UiState.Error -> Text(\"Error: ${uiState.message}\")\n    }\n}\n```"
+    },
+    {
+      "id": "06-ANDROID.md#100",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**State management in Compose:**\n```kotlin\n// Local UI state — simple, stays in composable\n@Composable\nfun Counter() {\n    var count by remember { mutableStateOf(0) }\n    Button(onClick = { count++ }) { Text(\"Count: $count\") }\n}"
+    },
+    {
+      "id": "06-ANDROID.md#101",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// remember: survives recomposition, NOT rotation\n// rememberSaveable: survives recomposition AND rotation (uses Bundle)"
+    },
+    {
+      "id": "06-ANDROID.md#102",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// Derived state — recomputes only when dependency changes\nval expensiveResult by remember {\n    derivedStateOf { items.filter { it.isActive }.size }\n}\n```"
+    },
+    {
+      "id": "06-ANDROID.md#103",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Side effects — running non-UI code from composables:**\n```kotlin\n// LaunchedEffect: launch a coroutine when key changes\nLaunchedEffect(userId) {\n    viewModel.loadUser(userId)  // re-runs if userId changes\n}"
+    },
+    {
+      "id": "06-ANDROID.md#104",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// DisposableEffect: cleanup when leaving composition\nDisposableEffect(lifecycle) {\n    val observer = LifecycleEventObserver { _, event -> /* ... */ }\n    lifecycle.addObserver(observer)\n    onDispose { lifecycle.removeObserver(observer) }\n}"
+    },
+    {
+      "id": "06-ANDROID.md#105",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "// rememberCoroutineScope: get scope tied to composition for event handlers\nval scope = rememberCoroutineScope()\nButton(onClick = { scope.launch { doAsyncWork() } }) { Text(\"Go\") }\n```"
+    },
+    {
+      "id": "06-ANDROID.md#106",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "**Navigation with Compose:**\n```kotlin\n@Composable\nfun AppNavHost(navController: NavHostController) {\n    NavHost(navController, startDestination = \"home\") {\n        composable(\"home\") { HomeScreen(navController) }\n        composable(\n            \"detail/{itemId}\",\n            arguments = listOf(navArgument(\"itemId\") { type = NavType.IntType })\n        ) { backStackEntry ->\n            val itemId = backStackEntry.arguments?.getInt(\"itemId\") ?: return@composable\n            DetailScreen(itemId, navController)\n        }\n        composable(\"settings\") { SettingsScreen() }\n    }\n}\n```"
+    },
+    {
+      "id": "06-ANDROID.md#107",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-ANDROID.md#108",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "## Architecture: MVVM + Jetpack"
+    },
+    {
+      "id": "06-ANDROID.md#109",
+      "path": [
+        "06-ANDROID.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:06-android, git-history:os:06-android]",
+        "canonical_path": "os/06-ANDROID.md",
+        "concepts": "[android]",
+        "current_path": "os/06-ANDROID.md",
+        "id": "maxim:os:android",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[android]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Android Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  UI Layer                                                       │\n  │  Activity / Fragment / NavHost                                  │\n  │      ↑ render UiState         ↓ user events (clicks, inputs)    │\n  │  ┌──────────────────────────────────────────────────────────┐   │\n  │  │  ViewModel  (survives rotation, scoped to NavBackStack)  │   │\n  │  │  val uiState: StateFlow<UiState>                         │   │\n  │  │  fun handleIntent(intent: UserIntent)                    │   │\n  │  └────────────────────────────┬─────────────────────────────┘   │\n  └───────────────────────────────│─────────────────────────────────┘\n                                  │ calls\n  ┌───────────────────────────────▼─────────────────────────────────┐\n  │  Domain Layer (optional)                                        │\n  │  Use cases: GetUserProfileUseCase, FollowUserUseCase            │\n  │  Pure Kotlin — no Android imports                               │\n  └───────────────────────────────┬─────────────────────────────────┘\n                                  │ calls\n  ┌───────────────────────────────▼─────────────────────────────────┐\n  │  Data Layer                                                     │\n  │  ┌─────────────────┐      ┌──────────────────────────────────┐  │\n  │  │  Repository     │      │  Data Sources                    │  │\n  │  │  UserRepository │─────▶│  Room (local DB)                 │  │\n  │  │                 │      │  Retrofit (remote API)           │  │\n  │  │  single source  │      │  DataStore (preferences)         │  │\n  │  │  of truth       │      └──────────────────────────────────┘  │\n  │  └─────────────────┘                                            │\n  └─────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "06-ANDROID.md"
+  ]
+}

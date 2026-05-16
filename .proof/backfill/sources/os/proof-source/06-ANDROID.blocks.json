@@ -1,0 +1,358 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\06-ANDROID.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Android Stack — Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                          YOUR APP                                   │\n│   Activities · Fragments · Services · BroadcastReceivers · Providers│\n└────────────────────────────┬────────────────────────────────────────┘\n                             │ calls\n┌────────────────────────────▼────────────────────────────────────────┐\n│                     ANDROID FRAMEWORK                               │\n│  ActivityManager · WindowManager · PackageManager · NotificationMgr │\n│  ContentResolver · TelephonyManager · LocationManager · etc.        │\n└────────────────────────────┬────────────────────────────────────────┘\n                             │\n┌────────────────────────────▼────────────────────────────────────────┐\n│               ANDROID RUNTIME (ART) + CORE LIBRARIES                │\n│  ART: AOT compilation + JIT profiling + GC                          │\n│  Java API layer: java.*, android.*, androidx.*                      │\n│  Native libs: OpenGL ES, libc (Bionic), media, SQLite, WebKit       │\n└────────────┬───────────────────────────┬────────────────────────────┘\n             │                           │\n┌────────────▼──────────┐   ┌────────────▼────────────────────────────┐\n│   HAL (Hardware       │   │  NATIVE DAEMONS                         │\n│   Abstraction Layer)  │   │  SurfaceFlinger (compositor)            │\n│   camera.default.so   │   │  AudioFlinger (audio mixer)             │\n│   gps.default.so      │   │  ServiceManager (Binder registry)       │\n│   sensors.default.so  │   │  Zygote (app spawner)                   │\n└────────────┬──────────┘   └────────────┬────────────────────────────┘\n             │                           │\n┌────────────▼───────────────────────────▼────────────────────────────┐\n│                   LINUX KERNEL (modified)                           │\n│  Binder IPC driver · Wakelocks · Low Memory Killer (LMK)            │\n│  Ashmen (shared memory) · ION allocator · USB Gadget driver         │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## Android Runtime (ART) — How Apps Actually Execute",
+      "confidence": "candidate",
+      "text": "  Source: .java / .kt\n        │\n        ▼ (kotlinc / javac)\n  .class bytecode\n        │\n        ▼ (d8 / R8 in AGP)\n  .dex (Dalvik EXecutable) — inside .apk / .aab\n        │\n        ▼ (at install time)\n  ┌─────────────────────────────────────────────┐\n  │  ART  (Android Runtime)                     │\n  │                                             │\n  │  AOT: dex2oat → .oat (native machine code)  │\n  │       compiled at install / after boot      │\n  │                                             │\n  │  JIT: profile-guided; hotspot methods       │\n  │       compiled during first run sessions    │\n  │       profile saved to /data/misc/profiles/ │\n  │                                             │\n  │  GC: Concurrent Copying GC (CC) — low pause│\n  └─────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Android Runtime (ART) — How Apps Actually Execute",
+      "confidence": "candidate",
+      "text": "  boot\n   │\n   ▼\n  init → Zygote starts\n          │  pre-loads: Android framework classes, common resources\n          │  opens a socket: /dev/socket/zygote\n          │\n          │  ActivityManager requests new app\n          ▼\n      fork()  ← copy-on-write; near-instant; shared framework pages\n          │\n          ▼\n      new process: your app\n          │  copy-on-write pages diverge only when written\n          ▼\n      Application.onCreate() → Activity.onCreate()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## The Four App Components (+ two supporting mechanisms)",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────┐\n  │  Your App Process                                            │\n  │                                                              │\n  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐     │\n  │  │ Activity │  │ Fragment │  │ Service  │  │ Broadcast  │  │\n  │  │ (screen) │  │ (UI unit)│  │ (bg work)│  │ Receiver   │  │\n  │  └──────────┘  └──────────┘  └──────────┘  └───────────┘  │\n  │        ▲                                          │         │\n  │        │ resolves to                              │ fires   │\n  │  ┌─────┴──────────────────────────────────────────▼──────┐  │\n  │  │                      Intent                           │  │\n  │  │  (the Android message bus — all component wiring)     │  │\n  │  └──────────────────────────────────────────────────────┘   │\n  │                                                              │\n  │  ┌──────────────────────────────────────────────────────┐   │\n  │  │  ContentProvider  (structured data sharing via URI)  │   │\n  │  └──────────────────────────────────────────────────────┘   │\n  └──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "### Activity — A Screen With UI",
+      "confidence": "candidate",
+      "text": "           onCreate()   ← Bundle savedInstanceState (rotation/kill)\n               │\n           onStart()    ← visible but not interactive\n               │\n           onResume()   ← foreground, interactive ← ── ┐\n               │                                        │\n           [user navigates away]                        │\n               │                                        │\n           onPause()    ← partially hidden              │ returns\n               │         save quick state here          │\n           onStop()     ← fully hidden                  │\n               │         can be killed here (no callback│\n           onDestroy()  ← rotating, finishing, killed   │\n                                                   onRestart()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "### Activity Lifecycle — Universal Resource-Scoped Lifecycle Bridge",
+      "confidence": "candidate",
+      "text": "RESOURCE-SCOPED LIFECYCLE — CROSS-PLATFORM COMPARISON\n════════════════════════════════════════════════════════════════════════════\n\n  Android Activity        iOS UIViewController     ASP.NET Controller        Node.js Express route\n  ──────────────────      ─────────────────────    ──────────────────────    ─────────────────────\n  onCreate()              init()                   constructor               (route handler called)\n  onStart()               viewDidLoad()            (no equiv — stateless)    (no equiv)\n  onResume()              viewWillAppear()          before_action filters     middleware chain\n  [user interacts]        [visible + interactive]  [handler executes]        [handler executes]\n  onPause()               viewWillDisappear()       after_action filters      (response sent)\n  onStop()                viewDidDisappear()        Dispose() if IDisposable  (GC)\n  onDestroy()             deinit                   (GC)                      (GC)\n\n  Key: Android Activity is stateful (survives orientation via ViewModel);\n  web controllers are stateless (new instance per request).\n  The \"pause/stop\" callbacks have no web equivalent.\n\n  Universal pattern across all:\n    acquire resources (DB connections, file handles) at start/create\n    release resources (unsubscribe, close) at stop/destroy\n    Never hold resources across the pause/stop boundary\n    Never do slow work in onCreate/init — defer to background",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### Binder IPC — Universal Typed RPC Bridge",
+      "confidence": "candidate",
+      "text": "TYPED IPC / RPC MECHANISMS — CROSS-PLATFORM COMPARISON\n═══════════════════════════════════════════════════════════════════════════════\n\n  Android Binder        Windows COM/DCOM          D-Bus (Linux desktop)      gRPC (any platform)\n  ──────────────────    ──────────────────────     ────────────────────────    ──────────────────────\n  Kernel driver         COM+ / DCOM via            IPC daemon                  Language-neutral IDL\n  (/dev/binder)         NT LPC + RPC runtime       (message daemon)            over HTTP/2 + TLS\n\n  IDL: AIDL             IDL: MIDL / TypeLib        IDL: XML introspection     IDL: Protocol Buffers\n  .aidl file → Java/Kt  .idl/.tlb → proxy stubs   D-Bus introspection XML    .proto → generated stubs\n\n  Transport: 1 copy      Transport: LRPC (in-proc)  Transport: Unix socket     Transport: HTTP/2\n  (kernel maps one buf)  or TCP/IP for remote        or TCP/IP                  (any network)\n\n  Identity/security:    Identity: SID/token         Identity: Unix uid/gid     Identity: TLS certs /\n  uid + selinux label   Access: COM permissions      Access: polkit rules        JWT / mTLS\n  (enforced by kernel)  (HKCR\\CLSID ACLs)           (user must auth action)\n\n  Async model:          Async: COM apartments        Async: async_call()        Async: streaming RPCs\n  oneway (fire-forget)  STA/MTA thread model         (rarely used)              (bidirectional streams)\n  synchronous default   (causes UI deadlocks)\n\n  Discovery:            Discovery: CoCreateInstance   Discovery: dbus-send       Discovery: service mesh /\n  ServiceManager        HKCR\\CLSID\\{...} registry     --dest=com.x.y            DNS-SD / Kubernetes SVC\n  + AIDL interface name  (in-process: DLL load)\n\n  The universal pattern:\n  1. Define interface (AIDL / MIDL / D-Bus XML / .proto)\n  2. Generate client proxy + server stub from IDL\n  3. Client calls proxy as if local object\n  4. Framework serializes call, transports to server, deserializes, invokes\n  5. Server returns result; framework serializes back to client\n\n  Binder-specific advantages over generic Unix domain sockets:\n    - One kernel copy (vs two for socket: sender→kernel→receiver)\n    - Caller UID/PID automatically verified (cannot be spoofed by client)\n    - Works with Android's per-app UID security model natively\n    - Death notifications: linkToDeath() — know when server process dies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "### WorkManager — Universal Deferred Job Queue Bridge",
+      "confidence": "candidate",
+      "text": "DEFERRED JOB QUEUE — CROSS-PLATFORM COMPARISON\n═══════════════════════════════════════════════════════════════════════════\n\n  Android WorkManager    Linux systemd timer     Python Celery         Java Quartz\n  ──────────────────     ───────────────────     ─────────────────     ───────────────────\n  OneTimeWorkRequest     .service + .timer       @app.task (async)     @DisallowConcurrent\n  PeriodicWorkRequest    OnCalendar / OnUnitActiveSec  beat schedule   CronTrigger\n\n  Guarantee:             Guarantee:              Guarantee:            Guarantee:\n  EXACTLY_ONCE on device At-least-once           At-least-once         At-least-once\n  (works across reboots  (persistent timer)      (depends on broker)   (JDBC store)\n   and app restarts)\n\n  Constraints:           Constraints:            Constraints:          Constraints:\n  NetworkType.CONNECTED  After=network.target    (queue routing)       (no built-in)\n  requiresCharging()     Requires=power.target   priority routing      (implement in job)\n  requiresStorageNotLow()\n\n  Chaining:              No native chaining      Chord, Chain          JobChainingJobDetail\n  WorkContinuation       (use ExecStartPre)      (group of subtasks)   Chaining API\n\n  All share the same mental model:\n  1. Define work unit with inputs\n  2. Attach constraints / schedule\n  3. Enqueue to a persistent store\n  4. Worker execution engine runs it when constraints met\n  5. Results returned via output / callback",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "### Service — Background Work",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────┬──────────────────────────────────────────┐\n  │ Service Type    │ Description                              │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ Started         │ startService() / startForegroundService() │\n  │                 │ runs until stopSelf() or stopService()   │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ Bound           │ bindService() — client/server IPC        │\n  │                 │ destroyed when last client unbinds       │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ Foreground      │ MUST show persistent notification        │\n  │                 │ protected from LMK; required for music,  │\n  │                 │ GPS tracking, file download              │\n  ├─────────────────┼──────────────────────────────────────────┤\n  │ IntentService   │ DEPRECATED — use WorkManager instead     │\n  └─────────────────┴──────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 353,
+      "heading_context": "### ContentProvider — Structured Data Sharing",
+      "confidence": "candidate",
+      "text": "  App A                              App B\n  ┌──────────────────┐               ┌──────────────────────────┐\n  │  ContentResolver │               │  ContentProvider         │\n  │                  │               │  authority: com.b.data   │\n  │  query(          │  Binder IPC   │                          │\n  │   content://     │──────────────▶│  query()                 │\n  │   com.b.data/    │               │  insert()                │\n  │   items/42       │               │  update()                │\n  │  )               │◀──────────────│  delete()                │\n  └──────────────────┘  Cursor       │  getType() → MIME        │\n                                     └──────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "### Intent — The Message Bus",
+      "confidence": "candidate",
+      "text": "  Explicit Intent                    Implicit Intent\n  ┌────────────────────────────┐    ┌────────────────────────────┐\n  │ Intent(this,               │    │ Intent(Intent.ACTION_VIEW) │\n  │   DetailActivity::class)   │    │  .setData(Uri.parse(url))  │\n  │ startActivity(intent)      │    │ startActivity(intent)      │\n  └────────────────────────────┘    └────────────┬───────────────┘\n                                                 │\n                                    PackageManager resolves via\n                                    IntentFilter matching:\n                                    - action: VIEW\n                                    - category: BROWSABLE\n                                    - data scheme: https\n                                    → Chrome, Firefox, your custom browser",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "## AndroidManifest.xml — The App's Contract With the OS",
+      "confidence": "candidate",
+      "text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest\n    package=\"com.example.myapp\"\n    xmlns:android=\"http://schemas.android.com/apk/res/android\">\n\n    <!-- Permissions you need -->\n    <uses-permission android:name=\"android.permission.INTERNET\" />\n    <uses-permission android:name=\"android.permission.CAMERA\" />  <!-- dangerous -->\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />  <!-- dangerous -->\n\n    <!-- Apps you intend to interact with (API 30+ package visibility) -->\n    <queries>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\" />\n            <category android:name=\"android.intent.category.BROWSABLE\" />\n        </intent>\n        <package android:name=\"com.specific.app\" />\n    </queries>\n\n    <uses-sdk\n        android:minSdkVersion=\"24\"\n        android:targetSdkVersion=\"34\" />\n    <!-- compileSdkVersion goes in build.gradle, not here -->\n\n    <application\n        android:name=\".MyApplication\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:theme=\"@style/Theme.MyApp\">\n\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\"   <!-- required API 31+ if has intent-filter -->\n            android:launchMode=\"singleTop\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n            <!-- Deep link -->\n            <intent-filter android:autoVerify=\"true\">\n                <action android:name=\"android.intent.action.VIEW\" />\n                <category android:name=\"android.intent.category.DEFAULT\" />\n                <category android:name=\"android.intent.category.BROWSABLE\" />\n                <data android:scheme=\"https\" android:host=\"example.com\" android:pathPrefix=\"/app/\" />\n            </intent-filter>\n        </activity>\n\n        <service\n            android:name=\".DownloadService\"\n            android:exported=\"false\"\n            android:foregroundServiceType=\"dataSync\" />  <!-- required API 34+ -->\n\n        <receiver\n            android:name=\".BootReceiver\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\" />\n            </intent-filter>\n        </receiver>\n\n        <provider\n            android:name=\"androidx.core.content.FileProvider\"\n            android:authorities=\"${applicationId}.fileprovider\"\n            android:exported=\"false\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/file_paths\" />\n        </provider>\n\n    </application>\n</manifest>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 511,
+      "heading_context": "## Gradle Build System",
+      "confidence": "candidate",
+      "text": "  project/\n  ├── settings.gradle(.kts)       ← project name + module list\n  ├── build.gradle(.kts)          ← project-level: classpath deps (AGP, Kotlin plugin)\n  ├── gradle/\n  │   ├── wrapper/\n  │   │   └── gradle-wrapper.properties  ← pin Gradle version\n  │   └── libs.versions.toml      ← version catalog (modern)\n  ├── app/\n  │   └── build.gradle(.kts)      ← module-level: android{} + dependencies\n  └── feature-login/\n      └── build.gradle(.kts)      ← another module",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 629,
+      "heading_context": "## Jetpack Compose — Modern UI",
+      "confidence": "candidate",
+      "text": "  Traditional Android (Views)          Compose\n  ┌───────────────────────────┐        ┌───────────────────────────────┐\n  │ XML layout inflation      │        │ @Composable functions         │\n  │ View.findViewById()       │        │ State → UI (pure function)    │\n  │ Adapter + RecyclerView    │        │ LazyColumn (same concept)     │\n  │ ViewHolder pattern        │        │ No XML, no inflation          │\n  │ setText(), setVisibility()│        │ Recomposition on state change │\n  └───────────────────────────┘        └───────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 642,
+      "heading_context": "## Jetpack Compose — Modern UI",
+      "confidence": "candidate",
+      "text": "@Composable\nfun UserCard(\n    user: User,\n    onFollow: (User) -> Unit,   // events flow UP (state hoisting)\n    modifier: Modifier = Modifier\n) {\n    Card(modifier = modifier.padding(16.dp)) {\n        Column {\n            Text(text = user.name, style = MaterialTheme.typography.titleMedium)\n            Text(text = user.bio)\n            Button(onClick = { onFollow(user) }) {\n                Text(\"Follow\")\n            }\n        }\n    }\n}\n\n// State lives in ViewModel, flows down\n@Composable\nfun UserListScreen(viewModel: UserViewModel = hiltViewModel()) {\n    val uiState by viewModel.uiState.collectAsStateWithLifecycle()\n\n    when (uiState) {\n        is UiState.Loading -> CircularProgressIndicator()\n        is UiState.Success -> LazyColumn {\n            items(uiState.users, key = { it.id }) { user ->\n                UserCard(\n                    user = user,\n                    onFollow = viewModel::followUser\n                )\n            }\n        }\n        is UiState.Error -> Text(\"Error: ${uiState.message}\")\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 699,
+      "heading_context": "## Jetpack Compose — Modern UI",
+      "confidence": "candidate",
+      "text": "// LaunchedEffect: launch a coroutine when key changes\nLaunchedEffect(userId) {\n    viewModel.loadUser(userId)  // re-runs if userId changes\n}\n\n// DisposableEffect: cleanup when leaving composition\nDisposableEffect(lifecycle) {\n    val observer = LifecycleEventObserver { _, event -> /* ... */ }\n    lifecycle.addObserver(observer)\n    onDispose { lifecycle.removeObserver(observer) }\n}\n\n// rememberCoroutineScope: get scope tied to composition for event handlers\nval scope = rememberCoroutineScope()\nButton(onClick = { scope.launch { doAsyncWork() } }) { Text(\"Go\") }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 718,
+      "heading_context": "## Jetpack Compose — Modern UI",
+      "confidence": "candidate",
+      "text": "@Composable\nfun AppNavHost(navController: NavHostController) {\n    NavHost(navController, startDestination = \"home\") {\n        composable(\"home\") { HomeScreen(navController) }\n        composable(\n            \"detail/{itemId}\",\n            arguments = listOf(navArgument(\"itemId\") { type = NavType.IntType })\n        ) { backStackEntry ->\n            val itemId = backStackEntry.arguments?.getInt(\"itemId\") ?: return@composable\n            DetailScreen(itemId, navController)\n        }\n        composable(\"settings\") { SettingsScreen() }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 739,
+      "heading_context": "## Architecture: MVVM + Jetpack",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────┐\n  │  UI Layer                                                       │\n  │  Activity / Fragment / NavHost                                  │\n  │      ↑ render UiState         ↓ user events (clicks, inputs)    │\n  │  ┌──────────────────────────────────────────────────────────┐   │\n  │  │  ViewModel  (survives rotation, scoped to NavBackStack)  │   │\n  │  │  val uiState: StateFlow<UiState>                         │   │\n  │  │  fun handleIntent(intent: UserIntent)                    │   │\n  │  └────────────────────────────┬─────────────────────────────┘   │\n  └───────────────────────────────│─────────────────────────────────┘\n                                  │ calls\n  ┌───────────────────────────────▼─────────────────────────────────┐\n  │  Domain Layer (optional)                                        │\n  │  Use cases: GetUserProfileUseCase, FollowUserUseCase            │\n  │  Pure Kotlin — no Android imports                               │\n  └───────────────────────────────┬─────────────────────────────────┘\n                                  │ calls\n  ┌───────────────────────────────▼─────────────────────────────────┐\n  │  Data Layer                                                     │\n  │  ┌─────────────────┐      ┌──────────────────────────────────┐  │\n  │  │  Repository     │      │  Data Sources                    │  │\n  │  │  UserRepository │─────▶│  Room (local DB)                 │  │\n  │  │                 │      │  Retrofit (remote API)           │  │\n  │  │  single source  │      │  DataStore (preferences)         │  │\n  │  │  of truth       │      └──────────────────────────────────┘  │\n  │  └─────────────────┘                                            │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 770,
+      "heading_context": "## Architecture: MVVM + Jetpack",
+      "confidence": "candidate",
+      "text": "sealed class UserUiState {\n    object Loading : UserUiState()\n    data class Success(val user: User, val followers: Int) : UserUiState()\n    data class Error(val message: String) : UserUiState()\n}\n\nclass UserViewModel @HiltViewModel constructor(\n    private val getUserProfile: GetUserProfileUseCase,\n    savedStateHandle: SavedStateHandle\n) : ViewModel() {\n\n    private val userId: String = checkNotNull(savedStateHandle[\"userId\"])\n\n    private val _uiState = MutableStateFlow<UserUiState>(UserUiState.Loading)\n    val uiState: StateFlow<UserUiState> = _uiState.asStateFlow()\n\n    init {\n        viewModelScope.launch {\n            getUserProfile(userId)\n                .onSuccess { user -> _uiState.value = UserUiState.Success(user, user.followerCount) }\n                .onFailure { e -> _uiState.value = UserUiState.Error(e.message ?: \"Unknown error\") }\n        }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 883,
+      "heading_context": "## Kotlin Coroutines — Android Focus",
+      "confidence": "candidate",
+      "text": "  Dispatcher selection:\n  ┌─────────────────┬────────────────────────────────────────────────┐\n  │ Dispatchers.Main│ UI thread — must use for UI updates            │\n  │ Dispatchers.IO  │ Blocking I/O: network, disk, database          │\n  │ Dispatchers.Default│ CPU-intensive: sorting, parsing, crypto     │\n  │ Dispatchers.Unconfined│ Inherits caller's thread (rarely useful) │\n  └─────────────────┴────────────────────────────────────────────────┘\n\n  Scope selection:\n  ┌──────────────────────────┬──────────────────────────────────────┐\n  │ viewModelScope           │ cancelled when ViewModel cleared     │\n  │ lifecycleScope           │ cancelled when lifecycle destroyed   │\n  │ rememberCoroutineScope() │ (Compose) cancelled when leaves comp │\n  │ GlobalScope              │ AVOID — app lifetime, not cancellable│\n  └──────────────────────────┴──────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 930,
+      "heading_context": "## Kotlin Coroutines — Android Focus",
+      "confidence": "candidate",
+      "text": "// WRONG — collects even when app is in background (battery drain, crashes)\nlifecycleScope.launch {\n    viewModel.uiState.collect { state -> render(state) }\n}\n\n// CORRECT — suspends collection when lifecycle is STOPPED, resumes on START\nlifecycleScope.launch {\n    repeatOnLifecycle(Lifecycle.State.STARTED) {\n        viewModel.uiState.collect { state -> render(state) }\n    }\n}\n\n// In Compose — collectAsStateWithLifecycle() handles this automatically\nval uiState by viewModel.uiState.collectAsStateWithLifecycle()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 956,
+      "heading_context": "## Kotlin Coroutines — Android Focus",
+      "confidence": "candidate",
+      "text": "private val _events = Channel<UiEvent>(Channel.BUFFERED)\nval events = _events.receiveAsFlow()  // expose as Flow\n\n// In collector (UI):\nlifecycleScope.launch {\n    repeatOnLifecycle(Lifecycle.State.STARTED) {\n        viewModel.events.collect { event ->\n            when (event) {\n                is UiEvent.Navigate -> navController.navigate(event.route)\n                is UiEvent.ShowSnackbar -> snackbarHostState.showSnackbar(event.message)\n            }\n        }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 1043,
+      "heading_context": "## Android Networking",
+      "confidence": "candidate",
+      "text": "<network-security-config>\n    <domain-config cleartextTrafficPermitted=\"false\">\n        <domain includeSubdomains=\"true\">api.example.com</domain>\n        <pin-set expiration=\"2025-12-31\">\n            <pin digest=\"SHA-256\">base64encodedPubKeyHash</pin>\n            <pin digest=\"SHA-256\">backupPinHash</pin>  <!-- always have backup -->\n        </pin-set>\n    </domain-config>\n    <debug-overrides>\n        <trust-anchors>\n            <certificates src=\"user\" />  <!-- trust user-installed CAs in debug only -->\n        </trust-anchors>\n    </debug-overrides>\n</network-security-config>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 1064,
+      "heading_context": "## Security on Android",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────┐\n  │  Security Layers                                                 │\n  │                                                                  │\n  │  ┌────────────────┐  ┌────────────────┐  ┌────────────────────┐  │\n  │  │  App sandbox   │  │  Permissions   │  │  Android Keystore  │ │\n  │  │  (uid per app) │  │  system        │  │  (HW-backed keys)  │ │\n  │  └────────────────┘  └────────────────┘  └────────────────────┘ │\n  │  ┌────────────────┐  ┌────────────────┐  ┌────────────────────┐ │\n  │  │  SELinux       │  │  Biometric     │  │  Play Integrity    │ │\n  │  │  (mandatory    │  │  Prompt        │  │  (device attest.)  │ │\n  │  │   access ctrl) │  │                │  │                    │ │\n  │  └────────────────┘  └────────────────┘  └────────────────────┘ │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 1156,
+      "heading_context": "## Security on Android",
+      "confidence": "candidate",
+      "text": "  Source code\n      │\n      ▼  R8 (enabled with isMinifyEnabled = true)\n  R8 stages:\n    Shrinking: remove unused classes, methods, fields.\n    Obfuscation: rename a.b.c -> a.b.x (single letters).\n    Optimization: inlining, dead code elimination.\n      │\n      ▼  releases/mapping.txt\n  Keep this file — required to decode obfuscated crash stack traces in Play Console",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 1231,
+      "heading_context": "# Input simulation",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────┐\n  │  Android Studio Profiler (View > Tool Windows > Profiler)      │\n  │                                                                │\n  │  CPU Profiler                                                  │\n  │  ├── System Trace: full-system view (surfaceflinger, binder)   │\n  │  ├── Java/Kotlin Method Trace: call tree, flame chart          │\n  │  └── Callstack Sample: sampling profiler (lower overhead)      │\n  │                                                                │\n  │  Memory Profiler                                               │\n  │  ├── Heap dump: snapshot of all live objects                   │\n  │  ├── Allocation tracking: record all allocations over time     │\n  │  └── GC events: visualize GC pressure                          │\n  │                                                                │\n  │  Network Profiler                                              │\n  │  └── HTTP requests: URL, size, timing, payload inspector       │\n  │      (requires OkHttp EventListener or Ktor with plugin)       │\n  │                                                                │\n  │  Energy Profiler                                               │\n  │  └── Visualize CPU, network, location wakelock usage           │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 1269,
+      "heading_context": "## Distribution",
+      "confidence": "candidate",
+      "text": "  APK (Android Package)          AAB (Android App Bundle)\n  ┌─────────────────────┐        ┌─────────────────────────────────┐\n  │ Single file         │        │ Describes your app              │\n  │ All resources for   │        │ Google Play splits and builds   │\n  │ all device configs  │        │ optimized APKs per device:      │\n  │                     │        │ - Screen density (hdpi/xxhdpi)  │\n  │ ~40% larger than    │        │ - CPU architecture (arm64/x86)  │\n  │ AAB-derived APK     │        │ - Language (en/de/zh)           │\n  │                     │        │                                 │\n  │ Use for: sideload,  │        │ Result: 15-40% smaller download │\n  │ enterprise internal │        │ Required for new Play apps      │\n  └─────────────────────┘        └─────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 1299,
+      "heading_context": "# Google Play App Signing solves this: you upload key, Google holds release key",
+      "confidence": "candidate",
+      "text": "  You                              Google\n  ┌────────────────────────┐      ┌─────────────────────────────────┐\n  │  Upload key (you hold) │─────▶│  Re-signs with release key      │\n  │  Signs your AAB        │      │  (Google holds release key)     │\n  │                        │      │                                 │\n  │  If upload key lost:   │      │  Users install APK signed with  │\n  │  - Request key reset   │      │  Google-managed release key     │\n  │    in Play Console     │      │                                 │\n  └────────────────────────┘      └─────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 1312,
+      "heading_context": "# Google Play App Signing solves this: you upload key, Google holds release key",
+      "confidence": "candidate",
+      "text": "  Internal testing  (up to 100 testers, instant publish, no review)\n        │\n        ▼\n  Closed testing   (alpha, limited testers by email/group)\n        │\n        ▼\n  Open testing     (anyone can opt in, public)\n        │\n        ▼\n  Production       (staged rollout: 1% → 5% → 20% → 100%)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 1326,
+      "heading_context": "# Google Play App Signing solves this: you upload key, Google holds release key",
+      "confidence": "candidate",
+      "text": "val appUpdateManager = AppUpdateManagerFactory.create(context)\n\nappUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->\n    if (appUpdateInfo.updateAvailability() == UPDATE_AVAILABLE) {\n        when {\n            // Flexible: download in background, user chooses when to apply\n            appUpdateInfo.isUpdateTypeAllowed(FLEXIBLE) ->\n                appUpdateManager.startUpdateFlowForResult(\n                    appUpdateInfo, FLEXIBLE, this, REQUEST_CODE_UPDATE\n                )\n            // Immediate: full-screen blocking update (for critical security fixes)\n            appUpdateInfo.isUpdateTypeAllowed(IMMEDIATE) ->\n                appUpdateManager.startUpdateFlowForResult(\n                    appUpdateInfo, IMMEDIATE, this, REQUEST_CODE_UPDATE\n                )\n        }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 1371,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "  compileSdk: what API level you compile against (access to latest APIs in code)\n              → set to latest SDK; never impacts users\n  targetSdk:  behavioral compatibility flag (new behaviors opt-in when targetSdk ≥ N)\n              → must be ≥ 33 for Play Store requirement (updates annually)\n  minSdk:     oldest Android version your app supports (defines your user base)\n              → tradeoff: lower minSdk = more users, more compat code needed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 1381,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "  Rotation → ViewModel kept, Activity recreated → ViewModel.init() NOT re-run\n  Process death (LMK kill) → ViewModel lost → SavedStateHandle needed for critical state\n  Back press / finish() → ViewModel cleared → clean up resources in onCleared()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

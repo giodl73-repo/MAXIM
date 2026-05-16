@@ -1,0 +1,265 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-os-linux",
+  "source": "../../os",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-LINUX.md#000",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "# 03 — Linux OS: Developer Reference"
+    },
+    {
+      "id": "03-LINUX.md#001",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture — Linux System Architecture"
+    },
+    {
+      "id": "03-LINUX.md#002",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                         USERSPACE                                           │\n│                                                                             │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────────────┐   │\n│  │  systemd     │  │  bash / zsh  │  │  Docker /    │  │  Your App      │ │\n│  │  (PID 1)     │  │  (shell)     │  │  containerd  │  │  (Node, Python,│ │\n│  │  services,   │  │  scripts,    │  │  (container  │  │  .NET, etc.)   │ │\n│  │  timers,     │  │  job ctrl    │  │  runtime)    │  │                │ │\n│  │  journald    │  │              │  │              │  │                │ │\n│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └───────┬────────┘ │\n│         │                 │                  │                  │          │\n│  ┌──────┴─────────────────┴──────────────────┴──────────────────┴────────┐ │\n│  │                    glibc / musl (C standard library)                  │ │\n│  │   open(), read(), write(), fork(), mmap(), socket(), ...              │ │\n│  │   Wraps raw syscall numbers with portable function calls              │ │\n│  └───────────────────────────────────┬───────────────────────────────────┘ │\n└──────────────────────────────────────┼──────────────────────────────────────┘\n                           SYSCALL BOUNDARY (ring 3 → ring 0)\n                    (x86-64: SYSCALL instruction; ARM64: SVC #0)\n┌──────────────────────────────────────┼──────────────────────────────────────┐\n│                         KERNEL SPACE │                                      │\n│                                      ▼                                      │\n│  ┌───────────────────────────────────────────────────────────────────────┐  │\n│  │                       LINUX KERNEL (monolithic)                       │  │\n│  │                                                                       │  │\n│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌─────────────────┐ │  │\n│  │  │ Scheduler  │  │  Memory    │  │  VFS       │  │  Network Stack  │ │  │\n│  │  │            │  │  Manager   │  │ (Virtual   │  │                 │ │  │\n│  │  │ CFS        │  │            │  │ Filesystem)│  │  TCP/IP, UDP    │ │  │\n│  │  │ real-time  │  │  mmap      │  │            │  │  Netfilter      │ │  │\n│  │  │ deadline   │  │  brk/sbrk  │  │  ext4 xfs  │  │  nftables       │ │  │\n│  │  │ FIFO/RR    │  │  OOM kill  │  │  btrfs     │  │  eBPF hooks     │ │  │\n│  │  │ cgroups    │  │  huge pages│  │  overlayfs │  │  AF_UNIX        │ │  │\n│  │  └────────────┘  └────────────┘  │  /proc /sys│  └─────────────────┘ │  │\n│  │                                  │  /dev      │                       │  │\n│  │  ┌────────────┐  ┌────────────┐  └────────────┘  ┌─────────────────┐ │  │\n│  │  │  Namespaces│  │  cgroups   │                  │ Device Drivers  │ │  │\n│  │  │  pid net   │  │  v2 unified│                  │                 │ │  │\n│  │  │  mnt uts   │  │  hierarchy │                  │  block (disk)   │ │  │\n│  │  │  ipc user  │  │  (container│                  │  char (tty)     │ │  │\n│  │  │  cgroup    │  │  isolation)│                  │  net (NIC)      │ │  │\n│  │  └────────────┘  └────────────┘                   └─────────────────┘ │ │\n│  └───────────────────────────────────────────────────────────────────────┘  │\n│                                      │                                      │\n│                                      ▼                                      │\n│  ┌──────────────────────────── HARDWARE ─────────────────────────────────┐  │\n│  │  CPU + MMU     RAM (DRAM)     NVMe / SSD      NIC          GPU        │  │\n│  └───────────────────────────────────────────────────────────────────────┘  │\n└─────────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-LINUX.md#003",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "Everything is a file:\n  /proc/PID/     — process internals exposed as files (no disk I/O)\n  /sys/          — kernel object model (devices, drivers) as a live filesystem\n  /dev/          — device nodes (read /dev/urandom, write /dev/null)\n  Unix sockets   — IPC via filesystem paths (/run/docker.sock)\n  pipes          — anonymous files connecting stdout→stdin\n```"
+    },
+    {
+      "id": "03-LINUX.md#004",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "**The key mental shift from Windows**: There is no registry, no COM object model, no Win32 API surface. Everything — config, hardware access, process info, kernel parameters — is exposed as files in a tree. You read `/proc/sys/net/ipv4/ip_forward` to see a kernel setting; you write `1` to it to enable IP forwarding. This is the \"everything is a file\" philosophy in practice."
+    },
+    {
+      "id": "03-LINUX.md#005",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LINUX.md#006",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "## Distro Families — Know Which One You're On"
+    },
+    {
+      "id": "03-LINUX.md#007",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "Before you type a single command, you need to know your distro family. Package managers, file paths, init behavior, and default tools differ."
+    },
+    {
+      "id": "03-LINUX.md#008",
+      "path": [
+        "03-LINUX.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:os:03-linux, git-history:os:03-linux]",
+        "canonical_path": "os/03-LINUX.md",
+        "concepts": "[linux]",
+        "current_path": "os/03-LINUX.md",
+        "id": "maxim:os:linux",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linux]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Linux OS: Developer Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                         LINUX DISTRO LANDSCAPE                              │\n│                                                                             │\n│  DEBIAN FAMILY               RHEL FAMILY              ARCH FAMILY           │\n│  ─────────────               ───────────              ───────────           │\n│  Debian (upstream)           RHEL (Red Hat, $)        Arch Linux            │\n│   └─ Ubuntu                   └─ CentOS Stream         └─ Manjaro           │\n│       ├─ Ubuntu Server         └─ Rocky Linux           └─ EndeavourOS      │\n│       ├─ Ubuntu Desktop        └─ AlmaLinux             └─ Garuda           │\n│       └─ Mint, Pop!_OS         └─ Fedora (upstream)    AUR = community pkgs │\n│                                └─ Amazon Linux 2023                         │\n│  Package: .deb                 └─ Azure Linux (CBL)    Package: pkg.tar.zst │\n│  Tool: apt + dpkg             Package: .rpm            Tool: pacman         │\n│  Repo: /etc/apt/sources.list  Tool: dnf / yum                               │\n│                               Repo: /etc/yum.repos.d/                       │\n│                                                                             │\n│  IMMUTABLE / CONTAINER-FIRST                                                │\n│  ────────────────────────────                                               │\n│  Fedora Silverblue   — rpm-ostree atomic updates, Flatpak for apps          │\n│  NixOS               — declarative entire system in Nix expressions         │\n│  Flatcar             — designed for containers only (runs on AKS nodes)     │\n│  Azure Linux         — Microsoft's CBL-Mariner, used for AKS + Azure VMs    │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "03-LINUX.md"
+  ]
+}

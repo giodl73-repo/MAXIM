@@ -1,0 +1,340 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\01-CHEATSHEET.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 59,
+      "heading_context": "## Master Comparison Matrix",
+      "headers": [
+        "Topic",
+        "Windows",
+        "Linux (Ubuntu/Debian)",
+        "Linux (RHEL/Fedora)",
+        "macOS",
+        "iOS",
+        "Android"
+      ],
+      "rows": [
+        [
+          "**Kernel**",
+          "NT (hybrid)",
+          "Linux 6.x (monolithic)",
+          "Linux 6.x",
+          "XNU (Mach+BSD hybrid)",
+          "XNU (same)",
+          "Linux (modified)"
+        ],
+        [
+          "**Init / PID 1**",
+          "smss.exe → wininit",
+          "systemd",
+          "systemd",
+          "launchd",
+          "launchd",
+          "init → Zygote"
+        ],
+        [
+          "**Shell default**",
+          "PowerShell (pwsh)",
+          "bash / zsh",
+          "bash",
+          "zsh",
+          "none (no CLI)",
+          "sh (via adb)"
+        ],
+        [
+          "**Package install**",
+          "winget / choco",
+          "apt install",
+          "dnf install",
+          "brew install",
+          "App Store only",
+          "Play Store / adb"
+        ],
+        [
+          "**Service manage**",
+          "Get-Service, sc.exe",
+          "systemctl",
+          "systemctl",
+          "launchctl",
+          "(managed)",
+          "adb shell am"
+        ],
+        [
+          "**Process list**",
+          "Get-Process / tasklist",
+          "ps / htop / top",
+          "ps / htop",
+          "ps / Activity Monitor",
+          "Instruments",
+          "adb shell ps"
+        ],
+        [
+          "**Network info**",
+          "ipconfig / Get-NetIPAddress",
+          "ip a / ss",
+          "ip a / ss",
+          "ifconfig / networksetup",
+          "Settings only",
+          "adb shell ip"
+        ],
+        [
+          "**Disk usage**",
+          "Get-PSDrive / du",
+          "df / du",
+          "df / du",
+          "df / du",
+          "Settings only",
+          "adb shell df"
+        ],
+        [
+          "**Firewall**",
+          "netsh advfirewall / New-NetFirewallRule",
+          "ufw / iptables / nftables",
+          "firewalld",
+          "pfctl (pf)",
+          "managed",
+          "managed"
+        ],
+        [
+          "**File system**",
+          "NTFS / ReFS",
+          "ext4 / XFS / btrfs",
+          "XFS / ext4",
+          "APFS",
+          "APFS",
+          "ext4 / f2fs"
+        ],
+        [
+          "**Dynamic lib**",
+          ".dll (PE format)",
+          ".so (ELF)",
+          ".so (ELF)",
+          ".dylib (Mach-O)",
+          ".dylib (Mach-O)",
+          ".so (ELF in APK)"
+        ],
+        [
+          "**Executable**",
+          ".exe (PE)",
+          "(no ext, ELF)",
+          "(no ext, ELF)",
+          "(Mach-O, in .app)",
+          "(Mach-O, in .ipa)",
+          "classes.dex in APK"
+        ],
+        [
+          "**Debug symbols**",
+          ".pdb",
+          "DWARF (in .so)",
+          "DWARF",
+          ".dSYM bundle",
+          ".dSYM bundle",
+          ".sym / tombstone"
+        ],
+        [
+          "**Code signing**",
+          "Authenticode (signtool)",
+          "GPG (packages)",
+          "RPM GPG",
+          "Developer ID + notarize",
+          "App Store cert",
+          "Keystore (.jks)"
+        ],
+        [
+          "**App bundle**",
+          ".msix / .exe / .msi",
+          ".deb / snap / flatpak",
+          ".rpm / snap",
+          ".app bundle / .dmg",
+          ".ipa",
+          ".apk / .aab"
+        ],
+        [
+          "**Config location**",
+          "Registry (HKCU/HKLM)",
+          "/etc/ + ~/.config/",
+          "/etc/ + ~/.config/",
+          "plist in ~/Library",
+          "plist in sandbox",
+          "SharedPreferences"
+        ],
+        [
+          "**Log location**",
+          "Event Viewer / ETW",
+          "journalctl / /var/log",
+          "journalctl / /var/log",
+          "Console.app / ~/Library/Logs",
+          "Xcode Organizer",
+          "logcat"
+        ],
+        [
+          "**Env variables**",
+          "$env:VAR (PS) / %VAR%",
+          "$VAR / export VAR",
+          "$VAR / export VAR",
+          "$VAR",
+          "injected at runtime",
+          "build config"
+        ],
+        [
+          "**User data dir**",
+          "%APPDATA%",
+          "~/.local/share (XDG)",
+          "~/.local/share",
+          "~/Library/App Support",
+          "NSDocumentDirectory",
+          "getFilesDir()"
+        ],
+        [
+          "**Temp dir**",
+          "%TEMP%",
+          "/tmp (tmpfs)",
+          "/tmp (tmpfs)",
+          "/tmp → /private/tmp",
+          "NSTemporaryDirectory()",
+          "getCacheDir()"
+        ],
+        [
+          "**Virtualization**",
+          "Hyper-V",
+          "KVM + QEMU",
+          "KVM + QEMU",
+          "Virtualization.framework",
+          "(none)",
+          "(none)"
+        ],
+        [
+          "**Container runtime**",
+          "Docker Desktop (Hyper-V/WSL2)",
+          "Docker (native)",
+          "Podman (rootless)",
+          "Docker Desktop (Virt.fw)",
+          "(none)",
+          "(none)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 669,
+      "heading_context": "## Decision Cheat Sheet — \"What Am I Working With?\"",
+      "headers": [
+        "Signal",
+        "What it tells you"
+      ],
+      "rows": [
+        [
+          "`HKLM\\` or `HKCU\\` in configs",
+          "Windows Registry — use regedit or reg.exe"
+        ],
+        [
+          "`.plist` file",
+          "macOS/iOS — use PlistBuddy, plutil, or Xcode"
+        ],
+        [
+          "`build.gradle` or `settings.gradle`",
+          "Android Gradle build"
+        ],
+        [
+          "`xcodeproj` or `xcworkspace`",
+          "iOS/macOS Xcode project"
+        ],
+        [
+          "`AndroidManifest.xml`",
+          "Android app"
+        ],
+        [
+          "`Info.plist`",
+          "iOS/macOS app bundle"
+        ],
+        [
+          "`/etc/systemd/system/`",
+          "Linux systemd service"
+        ],
+        [
+          "`LaunchDaemon` or `LaunchAgent` plist in `/Library/`",
+          "macOS launchd service"
+        ],
+        [
+          "`.msix` or `.appxmanifest`",
+          "Windows packaged app (MSIX/UWP/WinUI3)"
+        ],
+        [
+          "`.ipa` file",
+          "iOS app archive"
+        ],
+        [
+          "`.apk` or `.aab` file",
+          "Android app package"
+        ],
+        [
+          "`smss`, `csrss`, `lsass` in process list",
+          "Windows system processes"
+        ],
+        [
+          "`launchd`, `configd`, `mDNSResponder`",
+          "macOS system processes"
+        ],
+        [
+          "`zygote`, `system_server`, `surfaceflinger`",
+          "Android system processes"
+        ],
+        [
+          "Crash log has `NSException`",
+          "iOS/macOS Objective-C exception"
+        ],
+        [
+          "Crash log has `java.lang.NullPointerException`",
+          "Android Java/Kotlin exception"
+        ],
+        [
+          "`0xC0000005` in crash",
+          "Windows Access Violation (NULL deref)"
+        ],
+        [
+          "`SIGSEGV` in core dump",
+          "Linux/macOS segmentation fault"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 694,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Package managers above the OS",
+          "`computing/01-PACKAGE.md`",
+          "Package tools sit on filesystem, permissions, dynamic libraries, and process model"
+        ],
+        [
+          "CPU/ISA substrate below the OS",
+          "`computer-architecture/01-ISA-FUNDAMENTALS.md`",
+          "Syscalls, traps, ABI, and privilege rings depend on architecture"
+        ],
+        [
+          "Cloud responsibility boundaries",
+          "`cloud-architecture/01-CLOUD-MODELS.md`",
+          "IaaS exposes OS management; PaaS/SaaS hide most of it"
+        ],
+        [
+          "Security boundaries and threat models",
+          "`security-engineering/01-THREAT-MODELING.md`",
+          "Processes, users, permissions, and kernel attack surface are security primitives"
+        ],
+        [
+          "Scripting interfaces",
+          "`scripting/01-CHEATSHEET.md`",
+          "Shells are the daily control plane over OS concepts"
+        ]
+      ]
+    }
+  ]
+}
