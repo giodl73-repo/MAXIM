@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:kinetics
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 04-KINETICS - Chemical Kinetics
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/04-KINETICS.md
+canonical_path: natural-sciences/04-KINETICS.md
+backsource_ids: [proof-backfill:natural-sciences:04-kinetics, git-history:natural-sciences:04-kinetics]
+concepts: [kinetics]
+root_concepts: [kinetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04-KINETICS — Chemical Kinetics
 
 > Rate laws, integrated equations, Arrhenius, transition state theory, mechanisms,

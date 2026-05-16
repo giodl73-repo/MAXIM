@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:earth-motions
+kind: guide
+module: astronomy
+section: astronomy
+title: Earth's Rotational and Orbital Motions
+status: source-custody
+source_custody: partial
+current_path: astronomy/01-EARTH-MOTIONS.md
+canonical_path: astronomy/01-EARTH-MOTIONS.md
+backsource_ids: [proof-backfill:astronomy:01-earth-motions, git-history:astronomy:01-earth-motions]
+concepts: [earth, motions]
+root_concepts: [earth, motions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Earth's Rotational & Orbital Motions
 ## Precession, Nutation, Chandler Wobble, Obliquity — The 26,000-Year Cycle and Its Cousins
 

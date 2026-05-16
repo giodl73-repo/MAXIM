@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:celestial-mechanics
+kind: guide
+module: astronomy
+section: astronomy
+title: Celestial Mechanics
+status: source-custody
+source_custody: partial
+current_path: astronomy/03-CELESTIAL-MECHANICS.md
+canonical_path: astronomy/03-CELESTIAL-MECHANICS.md
+backsource_ids: [proof-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]
+concepts: [celestial, mechanics]
+root_concepts: [celestial, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Celestial Mechanics
 ## Two-Body Problem, Orbital Elements, Perturbations, Resonances, Tidal Effects
 
@@ -179,7 +198,7 @@ Six numbers completely specify an orbit + position on it:
 
   GEOMETRY:
 
-        reference direction (vernal equinox ♈ for heliocentric)
+        reference direction (vernal equinox Aries point for heliocentric)
               ↑
      ─────────┼──────────  reference plane (ecliptic or equatorial)
               │   ↗ ascending node (Ω measured here, along reference plane)

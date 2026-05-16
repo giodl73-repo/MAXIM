@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:solar-system-formation
+kind: guide
+module: astronomy
+section: astronomy
+title: Solar System Formation
+status: source-custody
+source_custody: partial
+current_path: astronomy/07-SOLAR-SYSTEM-FORMATION.md
+canonical_path: astronomy/07-SOLAR-SYSTEM-FORMATION.md
+backsource_ids: [proof-backfill:astronomy:07-solar-system-formation, git-history:astronomy:07-solar-system-formation]
+concepts: [solar, system, formation]
+root_concepts: [solar, system]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Solar System Formation
 ## Nebular Hypothesis, Disk Physics, Accretion, Nice Model, Grand Tack
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:planetary-interiors
+kind: guide
+module: astronomy
+section: astronomy
+title: Planetary Interiors
+status: source-custody
+source_custody: partial
+current_path: astronomy/08-PLANETARY-INTERIORS.md
+canonical_path: astronomy/08-PLANETARY-INTERIORS.md
+backsource_ids: [proof-backfill:astronomy:08-planetary-interiors, git-history:astronomy:08-planetary-interiors]
+concepts: [planetary, interiors]
+root_concepts: [planetary, interiors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Planetary Interiors
 ## Differentiation, PREM, Seismology, Geodynamo, Plate Tectonics, Comparative Planetology
 

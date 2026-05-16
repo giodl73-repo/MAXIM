@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\09-MOLECULAR-BIO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "              Replication\n          ┌──────────────────┐\n          ▼                  │\n         DNA ──Transcription──▶ RNA ──Translation──▶ Protein\n          │\n          └── Reverse transcription (retroviruses, telomerase)\n\nExceptions to \"one-way\" flow:\n  RNA → DNA:     Reverse transcriptase (HIV, LINE retrotransposons, telomerase)\n  RNA → RNA:     RNA-dependent RNA polymerase (RNA viruses, RNAi pathway)\n  Protein → ?:   No known mechanism for protein→nucleic acid (prions alter folding, not sequence)\n\nInformation is in the sequence:\n  DNA:  4-letter alphabet (A, T, G, C), double-stranded, stable, archive\n  RNA:  4-letter alphabet (A, U, G, C), single-stranded, transient, working copy\n  Protein: 20-letter alphabet, 3D fold, functional executor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### The Replisome",
+      "confidence": "candidate",
+      "text": "INITIATION:\n  Origin of replication (ori): specific sequences where replication begins\n    Prokaryotes: single circular chromosome, one ori (oriC in E. coli)\n    Eukaryotes: multiple origins (thousands per chromosome) → parallel firing\n\n  Origin Recognition Complex (ORC): marks origins\n  Helicase loading: MCM2-7 helicase loaded at G1, activated at S phase\n  Replication fires → two diverging replication forks\n\nFORK STRUCTURE (both strands replicated simultaneously):\n\n  ─────────────── 3'→5' template (leading)\n  ←══════════════ Leading strand (synthesized 5'→3', continuous)\n\n  ─────────────── 5'→3' template (lagging)\n  ═════════════→  Lagging strand (synthesized 5'→3' = AWAY from fork)\n  ↑               Okazaki fragments (~1–2 kb in eukaryotes, ~1–2 kb in bacteria)\n  synthesized in short discontinuous pieces, joined by DNA ligase",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### Key Enzymes",
+      "confidence": "candidate",
+      "text": "Enzyme                   Function\n──────────────────────────────────────────────────────────────\nHelicase (MCM2-7)        Unwinds double helix (ATP-dependent, moves 5'→3')\nTopoisomerase I          Nicks one strand → relieves torsional stress (ahead of fork)\nTopoisomerase II         Nicks both strands → decatenation (separates daughter chromosomes)\nPrimase (DnaG)           Synthesizes RNA primer (~10 nt) — DNA pol can't start de novo\nDNA Pol δ (eukaryote)    Lagging strand synthesis (with PCNA clamp)\nDNA Pol ε (eukaryote)    Leading strand synthesis\nDNA Pol α                Primase-associated, initiates Okazaki fragments\nRNase H / FEN1           Removes RNA primers\nDNA Ligase               Seals nicks (NAD⁺ in bacteria, ATP in eukaryotes)\nPCNA                     Sliding clamp (processivity factor, ring loads onto DNA)\nRFC                      Clamp loader (loads PCNA, ATP-dependent)\nRPA                      Single-stranded DNA binding (protects ssDNA at fork)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Telomeres and Telomerase",
+      "confidence": "candidate",
+      "text": "Problem: DNA pol requires primer → can't replicate chromosome ends fully\n→ \"end replication problem\" → telomeres shorten with each division\n\nTelomere structure: TTAGGG repeats (vertebrates), 5–15 kb\nShelterin complex: TRF1/TRF2/POT1/TIN2/TPP1/RAP1 → caps telomere, prevents\n  DDR (DNA damage response) activation and end-to-end fusions\n\nTelomerase: ribonucleoprotein (TERT + TERC RNA template)\n  Uses its RNA as template to extend 3' overhang\n  Then primase fills in complementary strand\n  Active in: stem cells, germline, most cancers\n  Inactive in: most somatic cells → progressive shortening → Hayflick limit (~50 divisions)\n\nCancer and telomerase: >85% of cancers reactivate telomerase → immortalization\nAlternative lengthening of telomeres (ALT): recombination-based (15% of cancers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### Prokaryotic Transcription",
+      "confidence": "candidate",
+      "text": "RNAP (E. coli): α₂ββ'ω core + σ factor (holoenzyme)\nσ factor: recognizes promoter, destabilizes after initiation (σ⁷⁰ for housekeeping genes)\n\nPromoter elements (consensus):\n  −35 box: TTGACA   (σ recognition)\n  −10 box: TATAAT   (Pribnow box — melted/unwound for initiation)\n  Spacer: 17 bp between −35 and −10\n\nStages:\n  Closed complex: RNAP binds promoter, double-stranded\n  Open complex: ~14 bp melted (ATP not required in bacteria)\n  Initiation: first ~10 nt synthesized (often abortive)\n  Promoter escape: σ released, elongation complex stable\n  Elongation: ~40–80 nt/s, highly processive, template read 3'→5'\n  Termination:\n    Rho-independent: hairpin in RNA + U-rich → destabilizes RNA:DNA hybrid\n    Rho-dependent: Rho helicase (ATP-dep.) tracks mRNA, catches paused RNAP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "### Eukaryotic Transcription — More Complex",
+      "confidence": "candidate",
+      "text": "Three nuclear RNAPs:\n  RNA Pol I:   rRNA (45S precursor in nucleolus)\n  RNA Pol II:  mRNA + most non-coding RNA (snRNA, miRNA)\n  RNA Pol III: tRNA, 5S rRNA, small stable RNAs\n\nRNA Pol II promoter elements:\n  TATA box (~−25): bound by TBP (TATA-binding protein)\n  Inr (initiator): at +1 transcription start\n  BRE, DPE, MTE: additional elements\n  Enhancers: 100s–1000s of bp away, orientation-independent, cell-type specific\n             bind transcription factors → loop to promoter via Mediator\n\nGeneral transcription factors (GTFs):\n  TFIID (TBP+TAFs) → TFIIB → Pol II/TFIIF → TFIIE → TFIIH\n  TFIIH: helicase (unwinds DNA), CTD kinase (phosphorylates Pol II tail → elongation)\n\nCTD (C-terminal domain of Pol II): 52 heptad repeats (YSPTSPS)\n  Hypophosphorylated: associates with Mediator (initiation)\n  Ser5-P: early elongation, capping enzyme recruitment\n  Ser2-P: active elongation, splicing factor recruitment, 3' processing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "### Pre-mRNA Processing (Eukaryotes Only)",
+      "confidence": "candidate",
+      "text": "5' CAPPING (co-transcriptional, at ~25 nt):\n  7-methylguanosine cap added in 5'→5' triphosphate linkage (unusual bond)\n  Functions: protects from 5' exonucleases, ribosome recognition (eIF4E binding)\n\nSPLICING (co-transcriptional and post-transcriptional):\n  Spliceosome: U1, U2, U4, U5, U6 snRNAs + ~100 proteins\n  Two-step transesterification:\n    1. 2'-OH of branch point A attacks 5' splice site → lariat intermediate\n    2. 3'-OH of exon 1 attacks 3' splice site → ligation of exons, lariat released\n\n  Splice sites (consensus):\n    5' splice site: GU (GT in DNA) — nearly invariant\n    3' splice site: AG — nearly invariant\n    Branch point: YNYURAY (~30 nt upstream of 3' ss)\n    Polypyrimidine tract: between branch point and 3' ss\n\nALTERNATIVE SPLICING:\n  ~95% of human multi-exon genes alternatively spliced\n  Types: exon skipping, alternative 5'/3' splice sites, intron retention, mutually exclusive exons\n  Creates proteome diversity >> genome size\n  Cell-type specific splicing factors (SR proteins, hnRNPs) control patterns\n\n3' POLYADENYLATION:\n  AAUAAA signal (~20 nt upstream of cleavage site)\n  Cleavage + addition of 150–250 A residues by poly(A) polymerase\n  Functions: export, stability, translation efficiency",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### The Genetic Code",
+      "confidence": "candidate",
+      "text": "CODON TABLE (standard genetic code):\n  64 codons: 61 sense + 3 stop (UAA, UAG, UGA)\n  20 amino acids → code is REDUNDANT (degenerate)\n  Third position often wobble (less constrained) — synonymous codons\n\n  Start codon: AUG (Met) — also defines reading frame\n  Stop codons: UAA (ochre), UAG (amber), UGA (opal/umber)\n\n  Code is nearly universal — exceptions: mitochondria (UGA → Trp), ciliates (UAA/UAG → Gln)\n  Wobble (Crick, 1966): tRNA anticodon position 34 can pair with multiple codons\n    G34 pairs with U or C; I (inosine, modified A) pairs with U, C, or A\n\n                        STANDARD GENETIC CODE\n\n  1st U:\n    UUU Phe (F)   UCU Ser (S)   UAU Tyr (Y)   UGU Cys (C)\n    UUC Phe (F)   UCC Ser (S)   UAC Tyr (Y)   UGC Cys (C)\n    UUA Leu (L)   UCA Ser (S)   UAA Stop      UGA Stop\n    UUG Leu (L)   UCG Ser (S)   UAG Stop      UGG Trp (W)\n\n  1st C:\n    CUU Leu (L)   CCU Pro (P)   CAU His (H)   CGU Arg (R)\n    CUC Leu (L)   CCC Pro (P)   CAC His (H)   CGC Arg (R)\n    CUA Leu (L)   CCA Pro (P)   CAA Gln (Q)   CGA Arg (R)\n    CUG Leu (L)   CCG Pro (P)   CAG Gln (Q)   CGG Arg (R)\n\n  1st A:\n    AUU Ile (I)   ACU Thr (T)   AAU Asn (N)   AGU Ser (S)\n    AUC Ile (I)   ACC Thr (T)   AAC Asn (N)   AGC Ser (S)\n    AUA Ile (I)   ACA Thr (T)   AAA Lys (K)   AGA Arg (R)\n    AUG Met (M)   ACG Thr (T)   AAG Lys (K)   AGG Arg (R)\n\n  1st G:\n    GUU Val (V)   GCU Ala (A)   GAU Asp (D)   GGU Gly (G)\n    GUC Val (V)   GCC Ala (A)   GAC Asp (D)   GGC Gly (G)\n    GUA Val (V)   GCA Ala (A)   GAA Glu (E)   GGA Gly (G)\n    GUG Val (V)   GCG Ala (A)   GAG Glu (E)   GGG Gly (G)\n\n  Within each block, columns are 2nd position = U, C, A, G (left to right).\n  Read each codon left to right: 1st position → 2nd position → 3rd position.\n  Start codon: AUG (Met).  Stop codons: UAA, UAG, UGA.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 269,
+      "heading_context": "### Ribosome Structure",
+      "confidence": "candidate",
+      "text": "Prokaryote (70S):          Eukaryote (80S):\n  Small: 30S (16S rRNA)      Small: 40S (18S rRNA)\n  Large: 50S (23S+5S rRNA)   Large: 60S (28S+5.8S+5S rRNA)\n\nThree tRNA binding sites on ribosome:\n  A site (aminoacyl): accepts incoming aminoacyl-tRNA\n  P site (peptidyl): holds growing peptide chain\n  E site (exit): departing tRNA\n\nrRNA is catalytic: peptidyl transferase activity resides in 23S/28S rRNA\n  (proteins provide structural scaffold only)\n  → another example of ribozyme catalysis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 286,
+      "heading_context": "### Translation Mechanism",
+      "confidence": "candidate",
+      "text": "INITIATION (prokaryote):\n  30S + mRNA (Shine-Dalgarno: AGGAGG, ~5–10 nt upstream of AUG)\n  IF1, IF2 (GTPase), IF3\n  fMet-tRNA binds P site at AUG\n  50S joins → GTP hydrolysis → IFs released → 70S initiation complex\n\nINITIATION (eukaryote — scanning model):\n  43S complex: 40S + eIF1/1A/3/5 + Met-tRNA·eIF2·GTP\n  eIF4F (cap-binding complex): eIF4E (cap) + eIF4G (scaffold) + eIF4A (helicase)\n  Scans 5'→3' until AUG in Kozak context (GCCRCCAUGG)\n  eIF5 triggers GTP hydrolysis → 60S joining\n\nELONGATION:\n  EF-Tu (prokaryote) / eEF1A (eukaryote): delivers aminoacyl-tRNA to A site (GTPase)\n  Proofreading: codon-anticodon mismatch → GTP hydrolysis before full accommodation\n  Peptidyl transfer: peptide bond formation (ribosome catalysis, no energy input)\n  Translocation: EF-G/eEF2 (GTPase) moves ribosome 3 nt → P→E, A→P\n  Rate: ~20 aa/s (prokaryote), ~5 aa/s (eukaryote)\n\nTERMINATION:\n  Stop codon in A site → release factor (RF1/RF2 in bacteria, eRF1 in eukaryotes)\n  Peptidyl-tRNA hydrolysis → polypeptide release\n  Ribosome recycling factor (RRF) + EF-G dissociate ribosome\n\nPOLYRIBOSOMES (polysomes): multiple ribosomes translating same mRNA simultaneously",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "### Prokaryotic: The lac Operon",
+      "confidence": "candidate",
+      "text": "lacI ──┬── lacZ (β-galactosidase) ── lacY (permease) ── lacA (transacetylase)\n       │\n       └── Repressor (LacI protein)\n\nNO lactose, NO glucose:\n  Repressor binds operator → blocks transcription\n  CAP (CRP) + cAMP binds → activates promoter (cAMP high when glucose low)\n\nNO lactose, HIGH glucose:\n  Repressor ON (no inducer), CAP OFF (low cAMP) → transcription off\n\nLACTOSE present, NO glucose:\n  Allolactose (lactose metabolite) binds repressor → conformational change → off DNA\n  CAP ON (high cAMP) → full transcription activation\n  → express lactose-metabolizing genes only when needed AND glucose unavailable\n\nLACTOSE present, GLUCOSE present:\n  Repressor OFF (allolactose present), but CAP OFF (low cAMP) → low transcription\n  → glucose preferred; lac genes minimally expressed (catabolite repression)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "### Eukaryotic Gene Regulation",
+      "confidence": "candidate",
+      "text": "Layers of eukaryotic regulation:\n  1. Chromatin (DNA accessibility):\n       Nucleosome: 147 bp DNA wrapped ~1.65 turns around H2A/H2B/H3/H4 octamer\n       Histone code: modifications to histone tails\n         H3K4me3: active promoter marker\n         H3K27me3: Polycomb repression\n         H3K9me3: heterochromatin\n         H3K27ac: active enhancer\n         H4K16ac: chromatin opening\n       Chromatin remodelers (SWI/SNF, NuRD): reposition nucleosomes\n\n  2. DNA methylation:\n       CpG methylation (5-methylcytosine): gene silencing\n       Promoter CpG islands (CpG dense regions): unmethylated → active\n       Gene body methylation: associated with active transcription\n       Imprinting: differential methylation of maternal vs paternal alleles\n\n  3. Transcription factors:\n       Combinatorial: multiple TFs → AND/OR/NOT logic\n       Enhancers: bound by TF combos → loop to promoter via cohesin/CTCF\n       Super-enhancers: large clusters of enhancers → cell identity genes\n\n  4. Post-transcriptional:\n       miRNA (miRISC): seed sequence (~6-7 nt) base-pairs with mRNA 3'UTR\n         → mRNA degradation or translational repression\n       Nonsense-mediated decay (NMD): degrades mRNA with premature stop codons\n       RNA-binding proteins: stability, splicing, localization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 382,
+      "heading_context": "## CRISPR-Cas9 Mechanism",
+      "confidence": "candidate",
+      "text": "CRISPR AS A SEARCH SYSTEM:\n\n  Guide RNA (20 nt)  ≈  regex pattern (exact match required)\n  PAM sequence (NGG) ≈  anchor constraint (like regex ^ or $ or lookahead)\n                         Cas9 scans DNA for NGG first, THEN checks 20-nt match.\n                         Without PAM: Cas9 does not interrogate — fast exclusion.\n  R-loop formation   ≈  full string comparison after anchor hit\n  3-nt upstream cut  ≈  fixed offset from match position (like sed offset)\n\n  Off-target problem:  mismatches in seed region (positions 1-12 adjacent to PAM)\n                       are tolerated — like fuzzy regex matching\n                       High-fidelity variants (SpCas9-HF1, eSpCas9) reduce this\n                       by destabilizing off-target R-loops → stricter matching\n\n  Multiplexing: deliver multiple sgRNAs → search for multiple targets simultaneously\n    → like parallel grep on a genome-scale text file",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 401,
+      "heading_context": "## CRISPR-Cas9 Mechanism",
+      "confidence": "candidate",
+      "text": "NATURAL FUNCTION (bacterial adaptive immunity):\n  Bacteria capture fragments of invading phage DNA → store in CRISPR array\n  Array transcribed → crRNA + tracrRNA → processed → guides Cas9 to matching sequence\n  Cas9 + guide RNA → cleave matching foreign DNA\n\nMECHANISM:\n  1. Guide RNA (sgRNA = crRNA + tracrRNA fusion): ~100 nt\n  2. sgRNA base-pairs with target DNA strand (20 nt protospacer)\n  3. PAM (protospacer adjacent motif): NGG for SpCas9 — REQUIRED, on non-target strand\n  4. R-loop formation: DNA unwinds, sgRNA:DNA hybrid forms\n  5. RuvC domain cleaves non-template strand\n     HNH domain cleaves template strand\n  6. DSB (double-strand break) generated at position 3 nt upstream of PAM\n\nREPAIR PATHWAYS:\n  NHEJ (non-homologous end joining): error-prone ligation → insertions/deletions (indels)\n    → frameshift → loss-of-function (gene knockout)\n  HDR (homology-directed repair): template provided → precise edit\n    → gene correction, insertion of sequence (less efficient, requires S/G2)\n\nCRISPR VARIANTS:\n  Cas12a (Cpf1): T-rich PAM, cuts 5' of PAM, staggered cut, processes own crRNA\n  Cas13: targets RNA (not DNA) — knockdown without genome editing\n  dCas9 (dead Cas9, D10A+H840A): no cutting activity\n    + transcriptional activator (VPR, SAM) → CRISPRa\n    + transcriptional repressor (KRAB) → CRISPRi\n    + base editor (adenine or cytosine deaminase) → A→G or C→T without DSB\n    + prime editor (reverse transcriptase) → precise edits without DSB or template",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 436,
+      "heading_context": "## Central Dogma Exceptions and Edge Cases",
+      "confidence": "candidate",
+      "text": "Retroviruses (HIV):\n  RNA genome → Reverse Transcriptase → dsDNA → integrates as provirus → transcribed\n\nRetrotransposons (LINEs, SINEs):\n  ~45% of human genome by mass\n  LINEs encode reverse transcriptase → copy-paste mechanism → genome expansion\n\nTelomerase:\n  Specialized reverse transcriptase; uses internal RNA template to extend telomeres\n\nPrions:\n  Infectious misfolded proteins (PrPᶜ → PrPˢᶜ)\n  Protein conformation can \"replicate\" by templating misfolding of normal copies\n  Not a violation of central dogma (sequence not altered), but information in\n  protein conformation propagates — a form of epigenetic inheritance\n\nRNA self-splicing (group I and II introns):\n  Catalytic RNA performs own splicing without proteins\n  Group II introns: proposed ancestor of spliceosomal snRNAs\n\nSelenocysteine / pyrrolysine:\n  21st and 22nd amino acids encoded by UGA/UAG stop codons in specific contexts\n  Require special tRNAs and recoding factors — expand the genetic code",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

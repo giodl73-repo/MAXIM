@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:thermochem
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 03-THERMOCHEM - Thermochemistry and Chemical Thermodynamics
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/03-THERMOCHEM.md
+canonical_path: natural-sciences/03-THERMOCHEM.md
+backsource_ids: [proof-backfill:natural-sciences:03-thermochem, git-history:natural-sciences:03-thermochem]
+concepts: [thermochem]
+root_concepts: [thermochem]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03-THERMOCHEM — Thermochemistry & Chemical Thermodynamics
 
 > From heat of combustion to Gibbs free energy to phase diagrams.

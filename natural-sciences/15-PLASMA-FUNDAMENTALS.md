@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:plasma-fundamentals
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 15-PLASMA-FUNDAMENTALS - Plasma Physics Fundamentals
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/15-PLASMA-FUNDAMENTALS.md
+canonical_path: natural-sciences/15-PLASMA-FUNDAMENTALS.md
+backsource_ids: [proof-backfill:natural-sciences:15-plasma-fundamentals, git-history:natural-sciences:15-plasma-fundamentals]
+concepts: [plasma, fundamentals]
+root_concepts: [plasma, fundamentals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 15-PLASMA-FUNDAMENTALS — Plasma Physics Fundamentals
 
 > Debye shielding, plasma frequency, single-particle motion, MHD equations,

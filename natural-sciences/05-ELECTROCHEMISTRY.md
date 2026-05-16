@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:electrochemistry
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 05-ELECTROCHEMISTRY - Electrochemistry
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/05-ELECTROCHEMISTRY.md
+canonical_path: natural-sciences/05-ELECTROCHEMISTRY.md
+backsource_ids: [proof-backfill:natural-sciences:05-electrochemistry, git-history:natural-sciences:05-electrochemistry]
+concepts: [electrochemistry]
+root_concepts: [electrochemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05-ELECTROCHEMISTRY — Electrochemistry
 
 > Redox reactions, electrochemical cells, Nernst equation, batteries, electrolysis,

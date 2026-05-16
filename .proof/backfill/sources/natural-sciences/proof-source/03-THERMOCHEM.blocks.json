@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\03-THERMOCHEM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│               THERMOCHEMISTRY & CHEMICAL THERMODYNAMICS          │\n│                                                                  │\n  THE FOUR LAWS (foundations):\n    0th: temperature defined      → measurement framework\n    1st: ΔU = q + w               → enthalpy H, Hess's law\n    2nd: ΔS_universe ≥ 0          → spontaneity criterion\n    3rd: S(0K) = 0                → absolute entropy S° tables\n\n  Two state functions emerge:\n\n  ENTHALPY (ΔH):\n    Hess's law; bond enthalpies; Kirchhoff T-dep.\n\n  ENTROPY (ΔS):\n    Boltzmann S = k ln W; Trouton's rule;\n    colligative properties (particle count).\n\n  Combined into the master criterion:\n\n  GIBBS FREE ENERGY:  ΔG = ΔH − TΔS\n    ΔG < 0: spontaneous.       ΔG° = −RT ln K\n    ΔG = ΔG° + RT ln Q         links to equilibrium.\n\n  Application domains:\n\n  EQUILIBRIUM:\n    Kc, Kp, Ksp; Le Chatelier; Van't Hoff.\n\n  PHASE DIAGRAMS:\n    P-T phase boundaries; Clausius-Clapeyron;\n    critical / triple points.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 95,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "H = U + PV      (enthalpy = internal energy + pressure-volume work)\n\nAt constant pressure (most chemistry):\n  ΔH = ΔU + PΔV\n\nFor ideal gas reactions:\n  ΔH = ΔU + Δn_gas · RT     (Δn_gas = moles product gas − moles reactant gas)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Hess's Law",
+      "confidence": "candidate",
+      "text": "Target:   C(s) + ½O₂(g) → CO(g)              ΔH = ?\n\nKnown:    C(s) + O₂(g) → CO₂(g)             ΔH₁ = −393.5 kJ/mol\n          CO(g) + ½O₂(g) → CO₂(g)           ΔH₂ = −283.0 kJ/mol\n\nReverse reaction 2 and add:\n          C(s) + O₂(g) → CO₂(g)             ΔH₁ = −393.5\n          CO₂(g) → CO(g) + ½O₂(g)           −ΔH₂ = +283.0\n          ─────────────────────────────────────────────────────\n          C(s) + ½O₂(g) → CO(g)             ΔH = −110.5 kJ/mol",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### What Increases Entropy",
+      "confidence": "candidate",
+      "text": "HIGH entropy                         LOW entropy\n─────────────────────────────────────────────────\nGas > liquid > solid                 Ordered crystal\nMore moles of gas                    Fewer moles of gas\nHigher temperature                   Lower temperature\nMixing (solutions, gases)            Separation\nLarger molecules (more conformations) Rigid structures\nDisordered sequences                 Regular patterns",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "### The Four Cases",
+      "confidence": "candidate",
+      "text": "ΔH    ΔS    ΔG = ΔH − TΔS      Spontaneity\n──────────────────────────────────────────────────────────\n−     +     Always negative     Always spontaneous\n+     −     Always positive     Never spontaneous\n−     −     Negative at low T   Spontaneous at low T\n+     +     Negative at high T  Spontaneous at high T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "### Solubility Products (Ksp)",
+      "confidence": "candidate",
+      "text": "CaF₂(s) ⇌ Ca²⁺(aq) + 2F⁻(aq)\nKsp = [Ca²⁺][F⁻]²\n\nMolar solubility s: [Ca²⁺] = s,  [F⁻] = 2s\nKsp = s · (2s)² = 4s³  →  s = (Ksp/4)^(1/3)\n\nCommon ion effect: adding F⁻ (from NaF) suppresses CaF₂ dissolution\n  → Q > Ksp → precipitation until Q = Ksp",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "### Le Chatelier's Principle",
+      "confidence": "candidate",
+      "text": "Stress                    Direction of shift\n─────────────────────────────────────────────────────────\nAdd reactant              → products (forward)\nAdd product               → reactants (reverse)\nRemove reactant           → reactants (reverse)\nIncrease pressure         → fewer moles of gas side\nDecrease pressure         → more moles of gas side\nIncrease temperature      → endothermic direction\nDecrease temperature      → exothermic direction\nAdd inert gas (const. V)  no shift (partial pressures unchanged)\nAdd catalyst              no shift (both rates increase equally)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 390,
+      "heading_context": "### Colligative Properties",
+      "confidence": "candidate",
+      "text": "Property           Formula                   Notes\n──────────────────────────────────────────────────────────────────\nBoiling point rise  ΔTb = Kb · m · i         Kb = ebullioscopic const.\nFreezing pt. dep.   ΔTf = Kf · m · i         Kf = cryoscopic const.\nOsmotic pressure    Π = iMRT                  M = molarity, R = 0.08206\nVapor pressure dep. P = x_solvent · P°        Raoult's law\n\nm = molality (mol solute/kg solvent)\ni = van't Hoff factor (1 for non-electrolyte, ~2 for NaCl, ~3 for CaCl₂)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 411,
+      "heading_context": "### Carnot Cycle — The Efficiency Limit",
+      "confidence": "candidate",
+      "text": "Maximum efficiency of any heat engine operating between T_H and T_C:\n\nη_Carnot = 1 − T_C/T_H      (T in Kelvin)\n\nFour steps:\n  1. Isothermal expansion at T_H      (absorb q_H)\n  2. Adiabatic expansion T_H → T_C    (ΔS = 0)\n  3. Isothermal compression at T_C    (release q_C)\n  4. Adiabatic compression T_C → T_H  (ΔS = 0)\n\nNet: w = q_H − q_C,   η = w/q_H = 1 − q_C/q_H = 1 − T_C/T_H\n\nWhy no real engine reaches η_Carnot:\n  Irreversibilities: friction, heat transfer across finite ΔT, turbulence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

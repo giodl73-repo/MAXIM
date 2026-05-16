@@ -1,0 +1,611 @@
+{
+  "schema_version": "1",
+  "source_markdown": "astronomy\\03-CELESTIAL-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## 1. The Full Map",
+      "confidence": "candidate",
+      "text": "  CELESTIAL MECHANICS HIERARCHY\n\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  TWO-BODY PROBLEM (exact analytic solution)                              │\n  │    Reduction to 1D via conservation laws                                 │\n  │    Conic sections: ellipse / parabola / hyperbola                        │\n  │    Kepler's laws as corollaries; vis-viva equation                       │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ add a third body\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  THREE-BODY PROBLEM (no general analytic solution — Poincaré 1887)       │\n  │    Restricted case → Jacobi integral (1 conserved quantity)              │\n  │    Hill sphere, Lagrange points L1–L5                                    │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ add n bodies, small perturbations\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  PERTURBATION THEORY                                                     │\n  │    Lagrange planetary equations (elements evolve under perturbations)    │\n  │    Secular vs periodic effects; J₂ nodal regression; lunisolar forcing   │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ special frequency relationships\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  RESONANCES                                                              │\n  │    Mean motion resonances (MMR) — Laplace, Kirkwood, Trojans, Plutinos   │\n  │    Secular resonances — precession rate matching                         │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ add deformable bodies, dissipation\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  TIDAL MECHANICS                                                         │\n  │    Tidal forces, tidal locking, Roche limit, tidal heating               │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ long time integration\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  CHAOS AND STABILITY                                                     │\n  │    Lyapunov exponents; solar system long-term fate; Mercury chaos        │\n  └──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 75,
+      "heading_context": "## 2. The Two-Body Problem — Exact Solution",
+      "confidence": "candidate",
+      "text": "### 2.1 Reduction to One-Body",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### 2.1 Reduction to One-Body",
+      "confidence": "candidate",
+      "text": "  m₁ r̈₁ = +G m₁ m₂ / |r₁−r₂|² × r̂₁₂\n  m₂ r̈₂ = −G m₁ m₂ / |r₁−r₂|² × r̂₁₂\n\n  Center of mass:  R = (m₁r₁ + m₂r₂) / (m₁+m₂)   → R̈ = 0 (free particle, inertial)\n\n  Relative vector: r = r₁ − r₂\n  Reduced mass:    μ = m₁m₂/(m₁+m₂)\n\n  Equation of motion reduces to:\n  ┌─────────────────────────────────────────────┐\n  │  μ r̈ = −G m₁ m₂ r / r³  =  −μ GM r / r³     │\n  └─────────────────────────────────────────────┘\n  where M = m₁ + m₂\n\n  One particle, mass μ, in a central force field with GM = G(m₁+m₂).\n  For M >> m (planet orbiting star): μ ≈ m, the star barely moves.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 98,
+      "heading_context": "### 2.1 Reduction to One-Body",
+      "confidence": "candidate",
+      "text": "### 2.2 Two Conservation Laws → Planar Motion + Conic Sections",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### 2.2 Two Conservation Laws → Planar Motion + Conic Sections",
+      "confidence": "candidate",
+      "text": "  L = μ r × ṙ = constant (vector)\n  → r and ṙ always in the same plane → motion is 2D\n\n  |L| = μ r² θ̇ = μ √(GM p)    where p = a(1−e²) = semi-latus rectum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### 2.2 Two Conservation Laws → Planar Motion + Conic Sections",
+      "confidence": "candidate",
+      "text": "  E = ½μv² − G m₁ m₂ / r = constant\n\n  E < 0: bound orbit (ellipse)\n  E = 0: escape with zero velocity at ∞ (parabola)\n  E > 0: unbound (hyperbola)\n  E = −Gm₁m₂/(2a)    ← only depends on semi-major axis a",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### 2.2 Two Conservation Laws → Planar Motion + Conic Sections",
+      "confidence": "candidate",
+      "text": "  r(ν) = p / (1 + e cos ν)         p = L²/(μ² GM) = a(1−e²)\n\n  ν = true anomaly (angle from periapsis)\n  e = eccentricity = √(1 + 2EL²/(μ³ G²m₁²m₂²))\n\n  ┌─────────────────────────────────────────────────────────┐\n  │  e = 0: circle      e < 1: ellipse     r_min = a(1−e)   │\n  │  e = 1: parabola    e > 1: hyperbola   r_max = a(1+e)   │\n  └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 134,
+      "heading_context": "### 2.2 Two Conservation Laws → Planar Motion + Conic Sections",
+      "confidence": "candidate",
+      "text": "### 2.3 Kepler's Three Laws as Corollaries",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### 2.3 Kepler's Three Laws as Corollaries",
+      "confidence": "candidate",
+      "text": "  1st Law:  r = a(1−e²)/(1+e cos ν) — ellipse with focus at center of mass\n            [from E, L conservation — conic section is the general solution]\n\n  2nd Law:  dA/dt = |L|/(2μ) = constant — equal areas in equal times\n            [from L = constant → angular momentum conservation]\n\n  3rd Law:  T² = 4π² a³ / (GM)      T = period\n            [from integrating dA/dt = |L|/(2μ) over full ellipse area πab]\n\n  ALL THREE follow from Newton's inverse-square law + calculus.\n  Kepler derived them empirically from Brahe's data.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 150,
+      "heading_context": "### 2.3 Kepler's Three Laws as Corollaries",
+      "confidence": "candidate",
+      "text": "### 2.4 Vis-Viva Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### 2.4 Vis-Viva Equation",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────┐\n  │  v² = GM ( 2/r − 1/a )                               │\n  └──────────────────────────────────────────────────────┘\n\n  From E = ½μv² − GMμ/r = −GMμ/(2a), rearranged.\n\n  Special cases:\n  ─────────────────────────────────────────────────────────────\n  Circular orbit (r = a):    v_c = √(GM/a)\n  At periapsis (r = a(1−e)): v_peri = √(GM(1+e)/(a(1−e)))\n  At apoapsis (r = a(1+e)):  v_apo  = √(GM(1−e)/(a(1+e)))\n  Escape (a → ∞):            v_esc  = √(2GM/r) = v_c√2\n  ─────────────────────────────────────────────────────────────\n  Earth surface: v_c ≈ 7.91 km/s,  v_esc ≈ 11.19 km/s\n  LEO (400 km):  v_c ≈ 7.67 km/s,  ISS orbital speed ≈ 7.66 km/s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## 3. Orbital Elements — Describing Any Orbit in 3D",
+      "confidence": "candidate",
+      "text": "  THE CLASSICAL ORBITAL ELEMENTS\n\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │ SHAPE & SIZE                                                             │\n  │   a  — semi-major axis        [distance]  Sets T via T²=4π²a³/(GM)       │\n  │   e  — eccentricity           [0 to 1+]   Shape: 0=circle, 1=parabola    │\n  ├──────────────────────────────────────────────────────────────────────────┤\n  │ ORIENTATION OF ORBITAL PLANE                                             │\n  │   i  — inclination            [0°–180°]   Tilt wrt reference plane      │\n  │   Ω  — longitude of ascending node [0°–360°]  Where orbit crosses      │\n  │         (RAAN)                              reference plane going north  │\n  ├──────────────────────────────────────────────────────────────────────────┤\n  │ ORIENTATION OF ELLIPSE IN PLANE                                          │\n  │   ω  — argument of periapsis  [0°–360°]   Angle from node to periapsis   │\n  ├──────────────────────────────────────────────────────────────────────────┤\n  │ POSITION ON ORBIT                                                        │\n  │   ν  — true anomaly           [0°–360°]   Current angle from periapsis  │\n  │   (or M — mean anomaly, or E — eccentric anomaly, or t₀ — epoch)       │\n  └──────────────────────────────────────────────────────────────────────────┘\n\n  GEOMETRY:\n\n        reference direction (vernal equinox Aries point for heliocentric)\n              ↑\n     ─────────┼──────────  reference plane (ecliptic or equatorial)\n              │   ↗ ascending node (Ω measured here, along reference plane)\n              │  /\n              │ /  ← orbital plane tilted at i\n              ●\n              └── periapsis direction (ω measured from ascending node\n                  within orbital plane, to the direction of periapsis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 212,
+      "heading_context": "## 3. Orbital Elements — Describing Any Orbit in 3D",
+      "confidence": "candidate",
+      "text": "### 3.1 Kepler's Equation — Time on the Orbit",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### 3.1 Kepler's Equation — Time on the Orbit",
+      "confidence": "candidate",
+      "text": "  Mean anomaly:      M = n(t − t₀)        n = 2π/T  (mean motion, rad/s)\n  Kepler's equation: M = E − e sin E       E = eccentric anomaly\n  True anomaly:      tan(ν/2) = √((1+e)/(1−e)) · tan(E/2)\n\n  Kepler's equation has no closed-form inverse → Newton-Raphson in practice.\n\n  Physical meaning of E:\n  If you circumscribe the ellipse with a circle of radius a,\n  E is the angle of the corresponding point on that circle.\n\n         a\n    ─────●─────── (circumscribed circle, radius a)\n        / |\n       /  |     ← E = eccentric anomaly\n      ●───┼──── (point on ellipse at distance r from focus)\n    focus │\n          ν = true anomaly (from focus)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 240,
+      "heading_context": "## 4. Three-Body Problem and Lagrange Points",
+      "confidence": "candidate",
+      "text": "### 4.1 Why Three Bodies Are Hard",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### 4.1 Why Three Bodies Are Hard",
+      "confidence": "candidate",
+      "text": "  TWO-BODY:  10 conserved quantities (E, L×3, P×3, CM×3, t)\n             → 12 degrees of freedom reduced to 2 (r and ν in orbital plane)\n             → FULLY INTEGRABLE, analytic solution\n\n  THREE-BODY: 10 conserved quantities vs 18 degrees of freedom\n              → 8 degrees of freedom remain\n              → NOT integrable in general\n              Poincaré (1887): proved no algebraic first integrals beyond the 10 classical\n              → demonstrated chaos; won the King Oscar II prize (with correction)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 254,
+      "heading_context": "### 4.1 Why Three Bodies Are Hard",
+      "confidence": "candidate",
+      "text": "### 4.2 Restricted Three-Body Problem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "### 4.2 Restricted Three-Body Problem",
+      "confidence": "candidate",
+      "text": "  ROTATING FRAME (co-rotating with M₁, M₂ at angular velocity n):\n\n  Effective potential (centrifugal + gravitational):\n  U*(x,y) = −GM₁/r₁ − GM₂/r₂ − ½n²(x² + y²)\n\n  Jacobi integral (the one conserved quantity):\n  C_J = 2U*(x,y) − v²    (conserved along any trajectory)\n\n  C_J determines \"Hill surfaces\" — zero-velocity surfaces in rotating frame.\n  A particle cannot cross a zero-velocity surface with given C_J.\n  → limits where the particle can go (Hill's regions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 272,
+      "heading_context": "### 4.2 Restricted Three-Body Problem",
+      "confidence": "candidate",
+      "text": "### 4.3 The Five Lagrange Points",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "### 4.3 The Five Lagrange Points",
+      "confidence": "candidate",
+      "text": "  ∇U* = 0  →  five equilibrium points\n\n  ──────────────────────────────────────────────────────────────────────────\n         L4 (stable)\n          ●\n         / \\\n        /60°\\\n       /     \\\n      M₁──────M₂──────L3──────────L1────L2\n      (larger) (smaller) (behind) (between) (beyond M₂)\n\n      L5 (stable, below the M₁-M₂ line, symmetric to L4)\n  ──────────────────────────────────────────────────────────────────────────\n\n  L1: between M₁ and M₂ — unstable saddle, Hill sphere boundary\n      Practical use: SOHO (Sun-Earth L1), DSCOVR, continuous Sun observation\n      Distance from M₂: r_L1 ≈ d × (M₂/(3M₁))^(1/3)  (Hill radius)\n\n  L2: beyond M₂ (opposite M₁) — unstable saddle\n      Practical use: JWST, Herschel, Planck, Gaia — thermal stability + sky access\n      Distance from M₂: r_L2 ≈ d × (M₂/(3M₁))^(1/3)  (same as L1 to first order)\n\n  L3: opposite M₂, behind M₁ — unstable, inaccessible, no practical use\n      Sun-Earth L3: always behind the Sun — no spacecraft sent there\n\n  L4, L5: equilateral triangle vertices with M₁, M₂\n          Stable iff:  M₂/(M₁+M₂) < 0.03852  (Routh's criterion)\n\n  STABILITY CHECK:\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │ System         M₂/(M₁+M₂)    L4/L5 stable?   Trojans?               │\n  │ Sun–Jupiter    9.5 × 10⁻⁴    YES              ~12,000 Trojans       │\n  │ Sun–Earth      3.0 × 10⁻⁶    YES              ~few Earth Trojans    │\n  │ Sun–Mars       3.2 × 10⁻⁷    YES              ~Trojan asteroids     │\n  │ Sun–Neptune    5.2 × 10⁻⁵    YES              abundant Trojans      │\n  │ Earth–Moon     1.2 × 10⁻²    YES (< 0.0385)   no significant obj.   │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 314,
+      "heading_context": "### 4.3 The Five Lagrange Points",
+      "confidence": "candidate",
+      "text": "### 4.4 Halo Orbits (Practical Use)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "### 4.4 Halo Orbits (Practical Use)",
+      "confidence": "candidate",
+      "text": "  HALO ORBIT around L2 (JWST):\n  ─────────────────────────────────────────────────────────────────────\n  Amplitude: ~500,000 km in y/z, ~100,000 km in x (around L2)\n  Period: ~6 months\n  Station-keeping: ~2.5 m/s per year\n  Advantage: continuous view of >50% of sky, thermal stability\n  (one side always faces Sun, one always in shadow)\n  ─────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 333,
+      "heading_context": "## 5. Perturbation Theory — How Real Orbits Evolve",
+      "confidence": "candidate",
+      "text": "### 5.1 Lagrange Planetary Equations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### 5.1 Lagrange Planetary Equations",
+      "confidence": "candidate",
+      "text": "  da/dt = (2/na) · ∂R/∂M                             [n = mean motion]\n  de/dt = ((1−e²)/na²e)·∂R/∂M − √(1−e²)/(na²e)·∂R/∂ω\n  di/dt = −1/(na²√(1−e²) sin i)·(∂R/∂Ω − cos i·∂R/∂ω)\n  dΩ/dt = +1/(na²√(1−e²) sin i)·∂R/∂i\n  dω/dt = +√(1−e²)/(na²e)·∂R/∂e − cos i/(na²√(1−e²) sin i)·∂R/∂i\n  dM/dt = n − (2/na)·∂R/∂a − (1−e²)/(na²e)·∂R/∂e\n\n  These are exact — the full osculating element dynamics.\n  Perturbation theory: expand R in small parameter, average over fast angle (M).\n  → Secular terms: systematic drift (orbit-averaged)\n  → Periodic terms: oscillate with orbital frequencies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 351,
+      "heading_context": "### 5.1 Lagrange Planetary Equations",
+      "confidence": "candidate",
+      "text": "### 5.2 J₂ Perturbations — The Most Important Real-World Case",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "### 5.2 J₂ Perturbations — The Most Important Real-World Case",
+      "confidence": "candidate",
+      "text": "  J₂ SECULAR EFFECTS (orbit-averaged):\n\n  Nodal regression:\n  ┌─────────────────────────────────────────────────────────┐\n  │  dΩ/dt = −(3/2) · n · J₂ · (R_E/a)² · cos i             │\n  │                              (1−e²)²                    │\n  └─────────────────────────────────────────────────────────┘\n  Prograde orbits (i < 90°): Ω decreases (nodes regress westward)\n  Retrograde orbits (i > 90°): Ω increases (nodes precess eastward)\n\n  Apsidal precession:\n  ┌─────────────────────────────────────────────────────────┐\n  │  dω/dt = +(3/4) · n · J₂ · (R_E/a)² · (5cos²i − 1)      │\n  │                               (1−e²)²                   │\n  └─────────────────────────────────────────────────────────┘\n  5cos²i − 1 = 0 at i = 63.43° → ω frozen (Molniya condition)\n\n  ENGINEERING APPLICATIONS:\n\n  Sun-synchronous orbit:  choose i so dΩ/dt = +360°/yr (matches Earth's orbit)\n    → satellite always crosses equator at same local solar time\n    → i ≈ 97–98° (slightly retrograde)\n    → used by: Landsat, Sentinel, weather sats, spy sats\n\n  Molniya orbit:  i = 63.43°, e ≈ 0.74, T = 12 hr\n    → ω = 270° frozen → apoapsis always over Northern Hemisphere\n    → ~8 hr per orbit with high elevation over Russia/Arctic\n    → used by Russian Molniya comms satellites, SIRIUS Radio\n\n  Frozen orbit:  choose (e, i, ω) to minimize secular element changes\n    → long-lived satellite without frequent maneuvers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "chart_like",
+      "line": 393,
+      "heading_context": "## 6. Orbital Resonances",
+      "confidence": "candidate",
+      "text": "### 6.1 Mean Motion Resonances (MMR)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 397,
+      "heading_context": "### 6.1 Mean Motion Resonances (MMR)",
+      "confidence": "candidate",
+      "text": "  p · n₁ = q · n₂     (p, q positive integers)\n\n  Equivalent: T₁/T₂ = p/q   (period ratio is rational)\n\n  The order of the resonance = |p − q|\n  Lower order → stronger resonance (larger perturbation amplitude)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "chart_like",
+      "line": 406,
+      "heading_context": "### 6.1 Mean Motion Resonances (MMR)",
+      "confidence": "candidate",
+      "text": "### 6.2 Stable vs Destabilizing Resonances",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 410,
+      "heading_context": "### 6.2 Stable vs Destabilizing Resonances",
+      "confidence": "candidate",
+      "text": "  DESTABILIZING: Kirkwood Gaps in asteroid belt (Jupiter MMRs)\n  ─────────────────────────────────────────────────────────────────────\n  Resonance with Jupiter    Location (AU)    Effect\n  ─────────────────────────────────────────────────────────────────────\n  4:1                        2.06             gap (asteroids cleared out)\n  3:1                        2.50             gap (Hestia family border)\n  5:2                        2.82             gap\n  7:3                        2.95             gap\n  2:1                        3.27             Hecuba gap\n  ─────────────────────────────────────────────────────────────────────\n  Mechanism: repeated Jupiter kicks pump eccentricity → Mars/Earth\n  crossing orbits → eventual close encounter → ejection from belt\n\n  STABILIZING: Orbital resonances that protect\n  ─────────────────────────────────────────────────────────────────────\n  Resonance               Bodies               Status\n  ─────────────────────────────────────────────────────────────────────\n  3:2 with Neptune        Plutinos (Pluto...)  ~200 known — STABLE\n  1:1 with Jupiter        Trojans (L4, L5)     ~12,000 — STABLE\n  1:1 with Neptune        Neptune Trojans       STABLE\n  2:1 (Lindblad MMR)      Saturn ring gaps      gap = destabilizing\n  ─────────────────────────────────────────────────────────────────────\n  Why 3:2 Neptune is stable while 2:1 Jupiter is not:\n  In the Pluto case, the resonance is \"protected\" — Pluto's aphelion\n  is near Neptune's orbit, but the resonance ensures they are NEVER\n  near each other at the same time. The critical angle librates rather\n  than circulating.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "chart_like",
+      "line": 440,
+      "heading_context": "### 6.2 Stable vs Destabilizing Resonances",
+      "confidence": "candidate",
+      "text": "### 6.3 The Laplace Resonance — Jupiter's Galilean Moons",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "### 6.3 The Laplace Resonance — Jupiter's Galilean Moons",
+      "confidence": "candidate",
+      "text": "  n_Io : n_Europa : n_Ganymede  ≈  4 : 2 : 1\n\n  More precisely, the three-body Laplace resonance:\n  φ_L = λ_Io − 3λ_Europa + 2λ_Ganymede = 180° (librates around 180°)\n  where λ = mean longitude\n\n  CONSEQUENCES:\n  1. Orbital eccentricities maintained non-zero (Io: e≈0.004, forced by Europa)\n  2. Io's non-zero eccentricity → varying tidal deformation → TIDAL HEATING\n  3. Io is the most volcanically active body in the solar system\n  4. Europa's eccentricity → possible subsurface liquid ocean (tidal heating)\n\n  The resonance is self-correcting: if Io speeds up slightly,\n  it pushes Europa back in phase; Europa does same to Ganymede.\n  Very stable over solar system age.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "chart_like",
+      "line": 460,
+      "heading_context": "### 6.3 The Laplace Resonance — Jupiter's Galilean Moons",
+      "confidence": "candidate",
+      "text": "### 6.4 Secular Resonances",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "diagram_like",
+      "line": 464,
+      "heading_context": "### 6.4 Secular Resonances",
+      "confidence": "candidate",
+      "text": "  When the apsidal precession rate (dω/dt) or nodal regression rate (dΩ/dt)\n  of one body matches a fundamental frequency of the planetary system.\n\n  Key secular resonances in solar system:\n  ─────────────────────────────────────────────────────────────────────────\n  ν₆ resonance: dω/dt of asteroid = g₆ (Saturn's apsidal frequency)\n    Located at ~2.1 AU inner asteroid belt boundary\n    Pumps eccentricity → Mars-crossing → removed from belt\n    Acts as the \"inner edge\" of the asteroid belt\n\n  ν₁₆ resonance: nodal regression rate matches s₆ (Saturn nodal rate)\n    Located at ~2.1 AU (overlaps ν₆)\n    Pumps inclination\n\n  These secular resonances, combined with Kirkwood gaps, largely explain\n  the structure of the asteroid belt.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "chart_like",
+      "line": 487,
+      "heading_context": "## 7. Tidal Mechanics",
+      "confidence": "candidate",
+      "text": "### 7.1 Tidal Force",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "diagram_like",
+      "line": 491,
+      "heading_context": "### 7.1 Tidal Force",
+      "confidence": "candidate",
+      "text": "  TIDAL ACCELERATION on mass at displacement δ from body center,\n  in the direction toward perturber M at distance d:\n\n             2GM δ\n  a_tidal = ───────   (radial component, toward perturber)\n               d³\n\n  Scales as M/d³ — same dependence as precession forcing.\n  Falls off faster than gravity itself (1/d²).\n\n  TIDAL DEFORMATION OF EARTH by Moon:\n  ─────────────────────────────────────────────────────────────────────\n  Solid Earth tide:  ~0.3 m  (measurable with GPS, strainmeters)\n  Ocean equilibrium: ~0.27 m  (theoretical — actual ocean tides larger)\n  Bay of Fundy:      ~15 m   (resonance of ocean basin, 12.5-hr period ≈ tidal period)\n  Open ocean:        0.5–1 m  (typical)\n  ─────────────────────────────────────────────────────────────────────\n  The tidal bulge is AHEAD of the Moon (Earth rotates faster than Moon orbits)\n  → Moon pulls backward on bulge → Earth rotation slows\n  → Moon gains energy → Moon's orbit expands\n  → Moon recedes: +3.8 cm/yr (measured by laser ranging to Apollo retroreflectors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "chart_like",
+      "line": 515,
+      "heading_context": "### 7.1 Tidal Force",
+      "confidence": "candidate",
+      "text": "### 7.2 Tidal Locking",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "diagram_like",
+      "line": 519,
+      "heading_context": "### 7.2 Tidal Locking",
+      "confidence": "candidate",
+      "text": "  SYNCHRONOUS ROTATION (spin = orbital period):\n  ─────────────────────────────────────────────────────────────────────\n  Body              Spin:Orbit ratio   Notes\n  ─────────────────────────────────────────────────────────────────────\n  Moon              1:1 (locked)       We always see the same face\n  Pluto/Charon      1:1 (mutually)     Both tidally locked to each other\n  Io, Europa, etc.  1:1                All Galilean moons locked\n  Mercury           3:2 (NOT 1:1!)     Spin-orbit resonance, not lock\n  Venus             retrograde, slow   Thermal atmospheric tides complicate\n  ─────────────────────────────────────────────────────────────────────\n\n  Mercury 3:2 resonance:\n  Rotates 3 times per 2 orbits. The 3:2 is a stable resonance because\n  Mercury's high eccentricity (e=0.206) makes 1:1 unstable — the torque\n  averages to non-zero at 3:2 but averages away at other resonances.\n\n  Tidal locking timescale:\n       a⁶ Q m_planet\n  τ ∝ ──────────────      Q = tidal dissipation factor (rock: ~100, ice: ~10⁴)\n       M_star² R⁵_planet\n\n  Small a (close orbit), large m_star, large R_planet → faster locking.\n  Moon locked to Earth in ~100 Myr; Mercury locked in ~1 Gyr.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "chart_like",
+      "line": 545,
+      "heading_context": "### 7.2 Tidal Locking",
+      "confidence": "candidate",
+      "text": "### 7.3 Roche Limit — When Tides Destroy",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "diagram_like",
+      "line": 549,
+      "heading_context": "### 7.3 Roche Limit — When Tides Destroy",
+      "confidence": "candidate",
+      "text": "  ROCHE LIMIT (fluid body approximation):\n\n  d_Roche ≈ 2.44 R_primary × ( ρ_primary / ρ_secondary )^(1/3)\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  System              d_Roche    Comparison                          │\n  │  Earth (fluid Moon)  ~9,500 km  ~1.5 R_Earth (Moon at 384,400 km)   │\n  │  Saturn (ice)        ~87,000 km Saturn's rings are INSIDE this!     │\n  │  Sun (Earth)         ~557,000 km ~0.8 R_Sun (well inside Sun)       │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Saturn's rings exist because:\n  (a) they are inside Saturn's Roche limit → ring material cannot coalesce\n  (b) the rings are continuously supplied (impacts, Enceladus plumes)\n  (c) the rings are relatively young (~100 Myr, not primordial)\n\n  For RIGID bodies: stronger (tensile strength matters), different formula.\n  Comet Shoemaker-Levy 9: fragmented inside Jupiter's Roche limit (1992),\n  then the chain of fragments impacted Jupiter (1994).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "chart_like",
+      "line": 571,
+      "heading_context": "### 7.3 Roche Limit — When Tides Destroy",
+      "confidence": "candidate",
+      "text": "### 7.4 Tidal Heating",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "diagram_like",
+      "line": 575,
+      "heading_context": "### 7.4 Tidal Heating",
+      "confidence": "candidate",
+      "text": "  IO (Jupiter):\n  ─────────────────────────────────────────────────────────────────────\n  Europa's resonance forces Io's eccentricity to e≈0.004\n  → Io's shape oscillates by ~100 m per orbit (1.77 days)\n  → Dissipated power ≈ 6×10¹³ W (Io's interior heat flux ~2 W/m²)\n  → Exceeds Earth's total geothermal output by factor ~35\n  → 400+ active volcanoes; sulfur dioxide plains\n  ─────────────────────────────────────────────────────────────────────\n  Power formula:\n                21  k₂  G M_perturber² R⁵ e²\n  P_tidal = ────────────────────────────────────\n                  2 Q a⁶\n\n  k₂ = Love number (deformability), Q = dissipation quality factor\n  P ∝ e² / a⁶ — very steep distance dependence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "chart_like",
+      "line": 597,
+      "heading_context": "## 8. Orbital Maneuvers",
+      "confidence": "candidate",
+      "text": "### 8.1 Hohmann Transfer",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-44",
+      "kind": "diagram_like",
+      "line": 601,
+      "heading_context": "### 8.1 Hohmann Transfer",
+      "confidence": "candidate",
+      "text": "  HOHMANN TRANSFER  r₁ → r₂  (assume r₂ > r₁)\n\n  Transfer ellipse:  a_t = (r₁ + r₂) / 2\n\n     r₁  ──●────────────────────────────────────────●──  r₂\n            ↑ Δv₁ (burn 1)                          ↑ Δv₂ (burn 2)\n            └─── transfer ellipse ──────────────────┘\n\n  Δv₁ = v_c1 · ( √(2r₂/(r₁+r₂)) − 1 )   [accelerate at periapsis]\n  Δv₂ = v_c2 · ( 1 − √(2r₁/(r₁+r₂)) )   [accelerate at apoapsis]\n\n  Transfer time: t = π √(a_t³/GM)        [half the period of transfer ellipse]\n\n  LEO → GEO example (r₁ = 6778 km, r₂ = 42164 km):\n    Δv₁ ≈ 2.42 km/s\n    Δv₂ ≈ 1.47 km/s\n    Total: ≈ 3.89 km/s,   Transit: ~5.25 hours",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-45",
+      "kind": "chart_like",
+      "line": 621,
+      "heading_context": "### 8.1 Hohmann Transfer",
+      "confidence": "candidate",
+      "text": "### 8.2 Gravity Assist (Slingshot)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-46",
+      "kind": "diagram_like",
+      "line": 623,
+      "heading_context": "### 8.2 Gravity Assist (Slingshot)",
+      "confidence": "candidate",
+      "text": "  IN PLANET'S REST FRAME:\n  Speed is unchanged (elastic scattering), direction rotated by deflection angle.\n\n  IN HELIOCENTRIC FRAME:\n  The planet is moving — the spacecraft gains or loses heliocentric energy.\n\n  Maximum speed gain:  Δv_max = 2 V_planet  (fly by behind planet, prograde)\n  Maximum speed loss:  Δv_max = 2 V_planet  (fly by ahead of planet)\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Voyager 2 gravity assists (launched 1977):                         │\n  │  Jupiter (1979): +10 km/s → Saturn achievable                       │\n  │  Saturn  (1981): +5 km/s  → Uranus achievable                       │\n  │  Uranus  (1986): +3 km/s  → Neptune achievable                      │\n  │  Neptune (1989): final flyby; now coasting at ~15 km/s              │\n  │  Without assists: Uranus/Neptune missions would require ~5× more Δv │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  CONSTRAINT: The Voyager 2 sequence required a planetary alignment\n  that occurs once every ~176 years (next: ~2153).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-47",
+      "kind": "chart_like",
+      "line": 646,
+      "heading_context": "### 8.2 Gravity Assist (Slingshot)",
+      "confidence": "candidate",
+      "text": "### 8.3 Tsiolkovsky Rocket Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-48",
+      "kind": "diagram_like",
+      "line": 648,
+      "heading_context": "### 8.3 Tsiolkovsky Rocket Equation",
+      "confidence": "candidate",
+      "text": "  Δv = v_e · ln(m₀/m_f)        v_e = exhaust velocity (Isp × g₀)\n\n  m₀ = initial mass (fueled)\n  m_f = final mass (dry)\n\n  Consequence: exponential relationship between Δv and mass ratio\n  ─────────────────────────────────────────────────────────────────────\n  Δv = 10 km/s, Isp = 450 s (H₂/O₂):   v_e ≈ 4.41 km/s\n  m₀/m_f = e^(10/4.41) ≈ 9.7   →  ~90% of initial mass must be propellant\n\n  This is why multi-stage rockets exist, and why gravity assists are so valuable —\n  each km/s of gravity assist is worth exponentially more in propellant mass.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-49",
+      "kind": "chart_like",
+      "line": 667,
+      "heading_context": "## 9. Chaos and Long-Term Stability",
+      "confidence": "candidate",
+      "text": "### 9.1 Lyapunov Exponents and the Solar System",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-50",
+      "kind": "diagram_like",
+      "line": 669,
+      "heading_context": "### 9.1 Lyapunov Exponents and the Solar System",
+      "confidence": "candidate",
+      "text": "  Lyapunov exponent λ: two nearby trajectories diverge as e^(λt)\n  Lyapunov time T_L = 1/λ: timescale for initial uncertainty to amplify by e\n\n  Solar system Lyapunov time: ~5 Myr (Laskar 1989, using secular equations)\n  → Two initial conditions differing by 1 mm in Mercury's position\n    lead to completely different planetary positions after ~100 Myr\n\n  BUT: Lyapunov chaos ≠ immediate instability\n  The chaos is \"bounded chaos\" — planets stay in roughly their current orbits\n  even while individual trajectories diverge exponentially.\n\n  ANALOGY: weather is chaotic (2-week limit), but Earth's orbit isn't\n  changing season to season. Different timescale, different character.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-51",
+      "kind": "chart_like",
+      "line": 685,
+      "heading_context": "### 9.1 Lyapunov Exponents and the Solar System",
+      "confidence": "candidate",
+      "text": "### 9.2 Mercury's Orbital Instability",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-52",
+      "kind": "diagram_like",
+      "line": 687,
+      "heading_context": "### 9.2 Mercury's Orbital Instability",
+      "confidence": "candidate",
+      "text": "  Mercury is the solar system's problem child:\n\n  Laskar & Gastineau (2009) — 2500 integrations for 5 Gyr:\n  ─────────────────────────────────────────────────────────────────────\n  ~99% of runs: planetary system survives to present day ✓\n  ~1% of runs: Mercury's eccentricity excited to e > 0.9 by secular resonance\n               → Mercury collides with Venus or Sun\n               → In one run: Mercury destabilizes Mars → collision with Earth!\n  ─────────────────────────────────────────────────────────────────────\n  The culprit: a secular resonance between Mercury's apsidal precession\n  rate and Jupiter's (the g₁ ≈ g₅ near-resonance)\n  Currently g₁ = 5.59\"/yr, g₅ = 4.25\"/yr — close but not resonant.\n  If g₁ crosses g₅ (possible under the chaotic evolution): rapid eccentricity growth.\n\n  Connection to Milankovitch: this is why La2004/La2010 are unreliable\n  beyond ±50 Myr — Mercury's chaotic orbit propagates uncertainty into\n  Earth's orbital solution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-53",
+      "kind": "chart_like",
+      "line": 707,
+      "heading_context": "### 9.2 Mercury's Orbital Instability",
+      "confidence": "candidate",
+      "text": "### 9.3 The Moon's Role in Earth's Stability",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-54",
+      "kind": "diagram_like",
+      "line": 711,
+      "heading_context": "### 9.3 The Moon's Role in Earth's Stability",
+      "confidence": "candidate",
+      "text": "  WITHOUT MOON:\n  Earth's precession rate → 0 → secular resonances with planetary system\n  → obliquity could wander 0°–85° on ~10–100 Myr timescales\n  → catastrophic climate swings\n\n  WITH MOON:\n  Fast precession (~26 kyr) sweeps through resonances quickly\n  → perturbations average away rather than accumulate\n  → obliquity confined to 22°–24.5°\n\n  The Moon is therefore not only a tidal engine (Section 7) but also\n  a gyroscopic stabilizer of Earth's climate. Moons of similar size\n  relative to their planet are rare — Earth-Moon is exceptional.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-55",
+      "kind": "ascii_table_candidate",
+      "line": 731,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "  | Problem                              | Tool / Formula                      |\n  |--------------------------------------|-------------------------------------|\n  | Speed at any point in orbit          | Vis-viva: v² = GM(2/r − 1/a)        |\n  | Orbit period                         | T = 2π √(a³/GM)                     |\n  | Position at time t                   | Kepler's equation: M = E − e sin E  |\n  | Will satellite orbit precess?        | J₂ nodal regression: dΩ/dt ∝ cos i  |\n  | Need sun-synchronous?                | i ≈ 97-98° (retrograde, dΩ/dt =     |\n  |                                      | +360°/yr)                           |\n  | Want apogee frozen over latitude?    | Molniya: i = 63.43°, ω = 270°       |\n  | Is a resonance stable or clearing?   | Check critical angle libration vs   |\n  |                                      | circulation; check forced e growth  |\n  | Lagrange point choice for mission    | L1: Sun-monitoring, continuous view |\n  |                                      | L2: deep-space observation, thermal |\n  |                                      | L4/L5: debris/Trojans, station-keep |\n  | Does object get tidally disrupted?   | Check if r < d_Roche                |\n  |                                      | d_Roche ≈ 2.44 R (ρ₁/ρ₂)^(1/3)      |\n  | Is tidal locking expected?           | τ ∝ a⁶ Q m / (M² R⁵)                |\n  |                                      | Small a → locked fast               |\n  | Minimum-ΔV transfer between orbits   | Hohmann (two burns); bi-elliptic    |\n  |                                      | if r₂/r₁ > ~12 (three burns)        |\n  | Getting to outer solar system fast   | Gravity assist; plan alignment      |\n  |                                      | windows years in advance            |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

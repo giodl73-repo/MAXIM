@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:overview
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 00-OVERVIEW - Natural Sciences: Field Taxonomy and Unifying Principles
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/00-OVERVIEW.md
+canonical_path: natural-sciences/00-OVERVIEW.md
+backsource_ids: [proof-backfill:natural-sciences:00-overview, git-history:natural-sciences:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 00-OVERVIEW — Natural Sciences: Field Taxonomy & Unifying Principles
 
 > Scale hierarchy, field map, emergence, conservation laws, and the cross-disciplinary

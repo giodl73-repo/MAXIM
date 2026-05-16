@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:bonding
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 02-BONDING - Chemical Bonding
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/02-BONDING.md
+canonical_path: natural-sciences/02-BONDING.md
+backsource_ids: [proof-backfill:natural-sciences:02-bonding, git-history:natural-sciences:02-bonding]
+concepts: [bonding]
+root_concepts: [bonding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02-BONDING — Chemical Bonding
 
 > Lewis structures to MO theory to metallic bands. VSEPR geometry. Hybridization

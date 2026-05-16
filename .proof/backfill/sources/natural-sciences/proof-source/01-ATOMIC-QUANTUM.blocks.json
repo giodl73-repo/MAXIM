@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\01-ATOMIC-QUANTUM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                  ATOMIC STRUCTURE & QUANTUM CHEMISTRY               │\n│                                                                     │\n│  EXACT SOLUTION     MULTI-ELECTRON          PERIODIC TABLE          │\n│  ─────────────      ───────────────         ─────────────────       │\n│  H atom             Shielding / Zeff         s/p/d/f blocks         │\n│  (Schrödinger)      SCF iteration            Aufbau filling         │\n│  Quantum numbers    Orbital energy ordering  Periodic trends        │\n│  emerge from BCs    HF → DFT ladder          IE, EA, EN, radius     │\n│       │                   │                        │                │\n│       └────────────────┬──┴────────────────────────┘                │\n│                        │                                             │\n│                  SPECTROSCOPY                COMPUTATION             │\n│                  ───────────                 ───────────             │\n│                  Emission/absorption         HF: O(N⁴)              │\n│                  X-ray fingerprinting        DFT: O(N³) workhorse   │\n│                  Selection rules             CCSD(T): benchmark     │\n│                  Rydberg series              Basis sets             │\n└─────────────────────────────────────────────────────────────────────┘\n\nReading order: H atom exact solution → why multi-electron breaks it →\nSCF/shielding as the fix → periodic table as the result →\nspectroscopy as experimental verification → computation as the tool.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Quantum Number Taxonomy",
+      "confidence": "candidate",
+      "text": "Symbol  Name             Range             Physical meaning\n────────────────────────────────────────────────────────────────────\nn       Principal        1, 2, 3, …        Shell / energy (for H)\n                                            Distance scale ~ n²a₀\n\nl       Angular momentum 0, 1, …, n-1      Orbital shape; magnitude |L| = ℏ√(l(l+1))\n                         (s, p, d, f, g)\n\nmₗ      Magnetic         -l, …, 0, …, +l   Orientation (z-component of L)\n\nmₛ      Spin             ±½                Intrinsic spin (no classical analog)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## Periodic Trends",
+      "confidence": "candidate",
+      "text": "ATOMIC RADIUS\n  Across period (left → right): DECREASES\n    Reason: Z increases, same shell, Zeff rises → orbital contracts\n  Down group (top → bottom):   INCREASES\n    Reason: outer electrons enter higher n shell\n\nIONIZATION ENERGY (IE₁ = energy to remove first electron)\n  Across period: INCREASES (higher Zeff → electron harder to remove)\n  Down group:   DECREASES (outer electron farther from nucleus)\n  Exceptions:\n    Group 2 → Group 13: IE drops (removing 2p vs 2s; 2p higher energy)\n    Group 15 → Group 16: IE drops (pairing 2p forces electrons into same orbital; repulsion)\n\nELECTRON AFFINITY (energy released when anion formed: X + e⁻ → X⁻)\n  Most negative: halogens (F, Cl) — one e⁻ away from noble gas config\n  Counterintuitive: F has lower |EA| than Cl (F 2p orbital small, electron–electron repulsion)\n  Noble gases: EA ≈ 0 or positive (stable filled shells resist additional electron)\n\nELECTRONEGATIVITY (Pauling scale)\n  Most electronegative: F (3.98) > O (3.44) > N (3.04) > Cl (3.16)\n  Least: Fr, Cs (~0.7-0.8)\n  Trend: same as IE (high IE → high EN)\n  Pauling definition: derived from bond dissociation energies\n  Mulliken definition: EN ∝ (IE + EA)/2  (more physically transparent)\n\nPOLARIZABILITY\n  Large, diffuse electron cloud: high polarizability\n  Trend: opposite to IE — large atoms, heavy halogens, softly held electrons\n  Relevance: London dispersion forces (van der Waals), soft–hard acid–base theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "### Atomic Emission / Absorption",
+      "confidence": "candidate",
+      "text": "ΔE = Efinal − Einitial = hν = hc/λ\n\nFor hydrogen (Rydberg formula):\n  1/λ = R∞ (1/n₁² − 1/n₂²)\n  R∞ = 1.097 × 10⁷ m⁻¹ (Rydberg constant)\n\nSeries:\n  Lyman:   n → 1   UV\n  Balmer:  n → 2   visible (Hα at 656 nm = red, Hβ at 486 nm = blue-green)\n  Paschen: n → 3   IR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "## Relativistic Effects in Heavy Atoms",
+      "confidence": "candidate",
+      "text": "Relativistic mass increase → orbital contraction → lower energy for s (and p) orbitals\n                          → relative expansion of d and f orbitals\n\nConsequences:\n  Au (gold): relativistic contraction of 6s → absorbs blue, reflects yellow → gold color\n  Hg: 6s contracted → liquid at room temperature (weak metallic bonding)\n  Pb: relativistic stabilization of 6s² → \"inert pair effect\" → Pb²⁺ preferred over Pb⁴⁺\n  Pt, Pd: enables catalytic activity (d orbital accessibility)\n  Superheavy elements: chemistry differs substantially from periodic-table prediction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 399,
+      "heading_context": "## Computational Chemistry — Numerical Methods Bridge",
+      "confidence": "candidate",
+      "text": "QUANTUM CHEMISTRY       NUMERICAL ANALOGY           COST\n────────────────────────────────────────────────────────────────────────\nSchrödinger equation    PDE eigenvalue problem       Intractable for N > 2\n                        Ĥψ = Eψ is linear algebra\n\nHF/SCF                  Fixed-point iteration        O(N⁴)\n  Mean-field approx     (Power iteration / Krylov)\n  Fock matrix rebuilt   Same structure as PageRank\n  each cycle            or self-consistent FEM\n\nDFT                     Conjugate gradient /         O(N³)\n  Solve ρ(r), not ψ     quasi-Newton on ρ\n  Exchange-correlation  → functional approximation\n  is the unknown        analogous to closure\n  (like turbulence model in CFD)\n\nMP2                     Perturbation theory          O(N⁵)\n                        (first-order correction to\n                        mean-field approximation)\n\nCCSD                    Exponential ansatz           O(N⁶)\n                        (iterative solve of coupled\n                        nonlinear amplitude equations)\n\nCCSD(T)                 Single perturbative step     O(N⁷)\n  \"Gold standard\"       on top of CCSD\n\nFCI                     Full enumeration of          O(exp N)\n  Exact (within basis)  Slater determinants",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 451,
+      "heading_context": "## Quantum Chemistry Computation — The Ladder",
+      "confidence": "candidate",
+      "text": "Method          What it solves              Cost        Accuracy\n────────────────────────────────────────────────────────────────────\nHF/SCF          Mean-field (no correlation) O(N⁴)       ~95% of binding energy\nDFT             Exchange-correlation approx  O(N³)       Good for structure/energy\nMP2             2nd-order perturbation      O(N⁵)       Better correlation\nCCSD            Singles/doubles CC          O(N⁶)       High accuracy\nCCSD(T)         Gold standard               O(N⁷)       Benchmark quality\nFCI             Exact (within basis)        O(Nᵉˣᵖ)     Only tiny molecules\n\nBasis sets:\n  STO-3G    Minimal — fast, qualitative only\n  6-31G(d)  Pople split-valence — everyday DFT\n  cc-pVTZ   Dunning correlation-consistent — high-accuracy calculations\n  aug-cc-pVTZ  adds diffuse functions — needed for anions, polarizabilities",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

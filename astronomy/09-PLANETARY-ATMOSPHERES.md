@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:planetary-atmospheres
+kind: guide
+module: astronomy
+section: astronomy
+title: Planetary Atmospheres
+status: source-custody
+source_custody: partial
+current_path: astronomy/09-PLANETARY-ATMOSPHERES.md
+canonical_path: astronomy/09-PLANETARY-ATMOSPHERES.md
+backsource_ids: [proof-backfill:astronomy:09-planetary-atmospheres, git-history:astronomy:09-planetary-atmospheres]
+concepts: [planetary, atmospheres]
+root_concepts: [planetary, atmospheres]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Planetary Atmospheres
 ## Structure, Escape, Greenhouse, Circulation, Comparative Planetology, Biosignatures
 

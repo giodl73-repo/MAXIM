@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:plasma-dynamics
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 16-PLASMA-DYNAMICS - Plasma Dynamics and Confinement
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/16-PLASMA-DYNAMICS.md
+canonical_path: natural-sciences/16-PLASMA-DYNAMICS.md
+backsource_ids: [proof-backfill:natural-sciences:16-plasma-dynamics, git-history:natural-sciences:16-plasma-dynamics]
+concepts: [plasma, dynamics]
+root_concepts: [plasma, dynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 16-PLASMA-DYNAMICS — Plasma Dynamics & Confinement
 
 > MHD instabilities, magnetic reconnection, tokamaks, stellarators,

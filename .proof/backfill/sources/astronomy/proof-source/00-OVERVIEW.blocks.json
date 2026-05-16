@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "astronomy\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                    THE TIMEKEEPER'S INSTRUMENTS                            |\n|        Three clock families, one deep-time framework                       |\n+============================================================================+\n|                                                                            |\n|  CELESTIAL CLOCKS                     Scale: seconds → gigayears           |\n|  ┌──────────────────────────────────────────────────────────────────────┐  |\n|  │  ROTATION        Earth spin         24 h (slowing ~2.3 ms/century)   │  |\n|  │  PRECESSION      Axial wobble       25,772 yr (the Great Year)       │  |\n|  │  MILANKOVITCH    Orbital cycles     41 kyr obliquity, 100/413 kyr e  │  |\n|  │  STELLAR MAIN    H-burning lifetime 10 Myr (O-star) → 10 Tyr (M)     │  |\n|  │  NUCLEOSYNTHESIS Element buildup    Gyr (stellar + explosive)        │  |\n|  │  EXPANSION       Hubble flow        13.787 ± 0.020 Gyr (CMB age)     │  |\n|  └──────────────────────────────────────────────────────────────────────┘  |\n|                                                                            |\n|  GEOLOGICAL CLOCKS                    Scale: years → gigayears             |\n|  ┌──────────────────────────────────────────────────────────────────────┐  |\n|  │  RADIOMETRIC      Isotope decay     ¹⁴C (50 kyr) → U-Pb (4.6 Gyr)    │  |\n|  │  STRATIGRAPHY     Layer stacking    Superposition + unconformities   │  |\n|  │  MAGNETIC         Polarity flips    ~300 chrons (GPTS) over 170 Myr  │  |\n|  │  ASTROCHRONOLOGY  Orbital tuning    Milankovitch → counted to 50 Ma  │  |\n|  └──────────────────────────────────────────────────────────────────────┘  |\n|                                                                            |\n|  PALEONTOLOGICAL CLOCKS               Scale: kiloyears → gigayears         |\n|  ┌──────────────────────────────────────────────────────────────────────┐  |\n|  │  BIOSTRATIGRAPHY  Index fossils     Zone resolution: ~200 kyr        │  |\n|  │  MOLECULAR CLOCK  DNA mutation rate Calibrated divergence timing     │  |\n|  │  ISOTOPE PROXIES  δ¹⁸O, δ¹³C       Ice volume, temperature, carbon   │  |\n|  └──────────────────────────────────────────────────────────────────────┘  |\n|                                                                            |\n|  ═══════════════════════════════════════════════════════════════════════   |\n|  ALL THREE CONVERGE on the same answer: 4.567 Gyr (Solar System age)      |\n|  Radiometric (CAIs) = stellar model (Sun on MS) = nucleosynthetic yields  |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## Fundamental Equations — The Timekeeper's Toolkit",
+      "confidence": "candidate",
+      "text": "GRAVITATIONAL TIMESCALES\n  Free-fall time:        t_ff = sqrt(3π / 32Gρ)          ~ 1/sqrt(Gρ)\n    Cloud collapse, star formation, cluster dynamics\n  Orbital period:        P² = (4π²/GM) a³                 Kepler III\n    Planets, moons, binary stars, galaxies\n  Dynamical time:        t_dyn = R / v_circ               ~ R³/² / sqrt(GM)\n    Galaxy crossing time, cluster relaxation\n\nNUCLEAR / STELLAR TIMESCALES\n  Main-sequence lifetime: t_MS ~ (M/L) × t_☉              L ~ M^3.5 → t_MS ~ M^−2.5\n    Sun: 10 Gyr. O-star (40 M☉): ~4 Myr. M-dwarf (0.3 M☉): ~300 Gyr.\n  Kelvin-Helmholtz time:  t_KH = GM²/RL                   ~ 15 Myr (Sun)\n    Gravitational contraction heating — pre-nuclear era guess for Sun's age\n  Nuclear timescale:      t_nuc = εMc²/L                   ε ~ 0.007 for H→He\n    Actual stellar lifetime; ε is the mass-energy conversion efficiency\n\nCOSMOLOGICAL TIMESCALES\n  Hubble time:           t_H = 1/H₀                        ~ 14.4 Gyr\n    Naive expansion age (if constant rate)\n  Age of universe:       t₀ = ∫₀^∞ dz / [(1+z) H(z)]      = 13.787 Gyr (ΛCDM)\n    Friedmann integral over full expansion history\n  Recombination:         z ~ 1100 → t ~ 380 kyr\n    When kT dropped below 0.26 eV → neutral H → photon decoupling\n\nRADIOMETRIC TIMESCALES\n  Decay law:             N(t) = N₀ exp(−λt)                λ = ln2 / t½\n  Age from ratio:        t = (1/λ) ln(1 + D/N)\n    D = daughter, N = parent; the universal dating equation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "## Field Taxonomy — Astronomy's Subdisciplines",
+      "confidence": "candidate",
+      "text": "ASTRONOMY\n├── POSITIONAL ASTRONOMY / ASTROMETRY\n│   ├── Coordinate systems (equatorial, ecliptic, galactic)\n│   ├── Proper motion, parallax → distance ladder rung 1\n│   └── Reference frame maintenance (ICRS, Gaia DR3)\n│\n├── CELESTIAL MECHANICS\n│   ├── Two-body problem (Kepler, vis-viva, conic sections)\n│   ├── Three-body problem (Poincaré, Lagrange points, chaos)\n│   ├── N-body integration (symplectic, Wisdom-Holman)\n│   ├── Resonances (mean-motion, secular, Kozai-Lidov)\n│   └── Tidal evolution (spin-orbit coupling, tidal locking)\n│\n├── ASTROPHYSICS — STELLAR\n│   ├── Stellar structure (hydrostatic equilibrium, opacity, EOS)\n│   ├── Stellar evolution (HR diagram, main sequence → remnant)\n│   ├── Nucleosynthesis (pp-chain → CNO → triple-α → r/s-process)\n│   └── Compact objects (WD, NS, BH → GW sources)\n│\n├── ASTROPHYSICS — GALACTIC\n│   ├── Milky Way structure (disk, bulge, halo, bar, spiral arms)\n│   ├── Stellar populations (I, II, III) and chemical evolution\n│   ├── Dynamics (rotation curve, Oort constants, Jeans instability)\n│   └── ISM (HII regions, molecular clouds, dust, synchrotron)\n│\n├── COSMOLOGY\n│   ├── ΛCDM model (Friedmann equations, density parameters)\n│   ├── CMB (anisotropies, acoustic peaks, Planck results)\n│   ├── Dark matter (rotation curves, lensing, BBN constraints)\n│   ├── Dark energy (SN Ia, BAO, w = −1 ± ?)\n│   └── Large-scale structure (BAO, cosmic web, galaxy surveys)\n│\n├── PLANETARY SCIENCE\n│   ├── Solar System formation (nebular hypothesis, accretion)\n│   ├── Interiors (differentiation, seismology, dynamo)\n│   ├── Atmospheres (escape, greenhouse, circulation)\n│   ├── Small bodies (asteroids, comets, TNOs, impacts)\n│   └── Exoplanets (detection, demographics, characterization)\n│\n└── ASTROBIOLOGY\n    ├── Origin of life (prebiotic chemistry, RNA world, vents)\n    ├── Habitable zones (stellar, galactic, temporal)\n    ├── Biosignatures (O₂+CH₄, phosphine, technosignatures)\n    └── Fermi paradox and Drake equation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## The Deep-Time Ladder — Cosmic Distance Meets Cosmic Time",
+      "confidence": "candidate",
+      "text": "DISTANCE / LOOKBACK TIME LADDER\n\nRUNG   METHOD                 RANGE           CALIBRATOR         TIME PROBED\n─────  ─────────────────────  ──────────────  ─────────────────  ──────────────\n  1    Radar ranging          AU              Speed of light     8.3 min (Sun)\n  2    Trigonometric parallax < 10 kpc        Gaia DR3           —\n  3    Spectroscopic parallax Milky Way       HR diagram         —\n  4    Cepheid variables      < 40 Mpc        P-L relation       Local group\n  5    Tip of Red Giant (TRGB) < 20 Mpc      I-band luminosity  Nearby galaxies\n  6    SN Ia standard candles < 1 Gpc         Phillips relation  z < 2 (~10 Gyr)\n  7    Baryon Acoustic Osc.  < 3 Gpc         Sound horizon      z < 3 (~11 Gyr)\n  8    CMB                   46.3 Gly comoving Last scattering   13.4 Gyr\n\n ┌────────────────────────────────────────────────────────────────────────┐\n │  KEY INSIGHT: the distance ladder is a TIME ladder.                    │\n │  Parallax → Cepheids → SN Ia → BAO → CMB                               │\n │  Each rung reaches further back in lookback time.                      │\n │  The Hubble tension (67.4 vs 73.0 km/s/Mpc) is fundamentally a         │\n │  disagreement about how to calibrate the universe's master clock.      │\n └────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 220,
+      "heading_context": "## Module Map — The 12 Guides",
+      "confidence": "candidate",
+      "text": "THIS MODULE MAP — reading paths through the astronomy library\n\n         ┌──────────────────────────────────────────────────────────────┐\n         │               00-OVERVIEW (this file)                        │\n         │          Field map, key numbers, reading paths               │\n         └────────────┬──────────────┬──────────────────┬───────────────┘\n                     │              │                  │\n        ┌────────────▼──────┐  ┌───▼──────────┐  ┌───▼──────────────┐\n        │  EARTH & ORBITS   │  │  STARS &     │  │  PLANETS &       │\n        │                   │  │  COSMOS      │  │  ORIGINS         │\n        │  01 Earth Motions │  │  04 Stellar  │  │  07 Solar System │\n        │  02 Milankovitch  │  │     Physics  │  │     Formation    │\n        │  03 Celestial     │  │  05 Cosmology│  │  08 Planetary    │\n        │     Mechanics     │  │  06 Galactic │  │     Interiors    │\n        │                   │  │     Structure│  │  09 Planetary    │\n        │                   │  │              │  │     Atmospheres  │\n        └───────────────────┘  └──────────────┘  │  10 Exoplanets   │\n                                                  │  11 Small Bodies │\n                                                  │  12 Astrobiology │\n                                                  └──────────────────┘\n\nREADING PATHS:\n  \"I want the big picture\"     → 05 Cosmology → 06 Galactic → 04 Stellar → 07 Formation\n  \"I want Earth's place\"       → 01 Earth Motions → 02 Milankovitch → 03 Celestial Mech\n  \"I want other worlds\"        → 10 Exoplanets → 08 Interiors → 09 Atmospheres → 12 Astrobiology\n  \"I want Solar System detail\" → 07 Formation → 08 Interiors → 09 Atmospheres → 11 Small Bodies\n  \"I want time measurement\"    → 01 → 02 → 04 → 05 (the deep-time sequence)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "## The Scale of It All",
+      "confidence": "candidate",
+      "text": "COSMIC TIMELINE — 44 orders of magnitude in time\n\n10⁻⁴⁴ s ─── Planck time                    (quantum gravity regime)\n10⁻³⁶ s ─── Inflation begins               (exponential expansion)\n10⁻⁶  s ─── Quarks → hadrons                (QCD confinement)\n3    min ─── Big Bang Nucleosynthesis        (H, He, D, ⁷Li forged)\n380  kyr ─── Recombination → CMB released    (z = 1100, T = 3000 K)\n200  Myr ─── First stars (Pop III)           (cosmic dawn)\n1    Gyr ─── Reionization complete           (z ~ 6)\n4.6  Gyr ─── Solar System forms              (CAI condensation)\n4.5  Gyr ─── Moon-forming impact             (Theia, giant impact)\n3.8  Gyr ─── Earliest life (stromatolites)   (Archean)\n2.4  Gyr ─── Great Oxidation Event           (O₂ in atmosphere)\n0.54 Gyr ─── Cambrian explosion              (animal body plans)\n0.066 Gyr── K-Pg extinction                  (end of non-avian dinosaurs)\n0.0003 Gyr─ Homo sapiens                     (300 kyr ago)\n13.787 Gyr── NOW (age of observable universe)\n\nSPATIAL SCALES FOR REFERENCE:\n  Earth → Moon:        1.3 light-seconds\n  Earth → Sun:         8.3 light-minutes (1 AU)\n  Sun → Proxima Cen:   4.24 light-years\n  Milky Way diameter:   ~100,000 light-years (~30 kpc)\n  MW → Andromeda:       2.54 Mly\n  Observable universe:  93 Gly diameter (comoving)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "## How the Three Clock Families Agree — Cross-Calibration",
+      "confidence": "candidate",
+      "text": "CROSS-CALIBRATION NETWORK\n\n  CELESTIAL CLOCKS ←────────────────────────→ GEOLOGICAL CLOCKS\n       │  Milankovitch cycles (predicted     │  Astrochronology (orbital tuning of\n       │  from orbital mechanics) match      │  marine sediment δ¹⁸O records) back\n       │  δ¹⁸O oscillations in ocean cores   │  to ~50 Ma confirms orbital periods\n       │                                      │\n       │  Stellar evolution age of Sun       │  Radiometric age of Solar System\n       │  (4.6 Gyr from L, T_eff, models)   │  (4.5672 Gyr from CAI U-Pb)\n       │  → MUST agree                       │  → THEY DO\n       │                                      │\n       ▼                                      ▼\n  PALEONTOLOGICAL CLOCKS ←──────────────────── GEOLOGICAL CLOCKS\n       │  Molecular clock rates calibrated   │  Radiometric dates of ash layers\n       │  against fossil first-appearance    │  bracket biostratigraphic zones\n       │  dates from radiometric brackets    │  to ± 0.1–1 Myr precision\n       │                                      │\n       ▼                                      │\n  CELESTIAL ←─────────────────────────────────→ PALEONTOLOGICAL\n       Milankovitch forcing visible in         Foraminifera δ¹⁸O records show\n       biostratigraphic cycles (marine         41 kyr and 100 kyr periodicities\n       microfossil abundance oscillations)     matching predicted orbital forcing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 373,
+      "heading_context": "## The Electromagnetic Spectrum — Astronomy's Wavelength Windows",
+      "confidence": "candidate",
+      "text": "WAVELENGTH     BAND           WHAT IT REVEALS                    OBSERVED FROM\n──────────     ────           ──────────────                     ────────────\n< 0.01 nm      Gamma-ray      GRBs, pulsars, AGN jets,          Fermi, MAGIC, HESS\n                               nuclear decay lines                (space + ground Cherenkov)\n0.01–10 nm     X-ray          Hot gas (10⁶–10⁸ K), accretion    Chandra, XMM-Newton\n                               disks, compact object binaries     (space only — absorbed by atm)\n10–400 nm      UV             Hot stars (O/B), ISM, Ly-α         HST, GALEX\n                               (space only below 300 nm)          (space only — ozone blocks)\n400–700 nm     Visible        Stars (surface T ~ 3000–30000 K),  Ground + space\n                               redshifts, proper motion           (atmospheric window)\n0.7–30 μm      Near/mid-IR    Cool stars, dust, exoplanet        JWST, Spitzer, ground (K-band)\n                               thermal emission, protostars       (partial atm windows)\n30–300 μm      Far-IR         Cold dust (10–50 K), star          Herschel, SOFIA (retired)\n                               formation, high-z galaxies         (space — water vapor absorbs)\n0.3–3 mm       Submillimeter  Molecular clouds, CMB, SZ effect   ALMA, SPT, ACT\n                               Dust continuum, high-z CO lines    (high dry sites + space)\n1 mm–30 cm     Radio (mm/cm)  Synchrotron, HI 21 cm, pulsars,   VLA, MeerKAT, FAST, SKA\n                               FRBs, molecular line surveys       (ground — atm transparent)\n> 30 cm        Radio (long)   Jupiter decametric, solar bursts,  LOFAR, LWA, space\n                               cosmic dawn 21 cm absorption       (ionosphere limits < 10 MHz)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 396,
+      "heading_context": "## The Electromagnetic Spectrum — Astronomy's Wavelength Windows",
+      "confidence": "candidate",
+      "text": "Astronomy is the only science that uses the *entire* electromagnetic spectrum plus non-EM messengers (gravitational waves, neutrinos, cosmic rays). Multi-messenger astronomy — correlating signals across these channels for the same event — is the defining observational advance of the 2010s–2020s (GW170817: neutron star merger seen in GW + gamma + optical + radio + X-ray simultaneously).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "## Historical Milestones — Calibrating the Timekeeper's Instruments",
+      "confidence": "candidate",
+      "text": "YEAR    DISCOVERER(S)              WHAT                          CLOCK CALIBRATED\n─────   ────────────               ────                          ────────────────\n~240 BC Eratosthenes               Earth's circumference         Spatial scale of the local\n~150 BC Hipparchus                 Precession of equinoxes       25,772-yr celestial clock found\n1543    Copernicus                 Heliocentric model            Orbital periods reframed\n1609    Kepler                     Three laws of planetary motion Orbital clocks made precise\n1610    Galileo                    Telescope → Jupiter's moons   New orbital clocks discovered\n1687    Newton                     Universal gravitation          All orbital clocks unified\n1838    Bessel                     Stellar parallax (61 Cyg)     Distance ladder rung 1\n1912    Leavitt                    Cepheid period-luminosity     Distance ladder rung 4\n1915    Einstein                   General relativity             Clocks depend on gravity\n1929    Hubble                     Redshift-distance relation     Expansion clock discovered\n1948    Gamow, Alpher, Herman      BBN + CMB prediction          Cosmic clock predicted\n1965    Penzias & Wilson           CMB detection (2.7 K)         Cosmic clock confirmed\n1967    Hewish & Bell (Burnell)    Pulsars                       Most precise natural clocks\n1998    Riess, Perlmutter et al.   Accelerating expansion        Expansion clock is speeding up\n2015    LIGO                       Gravitational waves           New messenger, new clock channel\n2019    EHT                        M87* black hole image         GR clock at extreme curvature",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

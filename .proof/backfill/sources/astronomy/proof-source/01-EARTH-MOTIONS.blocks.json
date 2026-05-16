@@ -1,0 +1,358 @@
+{
+  "schema_version": "1",
+  "source_markdown": "astronomy\\01-EARTH-MOTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture: Full Hierarchy of Earth Motions",
+      "confidence": "candidate",
+      "text": "TIMESCALE          MOTION                      TYPE          CAUSE\n────────────────────────────────────────────────────────────────────────────────\n24 h               Diurnal rotation            Spin          Angular momentum (primordial)\n14 months          Annual polar motion         Forced        Atmospheric + oceanic angular mom.\n~433 days          Chandler Wobble             Free nutation Non-rigid Earth, continuously excited\n~18.6 yr           Nutation (dominant term)    Forced nutation Moon's nodal regression\n~25,772 yr         Axial Precession (Great Year) Forced prec. Lunisolar torque on equatorial bulge\n~41,000 yr         Obliquity variation         Orbital       Planetary perturbations (Jupiter)\n~100 kyr / 413 kyr Orbital eccentricity        Orbital       Jupiter/Saturn resonances\n~112 kyr           Apsidal precession          Orbital       Planetary perturbations\n────────────────────────────────────────────────────────────────────────────────\n\n                    HIERARCHY OF REFERENCE FRAMES\n                    ┌──────────────────────────────────────┐\n                    │  Ecliptic frame (Sun + planets)      │\n                    │    ┌────────────────────────────┐    │\n                    │    │  Mean equatorial frame     │    │\n                    │    │    ┌──────────────────┐    │    │\n                    │    │    │  True equatorial │    │    │\n                    │    │    │    ┌──────────┐  │    │    │\n                    │    │    │    │  Body    │  │    │    │\n                    │    │    │    └──────────┘  │    │    │\n                    │    │    └──────────────────┘    │    │\n                    │    └────────────────────────────┘    │\n                    └──────────────────────────────────────┘\n  Ecliptic frame: obliquity oscillates here.\n  Mean equatorial: precession runs here.\n  True equatorial: nutation wobbles here.\n  Body frame: Chandler wobble in here.\n\nEach inner frame oscillates relative to the next outer one.\nAll of them together determine where Polaris appears in the sky.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## 2. The Root Cause — Earth's Oblate Spheroid",
+      "confidence": "candidate",
+      "text": "  POLAR VIEW:\n              ┌─────────────┐\n              │  equatorial │\n              │    bulge    │\n              │  ┌───────┐  │\n              │  │       │  │\n              │ ─┤ Earth ├─ │\n              │  │       │  │\n              │  └───────┘  │\n              │             │\n              └─────────────┘\n\n  MERIDIONAL CROSS-SECTION:\n                                  N pole\n                                    │\n                          ──────────┼──────────  ← oblate top\n                         /          │          \\\n                        │     b=6356│km         │\n                        │           │           │\n                         \\          │          /\n                          ──────────┼──────────  ← oblate bottom\n                                    │\n                                  S pole\n\n     a = equatorial radius = 6,378.137 km\n     b = polar radius      = 6,356.752 km\n     flattening: f = (a-b)/a = 1/298.257\n     bulge height: a - b ≈ 21.4 km\n\n     Moments of inertia:\n       C = polar    (rotation axis) > A = B\n       C - A = excess equatorial inertia\n\n  KEY NUMBERS:\n     J₂ = 1.08263 × 10⁻³            (oblateness coefficient)\n     Hd = (C-A)/C ≈ 1/305.457        (dynamical ellipticity)\n     C/MR² ≈ 0.3307 (not 0.4 — not homogeneous sphere)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 114,
+      "heading_context": "## 3. Axial Precession — The 25,772-Year Great Year",
+      "confidence": "candidate",
+      "text": "### 3.1 The Torque Mechanism",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "### 3.1 The Torque Mechanism",
+      "confidence": "candidate",
+      "text": "          ECLIPTIC PLANE VIEW\n                                              ☀  Sun (or ☽ Moon)\n                          ε ≈ 23.44°\n          ecliptic pole ●                       ↑ torque τ\n                         \\                      │\n                          \\←ε                   │\n                  ┌────────\\──────────┐\n                  │  Earth's equator  │\n                  └───────────────────┘\n\n                          ↑\n                                                ┌────────────────────────┐\n                                                │  torque = ∂F/∂r × bulge│\n                                                │  τ = 3GM·J₂·R²·sin(ε)  │\n                                                │       r³       cos(ε)  │\n                                                └────────────────────────┘\n                     rotation axis L\n                     tilted at ε to ecliptic normal\n\n          The key: τ ⊥ L (torque is in the ecliptic plane, horizontal)\n\n          GYROSCOPE RESPONSE:\n          L̇ = τ   →   L precesses around ecliptic pole\n          (not tilting further — gyroscopic response, 90° to torque)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 147,
+      "heading_context": "### 3.1 The Torque Mechanism",
+      "confidence": "candidate",
+      "text": "### 3.2 Precession Rate Formula",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### 3.2 Precession Rate Formula",
+      "confidence": "candidate",
+      "text": "   dψ       3 G M   (C − A)\n  ────  =  ─────── · ─────── · cos(ε)\n   dt         2 r³      C ω\n\n         = −(3/2) · (GM/r³) · Hd / ω · cos(ε)    [retrograde → negative]\n\n   where:\n     G M = gravitational parameter of perturber\n     r   = distance (orbit-averaged for elliptical orbit: r³ → a³(1−e²)^(3/2))\n     Hd  = dynamical ellipticity = (C−A)/C ≈ 1/305.457\n     ω   = Earth's spin angular velocity = 7.2921 × 10⁻⁵ rad/s\n     ε   = obliquity ≈ 23.44°",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 166,
+      "heading_context": "### 3.2 Precession Rate Formula",
+      "confidence": "candidate",
+      "text": "### 3.3 Why the Moon Dominates Despite Being Tiny",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### 3.3 Why the Moon Dominates Despite Being Tiny",
+      "confidence": "candidate",
+      "text": "                   M_body\n   Tidal force ∝  ────────\n                    r³_body\n\n   Sun:   (1.989 × 10³⁰ kg) / (1.496 × 10¹¹ m)³  =  5.93 × 10⁻⁴  kg/m³\n   Moon:  (7.342 × 10²² kg) / (3.844 × 10⁸ m)³   =  1.29 × 10⁻³  kg/m³\n\n   Moon/Sun ratio ≈ 2.18\n\n   Solar precession rate:   ~15.92 \"/yr   (31.6%)\n   Lunar precession rate:   ~34.38 \"/yr   (68.4%)\n   Total luni-solar:        ~50.30 \"/yr\n   + GR geodetic (de Sitter): ~1.92 \"/yr\n   − planetary (ecliptic):    ~0.12 \"/yr  [opposing, moves ecliptic itself]\n   ─────────────────────────────────────\n   General precession:      ~50.29 \"/yr",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 189,
+      "heading_context": "### 3.3 Why the Moon Dominates Despite Being Tiny",
+      "confidence": "candidate",
+      "text": "### 3.4 The Great Year Period",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 203,
+      "heading_context": "### 3.4 The Great Year Period",
+      "confidence": "candidate",
+      "text": "### 3.5 The Precession Cone",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "### 3.5 The Precession Cone",
+      "confidence": "candidate",
+      "text": "                        ecliptic pole (fixed*)\n                              ●\n                             /|\\\n                            / | \\\n                           /  |  \\\n          ε ≈ 23.44°      /   |   \\\n                         /    |    \\\n                  ──────●─────+─────●──────  ecliptic plane\n                    Vega      |      Polaris (now)\n                (in ~14kyr)   |\n                              | ← Earth's axis traces this cone\n                              |    (retrograde: opposite to rotation)\n                              |    one full circuit ≈ 25,772 yr\n\n        *The ecliptic pole itself drifts slowly due to planetary perturbations\n         (obliquity variation) — the \"true\" fixed point doesn't quite exist.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 230,
+      "heading_context": "## 4. Nutation — The Wobble on the Wobble",
+      "confidence": "candidate",
+      "text": "### 4.1 Cause",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 234,
+      "heading_context": "### 4.1 Cause",
+      "confidence": "candidate",
+      "text": "### 4.2 The Dominant Terms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "### 4.2 The Dominant Terms",
+      "confidence": "candidate",
+      "text": "  NUTATION COMPONENTS (IAU 2000A — 678 lunisolar + 687 planetary terms)\n\n  Period         Δψ amplitude     Δε amplitude     Cause\n  ──────────────────────────────────────────────────────────────────\n  18.613 yr      −17.206\"         +9.205\"          Moon's nodal regression (dominant)\n  annual         −1.317\"          +0.573\"          Sun (solar nutation)\n  semi-annual    −0.204\"          +0.089\"          Sun\n  9.3 yr         +0.207\"          −0.090\"          Moon\n  13.7 days      +0.148\"           ...             Moon\n  ──────────────────────────────────────────────────────────────────\n  (hundreds of smaller terms follow — IAU 2000A truncates at ~0.0001\")\n\n  Δψ = nutation in longitude (in ecliptic plane)\n  Δε = nutation in obliquity (perpendicular, tilting toward/away from ecliptic)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 253,
+      "heading_context": "### 4.2 The Dominant Terms",
+      "confidence": "candidate",
+      "text": "### 4.3 Effect on the Pole",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### 4.3 Effect on the Pole",
+      "confidence": "candidate",
+      "text": "  Mean pole ●\n             \\  ← true pole spirals around mean pole\n              ●←●\n             ●    ●\n            ●      ●\n             ●    ●    18.6 yr ellipse\n              ●  ●\n               ●●\n               ↑\n          ~17\" in longitude → ~520 m on Earth's surface at pole\n          ~9\"  in obliquity → ~280 m\n\n  The true obliquity ε_true = ε_mean + Δε\n  The true sidereal time includes the nutation correction\n  (critical for GPS, VLBI, telescope pointing — all require IAU 2000A)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 279,
+      "heading_context": "## 5. Chandler Wobble — Free Nutation",
+      "confidence": "candidate",
+      "text": "### 5.1 Euler's Prediction (Rigid Earth)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 301,
+      "heading_context": "### 5.1 Euler's Prediction (Rigid Earth)",
+      "confidence": "candidate",
+      "text": "### 5.2 The Chandler Discrepancy",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### 5.2 The Chandler Discrepancy",
+      "confidence": "candidate",
+      "text": "  SOURCES OF LENGTHENING (305 → 433 days):\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Mantle anelasticity         ~50% of period lengthening      │\n  │  Ocean loading (mass redef)  ~30%                            │\n  │  Fluid outer core            ~20%                            │\n  └──────────────────────────────────────────────────────────────┘\n\n  Modified period: T_Chandler = T_Euler · √(1 + k/ks)\n  where k = Love number (ocean+solid Earth compliance)\n        ks = rigidity love number\n\n  Amplitude:   3–9 m at the pole (varies; currently ~3–4 m)\n  e-folding:   ~68 yr (strong damping)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 323,
+      "heading_context": "### 5.2 The Chandler Discrepancy",
+      "confidence": "candidate",
+      "text": "### 5.3 The Excitation Problem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### 5.3 The Excitation Problem",
+      "confidence": "candidate",
+      "text": "  EXCITATION SOURCES (angular momentum balance):\n\n  Earthquakes           → impulsive (Sumatra 2004 shifted pole ~2.5 cm)\n  Atmospheric pressure  → continuous forcing (dominant on annual timescale)\n  Ocean bottom pressure → continuous (important for Chandler band)\n  Groundwater/ice mass  → slow trends\n  Fluid outer core      → speculative\n\n  Combined wobble at pole:\n    Chandler  (~433 day) + Annual (365 day) → beat period ~6.3 yr\n    Total polar motion amplitude: up to ~9 m",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 341,
+      "heading_context": "### 5.3 The Excitation Problem",
+      "confidence": "candidate",
+      "text": "### 5.4 Annual Polar Motion",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "## 6. Obliquity Variation — The Tilt Itself Changes",
+      "confidence": "candidate",
+      "text": "  OBLIQUITY OVER TIME\n\n  ε (degrees) over time:\n\n  25 ─── upper bound ──────────────────────────────────────\n                ___          ___          ___          ___\n  24       ___/   \\___    __/   \\__    __/   \\__    __/   \\__\n       ___/           \\___/         \\__/         \\__/         \\__\n  23                                                              \\\n  22 ─── lower bound ──────────────────────────────────────\n\n  Period: ~41,000 years\n\n  Range:     22.1° to 24.5°\n  Current:   23.436° (J2000.0), decreasing at ~47\"/century\n  Trend:     heading toward minimum (~11,800 yr from now)\n\n  Driven by:  Jupiter's gravitational perturbation on Earth's orbital plane\n              → secular change in orbital inclination\n              → change in ecliptic orientation relative to equator = ε change",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "## 7. The Full Euler Angle Picture",
+      "confidence": "candidate",
+      "text": "  EULER ANGLES FOR EARTH\n\n  ψ (precession angle)   — right ascension of the ascending node of the equator\n                           on the ecliptic; sweeps 360° in ~25,772 yr (retrograde)\n\n  θ (nutation/obliquity) — angle between Earth's rotation axis and ecliptic normal\n                           ≈ ε ≈ 23.44° (mean); oscillates ±9\" on 18.6 yr cycle\n\n  φ (spin angle)         — rotation around Earth's own axis\n                           sweeps 360° in 23h 56m 4s (sidereal day)\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  TRANSFORMATION CHAIN: from ecliptic frame to Earth body frame      │\n  │                                                                     │\n  │  R = Rz(φ) · Rx(θ) · Rz(ψ)                                          │\n  │                                                                     │\n  │  ψ: rotate around ecliptic pole by precession angle                 │\n  │  θ: tilt by obliquity angle (+ nutation correction)                 │\n  │  φ: spin by Earth rotation angle (sidereal time)                    │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  PRACTICAL PRECESSION MODELS:\n    IAU 1976: single polynomial for ψA, ωA, χA (adequate to ~0.1\" for 1975–2175)\n    IAU 2000A: rigorous, matches VLBI to ~0.2 mas; required for GPS/navigation\n    IAU 2006: improved precession, consistent with general relativity\n    LA2004/LA2010: long-term solution for Milankovitch work (±50 Myr)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 418,
+      "heading_context": "## 8. Observational Consequences",
+      "confidence": "candidate",
+      "text": "### 8.1 Pole Star Drift",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 422,
+      "heading_context": "### 8.1 Pole Star Drift",
+      "confidence": "candidate",
+      "text": "  POLE STAR TIMELINE  (retrograde — counterclockwise viewed from north)\n\n  ──────────────────────────────────────────────────────────────────────\n  ~13,000 BCE    Vega (α Lyr)         3.2° from pole\n  ~2800  BCE     Thuban (α Dra)       0.1° from pole  ← Egyptian pyramids aligned\n  ~500   BCE     β UMi (Kochab)       ~6° from pole   ← rough pole, nothing close\n  ~1100  CE      no bright star near pole\n  ~2000  CE      Polaris (α UMi)      0.73° from pole  ← now\n  ~2102  CE      Polaris closest      0.45° from pole\n  ~3000  CE      γ Cephei             ~3.2° from pole\n  ~7500  CE      Alderamin (α Cep)\n  ~14000 CE      Vega (α Lyr)         ~3.2° from pole  (not as close as Polaris)\n  ~25800 CE      Polaris again        completes one Great Year\n  ──────────────────────────────────────────────────────────────────────\n\n  Note: the ecliptic pole itself shifts very slowly over longer timescales\n  (obliquity variation moves the \"center\" of the circle slightly).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "chart_like",
+      "line": 442,
+      "heading_context": "### 8.1 Pole Star Drift",
+      "confidence": "candidate",
+      "text": "### 8.2 Vernal Equinox Precession Through the Zodiac",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 464,
+      "heading_context": "### 8.2 Vernal Equinox Precession Through the Zodiac",
+      "confidence": "candidate",
+      "text": "### 8.3 Year Type Comparison",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 468,
+      "heading_context": "### 8.3 Year Type Comparison",
+      "confidence": "candidate",
+      "text": "  YEAR TYPES AND LENGTHS\n\n  ┌────────────────────┬──────────────────┬──────────────────────────────────────┐\n  │ Year Type          │ Length (days)    │ Reference                            │\n  ├────────────────────┼──────────────────┼──────────────────────────────────────┤\n  │ Tropical           │ 365.24219        │ Equinox → equinox (seasons)          │\n  │ Sidereal           │ 365.25636        │ Star to star (orbit vs fixed stars)  │\n  │ Anomalistic        │ 365.25964        │ Perihelion → perihelion              │\n  │ Draconic           │ 346.62000        │ Node → node (eclipse seasons)        │\n  │ Julian (calendar)  │ 365.25 (exact)   │ Definition, not a physical year      │\n  └────────────────────┴──────────────────┴──────────────────────────────────────┘\n\n  Tropical vs Sidereal difference: ~20.4 minutes (precession)\n  Anomalistic longer: perihelion precesses eastward at ~11.45\"/yr\n  Draconic shorter: Moon's nodes regress (18.6 yr cycle)\n\n  CALENDAR CONSEQUENCE:\n  The Gregorian calendar tracks the TROPICAL year (seasons), not sidereal.\n  In ~26,000 yr the calendar would \"lap\" the stars by one full year if we only\n  used the sidereal year — but we don't, so it doesn't.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 497,
+      "heading_context": "## 9. Precession and General Relativity",
+      "confidence": "candidate",
+      "text": "  GR CORRECTIONS TO PRECESSION\n\n  1. Geodetic (de Sitter) precession\n     ─────────────────────────────\n     Earth's spin axis precesses due to space-time curvature in Sun's field.\n     Rate: ~19.2 mas/yr (milliarcseconds) ≈ 1.92 \"/yr\n     Prograde (same direction as orbital motion — opposite to luni-solar)\n     Measured by Gravity Probe B (2004) to 0.3% accuracy.\n\n  2. Lense-Thirring precession (frame-dragging)\n     ────────────────────────────────────────────\n     Sun's rotation drags spacetime → tiny additional precession.\n     Rate: ~0.001 mas/yr (utterly negligible for Earth's axis)\n     Measurable in satellite orbits (LAGEOS, Gravity Probe B).\n\n  3. Combined:\n     ┌──────────────────────────────────────────────┐\n     │ Total precession = luni-solar − geodetic − Δ │\n     │  50.30 \"/yr − 1.92 \"/yr − (planetary) ≈      │\n     │  General precession ≈ 50.29 \"/yr             │\n     └──────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 525,
+      "heading_context": "## 10. Numerical Summary — All the Key Numbers",
+      "confidence": "candidate",
+      "text": "  EARTH SHAPE\n  ──────────────────────────────────────────────────────────────────\n  Equatorial radius a     =  6,378.137 km\n  Polar radius b          =  6,356.752 km\n  Flattening f            =  1/298.257223563\n  J₂ (oblateness)         =  1.08263 × 10⁻³\n  Dynamical ellipticity Hd =  1/305.457\n\n  ROTATION\n  ──────────────────────────────────────────────────────────────────\n  Sidereal day            =  86,164.0905 s = 23h 56m 04.09s\n  Rotation rate ω         =  7.2921150 × 10⁻⁵ rad/s\n  Angular momentum L      =  C ω = 5.86 × 10³³ kg m² s⁻¹\n\n  PRECESSION\n  ──────────────────────────────────────────────────────────────────\n  General precession      =  5029.1\"/century = 50.291\"/yr\n  Luni-solar precession   =  50.30 \"/yr\n    Solar component       =  15.92 \"/yr (32%)\n    Lunar component       =  34.38 \"/yr (68%)\n  Period (Great Year)     ≈  25,772 yr\n\n  NUTATION (dominant 18.6 yr term)\n  ──────────────────────────────────────────────────────────────────\n  Δψ amplitude            =  17.206\"  (longitude)\n  Δε amplitude            =   9.205\"  (obliquity)\n  Period                  =  18.613 yr\n\n  CHANDLER WOBBLE\n  ──────────────────────────────────────────────────────────────────\n  Euler (rigid) period    =  ~305 days\n  Chandler period         =  ~433 days (1.186 yr)\n  Amplitude               =  3–9 m at pole\n  Q factor (damping)      =  ~50–200\n  Excitation e-folding    =  ~68 yr\n\n  OBLIQUITY\n  ──────────────────────────────────────────────────────────────────\n  Current (J2000.0)       =  23° 26' 21.448\" = 23.4392911°\n  Secular rate            =  −46.8\"/century (decreasing)\n  Long-term range         =  22.1° – 24.5°\n  Long-term period        =  ~41,000 yr\n\n  YEAR TYPES\n  ──────────────────────────────────────────────────────────────────\n  Tropical                =  365.24219 days\n  Sidereal                =  365.25636 days  (+20.4 min)\n  Anomalistic             =  365.25964 days  (+25 min)\n  Draconic                =  346.62000 days  (−18.6 days)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 581,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "  WHICH MOTION MATTERS FOR WHAT?\n\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │ Context                          │ Dominant motion to consider           │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ GPS / satellite navigation       │ Nutation (IAU 2000A, ~17\" error       │\n  │                                  │ if ignored); Chandler wobble (cm)     │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ Telescope pointing / astrometry  │ Precession + nutation (both)          │\n  │ (arcsecond precision)            │ Apply both corrections to RA/Dec      │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ Ancient star alignment questions │ Precession only (centuries to kyr)    │\n  │ (pyramids, megaliths)            │ Ignore nutation/Chandler              │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ \"What was the pole star in X\"    │ Precession (rate × time = angle)      │\n  │                                  │ Plot the precession cone              │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ Ice age / Milankovitch forcing   │ Eccentricity (~100 kyr) +             │\n  │                                  │ Obliquity (~41 kyr) +                 │\n  │                                  │ Precession of perihelion (~112 kyr)   │\n  │                                  │ (covered in 02-MILANKOVITCH.md)       │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ Calendar design (seasons)        │ Tropical year (precession makes this  │\n  │                                  │ shorter than sidereal by 20 min/yr)   │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ Eclipse prediction               │ Draconic year + Saros cycle (18.03 yr │\n  │                                  │ = 223 synodic months ≈ 242 draconic   │\n  │                                  │ months — almost integer alignment)    │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ Polar motion / geodesy           │ Chandler wobble + annual polar motion │\n  │ (IERS reference frames)          │ + long-term polar wander (secular)    │\n  ├──────────────────────────────────┼───────────────────────────────────────┤\n  │ \"Age of Aquarius\"                │ Precession of equinoxes; boundary     │\n  │                                  │ date depends on IAU constellation     │\n  │                                  │ boundary definition (~2597 CE)        │\n  └──────────────────────────────────┴───────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

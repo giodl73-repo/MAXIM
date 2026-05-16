@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:exoplanets
+kind: guide
+module: astronomy
+section: astronomy
+title: Exoplanets
+status: source-custody
+source_custody: partial
+current_path: astronomy/10-EXOPLANETS.md
+canonical_path: astronomy/10-EXOPLANETS.md
+backsource_ids: [proof-backfill:astronomy:10-exoplanets, git-history:astronomy:10-exoplanets]
+concepts: [exoplanets]
+root_concepts: [exoplanets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Exoplanets
 ## Detection Methods, Demographics, Characterization, Habitability, JWST Era
 

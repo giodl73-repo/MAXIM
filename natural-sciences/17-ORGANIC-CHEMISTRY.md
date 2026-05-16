@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:organic-chemistry
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 17-ORGANIC-CHEMISTRY - Organic Chemistry
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/17-ORGANIC-CHEMISTRY.md
+canonical_path: natural-sciences/17-ORGANIC-CHEMISTRY.md
+backsource_ids: [proof-backfill:natural-sciences:17-organic-chemistry, git-history:natural-sciences:17-organic-chemistry]
+concepts: [organic, chemistry]
+root_concepts: [organic, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 17-ORGANIC-CHEMISTRY — Organic Chemistry
 
 ## Functional Groups, Reaction Mechanisms, Stereochemistry, Synthesis

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:atomic-quantum
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 01-ATOMIC-QUANTUM - Atomic Structure and Quantum Mechanics of Chemistry
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/01-ATOMIC-QUANTUM.md
+canonical_path: natural-sciences/01-ATOMIC-QUANTUM.md
+backsource_ids: [proof-backfill:natural-sciences:01-atomic-quantum, git-history:natural-sciences:01-atomic-quantum]
+concepts: [atomic, quantum]
+root_concepts: [atomic, quantum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01-ATOMIC-QUANTUM — Atomic Structure & Quantum Mechanics of Chemistry
 
 > The hydrogen atom solved exactly. Multi-electron approximations. Quantum numbers

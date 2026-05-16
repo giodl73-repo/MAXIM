@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\12-SYSTEMS-SYNTHETIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "REDUCTIONIST VIEW:           SYSTEMS VIEW:\n  Gene X → Protein X          Network of interactions\n  Protein X → Function X       → Emergent behaviors\n  Study one component          → Study dynamics, topology, robustness\n  at a time\n\nKEY INSIGHT: the same components can produce radically different behaviors\ndepending on network topology. A negative feedback loop, a positive feedback loop,\nand a feedforward loop are three different computations performed on the same signal.\n\nTools imported from engineering:\n  Control theory       → stability analysis, feedback, robustness\n  Network science      → topology, hubs, modularity\n  Information theory   → noise, channel capacity, mutual information\n  Signal processing    → frequency response, filtering\n  Software engineering → modularity, abstraction, composition (synthetic biology)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Network Representations",
+      "confidence": "candidate",
+      "text": "NODES: genes (or proteins) — state variable = expression level\nEDGES: regulatory interactions\n  → activation (→ or ─▶)\n  ─| repression (─┤)\n  ── protein–protein interaction\n\nExample: toggle switch\n         A ─┤ B\n         B ─┤ A\n  Mutual repression → bistable (two stable states: A-on/B-off or A-off/B-on)\n\nExample: negative feedback oscillator\n         A → B → C ─┤ A\n  Delayed negative feedback → oscillation (circadian clock motif)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### Boolean Network Models — Automata Theory Bridge",
+      "confidence": "candidate",
+      "text": "BOOLEAN GENE NETWORK = SYNCHRONOUS FINITE STATE AUTOMATON\n\n  States:        2^N possible states for N genes (each ON/OFF)\n  Transitions:   deterministic update function F: {0,1}^N → {0,1}^N\n  Attractors:    fixed points + limit cycles = stable cell states\n                 (cell types = attractors; differentiation = transient toward basin)\n\nKAUFFMAN NK MODEL = RANDOM BOOLEAN CIRCUIT ANALYSIS\n\n  N genes, each regulated by K random inputs, random Boolean function\n  Computational analog: random K-SAT / random circuit satisfiability\n\n  Phase transitions (same as in random K-SAT):\n  K < 2:  ordered phase → few attractors, large basins, robust\n           like easy SAT regime — most initial conditions reach same attractor\n  K = 2:  critical (self-organized criticality) — maximal complexity\n           corresponds to phase transition in random 2-SAT (solvable in polytime)\n  K > 2:  chaotic phase → 2^(N/2) attractors, exponential sensitivity\n           like hard 3-SAT — small perturbation → different attractor\n\nSTATE-SPACE EXPLOSION:\n  N = 20,000 genes: 2^20000 possible states — computationally intractable to enumerate\n  Practical approach: identify attractors by random sampling of trajectories\n  Equivalent to: SAT solving by local search (random restart hill climbing)\n\nSAT CONNECTION:\n  \"Is gene X eventually always ON for all initial conditions?\"\n  = reachability / liveness property of the automaton\n  = model checking problem (CTL/LTL model checking on Boolean circuit)\n  = NP-hard in general (known from model checking complexity theory)\n\nATTRACTOR LANDSCAPE AS EPIGENETIC LANDSCAPE (Waddington 1957):\n  Height = energy / instability\n  Valleys = attractors (cell types)\n  Ridges = unstable states / separatrices between basins\n  Differentiation = gradient descent into valley\n  Reprogramming (Yamanaka factors) = add energy to escape local minimum\n  → same vocabulary as optimization on non-convex landscapes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### ODE Models",
+      "confidence": "candidate",
+      "text": "Gene X with activator A and repressor R:\n\n  d[X]/dt = α · f([A], [R]) − δ · [X]\n\n  α = synthesis rate,  δ = degradation rate\n  f = regulatory function (often Hill-type):\n    Activation:   f = [A]^n / (Kₐ^n + [A]^n)\n    Repression:   f = Kᵣ^n / (Kᵣ^n + [R]^n)\n\n  Steady state:  d[X]/dt = 0  →  [X]_ss = (α/δ) · f([A],[R])\n\nFor a two-gene toggle switch:\n  d[u]/dt = α₁/(1 + v^β) − u\n  d[v]/dt = α₂/(1 + u^γ) − v\n\n  Phase plane analysis: nullclines (d[u]/dt = 0 and d[v]/dt = 0)\n  Intersections = steady states; stability from Jacobian eigenvalues\n  Three intersections (bistable): two stable + one unstable (saddle point)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 166,
+      "heading_context": "### ODE Models",
+      "confidence": "candidate",
+      "text": "### Network Motifs (Alon, 2007)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Network Motifs (Alon, 2007)",
+      "confidence": "candidate",
+      "text": "NEGATIVE AUTOREGULATION (NAR):\n  X ─┤ X\n  Effect: speeds up response time, reduces steady-state noise\n  ~40% of E. coli TFs autoregulate negatively\n\nPOSITIVE AUTOREGULATION (PAR):\n  X → X\n  Effect: bistability, slow response, memory\n  Used for cell fate decisions (e.g., LuxR in quorum sensing)\n\nFEEDFORWARD LOOP (FFL) — 8 types, most common: C1-FFL\n  S → X → Z\n  S → Z\n  (S activates X; S AND X activate Z)\n  Effect (C1-FFL): sign-sensitive delay, filters transient signals\n  Coherent (all activate): delay on activation, no delay on deactivation\n  Incoherent (X represses Z): pulse generator, fold-change detector\n\nSINGLE INPUT MODULE (SIM):\n  One master regulator → many target genes\n  Genes activated sequentially (temporal program, e.g., flagella assembly)\n\nDENSE OVERLAPPING REGULONS (DORs):\n  Multiple regulators → shared target genes\n  Integration of multiple signals (AND/OR logic)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "### Applications",
+      "confidence": "candidate",
+      "text": "In silico gene knockouts:\n  Set reaction v_i = 0 → reoptimize → does biomass decrease?\n  Essential genes: knockouts that eliminate growth\n  Synthetic lethality: two individually viable KOs that are lethal together\n\nMetabolic engineering:\n  Find reaction to overexpress/add to maximize product yield\n  Constraint-based design: COBRA toolbox, COBRApy\n\nFlux variability analysis (FVA):\n  For each reaction: find min and max v_i consistent with optimal objective\n  → determine which reactions are uniquely determined vs flexible\n\niJO1366 (E. coli): 1366 reactions, 1136 metabolites — largest validated GEM\nHuman metabolic reconstructions (RECON): tissue-specific models",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "### Sources of Noise",
+      "confidence": "candidate",
+      "text": "INTRINSIC NOISE: stochastic fluctuations in the biochemical reactions of a gene\n  Transcription: mRNA produced in bursts (Poisson not well-fit; negative binomial better)\n  Translation: protein bursts from single mRNA molecules\n  Noise ∝ 1/√N (shot noise — fewer molecules → more noise)\n\nEXTRINSIC NOISE: cell-to-cell variation in shared components\n  Differences in: RNAP levels, ribosome numbers, cell volume, cell age\n  Correlated between genes sharing upstream regulators\n\nFano factor = Var(n) / Mean(n)\n  Poisson: Fano = 1 (intrinsic noise reference)\n  Super-Poisson (Fano > 1): bursty expression\n  mRNA: median ~1–100 molecules; protein: ~100–100,000\n\nNoise-function tradeoffs:\n  Negative autoregulation: reduces intrinsic noise (faster return to steady state)\n  Ultrasensitivity (Hill n>1): can sharpen noisy graded signal to binary output\n  Mutual inhibition toggle: bistability can \"store\" binary decisions above noise floor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "### Key Design Principles",
+      "confidence": "candidate",
+      "text": "ORTHOGONALITY: synthetic circuit should not interact with native networks\n  Orthogonal RNAP (T7 RNAP): only transcribes T7 promoters\n  Orthogonal ribosomes: only translate specific mRNAs\n  Synthetic TFs (ZF, TALE, dCas9): bind designed DNA sequences only\n\nMODULARITY: devices should work predictably when combined\n  Problem: genetic context effects (promoter/RBS spacer, terminator read-through)\n  Solution: insulators, strong terminators, standardized part interfaces\n\nABSTRACTION: hide implementation details at each level\n  BioBricks (iGEM): standard prefix/suffix → parts physically compatible\n  BUT: composability is harder than software (parts have crosstalk)\n\nCHARACTERIZATION: measure transfer functions (input → output)\n  Hill-type response: g(u) = α(u/K)^n / (1 + (u/K)^n)\n  Plot: input signal [u] vs output expression level\n  Capture: max expression, threshold, cooperativity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 320,
+      "heading_context": "## Landmark Synthetic Circuits",
+      "confidence": "candidate",
+      "text": "### Genetic Toggle Switch (Gardner et al., Nature 2000)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "### Genetic Toggle Switch (Gardner et al., Nature 2000)",
+      "confidence": "candidate",
+      "text": "Promoter 1 → Repressor 2 → blocks Promoter 2\nPromoter 2 → Repressor 1 → blocks Promoter 1\n\nTwo stable states (bistable):\n  State 1: Rep2 ON, Rep1 OFF → fluorescence from reporter at Promoter 2\n  State 2: Rep1 ON, Rep2 OFF → fluorescence from reporter at Promoter 1\n\nSwitch with inducer: transient IPTG or temperature shift → flip to other state\n  → digital memory, cell fate latch\n\nODE model: Gardner's two-equation system\n  du/dt = α₁/(1 + v^β) − u\n  dv/dt = α₂/(1 + u^γ) − v",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 338,
+      "heading_context": "### Genetic Toggle Switch (Gardner et al., Nature 2000)",
+      "confidence": "candidate",
+      "text": "### Repressilator (Elowitz & Leibler, Nature 2000)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Repressilator (Elowitz & Leibler, Nature 2000)",
+      "confidence": "candidate",
+      "text": "lacI ─┤ tetR ─┤ cl ─┤ lacI  (ring of 3 mutual repressors)\n\nEach repressor inhibits the next → delayed negative feedback → oscillation\nGFP reporter on one node → fluorescence oscillations (~150 min period in E. coli)\n\nKey requirement: delay (degradation tags on repressors) + sufficient repression (n > 1)\nNoisy in original: cell-to-cell variation ~50% in period\nImproved repressilator (Potvin-Trottier 2016): synchronized, ultra-precise (~500 min, low noise)\n\nCircuit analogy: ring oscillator (n odd-numbered NOT gates in ring)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "### Boolean Logic Gates",
+      "confidence": "candidate",
+      "text": "NOT gate:   Input → repressor → repressed output (inverter)\nAND gate:   Input A + Input B → both required for output\n            Two activators required; or repress two inhibitors of output\nOR gate:    Either input A OR B → output\n            Two promoters driving same output\nNAND, NOR: combinations\n\nGenetic AND gate example:\n  Input A → TF1 (VP16 activation domain)\n  Input B → TF2 (DBD domain)\n  Only TF1 + TF2 together → active chimeric TF → output gene",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 373,
+      "heading_context": "## Optogenetics",
+      "confidence": "candidate",
+      "text": "Light-controlled proteins engineered into cells:\n\nCHANNELRHODOPSIN-2 (ChR2, blue light ~470 nm):\n  Cation channel; opens on blue light → Na⁺/Ca²⁺ influx → depolarization → action potential\n  Application: activate specific neurons in circuit\n\nHALORHODOPSIN (NpHR, yellow light ~580 nm):\n  Cl⁻ pump; hyperpolarizes cell → silences neurons\n\nARCH (archaerhodopsin, yellow light):\n  H⁺ pump; outward current → silences neurons\n\nLIGHT-ACTIVATED PROTEIN INTERACTIONS:\n  LOV domains (blue light): dimerize or undimeize → fuse to TFs → light-controlled transcription\n  CRY2/CIB1 (blue light): heterodimerize\n  PhyB/PIF (red light): dimerize; far-red reverses\n  Applications: light-controlled kinases, GTPases, gene expression, protein localization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 397,
+      "heading_context": "## CRISPRi / CRISPRa",
+      "confidence": "candidate",
+      "text": "dCas9 (catalytically dead): binds target DNA guided by sgRNA but does NOT cut\n\nCRISPRi (interference = repression):\n  dCas9 alone: steric block of RNAP → modest repression\n  dCas9-KRAB (KRAB repressor domain): recruits KAP1/HP1 → H3K9me3 → silencing\n  ~100–1000× repression\n\nCRISPRa (activation):\n  dCas9-VP64: 4× VP16 activation domains → modest activation\n  dCas9-VPR: VP64+p65+Rta → stronger activation\n  SAM system: dCas9-VP64 + sgRNA with MS2 hairpins + MCP-VP64 → even stronger\n\nAPPLICATIONS:\n  Genome-scale screening: CRISPRi/a library (all 20,000 genes) → phenotypic readout\n  Gene circuits: CRISPRi repressors as modular parts (good orthogonality)\n  Transcription factor replacement: CRISPRa to activate endogenous loci",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

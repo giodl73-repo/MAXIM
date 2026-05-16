@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:atmosphere-climate
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 14-ATMOSPHERE-CLIMATE - Atmospheric Science and Climate
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/14-ATMOSPHERE-CLIMATE.md
+canonical_path: natural-sciences/14-ATMOSPHERE-CLIMATE.md
+backsource_ids: [proof-backfill:natural-sciences:14-atmosphere-climate, git-history:natural-sciences:14-atmosphere-climate]
+concepts: [atmosphere, climate]
+root_concepts: [atmosphere, climate]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 14-ATMOSPHERE-CLIMATE — Atmospheric Science & Climate
 
 > Atmospheric layers, radiation balance, greenhouse effect, global circulation,
