@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:reef-ecology
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Reef Ecology: Zones, Food Webs, Herbivory, Cryptic Fauna
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/04-REEF-ECOLOGY.md
+canonical_path: coral-reefs/04-REEF-ECOLOGY.md
+backsource_ids: [proof-backfill:coral-reefs:04-reef-ecology, git-history:coral-reefs:04-reef-ecology]
+concepts: [reef, ecology]
+root_concepts: [reef, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reef Ecology: Zones, Food Webs, Herbivory, Cryptic Fauna
 
 ## The Big Picture

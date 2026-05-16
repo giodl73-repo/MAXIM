@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:erosion-degradation
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Erosion and Degradation: USLE, Wind, Salinization, Compaction
+status: source-custody
+source_custody: partial
+current_path: soil-science/08-EROSION-DEGRADATION.md
+canonical_path: soil-science/08-EROSION-DEGRADATION.md
+backsource_ids: [proof-backfill:soil-science:08-erosion-degradation, git-history:soil-science:08-erosion-degradation]
+concepts: [erosion, degradation]
+root_concepts: [erosion, degradation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Erosion and Degradation: USLE, Wind, Salinization, Compaction
 
 ## The Big Picture
@@ -212,7 +231,7 @@ Salinization is the accumulation of soluble salts in the root zone to concentrat
   +-----------+------+-------+-------------------------------------------+
   | Crop      | ECt  | Slope | Classification                            |
   |           |(dS/m)| (%/   |                                           |
-  |           |      |  dS/m)|                                           |
+  |           |      | dS/m  |                                           |
   +-----------+------+-------+-------------------------------------------+
   | Barley    | 8    | 5     | Tolerant (halophyte boundary)            |
   | Beet (sug)| 7    | 5.9   | Tolerant                                 |

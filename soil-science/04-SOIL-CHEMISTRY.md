@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:soil-chemistry
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Chemistry: CEC, pH, Redox, Mineral Nutrients, Buffering
+status: source-custody
+source_custody: partial
+current_path: soil-science/04-SOIL-CHEMISTRY.md
+canonical_path: soil-science/04-SOIL-CHEMISTRY.md
+backsource_ids: [proof-backfill:soil-science:04-soil-chemistry, git-history:soil-science:04-soil-chemistry]
+concepts: [soil, chemistry]
+root_concepts: [soil, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Chemistry: CEC, pH, Redox, Mineral Nutrients, Buffering
 
 ## The Big Picture
@@ -12,7 +31,7 @@ SOIL CHEMISTRY — FOUR INTERACTING SYSTEMS
   | Holding capacity |        | Controls nutrient|
   | for cation       | <----> | availability,    |
   | nutrients        |        | Al/Fe solubility,|
-  | (Ca,Mg,K,NH4+)   |        | microbial activity|
+  | (Ca,Mg,K,NH4+)   |        | microbial act.   |
   +------------------+        +------------------+
                   all four interact
   REDOX (Eh)                  NUTRIENT CHEMISTRY

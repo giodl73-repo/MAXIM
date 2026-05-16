@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:soil-horizons
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Horizons: Master Horizons, Profiles, and USDA Soil Taxonomy
+status: source-custody
+source_custody: partial
+current_path: soil-science/02-SOIL-HORIZONS.md
+canonical_path: soil-science/02-SOIL-HORIZONS.md
+backsource_ids: [proof-backfill:soil-science:02-soil-horizons, git-history:soil-science:02-soil-horizons]
+concepts: [soil, horizons]
+root_concepts: [soil, horizons]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Horizons: Master Horizons, Profiles, and USDA Soil Taxonomy
 
 ## The Big Picture

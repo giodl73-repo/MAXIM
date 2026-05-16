@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:reef-formation
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Reef Formation: Carbonate Accretion, Atoll Development, Sea Level
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/01-REEF-FORMATION.md
+canonical_path: coral-reefs/01-REEF-FORMATION.md
+backsource_ids: [proof-backfill:coral-reefs:01-reef-formation, git-history:coral-reefs:01-reef-formation]
+concepts: [reef, formation]
+root_concepts: [reef, formation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reef Formation: Carbonate Accretion, Atoll Development, Sea Level
 
 ## The Big Picture

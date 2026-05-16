@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:symbiosis
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Symbiosis: Zooxanthellae, Photosynthesis, and the Bleaching Trigger
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/03-SYMBIOSIS.md
+canonical_path: coral-reefs/03-SYMBIOSIS.md
+backsource_ids: [proof-backfill:coral-reefs:03-symbiosis, git-history:coral-reefs:03-symbiosis]
+concepts: [symbiosis]
+root_concepts: [symbiosis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Symbiosis: Zooxanthellae, Photosynthesis, and the Bleaching Trigger
 
 ## The Big Picture

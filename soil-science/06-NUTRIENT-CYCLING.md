@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:nutrient-cycling
+kind: guide
+module: soil-science
+section: soil-science
+title: Nutrient Cycling: Nitrogen Fixation, Nitrification, Phosphorus Cycle
+status: source-custody
+source_custody: partial
+current_path: soil-science/06-NUTRIENT-CYCLING.md
+canonical_path: soil-science/06-NUTRIENT-CYCLING.md
+backsource_ids: [proof-backfill:soil-science:06-nutrient-cycling, git-history:soil-science:06-nutrient-cycling]
+concepts: [nutrient, cycling]
+root_concepts: [nutrient, cycling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nutrient Cycling: Nitrogen Fixation, Nitrification, Phosphorus Cycle
 
 ## The Big Picture
@@ -43,22 +62,22 @@ Biological nitrogen fixation (BNF) is the only natural pathway by which atmosphe
     Legume root nodules: leghemoglobin maintains microaerobic conditions in nodule
 
   RATES OF BIOLOGICAL N FIXATION:
-  +--------------------------+----------+-----------------------------------+
-  | System                   |Rate      | Conditions for maximum fixation   |
-  |                          |(kg N/ha/yr)                                  |
-  +--------------------------+----------+-----------------------------------+
-  | Rhizobium (soybean)      | 100–300  | Low soil N; acid pH 6.0–7.5;     |
-  | Rhizobium (alfalfa)      | 150–250  | adequate P, Mo, Fe; correct       |
-  | Rhizobium (clover)       |  50–200  | Rhizobium strain                  |
-  | Bradyrhizobium (cowpea)  |  80–150  | Warm temperature                  |
-  +--------------------------+----------+-----------------------------------+
-  | Frankia (alder, Alnus)   |  50–150  | Riparian; early succession        |
-  | Frankia (bayberry, etc.) |  20– 80  | Actinorhizal associations         |
-  +--------------------------+----------+-----------------------------------+
-  | Azotobacter (free-living)|   0.2–5  | Aerobic; limited by C supply      |
-  | Clostridium (free-living)|   0.1–2  | Anaerobic soils; wet              |
-  | Cyanobacteria (rice)     |  10– 50  | Flooded paddy; blue-green mats    |
-  +--------------------------+----------+-----------------------------------+
+  +--------------------------+------------+-----------------------------------+
+  | System                   | Rate       | Conditions for maximum fixation   |
+  |                          | kg N/ha/yr |                                   |
+  +--------------------------+------------+-----------------------------------+
+  | Rhizobium (soybean)      | 100–300    | Low soil N; acid pH 6.0–7.5;     |
+  | Rhizobium (alfalfa)      | 150–250    | adequate P, Mo, Fe; correct       |
+  | Rhizobium (clover)       |  50–200    | Rhizobium strain                  |
+  | Bradyrhizobium (cowpea)  |  80–150    | Warm temperature                  |
+  +--------------------------+------------+-----------------------------------+
+  | Frankia (alder, Alnus)   |  50–150    | Riparian; early succession        |
+  | Frankia (bayberry, etc.) |  20– 80    | Actinorhizal associations         |
+  +--------------------------+------------+-----------------------------------+
+  | Azotobacter (free-living)|   0.2–5    | Aerobic; limited by C supply      |
+  | Clostridium (free-living)|   0.1–2    | Anaerobic soils; wet              |
+  | Cyanobacteria (rice)     |  10– 50    | Flooded paddy; blue-green mats    |
+  +--------------------------+------------+-----------------------------------+
 
   IMPORTANCE:
   Global BNF: ~120–140 Tg N/yr (agriculture-induced ~50 Tg; natural ~60–90 Tg)
@@ -278,13 +297,10 @@ Biological nitrogen fixation (BNF) is the only natural pathway by which atmosphe
 
   LIEBIG BARREL ANALOGY:
   +-----+-----+-----+-----+-----+-----+
-  |  N  |  P  |  K  |  Ca |  Mg | ... |
-  +     |     |     |     |     |     |
-  |     |     |     +-----+     |     |
-  |     |     |           |     |     |
-  |     +-----+           |     |     |
-  |                       |     |     |
-  +-----                  +-----+-----+
+  |  N  |  P  |  K  | Ca  | Mg  | ... |
+  +-----+-----+-----+-----+-----+-----+
+  | low | med | med | high| high| high|
+  +-----+-----+-----+-----+-----+-----+
   Water level = growth rate; shortest stave = limiting nutrient
 
   COLIMITATION:

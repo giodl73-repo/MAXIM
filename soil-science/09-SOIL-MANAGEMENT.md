@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:soil-management
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Management: Tillage Systems, Cover Crops, Carbon Sequestration
+status: source-custody
+source_custody: partial
+current_path: soil-science/09-SOIL-MANAGEMENT.md
+canonical_path: soil-science/09-SOIL-MANAGEMENT.md
+backsource_ids: [proof-backfill:soil-science:09-soil-management, git-history:soil-science:09-soil-management]
+concepts: [soil, management]
+root_concepts: [soil, management]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Management: Tillage Systems, Cover Crops, Carbon Sequestration
 
 ## The Big Picture
@@ -165,19 +184,19 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
   Net: less erosion, less N leaching, more SOM, earlier field access
 
   FUNCTION MATRIX:
-  +--------------------+--------+---------+--------+----------+-----------+
-  | Function           | Annual | Legume  | Brassica| Grass   | Mix       |
-  |                    | Grass  | (clover,| (radish | (rye,  |            |
-  |                    | (rye)  | vetch)  | turnip) | oat)   | (multi-sp)|
-  +--------------------+--------+---------+--------+----------+-----------+
-  | Erosion protection | *****  | ***     | ***     | ****   | *****     |
-  | N catch crop       | *****  | **      | ****    | *****  | ****      |
-  | N fixation (BNF)   | none   | *****   | none    | none   | ***       |
-  | Compaction relief  | **     | *       | *****   | **     | ***       |
-  | Weed suppression   | *****  | ***     | ****    | ****   | *****     |
-  | Biomass/OM return  | *****  | ***     | **      | ***    | ****      |
-  | Spring termination | easy   | easy    | self    | moderate| moderate  |
-  +--------------------+--------+---------+--------+----------+-----------+
+  +--------------------+--------+----------+----------+----------+------------+
+  | Function           | Annual | Legume   | Brassica | Grass    | Mix        |
+  |                    | Grass  | (clover, | (radish  | (rye,    |            |
+  |                    | (rye)  | vetch)   | turnip)  | oat)     | (multi-sp) |
+  +--------------------+--------+----------+----------+----------+------------+
+  | Erosion protection | *****  | ***      | ***      | ****     | *****      |
+  | N catch crop       | *****  | **       | ****     | *****    | ****       |
+  | N fixation (BNF)   | none   | *****    | none     | none     | ***        |
+  | Compaction relief  | **     | *        | *****    | **       | ***        |
+  | Weed suppression   | *****  | ***      | ****     | ****     | *****      |
+  | Biomass/OM return  | *****  | ***      | **       | ***      | ****       |
+  | Spring termination | easy   | easy     | self     | moderate | moderate   |
+  +--------------------+--------+----------+----------+----------+------------+
   * = low benefit; ***** = high benefit
 ```
 
@@ -540,7 +559,7 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
   | Aggregate stability          | Wet sieve        | Structure; erosion   |
   | (MWD, WSA)                   |                  | resistance           |
   +------------------------------+------------------+-----------------------+
-  | Earthworm counts             | Monolith method  | Macro-fauna activity;|
+  | Earthworm counts             | Monolith method  | Macro-fauna activity; |
   |                              | (0.25 m² × 20 cm)| aeration + casting    |
   +------------------------------+------------------+-----------------------+
   | Infiltration rate            | Single ring       | Macropore condition; |
