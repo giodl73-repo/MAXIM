@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:french-cuisine
+kind: guide
+module: culinary-history
+section: culinary-history
+title: French Cuisine - The Brigade System, Sauces Mères, and Codified Cooking
+status: source-custody
+source_custody: partial
+current_path: culinary-history/05-FRENCH-CUISINE.md
+canonical_path: culinary-history/05-FRENCH-CUISINE.md
+backsource_ids: [proof-backfill:culinary-history:05-french-cuisine, git-history:culinary-history:05-french-cuisine]
+concepts: [french, cuisine]
+root_concepts: [french, cuisine]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # French Cuisine — The Brigade System, Sauces Mères, and Codified Cooking
 
 ## The Big Picture

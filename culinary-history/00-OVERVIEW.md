@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:overview
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Culinary History - Overview
+status: source-custody
+source_custody: partial
+current_path: culinary-history/00-OVERVIEW.md
+canonical_path: culinary-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:culinary-history:00-overview, git-history:culinary-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Culinary History — Overview
 
 ## The Big Picture: Cooking as Technology

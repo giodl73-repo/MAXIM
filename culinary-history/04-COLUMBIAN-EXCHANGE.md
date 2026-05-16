@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:columbian-exchange
+kind: guide
+module: culinary-history
+section: culinary-history
+title: The Columbian Exchange - The Most Consequential Food Event in History
+status: source-custody
+source_custody: partial
+current_path: culinary-history/04-COLUMBIAN-EXCHANGE.md
+canonical_path: culinary-history/04-COLUMBIAN-EXCHANGE.md
+backsource_ids: [proof-backfill:culinary-history:04-columbian-exchange, git-history:culinary-history:04-columbian-exchange]
+concepts: [columbian, exchange]
+root_concepts: [columbian, exchange]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Columbian Exchange — The Most Consequential Food Event in History
 
 ## The Big Picture

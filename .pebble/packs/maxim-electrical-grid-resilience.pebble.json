@@ -1,0 +1,4297 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-electrical-grid-resilience",
+  "source": "../../electrical-grid",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-RESILIENCE.md#000",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "# Electrical Grid — Grid Resilience and Restoration\n## N-1 Planning, Cascading Failures, Hardening, and Black Start"
+    },
+    {
+      "id": "09-RESILIENCE.md#001",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#002",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Resilience Layers"
+    },
+    {
+      "id": "09-RESILIENCE.md#003",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nRESILIENCE ARCHITECTURE (defense in depth):"
+    },
+    {
+      "id": "09-RESILIENCE.md#004",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LAYER 1: PREVENTION\n  N-1 security standards (grid can survive any single failure)\n  Vegetation management (prevent line-tree contacts)\n  Equipment maintenance (prevent equipment failures)\n  Physical security (protect substations)\n  Cybersecurity (NERC CIP)"
+    },
+    {
+      "id": "09-RESILIENCE.md#005",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LAYER 2: DETECTION AND SITUATIONAL AWARENESS\n  Protection relays (detect faults in <1 cycle)\n  SCADA/EMS (system-wide visibility, 4-second updates)\n  PMU wide-area monitoring (30-120 samples/sec)\n  NERC real-time data sharing between utilities\n  Operator training and procedures"
+    },
+    {
+      "id": "09-RESILIENCE.md#006",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LAYER 3: AUTOMATIC PROTECTION RESPONSE\n  Protection relays trip faulted elements (<100 ms)\n  Automatic reclosers (restore transient faults, seconds)\n  UFLS (under-frequency load shedding, seconds)\n  UVLS (under-voltage load shedding, seconds)\n  Generator protection (prevent equipment damage)"
+    },
+    {
+      "id": "09-RESILIENCE.md#007",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LAYER 4: CORRECTIVE ACTIONS (operator)\n  Redispatch generation away from congested paths\n  Manual switching to restore loads\n  Emergency procedures (controlled separation)\n  Mutual aid requests to neighboring utilities"
+    },
+    {
+      "id": "09-RESILIENCE.md#008",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LAYER 5: RESTORATION\n  Black start sequence (re-energize from scratch)\n  Load pickup in stages\n  Synchronization of isolated islands back to interconnection\n  Storm restoration (physical repair)"
+    },
+    {
+      "id": "09-RESILIENCE.md#009",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "The layers usually work as defense in depth: earlier layers prevent or slow the\nevent, later layers contain damage or restore service.\nIf layer 2 (situational awareness) fails, layer 4 fails. This is exactly what\nhappened in the 2003 Northeast Blackout.\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#010",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#011",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## N-1 Security Criterion"
+    },
+    {
+      "id": "09-RESILIENCE.md#012",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "**Definition:** The planned grid should remain stable and serve firm load for defined single-element contingencies -- a generator, line, transformer, or other specified element -- under the assumptions in the applicable reliability standard."
+    },
+    {
+      "id": "09-RESILIENCE.md#013",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "This is the fundamental transmission planning and operations standard in North America (NERC TPL standards) and most of the world."
+    },
+    {
+      "id": "09-RESILIENCE.md#014",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nN-1 ANALYSIS:"
+    },
+    {
+      "id": "09-RESILIENCE.md#015",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "System has N elements (generators, lines, transformers)\n  N-1 contingency: simulate each of the N elements failing\n  For each contingency:\n    • Do voltages remain within acceptable range (0.95-1.05 pu)?\n    • Do power flows stay below thermal limits?\n    • Does frequency stay within acceptable range?\n    • Is the system transient-stable (generators don't lose synchronism)?\n  If any contingency causes a violation: INSECURE"
+    },
+    {
+      "id": "09-RESILIENCE.md#016",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Remedies for N-1 violations:\n    • Redispatch: change generation pattern to reduce flows on at-risk lines\n    • Build transmission (long-term)\n    • Install FACTS devices (longer-term)\n    • Define operational limits (short-term): \"don't exceed X MW on this path\"\n      until transmission is built"
+    },
+    {
+      "id": "09-RESILIENCE.md#017",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "N-1-1 (DOUBLE CONTINGENCY):\n  The \"N-1\" criterion is a planning standard, not always an operational standard.\n  After the first contingency, the system is in an N-1 state — now any second\n  failure (N-1-1) becomes the challenge.\n  NERC P5 category: multiple elements failing simultaneously (rare but analyzed)\n  Extreme weather planning: consider multiple failures simultaneously"
+    },
+    {
+      "id": "09-RESILIENCE.md#018",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "REGIONAL DELIVERY STANDARDS (NERC TPL):\n  TPL-001: Normal system (no contingency) — all voltages, flows in range\n  TPL-001 P1: Single contingency (N-1) — no load loss; voltage/flow OK\n  TPL-001 P2: Single contingency (N-2 simultaneous, rare) — limited load loss OK\n  TPL-001 P3: Multiple contingencies — some load loss acceptable\n  TPL-001 P4-P7: Extreme events — significant load loss acceptable; stability maintained\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#019",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#020",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## How Cascading Failures Work"
+    },
+    {
+      "id": "09-RESILIENCE.md#021",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "When a line trips, power automatically redistributes to remaining lines per Kirchhoff's laws. If remaining lines are near their thermal limits, the redistributed power can push them over — triggering more trips — triggering more redistribution — exponential cascade."
+    },
+    {
+      "id": "09-RESILIENCE.md#022",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nCASCADE MECHANICS:"
+    },
+    {
+      "id": "09-RESILIENCE.md#023",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "INITIAL STATE (simplified 4-bus system):\n  Gen A ─── Line 1 (400 MW, limit 500 MW) ─── Load Center\n    │                                               │\n    │                                              (500 MW load)\n    └─── Line 2 (100 MW, limit 500 MW) ─── ───────┘"
+    },
+    {
+      "id": "09-RESILIENCE.md#024",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Total: 500 MW load; 400 MW via Line 1, 100 MW via Line 2"
+    },
+    {
+      "id": "09-RESILIENCE.md#025",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "STEP 1: Line 1 trips (tree contact, overcurrent, fault)\n  Kirchhoff: ALL power must now flow via Line 2\n  Line 2 load: 100 MW → 500 MW (5× increase)\n  Line 2 thermal limit: 500 MW → AT LIMIT → 500 MW for a while (emergency rating)"
+    },
+    {
+      "id": "09-RESILIENCE.md#026",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "STEP 2: If Line 2 can't sustain 500 MW (exceeds emergency rating OR trips):\n  Line 2 trips\n  Load center loses power entirely — outage begins"
+    },
+    {
+      "id": "09-RESILIENCE.md#027",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "REAL SYSTEMS: Thousands of buses, thousands of lines, meshed topology\n  A single line trip redistributes power to MANY parallel paths simultaneously\n  If the system was already loaded (summer peak, few margins):\n    Multiple lines simultaneously approach or exceed thermal limits\n    Many trips in rapid succession\n    Cascade accelerates exponentially"
+    },
+    {
+      "id": "09-RESILIENCE.md#028",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "CRITICAL INSIGHT: Once a cascade passes a \"tipping point,\" no corrective action\ncan stop it. You either prevent it or restore from scratch.\nThis is exactly analogous to a database cascade delete or a distributed system\nthundering herd problem that overwhelms all queues simultaneously.\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#029",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#030",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## The 2003 Northeast Blackout: Complete Analysis"
+    },
+    {
+      "id": "09-RESILIENCE.md#031",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "The most thoroughly studied grid failure in history. Every grid engineer has read the NERC investigation. It contains every failure mode: technical, organizational, software, and human."
+    },
+    {
+      "id": "09-RESILIENCE.md#032",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Chronology (August 14, 2003)"
+    },
+    {
+      "id": "09-RESILIENCE.md#033",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "**Background:** Extreme heat in the Midwest and Great Lakes; peak demand day. All utilities were operating at high loads. Several units already offline for maintenance."
+    },
+    {
+      "id": "09-RESILIENCE.md#034",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\n08:02 EDT: FirstEnergy's Eastlake Unit 5 (677 MW, coal) trips offline\n  Voltage in NE Ohio / SE Michigan begins to decline\n  FirstEnergy import flows increase"
+    },
+    {
+      "id": "09-RESILIENCE.md#035",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "10:14 EDT: FE's Chamberlin-Harding 345 kV line trips\n  Contact with tree in unpruned ROW (catenary sag + tree growth)\n  Redistributes ~700 MW to other 345 kV lines and 138 kV network\n  Should be flagged as N-1 violation — but alarm system fails"
+    },
+    {
+      "id": "09-RESILIENCE.md#036",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "12:15 EDT: FE's EMS (GE XA/21) alarm processor crashes\n  RACE CONDITION in multi-threaded code:\n    Alarm processor thread and display update thread compete for a data structure\n    One thread acquired lock; other thread corrupted the structure\n    Result: alarm processor silently stops processing alarms\n    Display shows stale data; no new alarms reach operators\n  Backup process: DOES NOT detect that alarm processor is dead\n    → No fail-over; no alert to operators\n  Duration of operator blindness: ~90 MINUTES\n  Operators see system that appears \"quiet\"; they cannot see 5 subsequent line trips"
+    },
+    {
+      "id": "09-RESILIENCE.md#037",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "13:31 EDT: FE's Harding-Chamberlin 345 kV line trips (same route, different circuit)\n  Contacts tree in same unpruned ROW\n  No alarm delivered to operators\n  Adjacent utilities (PJM, MISO, neighboring) begin to see unusual voltage angles\n  but do not communicate urgency to FirstEnergy (no cross-utility real-time sharing)"
+    },
+    {
+      "id": "09-RESILIENCE.md#038",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "14:02 EDT: FE's Star-Juniper 345 kV line trips\n  Overloaded from previous trips; exceeds thermal limit; trips on overcurrent\n  OPERATORS STILL DON'T KNOW about any of the previous three 345 kV trips"
+    },
+    {
+      "id": "09-RESILIENCE.md#039",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "14:14 EDT: FE's Juniper-Starline 345 kV line trips\n  Same mechanism: overload + thermal trip"
+    },
+    {
+      "id": "09-RESILIENCE.md#040",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "14:27 EDT: FE's Star-South Canton 345 kV line trips\n  NOW: FE's 345 kV network is critically compromised\n  Load has been shifting to 138 kV sub-transmission network\n  138 kV lines are now severely overloaded"
+    },
+    {
+      "id": "09-RESILIENCE.md#041",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "15:05 EDT: FE's Sammis-Star 345 kV line trips (the critical one)\n  This was a major backbone line\n  After this: Ohio/Michigan voltage begins to collapse\n  Power begins flowing backward on some lines\n  AEP (adjacent utility) starts seeing abnormal conditions\n  Operators at FE, PJM, MISO start making phone calls (without good data)"
+    },
+    {
+      "id": "09-RESILIENCE.md#042",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "15:39 EDT: Michigan begins losing voltage fast; operators scrambling"
+    },
+    {
+      "id": "09-RESILIENCE.md#043",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "16:05:57 EDT: CRITICAL POINT — cascade becomes irreversible\n  In approximately 9 seconds:\n    263 power plants trip (underfrequency and undervoltage protection)\n    Including most nuclear plants (automatic safety trips)\n    Including 85% of New York City's generation\n    Power flows split into multiple disconnected islands\n    Each island has severe supply-demand imbalance"
+    },
+    {
+      "id": "09-RESILIENCE.md#044",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "16:10 EDT: Northeast US + Ontario in complete blackout"
+    },
+    {
+      "id": "09-RESILIENCE.md#045",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "AFFECTED:\n  8 US states: Ohio, Michigan, Pennsylvania, New York, New Jersey, Connecticut, Massachusetts, Vermont\n  1 Canadian province: Ontario\n  55 million people\n  ~61.8 GW of generation offline (6× the largest single unit)\n  63,000 MW of load dropped\n  Estimated economic cost: $6-10 billion\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#046",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### What Would Have Stopped It"
+    },
+    {
+      "id": "09-RESILIENCE.md#047",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "The cascade had multiple \"save points\" — moments where information or action could have interrupted it:"
+    },
+    {
+      "id": "09-RESILIENCE.md#048",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nSAVE POINTS:"
+    },
+    {
+      "id": "09-RESILIENCE.md#049",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "09:00-10:30: If FE had done ROW vegetation management (NERC FAC-003 now mandates)\n               → Chamberlin-Harding never trips (tree contact prevented)"
+    },
+    {
+      "id": "09-RESILIENCE.md#050",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "12:00-13:00: If alarm processor had a functioning watchdog (software reliability)\n               → Operators see the N-1 violations immediately\n               → Standard response: emergency de-energize and redispatch"
+    },
+    {
+      "id": "09-RESILIENCE.md#051",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "13:30-14:30: If cross-utility real-time situational awareness existed\n               → PJM and MISO see FE's deteriorating situation\n               → Can take emergency actions: curtail flows, redispatch\n               → Equivalent to multi-cluster distributed system monitoring"
+    },
+    {
+      "id": "09-RESILIENCE.md#052",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "14:30-15:30: If operators at FE had current alarm data\n               → Could have implemented emergency load curtailment\n               → Could have initiated controlled separation before cascade\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#053",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Root Causes (NERC/DOE Joint Report, 2004)"
+    },
+    {
+      "id": "09-RESILIENCE.md#054",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nROOT CAUSE HIERARCHY:"
+    },
+    {
+      "id": "09-RESILIENCE.md#055",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "PRIMARY (necessary conditions):\n  1. FE's inadequate ROW vegetation management\n     → Multiple 345 kV lines trip due to tree contact"
+    },
+    {
+      "id": "09-RESILIENCE.md#056",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "2. FE's EMS alarm system software failure\n     → Operators blind for 90 minutes"
+    },
+    {
+      "id": "09-RESILIENCE.md#057",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "CONTRIBUTING (made cascade irreversible):\n  3. FE's insufficient real-time situational awareness tools\n     → Even without alarms, operators couldn't diagnose by other means"
+    },
+    {
+      "id": "09-RESILIENCE.md#058",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "4. Inadequate cross-utility information sharing in real time\n     → Adjacent utilities couldn't help FE diagnose"
+    },
+    {
+      "id": "09-RESILIENCE.md#059",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "5. FE failed to properly assess and understand the deteriorating situation\n     → Management/operator training and procedures inadequate"
+    },
+    {
+      "id": "09-RESILIENCE.md#060",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "SYSTEMIC (systemic vulnerabilities exposed):\n  6. NERC standards voluntary, not mandatory\n     → No penalty for non-compliance with vegetation management\n  7. No mandatory real-time data sharing between utilities\n     → PJM had data FE didn't; sharing would have helped"
+    },
+    {
+      "id": "09-RESILIENCE.md#061",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCE:\n  Energy Policy Act of 2005:\n  → NERC granted mandatory enforcement authority\n  → FERC approves/oversees NERC CIP standards\n  → Fines up to $1M/day per violation\n  All of the systemic issues are now addressed in mandatory standards.\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#062",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#063",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Protection System Failures and Cascades"
+    },
+    {
+      "id": "09-RESILIENCE.md#064",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Not all cascades start with vegetation. Protection system design errors can also trigger cascades."
+    },
+    {
+      "id": "09-RESILIENCE.md#065",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Sequential Tripping and Distance Relay Coordination"
+    },
+    {
+      "id": "09-RESILIENCE.md#066",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nZONE 2 OVERREACH PROBLEM:"
+    },
+    {
+      "id": "09-RESILIENCE.md#067",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Line AB has Zone 2 protection that covers 130% of Line AB\n  (extends 30% into the next line BC)"
+    },
+    {
+      "id": "09-RESILIENCE.md#068",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Fault on line AB, near end B → Zone 1 at A trips immediately ✓\n  Simultaneous: Zone 2 at end C of line BC \"sees\" fault through transformer\n    → trips line BC after 300ms time delay ✓ (normal coordination)"
+    },
+    {
+      "id": "09-RESILIENCE.md#069",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "BUT: If line BC was already highly loaded:\n    Tripping BC at T+300ms → redistributes load to line BD\n    If BD is at its limit → BD thermal trips at T+600ms\n    → cascade continues"
+    },
+    {
+      "id": "09-RESILIENCE.md#070",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Solution: Pilot protection (current differential)\n    Compares currents at both ends in real-time (fiber channel)\n    Only trips for faults INSIDE the protected section\n    Eliminates Zone 2 overreach risk for internal faults\n    Used on most critical transmission lines"
+    },
+    {
+      "id": "09-RESILIENCE.md#071",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "SYMPATHETIC TRIPPING:\n  A protection relay trips on a fault that is NOT in its protected zone\n  Causes: CT saturation during high fault current (CT output clips),\n          inadequate directional elements, power swings\n  Effect: can cause simultaneous loss of multiple lines during a major fault\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#072",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#073",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Ukraine Grid Cyberattacks: The New Threat Vector"
+    },
+    {
+      "id": "09-RESILIENCE.md#074",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Physical attacks on the grid are decades old. Coordinated cyber attacks that mimic physical failures are new and demonstrate that the threat model must expand."
+    },
+    {
+      "id": "09-RESILIENCE.md#075",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Ukraine 2015 (BlackEnergy)"
+    },
+    {
+      "id": "09-RESILIENCE.md#076",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nATTACK VECTOR AND METHOD:\n  Vector: Targeted spear-phishing emails to employees of 3 Ukrainian energy companies\n          Attachment: malicious Microsoft Word document with macro (BlackEnergy trojan)\n          Once macro ran: BlackEnergy installed, established C2 (command and control)"
+    },
+    {
+      "id": "09-RESILIENCE.md#077",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Preparation (months):\n    Lateral movement from IT → OT network (similar to Colonial Pipeline but intentional)\n    Installed remote access tools on SCADA HMI workstations\n    Exfiltrated substation diagrams, operator manuals, VPN credentials"
+    },
+    {
+      "id": "09-RESILIENCE.md#078",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Attack day (December 23, 2015):\n    ~30 operators simultaneously hit Ctrl+C on active sessions → locked out\n    Attackers used legitimate SCADA software (ASUE) via compromised HMI\n    Manually opened ~230 circuit breakers at 27 distribution substations\n    Simultaneously launched telephone DoS attack → operators can't call for help\n    Installed KillDisk wiper on workstations → erased MBR → systems unbootable"
+    },
+    {
+      "id": "09-RESILIENCE.md#079",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Impact: 6 distribution companies, 225,000 customers, 3-6 hours\n          Manual operation required for restoration (lost remote access)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#080",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Ukraine 2016 (Industroyer/CrashOverride)"
+    },
+    {
+      "id": "09-RESILIENCE.md#081",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nFAR MORE SOPHISTICATED:\n  Target: Ukrenergo (transmission operator, higher-value target)\n  Malware: Industroyer (aka CrashOverride)"
+    },
+    {
+      "id": "09-RESILIENCE.md#082",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Unique characteristics vs 2015:\n    AUTOMATED: Could execute attack without human operator after initial infection\n    PROTOCOL-AWARE: Included modules specifically targeting:\n      IEC 60870-5-101 (serial SCADA), IEC 60870-5-104 (IP SCADA)\n      IEC 61850 (GOOSE protocol), OPC DA (Windows SCADA standard)\n    → Could issue control commands in native substation protocols\n    → Not just \"use the SCADA GUI\" but \"speak the protocols directly\""
+    },
+    {
+      "id": "09-RESILIENCE.md#083",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Attack (December 17, 2016):\n    Opened circuit breakers at Pivnichna substation (near Kiev)\n    ~75 minutes, 20% of Kiev load\n    Used \"wiper\" to erase relay firmware and communication device configs\n    → Extended restoration time (had to reflash firmware)"
+    },
+    {
+      "id": "09-RESILIENCE.md#084",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Significance:\n    First malware designed specifically for substation automation systems\n    Protocol-level attack means even air-gapped OT systems vulnerable if\n    protocols are accessible on any network segment\n    Sets template for future ICS (industrial control system) attacks\n    Industroyer2 appeared in Ukraine March 2022 (Sandworm/GRU again)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#085",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#086",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Grid Hardening Strategies"
+    },
+    {
+      "id": "09-RESILIENCE.md#087",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Physical Hardening"
+    },
+    {
+      "id": "09-RESILIENCE.md#088",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nPHYSICAL HARDENING PRIORITIES:"
+    },
+    {
+      "id": "09-RESILIENCE.md#089",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "1. Critical substation protection:\n   High-impact substations (NERC EOP-010): physical perimeter security\n   Concrete/bollard barriers (vehicle-borne threat)\n   CCTV with video analytics\n   Security guards at highest-risk sites\n   Backup transformer storage program (Department of Energy SpareConnect):\n     Large power transformers (LPT): 18-24 month lead time to replace\n     Strategic Reserve: stockpile of critical transformers at secure locations\n     EMP/GMD hardening: Faraday shielding for control electronics"
+    },
+    {
+      "id": "09-RESILIENCE.md#090",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "2. Transmission ROW maintenance (NERC FAC-003):\n   Mandatory clearances between conductor and vegetation\n   Annual inspection requirements\n   LiDAR surveys (aerial scanning to identify trees within clearance zones)\n   Minimum clearances:\n     230 kV: 12-20 ft depending on line voltage and terrain\n     500 kV: 20-30 ft\n     765 kV: 30-40 ft\n   Penalty: $25,000-$1,000,000 per violation per day"
+    },
+    {
+      "id": "09-RESILIENCE.md#091",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "3. Underground transmission investment:\n   For the highest-criticality urban corridors (very expensive but resilient)\n   Underground transmission immune to weather, vegetation, aircraft\n   Example: NYC has extensive underground transmission (Consolidated Edison)\n            but even cities with underground face flood risk (Sandy 2012)"
+    },
+    {
+      "id": "09-RESILIENCE.md#092",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "4. Mobile substations / transformer storage:\n   Pre-positioned mobile substations (on flatbed trucks)\n   Can be deployed within hours for distribution outages\n   Cannot replace large transmission transformers (weight/size constraints)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#093",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Storm Hardening"
+    },
+    {
+      "id": "09-RESILIENCE.md#094",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Utility storm hardening programs have accelerated since multiple major weather events:"
+    },
+    {
+      "id": "09-RESILIENCE.md#095",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "| Event | Impact | Lessons |\n|-------|--------|---------|\n| Hurricane Katrina (2005) | New Orleans utilities destroyed; 1.5M customers, months | Flood resilience for underground; fuel for generators |\n| Superstorm Sandy (2012) | 8.5M customers, 2 weeks | Coastal flooding of underground systems; floodgates for substations |\n| Hurricane Michael (2018) | Florida Panhandle; 700,000 customers, weeks | Steel/concrete poles for coastal; proactive undergrounding |\n| Hurricane Maria (2017) | Puerto Rico grid destroyed; 3.3M customers, 11 months | Fragile single-point-of-failure design; distributed microgrids needed |\n| Winter Storm Uri (2021) | Texas; 4.5M customers, days | Weatherization of generators, gas infrastructure |\n| Hurricane Ian (2022) | SW Florida; 2.5M customers, weeks | |"
+    },
+    {
+      "id": "09-RESILIENCE.md#096",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "**Florida Power & Light hardening program (post-Wilma 2005):**\n- Invested $4B over 15 years in hardening\n- Replaced ~30% of wood poles with concrete/steel\n- Undergrounded ~1,000 miles of distribution\n- Result: Irma (2017, major Cat 4): FPL restored 99% of customers in 3 days\n  vs non-hardened utilities: weeks"
+    },
+    {
+      "id": "09-RESILIENCE.md#097",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#098",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Black Start: Restoring the Grid from Zero"
+    },
+    {
+      "id": "09-RESILIENCE.md#099",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "After a total collapse, the grid is dark — no generation, no load. Restoration must build up from nothing."
+    },
+    {
+      "id": "09-RESILIENCE.md#100",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nBLACK START CHALLENGE:\n  Starting a large steam or nuclear plant requires:\n    - Station service power (4-8% of rated output for pumps, fans, controls)\n    - From... where? The grid is dead."
+    },
+    {
+      "id": "09-RESILIENCE.md#101",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Solution: BLACK START UNITS — generators that can start without external power"
+    },
+    {
+      "id": "09-RESILIENCE.md#102",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Black start capable generators:\n    Hydro: Self-contained, no auxiliary power needed, fast start (seconds)\n    Gas turbine CT: Battery-start capable; 10-15 minutes\n    Diesel generator: Smallest scale; used for substation auxiliary\n    Gas reciprocating engine: Fast, battery start\n    Battery storage (large): Can directly energize and support cranking of other units\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#103",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Black Start Sequence"
+    },
+    {
+      "id": "09-RESILIENCE.md#104",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nGRID RESTORATION SEQUENCE (simplified, for a major outage):"
+    },
+    {
+      "id": "09-RESILIENCE.md#105",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "PHASE 1: ENERGIZE CRANKING PATHS (0-2 hours)\n  1. Black-start generator at plant A energizes its own auxiliary systems\n  2. Slowly energizes a transmission path (one line at a time)\n     → Light the path: check for faults before energizing\n     → Close breakers in stages; no load yet (charging the line capacitance)\n  3. Reach an offline generator plant (Plant B)\n  4. Use Plant A output as \"house load\" for Plant B\n  5. Start Plant B with its station service load only"
+    },
+    {
+      "id": "09-RESILIENCE.md#106",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "PHASE 2: STABLE ISLAND FORMATION (2-6 hours)\n  6. Plant B brings first unit online; Plants A and B synchronize\n  7. Form a stable island: small load (neighborhood) added carefully\n     → Frequency must stay at 60 Hz before adding load\n     → Add load in small increments; watch frequency\n  8. Other black start units form separate islands\n  9. Islands expand by energizing more transmission, cranking more generation"
+    },
+    {
+      "id": "09-RESILIENCE.md#107",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "PHASE 3: SYNCHRONIZATION OF ISLANDS (6-12 hours)\n  10. Adjacent islands are separately stable\n  11. SYNCHRONIZATION: Adjust frequency, voltage, and phase angle\n      of island A to match island B (within ± 0.1 Hz, ±5% voltage, ±10° angle)\n      → Close the interconnecting breaker → islands merge\n  12. Continue island formation + synchronization"
+    },
+    {
+      "id": "09-RESILIENCE.md#108",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "PHASE 4: FULL RESTORATION (12-72 hours, depending on scope)\n  13. Large thermal units (coal, nuclear) take hours to start from cold\n  14. NUCLEAR: Cannot black-start → must receive power from outside to start\n      This is why nuclear-heavy grids need guaranteed cranking paths\n      from non-nuclear black start units to nuclear sites\n  15. Continue load pickup; monitor frequency stability"
+    },
+    {
+      "id": "09-RESILIENCE.md#109",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "RESTORE 99% OF LOAD: 12-72 hours for major regional outage\n  (2003 Northeast: most areas restored in 12-24 hours)\n  (Puerto Rico Hurricane Maria: 11 months for 100% restoration — destroyed infrastructure)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#110",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Frequency Drift During Restoration"
+    },
+    {
+      "id": "09-RESILIENCE.md#111",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nRESTORATION ISLAND STABILITY:"
+    },
+    {
+      "id": "09-RESILIENCE.md#112",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "During restoration: island has limited generation, limited load\n  Critical: frequency stays at 60 Hz within island"
+    },
+    {
+      "id": "09-RESILIENCE.md#113",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Adding load too fast: frequency drops (load > generation)\n  → Trip the load block → retry"
+    },
+    {
+      "id": "09-RESILIENCE.md#114",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "RATE LIMITS for load pickup:\n    Typical: add no more than 5% of island capacity per step\n    Wait for frequency to stabilize before next step (30-60 seconds)\n    Monitor ROCOF: if > ±0.1 Hz/s, stop adding load"
+    },
+    {
+      "id": "09-RESILIENCE.md#115",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "FREQUENCY CONTROL SEQUENCE:\n    Primary: governor response (automatic)\n    Secondary: operator adjusts dispatch manually (during restoration,\n               no AGC — too few units, too unstable)\n    Manual = operators watching frequency on displays, adjusting setpoints\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#116",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#117",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Resilience Planning: N-1, N-2, and Extreme Events"
+    },
+    {
+      "id": "09-RESILIENCE.md#118",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### NERC Transmission Planning Standards (TPL)"
+    },
+    {
+      "id": "09-RESILIENCE.md#119",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nNERC TPL-001 CATEGORIES:"
+    },
+    {
+      "id": "09-RESILIENCE.md#120",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Category  Event                           Required Response\n─────────────────────────────────────────────────────────────────────────────\nP0        No contingency (normal)         All limits within normal range\nP1        Single element loss (N-1)       No load loss; voltage/flow within range\nP2        Single element + fault (N-1-1)  No load loss; temporary violations OK\n           (e.g., line + bus fault)\nP3        Two element loss (N-2)          Limited load loss acceptable\n           (e.g., common tower dual circuit)\nP4        Delayed clearing (protection    Load loss acceptable; stability maintained\n           failure)\nP5        Extreme event (multiple         Widespread load loss; stability critical\n           simultaneous failures)\nP6        Extreme event (three or more)   Best-effort containment; stability\nP7        Electromagnetic pulse (EMP)     System remains energizable after event\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#121",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "### Reliability Metrics Beyond SAIDI/SAIFI"
+    },
+    {
+      "id": "09-RESILIENCE.md#122",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nBULK SYSTEM RELIABILITY METRICS (transmission level):"
+    },
+    {
+      "id": "09-RESILIENCE.md#123",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "EEU (Expected Unserved Energy): Expected MWh of load not served per year\n    Calculated from Monte Carlo simulation of random failure events\n    Units: MWh/year\n    Typical target: < 0.01% of annual energy (< 1 part in 10,000)"
+    },
+    {
+      "id": "09-RESILIENCE.md#124",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LOLP (Loss of Load Probability): Probability that demand exceeds available supply\n    on any given hour\n    Target: 0.1 days/year (1 event per 10 years = \"1-in-10\" reliability standard)"
+    },
+    {
+      "id": "09-RESILIENCE.md#125",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LOLE (Loss of Load Expectation): Expected hours per year where demand exceeds supply\n    Units: hours/year or days/year\n    NERC standard for resource adequacy: ≤ 0.1 days/year = 2.4 hours/year"
+    },
+    {
+      "id": "09-RESILIENCE.md#126",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "DISTRIBUTION METRICS:\n  SAIDI: System Average Interruption Duration Index (min/customer/yr)\n  SAIFI: System Average Interruption Frequency Index (interruptions/customer/yr)\n  CAIDI: SAIDI/SAIFI = minutes per interruption (restoration time)\n  ASAI: (8760×60 - SAIDI) / (8760×60) ≈ availability (99.99% = 52.6 min/yr SAIDI)\n  CEMI-N: Customers experiencing more than N interruptions per year"
+    },
+    {
+      "id": "09-RESILIENCE.md#127",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "ASAI:     Average Service Availability Index\n            = (Customer hours available) / (Customer hours demanded)\n            Target: 99.98% (≈ 100 min SAIDI) for suburban residential\n            World-class: 99.999%+ (< 5 min SAIDI — Japan, some European utilities)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#128",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#129",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Islanding: Intentional vs Unintentional"
+    },
+    {
+      "id": "09-RESILIENCE.md#130",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nISLANDING TYPES:"
+    },
+    {
+      "id": "09-RESILIENCE.md#131",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "UNINTENTIONAL (dangerous):\n  Distribution feeder trips upstream breaker\n  DER (solar, CHP) on feeder continues to energize the isolated section\n  Problems:\n    1. Linemen: assume feeder is dead (safe to work on) → electrocution risk\n    2. Out-of-phase reconnection: when feeder reconnects, if DER island\n       has drifted in frequency/phase → massive current inrush → equipment damage\n    3. Voltage: DER may not maintain proper voltage → equipment damage to loads"
+    },
+    {
+      "id": "09-RESILIENCE.md#132",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "IEEE 1547 ANTI-ISLANDING REQUIREMENTS:\n    All DERs must detect island condition and trip within 2 seconds\n    Detection methods: frequency drift (islanded load changes frequency),\n                       voltage change, ROCOF, active injection methods (Sandia)"
+    },
+    {
+      "id": "09-RESILIENCE.md#133",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "INTENTIONAL (microgrids):\n  Designed to island safely with proper control\n  Requirements:\n    Grid-forming source (establishes V and f reference in island)\n    Controlled boundary (PCC switch opens intentionally)\n    Load shedding coordination (shed non-critical loads if generation insufficient)\n    Resynchronization capability (when main grid restored, synchronize before reconnect)\n    Must comply with IEEE 1547-2018 interconnection requirements"
+    },
+    {
+      "id": "09-RESILIENCE.md#134",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "USE CASES:\n    Hurricane resilience (hospitals, emergency services)\n    Military bases (secure, resilient energy supply)\n    Island communities (no alternative to grid anyway)\n    Industrial facilities (continuous process requires reliability)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#135",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#136",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Hurricane Maria (Puerto Rico 2017): What Not To Do"
+    },
+    {
+      "id": "09-RESILIENCE.md#137",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Puerto Rico's power system in 2017 was arguably the most fragile major grid in the US when Hurricane Maria made direct landfall as a Category 4 storm (September 20, 2017)."
+    },
+    {
+      "id": "09-RESILIENCE.md#138",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nPRE-STORM CONDITIONS:\n  PREPA (Puerto Rico Electric Power Authority):\n    Public utility, technically insolvent ($9B debt)\n    Deferred maintenance for years (insufficient funds)\n    Aging infrastructure: average transformer age > 40 years\n    Single island grid — no backup from mainland (geography)\n    Heavily dependent on fuel oil generation (expensive, supply chain fragile)\n    Very little distributed generation or storage\n    No microgrids worth mentioning\n    Concentrated generation in south (Aguirre, AES) with long transmission to north"
+    },
+    {
+      "id": "09-RESILIENCE.md#139",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "DURING STORM:\n  Maria made direct hit with 155 mph sustained winds\n  Essentially every distribution pole and many transmission structures damaged\n  All 2.5 GW of transmission capacity: offline within hours\n  3.3 million customers: 100% without power"
+    },
+    {
+      "id": "09-RESILIENCE.md#140",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "RESTORATION:\n  1 month:  10% restored\n  3 months: 75% restored\n  6 months: 95% restored\n  11 months: final customers restored (some areas)\n  (Katrina/Rita by comparison: New Orleans mostly restored in ~3 months;\n   Maria 4× longer for smaller population)"
+    },
+    {
+      "id": "09-RESILIENCE.md#141",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "ROOT CAUSES OF SLOW RESTORATION:\n  1. Physical damage: extreme — not just storm hardening failure\n  2. Single-source architecture: transmission down = everything down\n  3. No distributed generation: nowhere to start\n  4. Supply chain: remote island, port access damaged\n  5. Organizational: PREPA management dysfunction\n  6. Financial: no pre-storm investment; insufficient restoration funds"
+    },
+    {
+      "id": "09-RESILIENCE.md#142",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "LESSONS APPLIED (post-Maria Puerto Rico):\n  → 18 microgrids under construction at critical facilities\n  → 100 MW battery storage (from FEMA funding)\n  → Aggressive distributed solar + storage (rooftop + community scale)\n  → Grid hardening: concrete poles on critical paths\n  → Power Purchase Agreement with renewables (reduce fuel oil dependence)\n  → Privatization of PREPA generation (LUMA Energy took over T&D)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#143",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#144",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Resilience Metrics and Improvement Programs"
+    },
+    {
+      "id": "09-RESILIENCE.md#145",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "```\nRESILIENCE vs RELIABILITY:"
+    },
+    {
+      "id": "09-RESILIENCE.md#146",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "RELIABILITY: Statistical performance during normal operations\n  Measured by: SAIDI, SAIFI, CAIDI (average outcomes)\n  Improved by: equipment maintenance, automation, vegetation management\n  Addresses: everyday faults (equipment failures, weather, animals)"
+    },
+    {
+      "id": "09-RESILIENCE.md#147",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "RESILIENCE: Ability to withstand and recover from extreme events\n  Measured by: time to restoration after major event, % customers affected\n  Improved by: hardening, redundancy, microgrids, mutual aid\n  Addresses: hurricanes, ice storms, cyberattacks, wildfires, GMD/EMP"
+    },
+    {
+      "id": "09-RESILIENCE.md#148",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "Traditional NERC metrics: SAIDI/SAIFI (reliability)\nEmerging metrics:\n  SAIDI excluding major event days (MEDs): base reliability\n  MED performance: storm/extreme event restoration time\n  VRR (Value of Resilience Ratio): $/event-hour of load served\n  REPI (Resilience Investment Prioritization Index): risk-weighted investment scoring"
+    },
+    {
+      "id": "09-RESILIENCE.md#149",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "MUTUAL AID:\n  After major storms, utilities from unaffected regions send crews\n  (line workers, tree trimmers, equipment) to help restore\n  3,000 linemen from 20 states helped restore Puerto Rico\n  800 from utilities throughout the eastern US helped restore after Superstorm Sandy\n  Mutual Aid agreements: pre-arranged, coordinated by Edison Electric Institute (EEI)\n  and regional mutual aid groups (SEMA, etc.)\n```"
+    },
+    {
+      "id": "09-RESILIENCE.md#150",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-RESILIENCE.md#151",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "09-RESILIENCE.md#152",
+      "path": [
+        "09-RESILIENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]",
+        "canonical_path": "electrical-grid/09-RESILIENCE.md",
+        "concepts": "[resilience]",
+        "current_path": "electrical-grid/09-RESILIENCE.md",
+        "id": "maxim:electrical-grid:resilience",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[resilience]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Grid Resilience and Restoration",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether N-1 is satisfied | Identify contingency class, base case, firm load, thermal limits, voltage limits, transient stability, and allowed corrective actions. | N-1 is standard-defined; it is not a promise that all real-world combinations of failures preserve service. |\n| How a cascade begins | Trace initiating trip, power redistribution, relay settings, overload timing, voltage support, operator awareness, and neighboring-system coordination. | Kirchhoff redistribution is automatic; whether it becomes a cascade depends on margins and protection action. |\n| Whether a cascade can be stopped | Look for remaining controllable resources: redispatch, switching, UVLS/UFLS, controlled separation, and emergency imports. | After loss of synchronism or widespread collapse, restoration replaces prevention. |\n| A blackout root-cause story | Separate vegetation/equipment, software/alarms, operator visibility, reliability coordination, protection action, and post-event institutional fixes. | Major blackouts are coupled socio-technical failures, not single-bullet explanations. |\n| A black-start plan | Check cranking paths, black-start units, station service, reactive support, load pickup blocks, synchronization points, and communications. | A unit that can start itself still needs a viable energized path and stable load sequence. |\n| A restoration-duration claim | Classify outage scale: intact grid trip, damaged equipment, storm access constraints, fuel logistics, or island-wide infrastructure failure. | Restoration time is dominated by damage mode, not only by the electrical black-start sequence. |\n| A microgrid/islanding claim | Verify PCC controls, grid-forming source, protection settings, load/generation balance, grounding, and resynchronization procedure. | Intentional islanding is engineered; accidental islanding is a safety and equipment risk. |\n| An adequacy metric claim | Separate LOLE, LOLH, EUE, reserve margin, weather correlation, fuel constraints, and transmission import assumptions. | A single adequacy metric can hide tail-risk shape and correlated outage exposure. |"
+    }
+  ],
+  "refs": [
+    "09-RESILIENCE.md"
+  ]
+}

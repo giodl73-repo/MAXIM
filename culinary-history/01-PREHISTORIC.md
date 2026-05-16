@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:prehistoric
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Prehistoric Cooking - Fire, Hearths, and the First Technology
+status: source-custody
+source_custody: partial
+current_path: culinary-history/01-PREHISTORIC.md
+canonical_path: culinary-history/01-PREHISTORIC.md
+backsource_ids: [proof-backfill:culinary-history:01-prehistoric, git-history:culinary-history:01-prehistoric]
+concepts: [prehistoric]
+root_concepts: [prehistoric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Prehistoric Cooking — Fire, Hearths, and the First Technology
 
 ## The Big Picture

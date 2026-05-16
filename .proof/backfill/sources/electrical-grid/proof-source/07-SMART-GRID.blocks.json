@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\07-SMART-GRID.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "SCADA ARCHITECTURE (transmission):\n\n  FIELD DEVICES                  COMMUNICATION           MASTER STATION\n  ─────────────────────────────────────────────────────────────────────\n  CTs, PTs → Analog              Dedicated fiber         EMS Master Station\n  Status contacts → Digital      SONET/SDH optical         │\n  Control points ← Commands      networks (reliable,        ├─ State Estimation\n                                  low latency)              ├─ Security Analysis\n              RTU (Remote         OR:                       ├─ Economic Dispatch\n              Terminal Unit)      Leased telecom lines      ├─ AGC Control\n              at each substation  Frame relay (legacy)      ├─ Load Forecasting\n              polls field         Microwave radio           ├─ Generation Scheduling\n              devices every       (some rural)              ├─ Operator Interface\n              2-4 seconds         OR:                       └─ Historical data\n              sends reports       IP/MPLS networks\n              to master           (modern, some CIP concerns)\n\nSCAN RATE: 4 seconds (traditional SCADA)\n  Each RTU polled every 4s → 15 data points per minute per RTU\n  A utility with 2,000 RTUs: ~30,000 points updated per minute\n  Compare to PMU: 30-120 samples/sec (7,500× more frequent)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### EMS Functions",
+      "confidence": "candidate",
+      "text": "EMS FUNCTIONAL STACK:\n\nREAL-TIME OPERATIONS:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  State Estimation: Compute full system V, I, P, Q from          │\n  │  subset of measurements (some RTUs fail; some values estimated) │\n  │  Result: real-time \"power flow snapshot\" of entire grid         │\n  │  Run: every 30-60 seconds                                       │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  Contingency Analysis (N-1 Security): Simulate each element    │\n  │  tripping; check if system remains stable for all N-1 events   │\n  │  Run: every 5-10 minutes; flags violations for operator        │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  AGC (Automatic Generation Control): Regulate frequency         │\n  │  Send regulating signals to participating generators every 4s   │\n  │  Balances ACE (Area Control Error) to zero                      │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  Economic Dispatch: Minimize fuel cost while meeting load      │\n  │  Re-dispatch every 5-15 minutes as load changes               │\n  └─────────────────────────────────────────────────────────────────┘\n\nPLANNING (lookahead):\n  Load forecasting: 1h, 4h, 24h, 7-day ahead predictions\n  Unit commitment: which generators to start/stop for next day\n  Transmission security assessment: outage scheduling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 129,
+      "heading_context": "### EMS Functions",
+      "confidence": "candidate",
+      "text": "### From SCADA to IEC 61850: The Digital Substation Revolution",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### From SCADA to IEC 61850: The Digital Substation Revolution",
+      "confidence": "candidate",
+      "text": "IEC 61850 COMMUNICATION ARCHITECTURE:\n\nTraditional (analog):                 IEC 61850 (digital):\n  CT → 5A hardwired → relay           CT → Merging Unit (digitizes at CT)\n  PT → 115V hardwired → relay            → Sampled Value (SV) stream over Ethernet\n  Relay → hardwire → breaker          Relay IED → GOOSE message → breaker IED\n  Binary signals: 30-100 copper        Binary signals: < 4ms GOOSE over LAN\n  cables per protection panel          One fiber cable per IED\n\nKEY PROTOCOL CLASSES:\n  GOOSE (Generic Object Oriented Substation Event):\n    Priority: deterministic, < 4ms end-to-end\n    Use: protection trip signals, status exchange, interlock logic\n    Transmission: multicast UDP/IP with priority 7 (IEEE 802.1Q)\n    Retry: continuous retransmission until change-of-state (no ACK needed;\n           confidence from retransmit)\n\n  Sampled Values (SV):\n    High-speed digitized V and I measurements\n    96-256 samples/cycle (5,760-15,360 samples/second at 60 Hz)\n    Replaces analog wiring from CTs/PTs to protection relays\n\n  MMS (Manufacturing Message Specification):\n    SCADA communications, slower, TCP/IP\n    Setting changes, report control, files\n\nBENEFITS:\n  ✓ Faster protection: GOOSE trips in < 4ms vs hardwired ~2ms (marginal,\n    but GOOSE enables complex logic)\n  ✓ Interoperability: IEDs from different vendors communicate via standard protocol\n  ✓ Commissioning: no hardwiring = faster, fewer errors\n  ✓ Monitoring: continuous monitoring of relay health, performance\n  CONCERN: IT/OT convergence → cybersecurity attack surface expands",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## PMUs: Wide-Area Situational Awareness",
+      "confidence": "candidate",
+      "text": "PMU MEASUREMENT AND SYNCHRONIZATION:\n\n  GPS signal → timestamp precision ~1 μs (microsecond)\n  PMU measures V and I, computes phasor (magnitude + phase angle)\n  Phase angle: referenced to GPS-synchronized UTC → absolute phase\n  (Traditional SCADA: relative phase unknown without synchrophasor)\n\n  At any point in time, all PMUs report using the same time reference\n  → Can compare phase angles at different locations across the interconnection\n  → Observe power oscillations, voltage angles, inter-area mode behavior\n\nSYNCHROPHASOR DATA:\n  C37.118 standard: 30 or 120 frames/second\n  Each frame: V magnitude, V phase angle, I magnitude, I phase angle, frequency, ROCOF\n  Communications: typically IEEE C37.118 over TCP/IP to Phasor Data Concentrator (PDC)\n  PDC: aligns and archives data from multiple PMUs\n\nUS PMU NETWORK:\n  NASPI (North American SynchroPhasor Initiative)\n  >3,000 PMUs installed on transmission grid\n  NASPInet: real-time data sharing between utilities\n  Eastern Interconnection wide-area PMU data shared across utilities\n\nAPPLICATIONS:\n  Oscillation detection: observe inter-area oscillations developing\n                        (seen as sinusoidal variation in phase angles)\n  Voltage angle: large angle differences → potential transient stability limit approaching\n  Event reconstruction: post-event analysis with high-fidelity data\n  Dynamic line rating: infer actual line loading from electrical measurements\n  Real-time model validation: compare PMU data to EMS state estimation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "## AMI: Advanced Metering Infrastructure",
+      "confidence": "candidate",
+      "text": "AMI ECOSYSTEM:\n\n  Customer Premises                   Utility\n  ─────────────────────────────────────────────────────────────────────\n  Smart meter              ←→    Communications    ←→  Meter Data\n    • 15-min interval data          network              Management\n    • Real-time voltage             (Mesh RF:            System (MDMS)\n    • Outage detection              900 MHz/2.4 GHz)\n    • Remote connect/disconnect     OR PLC (power\n    • Tamper detection              line communication)\n    • Home area network (HAN)       OR Cellular (4G/5G)\n      port for IHDs, smart\n      appliances, EV chargers\n                                                        Billing system\n                                                        OMS (Outage Mgmt)\n                                                        DRM (Demand Response)\n                                                        Analytics\n\nAMR (Automated Meter Reading, legacy): one-way drive-by reading; still reads monthly\nAMI: two-way; real-time or 15-min; enables time-of-use, demand response\n\nUS AMI DEPLOYMENT (2024):\n  ~115 million smart meters installed (~75% of all residential meters)\n  Largest deployments: Pacific Gas & Electric (10M), FPL (5M+), ComEd (4M+)\n\nDATA GENERATED:\n  15-min reads × 115M meters × 8,760 hours = ~1 trillion data points/year\n  This is serious big data infrastructure — not trivial to store, process, analyze\n  Major utilities use cloud (Azure, AWS) for AMI data processing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "## Demand Response: Load as a Resource",
+      "confidence": "candidate",
+      "text": "DR CATEGORIES:\n\n1. PRICE-RESPONSIVE (indirect control):\n   Time-of-Use (TOU): different rates at different hours\n     Peak: $0.30-0.50/kWh (2-8 PM summer weekdays)\n     Off-peak: $0.08-0.12/kWh (nights, weekends)\n     Customer shift discretionary loads → dishwasher, laundry, EV charging\n\n   Real-Time Pricing (RTP): prices change every hour or 15 min\n     Wholesale price pass-through → highly responsive large customers\n     California CAISO exports real-time prices → some industrial customers\n     respond automatically\n\n2. INCENTIVE-BASED (direct control):\n   Interruptible Rate: large industrial customers (steel mills, aluminum smelters)\n     agree to curtail on utility request; receive reduced rates year-round\n     Curtailment: hours/yr (predictable); advance notice: 30 min to 4 hours\n\n   Direct Load Control (DLC): utility can cycle central AC, water heaters\n     via radio signal or smart thermostat\n     Residential programs: 15-min on/off cycling; 3-5°F setpoint bump\n     Up to 5 kW per home × millions of homes = GW-scale\n\n   Emergency DR: last resort during extreme events; very high compensation\n     ISO-NE: up to $40,000/MWh for emergency load curtailment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### Demand Response Aggregators",
+      "confidence": "candidate",
+      "text": "AGGREGATION MODEL:\n\n  Home 1: Smart thermostat (3 kW)  ─┐\n  Home 2: Water heater (4.5 kW)    ─┤\n  Home 3: EV charger (7.2 kW)      ─┤  Aggregator platform\n  Home 4: Pool pump (1.5 kW)       ─┤  (Enel X, AutoGrid, OhmConnect)\n  ...                               ─┤  Controls load via API/radio\n  Home N: Battery storage (5 kW)   ─┘  Bids aggregate into ISO market\n\n  1,000 homes × average 3 kW = 3 MW dispatchable DR resource\n  ISO market minimum bid: 1 MW → aggregated homes qualify\n\n  Revenue split: aggregator keeps 15-30%; homeowner gets rest\n  Homeowner value: $50-200/year for minimal inconvenience\n\nDEMAND FLEXIBILITY ROADMAP:\n  2015: Simple DLC (AC cycling, limited penetration)\n  2020: Smart thermostats, Nest/Ecobee, 15M+ deployed\n  2024: EV managed charging (Ford Pro Intelligent Charge), V2G pilots\n  2026+: Home batteries + EV charging + HVAC + appliances → full home energy management",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "## DERs: Distributed Energy Resources",
+      "confidence": "candidate",
+      "text": "DER LANDSCAPE:\n\nGENERATION DERs:\n  Rooftop solar PV:     8 kW average residential system\n                        US: ~4 million residential systems, ~30 GW installed (2024)\n  Small wind:           Rare residential (<10 kW); some rural\n  Fuel cells:           BloomEnergy commercial systems (250 kW–5 MW)\n  Small CHP:            Microturbines, engine CHP (commercial/industrial)\n\nSTORAGE DERs:\n  Behind-the-meter BESS: Tesla Powerwall (13.5 kWh), LG Chem RESU\n                         US: ~200,000 residential installations (2024, growing fast)\n  EV batteries:         Nissan LEAF, Ford F-150 Lightning → Vehicle-to-Home (V2H)\n                         Ford Lightning: 98 kWh; can power average home 3-10 days\n\nFLEXIBLE LOAD DERs:\n  Smart thermostats:    15 million+ (Nest, Ecobee); 3-4 kW flexibility\n  EV chargers:          Level 2 (7.2 kW), DCFC (50-350 kW)\n  Smart water heaters:  Demand response capable, 4.5 kW\n  Pool pumps:           1-3 kW, variable speed, schedule-able\n  Smart appliances:     Washer/dryer, dishwasher\n\nTOTAL DER POTENTIAL (US):\n  Installed solar: 170 GW (end of 2024)\n  EV fleet (2030 projected): 30-50M vehicles × 7 kW L2 = 200-350 GW flexible load\n  Home batteries (2030): 10-15 GW\n  Total DER potential: 200-500 GW of flexible resources — comparable to current US peak!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "### Virtual Power Plant (VPP)",
+      "confidence": "candidate",
+      "text": "VPP ARCHITECTURE:\n\n  1,000 homes × 10 kWh home battery = 10 MW × 10 MWh aggregate resource\n  Controller receives: CAISO dispatch signal (e.g., \"need 8 MW for 4 hours\")\n  → Platform sends API commands to each home battery inverter\n  → Each battery discharges at ~8 kW\n  → Aggregate: 1,000 × 8 kW = 8 MW to grid\n  → Metered and settled at ISO market rates\n\nVPP VALUE:\n  For customers: earn $200-500/year passively\n  For utilities: avoid $50-200M transmission/substation upgrades\n  For ISO: defer peaker plant construction ($450/kW × 100 MW = $45M saved)\n  For grid: distributed resource = resilient (no single point of failure)\n\nKEY EXAMPLES:\n  Sunrun (California): 108 MW VPP from home solar + batteries (2023)\n  Green Mountain Power (Vermont): Tesla Powerwall VPP\n  OhmConnect (Texas/California): 500 MW+ aggregated smart home DR\n  Next Kraftwerke (Germany): 11+ GW aggregated DER VPP — world's largest\n  Tesla Energy (Australia): VPP of Powerwalls for SA Govt\n\nTECHNICAL REQUIREMENTS:\n  Two-way communication: Internet to each home system\n  API standards: IEEE 2030.5 (SEP 2.0), OpenADR 2.0\n  Telemetry: 1-minute interval data from each device\n  Latency: < 5 seconds for dispatch signal delivery\n  Forecasting: next 4h load/generation forecast per device\n  Aggregation math: real-time portfolio state estimation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "## Microgrids: Islands of Resilience",
+      "confidence": "candidate",
+      "text": "MICROGRID ARCHITECTURE:\n\n     MAIN GRID\n         │\n   ┌────────────────────────────────────────────────────────────┐\n   │  POINT OF COMMON COUPLING (PCC)                            │\n   │  Smart switch / static transfer switch                     │\n   │  Normal: connected to main grid (import/export possible)   │\n   │  Island: disconnected (self-sufficient operation)          │\n   │                                                            │\n   │  ┌────────────────────────────────────────────────────┐    │\n   │  │           MICROGRID BOUNDARY                        │   │\n   │  │                                                    │   │\n   │  │  ┌──────────┐    ┌──────────┐    ┌─────────────┐  │   │\n   │  │  │  Solar   │    │ Battery  │    │  Generator  │  │   │\n   │  │  │  PV      │    │ Storage  │    │  (Diesel or │  │   │\n   │  │  │ 500 kW   │    │  1 MWh   │    │  NatGas CHP)│  │   │\n   │  │  └────┬─────┘    └────┬─────┘    └──────┬──────┘  │   │\n   │  │       │               │                  │          │   │\n   │  │       └───────────────┴──────────────────┘          │   │\n   │  │                    LOCAL BUS                         │   │\n   │  │                       │                              │   │\n   │  │              ┌─────────────────┐                    │   │\n   │  │              │ Critical Loads  │                    │   │\n   │  │              │ (hospital wing, │                    │   │\n   │  │              │ command center, │                    │   │\n   │  │              │ data center)    │                    │   │\n   │  └────────────────────────────────────────────────────┘    │\n   └───────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 439,
+      "heading_context": "### Microgrid Control Modes",
+      "confidence": "candidate",
+      "text": "GRID-CONNECTED MODE:\n  Main grid sets V and f (grid reference)\n  DERs inject power at set points (PQ mode — constant P and Q)\n  Battery: arbitrage, demand charge reduction, ancillary services\n  Solar: MPPT (maximum power point tracking)\n\nISLAND MODE (after intentional or forced disconnection):\n  No external V/f reference → some DER must be grid-forming\n  Grid-forming inverter (or diesel gen) establishes V and f\n  Other DERs shift to load-following (VF mode — maintain voltage and freq)\n  Battery: maintains V/f; absorbs/supplies imbalance\n  Solar: curtails if excess; MPPT if deficit\n  Critical load shedding: if generation insufficient, shed non-critical loads\n\nTRANSITION (grid → island):\n  Detect grid outage (V collapse, frequency deviation, anti-islanding)\n  Open PCC switch in < 100ms\n  Black-start local generation (or activate grid-forming battery)\n  Stabilize local V and f\n  Restore load\n  Total transition: 50-200 ms for seamless transfer\n                    2-30 seconds for non-seamless",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 481,
+      "heading_context": "## ADMS: Advanced Distribution Management System",
+      "confidence": "candidate",
+      "text": "ADMS FUNCTIONAL STACK:\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  OUTAGE MANAGEMENT SYSTEM (OMS)                                 │\n  │  Fault detection (AMI last gasp), crew dispatch, ETR            │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  FAULT DETECTION, ISOLATION, RESTORATION (FDIR)                │\n  │  Automated switching to minimize outage impact (seconds)       │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  VOLT/VAR OPTIMIZATION (VVO)                                    │\n  │  Minimize losses + maintain voltage: coordinate OLTC,           │\n  │  capacitor banks, DER reactive power, voltage regulators        │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  DER MANAGEMENT (DERMS)                                        │\n  │  Coordinate DER dispatch, curtailment, reactive support        │\n  │  Prevent overvoltage from rooftop solar, manage exports        │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  NETWORK TOPOLOGY ANALYSIS                                      │\n  │  Real-time connectivity model from switch status                │\n  │  Foundation for all above functions                             │\n  └─────────────────────────────────────────────────────────────────┘\n  Data: AMI meters, automated switches, sensors, SCADA\n  Communications: SCADA, IEC 61968/61970 (CIM), DNP3",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 513,
+      "heading_context": "## NERC CIP: Cybersecurity Standards",
+      "confidence": "candidate",
+      "text": "KEY CYBER INCIDENTS:\n\nUkraine 2015 (BlackEnergy):\n  Vector: Spear phishing → trojan on IT network → lateral movement to OT\n  Technique: Compromised SCADA workstations; used legitimate HMI software\n             to manually open breakers; custom KillDisk wiper to delay response\n  Impact: 6 distribution companies, 225,000 customers, 3-6 hours\n\nUkraine 2016 (Industroyer/CrashOverride):\n  Vector: More sophisticated — automated attack on protection relays\n  Technique: Direct IEC 60870-5-101/104, IEC 61850 GOOSE replay attacks\n             Opened circuit breakers via protocol commands\n             Custom wiper, denial of service on serial-to-Ethernet converters\n  Impact: Ukrenergo transmission company, 20% of Kiev dark for ~75 minutes\n  Significance: First malware specifically designed to attack power grid protocols\n\nColonial Pipeline 2021:\n  Vector: Compromised VPN credential (no MFA)\n  Impact: IT systems only; but company shut OT (pipeline control) as precaution\n  Impact: 5,500 miles of fuel pipeline shut, 6 days, eastern US fuel shortage\n  Significance: IT incident → voluntary OT shutdown → massive real-world impact",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

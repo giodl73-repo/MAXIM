@@ -1,0 +1,100 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\09-RESILIENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 427,
+      "heading_context": "## Grid Hardening Strategies",
+      "headers": [
+        "Event",
+        "Impact",
+        "Lessons"
+      ],
+      "rows": [
+        [
+          "Hurricane Katrina (2005)",
+          "New Orleans utilities destroyed; 1.5M customers, months",
+          "Flood resilience for underground; fuel for generators"
+        ],
+        [
+          "Superstorm Sandy (2012)",
+          "8.5M customers, 2 weeks",
+          "Coastal flooding of underground systems; floodgates for substations"
+        ],
+        [
+          "Hurricane Michael (2018)",
+          "Florida Panhandle; 700,000 customers, weeks",
+          "Steel/concrete poles for coastal; proactive undergrounding"
+        ],
+        [
+          "Hurricane Maria (2017)",
+          "Puerto Rico grid destroyed; 3.3M customers, 11 months",
+          "Fragile single-point-of-failure design; distributed microgrids needed"
+        ],
+        [
+          "Winter Storm Uri (2021)",
+          "Texas; 4.5M customers, days",
+          "Weatherization of generators, gas infrastructure"
+        ],
+        [
+          "Hurricane Ian (2022)",
+          "SW Florida; 2.5M customers, weeks",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 708,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether N-1 is satisfied",
+          "Identify contingency class, base case, firm load, thermal limits, voltage limits, transient stability, and allowed corrective actions.",
+          "N-1 is standard-defined; it is not a promise that all real-world combinations of failures preserve service."
+        ],
+        [
+          "How a cascade begins",
+          "Trace initiating trip, power redistribution, relay settings, overload timing, voltage support, operator awareness, and neighboring-system coordination.",
+          "Kirchhoff redistribution is automatic; whether it becomes a cascade depends on margins and protection action."
+        ],
+        [
+          "Whether a cascade can be stopped",
+          "Look for remaining controllable resources: redispatch, switching, UVLS/UFLS, controlled separation, and emergency imports.",
+          "After loss of synchronism or widespread collapse, restoration replaces prevention."
+        ],
+        [
+          "A blackout root-cause story",
+          "Separate vegetation/equipment, software/alarms, operator visibility, reliability coordination, protection action, and post-event institutional fixes.",
+          "Major blackouts are coupled socio-technical failures, not single-bullet explanations."
+        ],
+        [
+          "A black-start plan",
+          "Check cranking paths, black-start units, station service, reactive support, load pickup blocks, synchronization points, and communications.",
+          "A unit that can start itself still needs a viable energized path and stable load sequence."
+        ],
+        [
+          "A restoration-duration claim",
+          "Classify outage scale: intact grid trip, damaged equipment, storm access constraints, fuel logistics, or island-wide infrastructure failure.",
+          "Restoration time is dominated by damage mode, not only by the electrical black-start sequence."
+        ],
+        [
+          "A microgrid/islanding claim",
+          "Verify PCC controls, grid-forming source, protection settings, load/generation balance, grounding, and resynchronization procedure.",
+          "Intentional islanding is engineered; accidental islanding is a safety and equipment risk."
+        ],
+        [
+          "An adequacy metric claim",
+          "Separate LOLE, LOLH, EUE, reserve margin, weather correlation, fuel constraints, and transmission import assumptions.",
+          "A single adequacy metric can hide tail-risk shape and correlated outage exposure."
+        ]
+      ]
+    }
+  ]
+}

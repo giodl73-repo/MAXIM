@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\04-DISTRIBUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture: Distribution System Hierarchy",
+      "confidence": "candidate",
+      "text": "TRANSMISSION GRID (69–500 kV)\n        │\n        │ Bulk Power Transformer (e.g., 230/69 kV, or 115/12.47 kV)\n        │\n┌────────────────────────────────────────────────────────────────────────────┐\n│   DISTRIBUTION SUBSTATION (boundary between transmission & distribution)   │\n│   Typical: 69 kV or 115 kV → 12.47 kV (most common US) or 34.5 kV          │\n│   Equipment: Power transformer(s), circuit breakers, protective relays,    │\n│              bus, capacitor banks, voltage regulators, SCADA               │\n└──────────────────────────────────┬─────────────────────────────────────────┘\n                                   │\n        Primary distribution feeders (12.47 kV three-phase, 3-wire or 4-wire)\n                                   │\n   ┌──────────────────────────────────────────────────────────┐\n   │         PRIMARY DISTRIBUTION FEEDER (~8 miles average)   │\n   │  OH/UG conductors, reclosers, sectionalizing switches,   │\n   │  capacitor banks, voltage regulators, laterals           │\n   └───┬──────────────────┬────────────────────┬──────────────┘\n       │                  │                    │\n       ▼                  ▼                    ▼\n   Pole TX            Pad TX              Network vault TX\n   Single phase       3-phase             (urban)\n   5-100 kVA          25-500 kVA          120/208V dense urban\n   120/240V           208/480V            network\n   Residential        Commercial/Ind.\n   single-phase       three-phase",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "### Typical Configuration",
+      "confidence": "candidate",
+      "text": "DISTRIBUTION SUBSTATION — ONE-LINE DIAGRAM (simplified):\n\n  115 kV from transmission ────────────────────────────────\n                              |                    |\n                            [OCB]                [OCB]      115 kV breakers\n                              |                    |        (Oil/SF₆ Circuit Breaker)\n                  115 kV Bus ─┴────────────────────┘\n                              |\n                       ┌──────────────┐\n                       │  115 kV /    │\n                       │  12.47 kV    │\n                       └──────┬───────┘\n                          (Power transformer, e.g., 50 MVA)\n                              |\n              12.47 kV Bus ───┴───────────────────────\n                        |         |         |         |\n                      [OCB]     [OCB]     [OCB]     [OCB]   Feeder breakers\n                        |         |         |         |\n                    Feeder 1  Feeder 2  Feeder 3  Feeder 4\n                    (to NE)   (to NW)   (to SE)   (to SW)\n\nKEY EQUIPMENT:\n  Power transformer: 25–300 MVA, with OLTC (on-load tap changer) for voltage regulation\n  OLTC: steps through ±16 taps of ±1.25% each → ±20% voltage range adjustment\n  Breakers: modern SF₆ puffer or vacuum types; can interrupt 20-50 kA fault current\n  Protective relays: overcurrent (51), distance (21), transformer differential (87T)\n  SCADA RTU: reports status to utility operations center every 2-4 seconds\n  Battery: 125V DC station battery for relay/breaker operation during power loss\n  Capacitor banks: 600 kVAR to 10 MVAR, switchable, for voltage/VAR support",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## Feeder Design: Radial, Loop, and Network",
+      "confidence": "candidate",
+      "text": "1. RADIAL FEEDER (most common US suburban/rural):\n\n   Substation\n      │\n    ┌─┴──────────┬─────────────┬────────────────┐\n    │            │             │                │\n   Load         Load          Load            Load\n    │\n   (each load has exactly ONE path from substation)\n\n   ADVANTAGE: Simple, cheap, easy protection (one-directional current flow)\n   DISADVANTAGE: Any single fault = outage for all downstream customers\n   RELIABILITY: SAIDI ~100-300 min/yr\n   USE: Low-density residential and rural areas\n\n2. LOOP FEEDER (common US suburban):\n\n   Substation\n      │\n    ┌─┴──────────────────────────────────┐\n    │                                    │ Normally-Open switch (NO)\n    │                                    │\n   Loads along feeder A            Loads along feeder B\n\n   During normal: open switch at midpoint, each feeder serves its section\n   During fault on feeder A: open at fault, close NO switch → feeder B serves both\n   Customer restoration: 30-60 minutes (manual) to ~30 seconds (automated FDIR)\n\n   ADVANTAGE: Much better reliability than radial\n   DISADVANTAGE: 2× the feeder infrastructure cost\n   COMMON PATTERN: Residential subdivisions, commercial corridors\n\n3. NETWORK (GRID) DISTRIBUTION (urban centers only):\n\n   ┌────────────────────────────────────────┐\n   │Substation A│  │Substation B│  │Sub C│  │\n   └──┬──────────────────┬───────────┬──────┘\n      │    ╔═════════╗   │    ╔══╗   │\n      ├────╣ Network ╠───┤    ║  ║   ├──── loads\n      │    ║ protector║   │    ╚══╝   │     (served from multiple\n      ├────╣ (NP)    ╠───┤           │      directions)\n      │    ╚═════════╝   │           │\n      │                  │           │\n   Network Bus ──────────────────────────────\n   (low voltage, 120/208V or 265/460V)\n      │\n   Load loads loads loads loads (restaurants, offices, apartments)\n\n   Network protectors (NP): automatic switches that allow power to flow\n   from transformer to network bus but not reverse (prevents backfeed)\n\n   ADVANTAGE: Extremely reliable — any single transformer failure → no customer outage\n              (multiple paths → automatic switching)\n   DISADVANTAGE: Very expensive (multiple transformers, network protectors)\n   USE: Manhattan, downtown Chicago, downtown DC — dense urban with 24/7 critical loads\n   RELIABILITY: SAIDI < 30 min/yr in mature network areas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Types",
+      "confidence": "candidate",
+      "text": "POLE-MOUNTED SINGLE-PHASE (US rural/suburban):\n  ┌──────────────┐\n  │  [XFMR]      │\n  │  25 kVA      │\n  │  7200/120-240│\n  └──────┬───────┘\n  Mounted on distribution pole (5-167 kVA typical range)\n         │ Service drop (to house)\n         ▼ 120/240V split-phase\n  Three wires to meter:\n    L1: 120V to neutral (top half of 240V)\n    L2: 120V to neutral (bottom half of 240V)\n    N: neutral (center tap of secondary)\n  → 240V for ranges, dryers, EV chargers\n  → 120V for receptacles and lighting\n  Serves: 2-10 houses typically (varies)\n\nPAD-MOUNTED THREE-PHASE (commercial/industrial):\n  Ground-level, padlocked steel enclosure\n  Typically: 75-2,500 kVA\n  Primary: 12.47 kV (loop-feed — cable enters and exits, allowing bypass)\n  Secondary: 480/277V three-phase 4-wire (most commercial) or 208/120V\n  Oil-filled: mineral oil immersed core and coils\n  Standard: IEEE C57.12.34\n\nNETWORK VAULT TRANSFORMER (dense urban):\n  Below-grade vault installation (under sidewalk)\n  Primary: 13.8 kV or 4.16 kV\n  Secondary: 265/460V (commercial network) or 120/208V (residential network)\n  \"Network protector\" integral or adjacent\n  Submerged in periodic flooding → special insulation systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Secondary Service Configurations",
+      "confidence": "candidate",
+      "text": "US SERVICE VOLTAGE CONFIGURATIONS:\n\n1. RESIDENTIAL (single-phase, split-phase):\n   ●──────────────────────────── L1 (hot): 120V to neutral, 240V to L2\n   ●──────────────────────────── N (neutral): 0V\n   ●──────────────────────────── L2 (hot): 120V to neutral, 240V to L1\n   → 120V: wall outlets, lights, small appliances\n   → 240V: range, dryer, AC, water heater, EV Level 2 charger\n\n2. SMALL COMMERCIAL (three-phase, 4-wire wye, 120/208V):\n   Phase A: 120V to neutral ─┐\n   Phase B: 120V to neutral  ├─▶ 208V phase-to-phase\n   Phase C: 120V to neutral ─┘\n   Neutral: 0V\n   → 120V single-phase: outlets, lighting\n   → 208V: small three-phase motors, small HVAC\n   → Used: small offices, retail, restaurants\n\n3. COMMERCIAL/INDUSTRIAL (three-phase, 4-wire wye, 277/480V):\n   Phase A: 277V to neutral ─┐\n   Phase B: 277V to neutral  ├─▶ 480V phase-to-phase\n   Phase C: 277V to neutral ─┘\n   → 277V: fluorescent/LED commercial lighting (277V ballasts common)\n   → 480V three-phase: large motors (HVAC, elevators, industrial machines)\n   → Often add 120V via separate transformer (K-rated) for outlets/IT\n   → Used: offices, hospitals, warehouses, factories\n\n4. LARGE INDUSTRIAL (> 5 MW demand):\n   Often served at primary voltage (12.47 kV, 34.5 kV, or higher)\n   Customer-owned substations with their own transformers\n   Utility responsibility ends at the primary voltage meter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 373,
+      "heading_context": "## Feeder Automation: FDIR",
+      "confidence": "candidate",
+      "text": "FDIR SEQUENCE (automated):\n\n1. FAULT OCCURS on feeder segment A-B\n   │ Fault current → substation breaker trips (feeder de-energized)\n   │ Time: 0 seconds\n\n2. RECLOSER ATTEMPTS (automatic):\n   │ Breaker closes (auto-reclose): 0.5 seconds\n   │ If fault still there → trips again\n   │ Tries 2-3 more times with increasing time delays\n   │ Purpose: 80% of faults are transient (tree branch, animal)\n   │         → automatic reclose restores without any SAIDI impact\n   │ If fault persists after 3-4 attempts: LOCKOUT\n   │ Time: 0-30 seconds\n\n3. FAULT LOCATION, ISOLATION, RESTORATION (FDIR):\n   │ Substation IED detects fault current direction and magnitude\n   │ Automated switches detect fault passage (current direction sensors)\n   │ Fault location algorithm narrows to segment\n   │ ISOLATION: Open automated switches around faulted segment\n   │            (isolate just the faulted cable/line section)\n   │ RESTORATION:\n   │   Section upstream of fault: restore by closing main breaker\n   │   Section downstream of fault: restore via normally-open tie\n   │           (closes tie switch from neighboring feeder)\n   │ Time: 10-60 seconds (automated) vs 30-60 minutes (manual)\n\n4. CREW DISPATCHED to repair the fault (physical repair still needed)\n   Time: 2-8 hours (permanent repair)\n\nSAIDI IMPACT:\n  Without FDIR: all customers on feeder out 2-8 hours\n  With FDIR: customers on faulted segment out 2-8 hours (unavoidable)\n             all other customers restored in 10-60 seconds\n             Only a fraction of customers count toward SAIDI",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 417,
+      "heading_context": "## Voltage Regulation Along Feeders",
+      "confidence": "candidate",
+      "text": "VOLTAGE PROFILE ALONG FEEDER:\n\nVoltage\n(pu)    1.05 ─── Allowable high limit\n        1.025\n        1.00 ─── Nominal\n        0.975\n        0.95 ─── Allowable low limit\n\n        │         ╲ (voltage sags as current draws through impedance)\n        │          ╲\n        │           ╲___ (without compensation: end-of-feeder too low)\n        │\n        │     ╔═══════════╗ Voltage regulator (±10% range)\n        │     ║ regulator ║ raises voltage for rest of feeder\n        │     ╚═══════════╝\n        │               ╲___\n        └─────────────────────────────────▶ distance from substation\n\nVOLTAGE REGULATION TOOLS:\n  1. Substation LTC (Load Tap Changer): ±16 steps × 1.25% each = ±20% range\n     Adjusts the entire feeder voltage up/down based on load\n     Slow: 30-90 second response (motor-operated tap changer)\n\n  2. Line Voltage Regulators: Autotransformers installed on the feeder\n     ±10% range, typically placed 1/2 to 2/3 way down the feeder\n     Boost voltage for the downstream section\n     Typical location: every 5-8 miles on rural feeders\n\n  3. Capacitor Banks: Switchable capacitor banks at feeder intervals\n     Inject reactive current → reduce reactive drop → raise voltage\n     Also improve power factor → reduce real losses\n     Two types: fixed (always connected) + switched (connected by relay)\n     Switched caps: close when reactive load high (daytime), open at night\n     Cost: $25-60k per 1.2 MVAR bank (typical distribution size)\n\n  4. Conservation Voltage Reduction (CVR):\n     Lower feeder voltage slightly (within limits) → reduce energy consumption\n     Rule of thumb: 1% voltage reduction → 0.5-1% energy reduction\n     (loads that scale with V² — resistance heating, incandescent)\n     Modern buildings with switching power supplies: less responsive to CVR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 465,
+      "heading_context": "## Underground vs Overhead Distribution",
+      "confidence": "candidate",
+      "text": "COMPARISON TABLE:\n\n                     OVERHEAD              UNDERGROUND\n──────────────────────────────────────────────────────────────────────\nCapital cost         $100-300k/mile        $500k-2M/mile\n  (new installation)  (varies: rural/urban)  (trenching cost dominant)\n                     1× baseline           3-8× baseline\n\nFailure rate         Higher (weather,      Lower (protected)\n                     animals, vehicles)\n                     1-3 faults/100        0.1-0.5 faults/100\n                     circuit-miles/yr      circuit-miles/yr\n\nFault location       Easy (visual patrol)  Hard (TDR, tone equipment\n                                          needed; specialized crew)\n\nRepair time          Shorter (accessible)  Longer (excavation needed)\n                     2-6 hours            4-24+ hours\n\nAsset life           40-80 years           30-50 years (TR-XLPE)\n                     (wood pole 40-60yr;    but often limited by\n                      conductor longer)     insulation degradation\n\nStorm resilience     Poor (vulnerable)     Excellent (buried)\n                     Ice, wind, falling    Protected from weather\n                     trees, flooding\n\nHeat dissipation     Air-cooled            Soil-limited (ampacity\n                     (high ampacity)        derating 20-40% in poor\n                                           soil or summer)\n\nVisual impact        Significant           None (buried)\n\nBest use case        Rural, low density,   Urban, high density,\n                     low land cost         aesthetic requirements,\n                                          storm-hardening programs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 514,
+      "heading_context": "## DER Integration at Distribution Level",
+      "confidence": "candidate",
+      "text": "TRADITIONAL DISTRIBUTION (one direction):\n\nSubstation ──▶ Feeder ──▶ Loads (all power flows substation→customer)\n\nMODERN DISTRIBUTION WITH DERs:\n\nSubstation ◀─▶ Feeder ◀─▶ Loads/Generators (bidirectional)\n\n    ──── 12.47 kV Distribution Feeder ─────────────────────────────\n                          │                            │\n                      ┌───────┐                   ┌───────┐\n                      │ 5 MW  │                   │ 200kW │\n                      │ Solar │                   │ BESS  │\n                      │ Farm  │                   │       │\n                      └───────┘                   └───────┘\n                                                  (export to grid)\n\nPROBLEMS CREATED:\n  1. Overvoltage: solar generation pushes voltage above 126V (ANSI limit)\n     at end-of-feeder when it was designed for voltage DROP only\n  2. Reverse flow: feeder protection assumes fault current flows FROM substation\n     DER generation → fault current can flow BOTH directions → protection miscoordination\n  3. Islanding: if feeder trips (breaker opens), DER may continue energizing\n     the feeder → electrocution hazard for linemen, equipment damage\n  4. Voltage flicker: cloud transients cause rapid voltage changes → power quality\n  5. Harmonics: switching power supplies + inverters inject harmonic currents\n\nIEEE 1547-2018: Standard for interconnection of DERs\n  Updated 2018 to require DERs to:\n  - Ride through voltage/frequency disturbances (not trip offline immediately)\n  - Provide voltage regulation support (active/reactive power control)\n  - Support abnormal frequency response\n  - Anti-islanding protection (mandatory)\n\n  This was a major update from 2003 version which required DERs to trip at ANY\n  disturbance — a rule that made sense for 1% solar penetration but would cause\n  cascading collapse at 30%+ penetration (all solar trips → grid can't recover)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:industrial-food
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Industrial Food - Canning, Refrigeration, and the Manufactured Diet
+status: source-custody
+source_custody: partial
+current_path: culinary-history/06-INDUSTRIAL-FOOD.md
+canonical_path: culinary-history/06-INDUSTRIAL-FOOD.md
+backsource_ids: [proof-backfill:culinary-history:06-industrial-food, git-history:culinary-history:06-industrial-food]
+concepts: [industrial, food]
+root_concepts: [industrial, food]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Food — Canning, Refrigeration, and the Manufactured Diet
 
 ## The Big Picture

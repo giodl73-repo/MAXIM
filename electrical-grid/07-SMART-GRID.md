@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:smart-grid
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Smart Grid and DERs
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/07-SMART-GRID.md
+canonical_path: electrical-grid/07-SMART-GRID.md
+backsource_ids: [proof-backfill:electrical-grid:07-smart-grid, git-history:electrical-grid:07-smart-grid]
+concepts: [smart, grid]
+root_concepts: [smart, grid]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Smart Grid and DERs
 ## SCADA, AMI, Demand Response, Virtual Power Plants, Microgrids
 

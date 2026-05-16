@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\04-DISTRIBUTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 104,
+      "heading_context": "## Primary Distribution Voltages",
+      "headers": [
+        "Voltage",
+        "Markets",
+        "Feeder Radius",
+        "Capacity",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "4.16 kV",
+          "Legacy US urban",
+          "1–3 miles",
+          "Low",
+          "Very old; being eliminated"
+        ],
+        [
+          "12.47 kV (7.2 kV phase-ground)",
+          "US (most common, ~60%)",
+          "5–15 miles",
+          "10–30 MW",
+          "Phase-to-phase/phase-to-neutral"
+        ],
+        [
+          "13.2 kV",
+          "Some US",
+          "5–15 miles",
+          "10–30 MW",
+          "Close to 12.47 in practice"
+        ],
+        [
+          "25 kV",
+          "Rural US, Canada",
+          "15–40 miles",
+          "20–50 MW",
+          "Two-step down required"
+        ],
+        [
+          "34.5 kV",
+          "Large US industrial",
+          "10–30 miles",
+          "40–80 MW",
+          "Often for large commercial loads"
+        ],
+        [
+          "11 kV",
+          "UK, Australia, Asia",
+          "5–10 miles",
+          "8–20 MW",
+          "UK standard"
+        ],
+        [
+          "6.6 kV",
+          "Japan",
+          "3–8 miles",
+          "Low",
+          "Japan standard (being upgraded)"
+        ],
+        [
+          "20 kV",
+          "France, Germany",
+          "8–15 miles",
+          "15–35 MW",
+          "Common in continental Europe"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 558,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A primary-voltage decision",
+          "Compare existing assets, feeder length, load density, loss, voltage drop, insulation class, and conversion outage cost.",
+          "Higher primary voltage can extend feeders, but legacy conversion is a capital and operational program, not a nameplate swap."
+        ],
+        [
+          "A reliability claim",
+          "Separate SAIDI, SAIFI, CAIDI, MAIFI, major-event exclusion, vegetation exposure, automation, and customer density.",
+          "Cross-country or utility averages are not directly comparable without event definitions and geography."
+        ],
+        [
+          "Whether undergrounding is justified",
+          "Compare storm exposure, fault repair time, lateral density, trenching cost, flood risk, aesthetics, and regulatory cost recovery.",
+          "Underground improves some outage modes but can be slower and costlier to repair when faults occur."
+        ],
+        [
+          "Whether FDIR helps",
+          "Identify normally-open tie points, remote switches, fault indicators, feeder capacity, communications, and protection coordination.",
+          "Automation restores unfaulted sections; it cannot eliminate the faulted segment outage."
+        ],
+        [
+          "An end-of-feeder voltage problem",
+          "Check load current, conductor impedance, regulator/LTC settings, capacitor placement, DER backfeed, and voltage standard.",
+          "DER can create overvoltage and reverse-flow problems in feeders designed for one-way voltage drop."
+        ],
+        [
+          "A service-voltage question",
+          "Determine customer class, phase count, transformer connection, service size, and local utility standard.",
+          "Nominal service voltages are standardized, but actual delivered voltage is regulated within tolerance bands."
+        ],
+        [
+          "A DER interconnection issue",
+          "Review IEEE 1547 settings, anti-islanding, ride-through, fault current, grounding, voltage regulation, and protection coordination.",
+          "DER compliance is necessary but not sufficient; feeder-level hosting capacity still depends on local topology."
+        ]
+      ]
+    }
+  ]
+}

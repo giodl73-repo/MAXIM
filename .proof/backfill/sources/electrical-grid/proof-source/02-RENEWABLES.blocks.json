@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\02-RENEWABLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture: Renewable Generation Stack",
+      "confidence": "candidate",
+      "text": "SOLAR PV CHAIN:\n  Photon in ──▶ p-n junction ──▶ DC current ──▶ Inverter ──▶ AC power ──▶ Grid\n  (sunlight)    (semiconductor)   (module output)  (DC→AC)     (synchronized)\n\nWIND CHAIN:\n  Wind kinetic energy ──▶ Rotor ──▶ Gearbox ──▶ Generator ──▶ Power electronics ──▶ Grid\n  ½ρAv³                  (blades)   (optional)   (DFIG or    (converters,          (transformer)\n                                                  PMG)         inverter)\n\nVERSUS THERMAL:\n  Fuel → Heat → Steam/Gas → Turbine → Synchronous Generator → Grid\n                                       (directly sets frequency and voltage)\n\nKEY DIFFERENCE:\n  Thermal: synchronous generators historically supplied the voltage reference,\n           frequency response, inertia, and fault current that made the grid\n           easy to synchronize.\n  Renewables (most): inverter interfaces the generation to the grid.\n           The inverter follows the grid (usually). Fundamentally different.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### The Photovoltaic Effect",
+      "confidence": "candidate",
+      "text": "SOLAR CELL (simplified cross-section):\n\nSunlight (photons)\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n┌───────────────────────────────────┐\n│  Anti-reflection coating          │\n│  Metal grid contact (top)         │\n├───────────────────────────────────┤\n│  n-type silicon layer             │\n│  (~0.5 μm)                        │\n├──────── p-n junction ─────────────┤\n│  p-type silicon layer             │\n│  (~200 μm)                        │\n├───────────────────────────────────┤\n│  Metal contact (back)             │\n└───────────────────────────────────┘\n\n  Anti-reflection coating: silicon nitride, reduces reflection\n  Metal grid contact (top): collects electrons\n  n-type silicon: phosphorus doped, electron-rich\n  p-type silicon: boron doped, hole-rich\n          │\n          ▼ DC current flows in external circuit\n\nVoltage: single silicon cell ≈ 0.5–0.6V at maximum power point\nCurrent: proportional to cell area and irradiance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "### Inverter Topology: String vs Microinverter vs Central",
+      "confidence": "candidate",
+      "text": "UTILITY-SCALE ARRAY TOPOLOGY:\n\n  String architecture (residential/commercial):\n    [M1] - [M2] - [M3] - ... -+   String ~600V DC\n                              |\n                              +--> String Inverter --> AC (120/240V or 208/480V)\n    [M4] - [M5] - [M6] - ... -+    (4-10 kW typical)\n\n  Problem: one shaded/failed panel degrades entire string\n\n  Microinverter (residential):\n    [M1] -∿-> [M2] -∿-> [M3] -∿-> Combined AC output\n\n  Each panel has own inverter underneath\n  Independence: one panel's failure/shading doesn't affect others\n  Higher cost, easier monitoring, better harvest in partial shade\n\n  Power Optimizer (Enphase IQ / SolarEdge):\n  Each panel has DC optimizer → all strings optimized individually\n  → one central inverter\n  Middle ground: panel independence + single central inverter cost\n\n  Central inverter (utility-scale):\n  Combiner box (arrays combined to ~1000-1500V DC bus)\n  → 1-5 MW central inverter → step-up transformer → grid\n  Most cost-effective at utility scale\n  Single point of failure, but N+1 redundancy easy at large sites",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### Grid-Following vs Grid-Forming Inverters",
+      "confidence": "candidate",
+      "text": "GRID-FOLLOWING INVERTER (current standard):\n\n  Measures grid voltage and frequency → locks its output phase to grid phase\n  (Phase-Locked Loop — PLL)\n  Acts like a current source: outputs sinusoidal current synchronized to grid\n\n  REQUIREMENT: There must be an existing AC voltage reference to lock to.\n               If the grid voltage collapses (blackout), inverter trips offline.\n               Cannot \"black start\" — cannot re-energize a dead grid.\n               Contributes ZERO synchronous inertia.\n\n  Implication for high-RE grids: If most generation is grid-following inverters\n  and a major disturbance occurs, ALL inverters may trip simultaneously (no\n  voltage to lock to) → reinforces the collapse rather than stabilizing it.\n\nGRID-FORMING INVERTER (emerging standard):\n\n  Synthesizes its own voltage reference internally (virtual oscillator control,\n  droop control, or virtual synchronous machine algorithm)\n  Acts like a voltage source: establishes voltage and frequency, others lock to it\n\n  CAN: black start (re-energize a dead grid)\n  CAN: provide synthetic/virtual inertia (software-controlled energy reserve)\n  CAN: contribute to fault current (needed for protection relays to detect faults)\n  CAN: operate in an island (microgrid without any synchronous generators)\n\n  NERC/FERC are beginning to require grid-forming capability for new inverter\n  resources above a threshold. Australia (South Australia) forced this issue in\n  2016 after the statewide blackout when all wind farms tripped.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Power Curve and Cube Law",
+      "confidence": "candidate",
+      "text": "P = ½ × ρ × A × v³ × C_p\n\nWhere: ρ = air density (~1.225 kg/m³ at sea level, 15°C)\n       A = rotor swept area = π r² (r = blade length)\n       v = wind speed (m/s)\n       C_p = power coefficient (Betz-limited, ~0.45-0.50 for modern turbines)\n\nTHE CUBE LAW IS CRITICAL:\n  Doubling wind speed → 8× power output\n  v = 6 m/s: some power\n  v = 12 m/s: 8× more power (if below rated speed)\n\nWIND TURBINE POWER CURVE:\n\nPower (MW)\n\n  6                       _______________________  (rated power — pitch control)\n                       __/\n  4                __/\n                __/\n  2          __/  (cube relationship: output grows steeply with wind speed)\n          __/\n  0    __/\n       0   3   6   9  12  15  18  21  24  27  (cut-out)        wind speed (m/s)\n\n  Cut-in speed:  ~3.5 m/s (below this: not enough torque to turn)\n  Rated speed:  ~12-15 m/s (above this: pitch blades to limit power)\n  Cut-out speed: ~25 m/s (above this: shut down to protect turbine)\n\n  The rated output range (12-25 m/s) covers ~40-45% of operating hours at\n  good wind sites — this is why good sites reach 40%+ capacity factor.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "### Generator Technologies",
+      "confidence": "candidate",
+      "text": "DFIG ARCHITECTURE:\n\n  Wind rotor → Gearbox → DFIG generator\n                            │           │\n                         Stator        Rotor\n                            │           │\n                        direct to    Back-to-back\n                          grid        converter\n                         (600V AC)    (typically 30% of\n                                       rated power)\n                                           │\n                                          Grid\n\nKey feature: Rotor is connected to grid through a partial-scale converter\nVariable speed operation: rotor can spin ±30% of synchronous speed\nOnly 30% of power goes through converter → lower cost vs full conversion\nStator connected directly → provides some synchronous inertia (reduced)\nGood reactive power control capability\nLimitation: fault ride-through requires crowbar circuit (protects converter\n            during voltage dip); complex control during grid faults",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### Generator Technologies",
+      "confidence": "candidate",
+      "text": "TYPE 4 ARCHITECTURE:\n\n  Wind rotor → [optional gearbox] → Generator → Full converter → Grid transformer\n               (direct drive:                    (AC-DC-AC)\n                no gearbox)\n                                    100% of power through converter\n                                    Complete electrical decoupling\n                                    Can use permanent magnet generator (PMG)\n                                    or electrically excited synchronous generator\n\nAdvantages:\n  Complete mechanical/electrical decoupling — rotor speed unrelated to grid frequency\n  Superior low-voltage ride-through (LVRT) capability\n  Excellent reactive power control (4-quadrant: export or absorb Q independently)\n  Cleaner power quality\n  Can implement grid-forming control (virtual inertia)\n  No gearbox option (direct drive PMG) → lower maintenance\n\nDisadvantages:\n  100% power through converter → more expensive\n  Converter losses ~1-2% of rated power\n\nMain manufacturers: Vestas (V162/V172, direct drive), Siemens Gamesa (offshore),\n  GE (Haliade-X offshore), Goldwind (China, PMSG)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "## Offshore Wind: Higher CF, Bigger Turbines, Different Challenges",
+      "confidence": "candidate",
+      "text": "OFFSHORE FOUNDATION OPTIONS (by water depth):\n\n  0-30m: Monopile\n\n         [  Turbine  ]\n         [   tower   ]\n         [Transition ]\n         [   piece   ]\n         ===============  sea surface\n         [Steel pipe ]    ~2-8m diameter\n         [driven into]\n         [  seabed   ]\n\n   Cheapest; 70% of installed offshore\n\n  30-60m: Jacket / Tripod\n         ┌──────────┐\n         │  Turbine │\n         │   tower  │\n         │     ╱    │\n         │    ╱     │  3-4 leg jacket structure\n         │   ╱      │  welded steel lattice\n        ═╧═══════╧══╧═  seabed anchors\n   More expensive; used in deeper water\n\n  60-300m: Semi-submersible floating\n         ┌──────────┐\n         │  Turbine │\n         │          │\n   ─────────────────────  sea surface\n    ╔════╗     ╔════╗\n    ║    ║     ║    ║   floating pontoons\n    ╚════╝     ╚════╝\n    │           │\n    mooring lines to seabed anchors\n   Enables deepwater sites (US west coast, Scotland, Japan)\n   Hywind Scotland: world's first floating wind farm (30 MW, 2017)\n   Capital cost ~2-3× fixed-bottom",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 446,
+      "heading_context": "## The Merit Order Effect: Renewables Suppress Their Own Price",
+      "confidence": "candidate",
+      "text": "MERIT ORDER WITH HIGH SOLAR PENETRATION:\n\nLow solar hour (6am):             High solar hour (1pm):\n  Marginal unit: CCGT @ $45/MWh    Marginal unit: hydro/nuclear @ $8/MWh\n  Wholesale price: $45/MWh         Wholesale price: $8/MWh\n                                   (solar pushed everything else off stack)\n\nEffect on solar economics:\n  More solar → more midday supply → lower midday prices → lower revenue per MWh\n  The more solar you build, the less valuable each additional solar MWh becomes\n\n  This is \"value deflation\" or \"cannibalization premium\"\n  First 10% solar penetration: minimal price impact\n  30% solar penetration: midday prices collapse\n  50%+: frequent negative prices during solar hours\n\n  Texas: negative prices occurred 1,500+ hours in 2023\n  California: negative price hours growing annually\n\nSOLUTION: time-shift the solar output with storage\n  Charge battery at $0-5/MWh (midday)\n  Discharge at $60-80/MWh (6-9pm)\n  Arbitrage spread = revenue basis for BESS economics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 476,
+      "heading_context": "## LCOE Trends: The Renewable Revolution in Numbers",
+      "confidence": "candidate",
+      "text": "UTILITY-SCALE SOLAR PV LCOE DECLINE (US, $/MWh nominal):\n\n2010:  $300/MWh  ████████████████████████████████████████\n2012:  $200/MWh  ██████████████████████████████\n2015:  $100/MWh  ███████████████\n2018:  $60/MWh   █████████\n2020:  $45/MWh   ███████\n2022:  $35/MWh   █████\n2024:  $28/MWh   ████\n(-90% in 14 years — Wright's Law / learning curve)\n\nONSHORE WIND LCOE:\n2010:  $95/MWh   ███████████████\n2015:  $65/MWh   ██████████\n2020:  $40/MWh   ██████\n2024:  $30/MWh   █████\n(-68% in 14 years)\n\nBoth now below new coal (~$120/MWh) and new nuclear (~$100-150/MWh) for US builds.\nBoth below new CCGT in high-gas-price scenarios ($65-80/MWh at $5/MMBtu gas).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

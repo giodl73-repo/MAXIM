@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:contemporary
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Contemporary Food - Farm-to-Table, Fermentation Revival, and Lab-Grown Meat
+status: source-custody
+source_custody: partial
+current_path: culinary-history/09-CONTEMPORARY.md
+canonical_path: culinary-history/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:culinary-history:09-contemporary, git-history:culinary-history:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Food — Farm-to-Table, Fermentation Revival, and Lab-Grown Meat
 
 ## The Big Picture

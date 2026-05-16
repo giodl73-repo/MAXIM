@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:overview
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Overview
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/00-OVERVIEW.md
+canonical_path: electrical-grid/00-OVERVIEW.md
+backsource_ids: [proof-backfill:electrical-grid:00-overview, git-history:electrical-grid:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Overview
 ## The Largest Coordinated Machine Ever Built
 

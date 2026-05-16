@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:markets
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Electricity Markets
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/08-MARKETS.md
+canonical_path: electrical-grid/08-MARKETS.md
+backsource_ids: [proof-backfill:electrical-grid:08-markets, git-history:electrical-grid:08-markets]
+concepts: [markets]
+root_concepts: [markets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Electricity Markets
 ## ISOs, LMP, Day-Ahead, Capacity Markets, and the Economics of Power
 
