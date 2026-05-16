@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\03-THEOREM-PROVING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 577,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Verification Question",
+        "Use This Tool / Frame",
+        "Watch-Out"
+      ],
+      "rows": [
+        [
+          "Do I need a small trusted kernel?",
+          "LCF-style assistant: Coq, Lean, Isabelle, HOL",
+          "Tactics are untrusted; the kernel-checked proof term/theorem is the artifact"
+        ],
+        [
+          "Am I formalizing mainstream mathematics?",
+          "Lean 4 + Mathlib, or Coq/MathComp for algebra-heavy traditions",
+          "Library coverage matters more than surface syntax"
+        ],
+        [
+          "Am I verifying a compiler/runtime?",
+          "Coq has CompCert precedent and extraction ecosystem",
+          "Parser, assembler, hardware, and undefined behavior remain trust-boundary issues"
+        ],
+        [
+          "Am I verifying an OS/security architecture?",
+          "Isabelle/HOL has seL4 precedent",
+          "Hardware side channels and platform assumptions are outside the proof unless modeled"
+        ],
+        [
+          "Do I need game-based crypto proofs?",
+          "EasyCrypt or Isabelle/CryptHOL",
+          "Separate protocol model, implementation, and side-channel assumptions"
+        ],
+        [
+          "Do I want verified executable code?",
+          "Coq extraction, F*, Dafny, or HOL4/CakeML depending on target",
+          "Extraction/runtime correctness is a separate trust layer"
+        ],
+        [
+          "Do I want lightweight CI verification?",
+          "Dafny-style auto-active verification",
+          "SMT success depends on annotations and solver-friendly invariants"
+        ],
+        [
+          "Do I need distributed-system temporal reasoning?",
+          "TLA+/TLAPS for lighter proof, Coq/Lean/Isabelle for deeper mechanization",
+          "Model checking and theorem proving answer different failure modes"
+        ],
+        [
+          "Is AI proof search central?",
+          "Lean 4 is currently the strongest LLM target",
+          "Generated proofs still need kernel checking and library-compatible statements"
+        ]
+      ]
+    }
+  ]
+}

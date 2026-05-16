@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:logic-foundations
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Logic Foundations for Formal Methods
+status: source-custody
+source_custody: partial
+current_path: formal-methods/01-LOGIC-FOUNDATIONS.md
+canonical_path: formal-methods/01-LOGIC-FOUNDATIONS.md
+backsource_ids: [proof-backfill:formal-methods:01-logic-foundations, git-history:formal-methods:01-logic-foundations]
+concepts: [logic, foundations]
+root_concepts: [logic, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Logic Foundations for Formal Methods
 
 ## The Big Picture
@@ -42,7 +61,7 @@ layer map:
          v
 +--------------------------------------------------------------------------+
 |  HIGHER-ORDER LOGIC (HOL)    Quantify over predicates and functions      |
-|  Expressiveness: all of math  Decidability: none (semi-decidable at best)|
+|  Expressiveness: all of math  Decidability: none (semi-decidable)        |
 |  Used in: Isabelle/HOL, HOL4, Coq (via CIC), Lean 4                      |
 +--------------------------------------------------------------------------+
 ```

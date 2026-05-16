@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\05-SPECIFICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    SPECIFICATION LANGUAGE LANDSCAPE                      |\n|                                                                          |\n|  LANGUAGE    FORMALISM        BACKEND         BEST FOR                   |\n|  ────────    ─────────        ───────         ────────                   |\n|  TLA+        Temporal logic   TLC (explicit   Distributed protocols      |\n|  (Lamport)   + set theory     state), TLAPS   (Paxos, Raft, replication) |\n|                               (proof system)                             |\n|                                                                          |\n|  PlusCal     Pseudocode       Transpiles to   Algorithms (easier entry   |\n|  (Lamport)   (imperative)     TLA+            for engineers)             |\n|                                                                          |\n|  Alloy       Relational FOL   Kodkod (SAT)    Data model correctness,    |\n|  (Jackson)   first-order      bounded scope   structural invariants,     |\n|              + transitive     analysis        schema design              |\n|              closure                                                     |\n|                                                                          |\n|  Z notation  Set theory       Z/Eves, ProofPwr  Sequential specs,        |\n|  (Spivey)    + schemas        (verification)    IBM CICS, civil aviation |\n|                                                                          |\n|  Event-B     Refinement       Rodin tool      Safety-critical embedded,  |\n|  (Abrial)    calculus         (proof oblig.)  Paris Metro Line 14,       |\n|              B-Method family  ProB (animator) transit control systems    |\n|                                                                          |\n|  VDM-SL      Implicit + expl. VDMTools        Sequential + concurrent    |\n|  (Bjorner)   specs, pre/post  Overture         industrial specs          |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 68,
+      "heading_context": "### Core Concepts",
+      "confidence": "candidate",
+      "text": "  TLA+ model: a set of behaviors (infinite sequences of states).\n\n  State:    An assignment of values to all state variables.\n  Behavior: An infinite sequence of states: s0, s1, s2, ...\n\n  Specification components:\n  +------------------+--------------------------------------------+\n  | State variables  | VARIABLES x, y, z                          |\n  |                  | The mutable state of the system            |\n  +------------------+--------------------------------------------+\n  | Initial predicate| Init == x = 0 /\\ y = {} /\\ z = \"idle\"     |\n  |                  | Which states are initial                   |\n  +------------------+--------------------------------------------+\n  | Next-state rel.  | Next == Action1 \\/ Action2 \\/ Action3      |\n  |                  | What transitions are allowed               |\n  +------------------+--------------------------------------------+\n  | Temporal spec    | Spec == Init /\\ [][Next]_vars /\\ Fairness  |\n  |                  | All behaviors satisfying Init and Next     |\n  +------------------+--------------------------------------------+\n  | Safety property  | Invariant == <some state predicate>        |\n  |                  | Must hold at every reachable state         |\n  +------------------+--------------------------------------------+\n  | Liveness prop.   | LiveProp == <>[](ready) or similar         |\n  |                  | Must hold for every behavior               |\n  +------------------+--------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### TLA+ Syntax Reference",
+      "confidence": "candidate",
+      "text": "(* Variable declarations *)\nVARIABLES lock, owner, queue\n\n(* State predicate: TypeInvariant *)\nTypeOK ==\n  /\\ lock \\in {\"free\", \"held\"}\n  /\\ owner \\in SERVERS \\cup {\"none\"}\n  /\\ queue \\in SUBSET SERVERS\n\n(* Initial state *)\nInit ==\n  /\\ lock = \"free\"\n  /\\ owner = \"none\"\n  /\\ queue = {}\n\n(* Action: server s acquires the lock *)\nAcquire(s) ==\n  /\\ lock = \"free\"           (* ENABLED when lock is free *)\n  /\\ lock' = \"held\"          (* PRIMED var = value AFTER transition *)\n  /\\ owner' = s\n  /\\ queue' = queue \\ {s}    (* remove s from waiting queue *)\n\n(* Action: server s releases the lock *)\nRelease(s) ==\n  /\\ lock = \"held\"\n  /\\ owner = s\n  /\\ lock' = \"free\"\n  /\\ owner' = \"none\"\n  /\\ UNCHANGED queue\n\n(* Action: server s requests the lock *)\nRequest(s) ==\n  /\\ lock = \"held\"\n  /\\ s \\notin queue\n  /\\ queue' = queue \\cup {s}\n  /\\ UNCHANGED <<lock, owner>>\n\n(* Next-state relation: disjunction of all actions *)\nNext ==\n  \\/ \\E s \\in SERVERS: Acquire(s)\n  \\/ \\E s \\in SERVERS: Release(s)\n  \\/ \\E s \\in SERVERS: Request(s)\n\n(* Full specification with fairness *)\nSpec ==\n  /\\ Init\n  /\\ [][Next]_<<lock, owner, queue>>    (* safety: stuttering allowed *)\n  /\\ WF_<<lock,owner,queue>>(Next)      (* weak fairness: liveness *)\n\n(* Safety property: mutual exclusion *)\nMutualExclusion ==\n  \\A s1, s2 \\in SERVERS:\n    (owner = s1 /\\ owner = s2) => s1 = s2\n\n(* Liveness: every waiting server eventually gets the lock *)\nNoStarvation ==\n  \\A s \\in SERVERS:\n    (s \\in queue) ~> (owner = s)    (* ~> = \"leads to\" *)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 186,
+      "heading_context": "### Safety vs Liveness in TLA+",
+      "confidence": "candidate",
+      "text": "### AWS TLA+ in Practice (Newcombe et al., 2015)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Schema Structure",
+      "confidence": "candidate",
+      "text": "  State schema: declares state variables and invariants\n  ┌─── Library ─────────────────────────────┐\n  │ stock: BOOK --> N                       │\n  │ issued: PATRON -->> BOOK                │\n  ├─────────────────────────────────────────┤\n  │ dom issued ⊆ dom stock                  │\n  └─────────────────────────────────────────┘\n\n  Operation schema: pre and post conditions\n  ┌─── Checkout ───────────────────────────────────────┐\n  │ DeltaLibrary           (* state changes *)         │\n  │ p?: PATRON             (* input -- ? suffix *)     │\n  │ b?: BOOK               (* input *)                 │\n  ├────────────────────────────────────────────────────┤\n  │ b? ∈ dom stock                   (* precondition *) │\n  │ b? ∉ ran issued                  (* book avail. *)  │\n  │ issued' = issued ∪ {p? |-> b?}    (* book issued *) │\n  │ stock' = stock                    (* unchanged *)   │\n  └────────────────────────────────────────────────────┘\n\n  XiLibrary = DeltaLibrary with no state change\n  DeltaLibrary = before state + after state (primed variables)\n\n  Schema calculus: combine schemas via conjunction, disjunction,\n  sequential composition, hiding.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 425,
+      "heading_context": "### Core Structure",
+      "confidence": "candidate",
+      "text": "### Event-B in Practice: Paris Metro Line 14",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 451,
+      "heading_context": "## Specification Patterns",
+      "confidence": "candidate",
+      "text": "  Pattern: Universality (P always holds)\n  LTL:   G p\n  CTL:   AG p\n  TLA+:  []p  or  Invariant\n\n  Pattern: Absence (P never holds)\n  LTL:   G ~p\n  CTL:   AG ~p\n  TLA+:  []~p  (safety invariant)\n\n  Pattern: Existence (P holds at some point)\n  LTL:   F p\n  CTL:   EF p\n  TLA+:  <>p  (eventuality)\n\n  Pattern: Response (after P, Q eventually follows)\n  LTL:   G(p -> F q)\n  CTL:   AG(p -> AF q)\n  TLA+:  [](p => <>q)  or  p ~> q  (leads-to)\n\n  Pattern: Precedence (P never holds without prior Q)\n  LTL:   ~q U p -> G ~p\n  TLA+:  ~p W q  (p weak-until q)\n\n  Practical rule of thumb:\n  Safety properties = invariants. TLA+ Invariant clause.\n  Liveness properties = leads-to. TLA+ ~> or temporal formula.\n  Verify safety first (easier, model checker handles it).\n  Liveness requires fairness conditions -- add only what's needed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:type-theory
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Type Theory
+status: source-custody
+source_custody: partial
+current_path: formal-methods/04-TYPE-THEORY.md
+canonical_path: formal-methods/04-TYPE-THEORY.md
+backsource_ids: [proof-backfill:formal-methods:04-type-theory, git-history:formal-methods:04-type-theory]
+concepts: [type, theory]
+root_concepts: [type, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Type Theory
 
 ## The Big Picture

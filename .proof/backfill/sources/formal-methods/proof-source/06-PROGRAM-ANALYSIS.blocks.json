@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\06-PROGRAM-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                       PROGRAM ANALYSIS LANDSCAPE                         |\n|                                                                          |\n|  TECHNIQUE           TOOLS              PROPERTIES         SCALE         |\n|  ─────────           ─────              ──────────         ─────         |\n|  Abstract            Astrée, Frama-C    Absence of         Safety-crit.  |\n|  interpretation      (value analysis)   runtime errors     C (avionics)  |\n|                                                                          |\n|  Dataflow analysis   Clang SA, Infer    Null deref,        Any codebase  |\n|  (flow-sensitive)    (flow-insens.)     resource leaks,    (scales well) |\n|                                         uninitialized vars               |\n|                                                                          |\n|  Symbolic execution  KLEE, angr,        Reachability,      C/binary      |\n|                      S2E, Manticore     crashes, asserts   (moderate)    |\n|                                                                          |\n|  Separation logic    Infer (biabduct.)  Memory safety,     Java/C/ObjC   |\n|                                         null deref,        (Facebook-    |\n|                                         resource leaks     scale CI)     |\n|                                                                          |\n|  Taint analysis      CodeQL, FlowDagger Security info-     Java/Python/  |\n|  (IFDS framework)    Semgrep            flow, SQL inject.  JS (CI)       |\n|                                                                          |\n|  Deductive           Frama-C WP,        Full functional    Safety-crit.  |\n|  verification        Dafny, VeriFast    correctness        C (nuclear,   |\n|                                                            aerospace)    |\n+--------------------------------------------------------------------------+\n\n  Fundamental tension:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  SOUNDNESS    No false negatives: if tool says \"no bugs\", none.    │\n  │               (Conservative over-approximation.)                   │\n  │  COMPLETENESS No false positives: if tool reports a bug, real.     │\n  │               (Precise under-approximation.)                       │\n  │  TERMINATION  Tool always halts.                                   │\n  │                                                                    │\n  │  Rice's Theorem: you cannot have all three for non-trivial props.  │\n  │                                                                    │\n  │  Choose two:                                                       │\n  │  Sound + Terminating    = possible false positives (Astrée, Infer) │\n  │  Complete + Terminating = possible false negatives (test/fuzz)     │\n  │  Sound + Complete       = may not terminate (semi-decision procs.) │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "### Galois Connections",
+      "confidence": "candidate",
+      "text": "  Concrete domain (C, ⊆):   actual program states (sets of memory configurations)\n  Abstract domain (A, ≤):   abstract representations (intervals, signs, polyhedra)\n\n  Galois connection:  (C, ⊆) <──gamma──── (A, ≤)\n                      (C, ⊆) ────alpha──> (A, ≤)\n\n  alpha (abstraction): maps concrete to abstract  (best abstract approximation)\n  gamma (concretization): maps abstract to concrete (what the abstraction means)\n\n  Galois condition:\n  alpha(c) ≤ a  iff  c ⊆ gamma(a)   for all c in C, a in A\n\n  Soundness condition: alpha . gamma is the identity (or larger).\n  gamma . alpha(c) ⊇ c  -- abstracting then concretizing over-approximates.\n\n  If analysis is sound: the concrete behavior is a SUBSET of what the\n  abstract analysis reports. Every real bug is covered; false positives possible.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "### Abstract Domains",
+      "confidence": "candidate",
+      "text": "  +------------------+-------------------------------------------+---------+\n  | Domain           | Abstraction                               | Cost    |\n  +------------------+-------------------------------------------+---------+\n  | Signs            | x ∈ {negative, zero, positive, unknown}  | O(n)    |\n  |                  | Coarse, fast. Good for div-by-zero.       |         |\n  +------------------+-------------------------------------------+---------+\n  | Intervals        | x ∈ [lo, hi]  (per variable)              | O(n)    |\n  |                  | Tracks bounds. Buffer overflow.           |         |\n  +------------------+-------------------------------------------+---------+\n  | Octagons         | ±x ± y ≤ c  (pairwise constraints)       | O(n^2)  |\n  |                  | More precision, catches more overflows.   |         |\n  +------------------+-------------------------------------------+---------+\n  | Convex polyhedra | General linear arithmetic constraints     | O(exp)  |\n  |                  | Maximum precision for linear code.        |         |\n  +------------------+-------------------------------------------+---------+\n  | Shape analysis   | Heap structure (list, tree, DAG, cyclic)  | O(exp)  |\n  |                  | Pointer safety, aliasing structure.       |         |\n  +------------------+-------------------------------------------+---------+\n  | Congruences      | x ≡ r (mod n)                             | O(n)    |\n  |                  | Array alignment, stride patterns.         |         |\n  +------------------+-------------------------------------------+---------+\n\n  Combining domains: reduced product of abstract domains.\n  Example: intervals + congruences captures both \"x ∈ [0, 100]\"\n  and \"x is even\" simultaneously.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 142,
+      "heading_context": "### Widening and Narrowing",
+      "confidence": "candidate",
+      "text": "  Loop analysis problem:\n  i = 0\n  while i < n:\n    i = i + 1\n\n  Iteration of abstract semantics:\n  Step 0: i ∈ {0}\n  Step 1: i ∈ {0, 1}\n  Step 2: i ∈ {0, 1, 2}\n  ...  (does not converge for intervals)\n\n  WIDENING operator (nabla):\n  Speeds up convergence by jumping to a safe over-approximation.\n  [a, b] nabla [c, d] = [ if c < a then -inf else a,\n                           if d > b then +inf else b ]\n\n  With widening:\n  Step 0: [0, 0]\n  Step 1: [0, 1]\n  Step 2: [0, 1] nabla [0, 2] = [0, +inf]   <- widened to +inf\n  Fixed point reached (check: next step is still [0, +inf]).\n\n  Result: i ∈ [0, +inf]  -- sound (i can be anything from 0 up)\n\n  NARROWING (delta): optional post-processing to tighten the result.\n  Uses a few more concrete steps to recover precision lost by widening.\n  After narrowing with the loop exit condition i < n:\n  i ∈ [0, n-1]  -- tighter but still sound\n\n  Trade-off:\n  - Fewer widening steps: more false positives (imprecise)\n  - More widening steps: slower but more precise\n  - No widening: infinite iteration (does not terminate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 205,
+      "heading_context": "### The Lattice Framework",
+      "confidence": "candidate",
+      "text": "  A dataflow analysis consists of:\n  1. A lattice (L, ⊑) — the abstract domain\n  2. A transfer function f_n: L -> L for each CFG node n\n  3. A direction (forward or backward)\n  4. A join operator (⊔) for merge points\n\n  Fixpoint: iterate until no change.\n  Because the lattice has finite height and transfer functions\n  are monotone, this always terminates.\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Forward analysis:  data flows from program start toward end │\n  │  IN[n]  = JOIN over all predecessors p: OUT[p]               │\n  │  OUT[n] = f_n(IN[n])                                         │\n  │                                                              │\n  │  Backward analysis: data flows from program end toward start │\n  │  OUT[n] = JOIN over all successors s: IN[s]                  │\n  │  IN[n]  = f_n(OUT[n])                                        │\n  └──────────────────────────────────────────────────────────────┘\n\n  Key analyses and their lattices:\n  +---------------------------+----------+-----------+--------------------+\n  | Analysis                  | Direction| Lattice   | What it computes   |\n  +---------------------------+----------+-----------+--------------------+\n  | Reaching definitions      | Forward  | 2^{Defs}  | Which defs reach   |\n  |                           |          |           | each use           |\n  +---------------------------+----------+-----------+--------------------+\n  | Live variables            | Backward | 2^{Vars}  | Which vars are     |\n  |                           |          |           | used after each pt |\n  +---------------------------+----------+-----------+--------------------+\n  | Available expressions     | Forward  | 2^{Exprs} | Which exprs are    |\n  |                           |          |           | computed and valid |\n  +---------------------------+----------+-----------+--------------------+\n  | Constant propagation      | Forward  | Var->Const| Which variables    |\n  |                           |          |           | have constant vals |\n  +---------------------------+----------+-----------+--------------------+\n  | Very busy expressions     | Backward | 2^{Exprs} | Exprs computed on  |\n  |                           |          |           | all paths to exit  |\n  +---------------------------+----------+-----------+--------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### The Source-Sink-Sanitizer Model",
+      "confidence": "candidate",
+      "text": "  Source:     Where untrusted data enters\n              - HTTP request parameters\n              - Database reads (if DB is untrusted)\n              - Environment variables\n              - File contents\n\n  Sink:       Where tainted data causes harm\n              - SQL query execution   -> SQL injection\n              - HTML output           -> XSS\n              - exec() / system()     -> command injection\n              - File path operations  -> path traversal\n              - Deserialization       -> RCE\n\n  Sanitizer:  Operations that remove the taint\n              - HTML escaping / encoding\n              - SQL parameterization\n              - Input validation + rejection\n\n  Analysis: track taint (a label) through the program.\n  If tainted data reaches a sink without passing through\n  a sanitizer: report a potential vulnerability.\n\n  IFDS Framework (Reps, Horwitz, Sagiv 1995):\n  Interprocedural Finite Distributive Subset problems.\n  Taint analysis is an IFDS problem: the set of tainted variables\n  at each point is the distributive combination of taints from\n  all program paths reaching that point.\n  Complexity: O(n^3) interprocedurally — polynomial and practical.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "### How It Works",
+      "confidence": "candidate",
+      "text": "  Concrete execution:\n  int f(int x) {\n    if (x > 0) return x * 2;\n    else return -x;\n  }\n  f(5)  ->  returns 10  (one path, one answer)\n\n  Symbolic execution:\n  x = X (symbolic)\n  Branch 1: X > 0 is TRUE  (path condition: X > 0)\n    returns 2*X\n  Branch 2: X > 0 is FALSE  (path condition: X ≤ 0)\n    returns -X\n\n  At each branch, the symbolic executor:\n  1. Forks execution (takes both branches)\n  2. Adds branch condition to path condition for each fork\n  3. Queries SMT solver: \"Is this path condition satisfiable?\"\n     If not: prune this path (unreachable).\n  4. At error points: query \"Is error reachable on this path?\"\n\n  Finding a bug: the SMT model is a CONCRETE INPUT that triggers the bug.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 451,
+      "heading_context": "### Concolic Execution",
+      "confidence": "candidate",
+      "text": "  Algorithm:\n  1. Run concretely with random input -> get a concrete path\n  2. Collect path condition along this path\n  3. Negate last branch condition -> get a new path condition\n  4. Solve with SMT -> get new concrete input that takes different path\n  5. Run concretely with new input -> step 2\n\n  Benefits:\n  - Starts with concrete execution (handles complex code)\n  - Avoids complex environment modeling (system calls, libraries)\n  - Scales better than pure symbolic (no path explosion from concrete)\n\n  SAGE (Microsoft Research, 2008):\n  - Applied to binary programs (x86)\n  - Found 1/3 of all Windows 7 security bugs\n  - Still running internally at Microsoft (reportedly)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 479,
+      "heading_context": "### The Frame Rule",
+      "confidence": "candidate",
+      "text": "  Standard Hoare logic: compositionality fails for heap operations.\n  If you have: {P} C {Q}\n  You CANNOT conclude: {P * R} C {Q * R}  in general.\n  Because: C might modify the heap locations described by R.\n\n  Separation logic adds the frame rule:\n  {P} C {Q}\n  ──────────────────────────  (provided C does not modify vars(R))\n  {P * R} C {Q * R}\n\n  Separating conjunction P * Q:\n  \"The heap is split into two DISJOINT parts:\n   one satisfying P, the other satisfying Q.\"\n\n  This enables: prove C correct in isolation (with P, Q).\n  Then apply the frame rule to add any R not touched by C.\n  LOCAL REASONING: you only think about what C actually touches.\n\n  Classic example:\n  P = x -> 3 * y -> 5   (* x points to 3, y points to 5, disjoint *)\n  C = [x] := 7          (* write 7 to the location x points to *)\n  Q = x -> 7 * y -> 5   (* x now points to 7, y unchanged *)\n\n  Frame with R = z -> 9:\n  {x -> 3 * y -> 5 * z -> 9} C {x -> 7 * y -> 5 * z -> 9}\n  -- z is unchanged because C only touches x's location.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 510,
+      "heading_context": "### Infer: Bi-Abduction and Industrial Scale",
+      "confidence": "candidate",
+      "text": "  Infer (Calcagno et al., 2011 -> Facebook/Meta 2013):\n  The key innovation: BI-ABDUCTION.\n\n  Standard analysis problem:\n  To analyze f() calling g(), you need the precondition of g.\n  But g's precondition depends on how f calls it.\n  Circular dependency -> interprocedural analysis is expensive.\n\n  Bi-abduction solution:\n  Given: {P} g() {Q} (some known spec for g)\n  And: a call site where g is called with precondition P'\n\n  Infer SIMULTANEOUSLY finds:\n  - Anti-frame A: the extra precondition needed  (P' = P * A)\n  - Frame F:      the extra postcondition that holds  (Q' = Q * F)\n\n  This lets Infer analyze each procedure in isolation,\n  then compose analyses bottom-up through the call graph.\n\n  Result: sound, compositional, INTER-PROCEDURAL analysis\n  that scales to millions of lines of code.\n\n  What Infer finds:\n  - Null pointer dereferences\n  - Memory leaks (resource leaks)\n  - Use after free\n  - Thread safety violations (Race Detection mode)\n  - Buffer overflows (with RacerD mode)\n\n  Meta deployment:\n  - Runs on EVERY diff (code review) for Facebook/Instagram/WhatsApp\n  - Analyzes Java (Android), C/C++, Objective-C\n  - ~1000 bugs found per month at Meta\n  - False positive rate tuned to keep developer trust\n  (sounds expensive; most bugs are automatically fixed suggestions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 557,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  +──────────────────────────────────────────────────────────+\n  │                       Frama-C                            │\n  │                                                          │\n  │  C source -> CIL normalization -> Kernel (AST + state)   │\n  │                                                          │\n  │  Plugins (each provides an analysis):                    │\n  │                                                          │\n  │  ┌────────┐  ┌─────────┐  ┌──────────┐  ┌──────────┐     │\n  │  | Value  |  |   WP    |  |   EVA    |  | PathCrawler│   │\n  │  |(abs.   |  |(deductive|  |(evolved  |  |(structural │   │\n  │  | interp.)  | verif.) |  | value)   |  | coverage) │   │\n  │  └────────┘  └─────────┘  └──────────┘  └──────────┘    │\n  │       |           |              |              |         │\n  │       └───────────┴──────────────┴──────────────┘        │\n  │                         |                                 │\n  │                   Shared kernel + annotations             │\n  └──────────────────────────────────────────────────────────┘\n\n  ACSL (ANSI/ISO C Specification Language):\n  Annotations in C comments for specifying preconditions, postconditions,\n  loop invariants, predicates.\n\n  /*@ requires \\valid(a + (0..n-1));\n    @ requires n > 0;\n    @ ensures \\forall int i; 0 <= i < n ==> a[i] == \\old(a[i]) || a[i] == v;\n    @ ensures \\exists int i; 0 <= i < n && a[i] == v;\n    @*/\n  void fill(int *a, int n, int v);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 620,
+      "heading_context": "## The Static Analysis Taxonomy",
+      "confidence": "candidate",
+      "text": "  ┌────────────────┬──────────┬────────────┬───────────┬──────────────────┐\n  │Technique       │Sound     │Complete    │Terminates │False Positives   │\n  ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤\n  │Abs. interpret. │Yes       │No          │Yes        │Yes (tunable)     │\n  │(Astrée)        │          │            │           │                  │\n  ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤\n  │Infer           │Yes *     │No          │Yes        │Yes (low rate)    │\n  │(bi-abduction)  │(* for    │            │           │                  │\n  │                │ analyzed │            │           │                  │\n  │                │ paths)   │            │           │                  │\n  ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤\n  │Symbolic exec.  │Yes       │No          │No **      │No                │\n  │(KLEE)          │          │            │(path expl)│                  │\n  ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤\n  │BMC (CBMC)      │Yes       │Yes ***     │Yes        │No                │\n  │                │          │(within     │           │                  │\n  │                │          │ bound)     │           │                  │\n  ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤\n  │Taint (CodeQL)  │No        │No          │Yes        │Low               │\n  │                │(heurist.)│            │           │                  │\n  ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤\n  │Deductive verif.│Yes       │Yes         │Yes        │No                │\n  │(Frama-C WP)    │          │(requires   │           │(but requires     │\n  │                │          │ annots.)   │           │ annotations)     │\n  └────────────────┴──────────┴────────────┴───────────┴──────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 652,
+      "heading_context": "## Integration with Development Workflow",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────┐\n  │  FAST (seconds): Run on every commit                                 │\n  │  - Type checker (already running)                                    │\n  │  - Infer (on changed files)                                          │\n  │  - CodeQL basic queries                                              │\n  │  - Clang Static Analyzer                                             │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  MEDIUM (minutes-hours): Run on PR / nightly                          │\n  │  - Full Infer analysis                                                │\n  │  - CodeQL full query suite                                            │\n  │  - CBMC for critical C modules (with proof harnesses)                │\n  │  - KLEE for new algorithms                                            │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  SLOW (days-weeks): Run at milestones / pre-release                  │\n  │  - Frama-C WP with ACSL annotations                                  │\n  │  - Symbolic execution full coverage                                  │\n  │  - Abstract interpretation (full program Astrée run)                 │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  ONE-TIME (months-years): Safety-critical certification               │\n  │  - Full Coq/Lean proof                                                │\n  │  - seL4-style proof chain                                             │\n  │  - DO-178C Level A tool qualification                                 │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

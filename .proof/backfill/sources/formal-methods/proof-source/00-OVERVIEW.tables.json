@@ -1,0 +1,162 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 422,
+      "heading_context": "## Tooling Summary Table",
+      "headers": [
+        "Tool",
+        "Category",
+        "Input",
+        "Properties",
+        "Best For"
+      ],
+      "rows": [
+        [
+          "TLA+ / TLC",
+          "Model checker",
+          "TLA+ spec",
+          "Safety, liveness, deadlock",
+          "Distributed protocols"
+        ],
+        [
+          "SPIN",
+          "Model checker",
+          "PROMELA",
+          "LTL",
+          "Concurrent protocols"
+        ],
+        [
+          "NuSMV",
+          "Model checker",
+          "SMV",
+          "CTL, LTL",
+          "Hardware, control systems"
+        ],
+        [
+          "Alloy",
+          "Model checker",
+          "Alloy",
+          "Structural invariants",
+          "Data model correctness"
+        ],
+        [
+          "CBMC",
+          "BMC",
+          "C/C++/Java",
+          "Memory safety, assertions",
+          "Embedded/AWS C code"
+        ],
+        [
+          "KLEE",
+          "Sym. exec.",
+          "LLVM IR",
+          "Assertions, crashes",
+          "C/C++ coverage/bug finding"
+        ],
+        [
+          "Infer",
+          "Abs. interp.",
+          "Java, C, C#",
+          "Null deref, memory leaks",
+          "Large codebases, CI"
+        ],
+        [
+          "Z3",
+          "SMT solver",
+          "SMT-LIB, APIs",
+          "Satisfiability",
+          "Backend for other tools"
+        ],
+        [
+          "Frama-C",
+          "Analysis platform",
+          "C",
+          "Full functional (WP plugin)",
+          "Safety-critical C"
+        ],
+        [
+          "Dafny",
+          "Deductive verifier",
+          "Dafny",
+          "Pre/post/invariants",
+          "Algorithms, data structures"
+        ],
+        [
+          "Coq",
+          "Proof assistant",
+          "Gallina",
+          "Full correctness",
+          "Compilers, math, critical SW"
+        ],
+        [
+          "Lean 4",
+          "Proof assistant",
+          "Lean 4",
+          "Full correctness",
+          "Mathematics, active research"
+        ],
+        [
+          "Isabelle/HOL",
+          "Proof assistant",
+          "Isabelle",
+          "Full correctness",
+          "OS kernels, academia"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 442,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool / Approach"
+      ],
+      "rows": [
+        [
+          "Designing a distributed protocol (consensus, replication)",
+          "TLA+ — write spec before code"
+        ],
+        [
+          "Verifying concurrent protocol has no deadlock",
+          "SPIN (PROMELA)"
+        ],
+        [
+          "Finding memory bugs in C before shipping",
+          "CBMC or Infer"
+        ],
+        [
+          "Running bug-finding on every pull request",
+          "Infer or CodeQL"
+        ],
+        [
+          "Verifying C safety-critical code (DO-178C)",
+          "Frama-C + WP plugin"
+        ],
+        [
+          "Checking a data model for structural inconsistencies",
+          "Alloy"
+        ],
+        [
+          "Need a machine-checked proof of an algorithm",
+          "Dafny (lighter) or Coq/Lean 4 (full)"
+        ],
+        [
+          "Verifying an OS kernel / security property",
+          "Isabelle/HOL (seL4 approach)"
+        ],
+        [
+          "Solving SMT constraints programmatically",
+          "Z3 Python API"
+        ],
+        [
+          "Learning proof assistants",
+          "Lean 4 + Mathlib (best tooling 2024+)"
+        ]
+      ]
+    }
+  ]
+}

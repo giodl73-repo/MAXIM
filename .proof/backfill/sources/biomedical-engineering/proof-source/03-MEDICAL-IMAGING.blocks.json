@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biomedical-engineering\\03-MEDICAL-IMAGING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|              MEDICAL IMAGING MODALITIES                             |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  MRI                   CT                 PET / SPECT              |\n|  Nuclear magnetic      X-ray attenuation  Radiotracer              |\n|  resonance             (Hounsfield units) distribution             |\n|  Soft tissue king      Bone, hemorrhage,  Functional/metabolic     |\n|  No ionizing radiation lung, fast         activity, oncology       |\n|  Slow, expensive       Excellent spatial  Poor spatial resolution  |\n|       |                     |                    |                  |\n|       v                     v                    v                  |\n|  ULTRASOUND            X-RAY / FLUORO     OPTICAL (clinical)       |\n|  Acoustic impedance    Projection image   OCT, endoscopy           |\n|  mismatch reflection   2D, fast, cheap    Ophthalmology,           |\n|  Real-time, portable   Interventional     GI, intravascular        |\n|  No ionizing radiation fluoroscopy        Near-surface             |\n+---------------------------------------------------------------------+\n\n  IMAGE RECONSTRUCTION: all modalities require solving an inverse problem\n  Raw data (k-space, sinogram, counts) -> algorithm -> spatial image",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "### Nuclear Magnetic Resonance",
+      "confidence": "candidate",
+      "text": "  NMR FUNDAMENTALS\n  ================\n\n  Spin: proton has intrinsic angular momentum -> magnetic moment\n\n  In external field B0:\n  - Protons align: parallel (low energy) or anti-parallel (high energy)\n  - NET magnetization M0 along B0 (z-axis)\n  - Larmor precession: protons precess at frequency ω0 = γ * B0\n\n  γ (gyromagnetic ratio for H): 42.58 MHz/T\n\n  Field Strength  Larmor Frequency (1H)\n  1.5 T           63.9 MHz\n  3.0 T           127.7 MHz\n  7.0 T           298.0 MHz\n  (Radio frequency range — hence \"RF pulse\")\n\n  RF EXCITATION:\n  Apply B1 field (RF pulse) at exactly ω0 (resonance condition)\n  -> Tips M0 by flip angle α:\n     α = 90°  ->  M0 entirely in transverse plane (max signal)\n     α = 180° ->  M0 inverted (inversion recovery)\n     α = small -> Ernst angle for fast acquisition (GRE sequences)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 89,
+      "heading_context": "### Nuclear Magnetic Resonance",
+      "confidence": "candidate",
+      "text": "### Relaxation — T1 and T2",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "### Relaxation — T1 and T2",
+      "confidence": "candidate",
+      "text": "  RELAXATION AFTER RF EXCITATION\n  ================================\n\n  After 90° pulse, two independent relaxation processes:\n\n  T1 — LONGITUDINAL (SPIN-LATTICE) RELAXATION:\n  Mz recovers toward M0:  Mz(t) = M0 * (1 - exp(-t/T1))\n\n  T1 is time to recover 63% of longitudinal magnetization.\n  Physical mechanism: energy exchange with molecular lattice.\n  Shorter T1: small molecules, fat, Gd contrast agent nearby\n  Longer T1: water, CSF, large molecules\n\n  T2 — TRANSVERSE (SPIN-SPIN) RELAXATION:\n  Mxy decays from M0 to 0:  Mxy(t) = M0 * exp(-t/T2)\n\n  T2 is time to lose 63% of transverse magnetization.\n  Physical mechanism: spin-spin dephasing (irreversible).\n  Shorter T2: solid-like tissues, cartilage, tendons, metal\n  Longer T2: free water, edema, CSF, cysts\n\n  T2* — includes additional dephasing from field inhomogeneity:\n  1/T2* = 1/T2 + 1/T2'   (T2' from B0 inhomogeneity)\n  T2* < T2 always.\n  Relevant for gradient echo sequences, fMRI (BOLD), metal artifacts.\n\n  TISSUE TYPICAL VALUES (1.5 T):\n  +---------------+--------+--------+\n  | Tissue        | T1 (ms)| T2 (ms)|\n  +---------------+--------+--------+\n  | Fat           | 260    | 80     |\n  | White matter  | 780    | 90     |\n  | Gray matter   | 900    | 100    |\n  | CSF           | 4000   | 2000   |\n  | Liver         | 490    | 40     |\n  | Muscle        | 870    | 45     |\n  | Blood (art.)  | 1200   | 200    |\n  +---------------+--------+--------+\n\n  Contrast strategy:\n  T1-weighted: short TR, short TE -> fat bright, water dark\n  T2-weighted: long TR, long TE  -> water bright, fat less so\n  Proton density: long TR, short TE -> relative proton density",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 141,
+      "heading_context": "### K-Space and Image Reconstruction",
+      "confidence": "candidate",
+      "text": "  K-SPACE FORMALISM\n  =================\n\n  K-space is the Fourier transform of the final image.\n  Each MRI acquisition fills one or more k-space lines.\n  Gradient encoding places each acquisition at a specific\n  (kx, ky) k-space location.\n\n  Image = FT^-1 { k-space data }\n\n  FREQUENCY ENCODING (readout gradient Gx):\n  Varying Gx during readout -> different protons precess at\n  different frequencies -> frequency encodes x-position.\n  One readout fills one row of k-space.\n\n  PHASE ENCODING (gradient Gy applied before readout):\n  Each phase-encode step applies a different Gy magnitude\n  -> protons at different y positions acquire different phase.\n  One phase-encode step per TR (one k-space line per repetition).\n\n  K-SPACE STRUCTURE:\n  +-------------------------------+\n  |  Low spatial frequency: center|\n  |  -> overall contrast/signal   |\n  |                               |\n  |  High spatial frequency: edges|\n  |  -> fine detail, edges        |\n  +-------------------------------+\n  Partial k-space acquisition + zero-fill: faster, but worse SNR.\n  Parallel imaging (SENSE, GRAPPA): under-sample k-space,\n  use coil sensitivity maps to reconstruct -> acceleration R=2-4x.\n\n  MRI ACQUISITION TIME ≈ TR × N_phase_encodes × NEX\n  (NEX = number of signal averages)\n  Long TR needed for T2-weighted: slow acquisition.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "### Pulse Sequences",
+      "confidence": "candidate",
+      "text": "  COMMON PULSE SEQUENCES\n  ======================\n\n  SPIN ECHO (SE):\n  90° pulse -> TE/2 -> 180° refocusing -> TE -> signal\n  Advantage: T2 weighted (not T2*), robust to B0 inhomogeneity\n  Disadvantage: slow (long TR for T2w)\n\n  FAST SPIN ECHO (FSE / TSE):\n  Multiple 180° pulses per TR -> multiple k-space lines per TR\n  -> 4-16x faster than SE. Standard clinical workhorse.\n\n  GRADIENT ECHO (GRE):\n  Small flip angle -> short TR possible -> fast\n  T2* weighted (not true T2 — sensitive to metal, air)\n  Used for: angiography, cartilage, bleeding (hemosiderin)\n\n  INVERSION RECOVERY (IR):\n  180° inversion -> TI delay -> 90° excite -> image\n  FLAIR (Fluid Attenuated IR): TI chosen to null CSF signal\n  -> brain lesions not obscured by bright CSF\n  STIR (Short TI IR): TI chosen to null fat signal\n  -> edema clearly visible (fat dark)\n\n  EPI (Echo Planar Imaging):\n  Fill all of k-space after ONE RF excitation\n  -> whole-brain volume in ~2 seconds\n  Used for: fMRI (BOLD), diffusion (DWI/DTI), perfusion\n  Disadvantage: severe distortion near air/bone interfaces (T2* effects)\n\n  DIFFUSION (DWI/DTI):\n  EPI with diffusion-sensitizing gradients (b-value)\n  Diffusion-weighted: detects restricted diffusion (acute stroke)\n  DTI: diffusion tensor -> white matter tractography\n  DWI is standard of care for acute ischemic stroke triage.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "### Contrast Agents and Safety",
+      "confidence": "candidate",
+      "text": "  MRI CONTRAST AGENTS\n  ===================\n  Gadolinium (Gd) chelates:\n  - Paramagnetic: shortens T1 (bright on T1-weighted images)\n  - Extracellular agents: leak through disrupted blood-brain barrier\n  - Applications: tumor enhancement, vascular imaging\n  - NSF (nephrogenic systemic fibrosis) risk in severe renal failure\n  - Gd retention concern: signal in brain (globus pallidus) after\n    repeated dosing — significance under investigation\n\n  MRI SAFETY:\n  +------------------+-------------------------------------------+\n  | SAR              | Specific Absorption Rate — RF heating     |\n  |                  | FDA limit: 4 W/kg whole body, 8 W/kg head |\n  |                  | Higher field -> higher SAR for same       |\n  |                  |   sequence -> sequence modification needed |\n  +------------------+-------------------------------------------+\n  | Implant heating  | Resonant antenna effect in RF field       |\n  |                  | Long conductive implants (deep brain stim  |\n  |                  |   leads, spinal cord stim) at risk        |\n  +------------------+-------------------------------------------+\n  | Projectile       | Ferromagnetic objects in fringe field     |\n  |                  | 5 Gauss line defines controlled zone      |\n  +------------------+-------------------------------------------+\n  | Acoustic noise   | Gradient coil Lorentz forces -> 100+ dB  |\n  |                  | Ear protection required                   |\n  +------------------+-------------------------------------------+\n\n  FIELD STRENGTH TRADEOFFS:\n  1.5 T: clinical standard, lower SAR, most implants conditional\n  3.0 T: better SNR (+2x vs 1.5T), higher SAR, faster\n  7.0 T: research / specialized clinical, excellent SNR, limited coverage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "### X-Ray Attenuation",
+      "confidence": "candidate",
+      "text": "  HOUNSFIELD UNITS (HU)\n  =====================\n  CT encodes μ relative to water:\n  HU = 1000 * (μ_tissue - μ_water) / μ_water\n\n  Material           HU Range\n  --------           --------\n  Air                -1000\n  Fat                -100 to -50\n  Water              0\n  Soft tissue        20 to 80\n  Blood (acute)      50 to 80\n  Calcification      >200\n  Bone (cancellous)  300 to 700\n  Bone (cortical)    700 to 3000\n  Metal implant      >3000 (saturated, causes artifacts)\n\n  Clinical windows:\n  Brain window:   W=80, L=40   -> gray/white matter contrast\n  Bone window:    W=2000, L=400 -> cortex visible\n  Lung window:    W=1500, L=-500 -> airways, vessels\n  Soft tissue:    W=400, L=40   -> abdomen\n  (W=window width, L=window level)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "### Detector Geometry and Acquisition",
+      "confidence": "candidate",
+      "text": "  CT SCANNER EVOLUTION\n  ====================\n\n  FAN BEAM (single/multi-detector row):\n  X-ray source -> fan beam -> detector arc\n  Gantry rotates around patient\n  Multiple detector rows: 4-slice -> 64-slice -> 256-slice -> 640-slice\n\n  CONE BEAM CT (CBCT):\n  Wide detector area, cone-shaped beam\n  Faster acquisition (one rotation = volume)\n  Used in: dental (low dose), interventional, radiation therapy\n\n  SPIRAL/HELICAL ACQUISITION:\n  Table moves continuously during gantry rotation\n  Pitch = table distance per rotation / collimation width\n  Pitch > 1: faster scan, less dose, slightly lower resolution\n  Pitch < 1: overlapping slices, better z-resolution\n\n  DUAL-ENERGY CT (DECT):\n  Two different kVp (e.g., 80 kVp + 140 kVp)\n  Different photoelectric vs. Compton attenuation ratios\n  -> Material decomposition: separate iodine from calcium,\n     detect uric acid (gout), virtual monoenergetic images\n     reduce metal artifact",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "### Reconstruction Algorithms",
+      "confidence": "candidate",
+      "text": "  CT IMAGE RECONSTRUCTION\n  =======================\n\n  RAW DATA: sinogram (line integrals of attenuation vs. angle)\n  Same mathematical problem as MRI k-space: inverse transform needed.\n\n  FILTERED BACKPROJECTION (FBP):\n  Analytic. Each projection angle backprojected across image.\n  Ram-Lak filter (ramp) sharpens image but amplifies noise.\n  Fast. Noisy at low dose. The traditional method.\n\n  ITERATIVE RECONSTRUCTION (IR, ASIR, SAFIRE):\n  Iterative algorithms minimize difference between measured\n  projections and forward projections of candidate image.\n  Better noise handling at low dose -> dose reduction 30-50%.\n  Slightly waxy/plastic appearance at strong iteration levels.\n\n  MODEL-BASED IR (MBIR, Veo):\n  Includes full physics model (X-ray statistics, focal spot,\n  detector response). Best image quality at lowest dose.\n  Very slow computation (minutes per study). Now GPU-accelerated.\n\n  DEEP LEARNING RECONSTRUCTION (DLR, TrueFidelity, AIR recon):\n  Neural network trained on high-dose reference images.\n  Denoises low-dose acquisitions. Fast, high quality.\n  FDA-cleared as IIR-equivalent, not as diagnostic in isolation.\n\n  DOSE METRICS:\n  CTDIvol (mGy): energy deposited per unit volume\n  DLP (mGy·cm): CTDIvol × scan length -> total dose indicator\n  Effective dose (mSv): DLP × body region k-factor -> risk metric\n  Chest CT: ~5-7 mSv (vs. CXR ~0.02 mSv, annual background ~3 mSv)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 366,
+      "heading_context": "## PET and SPECT",
+      "confidence": "candidate",
+      "text": "  PET vs. SPECT COMPARISON\n  =========================\n\n  +------------------+-----------------------+----------------------+\n  | Property         | PET                   | SPECT                |\n  +------------------+-----------------------+----------------------+\n  | Physics          | Annihilation photons   | Single gamma emitter |\n  |                  | (511 keV coincidence) | (80-200 keV)         |\n  | Detector         | Ring of scintillators | Rotating gamma camera|\n  |                  | (BGO, LSO, LYSO)      | with collimator      |\n  | Spatial res.     | 4-8 mm                | 8-15 mm              |\n  | Sensitivity      | Higher (no collimator)| Lower                |\n  | Typical tracers  | F-18 (FDG, NaF),      | Tc-99m (sestamibi,  |\n  |                  | Ga-68, C-11, N-13     |   MDP, HMPAO)        |\n  |                  | Rb-82 (cardiac)       | I-123, In-111        |\n  | Acquisition time | 10-30 min/bed pos     | 15-30 min/head       |\n  | Common use       | Oncology staging,     | Myocardial perf.,    |\n  |                  | neurology, cardiology | bone scan, thyroid   |\n  +------------------+-----------------------+----------------------+\n\n  FDG-PET MECHANISM:\n  F-18 FDG (fluorodeoxyglucose):\n  Glucose analog -> taken up by cells proportional to glucose metabolism\n  Phosphorylated by hexokinase -> trapped in cell (can't continue glycolysis)\n  Cancer cells: Warburg effect (aerobic glycolysis) -> high FDG uptake\n  FDG SUV (standardized uptake value) = tracer concentration / (injected dose / body weight)\n  SUV > 2.5: typical malignancy threshold (tissue-dependent)\n\n  ATTENUATION CORRECTION:\n  Photons absorbed before reaching detector -> underestimate activity\n  CT-based attenuation correction: CT HU -> attenuation at 511 keV\n  PET/CT: anatomic localization + functional quantification\n  PET/MRI: better soft tissue anatomy, no additional radiation\n\n  IMAGE RECONSTRUCTION:\n  OSEM (Ordered Subsets Expectation Maximization):\n  Iterative ML method. Partitions projections into subsets.\n  Converges faster than EM. Standard for PET and SPECT.\n  Controls: iterations × subsets = effective EM iterations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 417,
+      "heading_context": "### Basic Physics",
+      "confidence": "candidate",
+      "text": "  ULTRASOUND PHYSICS\n  ==================\n\n  Sound wave propagation in tissue:\n  Speed of sound c ≈ 1540 m/s in soft tissue (varies: fat ~1450, bone ~3500)\n  Frequency: 1-20 MHz for diagnostic imaging\n  Wavelength λ = c/f:\n    2 MHz -> 0.77 mm wavelength (deep imaging, lower resolution)\n    15 MHz -> 0.10 mm wavelength (superficial, high resolution)\n\n  FREQUENCY / PENETRATION TRADEOFF:\n  +---------------------------+\n  | Higher freq -> more resol-|\n  |   ution, less penetration |\n  | Lower freq -> less resol- |\n  |   ution, more penetration |\n  +---------------------------+\n  2-5 MHz: abdomen, cardiac (deep)\n  7-12 MHz: musculoskeletal, breast, vascular (superficial)\n  15-20 MHz: skin, intravascular (IVUS)\n\n  ACOUSTIC IMPEDANCE and REFLECTION:\n  Z = ρ * c (density × wave speed)\n  At interface between two media:\n  Reflection coefficient R = ((Z2-Z1)/(Z2+Z1))^2\n\n  Material       Z (MRayl)\n  Air            0.0004       Large mismatch with tissue -> total reflection\n  Fat            1.38         Small mismatch with water\n  Soft tissue    1.65         Standard\n  Bone           7.8          Large mismatch -> blocks ultrasound\n\n  Transducer pulse:\n  Piezoelectric crystal (PZT) vibrates at resonant frequency\n  Transmits pulse -> pulse echoes back from interfaces -> same\n  crystal receives echo -> time of flight -> depth\n  z = c * Δt / 2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 459,
+      "heading_context": "### Imaging Modes",
+      "confidence": "candidate",
+      "text": "  ULTRASOUND IMAGING MODES\n  ========================\n\n  A-MODE (Amplitude): single scanline, echo amplitude vs depth.\n  Historical; ophthalmology still uses it.\n\n  B-MODE (Brightness): multiple scanlines sweep across a plane.\n  Echo amplitude -> brightness. Standard 2D image. Real-time.\n\n  M-MODE (Motion): B-mode along one scanline vs time.\n  High temporal resolution. Cardiac valve motion, fetal heart rate.\n\n  DOPPLER:\n  Frequency shift when reflector is moving:\n  Δf = 2 * f0 * v * cos(θ) / c\n\n  Pulsed Wave (PW): range-gated, one location\n  Continuous Wave (CW): no depth gating, higher velocity range\n  Color Flow Imaging: color-coded velocity superimposed on B-mode\n  Power Doppler: magnitude of flow signal (no directional info)\n\n  Aliasing: velocity > Nyquist limit -> aliasing. Nyquist:\n  v_max = c * PRF / (4 * f0 * cos θ)\n  Solution: lower frequency, increase PRF, use CW Doppler.\n\n  TISSUE HARMONIC IMAGING:\n  Nonlinear propagation generates harmonics (2f0, 3f0...)\n  Receive at 2f0 only: reduced artifact, better contrast\n  Standard on modern systems for difficult imaging windows.\n\n  ELASTOGRAPHY:\n  Tissue stiffness mapping. Two approaches:\n  Strain elastography: apply compression manually, map strain\n  Shear wave: focused US push pulse -> shear wave -> wave speed\n    mapped to stiffness (E = 3ρc²). Liver fibrosis staging.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 501,
+      "heading_context": "## Image Quality Metrics",
+      "confidence": "candidate",
+      "text": "  IMAGING PERFORMANCE METRICS\n  ============================\n\n  +------------------+------------------------------------------+\n  | SNR              | Signal-to-noise ratio                    |\n  | (Signal/Noise)   | MRI: proportional to B0^1.5, voxel vol   |\n  |                  | CT: inversely proportional to dose^0.5   |\n  +------------------+------------------------------------------+\n  | CNR              | Contrast-to-noise ratio                  |\n  | (Contrast/Noise) | (Signal_A - Signal_B) / Noise            |\n  |                  | What actually determines visibility       |\n  +------------------+------------------------------------------+\n  | Spatial          | MTF (modulation transfer function)       |\n  | Resolution       | Described as line pairs per mm (lp/mm)   |\n  |                  | CT at 50% MTF: ~0.5 lp/mm (0.3mm pixel)  |\n  |                  | MRI: typically 0.3-1mm in-plane          |\n  |                  | PET: 4-8 mm FWHM                         |\n  |                  | US: frequency-dependent (~0.3-1mm)       |\n  +------------------+------------------------------------------+\n  | Temporal         | How fast image updates                   |\n  | Resolution       | US: real-time (30-100 fps)               |\n  |                  | MRI: seconds to minutes per volume       |\n  |                  | CT: <1 second (cardiac gated)            |\n  |                  | PET: 10-30 min/bed position              |\n  +------------------+------------------------------------------+\n  | Sensitivity/     | Diagnostic accuracy metrics              |\n  | Specificity      | Not purely physics — depends on reader,  |\n  |                  | protocol, post-processing                |\n  +------------------+------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 537,
+      "heading_context": "## PACS and DICOM",
+      "confidence": "candidate",
+      "text": "  CLINICAL IMAGING INFRASTRUCTURE\n  =================================\n\n  DICOM (Digital Imaging and Communications in Medicine):\n  - Standard format for medical images (ISO 12052)\n  - Image data + metadata in one file (UID, patient, modality, etc.)\n  - Mandatory for FDA-cleared medical imaging devices\n  - Structured as series -> studies -> patients -> hierarchy\n  - DICOM SR: structured reports; DICOM RT: radiotherapy\n\n  PACS (Picture Archiving and Communication System):\n  Modality -> DICOM send -> PACS server -> radiologist workstation\n  Replaces film. Enables teleradiology. Integration with EHR/RIS.\n\n  KEY DICOM UIDs:\n  SOP Instance UID: unique per image\n  Series UID: unique per acquisition series\n  Study UID: unique per imaging study\n  Patient ID: institution-specific (not globally unique)\n\n  Bridge for software engineers:\n  DICOM is a messaging and file format standard older than XML.\n  It has its own binary encoding, its own tag namespace (GGGG,EEEE),\n  and its own network protocol (DIMSE over TCP/IP).\n  Tools: dcm4che (Java), pydicom (Python), OsiriX (macOS viewer),\n  3D Slicer (open source workstation), Horos.\n  Cloud PACS: Google Healthcare API supports DICOMweb standard.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

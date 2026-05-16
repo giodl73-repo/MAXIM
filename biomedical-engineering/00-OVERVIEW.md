@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:overview
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Biomedical Engineering - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/00-OVERVIEW.md
+canonical_path: biomedical-engineering/00-OVERVIEW.md
+backsource_ids: [proof-backfill:biomedical-engineering:00-overview, git-history:biomedical-engineering:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biomedical Engineering — Landscape Overview
 
 ## The Big Picture

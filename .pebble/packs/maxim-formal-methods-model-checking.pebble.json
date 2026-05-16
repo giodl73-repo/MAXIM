@@ -1,0 +1,153 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-formal-methods-model-checking",
+  "source": "../../formal-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-MODEL-CHECKING.md#000",
+      "path": [
+        "02-MODEL-CHECKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:02-model-checking, git-history:formal-methods:02-model-checking]",
+        "canonical_path": "formal-methods/02-MODEL-CHECKING.md",
+        "concepts": "[model, checking]",
+        "current_path": "formal-methods/02-MODEL-CHECKING.md",
+        "id": "maxim:formal-methods:model-checking",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[model, checking]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Checking",
+        "updated": "null"
+      },
+      "text": "# Model Checking"
+    },
+    {
+      "id": "02-MODEL-CHECKING.md#001",
+      "path": [
+        "02-MODEL-CHECKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:02-model-checking, git-history:formal-methods:02-model-checking]",
+        "canonical_path": "formal-methods/02-MODEL-CHECKING.md",
+        "concepts": "[model, checking]",
+        "current_path": "formal-methods/02-MODEL-CHECKING.md",
+        "id": "maxim:formal-methods:model-checking",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[model, checking]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Checking",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-MODEL-CHECKING.md#002",
+      "path": [
+        "02-MODEL-CHECKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:02-model-checking, git-history:formal-methods:02-model-checking]",
+        "canonical_path": "formal-methods/02-MODEL-CHECKING.md",
+        "concepts": "[model, checking]",
+        "current_path": "formal-methods/02-MODEL-CHECKING.md",
+        "id": "maxim:formal-methods:model-checking",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[model, checking]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Checking",
+        "updated": "null"
+      },
+      "text": "Model checking: automatically verify that a finite-state model satisfies a formal property.\nThe key word is automatically — no human-written proofs, just state space exploration."
+    },
+    {
+      "id": "02-MODEL-CHECKING.md#003",
+      "path": [
+        "02-MODEL-CHECKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:02-model-checking, git-history:formal-methods:02-model-checking]",
+        "canonical_path": "formal-methods/02-MODEL-CHECKING.md",
+        "concepts": "[model, checking]",
+        "current_path": "formal-methods/02-MODEL-CHECKING.md",
+        "id": "maxim:formal-methods:model-checking",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[model, checking]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Checking",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                        MODEL CHECKING LANDSCAPE                          |\n|                                                                          |\n|  INPUT          TECHNIQUE              TOOLS             USE CASE        |\n|  ─────          ─────────              ─────             ────────        |\n|                                                                          |\n|  System model + EXPLICIT-STATE        SPIN (PROMELA)    Concurrent       |\n|  LTL/CTL         BFS/DFS + Buchi      TLC (TLA+)        protocols        |\n|  property        on-the-fly                                              |\n|                                                                          |\n|  System model + SYMBOLIC (BDD)        NuSMV/SMV         Hardware,        |\n|  CTL property    image computation    Cadence JasperGold control systems |\n|                                                                          |\n|  C/C++ code +   BOUNDED (SAT/SMT)     CBMC              Embedded C,      |\n|  assertions      unroll k steps       AWS CBMC           memory safety   |\n|                  check as SAT         ESBMC                              |\n|                                                                          |\n|  Abstracted  +  CEGAR                 BLAST, SLAM        OS drivers,     |\n|  C/Java code     refine on demand     CPAchecker         software model  |\n|                                                                          |\n|  SMT formula +  IC3/PDR               AVR, pono          Invariant       |\n|  transition     property-directed     (hardware/SW)      inference       |\n|  relation        reachability                                            |\n+--------------------------------------------------------------------------+"
+    },
+    {
+      "id": "02-MODEL-CHECKING.md#004",
+      "path": [
+        "02-MODEL-CHECKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:02-model-checking, git-history:formal-methods:02-model-checking]",
+        "canonical_path": "formal-methods/02-MODEL-CHECKING.md",
+        "concepts": "[model, checking]",
+        "current_path": "formal-methods/02-MODEL-CHECKING.md",
+        "id": "maxim:formal-methods:model-checking",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[model, checking]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Checking",
+        "updated": "null"
+      },
+      "text": "Fundamental limitation: STATE EXPLOSION\n  n concurrent components with k states each = k^n total states\n  Mitigation: BDDs (compact representation), partial order reduction,\n              abstraction (CEGAR), symmetry reduction, BMC (bounded)\n```"
+    }
+  ],
+  "refs": [
+    "02-MODEL-CHECKING.md"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\01-LOGIC-FOUNDATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 531,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Logic / Tool"
+      ],
+      "rows": [
+        [
+          "Check if a propositional formula is satisfiable",
+          "SAT solver (Z3, CaDiCaL)"
+        ],
+        [
+          "Verify a property over integer arithmetic",
+          "SMT with LIA theory (Z3)"
+        ],
+        [
+          "Check memory safety of C code (buffer, overflow)",
+          "SMT with BV theory (CBMC -> Z3)"
+        ],
+        [
+          "Verify a distributed protocol safety property",
+          "LTL/CTL model checker (TLC, SPIN)"
+        ],
+        [
+          "Express \"every request eventually gets a response\"",
+          "LTL: G(request -> F response)"
+        ],
+        [
+          "Express \"there is a path to the error state\"",
+          "CTL: EF(error)"
+        ],
+        [
+          "Check that a state is reachable on some execution",
+          "CTL: EF(state)"
+        ],
+        [
+          "Prove an algorithm correct for all inputs",
+          "FOL + proof assistant (Lean, Coq)"
+        ],
+        [
+          "Reason about what an agent knows",
+          "Epistemic logic (S5 + K_i operators)"
+        ],
+        [
+          "Determine if two programs have the same behavior",
+          "Bisimulation (process algebra)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 548,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Propositional and predicate logic basics",
+          "`logic/01-PROPOSITIONAL.md`",
+          "Formal methods operationalize logic in tools and proof systems"
+        ],
+        [
+          "Programming-language semantics",
+          "`programming-language-theory/01-LAMBDA-CALCULUS.md`",
+          "Verification depends on formal semantics of programs and specifications"
+        ],
+        [
+          "Distributed-system safety properties",
+          "`distributed-systems/03-CONSENSUS.md`",
+          "Consensus is often specified and checked as safety/liveness properties"
+        ],
+        [
+          "Security properties as invariants",
+          "`security-engineering/01-THREAT-MODELING.md`",
+          "High-assurance security work turns threats into properties and counterexamples"
+        ],
+        [
+          "Algebraic structures in specifications",
+          "`abstract-algebra/01-GROUPS.md`",
+          "Many proof systems reason over structures, signatures, models, and equations"
+        ]
+      ]
+    }
+  ]
+}

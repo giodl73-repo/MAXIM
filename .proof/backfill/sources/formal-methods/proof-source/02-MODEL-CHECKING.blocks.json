@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\02-MODEL-CHECKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                        MODEL CHECKING LANDSCAPE                          |\n|                                                                          |\n|  INPUT          TECHNIQUE              TOOLS             USE CASE        |\n|  ─────          ─────────              ─────             ────────        |\n|                                                                          |\n|  System model + EXPLICIT-STATE        SPIN (PROMELA)    Concurrent       |\n|  LTL/CTL         BFS/DFS + Buchi      TLC (TLA+)        protocols        |\n|  property        on-the-fly                                              |\n|                                                                          |\n|  System model + SYMBOLIC (BDD)        NuSMV/SMV         Hardware,        |\n|  CTL property    image computation    Cadence JasperGold control systems |\n|                                                                          |\n|  C/C++ code +   BOUNDED (SAT/SMT)     CBMC              Embedded C,      |\n|  assertions      unroll k steps       AWS CBMC           memory safety   |\n|                  check as SAT         ESBMC                              |\n|                                                                          |\n|  Abstracted  +  CEGAR                 BLAST, SLAM        OS drivers,     |\n|  C/Java code     refine on demand     CPAchecker         software model  |\n|                                                                          |\n|  SMT formula +  IC3/PDR               AVR, pono          Invariant       |\n|  transition     property-directed     (hardware/SW)      inference       |\n|  relation        reachability                                            |\n+--------------------------------------------------------------------------+\n\n  Fundamental limitation: STATE EXPLOSION\n  n concurrent components with k states each = k^n total states\n  Mitigation: BDDs (compact representation), partial order reduction,\n              abstraction (CEGAR), symmetry reduction, BMC (bounded)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## Kripke Structures: The Semantic Foundation",
+      "confidence": "candidate",
+      "text": "  S  = finite set of states\n  S0 = initial states (S0 ⊆ S)\n  R  = transition relation (R ⊆ S × S) — total (every state has a successor)\n  L  = labeling function L: S -> 2^AP (which atomic propositions hold where)\n\n  Example: simple mutual exclusion protocol\n  AP = {idle1, wait1, crit1, idle2, wait2, crit2}\n\n  States and labels:\n  s0: idle1, idle2\n  s1: wait1, idle2\n  s2: crit1, idle2\n  s3: idle1, wait2\n  s4: wait1, wait2\n  s5: crit1, wait2    <- crit1 and wait2 can coexist\n  s6: idle1, crit2\n  s7: wait1, crit2    <- wait1 and crit2 can coexist\n  (s8: crit1, crit2 is EXCLUDED by the mutex property)\n\n  Safety property to check:\n  AG -(crit1 /\\ crit2)   \"Mutual exclusion always holds\"\n  (In CTL: AG means \"on all paths, globally\")\n\n  Model checker explores all reachable states,\n  checks if the labeling ever violates the property.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### LTL Checking in SPIN",
+      "confidence": "candidate",
+      "text": "  SPIN verification:\n    spin -a peterson.pml     -> generates verifier (pan.c)\n    gcc -o pan pan.c\n    ./pan -a                 -> check all LTL properties\n\n  What SPIN does:\n  1. Build product automaton: system x negation of LTL property\n  2. Search for accepting cycles (Buchi acceptance)\n  3. If found: counterexample trace (full state sequence)\n  4. If not found (within memory): property holds\n\n  State vector: all values of all global/local variables\n  SPIN compresses: state vector -> hash (detect visited states)\n  Partial order reduction: skip equivalent interleavings\n\n  Scale: typically handles 10^7 - 10^8 states\n         with 100M+ state space: need abstraction or BMC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 371,
+      "heading_context": "## CEGAR: Counterexample-Guided Abstraction Refinement",
+      "confidence": "candidate",
+      "text": "  CEGAR Loop:\n  ┌──────────────────────────────────────────────────────┐\n  │                                                      │\n  │   Concrete Program  --abstract-->  Abstract Model    │\n  │                                         |            │\n  │                                    model check       │\n  │                                         |            │\n  │                               ┌────────┴──────────┐  │\n  │                               |                   |  │\n  │                          Property            Counterexample  │\n  │                            holds              found          │\n  │                            (DONE)                |          │\n  │                                        simulate on concrete  │\n  │                                                   |          │\n  │                                  Spurious CE          Real bug   │\n  │                                  (abstraction         (DONE)     │\n  │                                   too coarse)                    │\n  │                                       |                          │\n  │                                  Refine abstraction              │\n  │                                  (add predicates)                │\n  │                                       |                          │\n  │                                  Back to model check             │\n  │                                  Back to model check      │\n  └──────────────────────────────────────────────────────────────┘\n\n  Key idea: predicate abstraction.\n  The abstract state is defined by the set of predicates that hold.\n  A predicate is a boolean condition over program variables.\n  Example predicates: x > 0, ptr != NULL, size <= MAXSIZE\n\n  SLAM (Microsoft Research, 2001):\n  - Applied CEGAR to Windows device driver verification\n  - Drivers must follow API call protocols (acquire before release, etc.)\n  - Predicate abstraction + CEGAR + BDD-based model checking\n  - Found 3000+ violations before Windows Vista shipped\n  - Became SDV (Static Driver Verifier) — mandatory for Windows drivers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 450,
+      "heading_context": "### TLA+ Safety vs Liveness",
+      "confidence": "candidate",
+      "text": "  Safety property:   \"Bad thing never happens\"\n  Form: Invariant (checked at every state) or\n        Action invariant (checked at every transition)\n\n  Example (mutual exclusion):\n  MutexInvariant == ~(pc[1] = \"crit\" /\\ pc[2] = \"crit\")\n\n  Liveness property: \"Good thing eventually happens\"\n  Form: Temporal formula with F (eventually), fairness conditions\n\n  Example (starvation freedom):\n  NoStarvation == \\A i \\in {1,2}: [](pc[i] = \"wait\" => <>(pc[i] = \"crit\"))\n\n  Fairness (required to make liveness meaningful):\n  WF_vars(Next)  = weak fairness: if Next is enabled, it eventually happens\n  SF_vars(Next)  = strong fairness: if Next is enabled infinitely often,\n                                     it eventually happens\n\n  Without fairness conditions, the model checker can find \"starvation\" by\n  always scheduling the other process. Fairness rules this out.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 534,
+      "heading_context": "## State Explosion: Scale and Mitigation",
+      "confidence": "candidate",
+      "text": "  Why it's hard:\n  +------------------+------------------+------------------------------+\n  | Concurrent comps | States each      | Total state space            |\n  +------------------+------------------+------------------------------+\n  | 10               | 10               | 10^10 = 10 billion           |\n  | 20               | 10               | 10^20 (beyond any computer)  |\n  | 100              | 2 (bit each)      | 2^100 = 10^30               |\n  +------------------+------------------+------------------------------+\n\n  Mitigation techniques:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ Partial order reduction: many interleavings are equivalent.    │\n  │ Skip: if A and B are independent (no shared variables),        │\n  │ A;B and B;A reach the same state — explore only one.           │\n  ├────────────────────────────────────────────────────────────────┤\n  │ Symmetry reduction: if components are identical (by type),     │\n  │ many states are permutations of each other — collapse them.    │\n  │ TLC: symmetry set annotation. Reduction: N! for N processes.   │\n  ├────────────────────────────────────────────────────────────────┤\n  │ BDD-based symbolic: represent state SETS, not individual       │\n  │ states. BDD of 10^20 states can be tiny if structure is right. │\n  ├────────────────────────────────────────────────────────────────┤\n  │ Abstraction (CEGAR): coarsen the model. Only refine where      │\n  │ counterexamples are spurious.                                  │\n  ├────────────────────────────────────────────────────────────────┤\n  │ BMC: don't prove for all steps — just up to bound k.           │\n  │ Great for bug finding; insufficient for full verification.     │\n  ├────────────────────────────────────────────────────────────────┤\n  │ IC3/PDR: property-directed reachability — incrementally        │\n  │ builds inductive invariants without explicit enumeration.      │\n  │ State of the art for hardware verification (2011+).            │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 576,
+      "heading_context": "## IC3 / PDR: Property-Directed Reachability",
+      "confidence": "candidate",
+      "text": "  Goal: prove P is an inductive invariant (or find counterexample).\n\n  Key idea: maintain a sequence of \"frames\":\n  F0, F1, F2, ..., Fk where:\n  - F0 = Init (initial states)\n  - Fi -> Fi+1 (each frame is a subset of the previous)\n  - All Fi satisfy P (safety maintained)\n  - Fi+1 blocks all k+1-step predecessors of bad states\n\n  IC3 Algorithm (sketch):\n  1. Check if any Fi = Fi+1 (fixed point) -> property proven\n  2. Find a bad state reachable in k steps\n  3. Try to block it: add clause to Fk preventing that state\n  4. If clause propagates back to F0: real counterexample\n  5. Propagate clauses forward to consolidate frames\n  6. Increment k if no bad state found at current depth\n\n  Why it's better than BDDs for many problems:\n  - Incremental: doesn't build complete reachable set\n  - SAT-based: leverages modern SAT solvers + UNSAT cores\n  - Learns inductive invariants on-the-fly\n  - Avoids BDD variable ordering problem\n\n  Used in: hardware model checking (JasperGold), software\n  (CPAchecker IC3 backend), AVR for microcontrollers.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

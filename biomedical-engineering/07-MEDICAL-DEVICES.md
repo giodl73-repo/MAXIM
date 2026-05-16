@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:medical-devices
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Medical Devices - Regulatory Framework and Key Device Classes
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/07-MEDICAL-DEVICES.md
+canonical_path: biomedical-engineering/07-MEDICAL-DEVICES.md
+backsource_ids: [proof-backfill:biomedical-engineering:07-medical-devices, git-history:biomedical-engineering:07-medical-devices]
+concepts: [medical, devices]
+root_concepts: [medical, devices]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medical Devices — Regulatory Framework and Key Device Classes
 
 **Scope note**: The regulatory pathway fundamentals (Class I/II/III, 510(k), PMA, IDE) appear in `00-OVERVIEW.md` as landscape context. This file provides the detailed regulatory mechanics, device-class-specific requirements, and practical development considerations needed when actually navigating the FDA process.

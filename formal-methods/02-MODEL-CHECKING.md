@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:model-checking
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Model Checking
+status: source-custody
+source_custody: partial
+current_path: formal-methods/02-MODEL-CHECKING.md
+canonical_path: formal-methods/02-MODEL-CHECKING.md
+backsource_ids: [proof-backfill:formal-methods:02-model-checking, git-history:formal-methods:02-model-checking]
+concepts: [model, checking]
+root_concepts: [model, checking]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Model Checking
 
 ## The Big Picture
@@ -364,15 +383,14 @@ concrete program, verify an abstraction, then refine when the abstraction lies.
   │                            (DONE)                |          │
   │                                        simulate on concrete  │
   │                                                   |          │
-  │                                       ┌───────────┴───────┐ │
-  │                                       |                   | │
-  │                                  Spurious CE         Real bug│
-  │                                  (abstraction        (DONE) │
-  │                                   too coarse)             │
-  │                                       |                     │
-  │                                  Refine abstraction       │
-  │                                  (add predicates)         │
-  │                                       |                     │
+  │                                  Spurious CE          Real bug   │
+  │                                  (abstraction         (DONE)     │
+  │                                   too coarse)                    │
+  │                                       |                          │
+  │                                  Refine abstraction              │
+  │                                  (add predicates)                │
+  │                                       |                          │
+  │                                  Back to model check             │
   │                                  Back to model check      │
   └──────────────────────────────────────────────────────────────┘
 
@@ -527,8 +545,7 @@ THEOREM Spec => EventualAcquisition
   ┌────────────────────────────────────────────────────────────────┐
   │ Partial order reduction: many interleavings are equivalent.    │
   │ Skip: if A and B are independent (no shared variables),        │
-  │ A;B and B;A reach the same state — explore only one.          │
-  │ SPIN: POR built in. Reduction: often 10x-100x.                 │
+  │ A;B and B;A reach the same state — explore only one.           │
   ├────────────────────────────────────────────────────────────────┤
   │ Symmetry reduction: if components are identical (by type),     │
   │ many states are permutations of each other — collapse them.    │

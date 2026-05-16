@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\04-TYPE-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 572,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Type-System Question",
+        "Use This Frame",
+        "Watch-Out"
+      ],
+      "rows": [
+        [
+          "Do I need ordinary generics?",
+          "System F / rank-1 polymorphism",
+          "Full System F inference is undecidable; HM gives a tractable subset"
+        ],
+        [
+          "Do I need abstractions over type constructors?",
+          "F-omega / higher-kinded types",
+          "Haskell exposes this directly; C#/F#/Rust expose narrower encodings"
+        ],
+        [
+          "Do I need values in types?",
+          "Dependent Pi/Sigma types",
+          "More proof power means more annotation and proof burden"
+        ],
+        [
+          "Do I need memory safety without GC?",
+          "Affine/linear types with regions",
+          "Rust proves ownership properties for safe code, not arbitrary unsafe blocks"
+        ],
+        [
+          "Do I need structural API compatibility?",
+          "Structural subtyping",
+          "Width/depth compatibility can surprise nominal-type instincts"
+        ],
+        [
+          "Do I need type-level branching?",
+          "Conditional/mapped/template literal types",
+          "TypeScript can become Turing-complete and slow at the type level"
+        ],
+        [
+          "Do I need executable security proofs?",
+          "F* refinements + SMT, or Coq/Lean for deeper proofs",
+          "SMT automation trades transparency for solver/debugging complexity"
+        ],
+        [
+          "Do I need equality of equivalent structures?",
+          "HoTT/univalence or explicit transport/isomorphism machinery",
+          "Mainstream Lean/Mathlib is not univalent; it manages equivalence through typeclasses, coercions, and theorems"
+        ],
+        [
+          "Do I need C# variance intuition?",
+          "Producer/consumer rule: `out` covariant, `in` contravariant",
+          "Mutable containers are invariant for a reason"
+        ]
+      ]
+    }
+  ]
+}

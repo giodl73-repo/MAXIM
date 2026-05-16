@@ -1,0 +1,489 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-formal-methods-theorem-proving",
+  "source": "../../formal-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-THEOREM-PROVING.md#000",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "# Theorem Proving and Proof Assistants"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#001",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#002",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "Proof assistants are type checkers for mathematics. You write a term, the kernel\nchecks its type. A proof is a term whose type is the proposition being proved."
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#003",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                    PROOF ASSISTANT LANDSCAPE                             |\n|                                                                          |\n|  FOUNDATION         TOOL           ECOSYSTEM        PRIMARY USE          |\n|  ──────────         ────           ─────────        ───────────          |\n|                                                                          |\n|  CIC (Coq)          Coq 8.x        Coq stdlib,      Compilers,           |\n|  Calculus of        (INRIA)        MathComp, CF     math, program        |\n|  Inductive Const.                  Coquelicot       extraction           |\n|                                                                          |\n|  MLTT + univ.       Lean 4         Mathlib4         Mathematics          |\n|  (Lean 4)           (2021+)        (>100k thms)     software (growing)   |\n|                                                                          |\n|  HOL (Church)       Isabelle/HOL   AFP (Archive     OS kernels,          |\n|  Higher-order       (TU Munich)    of Formal        crypto proofs,       |\n|  logic              (Paulson)      Proofs)          CS theory            |\n|                                                                          |\n|  HOL (Church)       HOL4           CakeML compiler  Compilers,           |\n|  LCF style          (Edinburgh/    ARM/x86 ISA      hardware,            |\n|                     Cambridge)     proofs           low-level systems    |\n|                                                                          |\n|  Simple HOL         HOL Light      Flyspeck (Kepler)Formal math          |\n|  LCF minimal        (Harrison,     geometry         proofs               |\n|                     Intel/MSR)                                           |\n+--------------------------------------------------------------------------+"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#004",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "All proof assistants share this architecture:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  TACTIC LAYER  (user-facing: automation, search, tactics)    │\n  │       |                                                      │\n  │  ELABORATOR    (fills implicit arguments, type inference)    │\n  │       |                                                      │\n  │  KERNEL        (the trusted core — checks proof terms)       │\n  │       |                                                      │\n  │  LOGIC         (type theory or higher-order logic)           │\n  └──────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#005",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "Only the kernel needs to be trusted.\n  Thousands of lines of tactics can be buggy — the kernel catches errors.\n  Coq kernel: ~3000 lines OCaml. Lean 4 kernel: ~3000 lines C++.\n```"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#006",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#007",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "## The LCF Architecture: Trust Through Minimalism"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#008",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "Edinburgh LCF (1979, Milner et al.) established the architecture still used today."
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#009",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "```\n  Problem: How do you trust a large proof automation system?"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#010",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "LCF answer: Make the trusted core TINY.\n              Everything else is untrusted but checkable."
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#011",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "+-----------------------------------+\n  | UNTRUSTED LAYER (arbitrary code)  |\n  | - Tactics                         |\n  | - Search procedures               |\n  | - Decision procedures             |\n  | - Imported libraries              |\n  +-----------------------------------+\n              | produces\n              v\n  +-----------------------------------+\n  | TRUSTED KERNEL (abstract type)    |\n  | - Proof term: an abstract type    |\n  | - Only derivation rules can       |\n  |   construct values of type \"thm\"  |\n  | - Kernel validates EVERY step     |\n  | - Cannot forge a theorem          |\n  +-----------------------------------+"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#012",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "The key insight: the kernel is an abstract type in the\n  implementation language (ML, OCaml, Haskell). The type\n  system prevents forgery — you cannot produce a value of\n  type \"thm\" (theorem) without going through the inference rules."
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#013",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "This means: a bug in automation code produces a type error,\n  not a false proof. Security through types.\n```"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#014",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#015",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "## Curry-Howard Correspondence"
+    },
+    {
+      "id": "03-THEOREM-PROVING.md#016",
+      "path": [
+        "03-THEOREM-PROVING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]",
+        "canonical_path": "formal-methods/03-THEOREM-PROVING.md",
+        "concepts": "[theorem, proving]",
+        "current_path": "formal-methods/03-THEOREM-PROVING.md",
+        "id": "maxim:formal-methods:theorem-proving",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[theorem, proving]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Theorem Proving and Proof Assistants",
+        "updated": "null"
+      },
+      "text": "The deep connection between type theory and logic. You know lambda calculus from MIT —\nthis is the bridge to proof assistants:"
+    }
+  ],
+  "refs": [
+    "03-THEOREM-PROVING.md"
+  ]
+}
