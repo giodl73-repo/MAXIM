@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:atmospheric-thermodynamics
+kind: guide
+module: meteorology
+section: meteorology
+title: Atmospheric Thermodynamics - Stability, Lapse Rates, CAPE
+status: source-custody
+source_custody: partial
+current_path: meteorology/01-ATMOSPHERIC-THERMODYNAMICS.md
+canonical_path: meteorology/01-ATMOSPHERIC-THERMODYNAMICS.md
+backsource_ids: [proof-backfill:meteorology:01-atmospheric-thermodynamics, git-history:meteorology:01-atmospheric-thermodynamics]
+concepts: [atmospheric, thermodynamics]
+root_concepts: [atmospheric, thermodynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Atmospheric Thermodynamics — Stability, Lapse Rates, CAPE
 
 ## The Big Picture

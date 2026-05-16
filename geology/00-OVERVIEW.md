@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:overview
+kind: guide
+module: geology
+section: geology
+title: Geology - Overview
+status: source-custody
+source_custody: partial
+current_path: geology/00-OVERVIEW.md
+canonical_path: geology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:geology:00-overview, git-history:geology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geology — Overview
 
 **Bridge — Earth as a coupled reservoir system:** Think of Earth as a set of finite-capacity reservoirs (core, mantle, crust, hydrosphere, atmosphere, biosphere) exchanging energy and mass across well-defined interfaces. Each interface has characteristic flux rates and transfer functions: mantle convection moves heat from core-mantle boundary to crust on ~10⁸-year timescales; weathering moves mass from crust to ocean on ~10⁴-year timescales; the carbon cycle exchanges CO₂ between atmosphere and ocean on ~10²-year timescales. The system is never at equilibrium — it's a set of coupled differential equations with very different time constants per reservoir. Plate tectonics is the dominant long-period controller; the atmosphere/ocean are the fast-response layer. Every geological process is a flux between two of these reservoirs.
@@ -11,23 +30,23 @@ Earth is a heat engine wrapped in a thin rocky shell. Everything in geology — 
 |                    EARTH AS A SYSTEM                             |
 |                                                                  |
 |  INTERNAL ENGINE              EXTERNAL ENGINE                    |
-|  +-----------------------+    +---------------------------+      |
-|  | Core heat +           |    | Solar radiation           |       |
-|  | radioactive decay     |    | Water cycle               |       |
-|  | +--> mantle convection|    | Atmosphere/biosphere      |       |
-|  | +--> plate tectonics  |    | +--> weathering/erosion   |       |
-|  | +--> volcanism        |    | +--> sediment transport   |       |
-|  | +--> metamorphism     |    | +--> soil formation       |       |
-|  +-----------------------+    +---------------------------+       |
-|           |                              |                        |
-|           v                              v                        |
-|  +---------------------------------------------+                 |
-|  |              ROCK CYCLE                      |                 |
-|  |  Magma --> Igneous --> Weathering -->         |                 |
-|  |  Sediment --> Sedimentary --> Burial -->      |                 |
-|  |  Metamorphic --> Melting --> Magma           |                 |
-|  +---------------------------------------------+                 |
-|                                                                   |
+|  ┌───────────────────────┐    ┌───────────────────────────┐      |
+|  │ Core heat +           │    │ Solar radiation           │      |
+|  │ radioactive decay     │    │ Water cycle               │      |
+|  │ +--> mantle convection│    │ Atmosphere/biosphere      │      |
+|  │ +--> plate tectonics  │    │ +--> weathering/erosion   │      |
+|  │ +--> volcanism        │    │ +--> sediment transport   │      |
+|  │ +--> metamorphism     │    │ +--> soil formation       │      |
+|  └───────────────────────┘    └───────────────────────────┘      |
+|           │                              │                       |
+|           v                              v                       |
+|  ┌─────────────────────────────────────────────┐                 |
+|  │              ROCK CYCLE                     │                 |
+|  │  Magma --> Igneous --> Weathering -->       │                 |
+|  │  Sediment --> Sedimentary --> Burial -->    │                 |
+|  │  Metamorphic --> Melting --> Magma          │                 |
+|  └─────────────────────────────────────────────┘                 |
+|                                                                  |
 |  OUTPUTS: Landforms / Ore deposits / Fossil record /             |
 |           Soils / Petroleum / CO₂ fluxes                         |
 +------------------------------------------------------------------+

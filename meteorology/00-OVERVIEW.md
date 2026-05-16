@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:overview
+kind: guide
+module: meteorology
+section: meteorology
+title: Meteorology - Overview
+status: source-custody
+source_custody: partial
+current_path: meteorology/00-OVERVIEW.md
+canonical_path: meteorology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:meteorology:00-overview, git-history:meteorology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Meteorology — Overview
 
 ## The Big Picture
@@ -6,11 +25,11 @@ The atmosphere is a thin fluid shell (99% of mass below 30 km; Earth's radius is
 
 ```
 +------------------------------------------------------------------+
-|                    ATMOSPHERE AS A SYSTEM                         |
-|                                                                   |
+|                    ATMOSPHERE AS A SYSTEM                        |
+|                                                                  |
 |  ENERGY IN: Solar radiation (short-wave)                         |
 |  ENERGY OUT: Longwave infrared + reflected short-wave            |
-|                                                                   |
+|                                                                  |
 |  CIRCULATION ENGINES:                                            |
 |  ┌─────────────────────────────────────────────────────┐         |
 |  │ Differential heating (equator hot, poles cold)      │         |

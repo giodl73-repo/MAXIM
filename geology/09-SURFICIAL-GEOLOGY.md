@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:surficial-geology
+kind: guide
+module: geology
+section: geology
+title: Surficial Geology - Glacial, Fluvial, Karst, Coastal, Pedogenesis
+status: source-custody
+source_custody: partial
+current_path: geology/09-SURFICIAL-GEOLOGY.md
+canonical_path: geology/09-SURFICIAL-GEOLOGY.md
+backsource_ids: [proof-backfill:geology:09-surficial-geology, git-history:geology:09-surficial-geology]
+concepts: [surficial, geology]
+root_concepts: [surficial, geology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Surficial Geology — Glacial, Fluvial, Karst, Coastal, Pedogenesis
 
 **Bridge — surficial geology as the rendering layer over tectonic infrastructure:** Plate tectonics is the backend: it sets topographic relief, rock type distribution, and the substrate. Surficial processes are the rendering layer: ice, water, wind, and gravity continuously reshape the interface that humans actually experience. The backend creates the raw geometry (mountains via collision, valleys via rifting); the frontend optimizes it toward equilibrium (erosion reducing relief, deposition filling basins). This is full-stack geology — the backend processes operate on 10⁶–10⁸ year timescales; surficial processes render on 10²–10⁵ year timescales, fast enough to be observable in a human lifetime. Climate is the runtime environment that determines which surficial processes dominate: glacial at high latitude/altitude, fluvial in temperate zones, eolian in arid zones, chemical (karst) where carbonate rock and rainfall intersect. Change the climate, change the active process set — but the tectonic substrate persists.
@@ -12,8 +31,8 @@ Surficial geology covers processes that shape Earth's surface by moving material
 |                                                               |
 |  AGENT        SCALE        PROCESS          LANDFORMS         |
 |  ----------   ----------   ---------------  ----------------  |
-|  Ice          1–3 km       Glacial erosion  U-valleys, cirques|
-|  (glaciers)   thick        + deposition     Drumlins, moraines|
+|  Ice          1–3 km       Glacial erosion  U-valleys/cirques |
+|  (glaciers)   thick        + deposition     Drumlins/moraines |
 |                                                               |
 |  Water        Global       Fluvial erosion  River systems,    |
 |  (rivers)                  + transport      alluvial fans,    |

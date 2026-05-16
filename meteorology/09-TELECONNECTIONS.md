@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:teleconnections
+kind: guide
+module: meteorology
+section: meteorology
+title: Teleconnections - ENSO, NAO, MJO, PDO, AO
+status: source-custody
+source_custody: partial
+current_path: meteorology/09-TELECONNECTIONS.md
+canonical_path: meteorology/09-TELECONNECTIONS.md
+backsource_ids: [proof-backfill:meteorology:09-teleconnections, git-history:meteorology:09-teleconnections]
+concepts: [teleconnections]
+root_concepts: [teleconnections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Teleconnections — ENSO, NAO, MJO, PDO, AO
 
 ## The Big Picture

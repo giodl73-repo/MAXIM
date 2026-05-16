@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:planetary-geology
+kind: guide
+module: geology
+section: geology
+title: Planetary Geology - Comparative Planetology, Moon, Mars, Venus
+status: source-custody
+source_custody: partial
+current_path: geology/10-PLANETARY-GEOLOGY.md
+canonical_path: geology/10-PLANETARY-GEOLOGY.md
+backsource_ids: [proof-backfill:geology:10-planetary-geology, git-history:geology:10-planetary-geology]
+concepts: [planetary, geology]
+root_concepts: [planetary, geology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Planetary Geology — Comparative Planetology, Moon, Mars, Venus
 
 **Bridge — comparative planetology as natural A/B testing with controlled variables:** Planetary geology is the closest geology gets to controlled experimentation. The same physical laws govern all rocky bodies; what varies are the initial conditions: mass (determines internal heat budget and gravity), heliocentric distance (solar flux, volatile inventory, temperature), volatile content (water changes everything — viscosity, melting point, plate tectonics feasibility), and age of differentiation. Holding one variable constant and varying another isolates its effect. Mars vs Earth: similar rocky composition, Mars has 1/10th the mass → faster interior cooling → tectonics ceased ~3 Ga → no recycling → full 4.5 Ga surface record preserved. Venus vs Earth: nearly identical size and composition, but Venus lost its water → no plate tectonics → stagnant lid → 92-bar CO₂ atmosphere → 465°C surface. Water is the single variable that explains most of Earth's uniqueness. Io vs Europa: both tidally heated by Jupiter, but Io has no water → pure volcanism; Europa has subsurface ocean → geology mediated by ice-water interface. Each planet is a natural experiment that constrains what Earth would look like if one parameter were changed.
@@ -16,7 +35,7 @@ Planetary geology applies terrestrial geologic principles to other bodies. The k
 |  Medium (Mars)           Dead? (0.1   Dead? (1-    Minimal    |
 |                           Ga recently) plate)       (ancient) |
 |  Large (Venus)           Active?      Stagnant lid Active     |
-|                                        (episodic?)  (no water)|
+|                                        (episodic?)  (dry)     |
 |  Earth                   Active        Plate tect.  Active    |
 |                                        (unique?)              |
 |  Jupiter/Saturn          Gas giants — no rocky surface        |

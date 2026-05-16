@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:severe-weather
+kind: guide
+module: meteorology
+section: meteorology
+title: Severe Weather - Supercells, Tornadoes, Tropical Cyclones
+status: source-custody
+source_custody: partial
+current_path: meteorology/06-SEVERE-WEATHER.md
+canonical_path: meteorology/06-SEVERE-WEATHER.md
+backsource_ids: [proof-backfill:meteorology:06-severe-weather, git-history:meteorology:06-severe-weather]
+concepts: [severe, weather]
+root_concepts: [severe, weather]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Severe Weather — Supercells, Tornadoes, Tropical Cyclones
 
 ## The Big Picture

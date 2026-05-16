@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:plate-tectonics
+kind: guide
+module: geology
+section: geology
+title: Plate Tectonics - Seafloor Spreading, Wilson Cycle, Mantle Plumes
+status: source-custody
+source_custody: partial
+current_path: geology/05-PLATE-TECTONICS.md
+canonical_path: geology/05-PLATE-TECTONICS.md
+backsource_ids: [proof-backfill:geology:05-plate-tectonics, git-history:geology:05-plate-tectonics]
+concepts: [plate, tectonics]
+root_concepts: [plate, tectonics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plate Tectonics — Seafloor Spreading, Wilson Cycle, Mantle Plumes
 
 **Bridge — plate tectonics as the grand unified theory of geology:** Before the 1960s, geology was a collection of disconnected empirical observations: mountain ranges appeared for unclear reasons, earthquakes and volcanoes had unexplained distributions, identical fossils appeared on separate continents, and the ocean floor had mysterious linear magnetic striping. Plate tectonics unified these the way Maxwell's equations unified electricity, magnetism, and light — all disparate phenomena became instances of one mechanism. The parallel to software: it is the architectural refactoring that revealed every legacy module (earthquake seismology, stratigraphy, paleontology, volcanology) was implementing the same underlying abstraction. Once the framework clicked, each formerly ad-hoc observation became a predictable consequence. Continental drift without a mechanism (Wegener, 1912) was a correct observation without a theory — like identifying a performance regression without understanding the cause. Seafloor spreading (Hess, 1960) + magnetic striping (Vine & Matthews, 1963) provided the mechanism; GPS today measures it directly to millimeter precision.

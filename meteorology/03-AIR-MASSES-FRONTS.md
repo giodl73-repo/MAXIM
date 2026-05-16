@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:air-masses-fronts
+kind: guide
+module: meteorology
+section: meteorology
+title: Air Masses and Fronts - Classification, Frontal Theory, Norwegian Cyclone Model
+status: source-custody
+source_custody: partial
+current_path: meteorology/03-AIR-MASSES-FRONTS.md
+canonical_path: meteorology/03-AIR-MASSES-FRONTS.md
+backsource_ids: [proof-backfill:meteorology:03-air-masses-fronts, git-history:meteorology:03-air-masses-fronts]
+concepts: [air, masses, fronts]
+root_concepts: [air, masses]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Air Masses and Fronts — Classification, Frontal Theory, Norwegian Cyclone Model
 
 ## The Big Picture

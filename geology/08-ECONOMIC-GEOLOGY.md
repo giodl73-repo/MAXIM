@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:economic-geology
+kind: guide
+module: geology
+section: geology
+title: Economic Geology - Ore Deposits, Petroleum Systems, Critical Minerals
+status: source-custody
+source_custody: partial
+current_path: geology/08-ECONOMIC-GEOLOGY.md
+canonical_path: geology/08-ECONOMIC-GEOLOGY.md
+backsource_ids: [proof-backfill:geology:08-economic-geology, git-history:geology:08-economic-geology]
+concepts: [economic, geology]
+root_concepts: [economic, geology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economic Geology — Ore Deposits, Petroleum Systems, Critical Minerals
 
 **Bridge — ore concentration factor as signal-to-noise ratio:** Economic geology is fundamentally about enrichment ratios. Gold averages ~4 ppb in continental crust; an economic deposit running 1–10 g/t (1–10 ppm) represents roughly 250–2,500x enrichment above background. This is identical to extracting actionable signal from noisy data — the geological processes that form ore deposits are the physical-chemical filters that amplify signal (target metal) while rejecting noise (gangue). Hydrothermal fluid flow is a natural column chromatograph: different metals precipitate at different temperatures and chemical conditions, separating them from the bulk rock matrix. Placer deposits are gravity-sorted arrays: specific gravity differences act as a filter, concentrating dense metals (Au SG=19.3, Cassiterite SG=7.0) while washing away silicate gangue (SG≈2.6). Cutoff grade is the signal threshold: below it, the cost of extraction exceeds the value of signal recovered. Changing metal price shifts the threshold, reclassifying "noise" as "signal" — exactly like adjusting a classifier's decision boundary.
@@ -157,7 +176,7 @@ A petroleum system requires all five elements to exist simultaneously:
 |                                                                |
 |  RESERVOIR        Porous + permeable rock                      |
 |                   Sandstone (intergranular porosity)           |
-|                   Carbonate (vuggy, fracture, intercrystalline)|
+|                   Carbonate (vuggy, fracture, intercryst.)     |
 |                   Key metrics: φ (porosity 10–35%)             |
 |                                k (permeability 1–1000 mD)      |
 |                                                                |
