@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:family-demographic-change
+kind: guide
+module: sociology
+section: sociology
+title: Family and Demographic Change
+status: source-custody
+source_custody: partial
+current_path: sociology/06-FAMILY-DEMOGRAPHIC-CHANGE.md
+canonical_path: sociology/06-FAMILY-DEMOGRAPHIC-CHANGE.md
+backsource_ids: [proof-backfill:sociology:06-family-demographic-change, git-history:sociology:06-family-demographic-change]
+concepts: [family, demographic, change]
+root_concepts: [family, demographic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Family and Demographic Change
 
 ## The Big Picture

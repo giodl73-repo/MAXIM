@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:religion-secularization
+kind: guide
+module: sociology
+section: sociology
+title: Religion and Secularization
+status: source-custody
+source_custody: partial
+current_path: sociology/07-RELIGION-SECULARIZATION.md
+canonical_path: sociology/07-RELIGION-SECULARIZATION.md
+backsource_ids: [proof-backfill:sociology:07-religion-secularization, git-history:sociology:07-religion-secularization]
+concepts: [religion, secularization]
+root_concepts: [religion, secularization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Religion and Secularization
 
 ## The Big Picture

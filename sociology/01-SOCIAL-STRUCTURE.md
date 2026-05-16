@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:social-structure
+kind: guide
+module: sociology
+section: sociology
+title: Social Structure
+status: source-custody
+source_custody: partial
+current_path: sociology/01-SOCIAL-STRUCTURE.md
+canonical_path: sociology/01-SOCIAL-STRUCTURE.md
+backsource_ids: [proof-backfill:sociology:01-social-structure, git-history:sociology:01-social-structure]
+concepts: [social, structure]
+root_concepts: [social, structure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Structure
 
 ## The Big Picture

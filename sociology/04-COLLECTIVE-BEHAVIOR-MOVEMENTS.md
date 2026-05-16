@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:collective-behavior-movements
+kind: guide
+module: sociology
+section: sociology
+title: Collective Behavior and Social Movements
+status: source-custody
+source_custody: partial
+current_path: sociology/04-COLLECTIVE-BEHAVIOR-MOVEMENTS.md
+canonical_path: sociology/04-COLLECTIVE-BEHAVIOR-MOVEMENTS.md
+backsource_ids: [proof-backfill:sociology:04-collective-behavior-movements, git-history:sociology:04-collective-behavior-movements]
+concepts: [collective, behavior, movements]
+root_concepts: [collective, behavior]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Collective Behavior and Social Movements
 
 ## The Big Picture

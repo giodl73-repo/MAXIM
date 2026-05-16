@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:overview
+kind: guide
+module: nutrition
+section: nutrition
+title: Nutrition - Overview
+status: source-custody
+source_custody: partial
+current_path: nutrition/00-OVERVIEW.md
+canonical_path: nutrition/00-OVERVIEW.md
+backsource_ids: [proof-backfill:nutrition:00-overview, git-history:nutrition:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nutrition — Overview
 
 ## The Big Picture

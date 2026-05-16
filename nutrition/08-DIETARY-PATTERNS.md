@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:dietary-patterns
+kind: guide
+module: nutrition
+section: nutrition
+title: Dietary Patterns
+status: source-custody
+source_custody: partial
+current_path: nutrition/08-DIETARY-PATTERNS.md
+canonical_path: nutrition/08-DIETARY-PATTERNS.md
+backsource_ids: [proof-backfill:nutrition:08-dietary-patterns, git-history:nutrition:08-dietary-patterns]
+concepts: [dietary, patterns]
+root_concepts: [dietary, patterns]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dietary Patterns
 
 ## The Big Picture
@@ -9,10 +28,10 @@ DIETARY PATTERNS — LANDSCAPE + EVIDENCE MAP
 ──────────────────────────────────────────────────────────────────────────────
                         SHARED CORE PRINCIPLES
              ┌──────────────────────────────────────────┐
-             │ High plants (veg/legume/whole grain/fruit) │
+             │ High plants (veg/legumes/grains/fruit)   │
              │ Minimal ultra-processed food             │
              │ Adequate fiber (≥25–40g/day)             │
-             │ Healthy fat (olive oil, nuts, fatty fish)  │
+             │ Healthy fat (olive oil/nuts/fatty fish)  │
              │ Low added sugar + refined carbs          │
              └──────────────┬───────────────────────────┘
                             │ all evidence-based patterns share this core
@@ -41,8 +60,8 @@ DIETARY PATTERNS — LANDSCAPE + EVIDENCE MAP
     NEGATIVE EVIDENCE:
     ┌─────────────────────────────────────────────────────────────────────┐
     │ Ultra-Processed Food (NOVA 4)                                       │
-    │ Hall 2019 RCT: ad libitum UPF → +508 kcal/day vs unprocessed      │
-    │ Multiple cohorts: dose-response all-cause mortality, T2DM, CVD     │
+    │ Hall 2019 RCT: ad libitum UPF → +508 kcal/day vs unprocessed        │
+    │ Multiple cohorts: dose-response all-cause mortality, T2DM, CVD      │
     │ Mechanism: hyperpalatable engineering + texture → satiety bypass    │
     └─────────────────────────────────────────────────────────────────────┘
 

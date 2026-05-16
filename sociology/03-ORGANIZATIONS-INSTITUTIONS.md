@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:organizations-institutions
+kind: guide
+module: sociology
+section: sociology
+title: Organizations and Institutions
+status: source-custody
+source_custody: partial
+current_path: sociology/03-ORGANIZATIONS-INSTITUTIONS.md
+canonical_path: sociology/03-ORGANIZATIONS-INSTITUTIONS.md
+backsource_ids: [proof-backfill:sociology:03-organizations-institutions, git-history:sociology:03-organizations-institutions]
+concepts: [organizations, institutions]
+root_concepts: [organizations, institutions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organizations and Institutions
 
 ## The Big Picture

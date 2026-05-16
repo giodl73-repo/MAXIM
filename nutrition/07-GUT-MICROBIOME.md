@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:gut-microbiome
+kind: guide
+module: nutrition
+section: nutrition
+title: Gut Microbiome
+status: source-custody
+source_custody: partial
+current_path: nutrition/07-GUT-MICROBIOME.md
+canonical_path: nutrition/07-GUT-MICROBIOME.md
+backsource_ids: [proof-backfill:nutrition:07-gut-microbiome, git-history:nutrition:07-gut-microbiome]
+concepts: [gut, microbiome]
+root_concepts: [gut, microbiome]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gut Microbiome
 
 ## The Big Picture

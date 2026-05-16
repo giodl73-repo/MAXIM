@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:vitamins
+kind: guide
+module: nutrition
+section: nutrition
+title: Vitamins
+status: source-custody
+source_custody: partial
+current_path: nutrition/04-VITAMINS.md
+canonical_path: nutrition/04-VITAMINS.md
+backsource_ids: [proof-backfill:nutrition:04-vitamins, git-history:nutrition:04-vitamins]
+concepts: [vitamins]
+root_concepts: [vitamins]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vitamins
 
 ## The Big Picture

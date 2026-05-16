@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:carbohydrates
+kind: guide
+module: nutrition
+section: nutrition
+title: Carbohydrates
+status: source-custody
+source_custody: partial
+current_path: nutrition/01-CARBOHYDRATES.md
+canonical_path: nutrition/01-CARBOHYDRATES.md
+backsource_ids: [proof-backfill:nutrition:01-carbohydrates, git-history:nutrition:01-carbohydrates]
+concepts: [carbohydrates]
+root_concepts: [carbohydrates]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Carbohydrates
 
 ## The Big Picture
@@ -135,15 +154,15 @@ POSTPRANDIAL GLUCOSE (after eating):
   Carbohydrate absorbed → blood glucose rises → pancreatic β-cells sense glucose
                                                 ↓
                                           Insulin secreted
-                          ┌──────────────────────────────────┐
-                          │ Insulin effects:                 │
-                          │ • GLUT4 translocation to muscle  │
+                          ┌───────────────────────────────────┐
+                          │ Insulin effects:                  │
+                          │ • GLUT4 translocation to muscle   │
                           │   and adipose (insulin-dependent) │
-                          │ • Glycogen synthesis ↑           │
-                          │ • Glycolysis ↑                   │
-                          │ • Gluconeogenesis ↓              │
-                          │ • Lipolysis ↓ (anti-lipolytic)   │
-                          └──────────────────────────────────┘
+                          │ • Glycogen synthesis ↑            │
+                          │ • Glycolysis ↑                    │
+                          │ • Gluconeogenesis ↓               │
+                          │ • Lipolysis ↓ (anti-lipolytic)    │
+                          └───────────────────────────────────┘
                           Blood glucose returns to ~4.5–5.5 mmol/L
 
 FASTING GLUCOSE MAINTENANCE:

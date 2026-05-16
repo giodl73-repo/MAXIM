@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:deviance-social-control
+kind: guide
+module: sociology
+section: sociology
+title: Deviance and Social Control
+status: source-custody
+source_custody: partial
+current_path: sociology/05-DEVIANCE-SOCIAL-CONTROL.md
+canonical_path: sociology/05-DEVIANCE-SOCIAL-CONTROL.md
+backsource_ids: [proof-backfill:sociology:05-deviance-social-control, git-history:sociology:05-deviance-social-control]
+concepts: [deviance, social, control]
+root_concepts: [deviance, social]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deviance and Social Control
 
 ## The Big Picture

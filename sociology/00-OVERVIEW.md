@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:overview
+kind: guide
+module: sociology
+section: sociology
+title: Sociology - Overview
+status: source-custody
+source_custody: partial
+current_path: sociology/00-OVERVIEW.md
+canonical_path: sociology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:sociology:00-overview, git-history:sociology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sociology — Overview
 
 ## The Big Picture

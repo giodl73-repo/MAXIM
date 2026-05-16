@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:minerals
+kind: guide
+module: nutrition
+section: nutrition
+title: Minerals
+status: source-custody
+source_custody: partial
+current_path: nutrition/05-MINERALS.md
+canonical_path: nutrition/05-MINERALS.md
+backsource_ids: [proof-backfill:nutrition:05-minerals, git-history:nutrition:05-minerals]
+concepts: [minerals]
+root_concepts: [minerals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Minerals
 
 ## The Big Picture

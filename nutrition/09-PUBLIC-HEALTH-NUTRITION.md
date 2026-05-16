@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:public-health-nutrition
+kind: guide
+module: nutrition
+section: nutrition
+title: Public Health Nutrition
+status: source-custody
+source_custody: partial
+current_path: nutrition/09-PUBLIC-HEALTH-NUTRITION.md
+canonical_path: nutrition/09-PUBLIC-HEALTH-NUTRITION.md
+backsource_ids: [proof-backfill:nutrition:09-public-health-nutrition, git-history:nutrition:09-public-health-nutrition]
+concepts: [public, health, nutrition]
+root_concepts: [public, health]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Public Health Nutrition
 
 ## The Big Picture

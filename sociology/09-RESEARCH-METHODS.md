@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:research-methods
+kind: guide
+module: sociology
+section: sociology
+title: Research Methods
+status: source-custody
+source_custody: partial
+current_path: sociology/09-RESEARCH-METHODS.md
+canonical_path: sociology/09-RESEARCH-METHODS.md
+backsource_ids: [proof-backfill:sociology:09-research-methods, git-history:sociology:09-research-methods]
+concepts: [research, methods]
+root_concepts: [research, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Research Methods
 
 ## The Big Picture
