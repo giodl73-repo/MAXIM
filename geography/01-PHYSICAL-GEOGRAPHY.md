@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:physical-geography
+kind: guide
+module: geography
+section: geography
+title: Physical Geography
+status: source-custody
+source_custody: partial
+current_path: geography/01-PHYSICAL-GEOGRAPHY.md
+canonical_path: geography/01-PHYSICAL-GEOGRAPHY.md
+backsource_ids: [proof-backfill:geography:01-physical-geography, git-history:geography:01-physical-geography]
+concepts: [physical, geography]
+root_concepts: [physical, geography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Physical Geography
 
 ## The Big Picture

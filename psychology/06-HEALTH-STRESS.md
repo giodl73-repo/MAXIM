@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:health-stress
+kind: guide
+module: psychology
+section: psychology
+title: Health Psychology and Stress
+status: source-custody
+source_custody: partial
+current_path: psychology/06-HEALTH-STRESS.md
+canonical_path: psychology/06-HEALTH-STRESS.md
+backsource_ids: [proof-backfill:psychology:06-health-stress, git-history:psychology:06-health-stress]
+concepts: [health, stress]
+root_concepts: [health, stress]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Health Psychology & Stress
 
 ## The Big Picture
@@ -302,7 +321,7 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   │ P — POSITIVE EMOTIONS: not just happiness but the full range   │
   │     Joy, gratitude, serenity, hope, awe, elevation             │
   │     Broaden-and-build (Fredrickson): positive emotions → broad │
-  │     thought-action repertoires → build durable personal resources│
+  │     thought-action repertoires → build durable resources       │
   │                                                                │
   │ E — ENGAGEMENT: flow states (Csikszentmihalyi); fully absorbed │
   │     in activity; challenge/skill match; time distortion        │
@@ -368,7 +387,7 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   │                                                                │
   │ Best evidence for: recurrent depression prevention (MBCT),     │
   │ chronic pain, anxiety, caregiver stress, substance cravings    │
-  │ Weaker evidence for: immune function, "performance", longevity│
+  │ Weaker evidence for: immune function, "performance", longevity │
   └────────────────────────────────────────────────────────────────┘
 
   NEURAL CORRELATES:

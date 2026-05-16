@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:economic-geography
+kind: guide
+module: geography
+section: geography
+title: Economic Geography
+status: source-custody
+source_custody: partial
+current_path: geography/07-ECONOMIC-GEOGRAPHY.md
+canonical_path: geography/07-ECONOMIC-GEOGRAPHY.md
+backsource_ids: [proof-backfill:geography:07-economic-geography, git-history:geography:07-economic-geography]
+concepts: [economic, geography]
+root_concepts: [economic, geography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economic Geography
 
 ## The Big Picture
@@ -67,7 +86,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
 
   CHRISTALLER CENTRAL PLACE THEORY (1933):
   ┌────────────────────────────────────────────────────────────────┐
-  │ Goods/services have different RANGE (max distance people travel)│
+  │ Goods/services have different RANGE (max distance traveled)    │
   │ and THRESHOLD (min population needed to support it)            │
   │                                                                │
   │ High-order goods (jewelry, hospitals): long range, high thresh │
@@ -429,7 +448,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ Pakistan: ~$27B to Chinese state entities; IMF bailouts;     │
   │   CPEC debt service ~40% of export earnings in some years    │
   │ Zambia: first African sovereign default 2020; Chinese        │
-  │   creditors ~30–40% of external debt; protracted restructuring│
+  │   creditors ~30–40% of external debt; long restructuring     │
   │ Sri Lanka: Hambantota port lease (2017); forced by inability │
   │   to service $1.4B Hambantota loan; politically contested    │
   │ Ecuador: oil-for-loans; ~$18B to China; debt restructured    │
@@ -437,8 +456,8 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │   burden significant relative to export base                 │
   │                                                              │
   │ COUNTER-NARRATIVE: Many BRI loans are commercial terms,      │
-  │ not concessional; some are refinanceable; debt-trap narrative  │
-  │ overstates Chinese leverage (Deborah Brautigam, SAIS research) │
+  │ not concessional; some are refinanceable; debt-trap narrative│
+  │ overstates Chinese leverage (Deborah Brautigam)              │
   └──────────────────────────────────────────────────────────────┘
 
   GEOPOLITICAL READING:
@@ -515,7 +534,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │40–50% of data center energy is cooling; cold climates reduce │
   │ mechanical cooling need (free cooling > 90% of year in       │
   │ Scandinavia); water cooling for GPU clusters → water rights  │
-  │ conflicts (drought-prone regions facing data center water use)│
+  │ conflicts (drought-prone regions facing data ctr water use)  │
   │                                                              │
   │ LATENCY:                                                     │
   │ Edge computing: bring compute close to users (CDN nodes)     │

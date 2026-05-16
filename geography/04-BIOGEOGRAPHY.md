@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:biogeography
+kind: guide
+module: geography
+section: geography
+title: Biogeography
+status: source-custody
+source_custody: partial
+current_path: geography/04-BIOGEOGRAPHY.md
+canonical_path: geography/04-BIOGEOGRAPHY.md
+backsource_ids: [proof-backfill:geography:04-biogeography, git-history:geography:04-biogeography]
+concepts: [biogeography]
+root_concepts: [biogeography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biogeography
 
 ## The Big Picture

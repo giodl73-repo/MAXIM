@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:persuasion-influence
+kind: guide
+module: psychology
+section: psychology
+title: Persuasion and Influence
+status: source-custody
+source_custody: partial
+current_path: psychology/05-PERSUASION-INFLUENCE.md
+canonical_path: psychology/05-PERSUASION-INFLUENCE.md
+backsource_ids: [proof-backfill:psychology:05-persuasion-influence, git-history:psychology:05-persuasion-influence]
+concepts: [persuasion, influence]
+root_concepts: [persuasion, influence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Persuasion & Influence
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:population-urban
+kind: guide
+module: geography
+section: geography
+title: Population and Urban Geography
+status: source-custody
+source_custody: partial
+current_path: geography/05-POPULATION-URBAN.md
+canonical_path: geography/05-POPULATION-URBAN.md
+backsource_ids: [proof-backfill:geography:05-population-urban, git-history:geography:05-population-urban]
+concepts: [population, urban]
+root_concepts: [population, urban]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Population & Urban Geography
 
 ## The Big Picture
@@ -332,10 +351,10 @@ to economic and political geography.
   MECHANISMS:
   ┌────────────────────────────────────────────────────────────────┐
   │ Dark surfaces: asphalt + roofing absorb more solar radiation   │
-  │ Reduced evapotranspiration: impervious surfaces + less vegetation│
+  │ Reduced evapotranspiration: impervious surfaces + fewer plants │
   │ Urban geometry: "canyon" effect traps longwave radiation       │
   │ Waste heat: vehicles, A/C, industry, people                    │
-  │ Reduced sky view factor: tall buildings reduce radiative cooling│
+  │ Reduced sky view factor: tall buildings reduce radiative loss  │
   └────────────────────────────────────────────────────────────────┘
 
   IMPACTS:
