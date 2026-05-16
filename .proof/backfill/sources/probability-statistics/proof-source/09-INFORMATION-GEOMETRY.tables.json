@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\09-INFORMATION-GEOMETRY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 398,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether parameter space has an intrinsic metric",
+          "Fisher information metric",
+          "Degenerate or misspecified models can make geometry singular"
+        ],
+        [
+          "Whether MLE is minimizing data-to-model discrepancy",
+          "Forward KL `D_KL(data || model)`",
+          "Forward KL penalizes missing data support heavily"
+        ],
+        [
+          "Whether variational inference is mode-seeking",
+          "Reverse KL `D_KL(model || data)`",
+          "Reverse KL can ignore low-probability modes"
+        ],
+        [
+          "Whether gradients should respect statistical geometry",
+          "Natural gradient",
+          "Computing or approximating the Fisher matrix is the cost"
+        ],
+        [
+          "Whether exponential-family structure is flat",
+          "e-flat manifold",
+          "Projection statements depend on the chosen connection"
+        ],
+        [
+          "Whether mixture constraints are flat",
+          "m-flat manifold",
+          "Moment matching is projection under dual geometry, not Euclidean distance"
+        ],
+        [
+          "Whether latent-variable fitting alternates projections",
+          "EM algorithm",
+          "EM can converge slowly and to local optima"
+        ],
+        [
+          "Whether KL is too brittle",
+          "Alpha-divergence family",
+          "Robustness changes which errors are emphasized"
+        ]
+      ]
+    }
+  ]
+}

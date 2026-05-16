@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\08-FIBER-BUNDLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    FIBER BUNDLE  E -> M                          |\n+------------------------------------------------------------------+\n|                                                                  |\n|    E (total space)                                              |\n|    |                                                             |\n|    pi (projection)                                              |\n|    |                                                             |\n|    M (base space)        F (fiber: pi^{-1}(p) ≅ F for each p)  |\n|                                                                  |\n|  LOCAL TRIVIALITY: for each p in M, there is an open U with    |\n|  pi^{-1}(U) ≅ U x F  (homeomorphism commuting with pi)        |\n|                                                                  |\n|  TRANSITION FUNCTIONS: on overlaps U_alpha cap U_beta           |\n|  phi_{beta alpha}: U_alpha cap U_beta -> Aut(F)                |\n|  (tell you how to glue the fibers together)                    |\n|                                                                  |\n|  TYPES BY FIBER:                                                |\n|  F = R^k: vector bundle (TM, T*M are examples)                 |\n|  F = G (group): principal bundle                               |\n|  F = any: general fiber bundle                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## Formal Definition",
+      "confidence": "candidate",
+      "text": "  Phi_alpha: pi^{-1}(U_alpha) -> U_alpha x F\n\n  such that Phi_alpha commutes with pi:\n  pr_1 o Phi_alpha = pi  (first component of Phi_alpha = pi)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## Formal Definition",
+      "confidence": "candidate",
+      "text": "  phi_{beta alpha}(p): F -> F  for each p in U_alpha cap U_beta\n  defined by: Phi_beta o Phi_alpha^{-1}(p, f) = (p, phi_{beta alpha}(p)(f))\n\n  COCYCLE CONDITION:\n  phi_{gamma beta}(p) o phi_{beta alpha}(p) = phi_{gamma alpha}(p)  on triple overlaps\n\n  The transition functions ENCODE the bundle (determine it up to isomorphism).\n  A bundle is trivial iff ALL transition functions can be taken to be the identity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Principal Bundles",
+      "confidence": "candidate",
+      "text": "  P has a smooth right G-action: P x G -> P,  (p, g) |-> p * g\n  - Free: p * g = p implies g = e\n  - Transitive on fibers: given p, q in pi^{-1}(x), there exists unique g with p * g = q\n  - pi(p * g) = pi(p)  (G acts within fibers)\n\n  EXAMPLES:\n  Frame bundle FM: P = set of frames (bases) of T_p M, G = GL(n,R)\n  Orthonormal frame bundle: G = O(n) (for Riemannian manifold)\n  Hopf fibration: S^3 -> S^2 with fiber S^1 = U(1)  (principal U(1)-bundle)\n  Principal SU(2)-bundle over S^4: important in gauge theory\n\n  ASSOCIATED VECTOR BUNDLE:\n  Given principal G-bundle P and representation rho: G -> GL(V):\n  E = P x_G V = (P x V) / ((p,v) ~ (pg, rho(g^{-1})v))\n  is a vector bundle with fiber V.\n\n  TM comes from the frame bundle with the standard representation of GL(n,R).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Connections on Principal Bundles",
+      "confidence": "candidate",
+      "text": "  Over a local trivialization U x G, the connection A restricts to:\n  A|_U = A_mu dx^mu  (a g-valued 1-form on U)\n\n  Under gauge transformation g: U -> G (change of trivialization):\n  A -> g A g^{-1} + g^{-1} dg   (gauge transformation of the potential)\n\n  This is EXACTLY the transformation law of gauge potentials in physics:\n  For U(1): A_mu -> A_mu + partial_mu lambda  (electromagnetic gauge transform)\n  For SU(n): A_mu -> U A_mu U^{-1} + U partial_mu U^{-1}  (non-abelian gauge transform)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Holonomy and Gauge Fields",
+      "confidence": "candidate",
+      "text": "  For a loop gamma based at p in M:\n  Hol_gamma: P_p -> P_p (parallel transport in the total space P)\n  Since P_p ≅ G: Hol_gamma is an element of G.\n\n  WILSON LINE / WILSON LOOP:\n  W(gamma) = P exp(Integral_gamma A) in G   (path-ordered exponential)\n  = holonomy of the gauge connection along gamma.\n\n  AHARONOV-BOHM EFFECT: charged particle in magnetic field with\n  non-simply-connected region. No local field, but non-trivial holonomy.\n  Holonomy observable; force is not. This is the physical manifestation\n  of the non-trivial topology of the bundle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## Classification of Fiber Bundles",
+      "confidence": "candidate",
+      "text": "  pi_{n-1}(G)  (homotopy classes of maps S^{n-1} -> G)\n\n  This is the clutching construction: two trivial bundles on hemispheres,\n  glued along the equator S^{n-1} by a transition function.\n\n  Examples:\n  U(1)-bundles over S^2: classified by Z = pi_1(U(1))\n  = first Chern class = quantized magnetic charge (Dirac monopole)\n  SU(2)-bundles over S^4: classified by Z = pi_3(SU(2))\n  = instanton number = winding number\n\n  CHERN-WEIL THEORY: Characteristic classes (Chern, Pontryagin) can be\n  computed as integrals of curvature forms.\n  For a principal U(1)-bundle: c_1 = (1/2pi) Integral_M F  (quantized!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "## Fiber Bundles and Equivariant Networks",
+      "confidence": "candidate",
+      "text": "FIBER BUNDLE CONCEPT            EQUIVARIANT NETWORK EQUIVALENT\n──────────────────────────────────────────────────────────────────────\nPrincipal G-bundle P → M        Symmetry group G acting on the domain\nAssociated vector bundle E      Feature bundle (feature space at each point)\nSection of E (s: M → E)         Feature map (assigns features to each point)\nConnection on P                 Convolutional kernel (parallel transporter)\nParallel transport along γ      Message passing / feature aggregation\nGauge transformation            Change of local coordinate frame\nGauge equivariance              Network output independent of frame choice\nCurvature of connection         Non-commutativity of feature transport\n\nCONCRETE EXAMPLE (Cohen & Welling 2016, Weiler et al. 2018):\n  M = pixel grid or point cloud.\n  G = SO(2) for planar rotations, SE(3) for 3D rigid motions.\n  Feature map = section of the associated bundle E = P ×_G V.\n  Convolution kernel = G-equivariant map between fibers.\n  The kernel must be an intertwiner: k(g·x) = ρ_out(g) k(x) ρ_in(g)^{-1}.\n  This constraint (from representation theory) is what makes the\n  network equivariant — it is the fiber bundle condition in disguise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

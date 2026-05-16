@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\05-CONNECTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   CONNECTIONS OVERVIEW                           |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PROBLEM: In R^n, differentiate vector field V along X:         |\n|  (nabla_X V)^i = Sum_j X^j partial_j V^i   -- chart dependent! |\n|                                                                  |\n|  SOLUTION: Affine connection nabla                              |\n|  nabla_X V is a new vector field encoding \"rate of change of V  |\n|  as you move along X, corrected for the curvature of the space\" |\n|                                                                  |\n|  +---------------------+  +-----------------------------+       |\n|  | COVARIANT DERIVATIVE|  | PARALLEL TRANSPORT          |       |\n|  | nabla_X V           |  | Move V along a curve        |       |\n|  | (derivative at a pt)|  | keeping it \"parallel\"       |       |\n|  +---------------------+  +-----------------------------+       |\n|             |                           |                        |\n|             v                           v                        |\n|  +-----------------------------------+                          |\n|  | LEVI-CIVITA CONNECTION            |                          |\n|  | Unique torsion-free connection    |                          |\n|  | compatible with the Riemannian    |                          |\n|  | metric g.                         |                          |\n|  +-----------------------------------+                          |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "## Affine Connections",
+      "confidence": "candidate",
+      "text": "  nabla: Gamma(TM) x Gamma(TM) -> Gamma(TM)\n  (X, V) |-> nabla_X V\n\n  satisfying:\n  1. nabla_{fX+Y} V = f nabla_X V + nabla_Y V         (tensor in X -- f in C^inf)\n  2. nabla_X (V + W) = nabla_X V + nabla_X W          (additive in V)\n  3. nabla_X (fV) = (Xf) V + f nabla_X V             (Leibniz rule in V)\n\n  Condition 1 makes nabla_X V tensorial in X (depends only on X at the point).\n  Condition 3 is the Leibniz rule -- nabla_X is a derivation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## Connections on Vector Bundles",
+      "confidence": "candidate",
+      "text": "  A connection on E: nabla: Gamma(TM) x Gamma(E) -> Gamma(E)\n  Same axioms as before: tensorial in X, Leibniz in the section.\n\n  CURVATURE of connection on E:\n  F(X,Y) s = nabla_X nabla_Y s - nabla_Y nabla_X s - nabla_{[X,Y]} s\n\n  For Levi-Civita connection: F = R (Riemann curvature tensor)\n  For gauge connections: F = field strength (see 08-FIBER-BUNDLES)\n\n  U(1) connection over R^4:  F = electromagnetic field strength (F_{mu nu})\n  SU(2) connection: F = weak nuclear field strength\n  SU(3) connection: F = strong nuclear (gluon) field strength",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

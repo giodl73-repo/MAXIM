@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:overview
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Probability and Statistics - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/00-OVERVIEW.md
+canonical_path: probability-statistics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:probability-statistics:00-overview, git-history:probability-statistics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Probability & Statistics — Landscape Overview
 
 ## The Big Picture

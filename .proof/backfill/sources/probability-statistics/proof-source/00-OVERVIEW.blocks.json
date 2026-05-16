@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              PROBABILITY & STATISTICS LANDSCAPE                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PROBABILITY THEORY              STATISTICAL INFERENCE           |\n|  (deductive)                     (inductive)                     |\n|  +-----------------------+       +-----------------------+       |\n|  | Given a model,        |       | Given data,           |       |\n|  | what data should      |       | what model explains   |       |\n|  | we expect?            |       | it?                   |       |\n|  +-----------------------+       +-----------------------+       |\n|          |                               |                       |\n|          v                               v                       |\n|  Measure theory foundation      Frequentist vs. Bayesian        |\n|  (rigorous)                     (philosophical split)           |\n|                                                                  |\n|  STOCHASTIC PROCESSES           INFORMATION GEOMETRY             |\n|  +-----------------------+       +-----------------------+       |\n|  | Systems evolving      |       | Statistical manifolds,|       |\n|  | under randomness      |       | Fisher metric, KL     |       |\n|  | Markov, Brownian,     |       | divergence as         |       |\n|  | martingales           |       | geometry              |       |\n|  +-----------------------+       +-----------------------+       |\n|                                                                  |\n+------------------------------------------------------------------+\n|                    CONNECTS TO                                    |\n|  information-theory/  mathematics/  data-science/  physics/     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## The Two Schools of Statistical Inference",
+      "confidence": "candidate",
+      "text": "                    DATA x observed\n                          |\n          +---------------+---------------+\n          |                               |\n          v                               v\n  FREQUENTIST                      BAYESIAN\n  ----------                       -------\n  Parameters theta are fixed,      Parameters theta are random\n  unknown constants.               variables with a prior.\n  Data is random.                  Data updates beliefs.\n          |                               |\n          v                               v\n  P(X | theta)                     P(theta | X) ~ P(X|theta) P(theta)\n  Likelihood only.                 Posterior ~ Likelihood x Prior.\n          |                               |\n          v                               v\n  Answer: \"95% CI means            Answer: \"P(theta in [a,b] | data)\n  95% of such intervals            = 0.95\" -- a direct\n  contain theta.\" Weird.           probability statement.\n          |                               |\n          v                               v\n  MLE, hypothesis tests,           MCMC, variational inference,\n  p-values, power analysis         model comparison via WAIC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 99,
+      "heading_context": "## The Measure-Theoretic Foundation",
+      "confidence": "candidate",
+      "text": "  MEASURE THEORY                    PROBABILITY THEORY\n  (from analysis)                   (Kolmogorov)\n  +-----------------------+         +-----------------------+\n  | Measurable space      |  maps   | Probability space     |\n  | (Omega, F)            | ------> | (Omega, F, P)         |\n  |                       |   to    |                       |\n  | Measure mu: F->[0,inf)|         | Measure P: F -> [0,1] |\n  | (total mass arbitrary)|         | (total mass = 1)      |\n  +-----------------------+         +-----------------------+\n           |                                  |\n           v                                  v\n  Measurable function               Random variable\n  f: Omega -> R                     X: Omega -> R  (same thing)\n           |                                  |\n           v                                  v\n  Integral f dmu (Lebesgue)         E[X] = Integral X dP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Key Connections to Other Library Directories",
+      "confidence": "candidate",
+      "text": "  information-theory/\n    Entropy H(X) = -E[log P(X)]         (probability + logarithm)\n    KL divergence D_KL(P||Q)            (covered deeply in 09)\n    Mutual information I(X;Y)           (bridge between the two)\n\n  mathematics/\n    Measure theory                      (foundation for 01)\n    Real analysis                       (needed for LLN proofs)\n    Linear algebra                      (regression in 07)\n    Topology                            (needed for 09's manifold)\n\n  data-science/\n    Distributions appear in ML          (Gaussian, categorical)\n    MLE is how most ML models train     (01 -> 05 -> data-science)\n    Bayesian networks, variational AE   (06 -> data-science)\n    SGD convergence relies on LLN/CLT   (03 -> data-science)\n\n  physics/\n    Statistical mechanics               (entropy, partition functions)\n    Quantum probability                 (density matrices)\n    Stochastic ODEs / Langevin          (04 -> physics)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

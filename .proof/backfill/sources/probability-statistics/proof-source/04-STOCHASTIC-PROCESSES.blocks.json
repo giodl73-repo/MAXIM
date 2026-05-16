@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\04-STOCHASTIC-PROCESSES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                  STOCHASTIC PROCESS TAXONOMY                     |\n+------------------------------------------------------------------+\n|                                                                  |\n|  INDEX SET T         STATE SPACE S          KEY PROCESSES        |\n|  +---------------+   +---------------+      +----------------+  |\n|  | Discrete time |   | Discrete      |  ->  | Markov chains  |  |\n|  | T = {0,1,2,...}|  | (countable)    |      | Random walks   | |\n|  +---------------+   +---------------+      +----------------+  |\n|  | Continuous    |   | Discrete       |  ->  | Poisson process|  |\n|  | T = [0, inf)  |   | (countable)    |      | Birth-death    |  |\n|  +---------------+   +---------------+      +----------------+  |\n|  | Continuous    |   | Continuous    |  ->  | Brownian motion|  |\n|  | T = [0, inf)  |   | R or R^n      |      | Diffusions     |  |\n|  +---------------+   +---------------+      +----------------+  |\n|  | Continuous    |   | Continuous     |  ->  | Gaussian field |  |\n|  | T = R^d       |   | R              |      | (spatial stats)|  |\n|  +---------------+   +---------------+      +----------------+  |\n|                                                                 |\n|  SPECIAL PROPERTIES:                                            |\n|  Markov: future depends only on present                         |\n|  Martingale: E[X_{t+1} | past] = X_t  (fair game)               |\n|  Stationary: distribution doesn't change with time shift        |\n|  Ergodic: time average = ensemble average (a.s.)                |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 80,
+      "heading_context": "## Markov Chains",
+      "confidence": "candidate",
+      "text": "  P(X_{n+1} = j | X_n = i, X_{n-1}, ..., X_0)  =  P(X_{n+1} = j | X_n = i)\n\n  \"Future depends only on present, not past.\"\n\n  Transition matrix: P = (P_{ij}) where P_{ij} = P(X_1 = j | X_0 = i)\n  P is a stochastic matrix: P_{ij} >= 0, Sum_j P_{ij} = 1 for all i.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## Markov Chains",
+      "confidence": "candidate",
+      "text": "  If chain is irreducible, aperiodic, positive recurrent:\n  P^n_{ij} -> pi_j  as n -> inf   for all i, j\n\n  Exponential convergence rate determined by 2nd eigenvalue:\n  ||P^n - pi|| <= C |lambda_2|^n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## Markov Chains",
+      "confidence": "candidate",
+      "text": "  MIXING TIME: t_mix(eps) = min{t : max_i ||P^t(i, .) - pi||_TV <= eps}\n  How many steps until the chain is eps-close to stationarity?\n\n  SPECTRAL GAP and mixing:\n  gap = 1 - lambda_2   (lambda_2 = second-largest eigenvalue magnitude)\n  t_mix(eps) = Theta(log(1/eps) / gap)   (for reversible chains)\n\n  CHEEGER'S INEQUALITY (conductance → spectral gap):\n  Conductance: Phi = min_{S: pi(S) <= 1/2} [Sum_{i in S, j not in S} pi_i P_ij] / pi(S)\n  Cheeger: Phi^2 / 2  <=  gap  <=  2 Phi\n  This links a combinatorial property (bottleneck structure) to mixing.\n\n  EXPANDER GRAPH CONNECTION (TCS bridge):\n  A regular graph is an eps-expander iff the spectral gap of its\n  random walk is >= eps. Expanders mix in O(log n) steps.\n  The Markov chain on an expander IS a rapidly mixing chain.\n  MCMC on a well-connected state space ≈ random walk on an expander.\n\n  COUPLING METHOD: To bound mixing time, construct a coupling\n  (X_t, Y_t) where X_t starts at worst case, Y_t starts at stationarity.\n  t_mix <= E[coupling time]. Path coupling (Bubley-Dyer) simplifies\n  this to checking contraction on neighboring states.\n\n  LOG-SOBOLEV INEQUALITIES: Give tighter bounds than spectral gap\n  for continuous-state chains (e.g., Langevin dynamics).\n  Modified log-Sobolev: t_mix = O(1/alpha_LS) (independent of state space size).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Poisson Process",
+      "confidence": "candidate",
+      "text": "  N(t) = number of events in [0, t]\n\n  DEFINITION (three equivalent characterizations):\n\n  1. INCREMENTS:\n     N(0) = 0\n     Independent increments: N(t+s) - N(t) independent of N(t)\n     Stationary: N(t+s) - N(t) ~ Poisson(lambda s)\n\n  2. WAITING TIMES:\n     Interarrival times T_1, T_2, ... i.i.d. Exponential(lambda)\n\n  3. INFINITESIMAL:\n     P(N(t+dt) - N(t) = 1) = lambda dt + o(dt)\n     P(N(t+dt) - N(t) = 0) = 1 - lambda dt + o(dt)\n     P(N(t+dt) - N(t) >= 2) = o(dt)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## Brownian Motion (Wiener Process)",
+      "confidence": "candidate",
+      "text": "  E[B_t] = 0,   Var(B_t) = t,   Cov(B_s, B_t) = min(s,t)\n\n  SCALING: B_{ct} and sqrt(c) B_t have the same distribution\n  TIME REVERSAL: B_T - B_{T-t} is BM on [0,T]\n  SELF-SIMILARITY: Brownian motion is fractal.\n\n  NOWHERE DIFFERENTIABLE: B_t is continuous but a.s. nowhere differentiable.\n  Total variation of B over [0,T] is infinite a.s.\n  Quadratic variation: Sum |B_{t_k} - B_{t_{k-1}}|^2 -> T  as mesh -> 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 372,
+      "heading_context": "## Hidden Markov Models",
+      "confidence": "candidate",
+      "text": "  Z_0, Z_1, Z_2, ...    (Markov chain, hidden)\n       |    |    |\n       v    v    v\n  X_0, X_1, X_2, ...    (observations)\n\n  Parameters:\n  A_{ij} = P(Z_{t+1}=j | Z_t=i)       (transition matrix)\n  B_i(x) = P(X_t=x | Z_t=i)           (emission distribution)\n  pi_i   = P(Z_0=i)                    (initial distribution)\n\n  KEY ALGORITHMS:\n  Forward-backward: P(Z_t=i | X_0,...,X_T)   O(T |S|^2)\n  Viterbi: arg max P(Z_0,...,Z_T | X_0,...,X_T)  (MAP sequence)  O(T |S|^2)\n  Baum-Welch: EM algorithm for parameter estimation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 397,
+      "heading_context": "## Random Matrix Theory (High-Dimensional Probability)",
+      "confidence": "candidate",
+      "text": "  WIGNER SEMICIRCLE LAW:\n  For n×n symmetric matrix W with W_ij ~ iid, mean 0, variance 1/n:\n  Empirical spectral distribution → semicircle on [-2, 2] as n → ∞.\n  Density: f(x) = (1/2π) sqrt(4 - x^2) for |x| <= 2.\n  Eigenvalues of random symmetric matrices are NOT Gaussian-distributed.\n\n  MARCHENKO-PASTUR LAW:\n  For n×p data matrix X with iid entries, S = X^T X / n (sample covariance):\n  As n, p → ∞ with p/n → γ ∈ (0, ∞):\n  Spectral distribution of S → Marchenko-Pastur with parameter γ.\n  Support: [(1-√γ)^2, (1+√γ)^2].\n\n  CONSEQUENCE FOR PCA:\n  If true covariance Σ = I (no signal): eigenvalues of S spread over [(1-√γ)^2, (1+√γ)^2].\n  A \"signal\" eigenvalue λ is detectable only if λ > 1 + √γ (BBP phase transition).\n  Below this threshold: noise eigenvalues dominate, PCA gives garbage.\n  This is why p/n matters: more features relative to samples = harder detection.\n\n  TRACY-WIDOM LAW:\n  The fluctuations of the largest eigenvalue around (1+√γ)^2 follow\n  the Tracy-Widom distribution (not Gaussian!). Governs hypothesis testing\n  for the number of significant principal components.\n\n  APPLICATIONS:\n  - PCA: spiked covariance model determines when eigenvalues are signal vs. noise\n  - Compressed sensing: RIP of random matrices follows from concentration of eigenvalues\n  - MCMC: spectral gap of random walk on random graph\n  - Wireless communications: capacity of MIMO channels = random matrix eigenvalue problem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

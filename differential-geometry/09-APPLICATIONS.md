@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:applications
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Applications: Relativity, Gauge Theory, Robotics, ML
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/09-APPLICATIONS.md
+canonical_path: differential-geometry/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:differential-geometry:09-applications, git-history:differential-geometry:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications: Relativity, Gauge Theory, Robotics, ML
 
 ## The Big Picture
@@ -5,55 +24,47 @@
 Differential geometry is the language of fundamental physics, modern robotics, and increasingly, machine learning. The concepts from 01-08 connect directly to real systems.
 
 ```
-DG APPLICATIONS — 6 DOMAINS WITH SOURCE MODULES
-+====================================================================+
-|  04-RIEMANNIAN ──→ ML OPTIMIZATION ON MANIFOLDS                    |
-|    Metric, geodesics,   Riem. SGD on SO(n), Sym+(n), Stiefel       |
-|    exp/log maps         Natural gradient (Fisher metric)           |
-|                                                                    |
-|  04-RIEMANNIAN ──→ INFORMATION GEOMETRY                            |
-|    Fisher metric        Statistical manifolds, exponential families |
-|    Riem. gradient       Natural gradient, K-FAC, Shampoo           |
-|                                                                    |
-|  08-BUNDLES + 05-CONNECTIONS ──→ GAUGE THEORIES                    |
-|    Principal bundles,   Electromagnetism (U(1)), Yang-Mills (SU(3))|
-|    curvature F = dA     Standard Model, gravity as gauge theory    |
-|                                                                    |
-|  08-BUNDLES + 07-LIE ──→ EQUIVARIANT NEURAL NETWORKS               |
-|    Assoc. bundles,      Gauge-equiv. CNNs, e3nn, NequIP            |
-|    representations      SO(3)/SE(3) irreps as feature types        |
-|                                                                    |
-|  02-TANGENT + 03-FORMS ──→ SYMPLECTIC GEOMETRY                     |
-|    Cotangent bundle,    Hamiltonian mechanics, symplectic integr.  |
-|    canonical 2-form     HMC sampling, Hamiltonian neural nets      |
-|                                                                    |
-|  06-CURVATURE + 04-RIEM ──→ GENERAL RELATIVITY                     |
-|    Ricci tensor,        Einstein equations, black holes, grav.     |
-|    Lorentzian metric    waves, cosmological models                 |
-+====================================================================+
+DG APPLICATIONS - 6 DOMAINS WITH SOURCE MODULES
++==================================================================+
+|  04-RIEMANNIAN -> ML OPTIMIZATION ON MANIFOLDS                   |
+|    Metric, geodesics      Riem. SGD on SO(n), Stiefel            |
+|    exp/log maps           Natural gradient (Fisher metric)       |
+|                                                                  |
+|  04-RIEMANNIAN -> INFORMATION GEOMETRY                           |
+|    Fisher metric          Statistical manifolds, exp families    |
+|    Riem. gradient         Natural gradient, K-FAC, Shampoo       |
+|                                                                  |
+|  08-BUNDLES + 05-CONNECTIONS -> GAUGE THEORIES                   |
+|    Principal bundles      Electromagnetism, Yang-Mills           |
+|    curvature F = dA       Standard Model, gravity as gauge       |
+|                                                                  |
+|  08-BUNDLES + 07-LIE -> EQUIVARIANT NEURAL NETWORKS              |
+|    Assoc. bundles         Gauge-equiv. CNNs, e3nn, NequIP        |
+|    representations        SO(3)/SE(3) irreps as features         |
+|                                                                  |
+|  02-TANGENT + 03-FORMS -> SYMPLECTIC GEOMETRY                    |
+|    Cotangent bundle       Hamiltonian mechanics, integrators     |
+|    canonical 2-form       HMC, Hamiltonian neural nets           |
+|                                                                  |
+|  06-CURVATURE + 04-RIEM -> GENERAL RELATIVITY                    |
+|    Ricci tensor           Einstein equations, black holes        |
+|    Lorentzian metric      waves, cosmological models             |
++==================================================================+
 ```
 ```
 +------------------------------------------------------------------+
 |              APPLICATIONS OF DIFFERENTIAL GEOMETRY               |
-+------------------------------------------------------------------+
 |                                                                  |
-|  GENERAL RELATIVITY           GAUGE THEORIES                    |
-|  +--------------------+       +--------------------+            |
-|  | Spacetime = 4D     |       | Standard Model =   |            |
-|  | Lorentzian manifold|       | connections on     |            |
-|  | Einstein equations |       | principal bundles  |            |
-|  | Geodesics = free   |       | U(1) x SU(2) x SU(3)|           |
-|  | fall trajectories  |       +--------------------+            |
-|  +--------------------+                                          |
-   |                                                               |
-   |  ROBOT KINEMATICS             ML ON MANIFOLDS                 |
-|  +--------------------+       +--------------------+             |
-|  | SE(3) = rigid body |       | Riemannian SGD     |            |
-|  | motions            |       | Natural gradient   |            |
-|  | Screw motions      |       | Manifold-valued    |            |
-|  | Configuration space|       | data (SPD matrices)|            |
-|  +--------------------+       +--------------------+            |
-   |                                                              |
+|  GENERAL RELATIVITY              GAUGE THEORIES                  |
+|  Spacetime = 4D                  Standard Model uses             |
+|  Lorentzian manifold             connections on bundles          |
+|  Einstein equations              U(1) x SU(2) x SU(3)            |
+|  Geodesics = free fall                                           |
+|                                                                  |
+|  ROBOT KINEMATICS                ML ON MANIFOLDS                 |
+|  SE(3) = rigid body motions      Riemannian SGD                  |
+|  Screw motions                   Natural gradient                |
+|  Configuration spaces            Manifold-valued data            |
 +------------------------------------------------------------------+
 ```
 

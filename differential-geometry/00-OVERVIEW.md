@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:overview
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Differential Geometry - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/00-OVERVIEW.md
+canonical_path: differential-geometry/00-OVERVIEW.md
+backsource_ids: [proof-backfill:differential-geometry:00-overview, git-history:differential-geometry:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Differential Geometry — Landscape Overview
 
 ## The Big Picture
@@ -5,44 +24,32 @@
 Differential geometry extends calculus from flat Euclidean spaces to curved spaces (manifolds). The central insight: local coordinates exist everywhere, but the global space need not be flat.
 
 ```
-DIFFERENTIAL GEOMETRY — DEPENDENCY STRUCTURE
-+====================================================================+
-|  LAYER 1: SMOOTH FOUNDATIONS                                       |
-|  ┌──────────────────────┐                                          |
-|  │ SMOOTH MANIFOLDS (01)│ charts, atlases, smooth maps             |
-|  └──────────┬───────────┘                                          |
-|             ▼                                                      |
-|  LAYER 2: TANGENT MACHINERY                                        |
-|  ┌──────────────────────┐                                          |
-|  │ TANGENT BUNDLES (02) │ TM, T*M, vector fields, tensor fields   |
-|  └──┬─────────┬─────────┘                                         |
-|     │         │                                                    |
-|     ▼         ▼                                                    |
-|  LAYER 3: THREE BRANCHES (additional structures on M)              |
-|  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────────┐ |
-|  │ FORMS (03)   │  │ METRIC (04)  │  │ PRINCIPAL BUNDLES (08)   │ |
-|  │ k-forms, d   │  │ g_ij, geod.  │  │ P → M, gauge theories   │ |
-|  │ Stokes, de   │  │ exp map      │  │ Yang-Mills, holonomy     │ |
-|  │ Rham cohom.  │  │              │  │                          │ |
-|  └──────────────┘  └──────┬───────┘  └──────────┬───────────────┘ |
-|                           ▼                      ▼                 |
-|  LAYER 4: CURVATURE AND STRUCTURE                                  |
-|  ┌────────────────────────────────────────────────────────────┐    |
-|  │ CONNECTIONS (05): covariant derivative, parallel transport │    |
-|  │ CURVATURE (06): Riemann tensor, Ricci, sectional, Gauss-B │    |
-|  │ LIE GROUPS (07): SO(n), SE(3), Lie algebra, exp map       │    |
-|  └──────────────────────────┬─────────────────────────────────┘    |
-|                             ▼                                      |
-|  LAYER 5: APPLICATIONS (09)                                        |
-|  ┌────────────────────────────────────────────────────────────┐    |
-|  │ General Relativity: Lorentzian manifolds, Einstein eqs.    │    |
-|  │ Gauge Theories: Yang-Mills, Standard Model                 │    |
-|  │ Symplectic Geometry: Hamiltonian mechanics, integrators     │    |
-|  │ Information Geometry: Fisher metric, natural gradient       │    |
-|  │ Geometric Deep Learning: equivariant networks, Riem. optim │    |
-|  │ Robotics: configuration spaces, SE(3), kinematics          │    |
-|  └────────────────────────────────────────────────────────────┘    |
-+====================================================================+
+DIFFERENTIAL GEOMETRY - DEPENDENCY STRUCTURE
++==================================================================+
+|  LAYER 1: SMOOTH FOUNDATIONS                                     |
+|    [SMOOTH MANIFOLDS (01)] charts, atlases, smooth maps          |
+|              |                                                   |
+|              v                                                   |
+|  LAYER 2: TANGENT MACHINERY                                      |
+|    [TANGENT BUNDLES (02)] TM, T*M, vector/tensor fields          |
+|        |             |                                           |
+|        v             v                                           |
+|  LAYER 3: THREE BRANCHES (additional structures on M)            |
+|    [FORMS (03)]      [METRIC (04)]      [BUNDLES (08)]           |
+|    k-forms, d        g_ij, geodesics    P -> M, gauges           |
+|    Stokes/de Rham    exp map            Yang-Mills               |
+|             \            |                 /                     |
+|              \           v                /                      |
+|  LAYER 4: CURVATURE AND STRUCTURE                                |
+|    [CONNECTIONS (05)] covariant derivative, transport            |
+|    [CURVATURE (06)] Riemann, Ricci, sectional, Gauss-B           |
+|    [LIE GROUPS (07)] SO(n), SE(3), Lie algebra, exp map          |
+|              |                                                   |
+|              v                                                   |
+|  LAYER 5: APPLICATIONS (09)                                      |
+|    GR, gauge theory, symplectic geometry, information            |
+|    geometry, geometric deep learning, robotics                   |
++==================================================================+
 ```
 
 ---

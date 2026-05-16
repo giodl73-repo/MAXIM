@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:lie-groups
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Lie Groups and Lie Algebras
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/07-LIE-GROUPS.md
+canonical_path: differential-geometry/07-LIE-GROUPS.md
+backsource_ids: [proof-backfill:differential-geometry:07-lie-groups, git-history:differential-geometry:07-lie-groups]
+concepts: [lie, groups]
+root_concepts: [lie, groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lie Groups and Lie Algebras
 
 ## The Big Picture
@@ -6,32 +25,24 @@ A Lie group is simultaneously a smooth manifold and a group, with the two struct
 
 ```
 +------------------------------------------------------------------+
-|                    LIE GROUPS OVERVIEW                           |
-+------------------------------------------------------------------+
 |                                                                  |
 |  LIE GROUP G                                                     |
 |  = Smooth manifold M                                             |
-|  + Group structure (G, *, e)                                    |
-|  + Compatibility: multiplication and inversion are smooth       |
+|  + Group structure (G, *, e)                                     |
+|  + Smooth multiplication and inversion                           |
 |                                                                  |
-|  LINEARIZATION: Lie algebra g = T_e G                          |
+|  LINEARIZATION: Lie algebra g = T_e G                            |
 |                                                                  |
-|  EXPONENTIAL MAP: exp: g -> G                                   |
-|  Connects Lie algebra (linear) to Lie group (nonlinear)        |
+|  EXPONENTIAL MAP: exp: g -> G                                    |
+|  Connects Lie algebra (linear) to Lie group (nonlinear)          |
 |                                                                  |
 |  KEY EXAMPLES:                                                   |
-|  +-----------+--------+--------+---------------------------+    |
-|  | Group     | dim    | Field  | Geometry/Physics          |    |
-|  +-----------+--------+--------+---------------------------+    |
-|  | GL(n,R)   | n^2    | R      | Invertible linear maps    |    |
-|  | SL(n,R)   | n^2-1  | R      | Volume-preserving         |    |
-|  | O(n)      | n(n-1)/2| R     | Orthogonal transformations|    |
-|  | SO(n)     | n(n-1)/2| R     | Rotations in R^n          |    |
-|  | U(n)      | n^2    | C      | Unitary transformations   |    |
-|  | SU(n)     | n^2-1  | C      | Special unitary           |    |
-|  | SE(3)     | 6      | R      | Rigid body motions in R^3 |    |
-|  | SO(3,1)   | 6      | R      | Lorentz group (spacetime) |    |
-|  +-----------+--------+--------+---------------------------+    |
+|  GL(n,R): invertible linear maps                                 |
+|  SL(n,R): volume-preserving linear maps                          |
+|  O(n), SO(n): orthogonal maps and rotations                      |
+|  U(n), SU(n): unitary and special unitary maps                   |
+|  SE(3): rigid body motions in R^3                                |
+|  SO(3,1): Lorentz group for spacetime                            |
 +------------------------------------------------------------------+
 ```
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:regression-models
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Regression Models
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/07-REGRESSION-MODELS.md
+canonical_path: probability-statistics/07-REGRESSION-MODELS.md
+backsource_ids: [proof-backfill:probability-statistics:07-regression-models, git-history:probability-statistics:07-regression-models]
+concepts: [regression, models]
+root_concepts: [regression, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Regression Models
 
 ## The Big Picture

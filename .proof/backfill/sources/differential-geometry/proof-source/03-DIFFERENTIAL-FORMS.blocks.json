@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\03-DIFFERENTIAL-FORMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   DIFFERENTIAL FORMS LANDSCAPE                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  ALGEBRA                                                         |\n|  Lambda^0(M) = C^inf(M)          (functions)                    |\n|  Lambda^1(M) = sections of T*M   (1-forms)                      |\n|  Lambda^k(M) = sections of Lambda^k T*M  (k-forms)             |\n|  Lambda^n(M)                      (n-forms, top dimension)      |\n|                                                                  |\n|  WEDGE PRODUCT: Alpha^k x Lambda^l -> Lambda^{k+l}             |\n|  EXTERIOR DERIVATIVE: d: Lambda^k -> Lambda^{k+1}              |\n|  d^2 = 0                          (key property)               |\n|                                                                  |\n|  STOKES' THEOREM:                                               |\n|  Integral_M d omega = Integral_{partial M} omega                |\n|                                                                  |\n|  DE RHAM COHOMOLOGY:                                            |\n|  H^k_dR(M) = ker(d: Lambda^k -> Lambda^{k+1}) /                |\n|              im(d: Lambda^{k-1} -> Lambda^k)                    |\n|  = closed forms / exact forms                                   |\n|  Topological invariant of M.                                    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## k-Forms: Definition",
+      "confidence": "candidate",
+      "text": "  omega_p: T_p M x T_p M x ... x T_p M -> R   (k copies)\n           (v_1, v_2, ..., v_k) |-> omega_p(v_1,...,v_k)\n\n  Antisymmetry: omega_p(..., v_i, ..., v_j, ...) = -omega_p(..., v_j, ..., v_i, ...)\n  Swapping any two arguments negates the result.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 139,
+      "heading_context": "## Exterior Derivative",
+      "confidence": "candidate",
+      "text": "**Gauge theory bridge: d^2 = 0 gives Maxwell's homogeneous equations**. In electromagnetism, the vector potential A is a 1-form on spacetime, the field strength F = dA is a 2-form, and dF = d^2A = 0 immediately. This single equation dF = 0 encodes both ∇·B = 0 (no magnetic monopoles) and ∇×E = −∂B/∂t (Faraday's law) — the homogeneous Maxwell equations. The inhomogeneous equations (∇·E = ρ, ∇×B = J + ∂E/∂t) become d*F = J where * is the Hodge star. The entire formalism of gauge theories (Yang-Mills for non-abelian gauge groups, gravity as a connection on the frame bundle) rests on this: curvature F = dA + A∧A, Bianchi identity dF + [A,F] = 0 generalizing d^2 = 0.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Interior Product and Cartan's Formula",
+      "confidence": "candidate",
+      "text": "  (i_X omega)(v_2, ..., v_k) = omega(X, v_2, ..., v_k)\n  (plug X into the first slot)\n\n  i_X: Lambda^k -> Lambda^{k-1}  (decreases degree by 1)\n  i_X o i_X = 0  (inserting same vector twice is antisymmetric = 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "## de Rham Cohomology",
+      "confidence": "candidate",
+      "text": "  Poincaré's lemma: On any contractible open set U:\n  Every closed k-form on U is exact.\n\n  GLOBAL OBSTRUCTION: A closed form may not be exact if M has topological holes.\n  Classic example: 1/r^2 force in R^2 - {0}:\n  omega = (-y dx + x dy) / (x^2 + y^2)  is closed but NOT exact.\n  Integral around the origin = 2 pi  (non-zero integral -> not exact).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## Hodge Theory (Riemannian Setting)",
+      "confidence": "candidate",
+      "text": "  Hodge star: *: Lambda^k -> Lambda^{n-k}\n\n  Defined by: alpha wedge (*beta) = g(alpha, beta) Vol_M  for alpha, beta in Lambda^k\n  where Vol_M = sqrt(det g) dx^1 wedge ... wedge dx^n is the volume form.\n\n  **: Lambda^k -> Lambda^k  with **omega = (-1)^{k(n-k)} omega\n\n  The Hodge Laplacian: Delta = d d* + d* d  where d* = (-1)^{...} * d *\n  This is the correct Laplacian on forms.\n  On functions: Delta f = -div(grad f) = -(Sum_i partial_i^2 f) in R^n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 295,
+      "heading_context": "## Hodge Theory (Riemannian Setting)",
+      "confidence": "candidate",
+      "text": "  Lambda^k(M) = d Lambda^{k-1} + d* Lambda^{k+1} + H^k\n\n  Where H^k = harmonic k-forms (Delta omega = 0).\n  Each cohomology class has a unique harmonic representative.\n  H^k_dR(M) is isomorphic to H^k (harmonic forms).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

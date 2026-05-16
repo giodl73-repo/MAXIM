@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:connections
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Connections and Covariant Derivatives
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/05-CONNECTIONS.md
+canonical_path: differential-geometry/05-CONNECTIONS.md
+backsource_ids: [proof-backfill:differential-geometry:05-connections, git-history:differential-geometry:05-connections]
+concepts: [connections]
+root_concepts: [connections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Connections and Covariant Derivatives
 
 ## The Big Picture

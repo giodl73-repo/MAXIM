@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:riemannian-geometry
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Riemannian Geometry
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/04-RIEMANNIAN-GEOMETRY.md
+canonical_path: differential-geometry/04-RIEMANNIAN-GEOMETRY.md
+backsource_ids: [proof-backfill:differential-geometry:04-riemannian-geometry, git-history:differential-geometry:04-riemannian-geometry]
+concepts: [riemannian, geometry]
+root_concepts: [riemannian, geometry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Riemannian Geometry
 
 ## The Big Picture
@@ -6,32 +25,22 @@ A Riemannian metric turns a smooth manifold into a metric space with notions of 
 
 ```
 +------------------------------------------------------------------+
-|                   RIEMANNIAN GEOMETRY OVERVIEW                   |
-+------------------------------------------------------------------+
 |                                                                  |
-|  RIEMANNIAN METRIC g                                            |
-|  Smooth assignment of inner product to each tangent space.      |
-|  g = g_{ij} dx^i tensor dx^j   (in coordinates)                |
+|  RIEMANNIAN METRIC g                                             |
+|  Smooth inner product assigned to each tangent space.            |
+|  g = g_ij dx^i tensor dx^j   (in coordinates)                    |
 |                                                                  |
 |       |                                                          |
 |       v                                                          |
-|  +------------------+  +------------------+  +--------------+  |
-|  | LENGTH of curves |  | ANGLE between    |  | VOLUME of    |  |
-|  | L = Int |gamma'| |  | vectors          |  | regions      |  |
-|  +------------------+  +------------------+  +--------------+  |
+|  LENGTH of curves, ANGLES between vectors, VOLUME of regions     |
 |       |                                                          |
 |       v                                                          |
-|  GEODESICS (locally length-minimizing curves)                   |
-|  Solve: gamma'' + Gamma^k_{ij} gamma'^i gamma'^j = 0           |
-|                                                                  |
+|  GEODESICS (locally length-minimizing curves)                    |
+|  Solve: gamma'' + Gamma^k_ij gamma'^i gamma'^j = 0               |
 |       |                                                          |
 |       v                                                          |
-|  +--------------------+  +-------------------------+           |
-|  | EXPONENTIAL MAP    |  | RIEMANNIAN DISTANCE     |           |
-|  | exp_p: T_p M -> M  |  | d(p,q) = inf_curves L   |           |
-|  | geodesics from p   |  | (metric space structure) |          |
-|  +--------------------+  +-------------------------+           |
-|                                                                  |
+|  EXPONENTIAL MAP: exp_p: T_p M -> M                              |
+|  RIEMANNIAN DISTANCE: d(p,q) = inf_curves L                      |
 +------------------------------------------------------------------+
 ```
 
@@ -292,7 +301,7 @@ This is positive semi-definite (positive definite for identifiable models), symm
 | Concept | Formula/Tool | Application |
 |---|---|---|
 | Riemannian metric | g = g_{ij} dx^i dx^j (PD) | All geometric quantities |
-| Length of curve | L = Int ||gamma'||_g dt | Distance computation |
+| Length of curve | L = Int \|\|gamma'\|\|_g dt | Distance computation |
 | Geodesic equation | gamma'' + Gamma gamma'gamma' = 0 | Shortest paths, free fall |
 | Exponential map | exp_p(v) = geodesic from p in direction v | Normal coords, optimization |
 | Log map | log_p(q) = initial velocity to q | Riemannian optimization |

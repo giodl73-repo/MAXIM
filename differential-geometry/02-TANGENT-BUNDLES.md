@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:tangent-bundles
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Tangent and Cotangent Bundles
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/02-TANGENT-BUNDLES.md
+canonical_path: differential-geometry/02-TANGENT-BUNDLES.md
+backsource_ids: [proof-backfill:differential-geometry:02-tangent-bundles, git-history:differential-geometry:02-tangent-bundles]
+concepts: [tangent, bundles]
+root_concepts: [tangent, bundles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tangent and Cotangent Bundles
 
 ## The Big Picture
@@ -17,7 +36,7 @@ The tangent bundle TM packages all tangent spaces into one smooth manifold. Sect
 |  +--> T*M (cotangent bundle)       sections = 1-forms           |
 |  |    Each fiber T*_p M = (T_p M)* = dual space                 |
 |  |                                                               |
-|  +--> T^r_s M (tensor bundle)      sections = (r,s) tensor fields|
+|  +--> T^r_s M (tensor bundle)      sections = (r,s) tensor field |
 |  |    r contravariant, s covariant indices                      |
 |  |                                                               |
 |  +--> Sym^2 T*M                    sections = Riemannian metrics |

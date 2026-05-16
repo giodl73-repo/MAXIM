@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:fiber-bundles
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Fiber Bundles
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/08-FIBER-BUNDLES.md
+canonical_path: differential-geometry/08-FIBER-BUNDLES.md
+backsource_ids: [proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]
+concepts: [fiber, bundles]
+root_concepts: [fiber, bundles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fiber Bundles
 
 ## The Big Picture

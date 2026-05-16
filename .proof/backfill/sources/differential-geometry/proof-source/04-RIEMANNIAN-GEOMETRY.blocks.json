@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\04-RIEMANNIAN-GEOMETRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                                                                  |\n|  RIEMANNIAN METRIC g                                             |\n|  Smooth inner product assigned to each tangent space.            |\n|  g = g_ij dx^i tensor dx^j   (in coordinates)                    |\n|                                                                  |\n|       |                                                          |\n|       v                                                          |\n|  LENGTH of curves, ANGLES between vectors, VOLUME of regions     |\n|       |                                                          |\n|       v                                                          |\n|  GEODESICS (locally length-minimizing curves)                    |\n|  Solve: gamma'' + Gamma^k_ij gamma'^i gamma'^j = 0               |\n|       |                                                          |\n|       v                                                          |\n|  EXPONENTIAL MAP: exp_p: T_p M -> M                              |\n|  RIEMANNIAN DISTANCE: d(p,q) = inf_curves L                      |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## The Riemannian Metric",
+      "confidence": "candidate",
+      "text": "  g = F* h    (g_{ij} = h_{kl} partial F^k/partial x^i partial F^l/partial x^j)\n\n  Example: Standard metric on S^2 from inclusion i: S^2 -> R^3:\n  g_{S^2} = i*(g_{R^3}) = standard round metric.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "## Length, Distance, and Geodesics",
+      "confidence": "candidate",
+      "text": "  d(p, q) = inf_{gamma: p->q} L(gamma)\n\n  This makes (M, d) a metric space.\n  The infimum may not be achieved (e.g., antipodal points deleted from S^2).\n  When achieved, the minimizing curve is a geodesic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "## The Exponential Map",
+      "confidence": "candidate",
+      "text": "  exp_p: T_p M -> M (defined on a neighborhood of 0 in T_p M)\n\n  exp_p(v) = gamma_v(1)\n\n  where gamma_v is the geodesic starting at p with velocity v.\n\n  PROPERTIES:\n  exp_p(0) = p\n  d(exp_p)_0 = id_{T_p M}  (exponential map is a local diffeomorphism near 0)\n  The curve t |-> exp_p(tv) is the geodesic from p in direction v.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 165,
+      "heading_context": "## The Exponential Map",
+      "confidence": "candidate",
+      "text": "**SPD manifold Sym+(n) — the key ML example**: The manifold of symmetric positive definite n×n matrices with the affine-invariant metric g_A(U,V) = tr(A^{-1}U A^{-1}V) is the most important concrete Riemannian manifold for ML. The exp and log maps have closed forms: Exp_A(U) = A^{1/2} exp(A^{-1/2} U A^{-1/2}) A^{1/2}, Log_A(B) = A^{1/2} log(A^{-1/2} B A^{-1/2}) A^{1/2}. Geodesic distance: d(A,B) = ||log(A^{-1/2} B A^{-1/2})||_F. Applications: covariance estimation (each data covariance matrix is a point on Sym+(n)), diffusion tensor MRI (each voxel has a 3×3 SPD diffusion tensor), and Gaussian process kernel learning. Riemannian gradient descent on Sym+(n) automatically preserves positive definiteness — no projection step needed.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\06-BAYESIAN-STATISTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 88,
+      "heading_context": "## Conjugate Priors",
+      "confidence": "candidate",
+      "text": "  Likelihood        Prior           Posterior\n  +-----------+-----+------------+--+------------------+\n  Bernoulli(p)      Beta(a,b)       Beta(a+x, b+1-x)\n  Binomial(n,p)     Beta(a,b)       Beta(a+k, b+n-k)\n  Poisson(lambda)   Gamma(a,b)      Gamma(a+Sum x_i, b+n)\n  Normal(mu,sigma^2 Normal(m,v)     Normal(m', v')      (sigma^2 known)\n  known)                            m' = (m/v + n*xbar/sigma^2)/(1/v + n/sigma^2)\n  Normal(mu known,  Inv-Gamma(a,b)  Inv-Gamma(a+n/2, b+SS/2)\n  sigma^2)\n  Multinomial(p)    Dirichlet(a)    Dirichlet(a + counts)\n  +-----------+-----+------------+--+------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "## Variational Inference",
+      "confidence": "candidate",
+      "text": "  FRAMEWORK             INFERENCE ENGINE          LANGUAGE\n  ──────────────────────────────────────────────────────────────────\n  Stan                  HMC / NUTS                Custom DSL (C++ backend)\n                        (gold standard for MCMC)   R/Python/Julia interfaces\n  Pyro / NumPyro        VI (reparameterization)   Python (PyTorch / JAX)\n                        + HMC                      GPU-accelerated\n  TensorFlow Probability VI + HMC                 Python (TF backend)\n  (TFP / Edward2)       Bijectors for transforms\n  Turing.jl             HMC/NUTS + particle MCMC  Julia (composable)\n  PyMC                  NUTS + ADVI               Python (PyTensor)\n  ──────────────────────────────────────────────────────────────────\n\n  THE REPARAMETERIZATION TRICK (implementation insight):\n  To differentiate through sampling theta ~ q(theta; phi):\n  Write theta = mu + sigma * epsilon, epsilon ~ N(0,1).\n  Now grad_phi depends on mu, sigma (deterministic), not on the sample.\n  This enables stochastic gradient optimization of the ELBO.\n  Pyro/NumPyro and TFP implement this automatically.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## Bayesian Nonparametrics",
+      "confidence": "candidate",
+      "text": "  G ~ DP(alpha, G_0)\n\n  G_0: base distribution (the \"prior guess\" for the distribution)\n  alpha: concentration parameter (controls how close G is to G_0)\n\n  KEY PROPERTY: For any partition (A_1,...,A_k) of the sample space:\n  (G(A_1), ..., G(A_k)) ~ Dirichlet(alpha G_0(A_1), ..., alpha G_0(A_k))\n\n  alpha → ∞: G → G_0 (prior dominates)\n  alpha → 0: G concentrates on a single atom (one cluster)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "## Bernstein-von Mises Theorem",
+      "confidence": "candidate",
+      "text": "  Under regularity conditions, as n -> inf:\n  The posterior p(theta | x_1,...,x_n) concentrates around the true theta_0,\n  and after centering and scaling:\n\n  sqrt(n)(theta - theta_hat) | x_1,...,x_n  --d-->  Normal(0, I(theta_0)^{-1})\n\n  In other words: posterior ≈ Normal(theta_hat_MLE, I(theta_0)^{-1}/n)\n\n  Implication: Bayesian credible intervals and frequentist confidence intervals\n  agree to first order for large n. The prior is asymptotically irrelevant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

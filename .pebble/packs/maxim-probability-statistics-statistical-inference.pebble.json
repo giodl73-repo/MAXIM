@@ -1,0 +1,181 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-probability-statistics-statistical-inference",
+  "source": "../../probability-statistics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-STATISTICAL-INFERENCE.md#000",
+      "path": [
+        "05-STATISTICAL-INFERENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]",
+        "canonical_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "concepts": "[statistical, inference]",
+        "current_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "id": "maxim:probability-statistics:statistical-inference",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[statistical, inference]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Statistical Inference",
+        "updated": "null"
+      },
+      "text": "# Statistical Inference"
+    },
+    {
+      "id": "05-STATISTICAL-INFERENCE.md#001",
+      "path": [
+        "05-STATISTICAL-INFERENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]",
+        "canonical_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "concepts": "[statistical, inference]",
+        "current_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "id": "maxim:probability-statistics:statistical-inference",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[statistical, inference]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Statistical Inference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-STATISTICAL-INFERENCE.md#002",
+      "path": [
+        "05-STATISTICAL-INFERENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]",
+        "canonical_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "concepts": "[statistical, inference]",
+        "current_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "id": "maxim:probability-statistics:statistical-inference",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[statistical, inference]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Statistical Inference",
+        "updated": "null"
+      },
+      "text": "Statistical inference is the inversion of probability: given data, recover the generating model."
+    },
+    {
+      "id": "05-STATISTICAL-INFERENCE.md#003",
+      "path": [
+        "05-STATISTICAL-INFERENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]",
+        "canonical_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "concepts": "[statistical, inference]",
+        "current_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "id": "maxim:probability-statistics:statistical-inference",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[statistical, inference]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Statistical Inference",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                STATISTICAL INFERENCE FRAMEWORK                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DATA                                                            |\n|  X_1, ..., X_n  ~  P_theta   (i.i.d., parametric model)        |\n|                                                                  |\n|  GOAL: Recover theta (or something about theta) from X_1,...,X_n |\n|                                                                  |\n|  TASKS:                                                          |\n|  +-----------------+  +------------------+  +-----------------+ |\n|  | ESTIMATION      |  | HYPOTHESIS TEST  |  | CONFIDENCE SETS | |\n|  | theta_hat = ?   |  | H0: theta=theta0 |  | CI contains     | |\n|  | MLE, MOM, etc.  |  | vs H1: theta!=0  |  | theta with 95%  | |\n|  +-----------------+  +------------------+  +-----------------+ |\n|                                                                  |\n|  ESTIMATOR PROPERTIES:                                          |\n|  Consistency:   theta_hat -> theta in probability               |\n|  Unbiasedness:  E[theta_hat] = theta                            |\n|  Efficiency:    achieves Cramer-Rao lower bound                 |\n|  Robustness:    insensitive to model misspecification           |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-STATISTICAL-INFERENCE.md#004",
+      "path": [
+        "05-STATISTICAL-INFERENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]",
+        "canonical_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "concepts": "[statistical, inference]",
+        "current_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "id": "maxim:probability-statistics:statistical-inference",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[statistical, inference]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Statistical Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-STATISTICAL-INFERENCE.md#005",
+      "path": [
+        "05-STATISTICAL-INFERENCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]",
+        "canonical_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "concepts": "[statistical, inference]",
+        "current_path": "probability-statistics/05-STATISTICAL-INFERENCE.md",
+        "id": "maxim:probability-statistics:statistical-inference",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[statistical, inference]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Statistical Inference",
+        "updated": "null"
+      },
+      "text": "## Maximum Likelihood Estimation"
+    }
+  ],
+  "refs": [
+    "05-STATISTICAL-INFERENCE.md"
+  ]
+}

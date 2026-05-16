@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:limit-theorems
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Limit Theorems
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/03-LIMIT-THEOREMS.md
+canonical_path: probability-statistics/03-LIMIT-THEOREMS.md
+backsource_ids: [proof-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]
+concepts: [limit, theorems]
+root_concepts: [limit, theorems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Limit Theorems
 
 ## The Big Picture

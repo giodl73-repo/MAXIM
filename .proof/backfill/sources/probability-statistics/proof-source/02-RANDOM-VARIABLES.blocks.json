@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\02-RANDOM-VARIABLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   DISTRIBUTION FAMILIES                          |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DISCRETE                      CONTINUOUS                        |\n|  +--------------------+        +--------------------+           |\n|  | Bernoulli          |        | Uniform            |           |\n|  | Binomial           |        | Normal (Gaussian)  |           |\n|  | Geometric          |        | Exponential        |           |\n|  | Negative Binomial  |        | Gamma              |           |\n|  | Poisson            |        | Beta               |           |\n|  | Hypergeometric     |        | Cauchy             |           |\n|  | Categorical        |        | Student-t          |           |\n|  | Multinomial        |        | Chi-squared        |           |\n|  +--------------------+        | Log-normal         |           |\n|                                | Pareto (heavy tail)|           |\n|  DERIVED FROM NORMAL           +--------------------+           |\n|  +-----------------------------+                                |\n|  | Chi-squared: sum of sq normal r.v.s                         |\n|  | t-distribution: normal / sqrt(chi-sq / n)                   |\n|  | F-distribution: ratio of chi-squareds                       |\n|  | Wishart: multivariate chi-squared (for covariances)         |\n|  +-----------------------------+                                 |\n   |                                                               |\n   |  EXPONENTIAL FAMILY (unified framework)                       |\n   |  Normal, Poisson, Exponential, Binomial, Gamma, Beta, ...     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "## Order Statistics and Extreme Values",
+      "confidence": "candidate",
+      "text": "  Order statistics: X_{(1)} <= X_{(2)} <= ... <= X_{(n)}\n  (sorted sample)\n\n  CDF of X_{(k)}: F_{(k)}(x) = Sum_{j=k}^{n} C(n,j) F(x)^j (1-F(x))^{n-j}\n\n  Minimum X_{(1)}: P(X_{(1)} > x) = (1-F(x))^n -> e^{-n(1-F(x))}\n  Maximum X_{(n)}: P(X_{(n)} <= x) = F(x)^n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

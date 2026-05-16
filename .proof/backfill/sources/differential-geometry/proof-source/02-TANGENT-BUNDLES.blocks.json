@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\02-TANGENT-BUNDLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    BUNDLE HIERARCHY                              |\n+------------------------------------------------------------------+\n|                                                                  |\n|  M (base manifold, dim n)                                       |\n|  |                                                               |\n|  +--> TM  (tangent bundle)         sections = vector fields     |\n|  |    Each fiber T_p M = R^n                                    |\n|  |                                                               |\n|  +--> T*M (cotangent bundle)       sections = 1-forms           |\n|  |    Each fiber T*_p M = (T_p M)* = dual space                 |\n|  |                                                               |\n|  +--> T^r_s M (tensor bundle)      sections = (r,s) tensor field |\n|  |    r contravariant, s covariant indices                      |\n|  |                                                               |\n|  +--> Sym^2 T*M                    sections = Riemannian metrics |\n|  |                                                               |\n|  +--> Lambda^k T*M                 sections = k-forms           |\n|       (totally antisymmetric)                                   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Tangent Bundle TM",
+      "confidence": "candidate",
+      "text": "  TM has a natural smooth manifold structure of dimension 2n:\n  - If (U, phi = (x^1, ..., x^n)) is a chart on M\n  - The induced chart on TM is:\n    (U x R^n, (x^1,...,x^n, v^1,...,v^n))\n    where v^i = components of tangent vector in the x^i basis\n\n  Projection: pi: TM -> M,  pi(p, v) = p\n\n  A smooth map F: M -> N induces a pushforward:\n  dF (or F_*): TM -> TN\n  At p: dF_p: T_p M -> T_{F(p)} N\n  In coordinates: (dF_p)^i_j = partial F^i / partial x^j",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "## Tangent Bundle TM",
+      "confidence": "candidate",
+      "text": "  Local trivialization: TM|_U ≅ U x R^n   (over each chart domain U)\n\n  These trivializations glue together with transition functions:\n  If (U, phi) and (V, psi) are charts on M with U cap V != emptyset:\n  Transition function g_{UV}: U cap V -> GL(n,R)\n  g_{UV}(p) = d(psi o phi^{-1})_{phi(p)}  (Jacobian of transition map)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Vector Fields",
+      "confidence": "candidate",
+      "text": "  X: M -> TM  with pi o X = id_M\n  (assigns to each point a tangent vector at that point)\n\n  In local coordinates: X = Sum_i X^i(x) partial/partial x^i\n  where X^i: U -> R are smooth functions.\n\n  OPERATIONS:\n\n  Pointwise: (X + Y)_p = X_p + Y_p, (fX)_p = f(p) X_p\n\n  Lie bracket (commutator):\n  [X, Y] = X o Y - Y o X    (as derivations on C^inf(M))\n  In coordinates: [X,Y]^i = Sum_j (X^j partial_j Y^i - Y^j partial_j X^i)\n\n  The Lie bracket measures failure of X and Y to commute.\n  Key identity: [X,Y] is again a vector field. (Lie algebra structure!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Vector Fields",
+      "confidence": "candidate",
+      "text": "  An integral curve of X through p: smooth gamma: (-eps,eps) -> M with\n  gamma(0) = p, gamma'(t) = X_{gamma(t)}  for all t.\n  This is an ODE: existence and uniqueness by Picard-Lindelof.\n\n  Flow of X: phi_t: M -> M defined by phi_t(p) = gamma_p(t)\n  phi_0 = id, phi_{s+t} = phi_s o phi_t  (group property)\n\n  If X is complete (integral curves exist for all t in R):\n  {phi_t} is a one-parameter group of diffeomorphisms.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## Cotangent Bundle T*M and 1-Forms",
+      "confidence": "candidate",
+      "text": "  df: M -> T*M\n  df_p: T_p M -> R  defined by  df_p(v) = v(f)  (directional derivative)\n\n  In coordinates: df = Sum_i (partial f / partial x^i) dx^i\n\n  This is the EXACT 1-form associated to f.\n  Key: df is coordinate-independent; the partial derivatives alone are not.\n\n  Pullback: for F: M -> N smooth and omega in Omega^1(N):\n  F* omega in Omega^1(M) defined by (F*omega)_p(v) = omega_{F(p)}(dF_p(v))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Tensor Fields",
+      "confidence": "candidate",
+      "text": "  (r,s) tensor T at p: multilinear map\n  T_p: T*_p M x ... x T*_p M x T_p M x ... x T_p M -> R\n              r times                   s times\n\n  Alternatively: a (0,0) tensor = function; (1,0) = vector field; (0,1) = 1-form.\n\n  Transformation law in coordinates:\n  T^{i_1...i_r}_{j_1...j_s}(new) = T^{k_1...k_r}_{l_1...l_s}(old)\n    * (partial x^{i_1}_new / partial x^{k_1}_old) ...\n    * (partial x^{l_1}_old / partial x^{j_1}_new) ...\n\n  r upstairs (contravariant) indices transform with the Jacobian.\n  s downstairs (covariant) indices transform with the inverse Jacobian.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## Pullback and Pushforward",
+      "confidence": "candidate",
+      "text": "  For F: M -> N:\n\n  PUSHFORWARD (F_* or dF): TM -> TN\n  Moves tangent vectors FORWARD along F.\n  (F_* X)_{F(p)} = dF_p(X_p)\n\n  PULLBACK (F*): T*N -> T*M  (and more generally: differential forms)\n  Moves covectors and forms BACKWARD along F.\n  (F* omega)_p(v) = omega_{F(p)}(dF_p(v))\n\n  KEY ASYMMETRY:\n  - Pushforward works for vectors (needs F to be smooth, no injectivity needed)\n  - Pullback always works for forms (no restrictions on F)\n  - Pushforward of vector FIELDS requires F to be a diffeomorphism\n    (to push the FIELD: need unique preimage for each point)\n\n  The exterior derivative d COMMUTES with pullback:\n  d(F* omega) = F*(d omega)\n  This is the naturality of d.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "## Lie Derivative",
+      "confidence": "candidate",
+      "text": "  L_X T = lim_{t->0} (phi_t* T - T) / t\n\n  where phi_t is the flow of X.\n\n  For functions: L_X f = X(f) = df(X)  (directional derivative)\n\n  For vector fields: L_X Y = [X, Y]  (Lie bracket!)\n\n  For 1-forms (Cartan's magic formula):\n  L_X omega = d(i_X omega) + i_X (d omega)\n\n  where i_X omega = interior product = omega(X, -)  (contraction with X)\n\n  The Lie derivative encodes the \"active\" perspective: how the tensor\n  changes as you drag it along the flow of X.\n  The covariant derivative (05) encodes the \"passive\" perspective:\n  how the tensor changes direction in a fixed space.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## The Musical Isomorphisms",
+      "confidence": "candidate",
+      "text": "  FLAT  (index lowering, \"b\"):  TM -> T*M\n  X^b(Y) = g(X, Y)   for all Y\n  In coordinates: X_i = Sum_j g_{ij} X^j   (lower index with g)\n\n  SHARP (index raising, \"sharp\"):  T*M -> TM\n  (omega^sharp) = g^{-1} omega\n  In coordinates: omega^i = Sum_j g^{ij} omega_j  (raise index with g^{ij})\n\n  Without a metric, TM and T*M are NOT naturally isomorphic!\n  In classical mechanics: position q in T*Q (cotangent bundle = phase space),\n  momentum p is a covector. The metric (kinetic energy tensor) is needed\n  to identify momentum with velocity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

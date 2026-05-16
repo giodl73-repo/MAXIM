@@ -1,0 +1,135 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## The Central Objects (Quick Reference)",
+      "headers": [
+        "Object",
+        "Definition",
+        "Lives In"
+      ],
+      "rows": [
+        [
+          "Manifold M",
+          "Topological space locally homeomorphic to R^n",
+          "—"
+        ],
+        [
+          "Smooth map f: M -> N",
+          "Smooth in every chart",
+          "—"
+        ],
+        [
+          "Tangent vector at p",
+          "Equivalence class of curves through p",
+          "T_p M"
+        ],
+        [
+          "Vector field",
+          "Smooth section of TM",
+          "Gamma(TM)"
+        ],
+        [
+          "Differential form (1-form)",
+          "Smooth section of T*M",
+          "Omega^1(M)"
+        ],
+        [
+          "k-form",
+          "Antisymmetric (0,k) tensor field",
+          "Omega^k(M)"
+        ],
+        [
+          "Riemannian metric g",
+          "Smooth, positive-definite (0,2) tensor",
+          "Sym^2(T*M)"
+        ],
+        [
+          "Connection nabla",
+          "Map (X, Y) -> nabla_X Y, linear in X",
+          "—"
+        ],
+        [
+          "Curvature R",
+          "R(X,Y)Z = nabla_X nabla_Y Z - nabla_Y nabla_X Z - nabla_{[X,Y]} Z",
+          "T^{1,3}(M)"
+        ],
+        [
+          "Lie group G",
+          "Manifold + compatible group structure",
+          "—"
+        ],
+        [
+          "Lie algebra g",
+          "T_e G (tangent space at identity)",
+          "—"
+        ],
+        [
+          "Principal bundle",
+          "P -> M with structure group G",
+          "Bundle over M"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 206,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "When you need to...",
+        "Use",
+        "Because"
+      ],
+      "rows": [
+        [
+          "Optimize a loss function on SO(3) or SPD matrices",
+          "04-RIEMANNIAN + 09-APPLICATIONS §ML",
+          "Riemannian gradient descent respects manifold constraints"
+        ],
+        [
+          "Formulate electromagnetism or Yang-Mills covariantly",
+          "08-FIBER-BUNDLES + 05-CONNECTIONS",
+          "F = dA is curvature of a principal bundle connection"
+        ],
+        [
+          "Understand why gravity curves spacetime",
+          "06-CURVATURE + 09-APPLICATIONS §GR",
+          "Einstein eqs.: Ricci curvature = stress-energy"
+        ],
+        [
+          "Build an equivariant neural network",
+          "07-LIE-GROUPS + 08-FIBER-BUNDLES + 09 §ML",
+          "Features are bundle sections; equivariance = gauge symmetry"
+        ],
+        [
+          "Plan robot motion through SE(3)",
+          "07-LIE-GROUPS + 09-APPLICATIONS §Robotics",
+          "Robot configurations live on Lie groups"
+        ],
+        [
+          "Use natural gradient for ML training",
+          "04-RIEMANNIAN + 09-APPLICATIONS §Info. Geom.",
+          "Natural gradient = Riemannian gradient with Fisher metric"
+        ],
+        [
+          "Prove a topological identity via integration",
+          "03-DIFFERENTIAL-FORMS",
+          "Stokes' theorem unifies all classical integral theorems"
+        ],
+        [
+          "Understand parallel transport and holonomy",
+          "05-CONNECTIONS",
+          "Connection defines \"constant\" along a path; holonomy = path dependence"
+        ],
+        [
+          "Simulate Hamiltonian dynamics preserving energy",
+          "09-APPLICATIONS §Symplectic",
+          "Symplectic integrators preserve the symplectic 2-form"
+        ]
+      ]
+    }
+  ]
+}

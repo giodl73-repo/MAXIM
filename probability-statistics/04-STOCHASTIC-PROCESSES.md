@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:stochastic-processes
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Stochastic Processes
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/04-STOCHASTIC-PROCESSES.md
+canonical_path: probability-statistics/04-STOCHASTIC-PROCESSES.md
+backsource_ids: [proof-backfill:probability-statistics:04-stochastic-processes, git-history:probability-statistics:04-stochastic-processes]
+concepts: [stochastic, processes]
+root_concepts: [stochastic, processes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stochastic Processes
 
 ## The Big Picture

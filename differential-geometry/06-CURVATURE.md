@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:curvature
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Curvature
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/06-CURVATURE.md
+canonical_path: differential-geometry/06-CURVATURE.md
+backsource_ids: [proof-backfill:differential-geometry:06-curvature, git-history:differential-geometry:06-curvature]
+concepts: [curvature]
+root_concepts: [curvature]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Curvature
 
 ## The Big Picture
