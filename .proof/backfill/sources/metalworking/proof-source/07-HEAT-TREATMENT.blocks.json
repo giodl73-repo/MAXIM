@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "metalworking\\07-HEAT-TREATMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "HEAT TREATMENT GOALS AND PROCESSES:\n\n  Goal                    Process              Mechanism\n  ──────────────────────────────────────────────────────────────────────\n  Soften for machining    Annealing            Full austenitize → slow cool → pearlite\n  Normalize structure     Normalizing          Austenitize → air cool → fine pearlite\n  Maximize hardness       Quenching            Austenitize → fast cool → martensite\n  Reduce brittleness      Tempering            Reheat martensite → tempered martensite\n  Surface hardness only   Case hardening       Enrich surface with C or N; then quench\n  Age hardening (Al)      Precipitation HT     Dissolve → quench → age → precipitates\n\nSTEEL HEAT TREATMENT SEQUENCE:\n  RAW STEEL\n       │\n  [Annealing] ─────────────────────── Soft, machinable state\n       │                               Pearlite or spheroidite\n       │\n  [Machine to shape]\n       │\n  [Austenitize: ~750–950°C]\n       │\n  [Quench: oil/water/air]────────── Martensite (hard, brittle)\n       │\n  [Temper: 150–600°C] ──────────── Tempered martensite (tough, strong)\n       │\n  [Optional: case harden] ─────── Surface hardness + tough core\n\n  Result: high strength + toughness (spring/gear/bearing steel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## Iron-Carbon Phase Diagram",
+      "confidence": "candidate",
+      "text": "Fe-C PHASE DIAGRAM (simplified, 0–2.1% C, 0–1000 °C):\n\n  Vertical axis: temperature in °C.\n  Horizontal axis: carbon content (%C), 0 to ~1.2.\n\n  Key isotherms and regions:\n    1000 °C and above:     γ (austenite) phase region.\n    912 °C (A₃ line):      boundary between α+γ region (left) and γ region.\n    727 °C (A₁ line):      eutectoid temperature.\n                           Below A₁: α + Fe₃C (pearlite) on the left;\n                                     γ + Fe₃C (upper) on the right.\n    Below 727 °C, low %C:  α (ferrite).\n    Eutectoid composition: 0.77 %C.\n\nCRITICAL TEMPERATURES:\n  A₁ (eutectoid): 727°C — lower critical; below = no austenite stable\n  A₃: upper critical for hypoeutectoid (< 0.77%C); above = fully austenite\n  Acm: upper critical for hypereutectoid (> 0.77%C)\n  Ac₁ / Ac₃: actual transformation on heating (c = chauffage, heating)\n  Ar₁ / Ar₃: actual transformation on cooling (r = refroidissement, cooling)\n  → Heating/cooling hysteresis: Ac temperatures higher than Ar temperatures\n\nPHASES:\n  Ferrite (α): BCC iron; soft (~80 HB); ductile; <0.02% C solubility\n  Austenite (γ): FCC iron; nonmagnetic; 0.02–2.1% C solubility; exists above A₁\n  Cementite (Fe₃C): 6.67% C; hard (~700 HB); brittle; iron carbide\n  Pearlite: alternating lamellar (α + Fe₃C) at ~0.77% C; moderate strength\n  Martensite: supersaturated α; BCT structure; carbon trapped → high hardness\n  Bainite: intermediate (below pearlite, above Ms); acicular; tough\n\nEUTECTOID REACTION:\n  At 727°C, 0.77% C:\n  γ (0.77%C) → α (0.02%C) + Fe₃C (6.67%C)  [slow cooling]\n  This is pearlite formation — lamellar spacing depends on cooling rate\n  Faster cooling → finer lamellae → higher hardness (fine pearlite harder than coarse)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Annealing",
+      "confidence": "candidate",
+      "text": "FULL ANNEALING:\n  Heat 30–50°C above A₃ (hypoeutectoid) or A₁ (hypereutectoid)\n  → Fully austenitic\n  Slow furnace cool (~25°C/hr) → coarse pearlite forms\n  Result: softest possible state; maximum ductility; lowest strength\n  Use: after hot working, before severe cold working or machining\n\nPROCESS ANNEALING (subcritical annealing):\n  Heat BELOW A₁ (~550–700°C)\n  No austenitizing → no phase transformation\n  → Relieves cold work (recrystallization); partial softening\n  Use: between cold-drawing passes (wire, strip)\n\nSPHEROIDIZING ANNEALING:\n  Heat just below or cycle around A₁\n  → Fe₃C in pearlite dissolves partially → spheroidizes (surface energy minimization)\n  Result: spheroidite (globular carbide in ferrite matrix) → most machinable state\n  Use: high-carbon steels (>0.6%C) that are otherwise difficult to machine\n  Required: must start from pearlite or martensite + time at temperature\n\nSTRESS RELIEF ANNEALING:\n  Below A₁ (~595–650°C) — same as PWHT for welding\n  → No microstructural transformation; only residual stress relief via creep",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### Normalizing",
+      "confidence": "candidate",
+      "text": "NORMALIZING:\n  Heat 30–50°C above A₃ → fully austenitic\n  Air cool (faster than furnace anneal; slower than quench)\n  → Finer pearlite than full anneal → slightly harder + stronger + better toughness\n  → More uniform microstructure (homogenizes composition gradients)\n\n  Normalized vs Annealed:\n    Normalized: fine pearlite; harder; better machinability for low-carbon steel\n    Annealed: coarse pearlite; softest; better for high-carbon steel machining\n    → Low-C steel: normalize (sufficient softness + better finish)\n    → High-C steel: spheroidize anneal (coarse pearlite too hard to machine easily)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "### Quenching",
+      "confidence": "candidate",
+      "text": "QUENCHING:\n  Austenitize → rapidly cool below Ms (martensite start temperature)\n  Martensitic transformation: diffusionless; shear mechanism; carbon trapped in BCT lattice\n\n  HARDNESS DEPENDS ON CARBON CONTENT:\n    0.2% C → max ~35 HRC\n    0.4% C → max ~55 HRC\n    0.6% C → max ~62 HRC\n    0.8% C → max ~65 HRC  (approximately: max HRC ≈ 30 + 50×%C for %C < 0.5)\n\n  QUENCH MEDIA (cooling severity, fastest to slowest):\n    Brine (10% NaCl): very fast → most distortion/cracking risk\n    Water:            fast → common for water-hardening tool steels\n    Oil:              moderate → most common for alloy steels\n    Polymer (PAG):    adjustable rate → modern alternative to oil\n    Air:              slow → air-hardening grades (D2, H13) only\n\n  DISTORTION AND CRACKING:\n    Thermal gradients → differential expansion/contraction\n    Martensite transformation: volumetric expansion ~4%\n    Surface: cools and transforms first; core: lags\n    → Residual stress: surface compression (often good for fatigue)\n    → If gradient too steep: quench crack\n    → Prevention: preheat before austenitizing; use slower quench medium;\n                  austempering (hold in salt bath above Ms)\n\n  MARTENSITE START / FINISH:\n    Ms (martensite start): temperature at which martensite begins forming\n    Mf (martensite finish): complete martensite (~0% austenite)\n    Ms ≈ 530 − 350×(C%) − 40×(Mn%) − 20×(Cr%) − 10×(Mo%) − 17×(Ni%)\n    → High C + alloy → low Ms → retained austenite (soft spots; dimensional instability)\n    → Deep cryogenic treatment: sub-zero cooling to complete martensite transformation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "### Tempering",
+      "confidence": "candidate",
+      "text": "TEMPERING:\n  Reheat martensite below A₁ → tempered martensite\n  Purpose: reduce brittleness; relieve residual stress; controlled hardness reduction\n\n  STAGES OF TEMPERING:\n    100–200°C: ε-carbide precipitation; some stress relief; slight hardness decrease\n               → High hardness retained; use for wear parts, cutting tools, cold work\n    250–350°C: ε-carbide → cementite; continued precipitation\n               AVOID: \"tempered martensite embrittlement\" (blue brittleness) peak\n    400–600°C: Fe₃C spheroidizes; increasing toughness; significant hardness drop\n               → Structural steels (bolts, gears, shafts): temper here\n    >600°C:    Approaching annealed state; coarse cementite; very tough, low hardness\n\n  STRENGTH-TOUGHNESS TRADEOFF:\n    Low temper temperature → high hardness → low toughness (brittle fracture risk)\n    High temper temperature → lower hardness → high toughness\n    Engineering: temper to meet toughness/hardness requirement simultaneously\n    Charpy impact test: validates toughness at service temperature (especially sub-zero)\n\nDOUBLE TEMPERING:\n  High-alloy tool steels: temper twice (with air cool between)\n  First temper: converts retained austenite to fresh martensite + tempers original\n  Second temper: tempers the fresh martensite\n  → Required for D2, M2, H13 etc.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "## TTT and CCT Diagrams",
+      "confidence": "candidate",
+      "text": "TTT DIAGRAM (Time-Temperature-Transformation):\n  Isothermal (constant temperature) diagram\n  X-axis: time (log scale); Y-axis: temperature\n  Curves mark START and FINISH of transformation at each temperature\n\n  Temperature\n    A₃ ─────────────────────────────────────────\n    A₁ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─\n        │                                         Pearlite start (nose)\n        │                 ┌──── Pearlite finish\n        │             ────┤\n        │         ────    └────────────\n    B─  │     ────  ←────── Bainite region\n    s   │ ────────────────────────────────────\n    Ms ─│─────────────────────────────── Martensite start\n    Mf ─│─────────────────────────────── Martensite finish\n         ──────────────────────────────────────►\n         0.1s     1s     1min   1hr    time\n\n  \"NOSE\" of TTT: shortest time to begin transformation (~550°C for most steels)\n  To get martensite: cooling rate must exceed the critical cooling rate\n    (cooling must reach Ms before touching the nose)\n\nCCT DIAGRAM (Continuous Cooling Transformation):\n  More relevant for practice (actual quenching is continuous, not isothermal)\n  Similar shape to TTT but nose shifted right and down\n  Shows transformation products for given continuous cooling curves\n  → Oil cooling curve passing left of nose → martensite\n  → Air cooling curve passing through nose → mixed pearlite/bainite/martensite\n\n  PRACTICAL USE:\n    From CCT: read off what microstructure you get for a given quench medium\n    → Critical cooling rate: minimum rate to get 100% martensite\n    → Alloy elements: shift nose to right → more time available → allows air or oil quench",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Hardenability (Jominy End-Quench Test)",
+      "confidence": "candidate",
+      "text": "HARDENABILITY DEFINITION:\n  The ability of steel to be hardened (form martensite) to a given depth\n  NOT the same as maximum hardness (which is a function of carbon content)\n\n  Distinction:\n    Carbon content → maximum hardness achievable at surface\n    Hardenability → how deep through the section that hardness extends\n\nJOMINY TEST (ASTM A255):\n  Standard 1-inch diameter × 4-inch bar\n  Austenitize at standard temp; water quench one end only → standard spray\n  After quench: measure hardness at intervals from quenched end (HRC every 1/16\")\n\n  Result: Jominy curve → hardness vs distance from quenched end\n    High hardenability steel: hardness stays high far from quenched end\n    Low hardenability steel: hardness drops off rapidly\n\n  Physical interpretation: distance from quenched end → cooling rate\n    0 mm: fastest cooling (near water) → martensitic if carbon sufficient\n    25 mm: moderate cooling → depends on hardenability\n    50+ mm: slow cooling → pearlite/bainite even in hardened steel\n\nFACTORS INCREASING HARDENABILITY:\n  Carbon: increases hardness achievable (not hardenability by itself)\n  Alloying elements (Cr, Mo, Ni, Mn, Si):\n    → Shift TTT nose to right → slower critical cooling rate → deeper hardening\n    Mo: most potent per weight; suppresses pearlite formation\n    Cr: carbide former; increases both hardenability and hardness\n    Ni: increases hardenability + toughness (no carbide formation)\n    B (boron): extremely potent in trace amounts (0.0005–0.003%); affects grain boundary\n\nIDEAL CRITICAL DIAMETER (DI):\n  Section diameter that can be through-hardened with a theoretically infinite quench\n  Used to compare hardenability of different steels and predict section response",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Case Hardening",
+      "confidence": "candidate",
+      "text": "CASE HARDENING PURPOSE:\n  Combine: hard, wear-resistant surface + tough, ductile core\n  Applications: gears (hard teeth; tough core absorbs impact), cams, shafts, bearing races\n\nCARBURIZING:\n  Process: expose low-carbon steel to carbon-rich atmosphere at 870–950°C\n  Carbon diffuses into surface → carbon gradient from ~0.8% at surface to bulk ~0.2%\n  After carburizing: quench + temper → hard case; tough core\n\n  Types:\n    Gas carburizing: atmosphere furnace with CH₄/CO/CO₂ mix → industrial standard\n    Pack carburizing: steel packed in charcoal + BaCO₃ → batch; slower; old method\n    Vacuum carburizing (LPC): low pressure; precise control; no intergranular oxidation\n    Liquid carburizing: molten salt bath (NaCN-based) → fast but toxic cyanide\n\n  Case depth: 0.1–2.5 mm depending on time, temperature, steel\n  Surface carbon: 0.7–0.9% target (avoid excessive cementite → brittle)\n\nNITRIDING:\n  Process: expose steel to ammonia (NH₃) atmosphere at 480–550°C\n  Nitrogen diffuses in → iron nitride (γ'-Fe₄N and ε-Fe₂₋₃N) compound layer + diffusion zone\n  No quench required: hardening occurs during nitriding itself\n  → Less distortion than carburizing + quench\n\n  Properties: white layer (compound zone) → very hard (~70 HRC equivalent)\n              diffusion zone → harder than core\n  Applications: crank shafts, cam shafts, gears — precision parts\n\n  Gas nitriding (traditional): NH₃ atmosphere 25–150 hr → thick case\n  Plasma nitriding: ionized nitrogen; faster; controllable white layer thickness\n  Salt bath nitriding (Tenifer/Ferritic Nitrocarburizing): 570°C; short time;\n    moderate hardness; good corrosion resistance → automotive camshafts\n\nINDUCTION HARDENING:\n  Selective surface heating by induced eddy currents (electromagnetic induction)\n  High-frequency coil surrounds part → rapid surface heating to austenitic\n  Quench immediately → martensitic surface; core unchanged\n\n  Not a diffusion process — no chemistry change; geometry-specific heating\n  Time to heat: seconds; very fast; localized\n  Applications: crankshafts (journals only), gear teeth, steering rack, valve seats\n  Residual compressive stress: large (benefits fatigue life significantly)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 348,
+      "heading_context": "## Precipitation Hardening (Aluminum)",
+      "confidence": "candidate",
+      "text": "AGE HARDENING MECHANISM:\n\n  Most common: 2000/6000/7000 series Al alloys\n  Requires: solid solubility that decreases with decreasing temperature\n\n  THREE STAGES:\n\n  1. SOLUTION TREATMENT (Solutionizing):\n     Heat to ~500–540°C → all solute (Cu, Mg, Zn, Si) dissolves into solid solution\n     → Uniform, single-phase alloy (α-Al, FCC, supersaturated)\n\n  2. QUENCH:\n     Rapid cooling → supersaturated solid solution (SSSS) at room temperature\n     Solute atoms trapped in aluminum matrix → soft, ductile state (T4 temper)\n\n  3. AGING (Precipitation):\n     Hold at room temperature (natural aging) or elevated temperature (artificial aging)\n     → Solute atoms cluster → form coherent precipitate zones → GP zones\n     → GP zones → intermediate precipitates (θ', S', η', β')\n     → Equilibrium precipitates (θ, S, η, β) — overaged state\n\nHARDNESS vs AGING TIME:\n     Hardness\n        │                   Peak aging\n        │              ╱────╲\n        │         ╱────       ────╲\n        │    ╱────                  ────╲ (overaging)\n        │╱─                              ────\n        └──────────────────────────────────────►\n        T4                                       T7\n        SSSS          Peak (T6)           Overaged\n\n  UNDERAGED (T3/T4): GP zones forming; moderate strength; excellent formability\n  PEAK AGED (T6): maximum strength; GP zone → coherent precipitates\n  OVERAGED (T7): loss of coherency → precipitates coarsen → lower strength\n                 but better: stress corrosion cracking resistance\n                 7XXX alloys: T73 overaged for aerospace (better SCC vs T6)\n\nTEMPER DESIGNATIONS:\n  -T4: solution treated + naturally aged (room temp)\n  -T6: solution treated + artificially aged (peak strength)\n  -T651: T6 + stretching (stress relief) + artificial age\n  -T73: overaged (7xxx alloys, SCC resistance)\n  -T851: T8 (cold worked after quench) + stretch + age\n\nALLOY EXAMPLES:\n  2024-T3 (Al-Cu-Mg): aerospace structure (wing skin)\n  6061-T6 (Al-Mg-Si): general structural; weldable\n  7075-T6 (Al-Zn-Mg-Cu): highest strength Al; aerospace\n  7075-T73: same, overaged for SCC resistance\n  6063-T5: extrusions (architectural); softer, excellent finish",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

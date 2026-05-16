@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:overview
+kind: guide
+module: metalworking
+section: metalworking
+title: Metalworking - Overview
+status: source-custody
+source_custody: partial
+current_path: metalworking/00-OVERVIEW.md
+canonical_path: metalworking/00-OVERVIEW.md
+backsource_ids: [proof-backfill:metalworking:00-overview, git-history:metalworking:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metalworking — Overview
 
 ## The Big Picture

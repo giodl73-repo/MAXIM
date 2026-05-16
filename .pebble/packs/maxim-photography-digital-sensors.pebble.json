@@ -1,0 +1,825 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-photography-digital-sensors",
+  "source": "../../photography",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-DIGITAL-SENSORS.md#000",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "# Digital Sensors"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#001",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#002",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "A digital sensor converts photons into electrons, then into numbers. The fundamental limit is shot noise — photon statistics — not the technology. Everything else (read noise, quantization, demosaicing) is engineering around that limit. Understanding sensors means understanding why the photon count at each pixel is the fundamental quantity of interest."
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#003",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "```\nSENSOR SIGNAL CHAIN:"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#004",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Photons arriving at sensor\n         │\n  Color filter array (Bayer mosaic) — absorbs 2/3 of photons!\n         │\n  Microlenses — concentrate light onto photodiode\n         │\n  Photodiode — electron-hole pair per photon absorbed\n         │\n  Full-well capacity — electron accumulator (10k–100k e⁻ before saturation)\n         │\n  Readout — CCD: charge transfer to edge; CMOS: per-pixel amplifier\n         │\n  Analog signal → ADC → digital value per pixel (12/14/16 bit)\n         │\n  Demosaicing — reconstruct full RGB from Bayer mosaic\n         │\n  Output: raw file (CFA data) or processed JPEG/HEIC"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#005",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "FUNDAMENTAL PERFORMANCE LIMITS:"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#006",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Shot noise:    σ_shot = √N  (where N = number of photons)\n                → 10,000 photons → SNR = 100:1 → 40 dB\n                → 100 photons → SNR = 10:1 → 20 dB\n                UNAVOIDABLE — physics, not engineering"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#007",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Read noise:    Amplifier thermal/electronic noise at readout\n                Modern CMOS: 1–3 electrons RMS\n                → Only dominates when N << read_noise²\n                → At base ISO with good exposure: shot noise dominates"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#008",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Dynamic range: log₂(full_well / read_noise) in stops\n                Typical: 4,000 e⁻ well / 4 e⁻ read = 1,000:1 → ~10 stops\n                Modern BSI CMOS: 14–15 stops at base ISO\n```"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#009",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#010",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "## CCD vs CMOS Architecture"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#011",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "### CCD — Charge-Coupled Device"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#012",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "```\nCCD OPERATION:"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#013",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Each pixel: photodiode accumulates charge during exposure\n  Readout: charge clocked (\"coupled\") across chip row-by-row to output register\n  Single output amplifier → low noise, uniform → historically superior quality"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#014",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────┐\n  │  Row 1: ●●●●●●●●●●●●●●●●●●●●●●    │\n  │  Row 2: ●●●●●●●●●●●●●●●●●●●●●●    │\n  │  ...                             │\n  │  Output register ← ← ← ← ← ← ←   │\n  └──────────────────────────────────┘\n  (rows clocked downward; output to single ADC)"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#015",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "ADVANTAGES:\n  Low noise (single, optimized output amplifier)\n  Uniform response (same amplifier for all pixels)\n  High fill factor (no in-pixel circuitry)"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#016",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "DISADVANTAGES:\n  Slow readout (serial clocking — one row at a time)\n  High power consumption (clocking all charge across chip)\n  Smearing: if shutter fails or in video mode, charge from bright objects\n    blooms vertically during readout\n  Must complete full readout before starting next exposure\n  Expensive to manufacture"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#017",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "HISTORICAL ROLE:\n  Dominated serious digital photography 1991–2008 (Kodak DCS, Canon 1Ds era)\n  Astronomical CCD still used (extreme low noise, deep cooling)\n  Largely replaced by CMOS in consumer/pro cameras after 2008\n```"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#018",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "### CMOS — Complementary Metal-Oxide-Semiconductor"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#019",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "```\nCMOS ACTIVE PIXEL SENSOR:"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#020",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Each pixel contains: photodiode + amplifier + select transistor (3T or 4T design)"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#021",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "PIXEL CIRCUIT (4T):\n    +-----------------------------------------------------+\n    |  PD --> Transfer gate (TX) --> FD                   |\n    |                                |                    |\n    |                                v                    |\n    |                       Source follower amplifier     |\n    |                       --> Row select                |\n    |                       --> Column bus --> Column ADC |\n    +-----------------------------------------------------+\n    (FD = floating diffusion: charge -> voltage)"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#022",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "Each row can be read independently → parallel readout\n  Each pixel has its own amplifier → potentially noisier (fixed-pattern noise)\n  Modern: column-parallel ADCs → fast readout; on-chip processing"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#023",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "ROLLING vs GLOBAL SHUTTER:"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#024",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "ROLLING SHUTTER (default CMOS):\n    Rows exposed and read sequentially (top-to-bottom)\n    Different rows captured at slightly different times\n    Exposure time: each row starts ~5–10ms after previous\n    → PROBLEM: fast-moving subjects distort (\"jello effect\" in video)\n    → Sports: moving vertical bars skew diagonally\n    → Benefits: simple; most pixels; silent (electronic only)"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#025",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "GLOBAL SHUTTER:\n    All pixels exposed simultaneously → captured at exactly same instant\n    Requires: storage node per pixel (holds charge while others read)\n    → More transistors → lower fill factor → smaller effective area → more noise\n    → Or stacked BSI design to regain fill factor\n    Nikon Z9, Sony A9 III (2024): full global shutter from stacked sensors\n    → No mechanical shutter needed; 120fps; 1/16000s max; flash sync at any speed\n```"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#026",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "### BSI — Backside Illumination"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#027",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "```\nBSI vs FSI SENSOR STRUCTURE:"
+    },
+    {
+      "id": "06-DIGITAL-SENSORS.md#028",
+      "path": [
+        "06-DIGITAL-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]",
+        "canonical_path": "photography/06-DIGITAL-SENSORS.md",
+        "concepts": "[digital, sensors]",
+        "current_path": "photography/06-DIGITAL-SENSORS.md",
+        "id": "maxim:photography:digital-sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, sensors]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Sensors",
+        "updated": "null"
+      },
+      "text": "FSI (Front Side Illuminated) — traditional:\n    Wiring and transistors on same side as light path\n    Metal interconnects partially block photons\n    Fill factor ~50–65% at small pixel pitch"
+    }
+  ],
+  "refs": [
+    "06-DIGITAL-SENSORS.md"
+  ]
+}

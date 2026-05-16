@@ -1,0 +1,199 @@
+{
+  "schema_version": "1",
+  "source_markdown": "photography\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 183,
+      "heading_context": "## Key Metrics",
+      "headers": [
+        "Metric",
+        "Film equivalent",
+        "Digital equivalent",
+        "Limiting factor"
+      ],
+      "rows": [
+        [
+          "**Resolution**",
+          "Film grain (lp/mm)",
+          "Megapixels",
+          "Lens MTF, diffraction, AA filter"
+        ],
+        [
+          "**Dynamic range**",
+          "Exposure latitude (stops)",
+          "Stops (12–16 for modern sensors)",
+          "Shot noise vs read noise floor"
+        ],
+        [
+          "**Sensitivity**",
+          "ISO/ASA rating",
+          "ISO (amplification)",
+          "Read noise, shot noise"
+        ],
+        [
+          "**Color accuracy**",
+          "Dye metamerism, film stock",
+          "Color filter array + WB algorithm",
+          "Bayer interpolation, illuminant"
+        ],
+        [
+          "**Sharpness**",
+          "Acutance (edge contrast)",
+          "Sharpening algorithms",
+          "MTF, pixel pitch, stabilization"
+        ],
+        [
+          "**Temporal resolution**",
+          "Not applicable",
+          "Frame rate, rolling shutter",
+          "Data throughput, readout speed"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 196,
+      "heading_context": "## Module Map",
+      "headers": [
+        "Module",
+        "Topic",
+        "Key Concepts"
+      ],
+      "rows": [
+        [
+          "`01-OPTICS-LENSES.md`",
+          "Lens physics",
+          "Thin lens, f-number, DoF, aberrations, coatings"
+        ],
+        [
+          "`02-FILM-CHEMISTRY.md`",
+          "Silver halide",
+          "Latent image, Gurney-Mott, developer, Kodachrome"
+        ],
+        [
+          "`03-DARKROOM.md`",
+          "Analog processing",
+          "Enlarger, zone system, dodge/burn, archival"
+        ],
+        [
+          "`04-COLOR-PHOTOGRAPHY.md`",
+          "Color",
+          "Additive/subtractive, neg/reversal, ICC profiles"
+        ],
+        [
+          "`05-CAMERA-TECHNOLOGY.md`",
+          "Camera mechanics",
+          "SLR, rangefinder, mirrorless, medium format"
+        ],
+        [
+          "`06-DIGITAL-SENSORS.md`",
+          "CCD/CMOS",
+          "Bayer CFA, demosaicing, noise sources, dynamic range"
+        ],
+        [
+          "`07-DIGITAL-WORKFLOW.md`",
+          "RAW processing",
+          "White balance, tone curves, color spaces, export"
+        ],
+        [
+          "`08-COMPUTATIONAL-PHOTOGRAPHY.md`",
+          "Algorithms",
+          "HDR, focus stacking, AI pipeline, super-resolution"
+        ],
+        [
+          "`09-HISTORY-ARC.md`",
+          "Timeline",
+          "Full arc: Niépce → Kodak → digital → computational"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 214,
+      "heading_context": "## Bridges to Adjacent Fields",
+      "headers": [
+        "Field",
+        "Connection"
+      ],
+      "rows": [
+        [
+          "`physics/`",
+          "Geometric optics, wave optics, quantum efficiency of photodetectors"
+        ],
+        [
+          "`signal-processing/`",
+          "Sampling (Nyquist), convolution (PSF), Fourier analysis of MTF"
+        ],
+        [
+          "`art-history/`",
+          "Photography as art movement: Pictorialism, Modernism, documentary"
+        ],
+        [
+          "`computing/`",
+          "Digital imaging pipelines, JPEG/HEIF compression, GPU ISP"
+        ],
+        [
+          "`natural-sciences/` (chemistry)",
+          "Silver halide photochemistry, developer reduction reactions"
+        ],
+        [
+          "`colors/` (future)",
+          "Color spaces, gamut, perceptual color models (CIELAB, OKLCH)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 227,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Technique / Concept",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Images soft wide-open",
+          "Seidel aberrations, MTF at working aperture",
+          "Spherical + coma dominate at max aperture; stop down 2 stops for sharpest MTF"
+        ],
+        [
+          "Shooting handheld in low light",
+          "Multi-frame NR / Night Mode pipeline",
+          "Computational stack: align + merge N short exposures > single long exposure"
+        ],
+        [
+          "Noisy high-ISO images",
+          "Photon shot noise (Poisson), read noise floor",
+          "Noise is sqrt(signal); larger pixels collect more photons per pixel = higher SNR"
+        ],
+        [
+          "Color mismatch between camera and print",
+          "ICC profile chain: camera -> working space -> output",
+          "Each conversion is a 3x3 matrix; mismatched profiles = wrong gamut mapping"
+        ],
+        [
+          "Moiré patterns on fine textures",
+          "Bayer CFA aliasing above Nyquist for color channels",
+          "Optical low-pass filter or demosaic algorithm handles anti-aliasing"
+        ],
+        [
+          "Need 3D reconstruction from photos",
+          "Structure-from-Motion + bundle adjustment",
+          "Feature matching -> RANSAC -> BA -> dense MVS; NeRF/Gaussian Splatting for ML"
+        ],
+        [
+          "Choosing between RAW and JPEG",
+          "RAW = linear sensor data, 12-14 bit; JPEG = processed, 8-bit, lossy",
+          "RAW preserves latitude for post-processing; JPEG for immediate sharing"
+        ],
+        [
+          "HDR scene exceeds sensor dynamic range",
+          "Exposure bracketing + computational merge",
+          "Multiple exposures mapped to HDR then tone-mapped to display range"
+        ]
+      ]
+    }
+  ]
+}

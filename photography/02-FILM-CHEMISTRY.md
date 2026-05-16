@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:film-chemistry
+kind: guide
+module: photography
+section: photography
+title: Film Chemistry
+status: source-custody
+source_custody: partial
+current_path: photography/02-FILM-CHEMISTRY.md
+canonical_path: photography/02-FILM-CHEMISTRY.md
+backsource_ids: [proof-backfill:photography:02-film-chemistry, git-history:photography:02-film-chemistry]
+concepts: [film, chemistry]
+root_concepts: [film, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Film Chemistry
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:forging
+kind: guide
+module: metalworking
+section: metalworking
+title: Forging
+status: source-custody
+source_custody: partial
+current_path: metalworking/03-FORGING.md
+canonical_path: metalworking/03-FORGING.md
+backsource_ids: [proof-backfill:metalworking:03-forging, git-history:metalworking:03-forging]
+concepts: [forging]
+root_concepts: [forging]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forging
 
 ## The Big Picture

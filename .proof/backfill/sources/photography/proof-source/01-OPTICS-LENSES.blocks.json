@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "photography\\01-OPTICS-LENSES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SCENE → LIGHT RAYS → LENS SYSTEM → IMAGE PLANE\n\nThe lens does four things:\n  1. COLLECT light — aperture determines how much\n  2. FOCUS light — focal length determines where the plane of sharp focus is\n  3. SCALE the image — focal length × magnification = image size\n  4. FILTER spatially — aberrations reduce contrast at high spatial frequencies\n\nKey tension: larger aperture → more light + shallower DoF + more aberrations\n             smaller aperture → less light + deeper DoF + diffraction softening",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 45,
+      "heading_context": "## The Thin Lens Equation",
+      "confidence": "candidate",
+      "text": "1/f = 1/dₒ + 1/dᵢ\n\n  f  = focal length (lens property; fixed by design)\n  dₒ = object distance (scene to lens)\n  dᵢ = image distance (lens to sensor/film)\n\nRearranged for focus distance:\n  dᵢ = f·dₒ / (dₒ - f)\n\nFor objects at infinity (dₒ → ∞): dᵢ → f\n  → \"Focused at infinity\" means image forms at exactly one focal length behind lens\n\nFor close-up (macro): dₒ approaches f → dᵢ grows → need to extend lens further\n  Macro at 1:1 reproduction: dₒ = dᵢ = 2f (lens is 2× focal lengths from sensor)\n\nMagnification m = -dᵢ/dₒ  (negative = inverted image)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "## f-Number and Light Collection",
+      "confidence": "candidate",
+      "text": "f/N = focal length / entrance pupil diameter\n\nN = f/D  where D = aperture diameter\n\nWhy it's defined as ratio:\n  At f/2.8 regardless of focal length, the same IRRADIANCE (W/m²) hits\n  the image plane — because longer lenses have larger pupils in exact proportion\n\nf-number sequence (geometric, each stop = ×√2 ≈ 1.41 diameter = ×2 area):\n  f/1   f/1.4  f/2  f/2.8  f/4  f/5.6  f/8  f/11  f/16  f/22  f/32\n\nEach full stop change:\n  1 stop open  → ×2 light (double exposure)\n  1 stop close → ÷2 light (half exposure)\n\nT-stop (transmission stop):\n  f-stops are geometrical; actual transmission depends on glass absorption + reflections\n  Cinema lenses use T-stops (calibrated for actual transmittance)\n  T2.8 lens at f/2.8 may actually transmit only T3.2 of light",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Depth of Field",
+      "confidence": "candidate",
+      "text": "DEPTH OF FIELD GEOMETRY:\n\n  Scene                Lens              Sensor\n\n  ──── far limit ────►\n  ──── SHARP ZONE ────►──────────────► image plane\n  ──── near limit ───►\n  ──── out of focus ──►──────────────► blur circle (diameter c)\n\nCircle of confusion (CoC): diameter of acceptable blur on output\n  Standard: d/1500 where d = sensor diagonal\n  Full-frame (43mm diagonal): CoC ≈ 0.029mm = 29µm\n  This assumes ~25cm viewing distance of an 8×10\" print\n\nDepth of field formulas:\n  DoF ≈ 2·u²·N·c / f²   (for u >> f, simplified)\n\n  where u = focus distance, N = f-number, c = CoC, f = focal length\n\nWhat this means:\n  DoF increases with:   larger N (smaller aperture), shorter focal length,\n                        closer focus distance (paradox — but true for hyperfocal math)\n  DoF decreases with:   larger aperture, longer focal length, closer subject\n\nHyperfocal distance H = f² / (N·c)\n  Focus at H → everything from H/2 to infinity is acceptably sharp\n  Used for landscape photography to maximize zone of apparent focus",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### Bokeh and Out-of-Focus Rendering",
+      "confidence": "candidate",
+      "text": "\"Bokeh\" (Japanese ボケ = blur/haze): quality of out-of-focus rendering\n\nGeometric bokeh shape:\n  Circular aperture → circular blur circles\n  Hexagonal diaphragm blades → hexagonal specular highlights\n  Nikon \"cat-eye\" → elliptical near edges from vignetting of aperture\n\nBokeh quality factors:\n  Apodization (Gradual ND filter over aperture): edges of blur circles are\n    softer → smoother, more film-like bokeh (Sony STF, Fuji APD)\n  Spherical aberration: positive SA → bright-edge circles (harsh \"nervous\")\n                        negative SA → dark-edge circles (smooth, filmic)\n  Longitudinal CA: color fringing of blur circles fore/aft of focus plane",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "### Monochromatic Aberrations (Seidel/Third-Order)",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│ ABERRATION        │ CAUSE              │ MANIFESTATION          │\n├─────────────────────────────────────────────────────────────────┤\n│ Spherical         │ Marginal rays focus│ Soft at wide apertures;│\n│                   │ differently than   │ \"glowing\" in highlights│\n│                   │ paraxial rays      │ Stops down to sharpen  │\n├─────────────────────────────────────────────────────────────────┤\n│ Coma              │ Off-axis rays from │ \"Seagull\" or \"comet\"   │\n│                   │ different pupil    │ flare on bright stars/ │\n│                   │ zones focus at     │ point sources at edges │\n│                   │ different points   │                        │\n├─────────────────────────────────────────────────────────────────┤\n│ Astigmatism       │ Off-axis: sagittal │ Lines in different     │\n│                   │ and meridional     │ orientations focus at  │\n│                   │ planes focus at    │ different distances;   │\n│                   │ different distances│ star shapes into cross │\n├─────────────────────────────────────────────────────────────────┤\n│ Field curvature   │ Flat sensor vs     │ Sharp center → blurry  │\n│ (Petzval)         │ curved focal plane │ edges, or vice versa   │\n├─────────────────────────────────────────────────────────────────┤\n│ Distortion        │ Off-axis magnif.   │ Barrel (wide angle)    │\n│                   │ varies with angle  │ or pincushion (tele)   │\n│                   │                    │ Lines bow in/out       │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### Chromatic Aberrations",
+      "confidence": "candidate",
+      "text": "LONGITUDINAL (axial) CA:\n  Glass refractive index varies with wavelength (dispersion)\n  → different wavelengths focus at different distances\n  → color fringing (magenta/green) on high-contrast edges throughout image\n  Reduced by: apochromatic design (APO/apo), extra-low dispersion (ED/LD) glass,\n              fluorite elements (CaF₂ — very low dispersion)\n\nLATERAL (transverse) CA:\n  Off-axis: different wavelengths focus at different heights on sensor\n  → color fringing only at edges of image (not center)\n  → easily corrected in software (simple scaling per channel)\n\nAbbe number V = (nd - 1) / (nF - nC)\n  nd = index at 589nm (yellow), nF = 486nm (blue), nC = 656nm (red)\n  High V (>60): low dispersion glass (crown glass family)\n  Low V (<30): high dispersion glass (flint glass family)\n  Doublet design (crown + flint) corrects CA by combining divergent and convergent\n  elements with complementary dispersions → achromat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Modulation Transfer Function (MTF)",
+      "confidence": "candidate",
+      "text": "MTF = (I_max - I_min) / (I_max + I_min) at spatial frequency f (cycles/mm or lp/mm)\n\nMTF = 1.0: perfect contrast reproduction\nMTF = 0:   no contrast at all (can't resolve that frequency)\nMTF = 0.5: typically considered resolving limit for critical work\nMTF = 0.1: Rayleigh criterion (just barely distinguishable)\n\nMTF curve shape:\n  High MTF →    ██████████▄▄▄▄────\n  (good lens)   |         |    |\n               DC   10lp/mm  40lp/mm\n\nPerfect diffraction-limited lens (Airy pattern):\n  MTF_diff(f) = (2/π)[arccos(f/fc) - (f/fc)√(1-(f/fc)²)]\n  where fc = 1/(λN) = cutoff frequency\n  At f/2.8, λ=0.55µm: fc = 1/(0.55×10⁻³ × 2.8) ≈ 649 lp/mm\n  Pixel-limited cutoff (e.g., 24MP FF, 6µm pixel): 1/(2×6µm) = 83 lp/mm\n  → Real sensor resolution limited by pixel pitch, not diffraction, at moderate apertures",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## Anti-Reflection Coatings",
+      "confidence": "candidate",
+      "text": "SINGLE LAYER AR COATING (quarter-wave):\n\n  Air (n₁ = 1.0)\n  ─────────────────── reflected ray 1 (from air-coating interface)\n  Coating (n₂ = √(n₁n₃)) ← optimal index\n  thickness = λ/4 (at design wavelength)\n  ─────────────────── reflected ray 2 (from coating-glass interface)\n  Glass (n₃ ≈ 1.5)\n\n  Rays 1 and 2 are 180° out of phase (λ/4 round trip = λ/2) → destructive interference\n  → Reflection drops from ~4% to ~1% at design wavelength\n\n  Single layer: good at one wavelength, purple/magenta color cast at others\n\nMULTILAYER COATING (modern lenses):\n  Multiple λ/4 layers of alternating high/low index\n  → Reflection reduced to 0.1–0.5% across visible spectrum (400–700nm)\n  → Appears green/blue (remaining reflection) — the \"T*\" (Zeiss), \"SMC\" (Pentax)\n\nNANO-CRYSTAL COATING (Nikon Nano-Crystal Coat):\n  Sub-wavelength structures reduce reflection by graded-index transition\n  → Effective against wide-angle flare from oblique light",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

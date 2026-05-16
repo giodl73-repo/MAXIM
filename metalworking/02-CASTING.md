@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:casting
+kind: guide
+module: metalworking
+section: metalworking
+title: Casting
+status: source-custody
+source_custody: partial
+current_path: metalworking/02-CASTING.md
+canonical_path: metalworking/02-CASTING.md
+backsource_ids: [proof-backfill:metalworking:02-casting, git-history:metalworking:02-casting]
+concepts: [casting]
+root_concepts: [casting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Casting
 
 ## The Big Picture

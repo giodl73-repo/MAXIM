@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:digital-sensors
+kind: guide
+module: photography
+section: photography
+title: Digital Sensors
+status: source-custody
+source_custody: partial
+current_path: photography/06-DIGITAL-SENSORS.md
+canonical_path: photography/06-DIGITAL-SENSORS.md
+backsource_ids: [proof-backfill:photography:06-digital-sensors, git-history:photography:06-digital-sensors]
+concepts: [digital, sensors]
+root_concepts: [digital, sensors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Sensors
 
 ## The Big Picture

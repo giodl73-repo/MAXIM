@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:rolling-drawing
+kind: guide
+module: metalworking
+section: metalworking
+title: Rolling and Drawing
+status: source-custody
+source_custody: partial
+current_path: metalworking/04-ROLLING-DRAWING.md
+canonical_path: metalworking/04-ROLLING-DRAWING.md
+backsource_ids: [proof-backfill:metalworking:04-rolling-drawing, git-history:metalworking:04-rolling-drawing]
+concepts: [rolling, drawing]
+root_concepts: [rolling, drawing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rolling and Drawing
 
 ## The Big Picture

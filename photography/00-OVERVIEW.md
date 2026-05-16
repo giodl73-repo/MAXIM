@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:overview
+kind: guide
+module: photography
+section: photography
+title: Photography - Overview
+status: source-custody
+source_custody: partial
+current_path: photography/00-OVERVIEW.md
+canonical_path: photography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:photography:00-overview, git-history:photography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Photography — Overview
 
 ## The Big Picture

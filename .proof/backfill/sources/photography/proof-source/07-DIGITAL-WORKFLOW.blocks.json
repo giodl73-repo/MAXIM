@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "photography\\07-DIGITAL-WORKFLOW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DIGITAL WORKFLOW PIPELINE:\n\n  CAPTURE\n  ┌──────────────────────────────────────────────────────────────┐\n  │ Sensor → Bayer CFA → ADC → Linear RAW data (12/14 bit)       │\n  │ White balance tag, exposure metadata written (not applied)   │\n  └────────────────────────────────┬─────────────────────────────┘\n                                   │ RAW file (.CR3, .NEF, .ARW, .DNG)\n  ┌──────────────────────────────────────────────────────────────┐\n  │ RAW PROCESSING (Lightroom, Capture One, darktable, RawTherapee)│\n  │  1. White balance → chromatic adaptation → neutral grays     │\n  │  2. Demosaicing → full RGB at every pixel                    │\n  │  3. Tone curve → map linear scene values to perceptual space │\n  │  4. Color space conversion → sRGB / AdobeRGB / ProPhoto      │\n  │  5. Noise reduction → luminance NR + color NR                │\n  │  6. Output sharpening → USM or deconvolution                 │\n  └────────────────────────────────┬─────────────────────────────┘\n                                   │ Processed image (16-bit TIFF)\n  ┌──────────────────────────────────────────────────────────────┐\n  │ EDITING (Photoshop, Affinity Photo, Pixelmator)              │\n  │  Local adjustments, compositing, retouching                  │\n  └────────────────────────────────┬─────────────────────────────┘\n                                   │\n  ┌──────────────────────────────────────────────────────────────┐\n  │ OUTPUT                                                       │\n  │  Screen: sRGB JPEG/HEIC (8-bit; ICC embed)                   │\n  │  Print: CMYK conversion; soft proof → printer profile TIFF   │\n  │  Archive: original RAW + sidecar (.xmp) or catalog backup    │\n  └──────────────────────────────────────────────────────────────┘\n\nKEY PRINCIPLE:\n  Linear RAW → non-linear output\n  All RAW processors do the same fundamental operations\n  Differences: algorithms, color science, default rendering, workflow philosophy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### What RAW Actually Contains",
+      "confidence": "candidate",
+      "text": "RAW FILE CONTENTS:\n  Unprocessed (or minimally processed) sensor data:\n  → Bayer CFA values: one color channel per pixel, linear luminance\n  → Typically 12 or 14-bit integer values (4096 or 16384 levels)\n  → Metadata: camera model, lens, shutter speed, aperture, ISO, GPS\n  → White balance setting (recorded but NOT baked in — can be changed)\n  → JPEG preview (embedded; used by card readers/OS, not actual image data)\n  → Color matrix: transforms sensor's native primaries to camera color space\n  → Tone curve: recorded (if applied to JPEG preview) but raw data is always linear\n\n  WHAT IT IS NOT:\n  Not \"unprocessed\" — it IS processed:\n    Demosaicing not yet done\n    But: dark current subtraction, defective pixel correction, sometimes lens correction\n    \"Raw\" = sensor CFA values with minimal processing, not zero processing\n\nPROPRIETARY vs DNG:\n  Proprietary formats: .CR3 (Canon), .NEF (Nikon), .ARW (Sony), .RAF (Fuji), .ORF (Olympus)\n  → Manufacturers can change format; old software may break\n  → Undocumented internal structures in some\n\n  DNG (Digital Negative — Adobe, 2004):\n  → Open, documented specification\n  → Embeds proprietary RAW data inside DNG container, or converts to DNG data\n  → Lightroom: can convert to DNG at import (lossless; adds validation checksum)\n  → Pros: future-proof; no sidecar; verified integrity\n  → Cons: lossy conversion possible; Adobe controls spec; camera maker RAW may have private data\n\nBIT DEPTH AND DYNAMIC RANGE:\n  12-bit: 4,096 levels; ~12 stops possible; compressed RAW (cRAW) often 12-bit\n  14-bit: 16,384 levels; ~14 stops; standard lossless RAW for most modern cameras\n  16-bit: 65,536 levels; possible in some medium format + Phase One → extra shadow detail\n  → 14-bit vs 12-bit: ~2 stops more shadow recovery; visible in extreme edits\n  → Bit depth is the ceiling — actual DR still limited by sensor's shot noise floor\n\nLINEAR DATA:\n  Sensor response is approximately linear: 2× photons = 2× signal\n  Human perception is not linear (logarithmic — Weber-Fechner)\n  → Linear data: half the tonal levels are in the top stop of exposure\n  → Histogram in linear space looks very dark image even if well-exposed\n  → RAW processors apply a tone curve to map linear → perceptual (gamma encoding)\n  → This is why \"RAW files look flat\" until the tone curve is applied",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## White Balance",
+      "confidence": "candidate",
+      "text": "WHAT WHITE BALANCE IS:\n  Adjustment of R, G, B channel multipliers to make a neutral scene neutral\n  A light source with color temperature 5500K contains more blue than red photons\n  → Daylight-balanced sensor captures: blue slightly elevated, red slightly lower\n  → White balance: multiply R × 1.8; G × 1.0; B × 0.8 (example) → white looks white\n\nCHROMATIC ADAPTATION:\n  HVS (human visual system) automatically adapts to illuminant color\n  → Tungsten light (2700K): we still see white paper as white\n  → Camera records absolute spectral distribution → needs correction\n  Bradford transform: used in ICC profiles to model chromatic adaptation\n  Von Kries transform: simpler diagonal channel scaling (what in-camera WB does)\n\nCOLOR TEMPERATURE (Kelvin):\n  Theoretical \"black body radiator\" temperature that produces a given light color\n  Lower K → warmer (orange/red): candle 1800K; tungsten 2700K; studio tungsten 3200K\n  Higher K → cooler (blue): overcast sky 6500K; blue sky shade 7000–12000K\n  Daylight: ~5500–6500K\n  Flash: 5500K (designed to match daylight)\n\n  TINT (green-magenta axis):\n    Perpendicular to the Kelvin axis\n    Fluorescent: green spike → tint correction needed\n    LED: variable; often requires both K + tint correction\n\nDAYLIGHT (D50 vs D65):\n  D50 (5000K): print industry reference illuminant (matches tungsten viewing booth)\n  D65 (6500K): digital display, sRGB, broadcast reference\n  → Why images look different on screen vs print: different reference illuminant\n  → Soft proofing simulates paper+ink under D50 on your D65 screen\n\nWHITE BALANCE IN RAW PROCESSING:\n  Changing WB in RAW: zero quality cost (just changes multipliers on linear data)\n  Changing WB in JPEG: quality cost (gamut clipping possible; 8-bit already)\n  → This is one of the primary reasons to shoot RAW: WB is fully revisable\n\nAUTO WHITE BALANCE (AWB):\n  Camera analyzes scene → estimates illuminant → applies correction\n  Modern AWB (AI-based): 90%+ reliable under mixed lighting\n  Failure modes: extreme color casts; unusual illuminants; intentional color lighting",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Tone Curves",
+      "confidence": "candidate",
+      "text": "LINEAR vs PERCEPTUAL:\n  Sensor output: linear (photon count)\n  Display and print: require gamma-encoded data\n  Human perception: approximately logarithmic (1 stop = 2× light → equal perceptual step)\n\nGAMMA ENCODING:\n  sRGB transfer function (IEC 61966-2-1):\n    For V ≤ 0.0031308: L = 12.92 × V  (linear segment near black)\n    For V > 0.0031308: L = 1.055 × V^(1/2.4) − 0.055  (power curve)\n    Approximately γ = 2.2\n\n  Purpose: allocate 8-bit encoding efficiently for perceptual uniformity\n    → Linear: half of 256 values in top stop (overkill in highlights; banding in shadows)\n    → Gamma-encoded: values spread more uniformly across perceived tonal range\n\nS-CURVE (creative tone curve):\n  Standard camera rendering: slight S-curve applied to linear data\n  → Shadows: lifted slightly (raised contrast)\n  → Midtones: steeper (increased local contrast → snappy)\n  → Highlights: rolled off (shoulder → preserves highlight texture)\n\n  LOG GAMMA (video):\n    Flattened S-curve; preserves maximum dynamic range for grading\n    → S-Log3 (Sony), Log-C (Arri), Canon Log 3\n    → \"Flat\" looking until LUT applied in grading\n    → More stops in highlights + shadows at cost of appearance\n\nLIGHTROOM TONE CONTROLS:\n  Exposure: shifts entire curve up/down (multiply all values by a constant)\n  Highlights: affects upper portion of curve (compress/expand top 2 stops)\n  Shadows: lifts or drops lower portion\n  Whites: clips point (sets white clipping)\n  Blacks: sets black clipping point\n  → All: adjustments to the shape of the tone curve applied to linear data\n  → Parametric curve vs point curve: same result; different UI metaphor\n\nCLIPPING:\n  Highlight clipping: value exceeds maximum → 255 (white) → detail gone\n  Shadow clipping: value below minimum → 0 (black) → detail gone\n  RAW: can recover ~1–2 stops of clipped highlights (data still in other channels)\n  JPEG: no recovery — data discarded at in-camera processing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Noise Reduction",
+      "confidence": "candidate",
+      "text": "NOISE TYPES IN DIGITAL IMAGES:\n  Luminance noise: random variation in pixel brightness → film grain analog\n                   Looks like: gray speckle; still gives texture impression\n  Color (chroma) noise: random variation in color at each pixel\n                   Looks like: colored blotches (red, green, teal spots)\n                   More objectionable than luminance noise; eliminated first\n\nNOISE REDUCTION ALGORITHMS:\n\n  SPATIAL NR (traditional):\n    Gaussian blur: weighted average of neighboring pixels → reduces noise but blurs\n    Median filter: replaces each pixel with median of neighborhood → preserves edges better\n    Bilateral filter: weight by spatial distance AND intensity distance\n      → Blurs noise but preserves sharp edges (used in Lightroom's older NR)\n    Luminance NR in Lightroom: bilateral + edge-aware filtering\n\n  NLM — Non-Local Means:\n    For each pixel: search entire image for similar patches → average them\n    → Far better than local filters for texture preservation\n    Computationally expensive; widely used in RAW software\n\n  FREQUENCY DOMAIN NR:\n    Wavelet decomposition: separate image into frequency bands\n    → Apply thresholding in frequency domain (noise has different spectral signature)\n    → Used in: ACR/Lightroom Enhance NR, RawTherapee wavelet NR\n\n  AI / CNN NOISE REDUCTION:\n    Deep learning trained on noisy/clean image pairs\n    → Learns to remove noise while preserving texture\n    Lightroom AI Denoise (2023): uses ML model → dramatically better than traditional\n    Topaz DeNoise AI, DxO DeepPRIME: standalone products\n    → Can recover 2–3 stops of effective ISO: ISO 25600 → looks like ISO 3200\n\nCOLOR NR:\n  Much simpler: chroma noise is at high spatial frequencies\n  → Low-pass filter (blur) the ab channels in Lab color space\n  → Doesn't reduce perceived sharpness (luminance = sharpness; chrominance = color)\n  → Even aggressive chroma NR: minimal quality cost\n\nNR WORKFLOW:\n  Color NR first: remove blotches → doesn't affect edge detection\n  Luminance NR second: tune to preserve texture vs. remove grain\n  Sharpening: always after NR (NR degrades sharpness → restore with USM)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## Output Sharpening",
+      "confidence": "candidate",
+      "text": "WHY IMAGES NEED SHARPENING:\n  Multiple softening sources in the capture chain:\n    Anti-aliasing filter: optical blur (intentional)\n    Lens diffraction: unavoidable at small apertures\n    Camera motion / subject motion (even slight)\n    Bayer demosaicing: introduces slight softness\n    Focus imprecision: even slightly off-plane blur\n  → Capture sharpening: compensate for these\n  → Output sharpening: compensate for print/display resizing\n\nUSM — UNSHARP MASK:\n  Name from darkroom technique: subtract blurred (unsharp) copy from original\n  → Residual = edges (high-frequency content)\n  → Add residual back (scaled) → edge enhancement\n\n  Three parameters:\n    Amount: how much to boost edges (0–500%)\n    Radius: size of detail being sharpened (pixels) — match to subject texture scale\n    Threshold: minimum contrast for sharpening (avoid sharpening noise)\n\n  Typical capture sharpening (in RAW developer):\n    Amount: 50–100; Radius: 0.6–1.0; Threshold: 5–10\n\nDECONVOLUTION SHARPENING:\n  Instead of boosting edges: reverse the blur mathematically\n  Requires estimating the PSF (point spread function) of the blur source\n  More sophisticated than USM; restores information rather than just boosting contrast\n  Lightroom AI Masking + Sharpening: uses lens profile → deconvolution-based\n  Better than USM for: diffraction blur, lens optical aberrations\n\nHIGH-PASS SHARPENING:\n  Photoshop: duplicate layer → High Pass filter (extracts edges) → overlay blend\n  Gives more control over which edges; non-destructive when done on separate layer\n\nOUTPUT SHARPENING:\n  Screen: sharpen for 72–96ppi; typically lighter sharpening\n  Print: sharpen more aggressively (print dots are smaller than screen pixels)\n  Resize before final sharpen: scale to output size first, then apply USM\n  → Sharpening at print size vs. at capture size: very different amounts needed\n\nSHARPENING ARTIFACTS:\n  Halos: white/dark rings at edges (too high amount/radius)\n  Noise amplification: sharpening amplifies noise (NR before sharpen)\n  Texture damage: over-sharpening smooth gradients → posterization artifacts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Color Spaces in Digital Workflow",
+      "confidence": "candidate",
+      "text": "COLOR SPACE COMPARISON:\n\n  Space       Gamut           Bit depth    Use\n  ──────────────────────────────────────────────────────────────\n  sRGB        Small (~35% vis) 8-bit OK    Web, social, consumer display\n  AdobeRGB    Medium (~50%)    16-bit req  Pro print; saturated colors\n  ProPhoto    Very large (~90%) 16-bit req  Editing space; never for output\n  Display P3  Medium-large     10-bit      iPhone, Apple displays, newer HDR\n  Rec.2020    Huge (~76%)      10/12-bit   HDR broadcast; future displays\n\n  Visible gamut: ~100% (cannot be fully represented in any digital space)\n  Most printers: exceed sRGB in yellow/green; fall short in blue/violet\n\nWORKING SPACE SELECTION:\n  Edit in: ProPhoto (Lightroom default) or AdobeRGB — preserve maximum data\n  Output for web: convert to sRGB — clip or compress out-of-gamut colors\n  Output for print: convert to printer profile — either AdobeRGB → CMYK or direct\n\nGAMUT CLIPPING vs GAMUT MAPPING:\n  Clipping: colors outside destination gamut → snapped to boundary\n    → Saturated reds on screen → red blob on paper\n    → Perceptual intent: tries to compress all colors proportionally\n  Perceptual rendering intent: squeezes entire gamut into smaller space\n    → Relative relationships preserved; absolute values shift\n  Relative colorimetric: clips out-of-gamut; maps in-gamut colors exactly\n    → Best for images mostly within gamut; accurate for most colors\n\nJPEG ENCODING:\n  sRGB JPEG is the standard: 8-bit per channel; ~16.7M colors\n  YCbCr color model: Y (luminance), Cb/Cr (chrominance)\n  Chroma subsampling: 4:2:0 (JPEG default) → Cb/Cr sampled at half resolution\n    → Loses color resolution at fine detail → color fringing at sharp edges\n    → 4:4:4: no subsampling; used in high-quality JPEG settings\n  DCT compression artifacts: 8×8 pixel blocks → \"blockiness\" at high compression\n    → Ringing: artifact around sharp edges (Gibbs phenomenon)\n    → Quality 90+: usually imperceptible; quality <60: significant artifacts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

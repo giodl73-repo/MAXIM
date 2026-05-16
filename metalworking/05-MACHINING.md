@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:machining
+kind: guide
+module: metalworking
+section: metalworking
+title: Machining
+status: source-custody
+source_custody: partial
+current_path: metalworking/05-MACHINING.md
+canonical_path: metalworking/05-MACHINING.md
+backsource_ids: [proof-backfill:metalworking:05-machining, git-history:metalworking:05-machining]
+concepts: [machining]
+root_concepts: [machining]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Machining
 
 ## The Big Picture

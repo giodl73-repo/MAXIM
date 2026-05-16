@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "photography\\08-COMPUTATIONAL-PHOTOGRAPHY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMPUTATIONAL PHOTOGRAPHY — TAXONOMY:\n\n  MULTI-FRAME TECHNIQUES:\n    HDR:             Multiple exposures → merged tone map\n    Focus stacking:  Multiple focal planes → extended depth of field\n    Panorama:        Multiple views → extended field of view\n    Multi-frame NR:  Multiple captures of same scene → noise reduction\n    Super-resolution: Multiple subpixel offsets → increased apparent resolution\n    Night mode:      30+ frames, aligned and merged → bright/sharp at low light\n\n  SINGLE-FRAME COMPUTATIONAL:\n    Bokeh simulation: depth map → artificial aperture blur\n    Semantic segmentation: sky/grass/face detection → zone-specific processing\n    Tone mapping:     Map HDR sensor data → display-renderable image\n    Lens correction:  Correct distortion/CA digitally (embedded profile)\n\n  DEPTH ESTIMATION:\n    Stereo (dual camera): disparity → depth\n    Time-of-flight LiDAR: pulse timing → precise depth\n    Focus cues (single camera): sharpness gradient → rough depth\n    Structured light (Face ID): projected pattern → face depth\n\n  AI-BASED:\n    Super-resolution:  CNN upscaling beyond optical resolution\n    AI denoising:      Learned noise removal\n    AI sky replacement: Semantic segmentation + replacement\n    Portrait mode:     AI hair/edge segmentation for precise matte",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "### Capture",
+      "confidence": "candidate",
+      "text": "HDR CAPTURE STRATEGIES:\n\n  EXPOSURE BRACKETING:\n    Capture N exposures (typically 3, 5, or 7) at different EVs\n    E.g., −2 EV, 0 EV, +2 EV (2-stop brackets)\n    Each exposure optimal for different tonal range:\n      −2 EV → highlights (sky, sun) properly exposed\n       0 EV → midtones\n      +2 EV → shadows (dark interior) properly exposed\n    Merge: select best-exposed values per pixel → linear HDR image\n\n  GHOSTING:\n    Moving objects (clouds, water, people) appear in different positions across brackets\n    → Appear as transparent ghost when images merged\n    Deghosting: for each pixel, detect if the value is inconsistent with reference frame\n      → Reject outlier values; use reference frame instead\n    Modern deghosting (Lightroom, PTGui): motion detection per region → smart selection\n    Limitation: fast motion + large brackets → deghosting artifacts\n\n  SINGLE-FRAME HDR (modern sensors):\n    Dual gain readout: each pixel read at two amplification levels simultaneously\n    Or: dual exposure (interleaved rows/frames at 2 different ISOs)\n    → No ghosting (single moment capture)\n    → Less total DR than bracketed but avoids motion issues\n\n  DUAL NATIVE ISO:\n    Camera has two distinct gain paths (Sony A7S III: ISO100 + ISO640/1280)\n    Each native ISO has its own low noise floor\n    → In video: alternating frame ISO → HDR video (HDR HLG)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "### Tone Mapping",
+      "confidence": "candidate",
+      "text": "TONE MAPPING PROBLEM:\n  HDR radiance map: 10,000:1 or more dynamic range (100,000 cd/m² sun → 1 cd/m² shadow)\n  Display: sRGB monitor = 100:1 typical DR; HDR display = 1,000–10,000:1\n  → Must compress huge HDR range into smaller display range\n  → Naïve solution (global linear scaling) → flat, low-contrast image\n\nGLOBAL TONE MAPPING OPERATORS:\n\n  Reinhard (2002) — most influential:\n    Luminance mapping: L_d = L_w / (1 + L_w)\n    Automatic: 0 → 0; large L_w → 1.0 (asymptote)\n    Extended Reinhard: adds \"white point\" parameter Lwhite\n      L_d = L_w × (1 + L_w / Lwhite²) / (1 + L_w)\n    Property: very bright highlights → compressed; midtones → preserved\n    Visual: natural; loses some \"pop\"; popular for real-world photography\n\n  Drago (2003) — logarithmic:\n    L_d = (L_dmax × 0.01 / log₁₀(Lmax + 1)) × log₁₀(L + 1) × (bias function)\n    Bias: user-controlled compression of dark vs. bright regions\n    Visual: preserves local contrast well; can appear slightly washed out\n\n  Gamma compression: L_d = L_w^(1/γ), γ typically 2.2\n    Simplest; used in cameras; maps linear sensor to gamma-encoded display\n    Not a true HDR tone mapper — just gamma encoding\n\nLOCAL TONE MAPPING OPERATORS:\n  Key insight: human visual system adapts locally (eye adapts dark and bright simultaneously)\n  Local operators: compute spatially-varying tone mapping — each region mapped differently\n\n  BILATERAL TONE MAPPING (Durand 2002):\n    Decompose image into base layer (large-scale luminance) + detail layer\n    Compress only the base layer (reduces large dynamic range)\n    Preserve + add back detail layer (maintains local contrast)\n    → Result: feels more \"real\"; local contrast preserved; no halos if done well\n    Halo artifact: if base/detail decomposition is imperfect → dark ring around bright areas\n\n  UNSHARP MASKING / LOCAL CONTRAST:\n    Boost local contrast after global compression → \"pop\" look\n    Commonly used in consumer HDR (including smartphone HDR processing)\n\n  AI / DEEP LEARNING TONE MAPPING (2020+):\n    End-to-end trained networks: input HDR linear map → output display image\n    Can learn perceptually optimal mappings without analytical assumptions\n    Used in: Apple ProRAW HDR, Google HDR+ photon transfer model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Focus Stacking",
+      "confidence": "candidate",
+      "text": "FOCUS STACKING PURPOSE:\n  Single exposure: plane of sharp focus is a thin slice through 3D scene\n  Focus stacking: multiple exposures, each focused at different depth\n    → Merge: keep sharpest region from each exposure → extended DoF throughout\n\n  Applications:\n    Macro photography: DoF measured in millimeters → must stack many frames\n    Landscape: infinity to foreground in focus simultaneously\n    Product photography: technical detail across 3D objects\n    Microscopy: standard technique (depth sectioning)\n    Focus-bracketing cameras: Olympus/OM System, Sony, Nikon → automated in-camera\n\nDEPTH-FROM-FOCUS CUES:\n  Sharpness metric: how focused is each pixel in each frame?\n  Laplacian (second derivative of intensity): high → sharp; low → blurry\n  Gradient magnitude: local contrast measure\n  Tenengrad: sum of squared Sobel filter responses\n  DCT frequency content: high spatial frequencies → sharpness\n  → For each pixel: find frame with highest sharpness metric → select that frame's value\n\nFOCUS STACK WORKFLOW:\n  1. Capture N frames (same position; change focus by known step)\n     Step size: depends on DoF at each magnification/aperture; usually automated\n  2. Align frames: even on tripod, small vibrations cause pixel-level shifts\n     ECC alignment (enhanced correlation coefficient) or feature-based\n  3. Depth map estimation: assign depth to each pixel based on focus stack\n  4. Fusion: blend pixels from appropriate depth frames\n\nALGORITHMS:\n\n  HELICON SOFT:\n    Method A (Weighted average):\n      Weight per pixel = sharpness metric → weighted average across frames\n      → Smooth transitions; slightly reduced sharpness; handles transparent objects\n    Method B (Depth map from stack):\n      Compute depth map → sharp selection → surface interpolation\n      → Sharper but can have artifacts where depth estimation fails\n    Method C (Pyramidal):\n      Multi-scale blend (similar to multiband blending in panoramas)\n      → Best overall; handles noise, transparency, fine detail\n\n  ZERENE STACKER:\n    PMax: maximum sharpness pixel selection (like Method B; very sharp)\n    DMap: depth map + interpolation (handles artifacts better)\n    → Zerene: preferred by professional macro photographers for fine detail\n\nARTIFACTS:\n  Halo/fringing: sharp subject against soft background → edge artifact where frame transitions\n  Ghosting: subject movement between frames (insects, flowers moving)\n  \"Busy\" textures: transitions between depth layers → unnatural texture discontinuity\n  → Retouching required for critical work; stack 2–3× more frames than needed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Panorama Stitching",
+      "confidence": "candidate",
+      "text": "PANORAMA PIPELINE:\n  1. Capture overlapping images (typically 30–50% overlap)\n  2. Feature detection: SIFT, SURF, ORB, or deep features → keypoints in each image\n  3. Feature matching: find corresponding points across image pairs\n  4. Geometric transformation estimation: homography or cylindrical/spherical projection\n  5. RANSAC: reject outlier matches (robust estimation)\n  6. Bundle adjustment: globally minimize reprojection error across all images + cameras\n  7. Seam finding: optimal blend seam selection (avoid seams at edges)\n  8. Blending: feathered blend or multi-band blend across seams\n\nHOMOGRAPHY:\n  Maps one planar image to another via 3×3 projective transformation matrix H:\n  [x'] = H × [x]\n  [y']       [y]\n  [w']       [1]\n\n  H has 8 degrees of freedom (homogeneous: scale-independent)\n  Computed from ≥4 point correspondences (8 equations; 8 unknowns)\n  Valid for: planar scenes, or camera rotation only (no translation)\n  Fails: camera translation + non-planar scene → parallax → H doesn't fit\n\nCYLINDRICAL / SPHERICAL PROJECTION:\n  For wide panoramas: each image mapped to cylinder or sphere before stitching\n  Cylindrical: images projected as if from inside a cylinder → correct for horizontal pan\n  Spherical (equirectangular): maps entire 360° scene → used for VR/360 panoramas\n  Fish-eye unwrap: specific projection model for ultra-wide-angle capture\n\nRANSAC (Random Sample Consensus):\n  For feature matching: many false matches (outliers) exist\n  Algorithm:\n    1. Randomly sample minimum correspondences to estimate model (4 for H)\n    2. Count inliers (points fitting model within threshold)\n    3. Repeat N times → keep model with most inliers\n    4. Re-estimate model using all inliers\n  Highly effective: works even if >50% of matches are outliers\n  Used in: panorama (homography), 3D reconstruction (fundamental matrix), AR (pose estimation)\n\nMULTI-BAND BLENDING:\n  Simple feathering: weighted average at seam → visible if exposure/color differs\n  Multi-band (Burt & Adelson 1983):\n    Decompose into Laplacian pyramid (frequency bands)\n    Blend each frequency band independently (wide transition in low freq; narrow in high)\n    → Low frequencies: long blend zone → smooth gradients\n    → High frequencies: short blend zone → sharp detail\n  Result: invisible seams even with moderate exposure variation across source images",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Smartphone Computational Pipeline",
+      "confidence": "candidate",
+      "text": "GOOGLE NIGHT SIGHT / PIXEL PIPELINE (published in SIGGRAPH papers):\n\n  CAPTURE:\n    User presses shutter → capture 6–30+ frames (short exposures, auto exposure)\n    Long exposure (full Night Sight): multiple seconds of short bursts\n    Each frame: 12–14 ms exposure → prevents blur; motion can be handled\n\n  MOTION ROBUST ALIGNMENT:\n    Optical flow (pixel-level motion estimation) between all frames\n    Handle: camera shake, subject motion (people, leaves)\n    \"Burst photography\" alignment: translational + rotational + slight deformation\n\n  MULTI-FRAME NR:\n    Each aligned frame: pixels with same scene value → average → SNR = √N improvement\n    N=16 frames → 4× SNR improvement → 2 stops effective noise reduction\n    Outlier rejection: pixels that don't match (motion, occlusion) → weighted less\n    → Effectively: same SNR as sensor 4× larger aperture area\n\n  SEMANTIC UNDERSTANDING:\n    Computational sky: detect sky → boost blue saturation; tone map separately\n    Face detection: detect faces → reduce sharpening on skin; preserve exposure\n    Subject/background: depth estimation → differential sharpening or exposure\n    Night sky: detect star field → specialized processing (no noise reduction on stars)\n\nAPPLE PHOTONIC ENGINE (iPhone 14+):\n  Capture: multiple frames at every shutter press (even single shot)\n  Deep fusion (2019): 9 frames per shot → ML merge → texture detail + noise reduction\n  Smart HDR 4: bracket exposure + merge; AI scene analysis\n  Photographic styles: semantic segmentation → zone-specific color grading at capture\n\nPORTRAIT MODE (BOKEH SIMULATION):\n  Hardware: dual camera → stereo depth; or structured light; or monocular ML depth\n  Depth map: ~8-bit depth per pixel (~256 depth levels)\n  Segmentation: ML model → person vs background → precise edge matte (hair-level)\n  Blur application: Gaussian blur scaled by depth value → background blur\n  Limitations: depth estimation fails at: glass, reflective surfaces, hair, complex edges\n  vs real optical bokeh:\n    Real: actual out-of-focus blur from physics; continuous; no edge artifacts\n    Simulated: hard edge at depth discontinuity; uniform blur regardless of texture\n    → Gap closing with ML improvements; still distinguishable in critical analysis\n\nAI UPSCALING / SUPER-RESOLUTION:\n  Classical: bicubic interpolation → blurry enlarged image\n  SRCNN (2014): first deep learning upscaling → sharper edges\n  ESRGAN (2018): GAN-based; can hallucinate plausible texture → may not be real\n  Real-ESRGAN (2021): trained on real-world degradation → practical use\n  Apple ProRes RAW + ProRes → upscaling uses content-aware ML\n  Lightroom AI Enhance (Super Resolution):\n    4× pixel count upscaling; trained on high-res references\n    Genuinely adds detail (through learned priors); not pure interpolation\n    Artifacts: can hallucinate plausible-but-wrong textures in uniform areas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "## LiDAR for Depth",
+      "confidence": "candidate",
+      "text": "TIME-OF-FLIGHT LIDAR (iPhone 12 Pro+, iPad Pro):\n\n  Principle: emit near-IR laser pulse → measure return time\n  Speed of light: 3×10⁸ m/s → 1 ns = 15 cm round-trip\n  Pixel array: direct time-of-flight (dToF) SPAD sensor (single-photon avalanche diode)\n  Range: 5 meters in direct sunlight; 40 meters indoors\n\n  Distance = (c × Δt) / 2\n\n  ADVANTAGES:\n    Works in dark: emits its own IR illumination\n    Fast: captures full depth map in <1ms (no passive light dependency)\n    Accurate: ±1 cm at 1 meter; ±3% at 5 meters\n    Complements camera depth: iPhone uses LiDAR for AF at low light (extremely fast)\n\n  INDOOR AR:\n    AR plane detection: LiDAR builds room mesh in real-time\n    Occlusion: AR objects can be hidden behind real objects (depth test)\n    Shadow casting: AR objects cast shadows on real surfaces\n\n  COMPARED TO STRUCTURED LIGHT (Face ID):\n    Face ID: projects 30,000 dot pattern → distortion = depth → very precise, short range\n    LiDAR: time-of-flight → longer range; lower resolution; outdoor-capable\n\n  PHOTOGRAMMETRY (3D SCANNING):\n    LiDAR + camera → point cloud + texture → 3D models\n    Apps: Scaniverse, Polycam → scan rooms, objects for 3D printing or AR\n    Industrial: LIDAR point clouds replace manual measurement for as-built documentation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "### Structure-from-Motion and Photogrammetry",
+      "confidence": "candidate",
+      "text": "SfM PIPELINE:\n  Images → Feature detection (SIFT/ORB/SuperPoint)\n       → Feature matching across image pairs\n       → RANSAC (outlier rejection for geometric consistency)\n       → Bundle adjustment (jointly optimize camera poses + 3D points)\n       → Dense reconstruction (Multi-View Stereo / MVS)\n       → Textured mesh or point cloud output\n\n  Same core as panorama stitching: both use RANSAC + bundle adjustment.\n  Panorama stitches 2D; SfM recovers full 3D structure.\n\nML EXTENSIONS (2020+):\n  NeRF (Neural Radiance Fields, Mildenhall et al. 2020):\n    Represent scene as MLP: (x,y,z,θ,φ) → (color, density)\n    Train on posed images; render novel views via volume rendering.\n    Slow training (~hours), slow rendering, but photorealistic.\n\n  3D Gaussian Splatting (Kerbl et al. 2023):\n    Represent scene as millions of oriented 3D Gaussians.\n    Differentiable rasterization → real-time rendering at 100+ fps.\n    Trains in minutes, renders in real-time. Rapidly displacing NeRF\n    for many applications (AR, VR, gaming, digital twins).\n\n  Consumer apps: Polycam, Scaniverse, KIRI Engine, RealityCapture.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

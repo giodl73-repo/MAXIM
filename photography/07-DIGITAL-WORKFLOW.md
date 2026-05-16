@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:digital-workflow
+kind: guide
+module: photography
+section: photography
+title: Digital Workflow
+status: source-custody
+source_custody: partial
+current_path: photography/07-DIGITAL-WORKFLOW.md
+canonical_path: photography/07-DIGITAL-WORKFLOW.md
+backsource_ids: [proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]
+concepts: [digital, workflow]
+root_concepts: [digital, workflow]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Workflow
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:photography:darkroom
+kind: guide
+module: photography
+section: photography
+title: Darkroom
+status: source-custody
+source_custody: partial
+current_path: photography/03-DARKROOM.md
+canonical_path: photography/03-DARKROOM.md
+backsource_ids: [proof-backfill:photography:03-darkroom, git-history:photography:03-darkroom]
+concepts: [darkroom]
+root_concepts: [darkroom]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Darkroom
 
 ## The Big Picture

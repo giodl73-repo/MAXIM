@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "photography\\04-COLOR-PHOTOGRAPHY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "HUMAN COLOR VISION:\n  3 cone types: L (peak ~565nm), M (~535nm), S (~420nm)\n  → Color = 3-number response → 3D perceptual space\n  → Any color can be matched by adjusting 3 primaries\n\nREPRODUCING COLOR (two fundamental approaches):\n  ADDITIVE synthesis: combine colored lights\n    Red + Green + Blue light = White\n    Used: displays (monitor, TV, projector), digital capture\n    Primary triplet: R, G, B\n\n  SUBTRACTIVE synthesis: absorb portions of white light\n    Cyan ink absorbs Red; Magenta absorbs Green; Yellow absorbs Blue\n    All three: absorb everything → Black\n    Used: printing, photographic dyes, color negative film\n    Primary triplet: C, M, Y (+ K for practical printing)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "### Early Additive Photography",
+      "confidence": "candidate",
+      "text": "AUTOCHROME (Lumière Brothers, 1907):\n  First commercially successful color process\n  Mechanism: random mosaic of dyed potato starch grains on plate\n    Red, green, blue dyed particles mixed and distributed randomly\n    Each particle acts as a tiny RGB filter\n    Panchromatic silver halide emulsion coated over particles\n  Viewing: transmitted light through positive transparency\n           each grain passes only its own color → color image by additive mosaic\n\n  Problem: 1/4 of light gets through mosaic → low sensitivity\n  Result: beautiful, painterly color; ~4-stop exposure penalty\n  Historical significance: first widely used color process; Prokudin-Gorsky used it\n\nLIPPMANN PHOTOGRAPHY (Gabriel Lippmann, 1891, Nobel Prize 1908):\n  No filters at all — uses light interference\n  Mercury mirror behind emulsion → standing wave nodes form in emulsion\n  Silver precipitates at nodes → wavelength-specific grating\n  Result: interference colors perfectly matching original wavelengths\n  Problem: narrow viewing angle; mercury + collodion → extreme care required\n  Practical significance: nearly zero, but beautiful physics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "### Digital Capture (Additive)",
+      "confidence": "candidate",
+      "text": "DIGITAL SENSOR AS ADDITIVE SYSTEM:\n  Bayer pattern: RGB mosaic over silicon photodiodes\n  Each pixel measures ONE color channel (red, green, or blue)\n  50% green, 25% red, 25% blue pixels (reflects human eye's green sensitivity)\n  → Demosaicing reconstructs 3-channel RGB image from single-channel mosaic\n  (see 06-DIGITAL-SENSORS.md for full treatment)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### Subtractive Primary Geometry",
+      "confidence": "candidate",
+      "text": "SUBTRACTIVE MIXING:\n\n  White light (all wavelengths)\n\n  CYAN ink/dye: absorbs RED → reflects blue + green = cyan\n  MAGENTA ink/dye: absorbs GREEN → reflects red + blue = magenta\n  YELLOW ink/dye: absorbs BLUE → reflects red + green = yellow\n\n  Combinations:\n    Cyan + Magenta: absorbs red + green → only blue reflected\n    Magenta + Yellow: absorbs green + blue → only red reflected\n    Cyan + Yellow: absorbs red + blue → only green reflected\n    All three: absorbs red + green + blue = black (imperfect in practice)\n\nDYES vs INKS:\n  Transparent dyes in a gelatin layer filter transmitted light\n  → Viewing by transmission (slides, film) or by reflection off white paper\n  Inks: printed dots; subtractive mixing approximately; also halftone dot gain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Color Negative Film Architecture",
+      "confidence": "candidate",
+      "text": "COLOR NEGATIVE FILM LAYERS:\n\nTop of emulsion stack → viewed first by incoming light:\n\n  UV filter layer (prevents UV from exposing lower layers)\n  ───────────────────────────────────────────────────────\n  Blue-sensitive layer + YELLOW coupler\n  (Blue light → yellow dye; yellow dye subtracts blue from white = cyan + red = scene color)\n  ───────────────────────────────────────────────────────\n  Yellow filter layer (absorbs residual blue — AgBr intrinsically blue-sensitive)\n  ───────────────────────────────────────────────────────\n  Green-sensitive layer + MAGENTA coupler\n  (green spectral sensitization; green light → magenta dye)\n  ───────────────────────────────────────────────────────\n  Red-sensitive layer + CYAN coupler\n  (red spectral sensitization; red light → cyan dye)\n  ───────────────────────────────────────────────────────\n  Antihalation layer (prevents light scatter back)\n  Polyester or cellulose triacetate base\n\nKEY RELATIONSHIPS:\n  Blue in scene → yellow dye in negative (complementary)\n  Green in scene → magenta dye\n  Red in scene → cyan dye\n  → Negative has complementary colors of scene\n\nORANGE MASK:\n  Color negative film has overall orange cast\n  Cause: magenta and cyan dyes have inherent unwanted blue/green absorption\n         that introduces error in color balance\n  Correction: colored couplers (orange, colored residue after development)\n              compensate for dye impurities\n  Effect in printing: must subtract the orange mask's effect\n                      → color printing filters compensate automatically\n  → Orange mask improves color accuracy of printed output",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Color Reversal Film (E-6)",
+      "confidence": "candidate",
+      "text": "E-6 PROCESSING SEQUENCE:\n\n1. First developer (black and white, conventional):\n   Exposed silver halide → metallic silver in all three layers\n   Only exposed areas (high scene density) develop\n\n2. Reversal step:\n   Remaining unexposed silver halide fogged chemically\n   (historically: re-exposure to white light; now chemical fogging agent)\n\n3. Color developer (CD-4):\n   Fogged (originally unexposed) halide developed\n   Oxidized CD-4 + dye coupler → colored dye forms\n   Yellow dye in blue layer (where blue was NOT)\n   Magenta dye in green layer (where green was NOT)\n   Cyan dye in red layer (where red was NOT)\n\n4. Conditioner → bleach → fix → wash\n\n5. Result: where scene was BRIGHT (much exposure) →\n           silver developed in step 1 → removed by bleach →\n           no remaining dye → the slide is light (correct)\n   where scene was DARK (little exposure) →\n           fogged and developed in step 3 → dye forms → slide is dark\n\nCRITICAL DIFFERENCE FROM NEGATIVE:\n  Reversal film latitude: ~5–7 stops total; 1–2 stops from ideal = visible shift\n  Negative film latitude: 12–16 stops; 3+ stops from ideal still printable\n\nSlide film metering rule: \"expose for the highlights\"\n  → Overexposed highlights wash out completely; no recovery possible\n  → Underexposed shadows gain density in printing; highlights irreplaceable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### The Problem: Device-Dependence",
+      "confidence": "candidate",
+      "text": "WHY COLOR MANAGEMENT EXISTS:\n\n  Same RGB values (255, 0, 0) displayed on:\n    Monitor A: orange-red, D65 white point\n    Monitor B: bluer red, cooler white\n    Printer: physical red ink, different gamut\n    Camera: red interpretation before white balance\n\n  → Without calibration, same numbers = different colors on each device\n\n  The device color problem:\n    Every device has its own color response:\n    Camera sensors: have spectral sensitivities, white balance applied\n    Monitors: phosphors or OLEDs with specific R/G/B primaries\n    Printers: CMYK inks, halftone dots, paper absorption\n    Projectors: lamp spectrum, optics, screen gain\n\n  To communicate color accurately across devices:\n    Need a device-independent reference space → map every device into it\n    → CIE XYZ or CIE Lab as reference; ICC profiles as device-to-device map",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### ICC Profiles",
+      "confidence": "candidate",
+      "text": "ICC PROFILE:\n  File containing the color transform between a device color space and\n  the Profile Connection Space (PCS — usually CIE D50 Lab)\n\nPROFILE TYPES:\n  Input profiles (cameras, scanners): device → PCS\n  Display profiles (monitors): device ↔ PCS (bidirectional)\n  Output profiles (printers, presses): device → PCS (simulate output)\n\nHOW COLOR MANAGEMENT PIPELINE WORKS:\n\n  Camera RAW data\n       │ apply camera profile (input profile)\n       ▼\n  Device-independent Lab/XYZ\n       │ apply display profile (monitor calibration)\n       ▼\n  Monitor-specific RGB → screen display\n\n  For printing:\n  Lab/XYZ\n       │ apply printer profile + paper profile\n       ▼\n  CMYK or RGB printer values → printed dot\n\nRENDERING INTENTS:\n  Four options for handling out-of-gamut colors:\n  1. Perceptual: compress entire gamut proportionally to fit destination gamut\n     → Maintains relationships; colors shift but look natural\n     → Best for photographs with wide tonal range\n  2. Relative colorimetric: shift only out-of-gamut colors to nearest in-gamut\n     → Preserves in-gamut colors exactly\n     → Best for accurate reproduction of specific colors (logos, proofing)\n  3. Absolute colorimetric: like relative, but preserves absolute white point\n     → Shows paper white as actual paper color (useful for proofing simulation)\n  4. Saturation: maximize saturation → best for graphics, charts, logos",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "### Standard Color Spaces",
+      "confidence": "candidate",
+      "text": "COMMON RGB WORKING SPACES:\n\nsRGB:\n  Primaries: same as HDTV/Rec.709; white point D65\n  Gamma: 2.2 approximately (actually piecewise linear + power)\n  Gamut: medium; covers ~35% of visible colors\n  Use: internet, consumer devices, JPEGs for web\n  Problem: cannot represent highly saturated colors (Fuji Velvia film palette)\n\nAdobe RGB (1998):\n  Wider gamut than sRGB (covers ~50% of visible colors)\n  Larger green triangle; extends into colors sRGB cannot encode\n  White point D65, gamma 2.2\n  Use: professional photography, pre-press, printing workflows\n  Problem: opens extra bit depth vs sRGB for same visual quality\n\nProPhoto RGB:\n  Very wide gamut (covers ~90% of visible colors, including non-physical)\n  White point D50 (print-oriented)\n  Gamma 1.8\n  Use: archival RAW workflows; must use 16-bit — 8-bit = posterization artifacts\n  Problem: contains non-realizable colors outside human vision → can't display all of it\n\nDCI-P3:\n  Digital Cinema Initiatives wide gamut\n  Primaries designed for digital cinema projectors\n  25% larger gamut than sRGB; fully contained within ProPhoto\n  Use: iPhone displays, newer monitors, HDR content\n  Trend: becoming new consumer display standard\n\nRec. 2020 (BT.2020):\n  Ultra HD / HDR standard\n  Extremely wide gamut (covers ~75% of visible colors)\n  Few consumer displays can show its full gamut yet (2025)\n  Future standard for 4K HDR content",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "## Soft Proofing",
+      "confidence": "candidate",
+      "text": "SOFT PROOF: simulate on-screen how an image will look when printed\n            on a specific printer/paper combination\n\nSOFT PROOFING WORKFLOW:\n\n1. Calibrate monitor (hardware calibration preferred)\n   → ICC display profile created by colorimeter + software\n\n2. Open image in editing application (Lightroom, Photoshop, Capture One)\n\n3. Enable soft proof → select printer + paper ICC profile\n   → Application simulates: color gamut compression + paper white\n   → Colors that fall outside printer gamut shown as \"gamut warning\" (gray overlay)\n\n4. Make adjustments to optimize for that specific print output\n   → May need to reduce saturation, open shadows to preserve in output gamut\n\n5. Print → result should closely match soft proof on calibrated monitor\n\nPREREQUISITES FOR ACCURATE SOFT PROOF:\n  Calibrated display (ΔE < 2 ideally)\n  Profile for your specific printer + paper combination\n  Controlled viewing light (D50 5000K lamp, no glare)\n  Room not too dim (ambient can affect perception)\n\nWHY IT OFTEN DOESN'T PERFECTLY MATCH:\n  Metamerism: print and display use different physics; match under one illuminant,\n    differ under another (monitor emits light; print reflects)\n  Paper white: hard to simulate on luminous display\n  Display gamut may not cover all print colors (some matte papers have\n    different saturation characteristics)\n  Human perceptual adaptation changes over viewing time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "## Color Perception: Why Reproduction Is Hard",
+      "confidence": "candidate",
+      "text": "METAMERISM:\n  Two colors match under one illuminant but not another\n  → Different spectral power distributions, same tristimulus values under one light\n  → Illuminant change → different tristimulus values → different appearance\n  Problem for:\n    Photographing objects that will be viewed under different lights\n    Printing that looks like the display under D65 but not under incandescent light\n\nSIMULTANEOUS CONTRAST:\n  A neutral gray looks different surrounded by different colors\n  → Human visual system adapts to surround\n  → Viewing prints in a colored environment shifts perceived colors\n  → Printing industry standard: D50 booth with neutral gray surround\n\nCHROMATIC ADAPTATION:\n  Eyes adapt to ambient illuminant → \"white\" appearance varies by illuminant\n  → Camera doesn't adapt (no chromatic adaptation without white balance)\n  → White balance corrects for illuminant; \"auto white balance\" attempts to\n    mimic human chromatic adaptation\n\nSIMULTANEOUS CONTRAST IN DIGITAL DARKROOM:\n  Working on screen in dark room vs bright room → different saturation judgments\n  Industry standard: editing environment with D50 ambient, 64–160 cd/m² luminance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

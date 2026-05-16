@@ -1,0 +1,349 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-photography-digital-workflow",
+  "source": "../../photography",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#000",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "# Digital Workflow"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#001",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#002",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "The digital photography workflow is a signal chain from captured photons to final output. Every step is a transformation of image data, and understanding what information exists at each stage — and what irreversibly destroys it — determines the quality ceiling of the final image. The critical insight is that RAW preserves all captured information; everything downstream narrows the information available to you."
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#003",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "```\nDIGITAL WORKFLOW PIPELINE:"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#004",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "CAPTURE\n  ┌──────────────────────────────────────────────────────────────┐\n  │ Sensor → Bayer CFA → ADC → Linear RAW data (12/14 bit)       │\n  │ White balance tag, exposure metadata written (not applied)   │\n  └────────────────────────────────┬─────────────────────────────┘\n                                   │ RAW file (.CR3, .NEF, .ARW, .DNG)\n  ┌──────────────────────────────────────────────────────────────┐\n  │ RAW PROCESSING (Lightroom, Capture One, darktable, RawTherapee)│\n  │  1. White balance → chromatic adaptation → neutral grays     │\n  │  2. Demosaicing → full RGB at every pixel                    │\n  │  3. Tone curve → map linear scene values to perceptual space │\n  │  4. Color space conversion → sRGB / AdobeRGB / ProPhoto      │\n  │  5. Noise reduction → luminance NR + color NR                │\n  │  6. Output sharpening → USM or deconvolution                 │\n  └────────────────────────────────┬─────────────────────────────┘\n                                   │ Processed image (16-bit TIFF)\n  ┌──────────────────────────────────────────────────────────────┐\n  │ EDITING (Photoshop, Affinity Photo, Pixelmator)              │\n  │  Local adjustments, compositing, retouching                  │\n  └────────────────────────────────┬─────────────────────────────┘\n                                   │\n  ┌──────────────────────────────────────────────────────────────┐\n  │ OUTPUT                                                       │\n  │  Screen: sRGB JPEG/HEIC (8-bit; ICC embed)                   │\n  │  Print: CMYK conversion; soft proof → printer profile TIFF   │\n  │  Archive: original RAW + sidecar (.xmp) or catalog backup    │\n  └──────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#005",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "KEY PRINCIPLE:\n  Linear RAW → non-linear output\n  All RAW processors do the same fundamental operations\n  Differences: algorithms, color science, default rendering, workflow philosophy\n```"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#006",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#007",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "## RAW Format"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#008",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "### What RAW Actually Contains"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#009",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "```\nRAW FILE CONTENTS:\n  Unprocessed (or minimally processed) sensor data:\n  → Bayer CFA values: one color channel per pixel, linear luminance\n  → Typically 12 or 14-bit integer values (4096 or 16384 levels)\n  → Metadata: camera model, lens, shutter speed, aperture, ISO, GPS\n  → White balance setting (recorded but NOT baked in — can be changed)\n  → JPEG preview (embedded; used by card readers/OS, not actual image data)\n  → Color matrix: transforms sensor's native primaries to camera color space\n  → Tone curve: recorded (if applied to JPEG preview) but raw data is always linear"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#010",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "WHAT IT IS NOT:\n  Not \"unprocessed\" — it IS processed:\n    Demosaicing not yet done\n    But: dark current subtraction, defective pixel correction, sometimes lens correction\n    \"Raw\" = sensor CFA values with minimal processing, not zero processing"
+    },
+    {
+      "id": "07-DIGITAL-WORKFLOW.md#011",
+      "path": [
+        "07-DIGITAL-WORKFLOW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:photography:07-digital-workflow, git-history:photography:07-digital-workflow]",
+        "canonical_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "concepts": "[digital, workflow]",
+        "current_path": "photography/07-DIGITAL-WORKFLOW.md",
+        "id": "maxim:photography:digital-workflow",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "photography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, workflow]",
+        "section": "photography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Workflow",
+        "updated": "null"
+      },
+      "text": "PROPRIETARY vs DNG:\n  Proprietary formats: .CR3 (Canon), .NEF (Nikon), .ARW (Sony), .RAF (Fuji), .ORF (Olympus)\n  → Manufacturers can change format; old software may break\n  → Undocumented internal structures in some"
+    }
+  ],
+  "refs": [
+    "07-DIGITAL-WORKFLOW.md"
+  ]
+}

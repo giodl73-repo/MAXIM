@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:surface-finishing
+kind: guide
+module: metalworking
+section: metalworking
+title: Surface Finishing
+status: source-custody
+source_custody: partial
+current_path: metalworking/08-SURFACE-FINISHING.md
+canonical_path: metalworking/08-SURFACE-FINISHING.md
+backsource_ids: [proof-backfill:metalworking:08-surface-finishing, git-history:metalworking:08-surface-finishing]
+concepts: [surface, finishing]
+root_concepts: [surface, finishing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Surface Finishing
 
 ## The Big Picture

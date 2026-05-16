@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:metalworking:heat-treatment
+kind: guide
+module: metalworking
+section: metalworking
+title: Heat Treatment
+status: source-custody
+source_custody: partial
+current_path: metalworking/07-HEAT-TREATMENT.md
+canonical_path: metalworking/07-HEAT-TREATMENT.md
+backsource_ids: [proof-backfill:metalworking:07-heat-treatment, git-history:metalworking:07-heat-treatment]
+concepts: [heat, treatment]
+root_concepts: [heat, treatment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Heat Treatment
 
 ## The Big Picture
