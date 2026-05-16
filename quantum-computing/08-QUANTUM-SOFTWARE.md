@@ -1,46 +1,65 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:quantum-software
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Software Stack
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/08-QUANTUM-SOFTWARE.md
+canonical_path: quantum-computing/08-QUANTUM-SOFTWARE.md
+backsource_ids: [proof-backfill:quantum-computing:08-quantum-software, git-history:quantum-computing:08-quantum-software]
+concepts: [quantum, software]
+root_concepts: [quantum, software]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Software Stack
 
 ## Big Picture: The Full Stack
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    QUANTUM SOFTWARE STACK                           │
-│                                                                     │
-│  ┌──────────────────────────────────────────────────────────────┐   │
-│  │ APPLICATION LAYER                                            │  │
-│  │  VQE / QAOA / QKD / Grover search                           │  │
-│  │  Domain libraries: Qiskit Nature, PennyLane QML, Q# Chemistry│  │
-│  └───────────────────────┬──────────────────────────────────────┘  │
-│                          │                                          │
-│  ┌───────────────────────▼──────────────────────────────────────┐  │
-│  │ SDK / FRAMEWORK LAYER                                        │  │
-│  │  Qiskit (IBM) · Cirq (Google) · PennyLane (Xanadu) · Q#(MS)  │  │
-│  │  High-level circuit construction, algorithm primitives       │  │
-│  └───────────────────────┬──────────────────────────────────────┘  │
-│                          │                                          │
-│  ┌───────────────────────▼──────────────────────────────────────┐  │
-│  │ INTERMEDIATE REPRESENTATION                                  │  │
-│  │  OpenQASM 3.0 (text IR) · QIR (LLVM-based binary IR)         │  │
-│  │  Interchange format between tools and hardware vendors       │  │
-│  └───────────────────────┬──────────────────────────────────────┘  │
-│                          │                                          │
-│  ┌───────────────────────▼──────────────────────────────────────┐  │
-│  │ TRANSPILATION / COMPILATION                                  │  │
-│  │  Gate decomposition → routing → optimization → scheduling    │  │
-│  └───────────────────────┬──────────────────────────────────────┘  │
-│                          │                                          │
-│  ┌───────────────────────▼──────────────────────────────────────┐  │
-│  │ HARDWARE ABSTRACTION                                         │  │
-│  │  Pulse-level control (Qiskit Pulse, Cirq cirq-google)        │  │
-│  │  Native gate sets per backend                                │  │
-│  └───────────────────────┬──────────────────────────────────────┘  │
-│                          │                                          │
-│  ┌───────────────────────▼──────────────────────────────────────┐  │
-│  │ PHYSICAL LAYER                                               │  │
-│  │  Superconducting (IBM, Google) · Ion trap (IonQ, Quantinuum) │  │
-│  │  Photonic (Xanadu, PsiQuantum) · Neutral atom (QuEra)        │  │
-│  └──────────────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────────┘
+
+                     QUANTUM SOFTWARE STACK
+
+
+     APPLICATION LAYER
+      VQE / QAOA / QKD / Grover search
+      Domain libraries: Qiskit Nature, PennyLane QML, Q# Chemistry
+
+
+                           ▼
+     SDK / FRAMEWORK LAYER
+      Qiskit (IBM) · Cirq (Google) · PennyLane (Xanadu) · Q#(MS)
+      High-level circuit construction, algorithm primitives
+
+
+                           ▼
+     INTERMEDIATE REPRESENTATION
+      OpenQASM 3.0 (text IR) · QIR (LLVM-based binary IR)
+      Interchange format between tools and hardware vendors
+
+
+                           ▼
+     TRANSPILATION / COMPILATION
+      Gate decomposition → routing → optimization → scheduling
+
+
+                           ▼
+     HARDWARE ABSTRACTION
+      Pulse-level control (Qiskit Pulse, Cirq cirq-google)
+      Native gate sets per backend
+
+
+                           ▼
+     PHYSICAL LAYER
+      Superconducting (IBM, Google) · Ion trap (IonQ, Quantinuum)
+      Photonic (Xanadu, PsiQuantum) · Neutral atom (QuEra)
+
+
 
   Azure Quantum: Microsoft abstraction over multiple hardware vendors
   (IonQ, Quantinuum, Rigetti, + Azure simulators)
@@ -106,23 +125,23 @@ WHY PRIMITIVES MATTER:
 
 ```
 INPUT CIRCUIT (arbitrary gates, logical qubits)
-         │
+
          ▼ STAGE 1: INIT (layout selection)
-         │   Qubit routing: map logical → physical qubits
-         │   TrivialLayout / DenseLayout / SabreLayout (default)
-         │
+             Qubit routing: map logical → physical qubits
+             TrivialLayout / DenseLayout / SabreLayout (default)
+
          ▼ STAGE 2: ROUTING (SWAP insertion)
-         │   Insert SWAP gates to route non-adjacent 2-qubit gates
-         │   SabreSwap algorithm: O(n log n) approximation
-         │
+             Insert SWAP gates to route non-adjacent 2-qubit gates
+             SabreSwap algorithm: O(n log n) approximation
+
          ▼ STAGE 3: TRANSLATION (gate set decomposition)
-         │   Arbitrary U → {CX, Rz, SX, X}  (IBM basis)
-         │   KAK decomposition for 2-qubit gates
-         │
+             Arbitrary U → {CX, Rz, SX, X}  (IBM basis)
+             KAK decomposition for 2-qubit gates
+
          ▼ STAGE 4: OPTIMIZATION (gate cancellation)
-         │   Commutation analysis, redundant gate removal
-         │   CX cancellation, 1Q gate fusion
-         │
+             Commutation analysis, redundant gate removal
+             CX cancellation, 1Q gate fusion
+
          ▼ STAGE 5: SCHEDULING (timing)
              Assign timing for all gates, handle alignment constraints
 
@@ -170,8 +189,8 @@ circuit = Circuit(
     measure(q0, q1, key='result')
 )
 print(circuit)
-# 0: ───H───@───M('result')───
-# 1: ───────X───M('result')───
+# 0:    H   @   M('result')
+# 1:        X   M('result')
 
 GRID QUBITS (for Sycamore topology):
   q = GridQubit(row, col)
@@ -391,27 +410,27 @@ ADVANTAGE:
 ## Classical Simulation Backends
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│ BACKEND          │ METHOD              │ MEMORY    │ QUBITS │ NOISE  │
-├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
-│ Statevector      │ Store 2^n amplitudes│ 2^n       │ ≤ 30   │ No     │
-│ (Aer, Cirq)      │ Matrix-vector mult  │ complex   │ (32GB) │        │
-├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
-│ Density Matrix   │ Store 2^n × 2^n ρ   │ 4^n real  │ ≤ 20   │ Yes    │
-│                  │ Superoperator app   │           │        │ (mixed │
-│                  │                     │           │        │ states)│
-├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
-│ MPS / Tensor     │ Represent state as  │ χ²·n      │ 100+   │ No     │
-│ Network          │ matrix product state│ (bond dim │ (low   │        │
-│ (ITensor, quimb) │ Contract networks   │ χ)        │ entgl) │        │
-├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
-│ Stabilizer       │ Gottesman-Knill:    │ O(n²)     │ 1000+  │ No     │
-│ (Clifford sim)   │ track Pauli frame   │           │ (Cliff.│        │
-│ (Stim, Aer)      │ n² updates per gate │           │ only!) │        │
-├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
-│ Noise model sim  │ Statevector + noise │ 2^n       │ ≤ 30   │ Yes    │
-│ (Aer noisemodel) │ channel application │ complex   │        │ (model)│
-└──────────────────┴─────────────────────┴───────────┴────────┴────────┘
+
+  BACKEND            METHOD                MEMORY      QUBITS   NOISE
+
+  Statevector        Store 2^n amplitudes  2^n         ≤ 30     No
+  (Aer, Cirq)        Matrix-vector mult    complex     (32GB)
+
+  Density Matrix     Store 2^n × 2^n ρ     4^n real    ≤ 20     Yes
+                     Superoperator app                          (mixed
+                                                                states)
+
+  MPS / Tensor       Represent state as    χ²·n        100+     No
+  Network            matrix product state  (bond dim   (low
+  (ITensor, quimb)   Contract networks     χ)          entgl)
+
+  Stabilizer         Gottesman-Knill:      O(n²)       1000+    No
+  (Clifford sim)     track Pauli frame                 (Cliff.
+  (Stim, Aer)        n² updates per gate               only!)
+
+  Noise model sim    Statevector + noise   2^n         ≤ 30     Yes
+  (Aer noisemodel)   channel application   complex              (model)
+
 
 STIM (Google, Gidney 2021):
   Specialized stabilizer simulator for quantum error correction research
@@ -424,28 +443,28 @@ STIM (Google, Gidney 2021):
 ## Framework Decision Matrix
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│ USE CASE                      │ RECOMMENDED FRAMEWORK                │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ IBM hardware access           │ Qiskit (native API, Runtime)        │
-│ VQE/QAOA on IBM backends      │ Qiskit + Qiskit Nature               │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Google hardware access        │ Cirq (native) + cirq-google         │
-│ Low-level circuit manip       │ Cirq (moment-level control)         │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Quantum ML / hybrid gradient  │ PennyLane (JAX/PyTorch integration) │
-│ Hardware-agnostic research    │ PennyLane                           │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Resource estimation           │ Q# + Azure Quantum RE               │
-│ Azure integration             │ Q# + Azure Quantum                  │
-│ Algorithm development (typed) │ Q# (adjoint/controlled auto-gen)    │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ QEC circuit simulation        │ Stim (stabilizer circuits)          │
-│ Large stabilizer circuits     │ Stim                                │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Multi-backend research        │ PennyLane or Qiskit (both support   │
-│                               │ multiple backends via providers)    │
-└──────────────────────────────┴──────────────────────────────────────┘
+
+  USE CASE                        RECOMMENDED FRAMEWORK
+
+  IBM hardware access             Qiskit (native API, Runtime)
+  VQE/QAOA on IBM backends        Qiskit + Qiskit Nature
+
+  Google hardware access          Cirq (native) + cirq-google
+  Low-level circuit manip         Cirq (moment-level control)
+
+  Quantum ML / hybrid gradient    PennyLane (JAX/PyTorch integration)
+  Hardware-agnostic research      PennyLane
+
+  Resource estimation             Q# + Azure Quantum RE
+  Azure integration               Q# + Azure Quantum
+  Algorithm development (typed)   Q# (adjoint/controlled auto-gen)
+
+  QEC circuit simulation          Stim (stabilizer circuits)
+  Large stabilizer circuits       Stim
+
+  Multi-backend research          PennyLane or Qiskit (both support
+                                  multiple backends via providers)
+
 ```
 
 ---

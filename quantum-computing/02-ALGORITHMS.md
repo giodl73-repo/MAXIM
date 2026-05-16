@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:algorithms
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Algorithms - From Deutsch to Shor to QAOA
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/02-ALGORITHMS.md
+canonical_path: quantum-computing/02-ALGORITHMS.md
+backsource_ids: [proof-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]
+concepts: [algorithms]
+root_concepts: [algorithms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Algorithms — From Deutsch to Shor to QAOA
 
 ## The Big Picture
@@ -8,16 +27,16 @@
 +------------------------------------------------------------------+
 |                                                                    |
 |  PROVEN SPEEDUP                    VARIATIONAL (NISQ-era)         |
-|  ─────────────────────────         ─────────────────────────      |
-|  Shor: factoring ──► exponential   VQE: quantum chemistry         |
-|  Grover: search ──► quadratic      QAOA: combinatorial opt        |
-|  QFT: Fourier ──► exponential      QSVM: kernel methods           |
-|  HHL: linear sys ──► conditional   Quantum ML: embeddings         |
-|  QPE: phase est. ──► exponential   (advantages unproven)          |
-|  Hamiltonian sim ──► exponential                                   |
+|                                                                   |
+|  Shor: factoring   ► exponential   VQE: quantum chemistry         |
+|  Grover: search   ► quadratic      QAOA: combinatorial opt        |
+|  QFT: Fourier   ► exponential      QSVM: kernel methods           |
+|  HHL: linear sys   ► conditional   Quantum ML: embeddings         |
+|  QPE: phase est.   ► exponential   (advantages unproven)          |
+|  Hamiltonian sim   ► exponential                                   |
 |                                                                    |
 |  PARADIGMS                                                         |
-|  ────────────────────────────────────────────────────────────     |
+|                                                                   |
 |  Query complexity → oracle model, count queries                    |
 |  Phase estimation → QFT + eigenvalue extraction                   |
 |  Amplitude amplification → Grover iterate                         |
@@ -34,7 +53,7 @@ Before any algorithm, understand what kind of speedup is claimed:
 
 ```
 TYPE              EXAMPLE              CONDITION
-──────────────    ─────────────────    ──────────────────────────────
+
 Exponential       Shor's algorithm     Problem has exploitable structure
   (2^n → poly)   Quantum simulation   (periodicity, group structure)
 
@@ -81,8 +100,8 @@ Classical: requires 2^(n-1)+1 queries worst case.
 Quantum:   requires 1 query.
 
 Circuit:
-  |0⟩^⊗n ─ H^⊗n ─ O_f ─ H^⊗n ─ M ─ (all zeros iff constant)
-  |1⟩     ─ H    ─
+  |0⟩^⊗n   H^⊗n   O_f   H^⊗n   M   (all zeros iff constant)
+  |1⟩       H
 
 After H^⊗n on |0⟩^⊗n: uniform superposition (1/√2^n)Σ|x⟩
 Oracle query: (1/√2^n)Σ(-1)^f(x)|x⟩  (phase kickback)
@@ -125,7 +144,7 @@ Classical DFT of vector x ∈ ℂ^N:
   X_k = (1/√N) Σⱼ xⱼ e^(2πijk/N)   O(N log N) via FFT
 
 QFT maps computational basis:
-  |j⟩  ─QFT─►  (1/√N) Σₖ e^(2πijk/N) |k⟩
+  |j⟩   QFT ►  (1/√N) Σₖ e^(2πijk/N) |k⟩
 
 On n qubits (N = 2^n):
   QFT|j⟩ = (1/√2^n) Σₖ e^(2πijk/2^n) |k⟩
@@ -140,11 +159,11 @@ something extractable, like a period.
 
 The QFT circuit for 3 qubits:
 ```
-q₀: ─ H ─ R₂ ─ R₃ ─────── SWAP ─
-          │     │               │
-q₁: ─────●─── H ─ R₂ ─ SWAP ──│─
-               │         │     │
-q₂: ───────── ●───────── ────── ─
+q₀:   H   R₂   R₃         SWAP
+
+q₁:      ●    H   R₂   SWAP
+
+q₂:           ●
 
 where R_k = diag(1, e^{2πi/2^k})  (controlled phase gate)
 ```
@@ -160,9 +179,9 @@ Given: Unitary U and eigenstate |u⟩ with U|u⟩ = e^(2πiφ)|u⟩
 Find: φ ∈ [0,1) to t bits of precision
 
 Circuit:
-  |0⟩^⊗t ─ H^⊗t ─┐                  ┌─ QFT† ─ M
-                   │ controlled-U^j   │
-  |u⟩     ─────────┴──────────────────┘ (eigenstate unchanged)
+  |0⟩^⊗t   H^⊗t                        QFT†   M
+                     controlled-U^j
+  |u⟩                                   (eigenstate unchanged)
 
 After QFT†: |φ̃⟩ ≈ |⌊2^t φ⌉⟩   (closest t-bit approximation to φ)
 
@@ -183,7 +202,7 @@ Factors N in O((log N)³) quantum gates. Largest cryptographic threat from QC.
 
 ```
 REDUCTION: Factoring → Period Finding (classical number theory)
-────────────────────────────────────────────────────────────────
+
 
 Step 1 (classical): Choose random a, compute gcd(a, N)
   If gcd(a,N) > 1: found factor, done.

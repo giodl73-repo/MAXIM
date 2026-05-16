@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\04-HARDWARE-COMPLEXITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|         FROM PHYSICS TO COMPUTATION: QC STACK                    |\n+------------------------------------------------------------------+\n|                                                                    |\n|  PHYSICAL LAYER         CONTROL LAYER         LOGICAL LAYER       |\n|                                                                   |\n|  Transmon qubit         Microwave pulses       Logical qubits      |\n|  Trapped ion            RF/laser control       Error correction    |\n|  Photon                 FPGA classical         Clifford + T gates  |\n|  Neutral atom           signal proc.           Algorithms          |\n|                                                                    |\n|  DiVincenzo criteria    Calibration +          Surface code        |\n|  Coherence times        optimal control        MWPM decoder        |\n|  Gate fidelity          pulse shaping          Magic state distil. |\n|                                                                    |\n|  COMPLEXITY LAYER                                                  |\n|                                                                   |\n|  BPP ⊆ BQP ⊆ QMA ⊆ PP ⊆ PSPACE                                  |\n|  Factoring ∈ BQP (Shor) — the key result                         |\n|  NP vs BQP: open; believed incomparable                           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### Superconducting Qubits (IBM, Google)",
+      "confidence": "candidate",
+      "text": "PHYSICS:\n  Josephson junction: nonlinear inductor from two superconductors\n  separated by thin insulator. Cooper pairs tunnel through.\n  Creates nonlinear LC oscillator → anharmonic energy levels.\n  |0⟩ and |1⟩ = ground and first excited state of transmon.\n\n  Transmon: Josephson junction + shunting capacitor (reduces charge noise)\n  Frequency: 4–8 GHz  (microwave control)\n  Operating temperature: 10–20 mK (dilution refrigerator)\n\nOPERATIONS:\n  Single-qubit gates: microwave pulses (50–200 ns)\n  Two-qubit gate (CZ/CNOT): tunable coupling or cross-resonance (~200-500 ns)\n  Measurement: dispersive readout via microwave resonator (~1 μs)\n\nSTRENGTHS:\n  Fast gates (100s of ns → high clock rate)\n  Scalable fabrication (semiconductor fab processes)\n  Well-understood physics\n  IBM and Google leading this platform\n\nWEAKNESSES:\n  T₂ limited (~100 μs, improving but constrained by substrate noise)\n  Nearest-neighbor connectivity (grid topology) → SWAP overhead\n  Cryogenic infrastructure expensive and bulky\n  No two identical chips (fabrication variation)\n\nKEY METRICS (IBM Heron, 2023):\n  Qubits: 133\n  T₁: ~300 μs, T₂: ~200 μs\n  CX gate error: ~0.2% (EPLG: ~0.14%)\n  Readout fidelity: ~99%\n  Quantum volume: 512 (2022 Falcon)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "### Neutral Atom Qubits (QuEra, Pasqal)",
+      "confidence": "candidate",
+      "text": "PHYSICS:\n  Neutral Rb or Cs atoms trapped in optical tweezer arrays.\n  Qubit: hyperfine ground state.\n  Gates use Rydberg state excitation (n~60 principal quantum number):\n    Rydberg atoms have huge van der Waals interaction → blockade\n    \"Rydberg blockade\": two atoms within ~10 μm can't both be Rydberg excited\n    → natural conditional gate\n\nOPERATIONS:\n  Single-qubit gates: microwave or Raman laser (~1 μs)\n  Two-qubit (CZ via Rydberg blockade): ~1 μs (fast!)\n  Reconfigurable: physically move atom arrays mid-circuit\n  Measurement: fluorescence imaging\n\nSTRENGTHS:\n  Reconfigurable connectivity (move atoms between shots)\n  High coherence (~seconds)\n  Large arrays (100s–1000s of atoms demonstrated)\n  Analog simulation mode (Hamiltonian simulation)\n\nWEAKNESSES:\n  ~1% loss per site per shot (vacuum)\n  Gate fidelities lagging SC/ion trap (~99.5%)\n  Still maturing as gate-based platform\n\nKEY MILESTONE (QuEra 2023, Nature):\n  48 logical qubits, fault-tolerant circuits, 99.5% logical gate fidelity\n  First demonstration of logical qubit advantage over physical qubits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "### Oracle Separations",
+      "confidence": "candidate",
+      "text": "Relative to oracles:\n  ∃ oracle A: P^A ≠ BPP^A (oracles can separate)\n  ∃ oracle A: BQP^A ⊄ PH^A (Raz-Tal 2019 — strongest known structural result)\n    → Relative to an oracle, BQP contains problems outside the ENTIRE\n      polynomial hierarchy. This is an unconditional oracle separation —\n      no unproven complexity assumptions needed (unlike P vs NP barriers).\n    → Caveat: oracle separations don't directly imply non-relativizing\n      separations. BGS (1975) showed oracles can't resolve P vs NP.\n      Raz-Tal is evidence for BQP ⊄ PH, not a proof.\n\n  Forrelation problem (Aaronson-Ambainis):\n    BQP query complexity: 1\n    Randomized query complexity: Ω(√N/log N)\n    → concrete separation BQP vs BPP in query model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

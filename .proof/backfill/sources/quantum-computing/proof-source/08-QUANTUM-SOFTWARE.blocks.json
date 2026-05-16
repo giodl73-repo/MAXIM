@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\08-QUANTUM-SOFTWARE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Big Picture: The Full Stack",
+      "confidence": "candidate",
+      "text": "\n                     QUANTUM SOFTWARE STACK\n\n\n     APPLICATION LAYER\n      VQE / QAOA / QKD / Grover search\n      Domain libraries: Qiskit Nature, PennyLane QML, Q# Chemistry\n\n\n                           ▼\n     SDK / FRAMEWORK LAYER\n      Qiskit (IBM) · Cirq (Google) · PennyLane (Xanadu) · Q#(MS)\n      High-level circuit construction, algorithm primitives\n\n\n                           ▼\n     INTERMEDIATE REPRESENTATION\n      OpenQASM 3.0 (text IR) · QIR (LLVM-based binary IR)\n      Interchange format between tools and hardware vendors\n\n\n                           ▼\n     TRANSPILATION / COMPILATION\n      Gate decomposition → routing → optimization → scheduling\n\n\n                           ▼\n     HARDWARE ABSTRACTION\n      Pulse-level control (Qiskit Pulse, Cirq cirq-google)\n      Native gate sets per backend\n\n\n                           ▼\n     PHYSICAL LAYER\n      Superconducting (IBM, Google) · Ion trap (IonQ, Quantinuum)\n      Photonic (Xanadu, PsiQuantum) · Neutral atom (QuEra)\n\n\n\n  Azure Quantum: Microsoft abstraction over multiple hardware vendors\n  (IonQ, Quantinuum, Rigetti, + Azure simulators)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 104,
+      "heading_context": "# → Ry rotations + CNOT entanglement, 2 repetitions",
+      "confidence": "candidate",
+      "text": "### Primitives API (Qiskit 1.x — the right abstraction)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "### Primitives API (Qiskit 1.x — the right abstraction)",
+      "confidence": "candidate",
+      "text": "SAMPLER primitive:\n  Input:  circuit + parameter values\n  Output: quasi-probability distribution over bitstrings\n  Use for: sampling-based algorithms, QAOA, VQA measurement\n\nESTIMATOR primitive:\n  Input:  circuit + observable (PauliSumOp or SparsePauliOp) + parameters\n  Output: ⟨ψ(θ)|O|ψ(θ)⟩  (expectation value)\n  Use for: VQE energy, QAOA cost evaluation\n\nWHY PRIMITIVES MATTER:\n  Old API: transpile circuit → submit → get counts → manually compute ⟨O⟩\n  Primitives API: declare what you want (expectation), runtime handles the rest\n  Same code runs on simulator (Statevector) and real hardware (IBM backends)\n  Runtime optimizes batching, error mitigation, shot distribution internally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### Transpiler Pipeline",
+      "confidence": "candidate",
+      "text": "INPUT CIRCUIT (arbitrary gates, logical qubits)\n\n         ▼ STAGE 1: INIT (layout selection)\n             Qubit routing: map logical → physical qubits\n             TrivialLayout / DenseLayout / SabreLayout (default)\n\n         ▼ STAGE 2: ROUTING (SWAP insertion)\n             Insert SWAP gates to route non-adjacent 2-qubit gates\n             SabreSwap algorithm: O(n log n) approximation\n\n         ▼ STAGE 3: TRANSLATION (gate set decomposition)\n             Arbitrary U → {CX, Rz, SX, X}  (IBM basis)\n             KAK decomposition for 2-qubit gates\n\n         ▼ STAGE 4: OPTIMIZATION (gate cancellation)\n             Commutation analysis, redundant gate removal\n             CX cancellation, 1Q gate fusion\n\n         ▼ STAGE 5: SCHEDULING (timing)\n             Assign timing for all gates, handle alignment constraints\n\nOPTIMIZATION LEVELS (transpile optimization_level=0..3):\n  0: trivial layout, no optimization — for debugging\n  1: TrivialLayout + basic optimization\n  2: NoiseAdaptiveLayout + commutativity analysis\n  3: SabreLayout + SabreSwap + full optimization — production default",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Quantum Differentiable Programming Features",
+      "confidence": "candidate",
+      "text": "TRANSFORMS (qml.transforms):\n  qml.transforms.batch_params     – vectorize over parameter batches\n  qml.transforms.mitigate_with_zne – ZNE built in as transform\n  qml.transforms.decompose        – custom gate decomposition\n  qml.compile                     – gate optimization pass\n\nADJOINT DIFFERENTIATION (diff_method=\"adjoint\"):\n  Exact gradient in O(n) overhead (classical simulation only)\n  vs parameter-shift: O(2×n_params) circuit evaluations\n  → Only works on simulator, but very fast for hybrid ML training\n\nSHOT VECTORS:\n  dev = qml.device(\"default.qubit\", wires=2, shots=[100, 1000, 10000])\n  → Single execution returns results for all shot counts (ZNE-ready)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "### Q# Language Features",
+      "confidence": "candidate",
+      "text": "Q# TYPE SYSTEM:\n  Qubit: opaque reference (allocated/released, never cloned)\n  Result: Zero | One (measurement outcome)\n  Pauli: PauliI | PauliX | PauliY | PauliZ\n  operation vs function distinction:\n    operation: can have quantum side effects (qubit ops, measurements)\n    function: purely classical (no qubits), deterministic\n\nQUBIT MANAGEMENT:\n  use q = Qubit();        // allocate\n  // guaranteed |0⟩ on allocation\n  H(q);\n  CNOT(q, q2);\n  let r = M(q);          // measure\n  Reset(q);              // reset before release\n  // q automatically released at end of scope\n\nADJOINT AND CONTROLLED GENERATION:\n  Every operation can have auto-generated Adjoint + Controlled functors:\n  operation MyGate(theta: Double, q: Qubit) : Unit is Adj + Ctl {\n      Ry(theta, q);\n  }\n  // Adjoint MyGate(theta, q) → Ry(-theta, q) auto-generated\n  // Controlled MyGate([control], theta, q) → auto-generated",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "### Azure Quantum Integration with Azure",
+      "confidence": "candidate",
+      "text": "AZURE QUANTUM WORKSPACE:\n  azure quantum workspace create --location eastus --resource-group myRG\n\n  JOB SUBMISSION (Q# targeting IonQ):\n  qsharp.azure.target(\"ionq.simulator\")\n  result = qsharp.azure.execute(MyQuantumProgram, n_shots=1000)\n\n  JOB SUBMISSION (Python targeting Quantinuum via SDK):\n  from azure.quantum import Workspace\n  workspace = Workspace(subscription_id=..., resource_group=..., name=...)\n  backend = workspace.get_backend(\"quantinuum.hqs-lt-s1\")\n  job = backend.run(qiskit_circuit, shots=100)\n\nINTEGRATION STORY (bridges to existing Azure):\n  Azure Quantum Jobs → Azure Monitor (same metrics pipeline as App Insights)\n  Quantum storage: results go to Azure Blob Storage / Azure Cosmos DB\n  IAM: same RBAC as all Azure services\n  Quantum Network Simulator: simulates quantum repeater networks on Azure\n  → Operationally: same posture as any other Azure service (billing, IAM, monitoring)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 357,
+      "heading_context": "## Intermediate Representations",
+      "confidence": "candidate",
+      "text": "### OpenQASM 3.0",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

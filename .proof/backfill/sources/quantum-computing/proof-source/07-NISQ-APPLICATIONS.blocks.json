@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\07-NISQ-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Big Picture: The NISQ Landscape",
+      "confidence": "candidate",
+      "text": "\n                      NISQ ERA (2019 – ~2030?)\n\n   PHYSICAL REALITY:\n\n      ~50 – 1,000 physical qubits\n      No full quantum error correction\n      2-qubit gate error: 0.1% – 1%\n      T₁ coherence: 50 – 500 μs (superconducting)\n      T₂ dephasing: 20 – 200 μs\n      Gate time (2-qubit): 50 – 500 ns\n      → Circuit depth limit: ~100-1000 gates before noise wins\n\n\n   RESPONSE:\n   Error MITIGATION (not correction): post-process to reduce noise\n   effect without overhead of full QEC (thousands of physical/logical)\n\n   HARDWARE                ERROR           BENCHMARKING\n   CHARACTERIZATION    MITIGATION          & CLAIMS\n   (know your device)  (ZNE, PEC, CDR)    (honest assessment)\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 81,
+      "heading_context": "### Noise Channels",
+      "confidence": "candidate",
+      "text": "DEPOLARIZING NOISE (most common model):\n  ρ → (1-p)ρ + p/3(XρX + YρY + ZρZ)\n  Effect: random Pauli error with probability p\n  Symmetric: erases quantum info equally in all directions\n\nDEPHASING (Z-noise, T₂ process):\n  ρ → (1-p)ρ + p·ZρZ\n  Effect: destroys off-diagonal elements (superposition → mixed)\n  Caused by: charge noise, magnetic field fluctuations\n  Most common in practice\n\nAMPLITUDE DAMPING (T₁ process):\n  |1⟩ → |0⟩ with probability γ = 1 - e^{-t/T₁}\n  Effect: qubit spontaneously decays to ground state\n  Kraus operators: K₀ = [[1,0],[0,√(1-γ)]], K₁ = [[0,√γ],[0,0]]\n\nGATE ERROR MODEL:\n  Coherent errors: systematic rotation errors (can be calibrated away)\n  Incoherent errors: depolarizing/dephasing during gate (fundamental noise floor)\n  Leakage: |2⟩ level population (transmons have finite anharmonicity)\n  Crosstalk: neighboring qubits interact during single-qubit operations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### Randomized Benchmarking (RB)",
+      "confidence": "candidate",
+      "text": "PROTOCOL:\n  1. Apply sequence of m random Clifford gates C₁, C₂, ..., Cₘ\n  2. Compute their inverse: Cₘ₊₁ = (Cₘ...C₂C₁)†\n  3. Measure return to |0⟩ probability\n  4. Repeat for many sequences of length m\n  5. Plot mean survival probability vs m:\n\n  p(m) = A · r^m + B\n\n  where r = 1 - 2ε/(1-1/2^n) ≈ 1 - 2ε   (ε = depolarizing error rate)\n\nPROPERTIES:\n  + Gate-set-independent (Cliffords form a group → RB is valid)\n  + Insensitive to SPAM (state prep and measurement) errors (A, B absorb them)\n  + Gives single error-per-Clifford number\n  - Clifford gates ≠ native gates (requires decomposition)\n  - Average fidelity, not gate-specific fidelity\n  - Doesn't diagnose which gates are bad\n\nINTERLEAVED RB: insert target gate between random Cliffords → isolate one gate's error",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Cross-Entropy Benchmarking (XEB)",
+      "confidence": "candidate",
+      "text": "PROTOCOL (Google's approach for Sycamore):\n  1. Apply random circuit U of depth d\n  2. Measure output bitstring s\n  3. Compute ideal probability p_U(s) = |⟨s|U|0⟩|²  (classical simulation)\n  4. XEB fidelity: F_XEB = 2^n · E[p_U(s)] - 1\n\n  Ideal (noiseless): E[p_U(s)] = 2/2^n  (Porter-Thomas distribution)  → F = 1\n  Completely noisy:  outputs uniform → E[p_U(s)] = 1/2^n              → F = 0\n\nUSED IN: Google's \"quantum supremacy\" claim (Sycamore, 2019)\nISSUE: Classical algorithms (tensor networks) have since improved significantly\n       — see benchmarking claims section below",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Zero-Noise Extrapolation (ZNE)",
+      "confidence": "candidate",
+      "text": "IDEA: Run circuit at multiple noise levels λ₁ < λ₂ < λ₃, extrapolate to λ → 0\n\nNOISE AMPLIFICATION:\n  Gate folding: replace gate G with G·G†·G (same unitary, 3× noise)\n  Pulse stretching: stretch pulse duration → more decoherence\n\nEXTRAPOLATION:\n  Linear:   f(λ) = a + bλ  → f(0) = a\n  Richardson (polynomial order k):\n    f_mitigated = Σᵢ cᵢ f(λᵢ)\n    where cᵢ satisfy Σ cᵢ = 1, Σ cᵢ λᵢ^j = 0 for j = 1,...,k\n  Exponential: f(λ) = a + b·e^{cλ}\n\nERROR:\n  Systematic: extrapolation assumes noise model is correct\n  Statistical: more noise → more variance per shot → more shots needed\n  Diverges: exponentially noisy circuits cannot be mitigated linearly (cost too high)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "### Probabilistic Error Cancellation (PEC)",
+      "confidence": "candidate",
+      "text": "IDEA: Express noisy gate G as quasi-probability sum of implementable operations\n\nG_ideal = Σᵢ qᵢ Oᵢ    where Σᵢ |qᵢ| = γ ≥ 1, Oᵢ are noisy operations\n\nSAMPLING:\n  Sample operation Oᵢ with prob |qᵢ|/γ, record sign sgn(qᵢ)\n  Run circuit with this operation, multiply result by γ·sgn(qᵢ)\n  Average over many samples → unbiased estimate of ideal expectation\n\nCOST:\n  Sampling overhead: γ^(2d) shots for depth-d circuit\n  γ ≥ 1 + 2ε per gate (ε = error rate)\n  Total overhead: e^(4εd) → exponential in circuit depth × error rate\n\n  For 100 gates at 0.1% error: e^(0.4) ≈ 1.5× — manageable\n  For 1000 gates at 0.5% error: e^(20) ≈ 5×10⁸ — impossible\n\n→ PEC is only practical for short circuits with low error rates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 220,
+      "heading_context": "### Measurement Error Mitigation (Readout Calibration)",
+      "confidence": "candidate",
+      "text": "SIMPLEST MITIGATION: Correct for imperfect readout\n\nCALIBRATION:\n  Prepare |0⟩⊗ⁿ, measure → calibration matrix A[i,j] = P(measure i | prepared j)\n\nCORRECTION:\n  p_measured = A · p_ideal  →  p_ideal = A⁻¹ · p_measured\n\nISSUES:\n  n qubits → 2^n × 2^n matrix A — exponentially large for full characterization\n  Practical fix: assume local measurement errors (diagonal A in the tensor product sense)\n  M3 method: matrix-free inversion using iterative methods\n\nALWAYS DO THIS: readout errors are the easiest to mitigate and often significant (1-5%)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 241,
+      "heading_context": "## Benchmarking Quantum Advantage Claims",
+      "confidence": "candidate",
+      "text": "### Google Sycamore (2019)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "### Google Sycamore (2019)",
+      "confidence": "candidate",
+      "text": "CLAIM: Random circuit sampling on 53-qubit Sycamore in 200 seconds\n       \"would take 10,000 years on Summit\" (IBM's best supercomputer)\n\nCOUNTER-ARGUMENTS:\n  IBM (same week): with more clever simulation + disk storage → 2.5 days, not 10,000 years\n  Villalonga et al. (2022): claimed ~300 seconds on classical hardware\n  Pan, Chen, Zhang (2022): using tensor network contraction, completed in 300 seconds\n                            on classical cluster at comparable cost\n\nCURRENT HONEST ASSESSMENT:\n  - Sycamore's specific task: sampling from XEB distribution\n  - This is NOT a useful computation — it's a benchmark of the benchmark\n  - Classical simulation has steadily improved; advantage has shrunk\n  - Task was specifically designed to be hard to simulate classically\n  - Not a general quantum speedup demonstration\n\nWHAT SYCAMORE DID DEMONSTRATE:\n  - 53 high-quality qubits with low enough noise to produce coherent quantum states\n  - XEB fidelity consistent with known 2-qubit gate error rates\n  - World-class control system\n  - Legitimate engineering achievement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 269,
+      "heading_context": "### IBM Heavy-Hex Architecture",
+      "confidence": "candidate",
+      "text": "HEAVY-HEX TOPOLOGY:\n  Reduces crosstalk by limiting qubit connectivity (max degree 3)\n  Enables higher gate fidelities through decreased ZZ coupling\n  Trade-off: requires more SWAP gates for non-native connectivity\n             → deeper circuits for algorithms needing long-range interactions\n\n  ● ● ● ● ●\n\n  ●   ●   ●      Heavy-hex unit cell\n\n  ● ● ● ● ●\n\nIBM Eagle: 127 qubits (2021)\nIBM Osprey: 433 qubits (2022)\nIBM Condor: 1,127 qubits (2023)\nIBM Heron: 133 qubits, improved error rates (2023, focus on fidelity over count)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "### Resource Estimates for Fault-Tolerant Quantum Advantage",
+      "confidence": "candidate",
+      "text": "RSA-2048 FACTORING (Shor's algorithm):\n  Logical qubits: ~4,000\n  Error correction: surface code, p_physical ≈ 0.1%\n  Physical/logical ratio: ~1,000:1 at distance d=21\n  Physical qubits required: ~4,000,000\n  Runtime: ~8 hours\n\nAES-256 (Grover): √(2^256) = 2^128 operations → negligible speedup in practice\n  (NIST quantum-resistant because key length doubles, not because impossible)\n\nQUANTUM CHEMISTRY (FeMoco active space):\n  Logical qubits: ~1,000 – 2,000\n  Physical qubits: ~1,000,000 – 4,000,000\n  Still requires millions of physical qubits → 10-20 year horizon\n\nCURRENT NISQ DEVICES: 50 – 1,127 noisy physical qubits\n  Gap to useful fault-tolerant computation: 1,000 – 100,000× more qubits\n                                           + 10-100× better gate fidelity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

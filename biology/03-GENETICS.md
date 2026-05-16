@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biology:genetics
+kind: guide
+module: biology
+section: biology
+title: 03 - Genetics
+status: source-custody
+source_custody: partial
+current_path: biology/03-GENETICS.md
+canonical_path: biology/03-GENETICS.md
+backsource_ids: [proof-backfill:biology:03-genetics, git-history:biology:03-genetics]
+concepts: [genetics]
+root_concepts: [genetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Genetics
 
 ## Mendelian Genetics, Chromosome Theory, Molecular Genetics, Genomics, Epigenetics, CRISPR

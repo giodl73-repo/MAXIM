@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:hardware-complexity
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Hardware, Complexity and Path to Fault Tolerance
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/04-HARDWARE-COMPLEXITY.md
+canonical_path: quantum-computing/04-HARDWARE-COMPLEXITY.md
+backsource_ids: [proof-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]
+concepts: [hardware, complexity]
+root_concepts: [hardware, complexity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Hardware, Complexity & Path to Fault Tolerance
 
 ## The Big Picture
@@ -8,7 +27,7 @@
 +------------------------------------------------------------------+
 |                                                                    |
 |  PHYSICAL LAYER         CONTROL LAYER         LOGICAL LAYER       |
-|  ──────────────         ─────────────         ─────────────       |
+|                                                                   |
 |  Transmon qubit         Microwave pulses       Logical qubits      |
 |  Trapped ion            RF/laser control       Error correction    |
 |  Photon                 FPGA classical         Clifford + T gates  |
@@ -19,7 +38,7 @@
 |  Gate fidelity          pulse shaping          Magic state distil. |
 |                                                                    |
 |  COMPLEXITY LAYER                                                  |
-|  ──────────────────────────────────────────────────────────────   |
+|                                                                   |
 |  BPP ⊆ BQP ⊆ QMA ⊆ PP ⊆ PSPACE                                  |
 |  Factoring ∈ BQP (Shor) — the key result                         |
 |  NP vs BQP: open; believed incomparable                           |
@@ -238,7 +257,7 @@ POTENTIAL ADVANTAGE:
 
 ```
 METRIC            DEFINITION                           WHY IT MATTERS
-──────────────    ──────────────────────────────────   ──────────────────────────
+
 T₁ (ms)           Energy relaxation time               |1⟩ → |0⟩ spontaneous decay
 T₂ (ms)           Phase coherence time (T₂ ≤ 2T₁)     Random phase kicks
 Gate fidelity     Avg P(correct) over unitaries         Directly bounds error rate
@@ -361,7 +380,7 @@ HARVEST-NOW-DECRYPT-LATER:
 
 NIST PQC STANDARDS (2024):
   Algorithm          Type            Based on        FIPS
-  ────────────────   ──────────────  ─────────────   ──────
+
   ML-KEM (Kyber)     KEM            Module-LWE      203
   ML-DSA (Dilithium) Signature      Module-LWE      204
   SLH-DSA (SPHINCS+) Signature      Hash functions  205

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\06-QUANTUM-COMMUNICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### Qubit Encoding",
+      "confidence": "candidate",
+      "text": "TWO CONJUGATE BASES:\n\n  Rectilinear (Z) basis: |0⟩ = ↕  (vertical)    |1⟩ =   (horizontal)\n  Diagonal (X) basis:    |+⟩ = ↗  (45°)          |−⟩ = ↘ (135°)\n\n  |+⟩ = (|0⟩ + |1⟩)/√2     |−⟩ = (|0⟩ − |1⟩)/√2\n\n  COMPLEMENTARITY: Measuring |+⟩ in Z basis → 50/50 outcome (random)\n                   Measuring |0⟩ in X basis → 50/50 outcome (random)\n  → Measuring in wrong basis destroys information and introduces errors",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "### Protocol Steps",
+      "confidence": "candidate",
+      "text": "STEP 1: QUBIT TRANSMISSION\n  Alice generates random bits b ∈ {0,1} and bases B_A ∈ {Z, X}\n  She sends qubit in state:\n    B_A=Z, b=0 → |0⟩    B_A=Z, b=1 → |1⟩\n    B_A=X, b=0 → |+⟩    B_A=X, b=1 → |−⟩\n\nSTEP 2: BOB MEASURES\n  Bob chooses random basis B_B ∈ {Z, X}\n  If B_B = B_A: Bob gets Alice's bit deterministically\n  If B_B ≠ B_A: Bob gets random outcome (50% error)\n\nSTEP 3: BASIS RECONCILIATION (public classical channel)\n  Alice and Bob announce their bases (NOT the bits)\n  Keep only positions where B_A = B_B → raw key (~50% of transmissions)\n\nSTEP 4: ERROR RATE ESTIMATION (QBER)\n  Sacrifice a random subset of raw key bits\n  Announce them publicly, compute QBER = (# errors) / (# compared bits)\n  If QBER > 11%: ABORT (eavesdropping detected)\n  If QBER ≤ 11%: proceed\n\nSTEP 5: INFORMATION RECONCILIATION (error correction over classical channel)\n  Fix remaining errors using e.g. Cascade protocol\n  Leaks some information to Eve\n\nSTEP 6: PRIVACY AMPLIFICATION\n  Hash the corrected key to shorter key\n  Amount to hash = f(QBER, leaked info in reconciliation)\n  Result: final secure key that Eve has negligible information about",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "### Eavesdropping Detection",
+      "confidence": "candidate",
+      "text": "EVE'S INTERCEPT-RESEND ATTACK:\n  Eve intercepts each qubit, measures in random basis, resends\n\n  When Eve chooses wrong basis (50% of the time):\n    She sends wrong state → Bob gets error when bases match\n\n  Error introduced per bit (bases match, Eve attacks):\n    P(Eve wrong basis) × P(wrong result) = 0.5 × 0.5 = 0.25\n\n  QBER introduced by intercept-resend = 25%  >> 11% threshold\n  → Attack is ALWAYS detected if Eve intercepts all qubits\n\n  PARTIAL INTERCEPT: Eve intercepts fraction ε\n    QBER = ε × 0.25 → detectable for any ε above noise floor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 158,
+      "heading_context": "### Bell State and CHSH",
+      "confidence": "candidate",
+      "text": "ENTANGLED SOURCE:\n  |Φ⁺⟩ = (|00⟩ + |11⟩)/√2  (Bell state)\n\n  Alice and Bob each receive one qubit\n  Each measures in randomly chosen basis from set {0°, 45°, 90°} (Alice)\n                                              and {45°, 90°, 135°} (Bob)\n\nKEY GENERATION:\n  When both choose basis 45°: outcomes perfectly correlated → raw key\n  When both choose basis 90°: outcomes perfectly correlated → raw key\n\nSECURITY TEST (CHSH inequality):\n  E(a, b) = P(same result | bases a, b) - P(different result | bases a, b)\n\n  S = E(0°,45°) - E(0°,135°) + E(90°,45°) + E(90°,135°)\n\n  CLASSICAL: |S| ≤ 2  (Bell-CHSH bound for local hidden variables)\n  QUANTUM:    S = 2√2 ≈ 2.83  (Tsirelson bound, achieved by |Φ⁺⟩)\n\n  If Eve tampers with entanglement → S decreases toward 2\n  Full Bell inequality violation = no eavesdropping",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## B92 Protocol (Bennett 1992)",
+      "confidence": "candidate",
+      "text": "SIMPLIFICATION: Only 2 non-orthogonal states\n\nAlice sends: bit 0 → |0⟩,  bit 1 → |+⟩\n\nBob measures: bit 0 → in X basis,  bit 1 → in Z basis\n\nKEY INSIGHT: Non-orthogonal states cannot be perfectly distinguished\n  If Bob measures |0⟩ in X basis:  gets |+⟩ → inconclusive\n                                    gets |−⟩ → conclusive: Alice sent |0⟩\n  If Bob measures |+⟩ in Z basis:  gets |0⟩ → inconclusive\n                                    gets |1⟩ → conclusive: Alice sent |+⟩\n\nKey rate lower than BB84 (~25% vs ~50% of transmitted qubits)\nSimpler implementation: only 2 states needed\nLess used in practice (lower key rate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "### Physical Layer",
+      "confidence": "candidate",
+      "text": "PHOTON SOURCES:\n  Ideal: single-photon source (on-demand)\n  Practical: attenuated laser pulses (coherent states)\n    Problem: Poisson photon number distribution\n    Multi-photon pulses → PNS (photon number splitting) attack by Eve\n\n  DECOY STATE METHOD (Hwang/Lo-Ma-Chen 2005):\n    Send pulses with random intensities (signal + decoy + vacuum)\n    Statistical analysis of detection rates for each intensity\n    Bounds Eve's information even with imperfect single-photon source\n    → Enables secure QKD with practical laser sources\n\nDETECTORS:\n  InGaAs avalanche photodiodes: ~10% efficiency, ~10⁻⁵ dark count rate\n  Superconducting nanowire (SNSPD): >90% efficiency, <1 dark count/s\n    → SNSPD enables much higher key rates and longer distances\n\nCHANNEL LOSSES:\n  Telecom fiber: ~0.2 dB/km at 1550 nm\n  100 km: 20 dB = 1/100 transmission\n  Key rate drops linearly with channel transmission (for fixed detector)\n  Practical fiber QKD: ≤ 400 km with extremely low noise + SNSPD",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Distance Limits and Repeaters",
+      "confidence": "candidate",
+      "text": "FUNDAMENTAL LIMIT WITHOUT REPEATERS:\n  PLOB bound (Pirandola-Laurenza-Ottaviani-Banchi):\n  Key rate ≤ -log₂(1 - η)  bits per channel use\n  where η = transmission = 10^{-αL/10}\n  → Key rate drops exponentially with distance\n\nQUANTUM REPEATER CONCEPT:\n             entanglement              entanglement\n    Alice  ◄              ►  Repeat. ◄              ►   Bob\n\n                             performs\n                           entanglement\n                             swapping\n\n  Entanglement swapping: if A-R and R-B are entangled,\n    measure R in Bell basis → projects A-B into entangled state\n    (teleports entanglement through R without R seeing the qubit)\n\nREPEATER GENERATIONS:\n  Gen 1: Entanglement swapping + classical error correction\n         Need quantum memory (store Bell pairs while waiting for heralding)\n  Gen 2: + entanglement purification (distill high-fidelity pairs from noisy ones)\n  Gen 3: Full quantum error correction at each node\n         → Only Gen 3 beats PLOB bound unconditionally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

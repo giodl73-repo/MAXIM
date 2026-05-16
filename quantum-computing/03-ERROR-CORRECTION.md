@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:error-correction
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Error Correction
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/03-ERROR-CORRECTION.md
+canonical_path: quantum-computing/03-ERROR-CORRECTION.md
+backsource_ids: [proof-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]
+concepts: [error, correction]
+root_concepts: [error, correction]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Error Correction
 
 ## The Big Picture
@@ -8,14 +27,14 @@
 +------------------------------------------------------------------+
 |                                                                    |
 |  WHY IT'S HARD               HOW IT WORKS                        |
-|  ─────────────────            ─────────────────                   |
+|                                                                   |
 |  No-cloning: can't copy       Encode logical qubit in             |
 |  Measurement destroys state   entangled multi-qubit state         |
 |  Errors are continuous        Syndrome measurements detect        |
 |  Quantum info fragile         errors without reading state        |
 |                                                                    |
 |  CODES (historical order)     PRACTICAL PATH                      |
-|  ─────────────────────────    ─────────────────────────           |
+|                                                                   |
 |  Shor 9-qubit (1995)          Surface code (2D toric)             |
 |  Calderbank-Shor-Steane       ~1000 phys. per logical             |
 |  CSS codes (1996)             IBM, Google targeting this          |
@@ -102,7 +121,7 @@ SYNDROME MEASUREMENT (ancilla qubits):
   Measure stabilizers Z₁Z₂ and Z₂Z₃  (parity checks):
 
   State         Z₁Z₂  Z₂Z₃   Error
-  ─────         ─────  ─────   ─────
+
   α|000⟩+β|111⟩  +1    +1     none (I)
   α|100⟩+β|011⟩  −1    +1     X on qubit 0
   α|010⟩+β|101⟩  −1    −1     X on qubit 1
@@ -255,13 +274,13 @@ The current leading candidate for practical fault-tolerant quantum computers.
 ```
 LAYOUT (distance-d surface code, d × d data qubits):
 
-  ● ─── ● ─── ● ─── ●    ● = data qubit (physical)
-  │  X  │  Z  │  X  │    X = X-type stabilizer (face/plaquette check)
-  ● ─── ● ─── ● ─── ●    Z = Z-type stabilizer (vertex check)
-  │  Z  │  X  │  Z  │
-  ● ─── ● ─── ● ─── ●
-  │  X  │  Z  │  X  │
-  ● ─── ● ─── ● ─── ●
+  ●     ●     ●     ●    ● = data qubit (physical)
+     X     Z     X       X = X-type stabilizer (face/plaquette check)
+  ●     ●     ●     ●    Z = Z-type stabilizer (vertex check)
+     Z     X     Z
+  ●     ●     ●     ●
+     X     Z     X
+  ●     ●     ●     ●
 
   d×d data qubits + (d²-1)/2 X-stabilizers + (d²-1)/2 Z-stabilizers
   Total qubits: ~2d²

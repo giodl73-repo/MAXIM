@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\05-VARIATIONAL-ALGORITHMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Big Picture: The Hybrid Classical-Quantum Loop",
+      "confidence": "candidate",
+      "text": "\n                   VARIATIONAL HYBRID ARCHITECTURE\n\n\n                         QUANTUM DEVICE\n\n       |0⟩⊗ⁿ   ► [Ansatz U(θ)]   ► |ψ(θ)⟩   ► Measure H\n                                               ► ⟨H⟩(θ)\n\n                                 cost value C(θ)\n                               ▼\n\n                        CLASSICAL OPTIMIZER\n\n       θ_new = θ - η ∇C(θ)    (gradient-based)\n       θ_new = COBYLA/SPSA    (gradient-free)\n\n       ∂C/∂θⱼ = [C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)] / 2\n                              parameter-shift rule\n\n                                 new parameters θ\n                                             (loop until converge)   ►\n\n\n  Foundation: Variational Principle\n  ⟨ψ(θ)|H|ψ(θ)⟩ ≥ E₀  for all θ, all normalized |ψ(θ)⟩\n  → minimize expectation value to approximate ground state energy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Parameter Optimization",
+      "confidence": "candidate",
+      "text": "∂C/∂θⱼ = ½[C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)]\n\nDerivation: For parameterized gate U(θⱼ) = e^{-iθⱼG/2} where G² = I (Pauli):\n  eigenvalues of G are ±1, so spectrum of U is {e^{±iθⱼ/2}}\n  → gradient is exactly the finite difference at ±π/2 shifts\n  → no approximation — this IS the exact derivative",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "### MaxCut Formulation",
+      "confidence": "candidate",
+      "text": "MAXCUT PROBLEM:\n  Given graph G = (V, E), partition V into S, S̄ to maximize |{(u,v) ∈ E : u ∈ S, v ∈ S̄}|\n\nCLASSICAL-TO-QUANTUM ENCODING:\n  Variable xᵢ ∈ {0,1} → qubit i: |0⟩ or |1⟩\n  Cut objective: C = Σ_{(i,j)∈E} (1 - ZᵢZⱼ)/2\n     ZᵢZⱼ = +1 when same partition, -1 when different\n     → want ZᵢZⱼ = -1 for each edge in cut\n\nCOST HAMILTONIAN:  Hc = Σ_{(i,j)∈E} (1 - ZᵢZⱼ)/2\nMIXER HAMILTONIAN: Hb = Σᵢ Xᵢ   (drives transitions between cuts)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### The Problem",
+      "confidence": "candidate",
+      "text": "RANDOM n-QUBIT ANSATZ:\n  U(θ) = random parameterized circuit with depth d\n\n  E[∂C/∂θⱼ] = 0                           (zero mean by symmetry)\n  Var[∂C/∂θⱼ] ≤ f(n) → 0 exponentially fast in n\n\n  For a global cost function C = ⟨ψ(θ)|O|ψ(θ)⟩, O acting on all qubits:\n  Var[∂C/∂θⱼ] ∈ O(2^{-n})\n\n→ GRADIENTS VANISH EXPONENTIALLY WITH SYSTEM SIZE\n→ Need exponentially many shots to estimate gradient to noise-floor precision",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Expressibility vs Trainability Tradeoff",
+      "confidence": "candidate",
+      "text": "            HIGH EXPRESSIBILITY\n           (can represent any state)\n                    ▲\n\n         Random    ●  ← BARREN PLATEAU TERRITORY\n         circuits        (unitary 2-design, gradients vanish)\n\n     TRADEOFF\n      CURVE         ●  ← Hardware-efficient ansatz\n                         (moderate expressibility, trainable)\n\n        Structured  ●  ← UCCSD, QAOA\n        ansätze          (low expressibility, good gradients)\n\n                    ●  ← Fixed circuit (product state)\n                         (not expressive, trivially trainable)\n                    ▼\n            LOW EXPRESSIBILITY\n            (restricted function class)\n\nHORIZONTAL: Trainability (gradient magnitude)               ►",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

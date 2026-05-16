@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biology:molecular-machinery
+kind: guide
+module: biology
+section: biology
+title: Molecular Machinery - DNA, RNA, Proteins, Central Dogma
+status: source-custody
+source_custody: partial
+current_path: biology/01-MOLECULAR-MACHINERY.md
+canonical_path: biology/01-MOLECULAR-MACHINERY.md
+backsource_ids: [proof-backfill:biology:01-molecular-machinery, git-history:biology:01-molecular-machinery]
+concepts: [molecular, machinery]
+root_concepts: [molecular, machinery]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Molecular Machinery — DNA, RNA, Proteins, Central Dogma
 
 ---

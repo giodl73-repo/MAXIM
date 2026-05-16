@@ -1,0 +1,110 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\04-HARDWARE-COMPLEXITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 278,
+      "heading_context": "## Complexity Theory Deep Dive",
+      "headers": [
+        "Class",
+        "Definition",
+        "Complete problem"
+      ],
+      "rows": [
+        [
+          "**P**",
+          "Poly-time deterministic",
+          "Sorting, LP, primality testing"
+        ],
+        [
+          "**BPP**",
+          "Poly-time randomized (2/3 success)",
+          "Miller-Rabin? (believed = P)"
+        ],
+        [
+          "**BQP**",
+          "Poly-time quantum (2/3 success)",
+          "Factoring (Shor)"
+        ],
+        [
+          "**QMA**",
+          "Quantum-verifiable NP analog",
+          "k-local Hamiltonian (k≥2)"
+        ],
+        [
+          "**PP**",
+          "Majority vote quantum",
+          "Permanent (counting #P-hard)"
+        ],
+        [
+          "**PSPACE**",
+          "Poly-space",
+          "QBF, Quantified Boolean Formula"
+        ],
+        [
+          "**QIP**",
+          "Quantum interactive proofs",
+          "QIP = PSPACE (Jain et al. 2009)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 414,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Gate-fidelity leader",
+          "Trapped ions near `99.9%` two-qubit fidelity; superconducting improving",
+          "Fidelity without speed/connectivity is not a full platform comparison."
+        ],
+        [
+          "Qubit-count leader",
+          "Superconducting platforms in the hundreds to low thousands",
+          "Raw qubit count is weaker than logical quality, depth, and error rates."
+        ],
+        [
+          "Winning platform claims",
+          "Problem-dependent or hybrid hardware outlook",
+          "No platform has proven a fault-tolerant, scalable endgame."
+        ],
+        [
+          "D-Wave claims",
+          "Quantum annealer, not universal fault-tolerant QC",
+          "Specialized annealing has no general proven quantum speedup."
+        ],
+        [
+          "RSA-break timeline",
+          "Millions of physical qubits plus error correction, often forecast 2035-2040+",
+          "Forecasts are dominated by scaling and QEC assumptions."
+        ],
+        [
+          "PQC urgency",
+          "Harvest-now-decrypt-later risk today",
+          "Migration lead time matters even before CRQC exists."
+        ],
+        [
+          "NIST PQC standards",
+          "ML-KEM, ML-DSA, and SLH-DSA FIPS tracks",
+          "Standards adoption still requires protocol, inventory, and lifecycle work."
+        ],
+        [
+          "Factoring complexity",
+          "Factoring in `BQP` and `NP`; not known NP-complete",
+          "\"Quantum speedup\" is not the same as solving NP-complete problems."
+        ],
+        [
+          "NP-complete expectations",
+          "Grover gives square-root search over assignments",
+          "No known polynomial-time quantum algorithm for NP-complete problems."
+        ]
+      ]
+    }
+  ]
+}

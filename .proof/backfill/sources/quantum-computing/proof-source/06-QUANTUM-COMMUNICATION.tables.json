@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\06-QUANTUM-COMMUNICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 330,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Information-theoretic key exchange",
+          "QKD such as BB84 with decoy states",
+          "Requires an authenticated classical channel; QKD is key distribution, not full secure messaging."
+        ],
+        [
+          "Fiber distance under 100 km",
+          "Attenuated-laser BB84 plus decoy states",
+          "Commercial availability does not remove integration and trust assumptions."
+        ],
+        [
+          "Fiber distance 100-400 km",
+          "SNSPDs and trusted repeater nodes",
+          "Trusted nodes break end-to-end information-theoretic security at those nodes."
+        ],
+        [
+          "Distance beyond 400 km",
+          "Satellite relay or future quantum repeaters",
+          "Satellite trust/link availability and Gen-3 repeater maturity dominate feasibility."
+        ],
+        [
+          "Device distrust",
+          "Device-independent QKD from Bell violation",
+          "Loophole-free Bell tests are experimentally demanding."
+        ],
+        [
+          "High QBER",
+          "Abort when QBER exceeds security threshold, e.g. around 11% for BB84 variants",
+          "High QBER can mean eavesdropping or ordinary channel noise; security proof still says abort."
+        ],
+        [
+          "Classical post-quantum security",
+          "ML-KEM/ML-DSA deployment",
+          "PQC is usually cheaper and broader than QKD for enterprise traffic."
+        ]
+      ]
+    }
+  ]
+}

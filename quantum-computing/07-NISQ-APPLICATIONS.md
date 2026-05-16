@@ -1,30 +1,49 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:nisq-applications
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: NISQ - Near-Term Quantum Devices
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/07-NISQ-APPLICATIONS.md
+canonical_path: quantum-computing/07-NISQ-APPLICATIONS.md
+backsource_ids: [proof-backfill:quantum-computing:07-nisq-applications, git-history:quantum-computing:07-nisq-applications]
+concepts: [nisq, applications]
+root_concepts: [nisq, applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # NISQ — Near-Term Quantum Devices
 
 ## Big Picture: The NISQ Landscape
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                     NISQ ERA (2019 – ~2030?)                        │
-│                                                                     │
-│  PHYSICAL REALITY:                                                  │
-│  ┌─────────────────────────────────────────────────────────────┐    │
-│  │  ~50 – 1,000 physical qubits                                │   │
-│  │  No full quantum error correction                           │   │
-│  │  2-qubit gate error: 0.1% – 1%                              │   │
-│  │  T₁ coherence: 50 – 500 μs (superconducting)               │   │
-│  │  T₂ dephasing: 20 – 200 μs                                  │   │
-│  │  Gate time (2-qubit): 50 – 500 ns                           │   │
-│  │  → Circuit depth limit: ~100-1000 gates before noise wins   │   │
-│  └─────────────────────────────────────────────────────────────┘   │
-│                                                                     │
-│  RESPONSE:                                                          │
-│  Error MITIGATION (not correction): post-process to reduce noise   │
-│  effect without overhead of full QEC (thousands of physical/logical) │
-│                                                                     │
-│  HARDWARE                ERROR           BENCHMARKING              │
-│  CHARACTERIZATION    MITIGATION          & CLAIMS                  │
-│  (know your device)  (ZNE, PEC, CDR)    (honest assessment)        │
-└─────────────────────────────────────────────────────────────────────┘
+
+                      NISQ ERA (2019 – ~2030?)
+
+   PHYSICAL REALITY:
+
+      ~50 – 1,000 physical qubits
+      No full quantum error correction
+      2-qubit gate error: 0.1% – 1%
+      T₁ coherence: 50 – 500 μs (superconducting)
+      T₂ dephasing: 20 – 200 μs
+      Gate time (2-qubit): 50 – 500 ns
+      → Circuit depth limit: ~100-1000 gates before noise wins
+
+
+   RESPONSE:
+   Error MITIGATION (not correction): post-process to reduce noise
+   effect without overhead of full QEC (thousands of physical/logical)
+
+   HARDWARE                ERROR           BENCHMARKING
+   CHARACTERIZATION    MITIGATION          & CLAIMS
+   (know your device)  (ZNE, PEC, CDR)    (honest assessment)
+
 ```
 
 ---
@@ -254,11 +273,11 @@ HEAVY-HEX TOPOLOGY:
   Trade-off: requires more SWAP gates for non-native connectivity
              → deeper circuits for algorithms needing long-range interactions
 
-  ●─●─●─●─●
-  │   │   │
+  ● ● ● ● ●
+
   ●   ●   ●      Heavy-hex unit cell
-  │   │   │
-  ●─●─●─●─●
+
+  ● ● ● ● ●
 
 IBM Eagle: 127 qubits (2021)
 IBM Osprey: 433 qubits (2022)
@@ -271,33 +290,33 @@ IBM Heron: 133 qubits, improved error rates (2023, focus on fidelity over count)
 ## NISQ Application Landscape — Honest Assessment
 
 ```
-┌───────────────────────────────────────────────────────────────────────┐
-│ APPLICATION           │ NISQ STATUS  │ REALISTIC TIMELINE             │
-├───────────────────────┼──────────────┼───────────────────────────────┤
-│ VQE for small         │ Demonstrated │ NOW — but classical (CCSD(T)) │
-│ molecules (H₂, LiH)  │ proof-of-    │ beats NISQ VQE on accuracy   │
-│                       │ concept      │ Fault-tolerant needed for     │
-│                       │              │ genuine speedup (n~100 e⁻)   │
-├───────────────────────┼──────────────┼───────────────────────────────┤
-│ QAOA for              │ Demonstrated │ No proven advantage over      │
-│ combinatorial opt.    │ at small n   │ simulated annealing / GW SDP  │
-│ (MaxCut, TSP)         │              │ Needs much deeper circuits    │
-├───────────────────────┼──────────────┼───────────────────────────────┤
-│ Quantum ML            │ Active       │ No advantage demonstrated;    │
-│ (kernels, QNNs)       │ research     │ highly speculative (see 09)   │
-├───────────────────────┼──────────────┼───────────────────────────────┤
-│ Quantum simulation    │ Best NISQ    │ Small systems now; 50-100     │
-│ (condensed matter,    │ use case     │ qubit simulation might be     │
-│ Hubbard model)        │              │ classically intractable       │
-├───────────────────────┼──────────────┼───────────────────────────────┤
-│ Quantum chemistry     │ Limited      │ RSA-2048 needs ~4,000 logical │
-│ / Shor's algorithm    │ (too deep    │ qubits, ~4M physical —        │
-│                       │ for NISQ)    │ decades away                  │
-├───────────────────────┼──────────────┼───────────────────────────────┤
-│ Quantum sensing       │ Deployed     │ Already commercially useful   │
-│ (atomic clocks, MRI   │ (not same    │ Does not require quantum      │
-│ enhancement, gravity) │ as computing)│ computing hardware            │
-└───────────────────────┴──────────────┴───────────────────────────────┘
+
+  APPLICATION             NISQ STATUS    REALISTIC TIMELINE
+
+  VQE for small           Demonstrated   NOW — but classical (CCSD(T))
+  molecules (H₂, LiH)    proof-of-      beats NISQ VQE on accuracy
+                          concept        Fault-tolerant needed for
+                                         genuine speedup (n~100 e⁻)
+
+  QAOA for                Demonstrated   No proven advantage over
+  combinatorial opt.      at small n     simulated annealing / GW SDP
+  (MaxCut, TSP)                          Needs much deeper circuits
+
+  Quantum ML              Active         No advantage demonstrated;
+  (kernels, QNNs)         research       highly speculative (see 09)
+
+  Quantum simulation      Best NISQ      Small systems now; 50-100
+  (condensed matter,      use case       qubit simulation might be
+  Hubbard model)                         classically intractable
+
+  Quantum chemistry       Limited        RSA-2048 needs ~4,000 logical
+  / Shor's algorithm      (too deep      qubits, ~4M physical —
+                          for NISQ)      decades away
+
+  Quantum sensing         Deployed       Already commercially useful
+  (atomic clocks, MRI     (not same      Does not require quantum
+  enhancement, gravity)   as computing)  computing hardware
+
 ```
 
 ### Resource Estimates for Fault-Tolerant Quantum Advantage
@@ -349,30 +368,30 @@ LONG-TERM (2035+): Full fault-tolerant systems capable of RSA-2048, useful chemi
 ## Decision Cheat Sheet
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                      │ RECOMMENDATION                       │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Need error mitigation now     │ Always apply readout calibration;   │
-│                               │ ZNE for shallow circuits (< 50 gates│
-│                               │ PEC for tiny circuits with known ε  │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Benchmarking hardware quality │ Randomized benchmarking (RB);       │
-│                               │ Interleaved RB for specific gates   │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Claim: "NISQ advantage"       │ Ask: compared to BEST classical?    │
-│ evaluation                    │ Simulated annealing, CCSD(T), GW?   │
-│                               │ Look for classical simulation paper │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Near-term compute investment  │ Focus on quantum simulation         │
-│                               │ (strongly correlated systems —      │
-│                               │ best bet for genuine NISQ value)    │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Fault-tolerant planning       │ Resource estimation tools (e.g.,    │
-│                               │ Azure Quantum Resource Estimator,   │
-│                               │ Q# estimates, Qualtran) before      │
-│                               │ committing; plan for millions of    │
-│                               │ physical qubits                     │
-└──────────────────────────────┴──────────────────────────────────────┘
+
+  SCENARIO                        RECOMMENDATION
+
+  Need error mitigation now       Always apply readout calibration;
+                                  ZNE for shallow circuits (< 50 gates
+                                  PEC for tiny circuits with known ε
+
+  Benchmarking hardware quality   Randomized benchmarking (RB);
+                                  Interleaved RB for specific gates
+
+  Claim: "NISQ advantage"         Ask: compared to BEST classical?
+  evaluation                      Simulated annealing, CCSD(T), GW?
+                                  Look for classical simulation paper
+
+  Near-term compute investment    Focus on quantum simulation
+                                  (strongly correlated systems —
+                                  best bet for genuine NISQ value)
+
+  Fault-tolerant planning         Resource estimation tools (e.g.,
+                                  Azure Quantum Resource Estimator,
+                                  Q# estimates, Qualtran) before
+                                  committing; plan for millions of
+                                  physical qubits
+
 ```
 
 ---

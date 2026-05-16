@@ -1,31 +1,50 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:variational-algorithms
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Variational Quantum Algorithms
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/05-VARIATIONAL-ALGORITHMS.md
+canonical_path: quantum-computing/05-VARIATIONAL-ALGORITHMS.md
+backsource_ids: [proof-backfill:quantum-computing:05-variational-algorithms, git-history:quantum-computing:05-variational-algorithms]
+concepts: [variational, algorithms]
+root_concepts: [variational, algorithms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Variational Quantum Algorithms
 
 ## Big Picture: The Hybrid Classical-Quantum Loop
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                  VARIATIONAL HYBRID ARCHITECTURE                    │
-│                                                                     │
-│  ┌──────────────────────────────────────────────────────────────┐   │
-│  │                     QUANTUM DEVICE                           │   │
-│  │                                                              │   │
-│  │   |0⟩⊗ⁿ ──► [Ansatz U(θ)] ──► |ψ(θ)⟩ ──► Measure H        │   │
-│  │                                         ──► ⟨H⟩(θ)         │   │
-│  └───────────────────────────┬──────────────────────────────────┘   │
-│                              │ cost value C(θ)                     │
-│                              ▼                                      │
-│  ┌──────────────────────────────────────────────────────────────┐   │
-│  │                    CLASSICAL OPTIMIZER                       │   │
-│  │                                                              │   │
-│  │   θ_new = θ - η ∇C(θ)    (gradient-based)                    │   │
-│  │   θ_new = COBYLA/SPSA    (gradient-free)                     │   │
-│  │                                                              │   │
-│  │   ∂C/∂θⱼ = [C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)] / 2           │       │
-│  │            └──────────── parameter-shift rule ──────────┘   │    │
-│  └───────────────────────────┬──────────────────────────────────┘   │
-│                              │ new parameters θ                    │
-│                              └──────────── (loop until converge) ──►│
-└─────────────────────────────────────────────────────────────────────┘
+
+                   VARIATIONAL HYBRID ARCHITECTURE
+
+
+                         QUANTUM DEVICE
+
+       |0⟩⊗ⁿ   ► [Ansatz U(θ)]   ► |ψ(θ)⟩   ► Measure H
+                                               ► ⟨H⟩(θ)
+
+                                 cost value C(θ)
+                               ▼
+
+                        CLASSICAL OPTIMIZER
+
+       θ_new = θ - η ∇C(θ)    (gradient-based)
+       θ_new = COBYLA/SPSA    (gradient-free)
+
+       ∂C/∂θⱼ = [C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)] / 2
+                              parameter-shift rule
+
+                                 new parameters θ
+                                             (loop until converge)   ►
+
 
   Foundation: Variational Principle
   ⟨ψ(θ)|H|ψ(θ)⟩ ≥ E₀  for all θ, all normalized |ψ(θ)⟩
@@ -74,22 +93,22 @@ Evaluate ⟨H⟩ = Σₖ αₖ ⟨Pₖ⟩  by measuring each Pauli term separate
 Two competing philosophies:
 
 ```
-┌──────────────────────────────┬───────────────────────────────────────┐
-│   HARDWARE-EFFICIENT ANSATZ  │    CHEMICALLY-INSPIRED ANSATZ         │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Designed around hardware     │ Designed around physics               │
-│ topology and native gates    │ (UCC — Unitary Coupled Cluster)       │
-│                              │                                       │
-│ Ry(θ₁)─┐                    │ UCCSD: singles + doubles              │
-│ Ry(θ₂)─┼─CNOT─Ry(θ₃)       │ |ψ⟩ = e^{T-T†}|HF⟩                  │
-│ Ry(θ₄)─┘                    │ T = T₁ + T₂ (cluster operators)       │
-│                              │                                       │
-│ + Shallow circuit depth      │ + Chemical meaning, variational       │
-│ + Fits device connectivity   │   completeness for small molecules    │
-│ - No physical interpretation │ - Deep circuits (CNOT-heavy)         │
-│ - May miss ground state      │ - Doesn't scale to large systems      │
-│   (not chemically motivated) │                                       │
-└──────────────────────────────┴───────────────────────────────────────┘
+
+    HARDWARE-EFFICIENT ANSATZ       CHEMICALLY-INSPIRED ANSATZ
+
+  Designed around hardware       Designed around physics
+  topology and native gates      (UCC — Unitary Coupled Cluster)
+
+  Ry(θ₁)                        UCCSD: singles + doubles
+  Ry(θ₂)   CNOT Ry(θ₃)         |ψ⟩ = e^{T-T†}|HF⟩
+  Ry(θ₄)                        T = T₁ + T₂ (cluster operators)
+
+  + Shallow circuit depth        + Chemical meaning, variational
+  + Fits device connectivity       completeness for small molecules
+  - No physical interpretation   - Deep circuits (CNOT-heavy)
+  - May miss ground state        - Doesn't scale to large systems
+    (not chemically motivated)
+
 ```
 
 ### Parameter Optimization
@@ -131,7 +150,7 @@ MIXER HAMILTONIAN: Hb = Σᵢ Xᵢ   (drives transitions between cuts)
 ```
 QAOA at depth p:
 
-|+⟩⊗ⁿ ──► [e^{-iγ₁Hc}] ──► [e^{-iβ₁Hb}] ──► ... ──► [e^{-iγₚHc}] ──► [e^{-iβₚHb}] ──► measure
+|+⟩⊗ⁿ   ► [e^{-iγ₁Hc}]   ► [e^{-iβ₁Hb}]   ► ...   ► [e^{-iγₚHc}]   ► [e^{-iβₚHb}]   ► measure
 
 Parameters: γ = (γ₁,...,γₚ), β = (β₁,...,βₚ) — 2p total
 
@@ -186,25 +205,25 @@ where C₁ is a circuit-architecture constant
 ### Mitigation Strategies
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│ MITIGATION STRATEGY          │ MECHANISM               │ LIMITATION  │
-├──────────────────────────────┼─────────────────────────┼─────────────┤
-│ Local cost functions         │ Measure subsystems, not  │ May not     │
-│ C = Σᵢ ⟨Oᵢ⟩ (k-local O)    │ global — Var ~ O(1/poly) │ approximate │
-│                              │ for constant k           │ global obj  │
-├──────────────────────────────┼─────────────────────────┼─────────────┤
-│ Layerwise training           │ Train one layer at a     │ Local optima│
-│ (greedy initialization)      │ time, fix previous       │ not avoided │
-├──────────────────────────────┼─────────────────────────┼─────────────┤
-│ Structured ansatz            │ Problem-specific U(θ):   │ Requires    │
-│ (UCC, QAOA, MERA)            │ not 2-design-like        │ domain know │
-├──────────────────────────────┼─────────────────────────┼─────────────┤
-│ Warm starting                │ Initialize near known   │ Need good   │
-│ (classical pre-solve)        │ solution; small θ range │ initial pt  │
-├──────────────────────────────┼─────────────────────────┼─────────────┤
-│ Correlation-based pruning    │ Remove parameters with   │ Overhead;   │
-│ (parameter freezing)         │ small gradients early    │ heuristic   │
-└──────────────────────────────┴─────────────────────────┴─────────────┘
+
+  MITIGATION STRATEGY            MECHANISM                 LIMITATION
+
+  Local cost functions           Measure subsystems, not    May not
+  C = Σᵢ ⟨Oᵢ⟩ (k-local O)      global — Var ~ O(1/poly)   approximate
+                                 for constant k             global obj
+
+  Layerwise training             Train one layer at a       Local optima
+  (greedy initialization)        time, fix previous         not avoided
+
+  Structured ansatz              Problem-specific U(θ):     Requires
+  (UCC, QAOA, MERA)              not 2-design-like          domain know
+
+  Warm starting                  Initialize near known     Need good
+  (classical pre-solve)          solution; small θ range   initial pt
+
+  Correlation-based pruning      Remove parameters with     Overhead;
+  (parameter freezing)           small gradients early      heuristic
+
 ```
 
 ---
@@ -215,24 +234,24 @@ where C₁ is a circuit-architecture constant
             HIGH EXPRESSIBILITY
            (can represent any state)
                     ▲
-                    │
+
          Random    ●  ← BARREN PLATEAU TERRITORY
-         circuits   │    (unitary 2-design, gradients vanish)
-                    │
-     TRADEOFF       │
+         circuits        (unitary 2-design, gradients vanish)
+
+     TRADEOFF
       CURVE         ●  ← Hardware-efficient ansatz
-                    │    (moderate expressibility, trainable)
-                    │
+                         (moderate expressibility, trainable)
+
         Structured  ●  ← UCCSD, QAOA
-        ansätze     │    (low expressibility, good gradients)
-                    │
+        ansätze          (low expressibility, good gradients)
+
                     ●  ← Fixed circuit (product state)
-                    │    (not expressive, trivially trainable)
+                         (not expressive, trivially trainable)
                     ▼
             LOW EXPRESSIBILITY
             (restricted function class)
 
-HORIZONTAL: Trainability (gradient magnitude) ──────────────►
+HORIZONTAL: Trainability (gradient magnitude)               ►
 ```
 
 You can't have both. A circuit expressive enough to represent arbitrary quantum states is essentially a random unitary and has barren plateaus. The art of VQA design is finding structured circuits that contain the target state (high effective expressibility) without becoming 2-design-like.
@@ -244,24 +263,24 @@ You can't have both. A circuit expressive enough to represent arbitrary quantum 
 ```
 CLASSICAL METHODS VS VQE:
 
-┌──────────────────────────────────────────────────────────────────────┐
-│ PROBLEM SIZE    │ BEST CLASSICAL           │ VQE ADVANTAGE?          │
-├──────────────────┼──────────────────────────┼─────────────────────────┤
-│ n ≤ 20 electrons │ Full Configuration        │ No — FCI is exact       │
-│                  │ Interaction (FCI): exact  │ and fast                │
-├──────────────────┼──────────────────────────┼─────────────────────────┤
-│ n ~ 30-50        │ DMRG: near-exact for 1D  │ Maybe — strongly        │
-│                  │ CCSD(T): chemical accuracy│ correlated 2D systems  │
-│                  │ for weakly correlated    │                         │
-├──────────────────┼──────────────────────────┼─────────────────────────┤
-│ n ~ 100+         │ DFT: scales as O(n³),    │ In principle — but need │
-│                  │ approximate              │ error-corrected qubits  │
-│                  │ Tensor network methods   │ (not NISQ)              │
-├──────────────────┼──────────────────────────┼─────────────────────────┤
-│ Strongly corr.   │ No reliable classical    │ Target use case —       │
-│ 2D systems       │ method (sign problem in  │ FeMoco, high-Tc         │
-│ (FeMoco, Cu-O)   │ QMC)                     │ superconductors         │
-└──────────────────┴──────────────────────────┴─────────────────────────┘
+
+  PROBLEM SIZE      BEST CLASSICAL             VQE ADVANTAGE?
+
+  n ≤ 20 electrons   Full Configuration          No — FCI is exact
+                     Interaction (FCI): exact    and fast
+
+  n ~ 30-50          DMRG: near-exact for 1D    Maybe — strongly
+                     CCSD(T): chemical accuracy  correlated 2D systems
+                     for weakly correlated
+
+  n ~ 100+           DFT: scales as O(n³),      In principle — but need
+                     approximate                error-corrected qubits
+                     Tensor network methods     (not NISQ)
+
+  Strongly corr.     No reliable classical      Target use case —
+  2D systems         method (sign problem in    FeMoco, high-Tc
+  (FeMoco, Cu-O)     QMC)                       superconductors
+
 
 HONEST ASSESSMENT:
   - For NISQ-scale VQE: classical methods still competitive or better
@@ -276,27 +295,27 @@ HONEST ASSESSMENT:
 ## Decision Cheat Sheet
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Ground state energy,         │ UCCSD-VQE or hardware-efficient VQE  │
-│ small molecule (< 20 qubits) │ Compare with CCSD(T) classically     │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Ground state energy,         │ Wait for fault-tolerant hardware;     │
-│ large/strongly correlated    │ current VQE won't beat DMRG/QMC       │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Combinatorial optimization   │ QAOA for benchmarking/research;      │
-│ (MaxCut, portfolio opt.)     │ for production: use GW/SA classically │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Barren plateau suspected     │ Switch to local cost, structured      │
-│ (gradient ≈ 0 for all θ)     │ ansatz, or warm start                 │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Gradient evaluation          │ Parameter-shift rule on hardware;    │
-│ on noisy hardware            │ SPSA when noise dominates            │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ p-depth for QAOA             │ p = 1 for benchmarking; p ≥ 5 for     │
-│                              │ meaningful approximation ratio        │
-└──────────────────────────────┴───────────────────────────────────────┘
+
+  SCENARIO                       RECOMMENDATION
+
+  Ground state energy,           UCCSD-VQE or hardware-efficient VQE
+  small molecule (< 20 qubits)   Compare with CCSD(T) classically
+
+  Ground state energy,           Wait for fault-tolerant hardware;
+  large/strongly correlated      current VQE won't beat DMRG/QMC
+
+  Combinatorial optimization     QAOA for benchmarking/research;
+  (MaxCut, portfolio opt.)       for production: use GW/SA classically
+
+  Barren plateau suspected       Switch to local cost, structured
+  (gradient ≈ 0 for all θ)       ansatz, or warm start
+
+  Gradient evaluation            Parameter-shift rule on hardware;
+  on noisy hardware              SPSA when noise dominates
+
+  p-depth for QAOA               p = 1 for benchmarking; p ≥ 5 for
+                                 meaningful approximation ratio
+
 ```
 
 ---

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\02-ALGORITHMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   QUANTUM ALGORITHM LANDSCAPE                    |\n+------------------------------------------------------------------+\n|                                                                    |\n|  PROVEN SPEEDUP                    VARIATIONAL (NISQ-era)         |\n|                                                                   |\n|  Shor: factoring   ► exponential   VQE: quantum chemistry         |\n|  Grover: search   ► quadratic      QAOA: combinatorial opt        |\n|  QFT: Fourier   ► exponential      QSVM: kernel methods           |\n|  HHL: linear sys   ► conditional   Quantum ML: embeddings         |\n|  QPE: phase est.   ► exponential   (advantages unproven)          |\n|  Hamiltonian sim   ► exponential                                   |\n|                                                                    |\n|  PARADIGMS                                                         |\n|                                                                   |\n|  Query complexity → oracle model, count queries                    |\n|  Phase estimation → QFT + eigenvalue extraction                   |\n|  Amplitude amplification → Grover iterate                         |\n|  Hidden subgroup problem (HSP) → unifies Shor, Simon              |\n|  Variational → hybrid classical-quantum optimization              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Speedup Taxonomy",
+      "confidence": "candidate",
+      "text": "TYPE              EXAMPLE              CONDITION\n\nExponential       Shor's algorithm     Problem has exploitable structure\n  (2^n → poly)   Quantum simulation   (periodicity, group structure)\n\nQuadratic         Grover's search      Unstructured; provably optimal\n  (N → √N)       Amplitude estim.     for black-box models\n\nPolynomial        HHL linear systems   Conditional on quantum RAM,\n  (conditional)  (potentially exp.)   state prep, readout caveats\n\nNo speedup        Most ML, databases   Classical structure already\n  (none)         Graph coloring(most) polynomial; no structure to exploit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 177,
+      "heading_context": "## Phase Estimation (QPE)",
+      "confidence": "candidate",
+      "text": "Given: Unitary U and eigenstate |u⟩ with U|u⟩ = e^(2πiφ)|u⟩\nFind: φ ∈ [0,1) to t bits of precision\n\nCircuit:\n  |0⟩^⊗t   H^⊗t                        QFT†   M\n                     controlled-U^j\n  |u⟩                                   (eigenstate unchanged)\n\nAfter QFT†: |φ̃⟩ ≈ |⌊2^t φ⌉⟩   (closest t-bit approximation to φ)\n\nPrecision: t bits, probability > 1 - ε with t = n + ⌈log(2 + 1/2ε)⌉ qubits\nGate count: O(t²) + cost of implementing controlled-U^(2^j)\n\nUsed in:\n  Shor: φ is r/N (period/modulus) — extract r\n  HHL: φ encodes eigenvalue of matrix A\n  Quantum chemistry: φ encodes molecular ground state energy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## Shor's Algorithm (1994)",
+      "confidence": "candidate",
+      "text": "REDUCTION: Factoring → Period Finding (classical number theory)\n\n\nStep 1 (classical): Choose random a, compute gcd(a, N)\n  If gcd(a,N) > 1: found factor, done.\n\nStep 2 (quantum): Find period r of f(x) = aˣ mod N\n  r is smallest positive integer such that aʳ ≡ 1 (mod N)\n\nStep 3 (classical): With high probability:\n  - r is even (restart if not)\n  - a^(r/2) ≢ -1 (mod N) (restart if not)\n  - gcd(a^(r/2) ± 1, N) gives nontrivial factor\n\nWHY r IS THE KEY: aʳ ≡ 1 (mod N) means:\n  (a^(r/2) − 1)(a^(r/2) + 1) = aʳ − 1 ≡ 0 (mod N)\n  But neither factor is divisible by N → they share factors with N.\n\nQUANTUM PERIOD FINDING:\n  1. Create superposition |ψ⟩ = (1/√M)Σₓ|x⟩|aˣ mod N⟩\n  2. Measure second register: collapses to uniform superposition\n     over {x : aˣ mod N = c} for some c\n  3. QFT on first register: peaks at multiples of M/r\n  4. Measure → get M/r approximately → recover r by continued fractions\n\nCOMPLEXITY:\n  Circuit depth: O((log N)²) with fast multiplication\n  Total gates: O((log N)³)\n  Qubits: ~2n + O(1) where N < 2^n\n\n  For RSA-2048: need ~4000 logical qubits → ~8M physical at current error rates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Grover's Search (1996)",
+      "confidence": "candidate",
+      "text": "Problem: Find x* such that f(x*) = 1, where f: {0,1}^n → {0,1}\n  N = 2^n items, 1 marked item.\n\nClassical: O(N) queries expected (linear search).\nQuantum:   O(√N) queries.\n\nGROVER ITERATION (amplitude amplification):\n  1. Initialize: |s⟩ = H^⊗n|0⟩^⊗n = (1/√N)Σ|x⟩  (uniform superposition)\n\n  2. Oracle Uf: phase-flip the marked item:\n     |x⟩ → (-1)^f(x)|x⟩\n     Geometrically: reflect around subspace perpendicular to |x*⟩\n\n  3. Diffusion (inversion about mean):\n     D = 2|s⟩⟨s| − I\n     Geometrically: reflect around |s⟩\n\n  Composed: Grover iterate G = D · Uf\n\n  Amplitude of |x*⟩ after k iterations: sin²((2k+1)θ)\n  where sin(θ) = 1/√N\n\n  Optimal k ≈ (π/4)√N → amplitude ≈ 1\n\nGEOMETRIC PICTURE:\n  State lives in 2D subspace spanned by |x*⟩ and |s⟩.\n  Each iteration rotates by 2θ toward |x*⟩.\n  After ~π/(4θ) ≈ π√N/4 steps, state ≈ |x*⟩.\n\nMULTIPLE SOLUTIONS (M marked items):\n  Optimal: O(√(N/M)) iterations\n\nLOWER BOUND: Bennett-Bernstein-Brassard-Vazirani (BBBV 1996)\n  Any quantum search algorithm requires Ω(√N) queries.\n  Grover is optimal for unstructured search.\n\nAPPLICATIONS:\n  Exhaustive key search: AES-128 → 2^64 queries (was 2^128)\n  → NIST response: double key lengths (AES-256 stays secure)\n  Collision finding: O(N^(1/3)) with Grover + BHT\n  Preimage attacks: O(2^(n/2)) instead of O(2^n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "## HHL Algorithm (Harrow-Hassidim-Lloyd, 2009)",
+      "confidence": "candidate",
+      "text": "Problem: Given sparse N×N matrix A and vector b, find x = A⁻¹b.\nClassical: O(N^3) (direct) or O(N·κ·poly(log 1/ε)) iterative\nQuantum: O(log(N) · κ² · poly(log 1/ε)) with caveats\n\nCircuit:\n  1. Prepare quantum state |b⟩ (input state prep — big caveat)\n  2. QPE on e^(iAt): extract eigenvalues λⱼ of A\n  3. Ancilla rotation: |λⱼ⟩ → (C/λⱼ)|0⟩ + √(1-C²/λⱼ²)|1⟩\n  4. Uncompute QPE\n  5. Post-select on ancilla = |1⟩ → amplitude encodes 1/λⱼ\n  6. Output: |x⟩ = A⁻¹|b⟩/‖A⁻¹b‖\n\nCAVEATS (each can kill the speedup):\n  State prep: Preparing |b⟩ from classical b takes O(N) — wipes out speedup\n  Readout: Reading out x takes O(N) measurements — wipes out speedup\n  Quantum RAM: Requires QRAM for efficient state prep (massive hardware assumption)\n  Condition number κ: Algorithm is O(κ²); classical iterative is O(κ) or O(κ√N)\n  Sparse access: A must be sparse AND efficiently oracle-accessible\n\n  Practical advantage only when: reading a scalar property of x (not full x),\n  input already quantum, A sparse with efficient oracle, κ manageable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
