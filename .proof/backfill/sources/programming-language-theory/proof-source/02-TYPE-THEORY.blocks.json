@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\02-TYPE-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    TYPE THEORY LANDSCAPE                                 |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  EXPRESSIVENESS vs. INFERABILITY TRADEOFF:                              |\n|                                                                          |\n|  STLC          System F       HM          System Fω    Dependent         |\n|  (simple       (universal     (let-poly   (higher-     types             |\n|   types)        quant.)        subset      kinded)      Coq/Agda)        |\n|    │               │             │            │              │           |\n|    ▼               ▼             ▼            ▼              ▼           |\n|  Fully         Type inf.      Fully        Inf. for       Undecidable   |\n|  inferrable    undecidable    inferrable   monomorphic    in general    |\n|               (Boehm 1985)   (Algorithm W) let; annot     (need         |\n|                               O(n·α(n))    for rank-2+    termination   |\n|                                                           checker)       |\n|                                                                          |\n|  PRODUCTION LANGUAGE MAPPING:                                            |\n|  Haskell/OCaml/F#: HM core + extensions (rank-n with annotation)       |\n|  Rust: HM-based (inferred within functions, explicit at signatures)     |\n|  Java/C#: bounded polymorphism (F<: variant)                            |\n|  TypeScript: structural subtyping + unsound covariance                  |\n|  Scala: local type inference + subtyping + variance                     |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## 1. Simply Typed Lambda Calculus (STLC)",
+      "confidence": "candidate",
+      "text": "Types:  τ ::= B | τ → τ     (base types, function types)\nTerms:  t ::= x | λx:τ.t | t t\n\nTyping context: Γ = {x₁:τ₁, ..., xₙ:τₙ}\n\nTYPING RULES:\n\n  Γ, x:τ ⊢ x : τ                      (T-Var)\n\n  Γ, x:τ₁ ⊢ t : τ₂\n  ─────────────────────                 (T-Abs)\n  Γ ⊢ λx:τ₁.t : τ₁ → τ₂\n\n  Γ ⊢ t₁ : τ₁ → τ₂    Γ ⊢ t₂ : τ₁\n  ─────────────────────────────────     (T-App)\n  Γ ⊢ t₁ t₂ : τ₂",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## 2. System F: Universal Polymorphism",
+      "confidence": "candidate",
+      "text": "SYSTEM F SYNTAX:\n\nTypes:  τ ::= α | τ → τ | ∀α.τ\nTerms:  t ::= x | λx:τ.t | t t | Λα.t | t[τ]\n\n                              ↑           ↑\n                         type abstraction  type application\n\nEXAMPLE — polymorphic identity:\n\n  id : ∀α. α → α\n  id = Λα. λx:α. x\n\n  id [Int] 42 : Int      (instantiate α := Int)\n  id [Bool] true : Bool  (instantiate α := Bool)\n\nEXAMPLE — polymorphic composition:\n\n  compose : ∀α. ∀β. ∀γ. (β → γ) → (α → β) → (α → γ)\n  compose = Λα. Λβ. Λγ. λf:β→γ. λg:α→β. λx:α. f (g x)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## 2. System F: Universal Polymorphism",
+      "confidence": "candidate",
+      "text": "IMPREDICATIVITY EXAMPLE:\n\n  id : ∀α. α → α can be instantiated at:\n  id [∀α. α → α] id : (∀α. α → α) → (∀α. α → α)\n\n  The type ∀α. α → α is a valid instantiation for α itself.\n  This self-reference makes inference undecidable.\n\n  Contrast predicative polymorphism (ML/HM):\n  The quantifier in let bindings ranges only over monotypes\n  → Inference decidable (this is Milner's restriction)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## 2. System F: Universal Polymorphism",
+      "confidence": "candidate",
+      "text": "PARAMETRICITY (FREE THEOREMS):\n\n  f : ∀α. [α] → [α]         (list to list)\n  → f must return a permutation/sublist of input\n    (can't create elements of unknown type α)\n\n  f : ∀α. α → α\n  → f = id  (the only function of this type)\n\n  f : ∀α. ∀β. (α → β) → [α] → [β]\n  → f = map  (the only sensible function of this type)\n\n  Wadler's \"Theorems for free!\" (1989):\n  Types give you theorems about programs for free — no proofs needed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## 3. Hindley-Milner: The Engineering Sweet Spot",
+      "confidence": "candidate",
+      "text": "HM SYNTAX (types):\n\n  Monotype: τ ::= α | τ → τ | T τ₁...τₙ   (no ∀ inside)\n  Polytype: σ ::= ∀α₁...αₙ.τ               (∀ only at top level)\n\n  CRITICAL: ∀ never appears nested inside a monotype\n  This is the predicativity restriction.\n\nHM TERM SYNTAX:\n\n  t ::= x | λx.t | t t | let x = t₁ in t₂\n\n  λ-abstraction: monomorphic (x has one type in scope of λ)\n  let-binding: polymorphic (x can be instantiated differently)\n\nHM TYPING:\n\n  Generalization (at let):\n    If Γ ⊢ t₁ : τ and α₁...αₙ ∉ FV(Γ)\n    Then Γ, x:∀α₁...αₙ.τ ⊢ let x=t₁ in t₂\n\n  Instantiation:\n    If Γ ⊢ t : ∀α.τ\n    Then Γ ⊢ t : τ[τ'/α] for any monotype τ'\n\nEXAMPLE:\n\n  let id = λx.x in\n    (id 42, id true)\n\n  id gets type: ∀α. α → α   (generalized at let-binding)\n  id 42:   instantiate α := Int  → Int\n  id true: instantiate α := Bool → Bool\n  Result:  (Int, Bool)\n\n  If id were under λ (not let), it would be monomorphic!\n  λf. (f 42, f true)  ← TYPECHECKING FAILS in HM\n                         f must have a single type in λ scope",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## 3. Hindley-Milner: The Engineering Sweet Spot",
+      "confidence": "candidate",
+      "text": "ALGORITHM W (outline):\n\n  W(Γ, x):        Look up x in Γ, instantiate fresh type variables\n  W(Γ, λx.t):     Fresh α for x; W(Γ,x:α, t) = (S, τ); return (S, Sα → τ)\n  W(Γ, t₁ t₂):   W(Γ, t₁) = (S₁, τ₁)\n                  W(S₁Γ, t₂) = (S₂, τ₂)\n                  Fresh β; unify(S₂τ₁, τ₂ → β) = S₃\n                  Return (S₃∘S₂∘S₁, S₃β)\n  W(Γ, let x=t₁ in t₂):\n                  W(Γ, t₁) = (S₁, τ₁)\n                  σ = generalize(S₁Γ, τ₁)   ← generalize free vars\n                  W(S₁Γ, x:σ, t₂) = (S₂, τ₂)\n                  Return (S₂∘S₁, τ₂)\n\n  UNIFICATION: Robinson unification\n  Complexity: O(n · α(n)) where α is inverse Ackermann — near-linear\n\n  RESULT: Principal type theorem — W finds the most general type,\n          or fails (type error)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "## 3. Hindley-Milner: The Engineering Sweet Spot",
+      "confidence": "candidate",
+      "text": "WHERE HM NEEDS ANNOTATIONS:\n\n1. Rank-2 polymorphism:\n   runST :: (∀s. ST s a) → a\n   The ∀s is inside the argument type position — HM can't infer this\n   (forall quantifier inside → position of function type)\n   Needs: explicit annotation in Haskell\n\n2. Impredicative instantiation:\n   id id :: (a → a) → (a → a)   ← inferring id's type as (∀a.a→a)→... fails in HM\n   GHC needs ImpredicativeTypes extension, still limited\n\n3. GADTs (generalized algebraic data types):\n   Type equalities in patterns require type annotations\n   (requires OutsideIn(X) algorithm extension, not pure HM)\n\n4. Higher-rank polymorphism generally:\n   GHC's RankNTypes extension: allows rank-n but requires annotations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## 4. System Fω: Higher-Kinded Types",
+      "confidence": "candidate",
+      "text": "KINDS:\n  κ ::= * | κ → κ\n\n  * = kind of proper types (Int, Bool, Maybe Int)\n  * → * = kind of type constructors (Maybe, List, IO)\n  * → * → * = binary type constructors (Either, Map)\n\nKIND CHECKING:\n  Int : *\n  Maybe : * → *\n  Maybe Int : *      (apply * → * to * → *)\n  Either : * → * → *\n  Either String Int : *\n\nSYSTEM Fω:\n  Allows abstraction over type constructors\n  ΛF:*→*. λxs : F Int. ...   ← abstract over type constructor F\n\nPRODUCTION: HASKELL'S HIGHER-KINDED TYPES:\n\n  class Functor f where           -- f : * → *\n    fmap :: (a → b) → f a → f b\n\n  class (Functor f) => Applicative f where\n    pure :: a → f a\n    (<*>) :: f (a → b) → f a → f b\n\n  class (Applicative m) => Monad m where\n    (>>=) :: m a → (a → m b) → m b\n\n  f, m are higher-kinded type variables of kind * → *\n  HM alone cannot express these (HM has kind * only)\n  System Fω is needed to type these typeclass definitions\n\nSCALA KIND PROJECTOR:\n  F[_] in Scala = Haskell's f : * → *\n  EitherT[IO, _, _] type aliases = kind * → * → *\n  cats/scalaz heavily use this",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "## 5. Subtyping",
+      "confidence": "candidate",
+      "text": "SUBTYPING RULE:\n  Γ ⊢ t : τ₁    τ₁ <: τ₂\n  ─────────────────────────    (T-Sub / Subsumption)\n  Γ ⊢ t : τ₂\n\n  τ₁ <: τ₂ means: \"τ₁ is a subtype of τ₂\"\n  = any value of type τ₁ can safely be used where τ₂ is expected\n\nWIDTH subtyping for records:\n  {x:Int, y:Bool} <: {x:Int}    (more fields ≤ fewer fields)\n  Objects with more methods are subtypes of objects with fewer\n\nDepth subtyping (when is covariance safe?):\n  {x: τ₁} <: {x: τ₂} if τ₁ <: τ₂   ← only safe for READ-ONLY fields",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "## 5. Subtyping",
+      "confidence": "candidate",
+      "text": "VARIANCE OF F[−] WRT SUBTYPING:\n\n  COVARIANT:     A <: B → F[A] <: F[B]    (same direction)\n  CONTRAVARIANT: A <: B → F[B] <: F[A]    (reversed)\n  INVARIANT:     neither in general\n\nFUNCTION ARROW IS CONTRAVARIANT IN ARGUMENT, COVARIANT IN RESULT:\n\n  τ₁ → τ₂  <:  σ₁ → σ₂\n  iff σ₁ <: τ₁  (argument: contravariant — σ₁ is more general)\n   AND τ₂ <: σ₂ (result: covariant — τ₂ is more specific)\n\n  INTUITION:\n    If f : Animal → String\n    Then f is also usable as Cat → String  (Cat <: Animal)\n    (f can handle anything f can handle + more; so if you give it a Cat, fine)\n    Contravariance: argument type gets WIDER when subtype\n\n    If g : Cat → Siamese\n    Then g is also usable as Cat → Animal  (Siamese <: Animal)\n    Covariance: return type gets NARROWER when subtype\n\nJAVA'S UNSOUND COVARIANT ARRAYS:\n  Java: String[] <: Object[]   (covariant)\n  This is UNSOUND:\n    Object[] arr = new String[10];  // compiles (covariant)\n    arr[0] = 42;                    // compiles (Object fits in Object[])\n    // Runtime: ArrayStoreException (42 is not a String)\n    // The type system LIED — requires runtime check\n\nKOTLIN'S SOLUTION: declaration-site variance\n  Array<T> is invariant (no implicit subtyping between arrays)\n  List<out T> is covariant (read-only, so safe)\n  Consumer<in T> is contravariant (write-only, so safe)\n  in/out keywords = explicit variance annotation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## 6. Bounded Polymorphism: F<:",
+      "confidence": "candidate",
+      "text": "F<: SYNTAX:\n\nTypes:  τ ::= α | τ → τ | ∀α<:τ.τ | {l:τ,...}\n             (bounded quantification)\n\n  ∀α<:Animal.α → α\n  = polymorphic function over any subtype of Animal\n\n  JAVA/KOTLIN/SCALA/TYPESCRIPT EQUIVALENT:\n  <T extends Animal> T identity(T x) { return x; }  // Java\n  fun <T : Animal> identity(x: T): T = x             // Kotlin\n\nPIERCE SCRAP: F<: was expected to model object-oriented subtyping.\n  But bounded polymorphism is UNDECIDABLE in its full form (Pierce-Turner 1994)\n  → all mainstream languages use BOUNDED POLYMORPHISM with restrictions\n  → Java uses nominal F<: (not structural); TypeScript uses structural",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## 7. TypeScript: Structural Subtyping and Its Unsoundness",
+      "confidence": "candidate",
+      "text": "STRUCTURAL SUBTYPING IN TYPESCRIPT:\n  { x: number, y: number } <: { x: number }   (width subtyping: more fields)\n  No nominal class hierarchy needed for subtyping\n  DUCK TYPING made static: if it has the right fields, it's compatible\n\nKNOWN UNSOUNDNESS HOLES (by design):\n\n1. COVARIANT METHOD PARAMETERS:\n   TypeScript class methods: parameters are covariant (not contravariant)\n   class Animal { makeSound(a: Animal): void }\n   class Cat extends Animal { makeSound(c: Cat): void }\n   Cat.makeSound <: Animal.makeSound in TypeScript's system\n   (Correct: Cat.makeSound should be contravariant in argument = NOT a subtype)\n   This is unsound. TypeScript chose soundness for usability.\n\n2. TYPE ASSERTIONS (as):\n   x as string  ← no runtime check; just type annotation\n   Any type can be asserted to any other via as unknown as T\n\n3. any TYPE:\n   Explicit escape hatch; defeats all type checking\n   unknown is the sound alternative (must narrow before use)\n\n4. COVARIANT GENERICS BY DEFAULT:\n   Array<string> <: Array<unknown> in TypeScript\n   (arrays are covariant; only safe for read-only use)\n\n5. FUNCTION RETURN TYPE COVARIANCE:\n   Correct — TypeScript gets this right\n\nTYPESCRIPT TEAM'S EXPLICIT TRADEOFF:\n  \"TypeScript is not trying to be maximally sound.\n   It is trying to be practical and catch most bugs.\"\n  Unsoundness is documented: https://github.com/microsoft/TypeScript/wiki/TypeScript-Design-Goals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

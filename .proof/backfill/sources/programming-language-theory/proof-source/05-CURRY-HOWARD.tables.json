@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\05-CURRY-HOWARD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 354,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Implication-as-program",
+          "Function type A -> B",
+          "Total proof terms differ from general production functions with effects."
+        ],
+        [
+          "Both-values evidence",
+          "Product type A x B",
+          "Tuples/structs are proof of conjunction only under typed discipline."
+        ],
+        [
+          "Either-case evidence",
+          "Sum type A + B",
+          "Exhaustive pattern matching is the operational counterpart."
+        ],
+        [
+          "Impossible state",
+          "Empty type such as Void or `!`",
+          "Bottom and exceptions can inhabit \"empty\" types in partial languages."
+        ],
+        [
+          "Classical control",
+          "CPS transform and double negation",
+          "Classical logic enters through control effects, not free intuitionistic reasoning."
+        ],
+        [
+          "Peirce's law in programs",
+          "First-class continuations",
+          "Call/cc changes equational reasoning and optimization assumptions."
+        ],
+        [
+          "Resource-sensitive proof",
+          "Linear implication and affine types",
+          "Rust is affine ownership, not full linear logic."
+        ],
+        [
+          "Reusable assumption",
+          "The `!` modality for unrestricted use",
+          "Linear systems must mark where duplication/discarding is allowed."
+        ],
+        [
+          "Proof normalization",
+          "Beta-reduction termination",
+          "Coq enforces termination; general-purpose languages do not."
+        ]
+      ]
+    }
+  ]
+}

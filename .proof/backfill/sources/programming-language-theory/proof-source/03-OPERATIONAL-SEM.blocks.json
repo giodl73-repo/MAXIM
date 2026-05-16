@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\03-OPERATIONAL-SEM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    OPERATIONAL SEMANTICS LANDSCAPE                       |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  BIG-STEP (Natural)          SMALL-STEP (SOS)                           |\n|  e ⇓ v                       e → e'                                     |\n|  \"e evaluates to v\"          \"e steps to e' in one step\"               |\n|  Elegant specification       Models intermediate states                 |\n|  Cannot distinguish           Distinguishes stuck from diverging        |\n|  stuck from diverging         → Progress theorem is expressible         |\n|                                                                          |\n|  ABSTRACT MACHINES (implementations of operational semantics):          |\n|                                                                          |\n|  SECD (Landin 1964)   CEK (Felleisen 1987)   Krivine (1985)            |\n|  Stack, Env,          Closure, Env,           CBN, environment-based    |\n|  Control, Dump        Kontinuation            No closures needed        |\n|                                                                          |\n|  G-machine/STG (Johnsson 1984, Peyton Jones 1992)                      |\n|  Spineless Tagless G-machine: GHC's lazy evaluator                     |\n|  Thunks, graph reduction, sharing                                       |\n|                                                                          |\n|  CPS TRANSFORM: every function call is a tail call                      |\n|  ANF: every sub-expression named; evaluation order explicit             |\n|  → Basis of compiler intermediate representations                      |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## 1. Big-Step Semantics (Natural Semantics)",
+      "confidence": "candidate",
+      "text": "BIG-STEP RULES FOR CBV λ-CALCULUS:\n\n  Values are either λ-abstractions or base values (n, b, ...)\n\n  ───────────         (BS-Val)\n  v ⇓ v              (values evaluate to themselves)\n\n  e₁ ⇓ λx.e    e₂ ⇓ v₂    e[v₂/x] ⇓ v\n  ────────────────────────────────────     (BS-App)\n  e₁ e₂ ⇓ v\n\n  e₂ ⇓ v₂    e[v₂/x] ⇓ v\n  ─────────────────────────              (BS-Let)\n  let x = e₂ in e ⇓ v\n\nREADING: derivation trees are proof trees showing the evaluation\n         Each rule fires when its premises hold\n\nLIMITATION:\n  Diverging programs: (Y id) doesn't have a derivation\n  Stuck programs: 1 + true doesn't have a derivation\n  BIG-STEP CANNOT DISTINGUISH: which of these is it?\n  → You can't express \"this program doesn't typecheck\" vs.\n    \"this program loops\" in big-step\n  → Small-step distinguishes them: stuck has no step; diverging has infinitely many",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## 2. Small-Step Semantics (SOS)",
+      "confidence": "candidate",
+      "text": "SMALL-STEP RULES FOR CBV λ-CALCULUS:\n\n  Values: v ::= λx.t | n | b | ...\n\n  ─────────────────────────               (S-Beta)\n  (λx.t) v → t[v/x]                      (fire only when argument is a value)\n\n  t₁ → t₁'\n  ─────────────                           (S-App1)\n  t₁ t₂ → t₁' t₂                         (evaluate function position first)\n\n  t₂ → t₂'\n  ─────────────────                       (S-App2)\n  v t₂ → v t₂'                           (function is value; evaluate argument)\n\nPROGRESS theorem is expressible:\n  A term t is \"stuck\" if it's not a value AND no rule applies\n  Progress: if ⊢ t : τ then t is a value OR ∃t' : t → t'\n  (well-typed terms never get stuck)\n\nMULTI-STEP:\n  t →* t' means t steps to t' in zero or more steps\n  t is in normal form if no t' exists with t → t'\n\nDETERMINISM: CBV small-step is deterministic\n  If t → t₁ and t → t₂ then t₁ = t₂\n  (evaluation order is fixed by the rules; one active redex at a time)\n  Determinism is a property of the rules, not λ-calculus generally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## 3. The SECD Machine",
+      "confidence": "candidate",
+      "text": "SECD MACHINE STATE: (S, E, C, D)\n  S: Stack of values (operand stack)\n  E: Environment (variable → value mapping)\n  C: Control (list of terms/operations to evaluate)\n  D: Dump (saved (S,E,C) triples — continuation stack for function calls)\n\nTRANSITIONS:\n\n  Apply (function call):\n    When function + arg on stack:\n    Save (S, E, C) onto D (the \"return address\")\n    Set S = [], E = E[param → arg-value], C = [body]\n    Resume with new frame\n\n  Return:\n    When C empty (function body evaluated), result is top of S\n    Restore (S, E, C) from D (the saved frame)\n    Push result on restored S\n\n  Variable lookup:\n    Push E(x) onto S\n\n  Abstraction:\n    Push closure (λx.t, E) onto S  ← captures current environment\n\nSIGNIFICANCE:\n  First machine to make closures explicit\n  Showed how to implement higher-order functions without substitution\n  \"Dump\" is an explicit continuation stack — precursor to call/cc\n\nLIMITATION:\n  The return address (Dump) is only for function call/return\n  Cannot naturally express general first-class continuations\n  → CEK machine solves this",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "## 4. The CEK Machine",
+      "confidence": "candidate",
+      "text": "CEK MACHINE STATE: ⟨t, ρ, κ⟩\n  t: term being evaluated (or value)\n  ρ: environment (variable → closure)\n  κ: continuation (what to do with the result)\n\n  CLOSURE: ⟨t, ρ⟩  (term + captured environment)\n\nCONTINUATION FORMS:\n  mt         (empty continuation = program done)\n  ar(t₂, ρ, κ)  (evaluating function; next: evaluate argument t₂)\n  fn(⟨λx.t,ρ'⟩, κ) (have closure; next: apply to argument)\n\nTRANSITIONS:\n\n  Variable:\n  ⟨x, ρ, κ⟩ → ⟨ρ(x), ρ', κ⟩    (look up; ρ(x) = ⟨t', ρ'⟩)\n\n  Application:\n  ⟨t₁ t₂, ρ, κ⟩ → ⟨t₁, ρ, ar(t₂, ρ, κ)⟩   (evaluate function first)\n\n  Function ready (got a closure from evaluating t₁):\n  ⟨λx.t, ρ', ar(t₂, ρ, κ)⟩ → ⟨t₂, ρ, fn(⟨λx.t,ρ'⟩, κ)⟩\n\n  Argument ready:\n  ⟨v, ρ, fn(⟨λx.t,ρ'⟩, κ)⟩ → ⟨t, ρ'[x→⟨v,ρ⟩], κ⟩\n\n  Done:\n  ⟨v, ρ, mt⟩ → DONE (v is the answer)\n\nWHY CEK IS IMPORTANT:\n  The continuation κ is first-class — it's part of the machine state\n  call/cc (call-with-current-continuation) = capture κ as a value\n  Continuations = reified machine state → can implement:\n    - Coroutines\n    - Backtracking\n    - Exceptions\n    - Async/await (delimited continuations)\n\nCEK IS COMPOSITIONAL:\n  Any step-by-step reduction of small-step semantics corresponds exactly\n  to a sequence of CEK transitions — machine implements semantics directly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## 5. The Krivine Machine",
+      "confidence": "candidate",
+      "text": "KRIVINE MACHINE: implements CALL-BY-NAME (CBN)\n\nState: (t, e, s)\n  t: term\n  e: environment\n  s: stack of closures (arguments)\n\nTRANSITIONS:\n\n  Variable: (x, e, s) → (t, e', s)  where e(x) = (t, e')\n\n  Application: (t₁ t₂, e, s) → (t₁, e, (t₂,e)::s)\n               (push argument as closure onto stack; don't evaluate yet)\n\n  Abstraction: (λx.t, e, c::s) → (t, e[x→c], s)\n               (pop closure from stack; bind to parameter)\n\nKEY INSIGHT:\n  Arguments are never evaluated before passing (call-by-name)\n  No \"ar\" continuation needed — arguments stay on stack as unevaluated closures\n  This is the environment-based CBN implementation\n\n  Call-by-need (Haskell): same but closures are SHARED and MEMOIZED\n  A \"thunk\" in Haskell is a heap-allocated Krivine closure + result cache",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## 6. GHC's Spineless Tagless G-machine (STG)",
+      "confidence": "candidate",
+      "text": "STG DESIGN GOALS:\n  Implement lazy (call-by-need) evaluation efficiently on real hardware\n  Model closures, thunks, and sharing precisely\n  Generate efficient native code\n\nKEY CONCEPTS:\n\n1. THUNKS (unevaluated closures):\n   Every expression that isn't evaluated is a heap-allocated closure\n   Closure = code pointer + captured environment\n   Evaluating = calling the code pointer (ENTERS the closure)\n\n2. SPINELESS:\n   Traditional graph reduction uses a \"spine\" of applications\n   STG avoids building the spine explicitly\n   → Direct function calls (more efficient on modern hardware)\n\n3. TAGLESS:\n   Traditional lazy implementations tag each heap object with its type\n   STG identifies type from the entry point code (no runtime tag needed)\n   → Removes one level of indirection for type dispatch\n\nSTG LANGUAGE (GHC's intermediate language just above C--):\n\n  Bindings: f = λ{free vars}. λx₁...xₙ → body\n  Calls: f x₁ x₂  (all arguments at call site; no partial application handled here)\n  Case:  case scrut of pat₁ → e₁ | ... | patₙ → eₙ\n         (ONLY case forces evaluation — the single lazy-forcing construct)\n\nHEAP OBJECTS:\n  FUN closure (not yet applied)\n  PAP partial application (applied to too few args)\n  CON data constructor (fully applied)\n  THUNK unevaluated expression (being computed or waiting)\n  BLACKHOLE circular reference detection (thunk currently being evaluated)\n\nTHE EVALUATION MODEL:\n  Every expression is either:\n    Already in WHNF (value/constructor) → done\n    A thunk → enter it (call the code pointer)\n  Case is the only forcing construct\n  Pattern match forces to WHNF",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## 7. Continuation-Passing Style (CPS)",
+      "confidence": "candidate",
+      "text": "CPS TRANSFORM (CBV):\n\n  [[ x ]]_k         = k x\n  [[ λx.t ]]_k      = k (λx. λk'. [[ t ]]_k')\n  [[ t₁ t₂ ]]_k    = [[ t₁ ]]_(λf. [[ t₂ ]]_(λv. f v k))\n\n  Every call passes an explicit continuation k (what to do with result)\n  Every call site is a tail call\n\nEXAMPLE:\n\n  (λx. x + 1) 2\n  CBV: evaluate arg, substitute, evaluate body\n  CPS: (λk. (λx. λk'. k' (x+1)) 2 k) id\n     = (λx. λk'. k' (x+1)) 2 id\n     = (λk'. k' (2+1)) id\n     = id (2+1)\n     = id 3\n     = 3\n\nWHY COMPILERS USE CPS:\n  Every call is a tail call → no runtime call stack needed\n  All control flow is explicit (loops, exceptions, coroutines all visible)\n  Easy to implement call/cc (continuation is just a value)\n  Enables optimizations: inlining continuations, tail call elimination\n\nGHC USED CPS AS IR until ~2004:\n  Core → CPS IR → code generation\n  Now uses Cmm (C--) instead, which is more machine-code-like\n  But the STG machine is semantically CPS-based",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "## 7. Continuation-Passing Style (CPS)",
+      "confidence": "candidate",
+      "text": "ANF: every sub-expression is named; no nesting\n\nOriginal:      (f (g x)) + 1\nANF:           let tmp1 = g x in\n               let tmp2 = f tmp1 in\n               let tmp3 = tmp2 + 1 in\n               tmp3\n\nCOMPARISON:\n  CPS: control flow explicit via continuations\n  ANF: control flow implicit (sequential naming); simpler to read\n       but semantically equivalent to CPS\n\n  Both give: evaluation order explicit, each intermediate result named\n  ANF is closer to SSA (static single assignment) in LLVM IR\n  → GHC's Core is ANF-like; LLVM uses SSA; they're dual representations\n\nCPS vs. ANF TRADEOFF:\n  CPS: easy to implement call/cc; algebraically cleaner\n  ANF: easier to read; closer to register-based code; better for humans\n  Compiler IR: ANF/SSA preferred; denotational proofs: CPS preferred",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

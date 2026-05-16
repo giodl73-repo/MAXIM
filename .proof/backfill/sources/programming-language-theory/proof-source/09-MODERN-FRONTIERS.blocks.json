@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\09-MODERN-FRONTIERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    MODERN FRONTIERS LANDSCAPE                            |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  GRADUAL TYPING (Siek/Taha 2006)     REFINEMENT TYPES (Freeman 1991)   |\n|  Mix static + dynamic types          Base types + logical predicates    |\n|  Blame assignment on type error      Liquid types, LiquidHaskell, F*   |\n|  TypeScript = industrial gradual TS  F* used for EverCrypt, miTLS       |\n|  Typed Racket = sound gradual TS     Array bounds, null safety, security |\n|                                                                          |\n|  SESSION TYPES (Honda 1993)          LINEAR TYPES IN PRODUCTION         |\n|  Communication protocols as types    Rust = affine type system          |\n|  Channel type = remaining protocol   Ownership tracks aliasing          |\n|  Deadlock freedom from linearity     Stacked Borrows formal semantics   |\n|  Global types → local by projection  RustBelt: Iris separation logic    |\n|                                                                          |\n|  HOMOTOPY TYPE THEORY (HoTT)         CUBICAL TYPE THEORY                |\n|  Voevodsky univalence axiom          Constructive proof of univalence   |\n|  Types as spaces; equiv = equality   Computational content for HITs     |\n|  Lean 4 Mathlib frontier             Coquand et al.; Cubical Agda       |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## 1. Gradual Typing",
+      "confidence": "candidate",
+      "text": "GRADUAL TYPING:\n\n  Standard types:  Int, String, Bool → fully statically typed\n  Dynamic type:    ? (or \"dynamic\", or \"any\") → like dynamic typing\n  Gradual type:    Int → ? (function from Int to something unknown)\n\n  TYPE CONSISTENCY (≈):\n    Type A is consistent with type B if they MIGHT be compatible:\n    Int ≈ Int    (obviously)\n    Int ≈ ?      (? is consistent with everything)\n    ? ≈ String   (? is consistent with everything)\n    Int ≈ String (NOT consistent)\n\n  KEY: consistency ≈ is NOT transitive\n    Int ≈ ?  and  ? ≈ String  does NOT give  Int ≈ String\n    (Transitivity would make the type system useless)\n\nCAST INSERTION (compiling gradual programs):\n\n  When you assign an Int to a ? variable:\n    x : Int → y : ?\n    Compile: y = <? ← Int> x    (upcast: always safe)\n\n  When you assign a ? variable to an Int:\n    z : ? → w : Int\n    Compile: w = <Int ← ?> z    (downcast: may fail at runtime)\n    Runtime check: if z is actually an Int, succeed; else runtime error\n\nBLAME ASSIGNMENT:\n  When a cast fails at runtime, which part of the code is to blame?\n  Blame tracks: who inserted the type annotation that caused the error\n  → If your typed code fails, the untyped code you called is \"to blame\"\n  → Blame theorem: well-typed code cannot be blamed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## 1. Gradual Typing",
+      "confidence": "candidate",
+      "text": "TYPED RACKET: the reference implementation of sound gradual typing\n\n  Gradually typed modules: some files are #lang typed/racket, others untyped\n  Contracts inserted at typed/untyped boundaries\n  If an untyped function is called from typed code: contract check at call site\n  If typed function called from untyped code: contract check at return\n\n  SOUNDNESS:\n    If typed code has type T, it produces a value of type T or raises a\n    contract violation error attributing blame to the correct module\n    → Well-typed Typed Racket code CANNOT produce wrong-type values\n\n  PERFORMANCE COST:\n    Every boundary crossing = contract check = potential overhead\n    Gradual typing can be slow for programs with many typed/untyped crossings\n    Research area: efficient gradual types (Vitousek et al., cast calculi)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## 1. Gradual Typing",
+      "confidence": "candidate",
+      "text": "TYPESCRIPT vs. TYPED RACKET:\n\n             TypeScript           Typed Racket\n  Soundness: Intentionally NO     YES (at boundaries)\n  Checks:    Erased at runtime    Contracts inserted\n  Blame:     No runtime blame     Runtime blame tracking\n  Speed:     Zero overhead        Overhead at boundaries\n  Goal:      Catch most bugs,     Sound reasoning about\n             maximum usability    typed code\n\nTYPESCRIPT'S DELIBERATE UNSOUNDNESS HOLES:\n  1. any type defeats all checking\n  2. as casts: x as SomeType (unchecked)\n  3. Covariant method parameters (should be contravariant)\n  4. @ts-ignore suppresses errors\n  5. Type assertions on external data (JSON.parse → any)\n\nFROM TS DESIGN GOALS:\n  \"TypeScript's type system is not fully sound. There are some places\n   where unsoundness was an intentional choice to allow more patterns\n   to be expressed.\"\n\nWHY UNSOUNDNESS IS SOMETIMES RIGHT:\n  Usability: if you type-annotate existing JS and all existing patterns fail,\n             nobody adopts the type system\n  Gradual adoption: need to be able to type parts of programs\n  Developer experience: false positives are costly (real errors ignored)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## 2. Refinement Types",
+      "confidence": "candidate",
+      "text": "REFINEMENT TYPE SYNTAX:\n  {x : B | p(x)}   (\"the set of values of base type B satisfying predicate p\")\n\nEXAMPLES:\n  {n : Int | n > 0}          positive integers\n  {n : Int | n >= 0 && n < len a}  valid index into array a\n  {s : String | length s > 0}       non-empty string\n\nTYPING WITH REFINEMENTS:\n  If e : {x : Int | x > 0} and f : (y : Int | y > 0) → String\n  Then f e : String   (safely — no runtime check needed)\n\n  If the predicate cannot be verified at compile time:\n    → Require runtime check (subtype check = predicate evaluation)\n    → Or: fail to typecheck (programmer must provide proof)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## 2. Refinement Types",
+      "confidence": "candidate",
+      "text": "LIQUID TYPES (Logically Qualified Types):\n\n  KEY INSIGHT: Predicates restricted to a grammar of \"qualifiers\"\n    Qualifier = conjunction of atomic predicates from a fixed set Q\n    Q = {x > 0, x ≥ 0, x < y, x = y, ...} (user-specified + library)\n\n  INFERENCE via HORN CLAUSES:\n    Generate subtyping constraints from typing rules\n    Each constraint: κ ⊆ {x | p(x)} (where κ is a qualifier variable)\n    Solve using predicate abstraction (CEGAR) or SMT solver\n    → FULLY AUTOMATIC for many common patterns\n\nLIQUIDHASKELL:\n  LiquidHaskell is Haskell + liquid types\n  Predicates are Haskell expressions (arbitrary refinements)\n  Uses Z3 SMT solver to discharge proof obligations\n\n  EXAMPLE:\n\n  {-@ head :: {v : [a] | len v > 0} -> a @-}\n  head :: [a] -> a\n  head (x:_) = x\n\n  head [] cannot be called — the type requires a non-empty list.\n  LiquidHaskell verifies this statically via Z3.\n\n  MORE COMPLEX:\n\n  {-@ take :: n:Nat -> xs:{[a] | len xs >= n} -> {[a] | len v = n} @-}\n  take :: Int -> [a] -> [a]\n\n  Types track list lengths exactly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## 2. Refinement Types",
+      "confidence": "candidate",
+      "text": "F*: the verification tool for security-critical code\n\n  F* = dependent types + refinement types + effect system (Dijkstra monad)\n\n  KEY APPLICATIONS:\n    EverCrypt: verified cryptographic library (chacha20, poly1305, ECDH)\n      → Used in NSS (Mozilla), BoringSSL variant, WireGuard\n    miTLS: formally verified TLS 1.3 implementation\n    HACL*: verified low-level C crypto (used in Firefox, Chrome)\n    Project Everest: end-to-end verification of HTTPS stack\n\n  F* EXAMPLE:\n\n  val factorial: n:nat → Tot nat (decreases n)\n  let rec factorial n =\n    if n = 0 then 1 else n * factorial (n-1)\n\n  (* nat = {x:int | x ≥ 0} *)\n  (* Tot nat = total function returning nat (no IO, no exceptions) *)\n  (* decreases n = termination proof hint *)\n\n  val array_index: a:array int → n:{x:nat | x < length a} → Tot int\n  let array_index a n = index a n\n  (* The index n must be provably in bounds — checked at call site *)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## 3. Session Types",
+      "confidence": "candidate",
+      "text": "GLOBAL SESSION TYPES (Carbone, Honda, Yoshida 2007):\n\n  A GLOBAL TYPE describes the overall protocol from all participants' view:\n    A → B : Int ; B → C : Bool ; end\n    \"A sends Int to B, then B sends Bool to C, then done\"\n\n  PROJECTION: derive each participant's local type by projection\n    A's type: !Int.end      (A sends Int, then done)\n    B's type: ?Int.!Bool.end (B receives Int, then sends Bool, then done)\n    C's type: ?Bool.end     (C receives Bool, then done)\n\n  DEADLOCK FREEDOM:\n    If all participants follow their projected types,\n    no deadlock can occur (no circular waiting)\n    → Guaranteed by type system\n\nRUST-INSPIRED SESSION TYPES (Sesh, Recto, etc.):\n  Several Rust crates implement session types using Rust's ownership:\n  The channel type encodes the session type in a phantom type parameter\n  Each send/receive operation returns the channel with updated type\n  Linear ownership ensures the channel is used according to protocol",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 394,
+      "heading_context": "## 6. Cubical Type Theory",
+      "confidence": "candidate",
+      "text": "UNIVALENCE IN STANDARD HOTT vs. CUBICAL:\n\n  Standard HoTT: univalence is an AXIOM\n    axiom univalence : (A ≃ B) → (A = B)\n    No computational rule: the axiom \"fires\" in types but not in terms\n    → Blocked computation (terms that can't reduce to normal form)\n    → Extract programs from proofs but some proofs have no extraction\n\n  CUBICAL TYPE THEORY:\n    Paths are FUNCTIONS from the interval [0,1] → Type\n    Equality p : a = b is literally a function p : I → A with p 0 = a, p 1 = b\n\n    Univalence is PROVABLE (not an axiom) in cubical type theory\n    With computational content: you CAN extract programs from proofs involving univ.\n\nCUBICAL AGDA:\n  Agda has an option --cubical (or --erased-cubical)\n  Enables: dependent path types, univalence as theorem, HITs\n  Used for: formalization of higher category theory, algebraic topology\n\nLEAN 4 AND HoTT:\n  Lean 4 chose NOT to be HoTT-based (uses classical logic + UIP)\n  UIP = Uniqueness of Identity Proofs (all proofs of a = b are equal)\n  This is incompatible with HoTT (which has multiple distinct paths)\n  Lean 4 is for mathematics that doesn't need HoTT structure;\n  Agda is for HoTT-based formalization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

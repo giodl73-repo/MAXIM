@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "05-CURRY-HOWARD.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:programming-language-theory:curry-howard
 kind: guide

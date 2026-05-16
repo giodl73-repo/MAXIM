@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-programming-language-theory-effect-systems",
+  "source": "../../programming-language-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-EFFECT-SYSTEMS.md#000",
+      "path": [
+        "07-EFFECT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:07-effect-systems, git-history:programming-language-theory:07-effect-systems]",
+        "canonical_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "concepts": "[effect, systems]",
+        "current_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "id": "maxim:programming-language-theory:effect-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[effect, systems]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Effect Systems: Monads, Algebraic Effects, Capability Effects",
+        "updated": "null"
+      },
+      "text": "# Effect Systems: Monads, Algebraic Effects, Capability Effects"
+    },
+    {
+      "id": "07-EFFECT-SYSTEMS.md#001",
+      "path": [
+        "07-EFFECT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:07-effect-systems, git-history:programming-language-theory:07-effect-systems]",
+        "canonical_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "concepts": "[effect, systems]",
+        "current_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "id": "maxim:programming-language-theory:effect-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[effect, systems]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Effect Systems: Monads, Algebraic Effects, Capability Effects",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-EFFECT-SYSTEMS.md#002",
+      "path": [
+        "07-EFFECT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:07-effect-systems, git-history:programming-language-theory:07-effect-systems]",
+        "canonical_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "concepts": "[effect, systems]",
+        "current_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "id": "maxim:programming-language-theory:effect-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[effect, systems]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Effect Systems: Monads, Algebraic Effects, Capability Effects",
+        "updated": "null"
+      },
+      "text": "Effect systems track what \"side effects\" a computation can perform — IO, state mutation, exceptions, nondeterminism — in the type system. The goal: functions that look pure but aren't are rejected; effects compose correctly; effect polymorphism enables reuse."
+    },
+    {
+      "id": "07-EFFECT-SYSTEMS.md#003",
+      "path": [
+        "07-EFFECT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:07-effect-systems, git-history:programming-language-theory:07-effect-systems]",
+        "canonical_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "concepts": "[effect, systems]",
+        "current_path": "programming-language-theory/07-EFFECT-SYSTEMS.md",
+        "id": "maxim:programming-language-theory:effect-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[effect, systems]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Effect Systems: Monads, Algebraic Effects, Capability Effects",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                    EFFECT SYSTEMS LANDSCAPE                              |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  THE PROBLEM:                                                            |\n|  Pure functions: f : A → B (no hidden effects)                          |\n|  Impure functions: same type but read global state, throw exceptions...  |\n|  Without effect tracking: can't tell them apart                         |\n|                                                                          |\n|  APPROACHES:                                                             |\n|  ┌──────────────────┬──────────────────────┬────────────────────────┐  |\n|  │ MONADS           │ ALGEBRAIC EFFECTS    │ CAPABILITY TYPES       │  |\n|  │ Moggi 1991       │ Plotkin/Power 2003   │ Capabilities-as-tokens │  |\n|  │                  │                      │                        │  |\n|  │ Haskell IO, State│ Eff language, Koka   │ Scala CC, OCaml 5      │  |\n|  │ compose via >>=  │ compose via handlers │ capabilities restrict  │  |\n|  │ (bind)           │ algebraic operations │ effect use             │  |\n|  │                  │                      │                        │  |\n|  │ n effects =      │ n effects compose    │ n effects: capability  │  |\n|  │ 2ⁿ transformer   │ naturally            │ tokens in environment  │  |\n|  │ stack options    │ handlers are first-  │                        │  |\n|  │                  │ class                │                        │  |\n|  └──────────────────┴──────────────────────┴────────────────────────┘  |\n|                                                                          |\n|  LINEAR TYPES AND EFFECTS:                                              |\n|  Rust: ownership tracks the \"memory effect\"                             |\n|  Affine resource = can't alias; mutation safe                           |\n|  Borrow = temporary effect-limited access                               |\n+--------------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "07-EFFECT-SYSTEMS.md"
+  ]
+}

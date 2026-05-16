@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\01-LAMBDA-CALCULUS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 351,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Variable-capture bug",
+          "Capture-avoiding substitution",
+          "Every interpreter eventually pays this debt."
+        ],
+        [
+          "Evaluation-order equivalence",
+          "Church-Rosser for terminating pure programs",
+          "It does not say CBV and CBN both terminate."
+        ],
+        [
+          "Haskell forcing surprise",
+          "WHNF versus normal form",
+          "`seq` reaches the outer constructor, not deep normal form."
+        ],
+        [
+          "Data from pure functions",
+          "Church numerals and encodings",
+          "Elegant but operationally poor for many operations."
+        ],
+        [
+          "Lazy-friendly data encoding",
+          "Scott encoding",
+          "It changes case analysis costs, not the calculus's expressiveness."
+        ],
+        [
+          "Anonymous recursion",
+          "Y combinator",
+          "Real compilers usually implement named recursion directly."
+        ],
+        [
+          "Alpha-equivalence bookkeeping",
+          "De Bruijn indices",
+          "Index shifting replaces names with precise but error-prone arithmetic."
+        ],
+        [
+          "Lazy versus eager performance",
+          "CBV, CBN, and CBNeed",
+          "Sharing is the difference between CBN and production laziness."
+        ]
+      ]
+    }
+  ]
+}

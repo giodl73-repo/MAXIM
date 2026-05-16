@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-programming-language-theory-operational-sem",
+  "source": "../../programming-language-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-OPERATIONAL-SEM.md#000",
+      "path": [
+        "03-OPERATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:03-operational-sem, git-history:programming-language-theory:03-operational-sem]",
+        "canonical_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "concepts": "[operational, sem]",
+        "current_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:operational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[operational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operational Semantics: Small-Step, Big-Step, Abstract Machines",
+        "updated": "null"
+      },
+      "text": "# Operational Semantics: Small-Step, Big-Step, Abstract Machines"
+    },
+    {
+      "id": "03-OPERATIONAL-SEM.md#001",
+      "path": [
+        "03-OPERATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:03-operational-sem, git-history:programming-language-theory:03-operational-sem]",
+        "canonical_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "concepts": "[operational, sem]",
+        "current_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:operational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[operational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operational Semantics: Small-Step, Big-Step, Abstract Machines",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-OPERATIONAL-SEM.md#002",
+      "path": [
+        "03-OPERATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:03-operational-sem, git-history:programming-language-theory:03-operational-sem]",
+        "canonical_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "concepts": "[operational, sem]",
+        "current_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:operational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[operational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operational Semantics: Small-Step, Big-Step, Abstract Machines",
+        "updated": "null"
+      },
+      "text": "Operational semantics gives programming languages precise mathematical meaning by specifying how programs execute — step by step. The abstract machine perspective goes further: it shows exactly how to implement evaluation efficiently. Every language runtime is an abstract machine."
+    },
+    {
+      "id": "03-OPERATIONAL-SEM.md#003",
+      "path": [
+        "03-OPERATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:programming-language-theory:03-operational-sem, git-history:programming-language-theory:03-operational-sem]",
+        "canonical_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "concepts": "[operational, sem]",
+        "current_path": "programming-language-theory/03-OPERATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:operational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[operational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operational Semantics: Small-Step, Big-Step, Abstract Machines",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                    OPERATIONAL SEMANTICS LANDSCAPE                       |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  BIG-STEP (Natural)          SMALL-STEP (SOS)                           |\n|  e ⇓ v                       e → e'                                     |\n|  \"e evaluates to v\"          \"e steps to e' in one step\"               |\n|  Elegant specification       Models intermediate states                 |\n|  Cannot distinguish           Distinguishes stuck from diverging        |\n|  stuck from diverging         → Progress theorem is expressible         |\n|                                                                          |\n|  ABSTRACT MACHINES (implementations of operational semantics):          |\n|                                                                          |\n|  SECD (Landin 1964)   CEK (Felleisen 1987)   Krivine (1985)            |\n|  Stack, Env,          Closure, Env,           CBN, environment-based    |\n|  Control, Dump        Kontinuation            No closures needed        |\n|                                                                          |\n|  G-machine/STG (Johnsson 1984, Peyton Jones 1992)                      |\n|  Spineless Tagless G-machine: GHC's lazy evaluator                     |\n|  Thunks, graph reduction, sharing                                       |\n|                                                                          |\n|  CPS TRANSFORM: every function call is a tail call                      |\n|  ANF: every sub-expression named; evaluation order explicit             |\n|  → Basis of compiler intermediate representations                      |\n+--------------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "03-OPERATIONAL-SEM.md"
+  ]
+}

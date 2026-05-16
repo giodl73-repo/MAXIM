@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\08-COMPILER-SEMANTICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 400,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Verified compilation claim",
+          "CompCert semantic preservation",
+          "The theorem assumes source programs without undefined behavior."
+        ],
+        [
+          "Control-flow transform",
+          "CPS transform",
+          "Semantics preservation does not mean runtime continuations survive optimization."
+        ],
+        [
+          "Optimization-friendly IR",
+          "SSA form",
+          "Phi nodes are join parameters; SSA and CPS are closely related."
+        ],
+        [
+          "Haskell optimization behavior",
+          "GHC Core/System Fc",
+          "You influence Core indirectly through source and rewrite rules."
+        ],
+        [
+          "Lazy code generation",
+          "GHC STG",
+          "Thunk and closure semantics make evaluation order explicit."
+        ],
+        [
+          "Multi-language backend",
+          "LLVM typed SSA",
+          "Source-language semantics must already be lowered into LLVM's model."
+        ],
+        [
+          "Compile-time specialization",
+          "Partial evaluation",
+          "It is much broader than constant folding and hard to implement generally."
+        ]
+      ]
+    }
+  ]
+}
