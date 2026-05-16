@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:fermi-paradox
+kind: guide
+module: astrobiology
+section: astrobiology
+title: The Fermi Paradox and SETI
+status: source-custody
+source_custody: partial
+current_path: astrobiology/06-FERMI-PARADOX.md
+canonical_path: astrobiology/06-FERMI-PARADOX.md
+backsource_ids: [proof-backfill:astrobiology:06-fermi-paradox, git-history:astrobiology:06-fermi-paradox]
+concepts: [fermi, paradox]
+root_concepts: [fermi, paradox]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Fermi Paradox and SETI
 
 ## The Big Picture

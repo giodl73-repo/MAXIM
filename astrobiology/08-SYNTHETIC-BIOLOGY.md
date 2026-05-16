@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:synthetic-biology
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Synthetic Biology and Astrobiology
+status: source-custody
+source_custody: partial
+current_path: astrobiology/08-SYNTHETIC-BIOLOGY.md
+canonical_path: astrobiology/08-SYNTHETIC-BIOLOGY.md
+backsource_ids: [proof-backfill:astrobiology:08-synthetic-biology, git-history:astrobiology:08-synthetic-biology]
+concepts: [synthetic, biology]
+root_concepts: [synthetic, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Synthetic Biology and Astrobiology
 
 ## The Big Picture

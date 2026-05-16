@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:jwst-detection
+kind: guide
+module: astrobiology
+section: astrobiology
+title: JWST and Atmospheric Characterization
+status: source-custody
+source_custody: partial
+current_path: astrobiology/05-JWST-DETECTION.md
+canonical_path: astrobiology/05-JWST-DETECTION.md
+backsource_ids: [proof-backfill:astrobiology:05-jwst-detection, git-history:astrobiology:05-jwst-detection]
+concepts: [jwst, detection]
+root_concepts: [jwst, detection]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # JWST and Atmospheric Characterization
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:habitable-environments
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Habitable Environments in the Solar System
+status: source-custody
+source_custody: partial
+current_path: astrobiology/03-HABITABLE-ENVIRONMENTS.md
+canonical_path: astrobiology/03-HABITABLE-ENVIRONMENTS.md
+backsource_ids: [proof-backfill:astrobiology:03-habitable-environments, git-history:astrobiology:03-habitable-environments]
+concepts: [habitable, environments]
+root_concepts: [habitable, environments]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Habitable Environments in the Solar System
 
 ## The Big Picture

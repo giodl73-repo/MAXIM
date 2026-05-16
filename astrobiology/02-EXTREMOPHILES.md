@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:extremophiles
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Extremophiles and the Limits of Life
+status: source-custody
+source_custody: partial
+current_path: astrobiology/02-EXTREMOPHILES.md
+canonical_path: astrobiology/02-EXTREMOPHILES.md
+backsource_ids: [proof-backfill:astrobiology:02-extremophiles, git-history:astrobiology:02-extremophiles]
+concepts: [extremophiles]
+root_concepts: [extremophiles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Extremophiles and the Limits of Life
 
 ## The Big Picture

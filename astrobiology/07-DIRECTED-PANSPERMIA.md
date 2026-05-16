@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:directed-panspermia
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Panspermia and Life Distribution
+status: source-custody
+source_custody: partial
+current_path: astrobiology/07-DIRECTED-PANSPERMIA.md
+canonical_path: astrobiology/07-DIRECTED-PANSPERMIA.md
+backsource_ids: [proof-backfill:astrobiology:07-directed-panspermia, git-history:astrobiology:07-directed-panspermia]
+concepts: [directed, panspermia]
+root_concepts: [directed, panspermia]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Panspermia and Life Distribution
 
 ## The Big Picture

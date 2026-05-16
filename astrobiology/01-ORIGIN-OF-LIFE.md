@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:origin-of-life
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Origin of Life: RNA World and Hydrothermal Vents
+status: source-custody
+source_custody: partial
+current_path: astrobiology/01-ORIGIN-OF-LIFE.md
+canonical_path: astrobiology/01-ORIGIN-OF-LIFE.md
+backsource_ids: [proof-backfill:astrobiology:01-origin-of-life, git-history:astrobiology:01-origin-of-life]
+concepts: [origin, of, life]
+root_concepts: [origin, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Origin of Life: RNA World and Hydrothermal Vents
 
 ## The Big Picture

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "astrobiology\\05-JWST-DETECTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    JWST EXOPLANET SCIENCE                             |\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  TRANSIT SPECTROSCOPY          EMISSION SPECTROSCOPY                  |\n|  +----------------------+      +------------------------+             |\n|  | Planet crosses star  |      | Planet behind star     |             |\n|  | Starlight through    |      | Difference = planet    |             |\n|  | limb atmosphere      |      | thermal emission       |             |\n|  | --> absorption lines |      | --> temperature profile|             |\n|  +----------------------+      +------------------------+             |\n|          |                              |                             |\n|          v                              v                             |\n|  Transmission spectrum          Emission spectrum                     |\n|  (limb composition)             (dayside T-P profile)                 |\n|                                                                       |\n|  DIRECT IMAGING (coronagraphy)                                        |\n|  JWST NIRCam: too small for Earth-twins around sun-like stars         |\n|  Future: HWO / LUVOIR for direct imaging of Earth-analogs             |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Transit Spectroscopy: The Method",
+      "confidence": "candidate",
+      "text": "TRANSIT SPECTROSCOPY\n=====================\n\n                        STAR\n                         *\n                        / \\\n                       /   \\\nPlanet -->  O         /     \\\n             \\       /       \\\n              ----*-- chord ------  (transit path)\n\nDuring transit:\n  Flux_out = Flux_star\n  Flux_in  = Flux_star * (1 - (Rplanet/Rstar)^2)\n  + atmosphere contribution\n\nWavelength-dependent:\n  At absorption wavelength of CO2 (4.3 micron):\n    Effective planet radius is LARGER (atmosphere absorbs)\n    Transit depth is slightly deeper\n  At window wavelength:\n    Effective planet radius is smaller (no atmosphere)\n    Transit depth is shallower\n\n  Plot (Rplanet/Rstar)^2 vs wavelength --> transmission spectrum\n  Peaks at molecular absorption wavelengths\n\nWHAT YOU MEASURE:\nNot the spectrum of the atmosphere directly.\nThe DIFFERENCE in planet apparent size with wavelength.\nThis constrains atmospheric composition and scale height.\n\nSCALE HEIGHT:\nH = kT / (mu * g)\nk = Boltzmann constant\nT = temperature\nmu = mean molecular weight\ng = gravity\n\nHigh scale height = puffier atmosphere = easier to detect.\nHot Jupiter: H ~ 500-1000 km (huge signal)\nSuper-Earth: H ~ 20-50 km (tiny signal)\nEarth around Sun: H ~ 8 km (almost undetectable with JWST)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## Emission Spectroscopy and Secondary Eclipse",
+      "confidence": "candidate",
+      "text": "SECONDARY ECLIPSE METHOD\n=========================\n\n     [1]              [2]              [3]\n  Planet visible    Planet behind    Planet emerges\n  beside star       star             again\n    *O               *               *  O\n\n  [1] = star + planet flux\n  [2] = star flux only\n  Difference [1] - [2] = planet flux\n\n  This gives: PLANET EMISSION SPECTRUM (dayside)\n  Temperature-pressure (T-P) profile\n  Dayside chemical composition\n  Thermal phase curves: longitude-resolved temperature map\n\nWHAT JWST HAS ACHIEVED WITH SECONDARY ECLIPSE:\n- TRAPPIST-1b: secondary eclipse measured (2023, Greene et al.)\n  No thermal emission redistribution --> no thick atmosphere?\n  Or bare rock or very thin atmosphere\n- TRAPPIST-1c: secondary eclipse (2023, Zieba et al.)\n  Not consistent with Venus-like CO2 atmosphere\n  Consistent with bare rock or thin atmosphere\n  Both 1b and 1c: negative results, narrowing parameter space",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## TRAPPIST-1 System: The Prime Target",
+      "confidence": "candidate",
+      "text": "TRAPPIST-1 SYSTEM\n==================\n\nStar: TRAPPIST-1 (2MASS J23062928-0502285)\n  Type: M8 ultracool dwarf\n  Mass: 0.089 solar masses\n  Temperature: 2,550 K (very red/infrared)\n  Distance: 12.43 pc (40.5 light-years)\n  Age: 7.6 +/- 2.2 Gyr\n\nPLANETS:\n+--------+------+--------+-----+------------------+----------------+\n| Planet | Rp   | Mp     | Porb| Flux (vs Earth)  | Status (2025)  |\n+--------+------+--------+-----+------------------+----------------+\n| b      | 1.12 | 1.37   | 1.5d| 4.2x (hot)       | No thick atm   |\n| c      | 1.10 | 1.31   | 2.4d| 2.3x (hot)       | Not Venus-like |\n| d      | 0.79 | 0.39   | 4.0d| 1.1x (HZ inner)  | Awaiting obs.  |\n| e      | 0.92 | 0.69   | 6.1d| 0.66x (HZ)       | Best HZ target |\n| f      | 1.04 | 1.04   |  9d | 0.38x (HZ)       | HZ target      |\n| g      | 1.13 | 1.32   | 12d | 0.26x (HZ outer) | HZ target      |\n| h      | 0.77 | 0.33   | 19d | 0.17x (cold)     | Cold           |\n+--------+------+--------+-----+------------------+----------------+\n(Rp in R_Earth, Mp in M_Earth, Flux relative to Earth)\n\nBEST HZ CANDIDATES: TRAPPIST-1e, 1f, 1g\n  - Inside or near circumstellar HZ\n  - Rocky (density consistent with Earth-like composition)\n  - 1e is the most Earth-like in terms of flux\n  - Requires many transits to build up signal\n\nJWST OBSERVATION TIMELINE:\n  2022-2023: 1b, 1c secondary eclipses -- no thick CO2 atmosphere\n  2024-2025: 1d primary transit campaigns beginning\n  2025-2030: 1e, 1f, 1g will require 20-50+ transits each\n  Approximate JWST time: 100-200 hours per planet for weak detection\n\nM-DWARF HABITABILITY DEBATE:\n  PRO:\n  - Many M-dwarf planets in HZ are close-in -> many transits per year\n  - M-dwarfs are most common star type (75% of all stars)\n  - Long stellar lifetimes (>100 Gyr) -> more time for evolution\n\n  CON:\n  - Flaring: M-dwarfs are active, especially young\n    XUV flares can strip atmospheric oxygen\n    TRAPPIST-1 is older (7.6 Gyr) and less active now\n  - Tidal locking: synchronous rotation likely\n    One side always facing star, one always dark\n    Climate models: may still be habitable with thick enough atmosphere\n  - Pre-main-sequence luminosity: during early phase, M-dwarf\n    was much brighter -- inner planets may have lost water before\n    the star dimmed to current luminosity\n    TRAPPIST-1b and 1c may have lost their water this way",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

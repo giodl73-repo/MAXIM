@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:exercise-physiology
+kind: guide
+module: sports-science
+section: sports-science
+title: Exercise Physiology: Energy Systems
+status: source-custody
+source_custody: partial
+current_path: sports-science/01-EXERCISE-PHYSIOLOGY.md
+canonical_path: sports-science/01-EXERCISE-PHYSIOLOGY.md
+backsource_ids: [proof-backfill:sports-science:01-exercise-physiology, git-history:sports-science:01-exercise-physiology]
+concepts: [exercise, physiology]
+root_concepts: [exercise, physiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Exercise Physiology: Energy Systems
 
 ## The Big Picture

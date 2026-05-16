@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:vo2max
+kind: guide
+module: sports-science
+section: sports-science
+title: VO2max, Lactate Threshold, and Aerobic Capacity
+status: source-custody
+source_custody: partial
+current_path: sports-science/02-VO2MAX.md
+canonical_path: sports-science/02-VO2MAX.md
+backsource_ids: [proof-backfill:sports-science:02-vo2max, git-history:sports-science:02-vo2max]
+concepts: [vo2max]
+root_concepts: [vo2max]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # VO2max, Lactate Threshold, and Aerobic Capacity
 
 ## The Big Picture

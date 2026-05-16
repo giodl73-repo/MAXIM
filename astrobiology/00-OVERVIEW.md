@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:overview
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Astrobiology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: astrobiology/00-OVERVIEW.md
+canonical_path: astrobiology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:astrobiology:00-overview, git-history:astrobiology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Astrobiology — Landscape and Taxonomy
 
 ## The Big Picture

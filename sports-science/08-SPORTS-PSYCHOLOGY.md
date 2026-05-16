@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:sports-psychology
+kind: guide
+module: sports-science
+section: sports-science
+title: Sports Psychology: Flow, Motivation, and Anxiety
+status: source-custody
+source_custody: partial
+current_path: sports-science/08-SPORTS-PSYCHOLOGY.md
+canonical_path: sports-science/08-SPORTS-PSYCHOLOGY.md
+backsource_ids: [proof-backfill:sports-science:08-sports-psychology, git-history:sports-science:08-sports-psychology]
+concepts: [sports, psychology]
+root_concepts: [sports, psychology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sports Psychology: Flow, Motivation, and Anxiety
 
 ## The Big Picture

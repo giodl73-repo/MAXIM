@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:performance-engineering
+kind: guide
+module: sports-science
+section: sports-science
+title: Performance Engineering - The Body as a Tunable System
+status: source-custody
+source_custody: partial
+current_path: sports-science/10-PERFORMANCE-ENGINEERING.md
+canonical_path: sports-science/10-PERFORMANCE-ENGINEERING.md
+backsource_ids: [proof-backfill:sports-science:10-performance-engineering, git-history:sports-science:10-performance-engineering]
+concepts: [performance, engineering]
+root_concepts: [performance, engineering]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Performance Engineering — The Body as a Tunable System
 
 ## The Big Picture

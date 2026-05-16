@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:biosignatures
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Biosignatures: What to Look For
+status: source-custody
+source_custody: partial
+current_path: astrobiology/04-BIOSIGNATURES.md
+canonical_path: astrobiology/04-BIOSIGNATURES.md
+backsource_ids: [proof-backfill:astrobiology:04-biosignatures, git-history:astrobiology:04-biosignatures]
+concepts: [biosignatures]
+root_concepts: [biosignatures]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biosignatures: What to Look For
 
 ## The Big Picture
