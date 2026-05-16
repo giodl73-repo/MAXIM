@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:overview
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Historical Geography and the Feudal World - Overview
+status: source-custody
+source_custody: partial
+current_path: historical-geography/00-OVERVIEW.md
+canonical_path: historical-geography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:historical-geography:00-overview, git-history:historical-geography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Geography & the Feudal World — Overview
 
 ## The Big Picture: What a Medieval Map Actually Shows
@@ -7,30 +26,26 @@ Medieval maps show **claims** — overlapping webs of personal obligation, dynas
 
 ```
 MODERN STATE MODEL:
-+---------------------------------------+
-|           FRANCE                       |
-|  One sovereign. One legal system.      |
-|  Fixed borders. Uniform administration.|
-|  Citizens owe allegiance to state.     |
-+---------------------------------------+
+  FRANCE
+    - One sovereign
+    - One legal system
+    - Fixed borders
+    - Uniform administration
+    - Citizens owe allegiance to the state
 
 MEDIEVAL FEUDAL MODEL:
-+---------------------------------------+
-|  King of France holds...               |
-|  +---------------------------+         |
-|  | Île-de-France (demesne)   |         |
-|  +---------------------------+         |
-|  ...but also claims suzerainty over:   |
-|    Duke of Normandy (who is ALSO       |
-|      King of England — personal union) |
-|    Count of Champagne                  |
-|    Duke of Aquitaine (who married      |
-|      into Plantagenet family)          |
-|    Duke of Burgundy (cadet branch)     |
-|    Count of Toulouse (claims disputed) |
-|  Each owes knight service and suit     |
-|  of court — but often ignores it.      |
-+---------------------------------------+
+  King of France holds:
+    - Ile-de-France (demesne)
+
+  The same king also claims suzerainty over:
+    - Duke of Normandy (also King of England by personal union)
+    - Count of Champagne
+    - Duke of Aquitaine (Plantagenet marriage tie)
+    - Duke of Burgundy (cadet branch)
+    - Count of Toulouse (claims disputed)
+
+  Each owes knight service and suit of court,
+  but each may ignore the obligation in practice.
 ```
 
 The fundamental difference: **feudalism is a personal relationship system**, not a territorial one.
@@ -41,50 +56,31 @@ A county belongs to whoever the count is sworn to — and the count's heir may o
 ## Transfer Mechanisms — How Territory Moves
 
 ```
-+------------------+    CONQUEST       +------------------+
-|  House A holds   | ----------------> |  House B holds   |
-|  County X        |                   |  County X        |
-+------------------+                   +------------------+
+CONQUEST:
+  House A holds County X -> House B holds County X
 
-+------------------+    INHERITANCE    +------------------+
-|  Count dies      | ----------------> |  Eldest son or   |
-|  without male    |    (varies by     |  daughter or      |
-|  heir            |    law — see      |  nearest agnate  |
-+------------------+    below)         +------------------+
+INHERITANCE:
+  Count dies without male heir -> eldest son, daughter, or nearest agnate
+  (varies by law; see below)
 
-+------------------+    MARRIAGE       +------------------+
-|  Lady holds      | ----------------> |  Husband gains   |
-|  Duchy Y         |    (jure uxoris   |  Duchy Y through |
-|  by inheritance  |    — "by right    |  marriage right  |
-+------------------+    of wife")      +------------------+
+MARRIAGE:
+  Lady holds Duchy Y by inheritance -> husband gains rights jure uxoris
+  ("by right of wife")
 
-+------------------+    PURCHASE       +------------------+
-|  Count needs     | ----------------> |  Buyer receives  |
-|  cash (crusade)  |    (Treaty of     |  land outright   |
-|  sells county    |    Paris 1259     |  or as pledge    |
-+------------------+    examples)      +------------------+
+PURCHASE:
+  Count needs cash -> buyer receives land outright or as pledge
+  (crusade finance and Treaty of Paris examples)
 
-+------------------+    ELECTION       +------------------+
-|  Throne vacant   | ----------------> |  Electors choose |
-|  (HRE, Poland,   |    (elective vs   |  new ruler       |
-|  Papacy, some    |    hereditary     |  (may ≠ previous |
-|  lordships)      |    tension)       |  dynasty)        |
-+------------------+                   +------------------+
+ELECTION:
+  Throne vacant -> electors choose new ruler
+  (HRE, Poland, Papacy, and some lordships)
 
-+------------------+    ESCHEAT        +------------------+
-|  Vassal dies     | ----------------> |  Lord reclaims   |
-|  without heirs   |    (or convicted  |  the fief        |
-|  or attainted    |    of treason)    |  (rarely used    |
-+------------------+                   |  cleanly)        |
-                                        +------------------+
+ESCHEAT:
+  Vassal dies without heirs, or is convicted of treason -> lord reclaims fief
 
-+------------------+    CRUSADE GRANT  +------------------+
-|  Crusade targets | ----------------> |  Crusade leader  |
-|  territory       |    (Papal         |  granted fiefs   |
-|  (Outremer,      |    authorization  |  from conquered  |
-|  Albigensians,   |    + conquest)    |  territory       |
-|  Teutonic)       |                   +------------------+
-+------------------+
+CRUSADE GRANT:
+  Crusade targets territory -> leader receives fiefs from conquered territory
+  (Outremer, Albigensian Crusade, Teutonic conquests)
 ```
 
 ---
@@ -92,37 +88,17 @@ A county belongs to whoever the count is sworn to — and the count's heir may o
 ## The Feudal Pyramid
 
 ```
-                    +------------------+
-                    |    EMPEROR /     |
-                    |    HIGH KING     |
-                    |  (claims overlordship|
-                    |   but enforces   |
-                    |   erratically)   |
-                    +------------------+
-                         /    |    \
-            +-----------+     |     +-----------+
-            |           |     |     |           |
-      +----------+ +----------+ +----------+
-      |  DUKE /  | | PRINCE / | | MARQUIS/ |
-      |ARCHBISHOP| | ELECTOR  | | COUNT    |
-      | (great   | | (top-    | | (medium  |
-      |  vassals)| |  tier)   | |  lord)   |
-      +----------+ +----------+ +----------+
-           |              |           |
-    +------------+  +------------+ +-------+
-    | Counts /   |  | Barons /   | | MINOR |
-    | Viscounts  |  | Castellans | | LORDS |
-    +------------+  +------------+ +-------+
-           |              |
-    +------------+  +------------+
-    | Knights /  |  | Free       |
-    | Sergeants  |  | Peasants   |
-    +------------+  +------------+
-           |
-    +------------+
-    | Serfs /    |
-    | Villeins   |
-    +------------+
+                    EMPEROR / HIGH KING
+                    (claims overlordship; enforces erratically)
+
+             DUKE / ARCHBISHOP    PRINCE / ELECTOR    MARQUIS / COUNT
+             (great vassals)       (top tier)          (medium lord)
+
+             Counts / Viscounts    Barons / Castellans    Minor lords
+
+             Knights / Sergeants   Free peasants
+
+             Serfs / Villeins
 ```
 
 **Key insight:** Each level owes the level above:

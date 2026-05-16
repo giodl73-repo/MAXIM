@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:transition-4d5d
+kind: guide
+module: periodic-table
+section: periodic-table
+title: 4d and 5d Transition Metals - Y–Cd, Hf–Hg, and the Platinum Group
+status: source-custody
+source_custody: partial
+current_path: periodic-table/09-TRANSITION-4D5D.md
+canonical_path: periodic-table/09-TRANSITION-4D5D.md
+backsource_ids: [proof-backfill:periodic-table:09-transition-4d5d, git-history:periodic-table:09-transition-4d5d]
+concepts: [transition, 4d5d]
+root_concepts: [transition, 4d5d]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 4d and 5d Transition Metals — Y–Cd, Hf–Hg, and the Platinum Group
 
 ## The Big Picture

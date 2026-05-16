@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:feudal-mechanics
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Feudal Mechanics - How the System Actually Worked
+status: source-custody
+source_custody: partial
+current_path: historical-geography/01-FEUDAL-MECHANICS.md
+canonical_path: historical-geography/01-FEUDAL-MECHANICS.md
+backsource_ids: [proof-backfill:historical-geography:01-feudal-mechanics, git-history:historical-geography:01-feudal-mechanics]
+concepts: [feudal, mechanics]
+root_concepts: [feudal, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Feudal Mechanics — How the System Actually Worked
 
 ## The Core Contract

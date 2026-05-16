@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:transition-3d
+kind: guide
+module: periodic-table
+section: periodic-table
+title: 3d Transition Metals - Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn
+status: source-custody
+source_custody: partial
+current_path: periodic-table/08-TRANSITION-3D.md
+canonical_path: periodic-table/08-TRANSITION-3D.md
+backsource_ids: [proof-backfill:periodic-table:08-transition-3d, git-history:periodic-table:08-transition-3d]
+concepts: [transition, 3d]
+root_concepts: [transition, 3d]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 3d Transition Metals — Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn
 
 ## The Big Picture

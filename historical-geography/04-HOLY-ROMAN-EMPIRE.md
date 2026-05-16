@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:holy-roman-empire
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Holy Roman Empire - The Bewildering Fragmentation
+status: source-custody
+source_custody: partial
+current_path: historical-geography/04-HOLY-ROMAN-EMPIRE.md
+canonical_path: historical-geography/04-HOLY-ROMAN-EMPIRE.md
+backsource_ids: [proof-backfill:historical-geography:04-holy-roman-empire, git-history:historical-geography:04-holy-roman-empire]
+concepts: [holy, roman, empire]
+root_concepts: [holy, roman]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Holy Roman Empire — The Bewildering Fragmentation
 
 ## The Famous Quip and What It Actually Means
@@ -41,25 +60,21 @@ WHAT IT ACTUALLY WAS:
 ```
 HRE APPROXIMATE TERRITORY (peak, ~1200):
 
-  +--------------------------------------------------+
-  | [DENMARK — sometimes overlapping]                |
-  +--------------------------------------------------+
-  | LOWER LORRAINE | UPPER LORRAINE |  SAXONY        |
-  | (Low Countries)|               |  Brandenburg    |
-  +----------------+---------------+  Pomerania      |
-  | FRANCONIA      | THURINGIA     +-----------------|
-  |                |               | SILESIA         |
-  +----------------+---------------+  Bohemia (KING- |
-  | SWABIA         | BAVARIA       |  DOM — part of  |
-  |                |               |  HRE but with   |
-  +----------------+---------------+  special status)|
-  | BURGUNDY       | AUSTRIA       | MORAVIA         |
-  | (Kingdom —     | (later        +-----------------|
-  |  nominal)      |  Habsburg     | HUNGARY (border)|
-  +----------------+  heartland)   +-----------------+
-  |                                                  |
-  | NORTHERN ITALY (Lombardy, Tuscany — nominal)    |
-  +--------------------------------------------------+
+Northern edge:
+  - Denmark sometimes overlapped imperial claims
+
+Core duchies and regions:
+  - Lower Lorraine and Upper Lorraine
+  - Saxony with Brandenburg and Pomerania
+  - Franconia, Thuringia, Silesia
+  - Swabia and Bavaria
+  - Bohemia: a kingdom within the empire with special status
+  - Burgundy, Austria, and Moravia
+  - Northern Italy: Lombardy and Tuscany, nominally imperial
+
+Border zones:
+  - Hungary to the southeast
+  - Northern Italian cities with strong practical autonomy
 ```
 
 ---

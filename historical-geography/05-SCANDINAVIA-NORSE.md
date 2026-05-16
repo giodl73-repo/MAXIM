@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:scandinavia-norse
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Scandinavia and the Norse World
+status: source-custody
+source_custody: partial
+current_path: historical-geography/05-SCANDINAVIA-NORSE.md
+canonical_path: historical-geography/05-SCANDINAVIA-NORSE.md
+backsource_ids: [proof-backfill:historical-geography:05-scandinavia-norse, git-history:historical-geography:05-scandinavia-norse]
+concepts: [scandinavia, norse]
+root_concepts: [scandinavia, norse]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scandinavia & the Norse World
 
 ## The Big Picture

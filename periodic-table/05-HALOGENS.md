@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:halogens
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Halogens (Group 17) - F, Cl, Br, I, At, Ts
+status: source-custody
+source_custody: partial
+current_path: periodic-table/05-HALOGENS.md
+canonical_path: periodic-table/05-HALOGENS.md
+backsource_ids: [proof-backfill:periodic-table:05-halogens, git-history:periodic-table:05-halogens]
+concepts: [halogens]
+root_concepts: [halogens]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Halogens (Group 17) — F, Cl, Br, I, At, Ts
 
 ## The Big Picture

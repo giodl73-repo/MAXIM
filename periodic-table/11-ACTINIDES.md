@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:actinides
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Actinides - Ac through Lr (Z=89–103)
+status: source-custody
+source_custody: partial
+current_path: periodic-table/11-ACTINIDES.md
+canonical_path: periodic-table/11-ACTINIDES.md
+backsource_ids: [proof-backfill:periodic-table:11-actinides, git-history:periodic-table:11-actinides]
+concepts: [actinides]
+root_concepts: [actinides]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Actinides — Ac through Lr (Z=89–103)
 
 ## The Big Picture

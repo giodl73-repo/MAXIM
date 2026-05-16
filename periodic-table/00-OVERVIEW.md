@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:overview
+kind: guide
+module: periodic-table
+section: periodic-table
+title: The Periodic Table - Overview and Framework
+status: source-custody
+source_custody: partial
+current_path: periodic-table/00-OVERVIEW.md
+canonical_path: periodic-table/00-OVERVIEW.md
+backsource_ids: [proof-backfill:periodic-table:00-overview, git-history:periodic-table:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Periodic Table — Overview & Framework
 
 ## The Big Picture

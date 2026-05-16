@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:islamic-caliphates
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Islamic Caliphates - From Rashidun to Regional Sultanates
+status: source-custody
+source_custody: partial
+current_path: historical-geography/09-ISLAMIC-CALIPHATES.md
+canonical_path: historical-geography/09-ISLAMIC-CALIPHATES.md
+backsource_ids: [proof-backfill:historical-geography:09-islamic-caliphates, git-history:historical-geography:09-islamic-caliphates]
+concepts: [islamic, caliphates]
+root_concepts: [islamic, caliphates]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Islamic Caliphates — From Rashidun to Regional Sultanates
 
 ## The Big Picture: Islam's Political Fragmentation

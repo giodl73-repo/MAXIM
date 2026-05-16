@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:africa-kingdoms
+kind: guide
+module: historical-geography
+section: historical-geography
+title: African Kingdoms - West, East, and Central Africa
+status: source-custody
+source_custody: partial
+current_path: historical-geography/13-AFRICA-KINGDOMS.md
+canonical_path: historical-geography/13-AFRICA-KINGDOMS.md
+backsource_ids: [proof-backfill:historical-geography:13-africa-kingdoms, git-history:historical-geography:13-africa-kingdoms]
+concepts: [africa, kingdoms]
+root_concepts: [africa, kingdoms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # African Kingdoms — West, East, and Central Africa
 
 ## The Big Picture

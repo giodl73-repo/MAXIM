@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:mongol-empire
+kind: guide
+module: historical-geography
+section: historical-geography
+title: The Mongol Empire - Unification, Conquest, Divergence
+status: source-custody
+source_custody: partial
+current_path: historical-geography/11-MONGOL-EMPIRE.md
+canonical_path: historical-geography/11-MONGOL-EMPIRE.md
+backsource_ids: [proof-backfill:historical-geography:11-mongol-empire, git-history:historical-geography:11-mongol-empire]
+concepts: [mongol, empire]
+root_concepts: [mongol, empire]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Mongol Empire — Unification, Conquest, Divergence
 
 ## The Big Picture

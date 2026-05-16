@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:russia-ruthenian
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Kievan Rus to Muscovy - Russia's Medieval Arc
+status: source-custody
+source_custody: partial
+current_path: historical-geography/10-RUSSIA-RUTHENIAN.md
+canonical_path: historical-geography/10-RUSSIA-RUTHENIAN.md
+backsource_ids: [proof-backfill:historical-geography:10-russia-ruthenian, git-history:historical-geography:10-russia-ruthenian]
+concepts: [russia, ruthenian]
+root_concepts: [russia, ruthenian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Kievan Rus to Muscovy — Russia's Medieval Arc
 
 ## The Big Picture
@@ -36,29 +55,21 @@ VARANGIAN RIVER SYSTEM (the geographic skeleton):
   Baltic–Dnieper                (amber, furs, slaves → south)
 
 TERRITORIAL CONTROL OVER TIME:
-  ┌────────────────┬──────────────────────────────────┐
-  │ ~880–1054      │ KIEVAN RUS                        │
-  │                │ Loose principalities under Kyiv   │
-  │                │ River trade cities: Novgorod,      │
-  │                │ Smolensk, Chernigov, Pereyaslavl  │
-  ├────────────────┼──────────────────────────────────┤
-  │ 1054–1240      │ FRAGMENTATION                    │
-  │                │ Rota succession → ~12 principalities│
-  │                │ Major centers: Kyiv, Novgorod,   │
-  │                │ Vladimir-Suzdal, Galicia-Volhynia │
-  ├────────────────┼──────────────────────────────────┤
-  │ 1240–1480      │ GOLDEN HORDE OVERLAY              │
-  │                │ Mongol suzerainty over steppe +   │
-  │                │ tribute from Russian principalities│
-  │                │ Sarai (Volga) = Horde capital     │
-  │                │ Moscow: tribute collector for Horde│
-  ├────────────────┼──────────────────────────────────┤
-  │ 1300–1547      │ MOSCOW EXPANSION                 │
-  │                │ Ivan I (Kalita) → Ivan III       │
-  │                │ Absorbs: Tver, Ryazan, Novgorod  │
-  │                │ Ivan III: repudiates Horde (1480) │
-  │                │ Claims Byzantine succession      │
-  └────────────────┴──────────────────────────────────┘
+  ~880-1054: KIEVAN RUS
+    Loose principalities under Kyiv; river trade cities include Novgorod,
+    Smolensk, Chernigov, and Pereyaslavl.
+
+  1054-1240: FRAGMENTATION
+    Rota succession creates roughly a dozen principalities. Major centers:
+    Kyiv, Novgorod, Vladimir-Suzdal, and Galicia-Volhynia.
+
+  1240-1480: GOLDEN HORDE OVERLAY
+    Mongol suzerainty over the steppe plus tribute from Russian principalities.
+    Sarai on the Volga is the Horde capital; Moscow collects tribute.
+
+  1300-1547: MOSCOW EXPANSION
+    Ivan I (Kalita) to Ivan III; absorbs Tver, Ryazan, and Novgorod.
+    Ivan III repudiates the Horde in 1480 and claims Byzantine succession.
 ```
 
 ```

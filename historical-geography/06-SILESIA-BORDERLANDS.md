@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:silesia-borderlands
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Silesia and the Central European Borderlands
+status: source-custody
+source_custody: partial
+current_path: historical-geography/06-SILESIA-BORDERLANDS.md
+canonical_path: historical-geography/06-SILESIA-BORDERLANDS.md
+backsource_ids: [proof-backfill:historical-geography:06-silesia-borderlands, git-history:historical-geography:06-silesia-borderlands]
+concepts: [silesia, borderlands]
+root_concepts: [silesia, borderlands]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Silesia & the Central European Borderlands
 
 ## Why This Region Is the Feudal Mechanics Heartland
