@@ -1,0 +1,166 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\02-EVALS-HARNESS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 479,
+      "heading_context": "## RAGAS — RAG-Specific Eval Metrics",
+      "headers": [
+        "Metric",
+        "What It Measures",
+        "How Computed"
+      ],
+      "rows": [
+        [
+          "**Context Recall**",
+          "% of ground-truth answer attributable to retrieved context",
+          "LLM breaks answer into statements, checks each against context"
+        ],
+        [
+          "**Context Precision**",
+          "% of retrieved chunks actually useful",
+          "LLM judges each chunk's relevance to question"
+        ],
+        [
+          "**Faithfulness**",
+          "Answer grounded in context (no hallucination)",
+          "LLM extracts claims from answer, verifies each in context"
+        ],
+        [
+          "**Answer Relevancy**",
+          "Answer addresses the question",
+          "Reverse-generates questions from answer, checks similarity to original"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 817,
+      "heading_context": "## Metrics Reference",
+      "headers": [
+        "Metric",
+        "Range",
+        "Measures",
+        "When to Use"
+      ],
+      "rows": [
+        [
+          "**BLEU**",
+          "0-1",
+          "n-gram overlap vs reference",
+          "Translation, exact output tasks"
+        ],
+        [
+          "**ROUGE-L**",
+          "0-1",
+          "Longest common subsequence",
+          "Summarization"
+        ],
+        [
+          "**BERTScore**",
+          "0-1",
+          "Embedding similarity (contextual)",
+          "Paraphrase-tolerant tasks"
+        ],
+        [
+          "**Factuality**",
+          "0-1",
+          "% claims verifiable in source",
+          "QA, RAG"
+        ],
+        [
+          "**Faithfulness**",
+          "0-1",
+          "Answer grounded in retrieved docs",
+          "RAG"
+        ],
+        [
+          "**Toxicity**",
+          "0-1",
+          "Harmful content probability",
+          "Safety"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 828,
+      "heading_context": "## Metrics Reference",
+      "headers": [
+        "Metric",
+        "What Fails When Low"
+      ],
+      "rows": [
+        [
+          "Context Recall",
+          "Retriever misses relevant chunks"
+        ],
+        [
+          "Context Precision",
+          "Retriever returns too much noise"
+        ],
+        [
+          "Faithfulness",
+          "Generator hallucinates beyond context"
+        ],
+        [
+          "Answer Relevancy",
+          "Generator ignores the actual question"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 892,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a prompt change regressed quality",
+          "PromptFoo cases in CI",
+          "A green gate only covers the cases you wrote; keep adding failures back into the suite"
+        ],
+        [
+          "Whether two models are meaningfully different",
+          "Paired evals with the same dataset and scorer",
+          "Do not compare aggregate scores without inspecting variance and representative failures"
+        ],
+        [
+          "Whether a RAG answer is grounded",
+          "RAGAS faithfulness and context-recall checks",
+          "Faithfulness can pass while retrieval misses the right source; test both retrieval and generation"
+        ],
+        [
+          "Whether the scorer is trustworthy",
+          "A small hand-labeled calibration set",
+          "LLM-as-judge is a component under test, not an oracle"
+        ],
+        [
+          "Whether production traces should become tests",
+          "LangSmith or Braintrust dataset capture",
+          "Sample deliberately; raw logs reproduce traffic mix, not necessarily risk mix"
+        ],
+        [
+          "Whether a safety risk is exploitable",
+          "PromptFoo redteam plus focused adversarial cases",
+          "Red-team results are starting points; promote confirmed failures into stable regression tests"
+        ],
+        [
+          "Whether human review is required",
+          "Braintrust annotation queues or Argilla",
+          "Human labels must have a rubric, otherwise the eval measures reviewer taste"
+        ],
+        [
+          "Whether a lightweight harness is enough",
+          "A direct SDK loop with fixtures and assertions",
+          "Once cases, scorers, and trace capture multiply, move to a real eval platform"
+        ]
+      ]
+    }
+  ]
+}

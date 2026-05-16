@@ -1,0 +1,377 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-ai-engineering-safety",
+  "source": "../../ai-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-SAFETY.md#000",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "# 05 — LLM Safety & Reliability Engineering"
+    },
+    {
+      "id": "05-SAFETY.md#001",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "> \"Safety in LLMs is not a feature you add. It is a property you measure,\n>  test, monitor, and continuously defend — like security in traditional systems.\""
+    },
+    {
+      "id": "05-SAFETY.md#002",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SAFETY.md#003",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-SAFETY.md#004",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                     LLM SAFETY THREAT SURFACE                               │\n│                                                                             │\n│  ┌─────────────────────────────────────────────────────────────────────┐    │\n│  │  INPUT LAYER                   MODEL LAYER           OUTPUT LAYER   │   │\n│  │                                                                     │   │\n│  │  Direct injection    ────►  Misalignment  ────►  Hallucination     │   │\n│  │  Indirect injection  ────►  Bias          ────►  Harmful content   │   │\n│  │  Jailbreaks          ────►  Overconfidence────►  PII leakage       │   │\n│  │  Data poisoning      ────►               ────►  Prompt leakage     │   │\n│  └─────────────────────────────────────────────────────────────────────┘   │\n│                                                                             │\n│  DEFENSE LAYERS                                                             │\n│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐      │\n│  │  Input      │  │  System     │  │  Output     │  │  Monitoring │      │\n│  │  Validation │  │  Prompt     │  │  Guardrails │  │  & Evals    │      │\n│  │  + Sanitize │  │  Hardening  │  │  + Filters  │  │  in CI      │      │\n│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘      │\n│                                                                             │\n│  ← cheapest to implement                         most expensive to miss ►  │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "05-SAFETY.md#005",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "Safety is not a single knob. It is a threat model with multiple attack surfaces\nand multiple overlapping defenses — the same defense-in-depth principle you apply\nto network security, applied to probabilistic text generators."
+    },
+    {
+      "id": "05-SAFETY.md#006",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "If you've done STRIDE threat modeling for web services, the mapping to LLM systems\nis direct:"
+    },
+    {
+      "id": "05-SAFETY.md#007",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "```\nSTRIDE category              LLM threat equivalent\n──────────────────────────   ────────────────────────────────────────────────────\nTampering (input)         →  Direct prompt injection\n  (attacker modifies data      (user input overrides system prompt instructions;\n   in transit or at rest)       \"ignore previous instructions\" in user message)"
+    },
+    {
+      "id": "05-SAFETY.md#008",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "Tampering (supply chain)  →  Indirect / data-poisoning injection\n  (compromised dependency        (malicious content in retrieved docs, web pages,\n   or third-party service)       DB records, email attachments — attacker controls\n                                 data the agent trusts as \"context\")"
+    },
+    {
+      "id": "05-SAFETY.md#009",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "Information Disclosure    →  Hallucination (false positive)\n  (system reveals data that      (model presents fabricated facts as true;\n   should be confidential)       disclosure of plausible but false information)"
+    },
+    {
+      "id": "05-SAFETY.md#010",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "Information Disclosure    →  PII leakage / prompt leakage\n  (correct data, wrong           (model regurgitates RAG-indexed PII; system\n   recipient or channel)          prompt contents extracted via crafted queries)"
+    },
+    {
+      "id": "05-SAFETY.md#011",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "Elevation of Privilege    →  Jailbreak / alignment bypass\n  (attacker gains capabilities   (attacker elicits behaviors suppressed by\n   beyond their authorization)    alignment training — treat as privilege escalation)"
+    },
+    {
+      "id": "05-SAFETY.md#012",
+      "path": [
+        "05-SAFETY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:05-safety, git-history:ai-engineering:05-safety]",
+        "canonical_path": "ai-engineering/05-SAFETY.md",
+        "concepts": "[safety]",
+        "current_path": "ai-engineering/05-SAFETY.md",
+        "id": "maxim:ai-engineering:safety",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[safety]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - LLM Safety and Reliability Engineering",
+        "updated": "null"
+      },
+      "text": "Denial of Service         →  Context flood / runaway agent\n  (resource exhaustion)           (adversarial input causes excessive token\n                                  consumption, infinite tool loops, or API cost\n                                  exhaustion — the LLM-specific DoS vector)\n```"
+    }
+  ],
+  "refs": [
+    "05-SAFETY.md"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\07-MULTIMODAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 353,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether OCR is enough",
+          "PyMuPDF or pdfplumber text extraction",
+          "Do not pay a vision model to read clean embedded text"
+        ],
+        [
+          "Whether forms need a document AI service",
+          "Field-level extraction accuracy on representative layouts",
+          "Structured forms fail by layout drift; test variants, not one sample invoice"
+        ],
+        [
+          "Whether image QA requires a frontier VLM",
+          "Error examples involving spatial, text, and commonsense reasoning",
+          "Captions and VQA are different tasks; a good captioner may answer poorly"
+        ],
+        [
+          "Whether image search works",
+          "CLIP or SigLIP embeddings with held-out text queries",
+          "Shared embedding space gives retrieval, not grounded explanation"
+        ],
+        [
+          "Whether speech is batch or interactive",
+          "Latency budget before model choice",
+          "Whisper is strong for batch; streaming voice interfaces need streaming ASR/TTS architecture"
+        ],
+        [
+          "Whether video needs full-context analysis",
+          "Frame-sampling baseline plus event-recall tests",
+          "Sampling saves cost but can miss brief decisive events"
+        ],
+        [
+          "Whether multimodal RAG needs fusion",
+          "Separate text/image retrieval plus reciprocal-rank fusion",
+          "One embedding space rarely serves every modality and metadata filter equally well"
+        ],
+        [
+          "Whether chart interpretation is reliable",
+          "High-resolution vision model runs against known chart answers",
+          "Visual plausibility is not data accuracy; inspect axes, legends, and extracted values"
+        ]
+      ]
+    }
+  ]
+}

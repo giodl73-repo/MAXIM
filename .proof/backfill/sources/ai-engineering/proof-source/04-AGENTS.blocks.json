@@ -1,0 +1,237 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\04-AGENTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         AGENT TAXONOMY                                      │\n│                                                                             │\n│  COMPLEXITY ──────────────────────────────────────────────────────────►     │\n│                                                                             │\n│  Single call      Chain          Agent          Multi-Agent System          │\n│  ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌─────────────────────┐      │\n│  │ prompt   │  │ prompt   │  │              │  │   Orchestrator      │   │\n│  │   │      │  │   │      │  │  ┌─────────┐ │  │   ┌───────────────┐ │   │\n│  │  LLM     │  │  LLM     │  │  │  LLM    │ │  │   │ Subagent A    │ │   │\n│  │   │      │  │   │      │  │  └────┬────┘ │  │   └───────────────┘ │   │\n│  │ output   │  │ output   │  │       │      │  │   ┌───────────────┐ │   │\n│  └──────────┘  │   │      │  │  ┌────▼────┐ │  │   │ Subagent B    │ │   │\n│                │  LLM     │  │  │ tools   │ │  │   └───────────────┘ │   │\n│                │   │      │  │  └────┬────┘ │  │   ┌───────────────┐ │   │\n│                │ output   │  │       │      │  │   │ Subagent C    │ │   │\n│                └──────────┘  │  ┌────▼────┐ │  │   └───────────────┘ │   │\n│                              │  │  loop   │ │  └─────────────────────┘   │\n│                              │  └─────────┘ │                             │\n│                              └──────────────┘                             │\n│                                                                             │\n│  deterministic ◄─────────────────────────────────────► non-deterministic  │\n│  cheap ◄────────────────────────────────────────────────────────► costly  │\n│  debuggable ◄───────────────────────────────────────────────► opaque      │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## The ReAct Loop",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  ReAct LOOP                                                         │\n│                                                                     │\n│  User Goal                                                          │\n│      │                                                              │\n│      ▼                                                              │\n│  ┌───────────────────────────────┐                                  │\n│  │  THOUGHT                      │  ← LLM reasons about state      │\n│  │  \"I need to look up X first,  │    (often implicit in tool_use) │\n│  │   then compute Y from that\"   │                                  │\n│  └───────────────┬───────────────┘                                  │\n│                  │                                                  │\n│                  ▼                                                  │\n│  ┌───────────────────────────────┐                                  │\n│  │  ACTION                       │  ← LLM emits tool_use block      │\n│  │  tool: search(\"X definition\") │                                  │\n│  └───────────────┬───────────────┘                                  │\n│                  │                                                  │\n│                  ▼                                                  │\n│  ┌───────────────────────────────┐                                  │\n│  │  OBSERVATION                  │  ← tool result appended as       │\n│  │  \"X is defined as ...\"        │    tool_result message           │\n│  └───────────────┬───────────────┘                                  │\n│                  │                                                  │\n│              loop back ──────────────────────────────────┐         │\n│                  │                                        │         │\n│                  ▼                                        │         │\n│         stop_reason == \"end_turn\"?  ──── No ─────────────┘         │\n│                  │ Yes                                               │\n│                  ▼                                                  │\n│           Final Answer                                              │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "### Tool Design Principles",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  GOOD TOOL DESIGN                                                   │\n│                                                                     │\n│  ✅ One responsibility — tools do one thing                         │\n│  ✅ Clear, specific description — model reads this to decide usage  │\n│  ✅ Explicit input schema — types, constraints, examples            │\n│  ✅ Returns structured data — JSON > prose for downstream parsing   │\n│  ✅ Idempotent where possible — safe to call twice                  │\n│  ✅ Errors in return, not exceptions — model can recover            │\n│  ✅ Bounded execution time — timeouts enforced in wrapper           │\n│                                                                     │\n│  ❌ God tools — \"do_anything(instruction: str)\"                     │\n│  ❌ Vague descriptions — \"gets information\"                         │\n│  ❌ Throwing exceptions — model can't observe them                  │\n│  ❌ Side effects without confirmation — emails sent, records deleted│\n│  ❌ No timeout — agent hangs waiting for slow external call         │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "## Memory Architecture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  MEMORY TAXONOMY                                                    │\n│                                                                     │\n│  IN-CONTEXT MEMORY                                                  │\n│  ┌──────────────────────────────────────────────────────────────┐   │\n│  │  Everything in the current messages array                    │  │\n│  │  ← fastest, most reliable, limited by context window         │  │\n│  └──────────────────────────────────────────────────────────────┘  │\n│                                                                     │\n│  EXTERNAL (EPISODIC) MEMORY                                         │\n│  ┌──────────────────────────────────────────────────────────────┐  │\n│  │  Vector store: past conversations, retrieved by similarity   │  │\n│  │  ← slower, scalable, approximate recall                      │  │\n│  └──────────────────────────────────────────────────────────────┘  │\n│                                                                     │\n│  SEMANTIC MEMORY                                                    │\n│  ┌──────────────────────────────────────────────────────────────┐  │\n│  │  Knowledge base: facts, documents, indexed and retrievable   │  │\n│  │  ← this is RAG (covered in 01-LLM-CONCEPTS.md)               │  │\n│  └──────────────────────────────────────────────────────────────┘  │\n│                                                                     │\n│  PROCEDURAL MEMORY                                                  │\n│  ┌──────────────────────────────────────────────────────────────┐  │\n│  │  System prompt: how to behave, what tools to use, persona    │  │\n│  │  ← baked in at deploy time; updated via fine-tuning          │  │\n│  └──────────────────────────────────────────────────────────────┘  │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "### External Memory Implementation",
+      "confidence": "candidate",
+      "text": "import numpy as np\nfrom anthropic import Anthropic\n\nclient = Anthropic()\n\nclass EpisodicMemory:\n    \"\"\"Simple in-memory episodic store. Swap for pgvector in production.\"\"\"\n\n    def __init__(self, embed_fn, max_entries: int = 1000):\n        self.embed_fn = embed_fn\n        self.entries: list[tuple[str, np.ndarray]] = []  # (text, embedding)\n        self.max_entries = max_entries\n\n    def add(self, text: str):\n        embedding = self.embed_fn(text)\n        self.entries.append((text, embedding))\n        if len(self.entries) > self.max_entries:\n            self.entries.pop(0)  # FIFO eviction\n\n    def retrieve(self, query: str, top_k: int = 3) -> list[str]:\n        if not self.entries:\n            return []\n        query_emb = self.embed_fn(query)\n        scores = [\n            np.dot(query_emb, emb) / (np.linalg.norm(query_emb) * np.linalg.norm(emb))\n            for _, emb in self.entries\n        ]\n        top_indices = np.argsort(scores)[-top_k:][::-1]\n        return [self.entries[i][0] for i in top_indices]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 369,
+      "heading_context": "## Agent Patterns",
+      "confidence": "candidate",
+      "text": "### Pattern 1: Tool-Calling Agent (Single)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 378,
+      "heading_context": "### Pattern 1: Tool-Calling Agent (Single)",
+      "confidence": "candidate",
+      "text": "### Pattern 2: Prompt Chaining (Not an Agent)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 399,
+      "heading_context": "# Step 3: Format response",
+      "confidence": "candidate",
+      "text": "### Pattern 3: Parallelization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 419,
+      "heading_context": "# Run all analyses in parallel",
+      "confidence": "candidate",
+      "text": "### Pattern 4: Evaluator-Optimizer Loop",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 443,
+      "heading_context": "### Pattern 4: Evaluator-Optimizer Loop",
+      "confidence": "candidate",
+      "text": "### Pattern 5: Orchestrator / Subagent",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 447,
+      "heading_context": "### Pattern 5: Orchestrator / Subagent",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────┐\n│  ORCHESTRATOR                                              │\n│  \"Research AAPL earnings and write a 500-word analysis\"    │\n│        │                                                   │\n│   ┌────┴────────────────────────────────────┐              │\n│   │         TASK DECOMPOSITION              │              │\n│   └──────┬────────────────────┬─────────────┘              │\n│          │                    │                            │\n│   ┌──────▼──────┐     ┌──────▼──────┐                     │\n│   │  Research   │     │   Writer    │                     │\n│   │  Subagent   │     │  Subagent   │                     │\n│   │             │     │             │                     │\n│   │ tools:      │     │ tools:      │                     │\n│   │ web_search  │     │ format_doc  │                     │\n│   │ sec_filings │     │ spell_check │                     │\n│   └──────┬──────┘     └──────▲──────┘                     │\n│          │                   │                            │\n│          └── research_result ┘                            │\n└────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 505,
+      "heading_context": "### Core Concepts",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  LANGGRAPH PRIMITIVES                                               │\n│                                                                     │\n│  StateGraph    — the graph; typed state dict flows through nodes    │\n│  Node          — Python function: receives state, returns updates   │\n│  Edge          — unconditional transition between nodes             │\n│  ConditionalEdge — function inspects state → returns next node      │\n│  START / END   — entry and terminal nodes                           │\n│  Checkpointer  — persists state between turns (Redis, Postgres)     │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 601,
+      "heading_context": "## Multi-Agent Systems",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  MULTI-AGENT TOPOLOGIES                                             │\n│                                                                     │\n│  SUPERVISOR / WORKER               PEER (SWARM)                     │\n│  ┌──────────────┐                  ┌──────┐  ┌──────┐               │\n│  │  Supervisor  │◄─────────────────┤Agent │  │Agent │             │\n│  └──────┬───────┘                  └──┬───┘  └───┬──┘             │\n│         │ routes tasks                │ ◄────────► │               │\n│    ┌────┴────┐                        │ shared     │               │\n│   Worker   Worker                     │  state     │               │\n│                                                                    │\n│  HIERARCHICAL                        PIPELINE                      │\n│  Supervisor                          A → B → C → D                 │\n│    ├── SubSupervisor A                                             │\n│    │      ├── Worker A1              Deterministic order           │\n│    │      └── Worker A2              Each agent adds to output     │\n│    └── SubSupervisor B                                             │\n│           └── Worker B1                                            │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 641,
+      "heading_context": "### Inter-Agent Communication Patterns",
+      "confidence": "candidate",
+      "text": "# Pattern 1: Direct message passing (orchestrator calls subagent)\nasync def run_subagent(system_prompt: str, tools: list, goal: str, context: dict = None) -> str:\n    messages = []\n    if context:\n        messages.append({\n            \"role\": \"user\",\n            \"content\": f\"Context from prior steps:\\n{json.dumps(context)}\\n\\nYour task: {goal}\"\n        })\n    else:\n        messages.append({\"role\": \"user\", \"content\": goal})\n\n    return await run_agent_loop(system_prompt, tools, messages)\n\n# Pattern 2: Shared state store (agents read/write to common store)\nclass SharedAgentState:\n    def __init__(self):\n        self._store: dict = {}\n        self._lock = asyncio.Lock()\n\n    async def write(self, key: str, value: Any):\n        async with self._lock:\n            self._store[key] = value\n\n    async def read(self, key: str) -> Any:\n        return self._store.get(key)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 675,
+      "heading_context": "### The Four Agent Failure Modes",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  FAILURE MODE          │  CAUSE              │  MITIGATION          │\n├────────────────────────┼─────────────────────┼──────────────────────┤\n│  Infinite loop         │  Tool always errors │  max_iterations cap  │\n│                        │  or returns noise   │  + loop detection    │\n│  Context explosion     │  Many tool results  │  Summarize + trim    │\n│                        │  fill context window│  messages > threshold│\n│  Prompt injection      │  Tool output        │  Sanitize tool returns│\n│                        │  contains adversarial│  validate before    │\n│                        │  instructions       │  appending to context│\n│  Runaway side effects  │  Agent deletes/sends│  Destructive tools   │\n│                        │  without checking   │  require confirmation│\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 694,
+      "heading_context": "### The Four Agent Failure Modes",
+      "confidence": "candidate",
+      "text": "Distributed systems pattern         Agent equivalent\n─────────────────────────────────   ──────────────────────────────────────────────\nCircuit breaker                  →  max_iterations cap + loop detection\n  (stop calling a failing service     (stop calling a tool that repeatedly errors;\n   after N failures; fail fast)        detect repeated identical tool calls as\n                                       the \"open circuit\" signal)\n\nBulkhead / rate limiting         →  Tool timeout + concurrency cap\n  (isolate failure domains;           (each tool call has a deadline; don't allow\n   prevent cascade failure)            one slow tool to block the agent loop)\n\nBackpressure                     →  Context size guard\n  (slow producers when consumer        (check token count before each LLM call;\n   can't keep up; reject if full)      trim or summarize when approaching limit —\n                                       \"buffer full\" = context window pressure)\n\nTrust boundary / input sanitation→  Tool result wrapping\n  (HTTP response bodies are            (content from web pages, DB records, external\n   untrusted; validate before use)     APIs is untrusted; wrap in XML and add\n                                       instruction-ignore note before appending)\n\nIdempotency + two-phase commit   →  Confirmation gate for destructive tools\n  (destructive ops: check-then-act;   (write, delete, send = require human confirm\n   retry safe; rollback on failure)    or an explicit \"confirm\" tool call first;\n                                       never auto-retry sends/deletes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 730,
+      "heading_context": "### Guardrails Pattern",
+      "confidence": "candidate",
+      "text": "class AgentGuardrails:\n    def __init__(self, max_iterations: int = 15, max_tokens_in_context: int = 100_000):\n        self.max_iterations = max_iterations\n        self.max_tokens = max_tokens_in_context\n        self._last_tool_calls: list[str] = []\n\n    def check_loop(self, tool_name: str, tool_input: dict) -> bool:\n        \"\"\"Detect repeated identical tool calls — sign of a stuck agent.\"\"\"\n        call_sig = f\"{tool_name}:{json.dumps(tool_input, sort_keys=True)}\"\n        if self._last_tool_calls.count(call_sig) >= 3:\n            return False  # reject\n        self._last_tool_calls.append(call_sig)\n        if len(self._last_tool_calls) > 20:\n            self._last_tool_calls.pop(0)\n        return True\n\n    def check_context_size(self, messages: list) -> bool:\n        \"\"\"Rough token estimate — fail before hitting API context limit.\"\"\"\n        total_chars = sum(len(str(m)) for m in messages)\n        estimated_tokens = total_chars // 4\n        return estimated_tokens < self.max_tokens\n\n    DESTRUCTIVE_TOOLS = {\"delete_record\", \"send_email\", \"post_to_slack\", \"execute_sql\"}\n\n    def requires_confirmation(self, tool_name: str) -> bool:\n        return tool_name in self.DESTRUCTIVE_TOOLS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 792,
+      "heading_context": "### Cost and Latency Monitoring",
+      "confidence": "candidate",
+      "text": "from dataclasses import dataclass, field\n\n@dataclass\nclass AgentMetrics:\n    iterations: int = 0\n    tool_calls: dict[str, int] = field(default_factory=dict)\n    input_tokens: int = 0\n    output_tokens: int = 0\n\n    @property\n    def estimated_cost_usd(self) -> float:\n        # claude-sonnet-4-6 pricing (approximate)\n        return (self.input_tokens * 3.0 + self.output_tokens * 15.0) / 1_000_000\n\n    def record_response(self, response):\n        self.iterations += 1\n        self.input_tokens += response.usage.input_tokens\n        self.output_tokens += response.usage.output_tokens\n        for block in response.content:\n            if block.type == \"tool_use\":\n                self.tool_calls[block.name] = self.tool_calls.get(block.name, 0) + 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 824,
+      "heading_context": "## Agent Evals",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  WHAT TO EVAL IN AGENTS                                             │\n│                                                                     │\n│  Final answer quality    — standard LLM eval (see 02-EVALS)         │\n│  Tool selection          — did it call the right tools?             │\n│  Tool call arguments     — correct inputs to each tool?             │\n│  Trajectory efficiency   — unnecessary tool calls?                  │\n│  Error recovery          — handled tool failure gracefully?         │\n│  Termination             — stopped when it should?                  │\n│  Side effect correctness — right actions taken in right order?      │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 844,
+      "heading_context": "### Trajectory Recording",
+      "confidence": "candidate",
+      "text": "from dataclasses import dataclass, field\nimport json\n\n@dataclass\nclass TrajectoryStep:\n    turn: int\n    tool_name: str\n    tool_input: dict\n    tool_result: str\n\n@dataclass\nclass AgentTrajectory:\n    goal: str\n    steps: list[TrajectoryStep] = field(default_factory=list)\n    final_answer: str = \"\"\n\n    def record_tool_call(self, turn: int, name: str, inputs: dict, result: str):\n        self.steps.append(TrajectoryStep(turn, name, inputs, result))\n\n    def tool_sequence(self) -> list[str]:\n        return [s.tool_name for s in self.steps]\n\n    def to_dict(self) -> dict:\n        return {\n            \"goal\": self.goal,\n            \"steps\": [vars(s) for s in self.steps],\n            \"final_answer\": self.final_answer,\n        }\n\n# Instrument the agent loop to record trajectory\ntrajectory = AgentTrajectory(goal=goal)\nfor block in response.content:\n    if block.type == \"tool_use\":\n        result = dispatch_tool(block.name, block.input)\n        trajectory.record_tool_call(iteration, block.name, block.input, result)\ntrajectory.final_answer = final_text\n\n# Persist for offline analysis\nwith open(f\"trajectories/{run_id}.json\", \"w\") as f:\n    json.dump(trajectory.to_dict(), f, indent=2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 943,
+      "heading_context": "### Tooling for Trajectory Eval",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│  TOOL              │  TRAJECTORY SUPPORT                        │\n├────────────────────┼─────────────────────────────────────────────┤\n│  LangSmith         │  Full trace capture natively; every tool   │\n│                    │  call, input, output, timing stored.        │\n│                    │  UI shows trace tree. Dataset builder pulls │\n│                    │  prod traces into eval set.                 │\n├────────────────────┼─────────────────────────────────────────────┤\n│  Braintrust        │  Trajectory eval via Span API; log each     │\n│                    │  tool call as a child span; eval on full    │\n│                    │  trace or individual spans independently.   │\n├────────────────────┼─────────────────────────────────────────────┤\n│  Roll your own     │  JSON trajectory files (see above) + pytest │\n│                    │  assertions. Zero dependency. Full control. │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

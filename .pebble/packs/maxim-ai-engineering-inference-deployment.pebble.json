@@ -1,0 +1,405 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-ai-engineering-inference-deployment",
+  "source": "../../ai-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#000",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "# 08 — Inference Optimization and Serving"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#001",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#002",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "```\n  LLM Inference — The Full Stack\n  ================================"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#003",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n  │  REQUEST                                                             │\n  │  Prompt tokens (input) → KV Cache (prefill) → Output tokens (decode) │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  ATTENTION LAYER                                                     │\n  │  Attention(Q,K,V) — the quadratic bottleneck                         │\n  │  Optimizations: FlashAttention, MQA, GQA, linear attention           │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  MEMORY LAYER                                                        │\n  │  KV cache management — the primary GPU memory constraint             │\n  │  PagedAttention (vLLM): virtual memory paging for KV cache           │\n  │  Prefix caching: reuse KV state for repeated system prompts          │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  COMPUTE LAYER                                                       │\n  │  Quantization: FP16 → INT8 → INT4 (size, quality, speed tradeoffs)   │\n  │  Speculative decoding: draft model accelerates large model           │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  SERVING LAYER                                                       │\n  │  Continuous batching · Request scheduling · Load balancing           │\n  │  vLLM · TGI · SGLang · Triton · Ollama                               │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  DEPLOYMENT PATTERN                                                  │\n  │  Serverless API · Dedicated GPU cluster · Edge/local                 │\n  └──────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#004",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#005",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "## KV Cache — The Central Memory Problem"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#006",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "```\n  Why KV Cache Exists\n  ───────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#007",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "Autoregressive decoding: generate one token at a time.\n  To generate token t_n, attention needs Q, K, V for all tokens t_1...t_{n-1}."
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#008",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "Without caching (naive):\n    At each step, recompute K and V for ALL previous tokens\n    Step n: n × d_model matrix multiplications\n    Total compute: O(n²) per token generated → catastrophically slow"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#009",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "With KV cache:\n    Store K and V tensors for all previously processed tokens\n    At step n: compute K, V only for the NEW token t_n\n    Append to cache. Compute attention using cached K, V.\n    Total compute: O(n) per token generated"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#010",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "Memory footprint formula:\n    KV cache bytes = 2 × num_layers × num_heads × d_head × context_len × bytes_per_element"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#011",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "Example: Llama-3-8B\n    num_layers = 32, num_heads = 32, d_head = 128 (= 4096/32), FP16 = 2 bytes\n    context_len = 8192 tokens\n    2 × 32 × 32 × 128 × 8192 × 2 = ~4.3 GB per sequence"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#012",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "For batched serving at context_len=8192, batch_size=16:\n    4.3 GB × 16 = ~69 GB — exceeds a single A100 80GB with model weights"
+    },
+    {
+      "id": "08-INFERENCE-DEPLOYMENT.md#013",
+      "path": [
+        "08-INFERENCE-DEPLOYMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:08-inference-deployment, git-history:ai-engineering:08-inference-deployment]",
+        "canonical_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "concepts": "[inference, deployment]",
+        "current_path": "ai-engineering/08-INFERENCE-DEPLOYMENT.md",
+        "id": "maxim:ai-engineering:inference-deployment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inference, deployment]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Inference Optimization and Serving",
+        "updated": "null"
+      },
+      "text": "This is why context length and batch size are the primary\n  serving constraints, not raw compute.\n```"
+    }
+  ],
+  "refs": [
+    "08-INFERENCE-DEPLOYMENT.md"
+  ]
+}

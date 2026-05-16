@@ -1,0 +1,2617 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-ai-engineering-fine-tuning",
+  "source": "../../ai-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-FINE-TUNING.md#000",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "# 06 — Fine-Tuning and Model Adaptation"
+    },
+    {
+      "id": "06-FINE-TUNING.md#001",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-FINE-TUNING.md#002",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\nThe Fine-Tuning Spectrum — Where Your Work Falls\n================================================="
+    },
+    {
+      "id": "06-FINE-TUNING.md#003",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "BASE MODEL (pre-trained on internet-scale text)\n  No instruction following · Will complete anything · No alignment\n       │\n       │ Full fine-tuning: update ALL parameters\n       │ - Full task adaptation\n       │ - Catastrophic forgetting risk\n       │ - Compute cost: same as pre-training fraction\n       │\n       ├──────────────────────────────────────────────────────────\n       │\n       │ SFT (Supervised Fine-Tuning): fine-tune on (prompt, response) pairs\n       │ - Teaches instruction following format\n       │ - Typical data scale: 1k–100k examples\n       │ - The first alignment step\n       │\n       ├──────────────────────────────────────────────────────────\n       │\n       │ PEFT (Parameter-Efficient Fine-Tuning)\n       │ - LoRA: add low-rank adapter matrices, train only those\n       │ - QLoRA: 4-bit quantized base + LoRA adapters\n       │ - DoRA: decompose weights into magnitude + direction\n       │ - Prefix tuning: prepend trainable tokens to each layer\n       │ - Prompt tuning: single soft token prefix (smallest PEFT)\n       │\n       ├──────────────────────────────────────────────────────────\n       │\n       │ Alignment fine-tuning: shape behavior to human preferences\n       │ - RLHF: reward model → PPO optimization\n       │ - DPO: direct optimization on preference pairs (no RM)\n       │ - ORPO / SimPO: simplifications of DPO\n       │\n       ▼\n  ADAPTED MODEL\n  Instruction-following · Domain-specific · Aligned to preferences\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#004",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#005",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Full Fine-Tuning"
+    },
+    {
+      "id": "06-FINE-TUNING.md#006",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Full fine-tuning updates every parameter in the model. Rarely the right choice for application engineers."
+    },
+    {
+      "id": "06-FINE-TUNING.md#007",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  FULL FINE-TUNING MECHANICS\n  ───────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#008",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "What it does:\n    Initialize from pre-trained checkpoint\n    Compute gradient of loss w.r.t. ALL parameters\n    Update all weights via optimizer (Adam, AdamW)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#009",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Compute requirements (approximate):\n    Training memory ≈ 16 bytes × parameter_count\n      (FP32 weights + gradients + optimizer state)\n    Llama-3-8B:  8B × 16 bytes = 128 GB  (won't fit on single A100 80GB)\n    Llama-3-70B: 70B × 16 bytes = 1.1 TB (requires 16× A100s minimum)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#010",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Catastrophic forgetting:\n    Fine-tuning on narrow data → model \"forgets\" general capabilities\n    Measured by: degradation on held-out general benchmarks (MMLU, etc.)\n    Mitigation: mix general data into fine-tuning corpus (replay)\n    Reality check: if you need the base model to stay general,\n    you probably want PEFT, not full fine-tuning"
+    },
+    {
+      "id": "06-FINE-TUNING.md#011",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "When full fine-tuning is justified:\n    ✅ Domain shift so large that adapter capacity is insufficient\n    ✅ You need maximum task performance (final % matters)\n    ✅ You have the compute and a dedicated model deployment\n    ✅ Continual pre-training on proprietary corpus\n    ❌ Most application engineering scenarios — use PEFT\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#012",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#013",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## PEFT — Parameter-Efficient Fine-Tuning"
+    },
+    {
+      "id": "06-FINE-TUNING.md#014",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "The dominant approach for application engineers. Trains a tiny fraction of parameters while keeping the base model frozen."
+    },
+    {
+      "id": "06-FINE-TUNING.md#015",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "### LoRA (Low-Rank Adaptation)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#016",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  LoRA: The Core Idea (Hu et al. 2021)\n  ─────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#017",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "For a weight matrix W ∈ ℝ^{d × k} (pre-trained, frozen):\n  Instead of computing full ΔW ∈ ℝ^{d × k} during fine-tuning,\n  approximate it with a low-rank decomposition:"
+    },
+    {
+      "id": "06-FINE-TUNING.md#018",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "ΔW = A · B      where A ∈ ℝ^{d × r}, B ∈ ℝ^{r × k}, r << min(d,k)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#019",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Forward pass:\n    h = W₀x + ΔWx = W₀x + (AB)x"
+    },
+    {
+      "id": "06-FINE-TUNING.md#020",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "W₀ stays frozen. Only A and B are trained."
+    },
+    {
+      "id": "06-FINE-TUNING.md#021",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Parameter reduction:\n    Full ΔW: d × k parameters\n    LoRA:    d × r + r × k = r(d + k) parameters\n    For d=4096, k=4096, r=16: 16×8192 = 131k vs. 16.7M = 99.2% reduction"
+    },
+    {
+      "id": "06-FINE-TUNING.md#022",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Typical rank values:\n    r = 8–16:   general-purpose fine-tuning, good quality/cost tradeoff\n    r = 32–64:  complex task adaptation, more capacity\n    r = 4:      minimal, style/format adaptation only\n    r = 128+:   approaching full fine-tuning territory"
+    },
+    {
+      "id": "06-FINE-TUNING.md#023",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Which layers to apply LoRA to:\n    Attention projections: Q, K, V, O (standard, most common)\n    FFN layers: additional capacity, more parameters\n    All linear layers: maximum adaptation (DoRA territory)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#024",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "At inference:\n    Option 1: keep A, B separate → add ΔWx at runtime (hot-swappable)\n    Option 2: merge into base: W = W₀ + AB → no runtime overhead"
+    },
+    {
+      "id": "06-FINE-TUNING.md#025",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Implementation:\n    HuggingFace PEFT library: peft.LoraConfig(r=16, lora_alpha=32, ...)\n    Axolotl: yaml config, wraps PEFT\n    LLaMA-Factory: full fine-tuning framework, LoRA/QLoRA native\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#026",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "The structural analog: LoRA is the Adapter pattern. The frozen base model is a stable, expensive-to-change interface. The A and B matrices are the lightweight specialization layer — same stable base, different behavior profiles. Swapping LoRA adapters = swapping adapter implementations."
+    },
+    {
+      "id": "06-FINE-TUNING.md#027",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "### QLoRA"
+    },
+    {
+      "id": "06-FINE-TUNING.md#028",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  QLoRA (Dettmers et al. 2023) — Fine-tuning large models on consumer hardware\n  ──────────────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#029",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Stack:\n    NF4 quantization:  base model weights quantized to 4-bit NormalFloat\n                       designed for normally distributed weights (they are)\n    Double quantization: quantize the quantization constants → saves ~0.5 GB\n    Paged optimizer:    swap optimizer states to CPU when GPU OOM"
+    },
+    {
+      "id": "06-FINE-TUNING.md#030",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Memory comparison (Llama-3-70B):\n    Full FP16:     140 GB  (2× A100 80GB minimum)\n    Full BF16:     140 GB\n    QLoRA (NF4):   ~35 GB  (fits on 1× A100 80GB, 2× 24GB consumer GPUs)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#031",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Quality:\n    QLoRA 4-bit + LoRA ≈ full 16-bit LoRA at same rank\n    ~1–2% quality gap vs. full fine-tuning on most tasks\n    For most applications: indistinguishable in production"
+    },
+    {
+      "id": "06-FINE-TUNING.md#032",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Practical setup:\n    bitsandbytes library → quantizes base model on load\n    PEFT → LoRA adapters on top of quantized model\n    Training with gradient checkpointing → further memory savings"
+    },
+    {
+      "id": "06-FINE-TUNING.md#033",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "When to use QLoRA vs LoRA:\n    QLoRA: you have consumer GPUs (24GB each) or need 70B on 1 A100\n    LoRA:  you have ample GPU memory and want fastest training\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#034",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "### DoRA, Prefix Tuning, Prompt Tuning"
+    },
+    {
+      "id": "06-FINE-TUNING.md#035",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  DoRA (Weight-Decomposed Low-Rank Adaptation, 2024)\n    Decomposes W into magnitude (‖W‖) and direction (W/‖W‖)\n    Applies LoRA to the direction component only\n    Better approximates full fine-tuning behavior\n    ~5–10% better than LoRA at same rank on instruction tuning tasks"
+    },
+    {
+      "id": "06-FINE-TUNING.md#036",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Prefix Tuning (Li & Liang 2021)\n    Prepends learnable \"virtual tokens\" (prefix) to K and V at each layer\n    The prefix vectors are trainable; the base model is frozen\n    Analogy: adding a trained preamble that conditions every attention head\n    Strength: strong for generation tasks with fixed output format\n    Weakness: less effective for tasks requiring deep weight modification"
+    },
+    {
+      "id": "06-FINE-TUNING.md#037",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Prompt Tuning (Lester et al. 2021)\n    Simplest PEFT: add k trainable tokens to the input embedding only\n    No modifications to attention layers\n    At scale (10B+ params): approaches fine-tuning quality\n    At smaller scales: significantly underperforms LoRA\n    Use case: lightweight style/format adaptation on very large models"
+    },
+    {
+      "id": "06-FINE-TUNING.md#038",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "IA³ (Infused Adapter by Inhibiting and Amplifying Inner Activations)\n    Scales K, V, and FFN activations by learned vectors\n    Extremely parameter-efficient (~0.01% of model parameters)\n    Strong for few-shot tasks; underperforms LoRA on standard SFT\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#039",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#040",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## SFT — Supervised Fine-Tuning"
+    },
+    {
+      "id": "06-FINE-TUNING.md#041",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  SFT Pipeline\n  ────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#042",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "1. Dataset curation\n       ┌─────────────────────────────────────────────────────────┐\n       │  (system_prompt, user_turn, assistant_response) triples │\n       │                                                         │\n       │  Format: ShareGPT (multi-turn) or Alpaca (single-turn)  │\n       │  ShareGPT:                                              │\n       │    {\"conversations\": [                                  │\n       │      {\"from\": \"system\", \"value\": \"...\"},                │\n       │      {\"from\": \"human\",  \"value\": \"...\"},                │\n       │      {\"from\": \"gpt\",    \"value\": \"...\"}                 │\n       │    ]}                                                   │\n       │                                                         │\n       │  Data quality >> quantity                               │\n       │  500 clean examples often beat 50k noisy ones           │\n       └─────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "06-FINE-TUNING.md#043",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "2. Token masking\n       Input tokens (prompt):   loss = 0 (don't train on these)\n       Output tokens (response): loss = cross-entropy (train on these)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#044",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Why: you want the model to learn to produce the response,\n       not to memorize the prompts. Loss only flows from response tokens."
+    },
+    {
+      "id": "06-FINE-TUNING.md#045",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "3. Training hyperparameters (typical LoRA SFT)\n       Learning rate:  1e-4 to 3e-4 (higher than pre-training)\n       LR schedule:    cosine decay with 3–5% warmup\n       Batch size:     32–128 (limited by GPU memory)\n       Epochs:         1–3 (more epochs → overfitting on small datasets)\n       Dropout:        0.05–0.1 on LoRA matrices"
+    },
+    {
+      "id": "06-FINE-TUNING.md#046",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "4. Evaluation during training\n       Held-out split (10–20% of data): perplexity on response tokens\n       Task-specific evals: run your eval suite every N steps\n       Early stopping: stop when eval metric plateaus or degrades\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#047",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#048",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Alignment Fine-Tuning"
+    },
+    {
+      "id": "06-FINE-TUNING.md#049",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "### RLHF (Reinforcement Learning from Human Feedback)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#050",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  RLHF Pipeline (Christiano et al. 2017, refined by OpenAI/Anthropic)\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#051",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Step 1: SFT model\n    Fine-tune base model on (prompt, good response) pairs → π_SFT"
+    },
+    {
+      "id": "06-FINE-TUNING.md#052",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Step 2: Reward model\n    Dataset: same prompt, two responses (y_w preferred over y_l by humans)\n    Train reward model R_φ to predict: R(x, y_w) > R(x, y_l)\n    Architecture: LLM with linear head → scalar reward score"
+    },
+    {
+      "id": "06-FINE-TUNING.md#053",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Step 3: PPO optimization\n    Maximize: E[R_φ(x, y)] - β · KL(π_θ || π_SFT)\n    The KL term keeps the model close to π_SFT\n    Without KL penalty: reward hacking → model outputs gibberish\n    that scores high on the RM without being useful\n    β controls exploitation vs. staying on-distribution"
+    },
+    {
+      "id": "06-FINE-TUNING.md#054",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Problem with RLHF:\n    Unstable PPO training (sensitive to hyperparameters)\n    Two separate model training phases (SFT + RM)\n    RM can be exploited (Goodhart's Law — optimizing proxy ≠ optimizing goal)\n    Engineering complexity: requires 3 models in memory during PPO\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#055",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "### DPO (Direct Preference Optimization)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#056",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  DPO (Rafailov et al. 2023) — Why It Largely Replaced RLHF\n  ──────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#057",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Key insight: the optimal policy under RLHF can be expressed in\n  closed form. You can skip the explicit reward model."
+    },
+    {
+      "id": "06-FINE-TUNING.md#058",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "DPO loss function:\n    L_DPO(θ) = -E[(x, y_w, y_l)] log σ(\n      β log(π_θ(y_w|x) / π_ref(y_w|x)) -\n      β log(π_θ(y_l|x) / π_ref(y_l|x))\n    )"
+    },
+    {
+      "id": "06-FINE-TUNING.md#059",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "In plain language:\n    Increase probability of preferred response y_w\n    Decrease probability of dispreferred response y_l\n    Relative to a reference model π_ref (the SFT model)\n    β controls how far to deviate from the reference"
+    },
+    {
+      "id": "06-FINE-TUNING.md#060",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "What you need:\n    Preference dataset: (prompt, chosen_response, rejected_response)\n    SFT model as reference\n    That's it — no reward model, no PPO"
+    },
+    {
+      "id": "06-FINE-TUNING.md#061",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Advantages over RLHF:\n    ✅ Single training phase\n    ✅ Standard supervised learning (no RL instability)\n    ✅ No separate reward model to train and maintain\n    ✅ Less memory (no need to keep RM loaded)\n    ✅ More stable, easier to tune"
+    },
+    {
+      "id": "06-FINE-TUNING.md#062",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Disadvantages:\n    ❌ Less flexible than RL (can't do online exploration)\n    ❌ Preference data quality is critical\n    ❌ Distribution shift: reference model must match your SFT model"
+    },
+    {
+      "id": "06-FINE-TUNING.md#063",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Variants:\n    ORPO (Odds Ratio Preference Optimization):\n      Combines SFT and preference optimization in one loss\n      Removes need for a separate reference model\n      More parameter-efficient (one training phase from base)"
+    },
+    {
+      "id": "06-FINE-TUNING.md#064",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "SimPO (Simple Preference Optimization):\n      Removes reference model entirely\n      Uses length-normalized reward\n      Outperforms DPO on several benchmarks with simpler setup"
+    },
+    {
+      "id": "06-FINE-TUNING.md#065",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "Current state of the art (2024):\n    Most open-source fine-tuned models use DPO or ORPO\n    Closed models (GPT-4, Claude) still use proprietary RLHF variants\n    DPO is the default for most application engineers doing alignment\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#066",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#067",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Fine-Tune vs. RAG — The Decision Tree"
+    },
+    {
+      "id": "06-FINE-TUNING.md#068",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  START: I want to adapt model behavior for my use case."
+    },
+    {
+      "id": "06-FINE-TUNING.md#069",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "1. Does the task require access to specific, frequently-updated\n     facts, documents, or private data?\n       YES -> Use RAG (see 09-VECTOR-DBS.md). Stop here.\n       NO  -> Continue."
+    },
+    {
+      "id": "06-FINE-TUNING.md#070",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "2. Is the task about consistent behavior, style, or format?\n       YES -> Fine-tune (SFT / LoRA).\n       NO  -> Continue."
+    },
+    {
+      "id": "06-FINE-TUNING.md#071",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "3. Is the model currently failing at the core task with good\n     prompting?\n       YES -> Fine-tune (task-specific).\n       NO  -> Improve prompts / chain-of-thought.\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#072",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "### Quantified Decision Guide"
+    },
+    {
+      "id": "06-FINE-TUNING.md#073",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "| Factor | Favor RAG | Favor Fine-tuning |\n|--------|-----------|------------------|\n| **Data freshness** | Updates daily/weekly | Stable for months |\n| **Knowledge type** | Specific facts, documents | Style, format, persona |\n| **Training data** | < 100 labeled examples | > 500 quality examples |\n| **Latency budget** | Tolerates retrieval overhead (100-300ms) | Needs fast response |\n| **Cost** | Pay per query (embedding + retrieval) | Upfront training cost, cheaper per query |\n| **Debuggability** | Can see retrieved chunks | Behavior in weights |\n| **Domain jargon** | Jargon in documents (RAG will retrieve it) | Need model to *use* jargon naturally |"
+    },
+    {
+      "id": "06-FINE-TUNING.md#074",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#075",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Evaluation"
+    },
+    {
+      "id": "06-FINE-TUNING.md#076",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "```\n  Fine-tuning Eval Stack\n  ──────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "06-FINE-TUNING.md#077",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "1. Held-out split metrics (automatic, fast)\n     Perplexity on response tokens: lower = better\n     Task metric: accuracy, F1, BLEU/ROUGE, pass@1 for code\n     Sanity check: not the final story"
+    },
+    {
+      "id": "06-FINE-TUNING.md#078",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "2. Capability regression testing\n     Run model on general benchmarks after fine-tuning\n     MMLU: knowledge breadth preserved?\n     HumanEval: code capability preserved?\n     Flag: > 2–3% degradation is concerning\n     Fix: mix general data into fine-tuning corpus"
+    },
+    {
+      "id": "06-FINE-TUNING.md#079",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "3. Task-specific evals (the real signal)\n     Your held-out examples from your actual task distribution\n     LLM-as-judge for subjective quality (02-EVALS-HARNESS.md)\n     Human eval on 50–100 examples for launch gate"
+    },
+    {
+      "id": "06-FINE-TUNING.md#080",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "4. A/B testing in production\n     Shadow mode: run new model, log outputs, don't serve yet\n     Canary: route 5–10% traffic to new model\n     Metric: task success rate, user preference, helpfulness rating\n```"
+    },
+    {
+      "id": "06-FINE-TUNING.md#081",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#082",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "06-FINE-TUNING.md#083",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "**LoRA rank is not a quality knob you just crank up.**\nHigher rank means more parameters and potentially more adaptation capacity, but also more risk of overfitting on small datasets. r=16 is a strong starting point. Only increase rank if you have evidence the model lacks adaptation capacity, and you have sufficient training data (> 1k examples)."
+    },
+    {
+      "id": "06-FINE-TUNING.md#084",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "**QLoRA quality is not significantly worse than full fine-tuning.**\nThe original QLoRA paper showed that 4-bit quantized base + LoRA adapters nearly matches full 16-bit fine-tuning on instruction following tasks. For most application tasks, the quality gap is < 2% and invisible in production. Use QLoRA if memory is the constraint."
+    },
+    {
+      "id": "06-FINE-TUNING.md#085",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "**DPO requires SFT first.**\nDPO needs a reference model (π_ref). That reference is your SFT model. You cannot skip SFT and apply DPO to the raw base model — the base model produces incoherent outputs that produce meaningless preference signals. Order: SFT → DPO."
+    },
+    {
+      "id": "06-FINE-TUNING.md#086",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "**Fine-tuning for knowledge is a mistake.**\nIf the goal is \"the model should know X\", fine-tuning is the wrong tool. Fine-tuning on facts leads to hallucinations when the model over-generalizes patterns. Facts belong in a retrieval system. Fine-tuning is for style, format, and behavior — not for injecting knowledge."
+    },
+    {
+      "id": "06-FINE-TUNING.md#087",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "**RLHF is mostly a closed-model concern.**\nIn 2024, open-source fine-tuning workflows use SFT → DPO (or ORPO). Full RLHF with PPO is complex, compute-intensive, and requires building a reward model from scratch. Unless you have an ML research team, you're doing DPO."
+    },
+    {
+      "id": "06-FINE-TUNING.md#088",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FINE-TUNING.md#089",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "06-FINE-TUNING.md#090",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "- `machine-learning-theory/01-PAC-LEARNING.md` — generalization frame beneath adaptation and overfitting risk.\n- `ai-engineering/02-EVALS-HARNESS.md` — evals needed before and after any model adaptation.\n- `ai-engineering/08-INFERENCE-DEPLOYMENT.md` — serving implications of adapted weights, adapters, and quantization."
+    },
+    {
+      "id": "06-FINE-TUNING.md#091",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "06-FINE-TUNING.md#092",
+      "path": [
+        "06-FINE-TUNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:ai-engineering:06-fine-tuning, git-history:ai-engineering:06-fine-tuning]",
+        "canonical_path": "ai-engineering/06-FINE-TUNING.md",
+        "concepts": "[fine, tuning]",
+        "current_path": "ai-engineering/06-FINE-TUNING.md",
+        "id": "maxim:ai-engineering:fine-tuning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fine, tuning]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "06 - Fine-Tuning and Model Adaptation",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether fine-tuning is justified | Base-model evals with prompt and retrieval baselines | Fine-tuning is not a first resort; prove prompting, RAG, or tool use cannot meet the target |\n| Whether style adaptation is enough | LoRA with a small, high-quality instruction set | Style transfer can look successful while factual behavior remains unchanged |\n| Whether a large model fits available hardware | QLoRA memory budget and sequence-length math | 4-bit weights do not eliminate activation, optimizer, or KV-cache costs |\n| Whether schema following needs SFT | Failure examples from structured-output evals | Prefer constrained decoding first when the schema is hard and finite |\n| Whether preference alignment is needed | DPO pairs from real ranking disagreements | Preference data must encode the policy tradeoff; weak pairs teach noise |\n| Whether ORPO or SimPO is attractive | Training-pipeline complexity and reference-model constraints | Simpler objectives still need rigorous held-out preference evals |\n| Whether domain vocabulary is the issue | Error analysis on terminology, not broad accuracy | Domain corpus SFT can memorize phrasing without improving reasoning |\n| Whether multiple adapters are safe | Adapter-by-task eval matrix before merge | Adapter merging can create interference; test combinations, not just individual adapters |"
+    }
+  ],
+  "refs": [
+    "06-FINE-TUNING.md"
+  ]
+}

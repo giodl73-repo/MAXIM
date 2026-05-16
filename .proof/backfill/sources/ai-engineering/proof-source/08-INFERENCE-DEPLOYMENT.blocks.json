@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\08-INFERENCE-DEPLOYMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  LLM Inference — The Full Stack\n  ================================\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  REQUEST                                                             │\n  │  Prompt tokens (input) → KV Cache (prefill) → Output tokens (decode) │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  ATTENTION LAYER                                                     │\n  │  Attention(Q,K,V) — the quadratic bottleneck                         │\n  │  Optimizations: FlashAttention, MQA, GQA, linear attention           │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  MEMORY LAYER                                                        │\n  │  KV cache management — the primary GPU memory constraint             │\n  │  PagedAttention (vLLM): virtual memory paging for KV cache           │\n  │  Prefix caching: reuse KV state for repeated system prompts          │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  COMPUTE LAYER                                                       │\n  │  Quantization: FP16 → INT8 → INT4 (size, quality, speed tradeoffs)   │\n  │  Speculative decoding: draft model accelerates large model           │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  SERVING LAYER                                                       │\n  │  Continuous batching · Request scheduling · Load balancing           │\n  │  vLLM · TGI · SGLang · Triton · Ollama                               │\n  └──────────────────────────────┬───────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼───────────────────────────────────────┐\n  │  DEPLOYMENT PATTERN                                                  │\n  │  Serverless API · Dedicated GPU cluster · Edge/local                 │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## KV Cache — The Central Memory Problem",
+      "confidence": "candidate",
+      "text": "  Why KV Cache Exists\n  ───────────────────────────────────────────────────────────────────────\n\n  Autoregressive decoding: generate one token at a time.\n  To generate token t_n, attention needs Q, K, V for all tokens t_1...t_{n-1}.\n\n  Without caching (naive):\n    At each step, recompute K and V for ALL previous tokens\n    Step n: n × d_model matrix multiplications\n    Total compute: O(n²) per token generated → catastrophically slow\n\n  With KV cache:\n    Store K and V tensors for all previously processed tokens\n    At step n: compute K, V only for the NEW token t_n\n    Append to cache. Compute attention using cached K, V.\n    Total compute: O(n) per token generated\n\n  Memory footprint formula:\n    KV cache bytes = 2 × num_layers × num_heads × d_head × context_len × bytes_per_element\n\n  Example: Llama-3-8B\n    num_layers = 32, num_heads = 32, d_head = 128 (= 4096/32), FP16 = 2 bytes\n    context_len = 8192 tokens\n    2 × 32 × 32 × 128 × 8192 × 2 = ~4.3 GB per sequence\n\n  For batched serving at context_len=8192, batch_size=16:\n    4.3 GB × 16 = ~69 GB — exceeds a single A100 80GB with model weights\n\n  This is why context length and batch size are the primary\n  serving constraints, not raw compute.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "### Prefix Caching",
+      "confidence": "candidate",
+      "text": "  Prefix Caching — Reuse KV State Across Requests\n  ──────────────────────────────────────────────────────────────────────\n\n  Observation: many requests share the same prefix (system prompt)\n    System prompt: 2000 tokens\n    User message: 100 tokens\n    Total: 2100 tokens → 2000 of those computed identically for every request\n\n  Prefix caching:\n    On first request: compute and store KV cache for the system prompt prefix\n    On subsequent requests: if prefix matches, skip prefill for those tokens\n    Only prefill the user-specific portion\n\n  Savings:\n    Cost: avoid paying for 2000 tokens of input on every request\n    Latency: TTFT reduced by (prefix_tokens / total_tokens) × prefill_time\n\n  Provider support:\n    Anthropic: prompt caching API — explicitly mark prefix for caching\n    OpenAI: automatic prompt caching for identical prefixes ≥ 1024 tokens\n    Azure OpenAI: follows OpenAI behavior\n\n  Application pattern:\n    Always put your system prompt FIRST and keep it stable\n    Vary only the user content (which comes after)\n    Consistent formatting matters: byte-for-byte prefix match required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "### FlashAttention",
+      "confidence": "candidate",
+      "text": "  Standard attention: the memory bottleneck\n  ──────────────────────────────────────────\n  Attention(Q, K, V) = softmax(QK^T / √d_k) V\n\n  QK^T ∈ ℝ^{N × N}  →  N = context length\n  For N = 8192: QK^T is 8192 × 8192 = 67M elements × FP16 = 134 MB\n  For N = 128k:  128k × 128k = 16B elements — 32 GB just for attention matrix\n\n  Problem: HBM (GPU high-bandwidth memory) bandwidth, not FLOPs, is the bottleneck.\n  Reading/writing the N×N attention matrix to HBM is slow.\n\n  FlashAttention (Dao et al. 2022):\n    Tile the computation to fit in fast SRAM (on-chip cache)\n    Never materialize the full N×N matrix in HBM\n    Compute softmax in blocks with online normalization\n    Mathematically identical result, IO-aware implementation\n\n  Memory: O(N) instead of O(N²) — does not store full attention matrix\n  Speed: 2–4× faster than standard attention for long sequences\n  Used by: virtually every production LLM inference system\n\n  FlashAttention-2 (2023): better work partitioning, fewer non-GEMM ops\n  FlashAttention-3 (2024): H100-specific optimizations (async pipelines)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### Multi-Query Attention (MQA) and Grouped Query Attention (GQA)",
+      "confidence": "candidate",
+      "text": "  Multi-Head Attention (MHA) — baseline\n  ────────────────────────────────────────────────────\n  h heads → each head has separate Q, K, V projections\n  KV cache stores h_KV separate K and V tensors per layer\n\n  Multi-Query Attention (MQA) — Shazeer 2019\n  ────────────────────────────────────────────────────\n  Multiple Q heads share a SINGLE K and V head\n  KV cache: 1 K tensor + 1 V tensor per layer (vs. h)\n  Memory: h× reduction in KV cache\n  Speed: faster decode (less KV to load from HBM per step)\n  Cost: slight quality degradation on tasks requiring diverse attention patterns\n  Used by: Falcon, PaLM, early Gemini\n\n  Grouped Query Attention (GQA) — Ainslie et al. 2023\n  ────────────────────────────────────────────────────\n  Compromise: g groups, each group shares K and V\n  g < h: more capacity than MQA, less KV cache than MHA\n\n  Example (Llama-3):\n    h_Q = 32 query heads\n    h_KV = 8 KV heads (groups)\n    4:1 sharing ratio\n    KV cache reduction: 4× vs. MHA, quality closer to MHA than MQA\n\n  MHA  ──→  GQA  ──→  MQA\n  full KV   partial    single\n  cache     sharing    KV head\n  Max quality          Max memory efficiency\n\n  Production reality (2024+): GQA is the default.\n  Llama 3, Mistral, Gemma, Phi all use GQA.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Speculative Decoding",
+      "confidence": "candidate",
+      "text": "  Speculative Decoding (Chen et al. 2023)\n  ──────────────────────────────────────────────────────────────────────\n\n  Problem:\n    Large model (e.g., Llama-3-70B) is memory-bandwidth bound in decode\n    Each new token requires loading 140 GB of weights from HBM\n    Hardware utilization during decode is 30-50% — the GPU is mostly waiting\n\n  Insight:\n    A small model (e.g., Llama-3-8B) can generate k draft tokens quickly\n    The large model can VERIFY k tokens in one parallel forward pass\n    (Because verification is like prefill — process k tokens at once, fast)\n\n  Algorithm:\n    1. Draft model generates k tokens speculatively: t_1, t_2, ..., t_k\n    2. Target (large) model processes all k+1 tokens in one forward pass\n    3. Compare draft distribution p(t_i) vs. target distribution q(t_i)\n    4. Accept t_i with probability min(1, q(t_i)/p(t_i))\n    5. First rejection: resample from corrected distribution, discard rest\n    6. Repeat\n\n  Properties:\n    Distribution-preserving: outputs are identical in distribution to\n    sampling directly from the large model (provably)\n    Speedup: 2–3× for typical natural language\n    Higher speedup when draft and target agree often (similar domains)\n\n  Variants:\n    Medusa: multiple \"heads\" on single model generate parallel drafts\n    Self-speculative: early exit layers of same model as draft\n    EAGLE: extrapolation-based draft model\n\n  When not helpful:\n    When target model distribution is very different from draft (mismatched domains)\n    Short sequences (< 50 tokens) — overhead outweighs benefit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Quantization",
+      "confidence": "candidate",
+      "text": "  Quantization: Compress Model Weights to Reduce Memory\n  ──────────────────────────────────────────────────────────────────────\n\n  Weight precision tradeoff:\n  ┌─────────┬──────────┬──────────────────┬────────────────────────────┐\n  │  Format │  Bits    │  Llama-3-70B size│  Quality vs. FP16          │\n  ├─────────┼──────────┼──────────────────┼────────────────────────────┤\n  │  FP32   │  32 bits │  280 GB          │  Reference (rarely used)   │\n  │  BF16   │  16 bits │  140 GB          │  ≈ FP16, better range      │\n  │  FP16   │  16 bits │  140 GB          │  Standard baseline         │\n  │  INT8   │  8 bits  │  70 GB           │  ~0.5% quality loss        │\n  │  INT4   │  4 bits  │  35 GB           │  ~1-2% quality loss        │\n  │  INT3   │  3 bits  │  26 GB           │  Noticeable degradation    │\n  │  INT2   │  2 bits  │  18 GB           │  Significant degradation   │\n  └─────────┴──────────┴──────────────────┴────────────────────────────┘\n\n  Activation quantization vs. weight quantization:\n    Weight-only: compress weights to INT4/INT8, activations stay FP16\n    W8A8: weights AND activations in INT8 (faster matmuls, trickier)\n\n  Major quantization algorithms:\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  GPTQ (Frantar et al. 2022)                                         │\n  │    Post-training quantization, weight-only                          │\n  │    Minimizes layer-wise quantization error with second-order info   │\n  │    INT4, per-group quantization (128 weights share scale factor)    │\n  │    Supported by: AutoGPTQ, vLLM, TGI                                │\n  │                                                                     │\n  │  AWQ (Lin et al. 2023)                                              │\n  │    Activation-Aware Quantization                                    │\n  │    Identifies 1% of \"salient\" weights and protects them at FP16     │\n  │    Better than GPTQ on many tasks at same bit width                 │\n  │    Fast inference (custom CUDA kernels)                             │\n  │    Supported by: AutoAWQ, vLLM, llama.cpp                           │\n  │                                                                     │\n  │  GGUF (llama.cpp format)                                            │\n  │    Flexible quantization: Q2_K, Q3_K, Q4_K, Q5_K, Q6_K, Q8_0        │\n  │    CPU and Apple Silicon optimized                                  │\n  │    Used by: llama.cpp, Ollama, LM Studio, Jan                       │\n  │    Q4_K_M is the standard local-deployment choice                   │\n  │                                                                     │\n  │  SmoothQuant                                                        │\n  │    Smooth activation outliers → enables W8A8 without quality loss   │\n  │    Used in production serving (NVIDIA TensorRT-LLM)                 │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Serving Frameworks",
+      "confidence": "candidate",
+      "text": "  LLM Serving Frameworks — What Runs What Where\n  ──────────────────────────────────────────────────────────────────────\n\n  ┌──────────┬──────────────────────────────────────────────────────────┐\n  │  vLLM    │  Open-source, Python, the production standard            │\n  │          │  PagedAttention: KV cache managed like virtual memory    │\n  │          │  (pages, copy-on-write, flexible memory allocation)      │\n  │          │  Continuous batching: no fixed batch timeout             │\n  │          │  OpenAI-compatible API                                   │\n  │          │  Supports: Llama, Mistral, Gemma, Phi, Qwen, etc.        │\n  │          │  Multi-GPU with tensor parallelism (tp=4 for 4 GPUs)     │\n  └──────────┴──────────────────────────────────────────────────────────┘\n  ┌──────────┬──────────────────────────────────────────────────────────┐\n  │  TGI     │  Text Generation Inference (HuggingFace)                 │\n  │          │  Production-grade, Docker-based                          │\n  │          │  Flash Attention, continuous batching                    │\n  │          │  Strong HuggingFace ecosystem integration                │\n  │          │  Powers HuggingFace Inference Endpoints                  │\n  └──────────┴──────────────────────────────────────────────────────────┘\n  ┌──────────┬──────────────────────────────────────────────────────────┐\n  │  SGLang  │  Structured Generation Language                          │\n  │          │  RadixAttention: prefix caching via radix tree           │\n  │          │  Efficient for multi-turn and structured output tasks    │\n  │          │  Growing adoption for reasoning/agent workloads          │\n  └──────────┴──────────────────────────────────────────────────────────┘\n  ┌──────────┬──────────────────────────────────────────────────────────┐\n  │  Ollama  │  Local deployment, developer-friendly                    │\n  │          │  GGUF models, CPU + GPU support                          │\n  │          │  One command: ollama run llama3                          │\n  │          │  Not designed for high-throughput production             │\n  └──────────┴──────────────────────────────────────────────────────────┘\n  ┌──────────┬──────────────────────────────────────────────────────────┐\n  │  Triton  │  NVIDIA Triton Inference Server                          │\n  │          │  Supports TensorRT-LLM, FasterTransformer                │\n  │          │  Enterprise, K8s-native, model ensemble support          │\n  │          │  Bridge: this is to LLMs what IIS is to web apps         │\n  └──────────┴──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "### Continuous Batching vs. Static Batching",
+      "confidence": "candidate",
+      "text": "  Static batching (pre-vLLM):\n    Wait for B requests → batch them → process together\n    Problem: requests have different output lengths\n    Short requests must wait for long ones to finish\n    GPU underutilized during decode of long sequences\n\n  Continuous batching (vLLM, TGI):\n    As soon as one request finishes decoding, add a new one to the batch\n    Batch composition changes dynamically\n    GPU stays fully utilized\n    Throughput: 2-5× higher than static batching at same GPU\n\n  Batch size vs. latency tradeoff:\n    Larger batch → higher GPU utilization → higher throughput\n    Larger batch → more requests share the GPU → higher latency per request\n    Typical production target: 80-90% GPU utilization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## Deployment Patterns and Cost Model",
+      "confidence": "candidate",
+      "text": "  Deployment Pattern Decision Tree\n  ──────────────────────────────────────────────────────────────────────\n\n  < 1M tokens/day?\n      → Use managed API (OpenAI/Anthropic/Azure AOAI)\n        No infra, no ops, pay per token\n\n  1M–100M tokens/day, variable load?\n      → Managed API + prompt caching\n        Optimize prompts, cache system prompts\n\n  > 100M tokens/day or cost-sensitive?\n      → Evaluate self-hosting\n        Break-even analysis: GPU cost vs. API cost\n\n  Strict data residency / air-gapped / compliance?\n      → Private deployment required\n        Azure OpenAI (VNET) or self-hosted",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 385,
+      "heading_context": "## Deployment Patterns and Cost Model",
+      "confidence": "candidate",
+      "text": "### Cost Comparison (2024 approximate)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 387,
+      "heading_context": "### Cost Comparison (2024 approximate)",
+      "confidence": "candidate",
+      "text": "  API costs (per 1M tokens, input/output):\n  ┌──────────────────────────┬────────────┬─────────────┐\n  │  Model                   │  Input     │  Output     │\n  ├──────────────────────────┼────────────┼─────────────┤\n  │  GPT-4o                  │  $2.50     │  $10.00     │\n  │  GPT-4o-mini             │  $0.15     │  $0.60      │\n  │  Claude 3.5 Sonnet       │  $3.00     │  $15.00     │\n  │  Claude 3 Haiku          │  $0.25     │  $1.25      │\n  │  Gemini 1.5 Pro          │  $1.25     │  $5.00      │\n  │  Gemini 1.5 Flash        │  $0.075    │  $0.30      │\n  └──────────────────────────┴────────────┴─────────────┘\n\n  Self-hosted infrastructure (cloud GPU, hourly):\n    1× A100 80GB:     ~$2.50-3.50/hr     → Llama-3-8B (high throughput)\n    2× A100 80GB:     ~$5-7/hr           → Llama-3-70B (fp16)\n    4× A100 80GB:     ~$10-14/hr         → Llama-3-70B (high batch)\n    1× A100 80GB:     ~$2.50-3.50/hr     → Llama-3-70B (AWQ 4-bit)\n\n  Break-even example (Llama-3-70B vs. Claude 3.5 Sonnet):\n    Self-host at 4× A100: $14/hr = $336/day\n    At $3/1M tokens: need 112M tokens/day to break even on input alone\n    At 1:2 input:output ratio: ~37M total tokens/day\n\n  Reality check: factor engineering + ops cost.\n    If you have the GPU know-how (you do — AKS clusters are familiar),\n    break-even is well under 100M tokens/day for Sonnet-tier quality.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 420,
+      "heading_context": "## Old World → New World Bridges",
+      "confidence": "candidate",
+      "text": "  IIS web farm / App Service scaling     LLM serving infrastructure\n  ──────────────────────────────────────────────────────────────────\n  Web workers (IIS app pools)        →   vLLM worker processes\n  Connection pool size               →   Batch size + KV cache budget\n  CPU saturation metric              →   GPU VRAM utilization metric\n  Application insights request trace →   LLM span traces (token counts)\n  Load balancer                      →   Routing layer across vLLM replicas\n  Azure App Service plan (auto-scale)→   AKS + KEDA (event-driven autoscale)\n\n  IIS/ASP.NET request processing     LLM decode\n  ──────────────────────────────────────────────────────────────────\n  First byte time (TTFB)             →   TTFT (time to first token)\n  Request throughput (req/sec)       →   Token throughput (tokens/sec)\n  Worker thread pool                 →   GPU compute units\n  Output buffer flush                →   SSE streaming chunks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\06-FINE-TUNING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 367,
+      "heading_context": "## Fine-Tune vs. RAG — The Decision Tree",
+      "headers": [
+        "Factor",
+        "Favor RAG",
+        "Favor Fine-tuning"
+      ],
+      "rows": [
+        [
+          "**Data freshness**",
+          "Updates daily/weekly",
+          "Stable for months"
+        ],
+        [
+          "**Knowledge type**",
+          "Specific facts, documents",
+          "Style, format, persona"
+        ],
+        [
+          "**Training data**",
+          "< 100 labeled examples",
+          "> 500 quality examples"
+        ],
+        [
+          "**Latency budget**",
+          "Tolerates retrieval overhead (100-300ms)",
+          "Needs fast response"
+        ],
+        [
+          "**Cost**",
+          "Pay per query (embedding + retrieval)",
+          "Upfront training cost, cheaper per query"
+        ],
+        [
+          "**Debuggability**",
+          "Can see retrieved chunks",
+          "Behavior in weights"
+        ],
+        [
+          "**Domain jargon**",
+          "Jargon in documents (RAG will retrieve it)",
+          "Need model to *use* jargon naturally"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 437,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether fine-tuning is justified",
+          "Base-model evals with prompt and retrieval baselines",
+          "Fine-tuning is not a first resort; prove prompting, RAG, or tool use cannot meet the target"
+        ],
+        [
+          "Whether style adaptation is enough",
+          "LoRA with a small, high-quality instruction set",
+          "Style transfer can look successful while factual behavior remains unchanged"
+        ],
+        [
+          "Whether a large model fits available hardware",
+          "QLoRA memory budget and sequence-length math",
+          "4-bit weights do not eliminate activation, optimizer, or KV-cache costs"
+        ],
+        [
+          "Whether schema following needs SFT",
+          "Failure examples from structured-output evals",
+          "Prefer constrained decoding first when the schema is hard and finite"
+        ],
+        [
+          "Whether preference alignment is needed",
+          "DPO pairs from real ranking disagreements",
+          "Preference data must encode the policy tradeoff; weak pairs teach noise"
+        ],
+        [
+          "Whether ORPO or SimPO is attractive",
+          "Training-pipeline complexity and reference-model constraints",
+          "Simpler objectives still need rigorous held-out preference evals"
+        ],
+        [
+          "Whether domain vocabulary is the issue",
+          "Error analysis on terminology, not broad accuracy",
+          "Domain corpus SFT can memorize phrasing without improving reasoning"
+        ],
+        [
+          "Whether multiple adapters are safe",
+          "Adapter-by-task eval matrix before merge",
+          "Adapter merging can create interference; test combinations, not just individual adapters"
+        ]
+      ]
+    }
+  ]
+}

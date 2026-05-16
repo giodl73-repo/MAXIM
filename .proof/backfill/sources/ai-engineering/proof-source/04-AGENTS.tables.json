@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\04-AGENTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 1007,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether the workload needs an agent",
+          "Count unknown steps and tool decisions",
+          "Fixed workflows should stay prompt chains; autonomy is for runtime branching"
+        ],
+        [
+          "Why an agent loops or stalls",
+          "Tool-call trace plus max-iteration boundary",
+          "A higher iteration cap masks ambiguity; fix goals, observations, or stop criteria"
+        ],
+        [
+          "Whether memory is helping",
+          "Compare in-context, retrieved, and persisted state separately",
+          "\"Memory\" is several mechanisms; mixing them hides which state caused the behavior"
+        ],
+        [
+          "Whether multi-agent design is justified",
+          "Role boundaries and handoff contracts",
+          "Subagents help when expertise or context differs, not when one prompt could branch"
+        ],
+        [
+          "Whether LangGraph is the right substrate",
+          "Stateful routing, resumability, and approvals",
+          "Graph structure should reflect actual control states, not framework enthusiasm"
+        ],
+        [
+          "Whether a tool should be exposed",
+          "Capability, input schema, and blast radius",
+          "Tool access is an authorization surface; narrow it before relying on model judgment"
+        ],
+        [
+          "Whether human approval is required",
+          "Destructive, external, or irreversible actions",
+          "Approval must interrupt before action, not merely log after the tool fires"
+        ],
+        [
+          "Whether production traces are actionable",
+          "Step-level spans with prompt, tool, and observation data",
+          "Aggregate success rates will not explain which loop decision failed"
+        ]
+      ]
+    }
+  ]
+}

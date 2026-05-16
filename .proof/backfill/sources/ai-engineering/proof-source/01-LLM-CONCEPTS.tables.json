@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\01-LLM-CONCEPTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 620,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Generalization theory beneath model scale",
+          "`machine-learning-theory/01-PAC-LEARNING.md`",
+          "LLM behavior still sits inside learnability, capacity, and distribution-shift questions"
+        ],
+        [
+          "Vector retrieval around LLMs",
+          "`ai-engineering/09-VECTOR-DATABASES.md`",
+          "RAG turns token prediction into a retrieval-plus-generation system"
+        ],
+        [
+          "Deployment and serving constraints",
+          "`ai-engineering/08-INFERENCE-DEPLOYMENT.md`",
+          "Latency, batching, KV cache, and cost shape real LLM systems"
+        ],
+        [
+          "Cloud hosting substrate",
+          "`cloud-architecture/01-CLOUD-MODELS.md`",
+          "LLM APIs and self-hosting differ mainly in responsibility boundaries and operations"
+        ],
+        [
+          "Security and prompt threat models",
+          "`security-engineering/01-THREAT-MODELING.md`",
+          "Prompt injection, data exfiltration, and tool use need explicit adversary models"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 654,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Ground model in private documents",
+          "RAG (embed + retrieve + inject)"
+        ],
+        [
+          "Make model follow a consistent format/style",
+          "Fine-tuning (SFT)"
+        ],
+        [
+          "Add recent knowledge without retraining",
+          "RAG"
+        ],
+        [
+          "Get structured JSON output reliably",
+          "`response_format: json_object` or tool_use"
+        ],
+        [
+          "Improve multi-step reasoning",
+          "Chain-of-thought prompting"
+        ],
+        [
+          "Give model access to external data/APIs",
+          "Tool use / function calling"
+        ],
+        [
+          "Run LLMs locally / air-gapped",
+          "Llama 3.1, Mistral via llama.cpp / Ollama"
+        ],
+        [
+          "Fine-tune without a cluster",
+          "QLoRA (4-bit quantized base + LoRA adapters)"
+        ],
+        [
+          "Compare two models on the same task",
+          "Evals (02-EVALS-HARNESS)"
+        ],
+        [
+          "Understand why the model said something",
+          "Look at the context — it's all there"
+        ],
+        [
+          "Reduce cost on high-volume simple tasks",
+          "Smaller model (Haiku, GPT-4o-mini)"
+        ],
+        [
+          "Maximize quality on complex reasoning",
+          "o1/o3 or Claude 3.5 Sonnet with CoT"
+        ],
+        [
+          "Cache repeated long system prompts",
+          "Anthropic/OpenAI prompt caching API"
+        ]
+      ]
+    }
+  ]
+}

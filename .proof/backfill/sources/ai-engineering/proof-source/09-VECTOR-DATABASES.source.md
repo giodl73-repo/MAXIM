@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "09-VECTOR-DATABASES.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:ai-engineering:vector-databases
 kind: guide

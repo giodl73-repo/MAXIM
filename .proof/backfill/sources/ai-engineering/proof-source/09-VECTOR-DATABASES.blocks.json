@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\09-VECTOR-DATABASES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  The Embedding and Retrieval Stack\n  ====================================\n\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  DOCUMENTS / DATA SOURCE                                                │\n  │  PDFs · web pages · database records · code · emails                    │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ chunking strategy (fixed/semantic/hierarchical)\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  CHUNKS                                                                 │\n  │  ~512 token text segments with metadata (source, date, section)         │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ embedding model\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  DENSE VECTORS                                                          │\n  │  float32 or int8 arrays (256–3072 dimensions)                           │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ ANN index (HNSW / IVF / PQ)\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  VECTOR INDEX                                                           │\n  │  Approximate nearest neighbor structure for sub-linear search           │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ query time: embed → search → rerank\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  RETRIEVAL PIPELINE                                                     │\n  │  Dense ANN + optional BM25 sparse → reciprocal rank fusion → reranker   │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  LLM GENERATION                                                         │\n  │  Context: [retrieved chunks] + [user query] → grounded response         │\n  └─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## Embedding Models",
+      "confidence": "candidate",
+      "text": "  Major Text Embedding Models (2024)\n  ──────────────────────────────────────────────────────────────────────\n\n  OpenAI:\n    text-embedding-3-small:    1536 dims, $0.02/1M tokens   — fast, cheap, good\n    text-embedding-3-large:    3072 dims, $0.13/1M tokens   — best OpenAI quality\n    text-embedding-ada-002:    1536 dims, $0.10/1M tokens   — legacy, still widely used\n\n  Open-source (self-hosted or via Ollama/HuggingFace):\n    BGE-M3 (BAAI):             1024 dims, multi-lingual, multi-granularity\n                                supports dense, sparse, and multi-vector retrieval\n    E5-large-v2 (Microsoft):   1024 dims, strong retrieval benchmarks\n    bge-large-en-v1.5:         1024 dims, top MTEB English performance\n    mxbai-embed-large-v1:      1024 dims, top MTEB, instruction-following\n\n  Cohere:\n    embed-english-v3.0:        1024 dims, native int8 quantization, built-in reranker\n    embed-multilingual-v3.0:   1024 dims, 100+ languages\n\n  Dimensions vs. quality tradeoff:\n    More dimensions: larger index, more memory, slower search, potentially better\n    3072 vs. 1536: marginal quality gain for 2× memory and search time\n    Matryoshka Representation Learning (MRL): text-embedding-3-* supports\n    truncating to smaller dimensions (e.g., 256) with controlled quality loss\n    → truncate to 256 dims for speed-sensitive, low-cost applications",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### Late Interaction — ColBERT",
+      "confidence": "candidate",
+      "text": "  ColBERT (Khattab & Zaharia, 2020) — Multi-vector retrieval\n  ────────────────────────────────────────────────────────────────────\n\n  Standard embedding: entire document → single vector\n  Limitation: one vector must represent all document semantics\n\n  ColBERT: each token → its own vector (late interaction)\n    Query: q_1, q_2, ..., q_m  →  [v_1, v_2, ..., v_m]  (per-token vectors)\n    Doc:   d_1, d_2, ..., d_n  →  [u_1, u_2, ..., u_n]\n\n  Similarity (MaxSim):\n    score(q, d) = Σ_i max_j(v_i · u_j)\n    Each query token finds its best-matching document token\n\n  Why it's better:\n    Single-vector: \"bank\" averaged with \"financial\" and \"river\" loses precision\n    ColBERT: the token \"bank\" in context of \"river bank\" matches \"river\" tokens specifically\n\n  Cost:\n    Storage: ~128 dims × token_count per document (vs. 1536 dims per chunk)\n    A 1M-document corpus at avg 256 tokens = 256M vectors stored\n    Inference: MaxSim is an inner product — fast with PLAID indexes\n\n  Use ColBERT when:\n    Precision matters more than cost/storage\n    Complex multi-concept queries where averaging loses semantics\n    Implemented in: RAGatouille library, Vespa, Weaviate (experimental)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "## Vector Similarity Fundamentals",
+      "confidence": "candidate",
+      "text": "  The three similarity metrics you'll actually use:\n  ──────────────────────────────────────────────────────────────────────\n\n  Cosine similarity:\n    sim(a, b) = (a · b) / (‖a‖ × ‖b‖)\n    Range: [-1, 1] (1 = identical direction, 0 = orthogonal, -1 = opposite)\n    Measures: directional similarity, magnitude-invariant\n    When to use: DEFAULT for most text embeddings\n                 Most embedding models produce unit-norm vectors → cosine = dot product\n\n  Dot product:\n    sim(a, b) = a · b = Σ_i a_i × b_i\n    Range: (-∞, ∞)\n    Measures: magnitude + direction\n    When to use: embeddings explicitly trained with dot product objective (Cohere embed-v3)\n                 When magnitude encodes relevance strength (query-document retrieval)\n\n  L2 / Euclidean distance:\n    dist(a, b) = ‖a - b‖ = √(Σ_i (a_i - b_i)²)\n    Range: [0, ∞) (lower = more similar)\n    When to use: when vectors are NOT normalized\n                 K-means clustering on embeddings\n\n  Normalization matters:\n    If ‖a‖ = ‖b‖ = 1 (unit norm): cosine = dot product (same thing)\n    OpenAI, most BGE/E5 models: produce unit-norm vectors by default\n    If unsure: normalize before indexing and use dot product\n\n  Common mistake:\n    Using L2 distance with unit-norm vectors \"because it's simpler\"\n    L2 and cosine give different rankings for non-normalized vectors\n    For unit-norm: L2² = 2 - 2·cosine (monotonically equivalent, but slower)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### HNSW — Hierarchical Navigable Small World",
+      "confidence": "candidate",
+      "text": "  HNSW (Malkov & Yashunin, 2018) — The Standard\n  ──────────────────────────────────────────────────────────────────────\n\n  Structure: multi-layer proximity graph\n\n  Layer 0 (densest):  ALL vectors, each connected to M nearest neighbors\n  Layer 1:           ~1/ef vectors (random subset)\n  Layer 2:           ~1/ef² vectors (sparser)\n  ...\n  Top layer:         1-2 entry points\n\n  Search:\n    Enter at top layer, greedy traverse toward query\n    Drop to layer below, greedy traverse\n    Continue to layer 0, return top-K\n\n  Why it works:\n    Long-range \"highways\" at upper layers (like highway network routing)\n    Local search at layer 0 (like local roads)\n    Expected complexity: O(log N) per query\n\n  Key parameters:\n    M:    number of connections per node (typical: 16–64)\n          Higher M → better recall, more memory, slower build\n    ef_construction: beam width during index build (typical: 128–400)\n          Higher → better index quality, slower build time\n    ef:   beam width at query time (typical: 64–256)\n          Higher → better recall, slower query\n          ef must be ≥ k (number of results requested)\n\n  Memory per vector:\n    ≈ (M × 2 + extra) × 4 bytes per vector\n    For M=16, 1.5M vectors: ~200 MB index overhead above raw vector storage\n\n  Used by: pgvector, Qdrant, Weaviate, Pinecone (default for new indexes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### IVF — Inverted File Index",
+      "confidence": "candidate",
+      "text": "  IVF (Inverted File) — Cluster-Based Approximate Search\n  ──────────────────────────────────────────────────────────────────────\n\n  Build:\n    K-means cluster all vectors into nlist clusters (typical: 1000–4096)\n    Each vector assigned to its nearest centroid\n    Build inverted list: centroid_id → [vector_ids]\n\n  Search:\n    Embed query\n    Find nprobe nearest centroids (nprobe < nlist, typically 32–128)\n    Search only vectors in those nprobe clusters\n    Return top-K across all searched clusters\n\n  Accuracy vs. speed tradeoff:\n    nprobe = 1:       fast, low recall\n    nprobe = nlist:   exact search (defeats the purpose)\n    nprobe = nlist/8: good recall (>95%) at 8× speedup\n\n  Memory: compact — just vector data + centroid assignments\n  vs. HNSW: IVF uses less memory but has worse recall at same speed\n\n  When to use IVF over HNSW:\n    Memory-constrained (IVF is more compact)\n    Very large datasets (> 100M vectors) where HNSW memory is prohibitive\n    When recall > 95% is not required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### PQ — Product Quantization",
+      "confidence": "candidate",
+      "text": "  Product Quantization — Compress Vectors\n  ──────────────────────────────────────────────────────────────────────\n\n  Problem: 1M vectors × 1536 dims × 4 bytes = 6 GB just for raw vectors\n\n  PQ: compress each vector from d dimensions to a short code\n\n  Method:\n    Split d-dim vector into m subvectors of d/m dims each\n    Quantize each subvector to nearest centroid (k = 256 centroids per sub)\n    Store: m bytes per vector (1 byte = centroid index per subvector)\n\n  Example:\n    1536-dim, m=96 subspaces → 16-dim each, k=256 → 96 bytes per vector\n    Compression: 1536 × 4 = 6144 bytes → 96 bytes = 64× reduction\n    Quality: approximate distance computation via lookup table\n\n  IVFPQ = IVF + PQ:\n    Cluster with IVF, compress residuals with PQ\n    Used by: Faiss (Facebook's vector search library, the foundational impl)\n    Practical: billions of vectors on a single machine\n\n  ScaNN (Google): similar idea with better distance approximation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "## Vector Databases",
+      "confidence": "candidate",
+      "text": "  Vector Database Comparison\n  ──────────────────────────────────────────────────────────────────────\n\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  pgvector    │  PostgreSQL extension                                 │\n  │              │  HNSW + IVF indexes (v0.5+ supports HNSW)             │\n  │              │  SQL-native: JOIN, filter, transaction semantics      │\n  │              │  Exact and approximate search                         │\n  │              │  Azure Database for PostgreSQL supports it natively   │\n  │              │  Best for: already have Postgres; moderate scale      │\n  │              │  Scale: up to ~10M vectors on one Postgres instance   │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Pinecone    │  Managed, serverless or pod-based                     │\n  │              │  Proprietary ANN algorithm (optimized for recall)     │\n  │              │  Serverless: pay per query, auto-scale                │\n  │              │  Native hybrid search (dense + sparse)                │\n  │              │  Best for: teams that want zero ops; enterprise SaaS  │\n  │              │  Cost: serverless ~$0.08/1M query units               │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Weaviate    │  Open-source, cloud-managed available                 │\n  │              │  HNSW index                                           │\n  │              │  Hybrid search: native BM25 + vector                  │\n  │              │  GraphQL and REST API                                 │\n  │              │  Modules: text2vec, qna, generative                   │\n  │              │  Best for: hybrid search; GraphQL preference          │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Qdrant      │  Open-source, Rust, strong payload filtering          │\n  │              │  HNSW + scalar quantization                           │\n  │              │  Efficient filtered search (filter before ANN)        │\n  │              │  Named vectors (multiple per point)                   │\n  │              │  Best for: metadata-rich filtering + vector search    │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Milvus      │  Open-source, distributed, enterprise                 │\n  │              │  Multiple index types (HNSW, IVF, PQ, GPU indexes)    │\n  │              │  Scale: billions of vectors across cluster            │\n  │              │  Zilliz Cloud: managed Milvus                         │\n  │              │  Best for: massive scale; on-prem enterprise          │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Chroma      │  Open-source, embedded (in-process) or server mode    │\n  │              │  Simple Python API                                    │\n  │              │  No persistence tuning needed                         │\n  │              │  Best for: local prototyping, small-scale RAG POC     │\n  └──────────────┴───────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 326,
+      "heading_context": "## Hybrid Search",
+      "confidence": "candidate",
+      "text": "  Hybrid Search — Dense + Sparse Combined\n  ──────────────────────────────────────────────────────────────────────\n\n  Problem with pure dense (vector) search:\n    Great for semantic similarity (\"what does this mean?\")\n    Poor for exact term matching (\"find 'SQL Server 2019 CU17' specifically\")\n    Technical terms, proper nouns, code identifiers often not well-embedded\n\n  Problem with pure sparse (BM25/TF-IDF) search:\n    Great for keyword matching\n    Poor for semantic similarity (\"car\" vs \"automobile\" → no match)\n    Misses paraphrase and conceptual similarity\n\n  BM25 recap (the standard sparse retrieval algorithm):\n    Score(D, Q) = Σ_q IDF(q) × (f(q,D) × (k+1)) / (f(q,D) + k × (1 - b + b×|D|/avgdl))\n    IDF: inverse document frequency — rare terms score higher\n    f(q,D): term frequency in document\n    k, b: tuning parameters (typical: k=1.2, b=0.75)\n    Same conceptual foundation as SQL Server Full-Text Search\n\n  Hybrid fusion: combine dense and sparse rankings\n  ─────────────────────────────────────────────────\n  Method 1: Reciprocal Rank Fusion (RRF) — the standard\n    For each document, from each ranking:\n      score_rrf = Σ_r 1 / (k + rank_r(d))   where k=60 is typical\n    Sum across dense and sparse rankings\n    Re-sort by combined RRF score\n    Advantage: rank-based, doesn't require score normalization\n\n  Method 2: Weighted linear combination\n    score_hybrid = α × score_dense + (1-α) × score_sparse\n    Requires normalizing scores to same scale (tricky)\n    α typically 0.6–0.8 (favor dense) for general QA\n\n  When hybrid beats pure dense:\n    ✅ User queries contain specific names, IDs, technical terms\n    ✅ Domain has controlled vocabulary (medical, legal, finance)\n    ✅ Short documents (little context for embedding model to work with)\n    ✅ Users expect keyword matching alongside semantic search\n\n  Native hybrid search support:\n    Weaviate, Pinecone: built-in\n    Qdrant, pgvector: bring your own BM25 (Elasticsearch or custom)\n    Azure Cognitive Search: native hybrid since 2023 with semantic reranker",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 377,
+      "heading_context": "## Chunking Strategy",
+      "confidence": "candidate",
+      "text": "  Chunking: How You Split Documents Matters More Than Choice of VectorDB\n  ──────────────────────────────────────────────────────────────────────────\n\n  Fixed-size chunking:\n    Split at every N tokens, overlap by O tokens\n    N=512, O=64 is a common baseline\n    Simple, reproducible, no dependencies\n    Problem: splits mid-sentence, mid-concept\n\n  Sentence / paragraph chunking:\n    Split at sentence boundaries (spaCy, NLTK sentence tokenizer)\n    Respects natural language units\n    Variable chunk size (20–800 tokens)\n    Problem: long paragraphs may exceed context; short sentences lose context\n\n  Hierarchical (parent-document retrieval):\n    Index: small child chunks (128 tokens) → precise retrieval\n    Store: parent chunks (512 tokens) → full context for generation\n    At retrieval: find child chunk, return parent chunk to LLM\n    Best for: long documents where precise retrieval matters\n\n  Semantic chunking:\n    Embed every sentence\n    Split where cosine similarity between adjacent sentences drops\n    Produces topic-coherent chunks\n    Cost: embed every candidate split point\n    Best for: high-value corpora, research documents\n\n  Structural chunking:\n    Use document structure: Markdown headers, HTML tags, PDF sections\n    Keep section + subsection text together\n    Best for: structured documents (wikis, manuals, code)\n\n  Metadata augmentation:\n    Add chunk_id, source, date, section, parent_chunk_id to each vector\n    Enable pre-filtering: only search chunks from [specific document]\n    Critical for multi-tenant applications",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 421,
+      "heading_context": "## Reranking",
+      "confidence": "candidate",
+      "text": "  Reranking — Why the First-Pass ANN Retrieval Isn't the Final Answer\n  ──────────────────────────────────────────────────────────────────────\n\n  ANN retrieval returns top-K candidates quickly (milliseconds)\n  Reranking re-scores those K candidates more accurately (slower)\n\n  Why bi-encoder (ANN) ≠ cross-encoder quality:\n    Bi-encoder: embed query and document independently → dot product\n    Cross-encoder: see BOTH query and document together → richer interaction\n    Cross-encoder: much slower (can't pre-compute), much more accurate\n\n  Cross-encoder reranking pipeline:\n    1. ANN retrieval: top-100 candidates in <10ms\n    2. Cross-encoder reranking: score all 100 with (query, chunk) pairs\n       Typically 100–200ms for 100 candidates\n    3. Return top-5 to LLM\n\n  Reranking models:\n    Cohere Rerank:       managed API, strong multilingual\n    bge-reranker-large:  open-source, strong English quality\n    ms-marco-MiniLM-L6:  fast, lighter weight, good quality\n    LLM-as-reranker:     ask GPT-4/Claude to rank chunks by relevance\n                         most accurate but expensive (full token cost per chunk)\n\n  ColBERT as reranker:\n    Late interaction model\n    Faster than cross-encoder (token-level MaxSim, precomputed doc vectors)\n    Better than bi-encoder quality\n    Positioned between bi-encoder speed and cross-encoder quality\n\n  When to add a reranker:\n    Precision matters more than latency (research, legal, compliance)\n    Your ANN retrieval recall is good but precision is poor\n    Budget for +100-200ms latency per query",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 462,
+      "heading_context": "## The Full RAG Pipeline",
+      "confidence": "candidate",
+      "text": "  End-to-End RAG Architecture\n  ──────────────────────────────────────────────────────────────────────\n\n  OFFLINE (ingestion):\n  Documents\n    → loader (LangChain, LlamaIndex, Unstructured.io)\n    → chunker (strategy per document type)\n    → [metadata enrichment: title, date, section, summary]\n    → embedding model (text-embedding-3-large or BGE)\n    → vector DB upsert (+ optional BM25 index)\n\n  ONLINE (query):\n  User query\n    → [query rewriting: hypothetical document embedding, HyDE]\n    → embed query\n    → ANN search → top-100 dense candidates\n    → [BM25 search → top-100 sparse candidates]\n    → [RRF fusion → merged ranking]\n    → reranker (cross-encoder) → top-5 chunks\n    → prompt assembly:\n        \"Use the following context to answer the question.\n         Context: [chunk_1] [chunk_2] [chunk_3] [chunk_4] [chunk_5]\n         Question: {user_query}\n         Answer:\"\n    → LLM generation\n    → [citation extraction: which chunks were used?]\n\n  Advanced patterns:\n    HyDE (Hypothetical Document Embedding):\n      Generate a hypothetical answer → embed it → use as query vector\n      Better retrieval for factual questions\n      Cost: one LLM call before retrieval\n\n    Query decomposition:\n      Complex question → sub-questions → retrieve for each → merge\n      Better for multi-hop reasoning\n\n    Iterative retrieval:\n      Generate partial answer → identify gaps → retrieve again\n      Used in: RAG-Fusion, FLARE, Self-RAG",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 509,
+      "heading_context": "## Old World → New World Bridges",
+      "confidence": "candidate",
+      "text": "  SQL Full-Text Search (FTS)          Vector / hybrid search\n  ──────────────────────────────────────────────────────────────\n  CONTAINS(column, '\"exact term\"')  →  BM25 sparse retrieval\n  FREETEXT(column, 'semantic query')→  Dense vector retrieval\n  No conceptual equivalent          →  Semantic similarity (cosine)\n  Ranking via relevance score       →  ANN search + RRF fusion\n  Index: FTS catalog (.fdx, .fdt)   →  Vector index (HNSW, IVF)\n  Query planner chooses index       →  nprobe / ef controls recall\n\n  Azure Cognitive Search (now Azure AI Search)\n  ──────────────────────────────────────────────────────────────\n  Keyword search                    →  BM25 (unchanged)\n  Semantic search (GA 2021)         →  Re-ranking via cross-encoder\n  Vector search (GA 2023)           →  HNSW on dense embeddings\n  Hybrid search                     →  Native RRF fusion\n  Semantic ranker                   →  Cross-encoder on top of hybrid\n  Azure AI Search is the Azure-native path for production RAG\n  — you already have licensing, compliance, and familiarity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

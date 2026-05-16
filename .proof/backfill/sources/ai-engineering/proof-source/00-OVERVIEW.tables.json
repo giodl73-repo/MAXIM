@@ -1,0 +1,194 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 135,
+      "heading_context": "## Provider Landscape",
+      "headers": [
+        "Dimension",
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Azure OpenAI",
+        "Open weights"
+      ],
+      "rows": [
+        [
+          "**Top capability**",
+          "GPT-4o, o1/o3",
+          "Claude 3.5 Sonnet",
+          "Gemini 1.5 Pro",
+          "Same as OpenAI",
+          "Llama 3.1 405B"
+        ],
+        [
+          "**Context window**",
+          "128k",
+          "200k",
+          "1M",
+          "Same as OpenAI",
+          "128k"
+        ],
+        [
+          "**Cost**",
+          "Mid",
+          "Mid",
+          "Mid-low",
+          "Same + Azure markup",
+          "Infra cost only"
+        ],
+        [
+          "**Data privacy**",
+          "Data used in training (opt out)",
+          "Stronger privacy stance",
+          "Data policy varies",
+          "Azure compliance boundary",
+          "Full control"
+        ],
+        [
+          "**Fine-tuning**",
+          "GPT-4o-mini, GPT-3.5",
+          "Not public API",
+          "Gemini fine-tune",
+          "Azure fine-tune",
+          "Full — any method"
+        ],
+        [
+          "**Enterprise compliance**",
+          "SOC 2",
+          "SOC 2",
+          "SOC 2",
+          "FedRAMP, HIPAA, GDPR",
+          "Depends on deployment"
+        ],
+        [
+          "**Agentic / tool use**",
+          "Strong",
+          "Strong",
+          "Good",
+          "Same as OpenAI",
+          "Model-dependent"
+        ],
+        [
+          "**Multimodal**",
+          "Vision, audio",
+          "Vision (Claude 3+)",
+          "Vision, audio, video",
+          "Same as OpenAI",
+          "LLaVA, Whisper"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 219,
+      "heading_context": "## Build vs. Buy vs. Fine-Tune vs. RAG — Architecture Decision Tree",
+      "headers": [
+        "Scenario",
+        "Recommendation",
+        "Rationale"
+      ],
+      "rows": [
+        [
+          "Internal tool, small team, fast iteration",
+          "API (OpenAI/Anthropic)",
+          "Cheapest path to value; don't optimize prematurely"
+        ],
+        [
+          "Enterprise with Azure contracts + compliance",
+          "Azure OpenAI",
+          "Compliance posture, billing consolidation, existing agreements"
+        ],
+        [
+          "High volume, cost dominates",
+          "Fine-tune smaller model OR self-host",
+          "GPT-4o-mini fine-tuned beats Sonnet at 1/20th the cost for narrow tasks"
+        ],
+        [
+          "Air-gapped / no internet / government",
+          "Self-host open weights",
+          "Llama 3.1 8B or 70B via vLLM/Ollama"
+        ],
+        [
+          "Custom data, frequent updates",
+          "RAG over API",
+          "Don't fine-tune for knowledge freshness — RAG handles it"
+        ],
+        [
+          "Low latency, real-time",
+          "Self-host on dedicated GPU",
+          "Managed APIs add 50-200ms network + queue latency"
+        ],
+        [
+          "IP / data protection concern",
+          "Private deployment",
+          "Azure OpenAI VNET, or self-host"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 305,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Complex reasoning or agentic work",
+          "Compare instruction following, tool use, long-context behavior, evals, latency, and cost.",
+          "Public benchmarks are weaker than workload-specific evals."
+        ],
+        [
+          "Math or hard logic",
+          "Test reasoning trace quality, verifier pass rate, hallucination under pressure, and step budget.",
+          "\"Reasoning model\" does not remove the need for independent checking."
+        ],
+        [
+          "High-volume simple tasks",
+          "Measure accuracy/cost curve on classification, extraction, routing, and failure escalation.",
+          "Cheap models are good only if errors are bounded and detectable."
+        ],
+        [
+          "Enterprise RAG",
+          "Evaluate retrieval quality, chunking, grounding, citation behavior, access control, and answer abstention.",
+          "Model choice cannot rescue a bad retrieval/indexing layer."
+        ],
+        [
+          "Code generation or review",
+          "Test repo-specific edits, tool use, test repair, security reasoning, and diff quality.",
+          "General coding scores may not predict behavior in your codebase."
+        ],
+        [
+          "Multimodal document understanding",
+          "Check OCR, layout, tables, figures, grounding, and extraction schema reliability.",
+          "Vision models can read layout while still inventing relationships."
+        ],
+        [
+          "Air-gapped deployment",
+          "Compare open weights, hardware, quantization, ops burden, update cadence, and data boundary.",
+          "Self-hosting shifts risk from data residency to platform operations."
+        ],
+        [
+          "Ultra-long context",
+          "Test recall, positional bias, summarization drift, and retrieval augmentation.",
+          "A huge context window is not the same as reliable reasoning over all tokens."
+        ],
+        [
+          "Speech or image generation",
+          "Separate recognition/generation quality, control, latency, safety, rights, and downstream workflow.",
+          "Media models need product guardrails beyond model selection."
+        ],
+        [
+          "Fine-tuning or embeddings",
+          "Check whether behavior, domain language, cost, or retrieval geometry is the real bottleneck.",
+          "Fine-tuning is not a substitute for good prompts, evals, or data cleaning."
+        ]
+      ]
+    }
+  ]
+}

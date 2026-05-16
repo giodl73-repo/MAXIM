@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The AI Engineering Stack — Full Field Map\n==========================================\n\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  BUSINESS LAYER                                                         │\n  │  Product requirements · KPIs · build vs. buy · cost governance          │\n  └──────────────────────────────┬──────────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼──────────────────────────────────────────┐\n  │  APPLICATION LAYER                                                      │\n  │  Prompt engineering · RAG pipelines · Agents · Orchestration            │\n  │  [03-ORCHESTRATION.md]  [04-AGENTS.md]  [09-VECTOR-DATABASES.md]        │\n  └──────────────────────────────┬──────────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼──────────────────────────────────────────┐\n  │  EVALUATION LAYER                                                       │\n  │  Evals harness · LLM-as-judge · A/B testing · regression suites         │\n  │  [02-EVALS-HARNESS.md]                                                  │\n  └──────────────────────────────┬──────────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼──────────────────────────────────────────┐\n  │  MODEL LAYER                                                            │\n  │  Foundation model (frozen)    Fine-tuned adapter (LoRA/QLoRA)           │\n  │  Provider API (OpenAI/Anthropic/Azure) or self-hosted (vLLM/Ollama)     │\n  │  [01-LLM-CONCEPTS.md]  [06-FINE-TUNING.md]  [08-INFERENCE-DEPLOYMENT]   │\n  └──────────────────────────────┬──────────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼──────────────────────────────────────────┐\n  │  INFRASTRUCTURE LAYER                                                   │\n  │  GPU clusters · KV cache · quantization · serving frameworks            │\n  │  Safety filters · logging · guardrails                                  │\n  │  [05-SAFETY.md]  [07-MULTIMODAL.md]  [08-INFERENCE-DEPLOYMENT.md]       │\n  └──────────────────────────────┬──────────────────────────────────────────┘\n                                 │\n  ┌──────────────────────────────▼──────────────────────────────────────────┐\n  │  DATA LAYER                                                             │\n  │  Embeddings · vector stores · chunking · hybrid search                  │\n  │  [09-VECTOR-DATABASES.md]                                               │\n  └─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "## Field Taxonomy — What \"AI Engineering\" Actually Is",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │                     THE CONFUSION ZONE                              │\n  │                                                                     │\n  │   ML Research        Data Science         AI Engineering            │\n  │   ──────────         ────────────         ──────────────            │\n  │   Novel              Insights from        LLMs in production        │\n  │   architectures      data                 applications              │\n  │   New training       Statistical          Prompt eng. · RAG         │\n  │   algorithms         modeling             Agents · Evals            │\n  │   Published at       SQL + pandas +       REST APIs ·               │\n  │   NeurIPS/ICML       sklearn              streaming · cost          │\n  │                                                                     │\n  │   PRODUCES:          PRODUCES:            PRODUCES:                 │\n  │   Model weights      Dashboards,          Products, APIs,           │\n  │   Architecture       reports,             services backed           │\n  │   papers             ML pipelines         by foundation models      │\n  │                                                                     │\n  │   WHO: DeepMind,     WHO: analytics       WHO: most software        │\n  │   OpenAI research,   teams, Kaggle        engineers building        │\n  │   academic labs      competitors          with LLM APIs             │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "## Provider Landscape",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────────┐\n  │                      FOUNDATION MODEL PROVIDERS                          │\n  │                                                                          │\n  │  PROPRIETARY API (managed inference, no weights released)                │\n  │  ┌─────────────┬─────────────┬─────────────┬───────────────────────┐     │\n  │  │  OpenAI     │  Anthropic  │  Google     │  Azure OpenAI         │    │\n  │  │  GPT-4o     │  Claude 3.5 │  Gemini 1.5 │  Same OpenAI models   │    │\n  │  │  GPT-4o-mini│  Claude 3   │  Gemini 2.0 │  + Azure compliance   │    │\n  │  │  o1/o3      │  Haiku      │  Flash/Pro  │  + VNET isolation     │    │\n  │  │  Whisper    │             │             │  + managed identity   │    │\n  │  │  DALL-E 3   │             │  Imagen     │  + your Azure bill    │    │\n  │  └─────────────┴─────────────┴─────────────┴───────────────────────┘    │\n  │                                                                          │\n  │  OPEN WEIGHTS (download, self-host, fine-tune)                           │\n  │  ┌─────────────┬─────────────┬─────────────┬───────────────────────┐    │\n  │  │  Meta       │  Mistral    │  Microsoft  │  Other                │    │\n  │  │  Llama 3.1  │  Mistral 7B │  Phi-3/4    │  Qwen (Alibaba)       │    │\n  │  │  405B/70B/  │  Mistral    │  Small/Mini │  Gemma (Google)       │    │\n  │  │  8B         │  Large      │  Efficient, │  DeepSeek (China)     │    │\n  │  │  HF license │  Mixtral    │  instruction│                       │    │\n  │  │             │  (MoE)      │  tuned      │                       │    │\n  │  └─────────────┴─────────────┴─────────────┴───────────────────────┘    │\n  │                                                                          │\n  │  PLATFORMS (hosted open models, inference APIs)                          │\n  │  ┌────────────────────────────────────────────────────────────────┐      │\n  │  │  Together.ai · Groq · Fireworks · Replicate · AWS Bedrock      │      │\n  │  └────────────────────────────────────────────────────────────────┘      │\n  └──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Key Metrics That Drive Architecture Decisions",
+      "confidence": "candidate",
+      "text": "  LATENCY METRICS (what users feel)\n  ───────────────────────────────────────────────────────────────────\n  TTFT  Time to First Token — how long before streaming starts\n        Dominated by prompt length (prefill compute) and queue depth\n        For chat UX: TTFT < 500ms feels responsive\n\n  TPS   Tokens Per Second — throughput after first token\n        Dominated by model size, batch size, hardware\n        GPT-4o: ~50-100 TPS (streaming feels fast)\n        Llama-3 70B on A100: ~30-50 TPS (depends on batch)\n\n  E2E   End-to-end latency — TTFT + (output_tokens / TPS)\n        For 200-token response at 50 TPS: TTFT + 4 seconds\n\n  COST METRICS (what finance feels)\n  ──────────────────────────────────────────────────────────────────\n  $/1M input tokens     Claude 3.5 Sonnet: $3   GPT-4o: $2.50\n  $/1M output tokens    Claude 3.5 Sonnet: $15  GPT-4o: $10\n  Output >> Input cost  Output tokens are 3-5× more expensive\n\n  Rule of thumb for a 1B token/month workload:\n    Claude 3.5 Sonnet:  ~$3k-15k/month (mix of input/output)\n    GPT-4o-mini:        ~$150-750/month (10× cheaper than Sonnet)\n    Self-hosted Llama-3 70B on 4× A100: ~$3-4k/month infra only\n\n  CAPABILITY BENCHMARKS\n  ─────────────────────────────────────────────────────────────────\n  MMLU      Massive Multitask Language Understanding — knowledge breadth\n  HumanEval Python code generation — pass@1 metric\n  MATH      Mathematical reasoning — olympiad-level problems\n  SWE-Bench Software engineering — real GitHub issues, measured by resolved\n  GPQA      Graduate-level science questions\n\n  Warning: benchmarks are saturating and gameable.\n  Trust your own evals on your actual task distribution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Old World → New World Bridges",
+      "confidence": "candidate",
+      "text": "  Azure ML Studio                     Modern LLM deployment\n  ─────────────────────────────────────────────────────────────\n  AutoML pipelines                →   Prompt engineering + eval harnesses\n  Feature store                   →   Embedding store (vector DB)\n  Model registry                  →   HuggingFace Hub / Azure model catalog\n  Training compute cluster        →   Fine-tuning infra (Azure AI / Together.ai)\n  Batch inference endpoint        →   Batch prediction API (OpenAI Batch)\n  Real-time inference endpoint    →   Chat completion API endpoint\n  Model monitoring (drift)        →   LLM observability (Langfuse, Langsmith)\n\n  VSTS / Azure DevOps release pipelines    LLM deployment pipelines\n  ────────────────────────────────────────────────────────────────\n  Commit triggers build           →   Dataset change triggers eval run\n  Test gate before deploy         →   Eval score threshold before model swap\n  Canary deployments              →   A/B routing (10% traffic to new model)\n  Rollback on error               →   Rollback to previous model version\n  Release notes                   →   Model card / changelog\n\n  App Insights                    LLM observability\n  ──────────────────────────────────────────────────\n  Request traces                  →   Span-level LLM traces (prompt+response)\n  Dependency calls                →   Tool call traces (RAG, external APIs)\n  Custom metrics                  →   Token usage, latency, cost per request\n  Dashboards                      →   Langfuse, Langsmith, Phoenix (Arize)\n  Alerts on SLA breach            →   Alert on eval score regression",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## The AI Engineering Skill Stack",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────┐\n  │ HIGHEST LEVERAGE FOR A VP / SENIOR ENGINEER                  │\n  │                                                              │\n  │ Evals design          How do you measure if this works?      │\n  │ Retrieval strategy    RAG architecture, chunking, reranking  │\n  │ Model selection       Which model, cost model, make/buy      │\n  │ Prompt architecture   System prompt design, few-shot strat.  │\n  │                                                              │\n  │ IMPLEMENTATION DETAILS (delegate or learn as needed)         │\n  │                                                              │\n  │ Fine-tuning mechanics  LoRA setup, hyperparameters           │\n  │ Serving infra          vLLM, quantization, batching          │\n  │ Vector DB ops          HNSW tuning, index rebuilds           │\n  └──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

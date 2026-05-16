@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\07-MULTIMODAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  The Multimodal Landscape — Modalities and Models\n  ==================================================\n\n  ┌──────────────┬─────────────────┬────────────────────────────────────────┐\n  │  MODALITY    │  REPRESENTATION │  KEY MODELS                            │\n  ├──────────────┼─────────────────┼────────────────────────────────────────┤\n  │  Text        │  BPE tokens     │  Every LLM (baseline)                  │\n  ├──────────────┼─────────────────┼────────────────────────────────────────┤\n  │  Image       │  Patch tokens   │  GPT-4V, Claude 3/4, Gemini,           │\n  │              │  (ViT patches)  │  LLaVA, Phi-3-Vision                   │\n  ├──────────────┼─────────────────┼────────────────────────────────────────┤\n  │  Audio/      │  Mel spectrogram│  Whisper, Wav2Vec2, Gemini Live,        │\n  │  Speech      │  → tokens       │  GPT-4o Audio                          │\n  ├──────────────┼─────────────────┼────────────────────────────────────────┤\n  │  Video       │  Sampled frames │  Gemini 1.5 Pro (1M context),          │\n  │              │  + temporal     │  GPT-4V (short), Video-LLaMA           │\n  ├──────────────┼─────────────────┼────────────────────────────────────────┤\n  │  Document    │  Image + OCR    │  Claude 3 (PDF), GPT-4V, DocLLM,       │\n  │  (PDF/table) │  token stream   │  LayoutLM, Donut                       │\n  ├──────────────┼─────────────────┼────────────────────────────────────────┤\n  │  Embeddings  │  Dense vector   │  CLIP, ALIGN, ImageBind, SigLIP        │\n  │  (cross-     │  shared space   │  (image and text in same latent space) │\n  │   modal)     │                 │                                        │\n  └──────────────┴─────────────────┴────────────────────────────────────────┘\n\n  The architectural challenge: different modalities live in different\n  representation spaces. Multimodal models bridge them into a shared\n  space that a language model can reason over.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### CLIP — Contrastive Pretraining",
+      "confidence": "candidate",
+      "text": "  CLIP (Radford et al., OpenAI 2021) — The Foundation\n  ──────────────────────────────────────────────────────────────────\n\n  Training objective: given N (image, caption) pairs in a batch,\n  maximize similarity of matching pairs, minimize similarity of\n  N²-N non-matching pairs.\n\n  Architecture (two-tower contrastive model):\n    Image (224 x 224) -> Image encoder (ViT or ResNet)\n                         projects to d-dimensional embedding.\n    Caption (\"a dog...\") -> Text encoder (Transformer)\n                            projects to d-dimensional embedding.\n    Compare with cosine similarity -> match or not.\n\n  Training data: 400M (image, text) pairs from the internet\n  Vocabulary: the shared d-dimensional embedding space\n\n  Key property: zero-shot classification\n    No training required for new categories\n    \"A photo of a [cat/dog/car]\" → compare to image embedding\n    Works because the embedding space encodes semantic similarity\n\n  Applications:\n    Image search (embed images + query in same space)\n    Zero-shot image classification\n    Input to VLMs: CLIP image encoder → frozen → plugged into LLM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Architecture Patterns for Vision-Language Models",
+      "confidence": "candidate",
+      "text": "  Three major patterns for combining vision with LLMs:\n  ──────────────────────────────────────────────────────────────────\n\n  PATTERN 1: Linear Projection (LLaVA, early models)\n  ──────────────────────────────────────────────────\n  Image\n    → ViT encoder (e.g., CLIP ViT-L/14) → patch embeddings\n    → Linear projection layer (W: d_vision → d_llm)\n    → Concatenate with text tokens\n    → LLM (Llama, Vicuna, etc.)\n\n  Properties:\n    Simplest approach\n    Linear projection W is the only trainable component initially\n    Fast to train (only W, then optionally full instruction tune)\n    Used by: LLaVA-1.0\n\n  PATTERN 2: Querying Transformer / Q-Former (BLIP-2)\n  ───────────────────────────────────────────────────\n  Image\n    → Frozen ViT encoder → image features\n    → Q-Former: cross-attention over image features\n      (learnable query vectors attend to image features)\n    → Fixed-size output (32 query vectors) regardless of image size\n    → Linear projection → LLM (OPT, FlanT5, etc.)\n\n  Properties:\n    More powerful than linear projection\n    Q-Former learns to extract task-relevant image features\n    Fixed output size decouples vision from LLM input length\n    LLM stays fully frozen — only Q-Former trains first\n\n  PATTERN 3: Native multimodal tokenization (GPT-4V, Claude 3+, Gemini)\n  ──────────────────────────────────────────────────────────────────────\n  Image\n    → Tile/resize to patches (e.g., 16×16 patch grid)\n    → Each patch → token embedding via specialized vision encoder\n    → Tokens concatenated into sequence with text tokens\n    → Full Transformer processes unified token sequence\n\n  Properties:\n    End-to-end trained\n    Highest capability — no frozen components\n    Very expensive to train from scratch\n    Image → ~256-2048 tokens depending on resolution\n\n  Which pattern are you using?\n    API (GPT-4V, Claude 3/4, Gemini): Pattern 3 (opaque to you)\n    Open source (LLaVA, Phi-3-Vision): typically Pattern 1 or 2\n    Building your own VLM: start with Pattern 1 (LLaVA approach)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Image Token Cost — The Critical Practical Constraint",
+      "confidence": "candidate",
+      "text": "  Image tokens are expensive — this drives architecture decisions\n  ──────────────────────────────────────────────────────────────────\n\n  GPT-4V token cost (approximate):\n    Low detail:   85 tokens per image (fixed)\n    High detail:  Image tiled into 512×512 tiles\n                  Each tile = 170 tokens + 85 base = 255/tile\n                  A 1024×1024 image: 4 tiles → 4×255 + 85 = 1105 tokens\n                  A 2048×2048 image: 16 tiles → 16×255 + 85 = 4165 tokens\n\n  Claude 3 vision token cost:\n    Roughly: (width/32) × (height/32) tokens\n    1024×1024: ~1024 tokens\n    Max image: 5MB or 8000px longest edge\n\n  Cost implications:\n    At GPT-4o pricing ($2.50/1M input):\n      1000 image requests (1024×1024 high detail): ~1100 tokens × 1000 = $2.75\n      At scale (1M requests/day): $2750/day on images alone\n    Solution: use low detail when you don't need fine-grained visual reasoning\n\n  Practical rules:\n    Document parsing (text extraction): high detail\n    UI screenshot: high detail\n    General image description: low detail\n    Thumbnail/icon identification: low detail",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Whisper — The Speech-to-Text Standard",
+      "confidence": "candidate",
+      "text": "  Whisper (OpenAI 2022) — Architecture\n  ──────────────────────────────────────────────────────────────────\n\n  Encoder-decoder Transformer:\n\n  Raw audio (16kHz)\n    → Log-mel spectrogram (80 mel bins, 30-second window)\n    → CNN feature extractor → patch embeddings\n    → Encoder: Transformer processes audio features\n    → Decoder: Transformer auto-regressively generates BPE tokens\n               (same tokenizer as GPT, same BPE vocabulary)\n\n  Why log-mel spectrogram?\n    Raw audio waveform: 16000 samples/second, too long for attention\n    Mel spectrogram: compress into perceptually-motivated frequency bins\n    Log scale: matches how loudness perception works (Weber–Fechner law)\n    Result: 30-second audio → 3000 frames (100× compression)\n\n  Training:\n    680,000 hours of supervised (audio, transcript) pairs\n    99 languages, including code-switching\n    Trained as a multi-task model: transcription, translation, language ID\n\n  Model sizes:\n    tiny:   39M params  · fast, lower quality\n    base:   74M params\n    small:  244M params\n    medium: 769M params\n    large-v3: 1.55B params · state-of-the-art for most languages\n    turbo (large-v3-turbo): pruned large-v3, 8× faster\n\n  Deployment:\n    openai-whisper: local, Python, runs on CPU or GPU\n    faster-whisper: CTranslate2 backend, 4× faster than openai-whisper\n    OpenAI Whisper API: $0.006/minute, managed, no GPU required\n    Azure Speech Services: $1/hour (OpenAI or Microsoft model)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## Video Understanding",
+      "confidence": "candidate",
+      "text": "  Video LLM Challenges\n  ──────────────────────────────────────────────────────────────────\n\n  A 60-second video at 30fps = 1800 frames\n  At 1000 tokens/frame: 1.8M tokens — impossible in most models\n\n  Frame sampling strategies:\n  ┌─────────────────────┬──────────────────┬──────────────────────┐\n  │  Strategy           │  Tokens          │  When to use         │\n  ├─────────────────────┼──────────────────┼──────────────────────┤\n  │  Fixed rate         │  N × img_tokens  │  Action recognition, │\n  │  (1 frame/sec)      │  controllable    │  activity detection  │\n  ├─────────────────────┼──────────────────┼──────────────────────┤\n  │  Keyframe extract   │  Low             │  Summarization,      │\n  │  (scene changes)    │                  │  event detection     │\n  ├─────────────────────┼──────────────────┼──────────────────────┤\n  │  Sparse + dense     │  Medium          │  General video QA    │\n  │  (overview + key    │                  │                      │\n  │   moments)          │                  │                      │\n  ├─────────────────────┼──────────────────┼──────────────────────┤\n  │  Long context model │  Full fidelity   │  Gemini 1.5 Pro:     │\n  │  (1M+ tokens)       │  ~1M tokens for  │  full movie analysis │\n  │                     │  90-min movie    │                      │\n  └─────────────────────┴──────────────────┴──────────────────────┘\n\n  Temporal attention:\n    Standard attention: treats frame tokens like text, no temporal ordering\n    Temporal positional encoding: encode frame index alongside spatial position\n    3D attention: attend across both spatial and temporal dimensions (expensive)\n    Video-specific models (Video-LLaMA, TimeChat): temporal-aware architectures",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Cross-Modal Embeddings",
+      "confidence": "candidate",
+      "text": "  CLIP-style embedding models — use cases beyond zero-shot classification\n  ──────────────────────────────────────────────────────────────────────\n\n  Shared embedding space:\n    Same vector space for images and text\n    cos_sim(\"a cat\", image_of_cat) > cos_sim(\"a dog\", image_of_cat)\n\n  Applications:\n    Image search by text query:\n      Embed all images offline → store in vector DB\n      At query time: embed text → ANN search → return similar images\n\n    Multi-modal RAG:\n      Documents with images: embed both text chunks and images\n      Query retrieves relevant text AND relevant images\n      Combined context fed to vision-language model\n\n    Cross-modal recommendation:\n      User likes image X → find similar text descriptions\n      Or: user reads article Y → find visually similar images\n\n  Major cross-modal embedding models:\n    CLIP (OpenAI):          ViT-L/14, 768-dim, English-strong\n    SigLIP (Google):        improved contrastive loss, better quality\n    ALIGN (Google):         1.8B image-text pairs, strong multilingual\n    ImageBind (Meta):       6 modalities: image, text, audio, depth,\n                            thermal, IMU — all in shared space",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### Document Parsing: OCR vs. Vision Model",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────┐\n  │  DECISION: How to extract text/structure from PDFs and images        │\n  │                                                                      │\n  │  Is the document clearly formatted (standard PDF, clean scan)?       │\n  │           │                                                          │\n  │      ┌────┴────────┐                                                 │\n  │     YES             NO (complex layout, tables, handwritten)         │\n  │      │              │                                                │\n  │      ▼              ▼                                                │\n  │  PDF text      Does it have tables, charts, or                       │\n  │  extraction    visual elements that matter?                          │\n  │  (pdfplumber,       │                                                │\n  │  PyPDF2)       ┌────┴────────┐                                       │\n  │  Free, fast   YES             NO                                     │\n  │                │             │                                       │\n  │               ▼              ▼                                       │\n  │         Vision model     OCR (Tesseract,                             │\n  │         (GPT-4V, Claude  Azure Form                                  │\n  │         3, Gemini)       Recognizer,                                 │\n  │         Higher cost      AWS Textract)                               │\n  │         but handles      Structured output,                          │\n  │         any layout       cheaper than VLM                            │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

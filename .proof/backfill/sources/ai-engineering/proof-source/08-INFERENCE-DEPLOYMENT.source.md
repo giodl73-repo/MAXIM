@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "08-INFERENCE-DEPLOYMENT.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:ai-engineering:inference-deployment
 kind: guide

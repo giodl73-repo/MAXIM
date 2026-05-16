@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\06-FINE-TUNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Fine-Tuning Spectrum — Where Your Work Falls\n=================================================\n\n  BASE MODEL (pre-trained on internet-scale text)\n  No instruction following · Will complete anything · No alignment\n       │\n       │ Full fine-tuning: update ALL parameters\n       │ - Full task adaptation\n       │ - Catastrophic forgetting risk\n       │ - Compute cost: same as pre-training fraction\n       │\n       ├──────────────────────────────────────────────────────────\n       │\n       │ SFT (Supervised Fine-Tuning): fine-tune on (prompt, response) pairs\n       │ - Teaches instruction following format\n       │ - Typical data scale: 1k–100k examples\n       │ - The first alignment step\n       │\n       ├──────────────────────────────────────────────────────────\n       │\n       │ PEFT (Parameter-Efficient Fine-Tuning)\n       │ - LoRA: add low-rank adapter matrices, train only those\n       │ - QLoRA: 4-bit quantized base + LoRA adapters\n       │ - DoRA: decompose weights into magnitude + direction\n       │ - Prefix tuning: prepend trainable tokens to each layer\n       │ - Prompt tuning: single soft token prefix (smallest PEFT)\n       │\n       ├──────────────────────────────────────────────────────────\n       │\n       │ Alignment fine-tuning: shape behavior to human preferences\n       │ - RLHF: reward model → PPO optimization\n       │ - DPO: direct optimization on preference pairs (no RM)\n       │ - ORPO / SimPO: simplifications of DPO\n       │\n       ▼\n  ADAPTED MODEL\n  Instruction-following · Domain-specific · Aligned to preferences",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "## Full Fine-Tuning",
+      "confidence": "candidate",
+      "text": "  FULL FINE-TUNING MECHANICS\n  ───────────────────────────────────────────────────────────────────\n\n  What it does:\n    Initialize from pre-trained checkpoint\n    Compute gradient of loss w.r.t. ALL parameters\n    Update all weights via optimizer (Adam, AdamW)\n\n  Compute requirements (approximate):\n    Training memory ≈ 16 bytes × parameter_count\n      (FP32 weights + gradients + optimizer state)\n    Llama-3-8B:  8B × 16 bytes = 128 GB  (won't fit on single A100 80GB)\n    Llama-3-70B: 70B × 16 bytes = 1.1 TB (requires 16× A100s minimum)\n\n  Catastrophic forgetting:\n    Fine-tuning on narrow data → model \"forgets\" general capabilities\n    Measured by: degradation on held-out general benchmarks (MMLU, etc.)\n    Mitigation: mix general data into fine-tuning corpus (replay)\n    Reality check: if you need the base model to stay general,\n    you probably want PEFT, not full fine-tuning\n\n  When full fine-tuning is justified:\n    ✅ Domain shift so large that adapter capacity is insufficient\n    ✅ You need maximum task performance (final % matters)\n    ✅ You have the compute and a dedicated model deployment\n    ✅ Continual pre-training on proprietary corpus\n    ❌ Most application engineering scenarios — use PEFT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "### LoRA (Low-Rank Adaptation)",
+      "confidence": "candidate",
+      "text": "  LoRA: The Core Idea (Hu et al. 2021)\n  ─────────────────────────────────────────────────────────────────\n\n  For a weight matrix W ∈ ℝ^{d × k} (pre-trained, frozen):\n  Instead of computing full ΔW ∈ ℝ^{d × k} during fine-tuning,\n  approximate it with a low-rank decomposition:\n\n    ΔW = A · B      where A ∈ ℝ^{d × r}, B ∈ ℝ^{r × k}, r << min(d,k)\n\n  Forward pass:\n    h = W₀x + ΔWx = W₀x + (AB)x\n\n  W₀ stays frozen. Only A and B are trained.\n\n  Parameter reduction:\n    Full ΔW: d × k parameters\n    LoRA:    d × r + r × k = r(d + k) parameters\n    For d=4096, k=4096, r=16: 16×8192 = 131k vs. 16.7M = 99.2% reduction\n\n  Typical rank values:\n    r = 8–16:   general-purpose fine-tuning, good quality/cost tradeoff\n    r = 32–64:  complex task adaptation, more capacity\n    r = 4:      minimal, style/format adaptation only\n    r = 128+:   approaching full fine-tuning territory\n\n  Which layers to apply LoRA to:\n    Attention projections: Q, K, V, O (standard, most common)\n    FFN layers: additional capacity, more parameters\n    All linear layers: maximum adaptation (DoRA territory)\n\n  At inference:\n    Option 1: keep A, B separate → add ΔWx at runtime (hot-swappable)\n    Option 2: merge into base: W = W₀ + AB → no runtime overhead\n\n  Implementation:\n    HuggingFace PEFT library: peft.LoraConfig(r=16, lora_alpha=32, ...)\n    Axolotl: yaml config, wraps PEFT\n    LLaMA-Factory: full fine-tuning framework, LoRA/QLoRA native",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### QLoRA",
+      "confidence": "candidate",
+      "text": "  QLoRA (Dettmers et al. 2023) — Fine-tuning large models on consumer hardware\n  ──────────────────────────────────────────────────────────────────────────────\n\n  Stack:\n    NF4 quantization:  base model weights quantized to 4-bit NormalFloat\n                       designed for normally distributed weights (they are)\n    Double quantization: quantize the quantization constants → saves ~0.5 GB\n    Paged optimizer:    swap optimizer states to CPU when GPU OOM\n\n  Memory comparison (Llama-3-70B):\n    Full FP16:     140 GB  (2× A100 80GB minimum)\n    Full BF16:     140 GB\n    QLoRA (NF4):   ~35 GB  (fits on 1× A100 80GB, 2× 24GB consumer GPUs)\n\n  Quality:\n    QLoRA 4-bit + LoRA ≈ full 16-bit LoRA at same rank\n    ~1–2% quality gap vs. full fine-tuning on most tasks\n    For most applications: indistinguishable in production\n\n  Practical setup:\n    bitsandbytes library → quantizes base model on load\n    PEFT → LoRA adapters on top of quantized model\n    Training with gradient checkpointing → further memory savings\n\n  When to use QLoRA vs LoRA:\n    QLoRA: you have consumer GPUs (24GB each) or need 70B on 1 A100\n    LoRA:  you have ample GPU memory and want fastest training",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## SFT — Supervised Fine-Tuning",
+      "confidence": "candidate",
+      "text": "  SFT Pipeline\n  ────────────────────────────────────────────────────────────────────\n\n  1. Dataset curation\n       ┌─────────────────────────────────────────────────────────┐\n       │  (system_prompt, user_turn, assistant_response) triples │\n       │                                                         │\n       │  Format: ShareGPT (multi-turn) or Alpaca (single-turn)  │\n       │  ShareGPT:                                              │\n       │    {\"conversations\": [                                  │\n       │      {\"from\": \"system\", \"value\": \"...\"},                │\n       │      {\"from\": \"human\",  \"value\": \"...\"},                │\n       │      {\"from\": \"gpt\",    \"value\": \"...\"}                 │\n       │    ]}                                                   │\n       │                                                         │\n       │  Data quality >> quantity                               │\n       │  500 clean examples often beat 50k noisy ones           │\n       └─────────────────────────────────────────────────────────┘\n\n  2. Token masking\n       Input tokens (prompt):   loss = 0 (don't train on these)\n       Output tokens (response): loss = cross-entropy (train on these)\n\n       Why: you want the model to learn to produce the response,\n       not to memorize the prompts. Loss only flows from response tokens.\n\n  3. Training hyperparameters (typical LoRA SFT)\n       Learning rate:  1e-4 to 3e-4 (higher than pre-training)\n       LR schedule:    cosine decay with 3–5% warmup\n       Batch size:     32–128 (limited by GPU memory)\n       Epochs:         1–3 (more epochs → overfitting on small datasets)\n       Dropout:        0.05–0.1 on LoRA matrices\n\n  4. Evaluation during training\n       Held-out split (10–20% of data): perplexity on response tokens\n       Task-specific evals: run your eval suite every N steps\n       Early stopping: stop when eval metric plateaus or degrades",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "### RLHF (Reinforcement Learning from Human Feedback)",
+      "confidence": "candidate",
+      "text": "  RLHF Pipeline (Christiano et al. 2017, refined by OpenAI/Anthropic)\n  ──────────────────────────────────────────────────────────────────────\n\n  Step 1: SFT model\n    Fine-tune base model on (prompt, good response) pairs → π_SFT\n\n  Step 2: Reward model\n    Dataset: same prompt, two responses (y_w preferred over y_l by humans)\n    Train reward model R_φ to predict: R(x, y_w) > R(x, y_l)\n    Architecture: LLM with linear head → scalar reward score\n\n  Step 3: PPO optimization\n    Maximize: E[R_φ(x, y)] - β · KL(π_θ || π_SFT)\n    The KL term keeps the model close to π_SFT\n    Without KL penalty: reward hacking → model outputs gibberish\n    that scores high on the RM without being useful\n    β controls exploitation vs. staying on-distribution\n\n  Problem with RLHF:\n    Unstable PPO training (sensitive to hyperparameters)\n    Two separate model training phases (SFT + RM)\n    RM can be exploited (Goodhart's Law — optimizing proxy ≠ optimizing goal)\n    Engineering complexity: requires 3 models in memory during PPO",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "### DPO (Direct Preference Optimization)",
+      "confidence": "candidate",
+      "text": "  DPO (Rafailov et al. 2023) — Why It Largely Replaced RLHF\n  ──────────────────────────────────────────────────────────────────\n\n  Key insight: the optimal policy under RLHF can be expressed in\n  closed form. You can skip the explicit reward model.\n\n  DPO loss function:\n    L_DPO(θ) = -E[(x, y_w, y_l)] log σ(\n      β log(π_θ(y_w|x) / π_ref(y_w|x)) -\n      β log(π_θ(y_l|x) / π_ref(y_l|x))\n    )\n\n  In plain language:\n    Increase probability of preferred response y_w\n    Decrease probability of dispreferred response y_l\n    Relative to a reference model π_ref (the SFT model)\n    β controls how far to deviate from the reference\n\n  What you need:\n    Preference dataset: (prompt, chosen_response, rejected_response)\n    SFT model as reference\n    That's it — no reward model, no PPO\n\n  Advantages over RLHF:\n    ✅ Single training phase\n    ✅ Standard supervised learning (no RL instability)\n    ✅ No separate reward model to train and maintain\n    ✅ Less memory (no need to keep RM loaded)\n    ✅ More stable, easier to tune\n\n  Disadvantages:\n    ❌ Less flexible than RL (can't do online exploration)\n    ❌ Preference data quality is critical\n    ❌ Distribution shift: reference model must match your SFT model\n\n  Variants:\n    ORPO (Odds Ratio Preference Optimization):\n      Combines SFT and preference optimization in one loss\n      Removes need for a separate reference model\n      More parameter-efficient (one training phase from base)\n\n    SimPO (Simple Preference Optimization):\n      Removes reference model entirely\n      Uses length-normalized reward\n      Outperforms DPO on several benchmarks with simpler setup\n\n  Current state of the art (2024):\n    Most open-source fine-tuned models use DPO or ORPO\n    Closed models (GPT-4, Claude) still use proprietary RLHF variants\n    DPO is the default for most application engineers doing alignment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 381,
+      "heading_context": "## Evaluation",
+      "confidence": "candidate",
+      "text": "  Fine-tuning Eval Stack\n  ──────────────────────────────────────────────────────────────────\n\n  1. Held-out split metrics (automatic, fast)\n     Perplexity on response tokens: lower = better\n     Task metric: accuracy, F1, BLEU/ROUGE, pass@1 for code\n     Sanity check: not the final story\n\n  2. Capability regression testing\n     Run model on general benchmarks after fine-tuning\n     MMLU: knowledge breadth preserved?\n     HumanEval: code capability preserved?\n     Flag: > 2–3% degradation is concerning\n     Fix: mix general data into fine-tuning corpus\n\n  3. Task-specific evals (the real signal)\n     Your held-out examples from your actual task distribution\n     LLM-as-judge for subjective quality (02-EVALS-HARNESS.md)\n     Human eval on 50–100 examples for launch gate\n\n  4. A/B testing in production\n     Shadow mode: run new model, log outputs, don't serve yet\n     Canary: route 5–10% traffic to new model\n     Metric: task success rate, user preference, helpfulness rating",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

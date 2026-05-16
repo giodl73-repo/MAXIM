@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\09-VECTOR-DATABASES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 559,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether the database choice matters yet",
+          "Chroma locally or pgvector if Postgres already exists",
+          "Early RAG failures usually come from chunking and evals, not the index vendor"
+        ],
+        [
+          "Whether production search needs hybrid retrieval",
+          "BM25-plus-vector comparison on real queries",
+          "Hybrid helps lexical anchors; it does not fix stale or badly chunked content"
+        ],
+        [
+          "Whether metadata filters are the bottleneck",
+          "Qdrant-style pre-filter tests with realistic selectivity",
+          "Post-filtering can silently destroy recall when filters are tight"
+        ],
+        [
+          "Whether managed vector search is worth it",
+          "Ops budget versus latency and compliance constraints",
+          "\"Zero ops\" still leaves embedding pipelines, backfills, and evals to own"
+        ],
+        [
+          "Whether scale requires Milvus or Faiss",
+          "Vector count, update rate, and recall/latency target",
+          "Billion-scale systems are distributed data systems, not just ANN libraries"
+        ],
+        [
+          "Whether reranking is needed",
+          "Top-100 recall followed by cross-encoder or API reranker",
+          "Rerankers cannot recover documents absent from the candidate set"
+        ],
+        [
+          "Whether embedding choice is the issue",
+          "Retrieval eval split by query type and language",
+          "Larger embeddings cost more; quality gains may concentrate in specific query classes"
+        ],
+        [
+          "Whether storage can be compressed",
+          "INT8 or dimensionality-reduction recall test",
+          "Compression savings are only acceptable after measuring recall loss on target queries"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\05-SAFETY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 1126,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a RAG answer hallucinated",
+          "Faithfulness evals plus cited-source inspection",
+          "Grounded wording can still answer the wrong question if retrieval missed the target"
+        ],
+        [
+          "Whether prompt injection is viable",
+          "Structural delimiter tests and adversarial tool-output fixtures",
+          "Delimiters are containment hints, not security boundaries; validate instructions by trust zone"
+        ],
+        [
+          "Whether jailbreak resistance is adequate",
+          "PromptFoo redteam or Garak suites",
+          "Passing public jailbreak sets is baseline hygiene, not a proof of safety"
+        ],
+        [
+          "Whether multi-turn attacks matter",
+          "PyRIT scenarios over realistic conversation state",
+          "Single-turn tests miss escalation through memory, tool results, and accumulated concessions"
+        ],
+        [
+          "Whether output filtering is enough",
+          "Llama Guard, Guardrails, or policy classifiers after generation",
+          "Post-filters cannot prevent unsafe tool calls that already happened"
+        ],
+        [
+          "Whether PII risk is controlled",
+          "Presidio-style detection before logging or retrieval insertion",
+          "Redaction after persistence still leaves copies in traces, caches, or embeddings"
+        ],
+        [
+          "Whether compliance changes design",
+          "Risk-tier classification before architecture choices",
+          "Regulation attaches to use case and deployment context, not just model family"
+        ],
+        [
+          "Whether production drift is unsafe",
+          "Trace distributions, refusal rates, and confirmed incident exemplars",
+          "Monitor both under-refusal and over-refusal; safety failure includes blocking legitimate work"
+        ]
+      ]
+    }
+  ]
+}

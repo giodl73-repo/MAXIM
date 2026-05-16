@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\03-ORCHESTRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    LLM ORCHESTRATION LANDSCAPE                              │\n│                                                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │  YOUR APPLICATION                                                    │  │\n│  │                                                                      │  │\n│  │  ┌─────────────┐   ┌─────────────┐   ┌──────────────────────────┐  │  │\n│  │  │  LangChain  │   │ LlamaIndex  │   │   Semantic Kernel (SK)   │  │  │\n│  │  │  (general   │   │ (data +     │   │   (Microsoft, .NET/Py/   │  │  │\n│  │  │  purpose)   │   │  RAG focus) │   │    JS, enterprise)       │  │  │\n│  │  └─────────────┘   └─────────────┘   └──────────────────────────┘  │  │\n│  │         │                 │                        │                  │  │\n│  │  ┌──────┴─────────────────┴────────────────────────┴──────────────┐  │  │\n│  │  │              SHARED ABSTRACTIONS                               │  │  │\n│  │  │  Models  │  Prompts  │  Memory  │  Tools/Fns  │  Vector Stores │  │  │\n│  │  └────────────────────────────────────────────────────────────────┘  │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n│                                │                                            │\n│  ┌─────────────────────────────┼──────────────────────────────────────┐    │\n│  │  PROVIDERS                  │                                      │    │\n│  │  Anthropic  OpenAI  Azure   │  Cohere  Ollama  HuggingFace  Bedrock│    │\n│  └─────────────────────────────┴──────────────────────────────────────┘    │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## Why Orchestration Frameworks Exist",
+      "confidence": "candidate",
+      "text": "// Ad-hoc, no framework — what you're replacing\nasync function answerQuestion(question: string, docs: string[]) {\n  // Step 1: embed the question\n  const qEmbed = await openai.embeddings.create({ input: question, model: \"text-embedding-3-small\" });\n\n  // Step 2: search vector store (custom code)\n  const relevant = await pgVectorSearch(qEmbed.data[0].embedding, docs);\n\n  // Step 3: build prompt (string concatenation)\n  const context = relevant.map(d => d.content).join(\"\\n\\n\");\n  const prompt = `Answer based on context:\\n${context}\\n\\nQuestion: ${question}`;\n\n  // Step 4: call model\n  const response = await anthropic.messages.create({\n    model: \"claude-sonnet-4-6\",\n    messages: [{ role: \"user\", content: prompt }],\n    max_tokens: 1024,\n  });\n\n  // Step 5: parse + return\n  return response.content[0].text;\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## Why Orchestration Frameworks Exist",
+      "confidence": "candidate",
+      "text": "Familiar pattern                      LLM orchestration equivalent\n────────────────────────────────────  ────────────────────────────────────────────\nUnix pipes                            LCEL pipe operator\n  cat file | grep \"foo\" | wc -l         prompt | model | parser\n  stdout → stdin, each is a filter      output → input, each Runnable transforms\n\nRx / ReactiveExtensions               Async streaming chains\n  Observable.from(source)               chain.astream(input)\n    .map(transform)                     Each | step is a map operator\n    .filter(predicate)                  Backpressure via async generator\n    .subscribe(sink)\n\nMiddleware pipeline                   Chain composition\n  ASP.NET Core:  app.Use(MW1)           chain = prompt | model | parser\n                 app.Use(MW2)           Each component is a Runnable with\n                 app.Run(handler)       invoke / stream / batch / astream\n  Express:       app.use(fn1, fn2, fn3)\n  Koa:           app.use(async (ctx, next) => { await next() })",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Core Concepts",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  LANGCHAIN PRIMITIVES                                               │\n│                                                                     │\n│  ChatModel    — model abstraction (Claude, GPT-4o, Gemini, etc.)    │\n│  PromptTemplate — parameterized prompt with {variable} slots        │\n│  Chain        — pipeline: input → steps → output                    │\n│  Retriever    — fetch relevant docs (vector, BM25, hybrid)          │\n│  Tool         — function the LLM can call                           │\n│  Memory       — persist conversation state across turns             │\n│  Agent        — LLM-driven loop: think → use tool → observe         │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "### LangChain's Problems",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  KNOWN PAIN POINTS                                                  │\n│                                                                     │\n│  Version churn    — v0.1 → v0.2 → v0.3 broke APIs repeatedly        │\n│  Abstraction tax  — simple things require knowing 5 class names     │\n│  Magic behavior   — errors surface far from their source            │\n│  Dependency bloat — `langchain` pulls in hundreds of transitive deps│\n│  LCEL learning curve — pipe composition is elegant but non-obvious  │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### Core Concepts",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  LLAMAINDEX PRIMITIVES                                              │\n│                                                                     │\n│  Document       — raw data (PDF, web page, DB record, etc.)         │\n│  Node           — chunk of a document with metadata + embedding     │\n│  Index          — organized structure over nodes (vector, keyword)  │\n│  Retriever      — query an index → top-k nodes                      │\n│  QueryEngine    — retriever + response synthesis                    │\n│  ChatEngine     — stateful conversation over an index               │\n│  Pipeline       — Ingestion DAG (load → transform → embed → store)  │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 470,
+      "heading_context": "### Core Concepts",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  SEMANTIC KERNEL PRIMITIVES                                         │\n│                                                                     │\n│  Kernel        — central orchestrator, holds services + plugins     │\n│  Plugin        — collection of related functions (= tool namespace)│\n│  KernelFunction — either a semantic function (prompt) or native fn  │\n│  Memory        — context store (volatile or persistent)             │\n│  Planner       — generates and executes multi-step plans            │\n│  Filter        — interceptor hooks (prompt, function, result)       │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 520,
+      "heading_context": "### Plugins — Native Functions",
+      "confidence": "candidate",
+      "text": "from semantic_kernel.functions import kernel_function\nfrom typing import Annotated\n\nclass StockPlugin:\n    @kernel_function(description=\"Get the current stock price for a ticker\")\n    def get_price(\n        self,\n        ticker: Annotated[str, \"The stock ticker symbol\"]\n    ) -> str:\n        return f\"{ticker}: $142.50\"\n\n    @kernel_function(description=\"Get recent news headlines for a company\")\n    def get_news(\n        self,\n        company: Annotated[str, \"Company name or ticker\"]\n    ) -> str:\n        return f\"Latest {company} headline: Q4 earnings beat estimates.\"\n\n# Register plugin\nkernel.add_plugin(StockPlugin(), plugin_name=\"StockPlugin\")\n\n# Now the kernel can call these via tool use",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 646,
+      "heading_context": "## Framework Comparison",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────────┐\n│                    FRAMEWORK COMPARISON                                │\n├──────────────────┬────────────────┬────────────────┬─────────────────  │\n│                  │   LangChain    │   LlamaIndex   │ Semantic Kernel  │\n├──────────────────┼────────────────┼────────────────┼─────────────────┤\n│ Primary language │ Python, JS/TS  │ Python, TS     │ Python, C#, Java│\n│ Origin           │ Open source    │ Open source    │ Microsoft       │\n│ Focus            │ General agents │ Retrieval/RAG  │ Enterprise, .NET │\n│ Abstraction      │ High (leaky)   │ Medium         │ Medium          │\n│ Stability        │ Low (churn)    │ Medium         │ High            │\n│ RAG quality      │ Good           │ Excellent      │ Good            │\n│ Agent quality    │ Excellent      │ Good           │ Excellent       │\n│ Azure integration│ Good           │ Good           │ Native          │\n│ .NET support     │ None           │ None           │ First-class     │\n│ Enterprise fit   │ Medium         │ Medium         │ High            │\n│ Community size   │ Largest        │ Large          │ Growing         │\n│ Tracing          │ LangSmith      │ LlamaTrace     │ Built-in filters │\n├──────────────────┴────────────────┴────────────────┴─────────────────┤\n│ VERDICT                                                               │\n│ LangChain  → most ecosystem, best for general agent patterns         │\n│ LlamaIndex → best retrieval pipeline, complex RAG, data-heavy        │\n│ Sem Kernel → best for .NET shops, Azure-native, enterprise compliance│\n└───────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 695,
+      "heading_context": "## The Orchestration Stack in Production",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  PRODUCTION LLM SERVICE ARCHITECTURE                                │\n│                                                                     │\n│  API Layer                                                          │\n│  FastAPI / ASP.NET Core / Express                                   │\n│       │                                                             │\n│  Orchestration Layer                                                │\n│  LangChain / LlamaIndex / Semantic Kernel                           │\n│       │                         │                                   │\n│  Retrieval Layer           Tool Layer                               │\n│  pgvector / Pinecone /     REST APIs, DBs,                          │\n│  Weaviate / Azure AI Search  code execution, webhooks               │\n│       │                                                             │\n│  Model Layer                                                        │\n│  Anthropic API / Azure OpenAI / Bedrock / Ollama (local)            │\n│       │                                                             │\n│  Observability Layer                                                │\n│  LangSmith / Braintrust / OpenTelemetry traces                      │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 786,
+      "heading_context": "### Chunking Strategies",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  CHUNKING STRATEGY         │  WHEN TO USE                           │\n├────────────────────────────┼────────────────────────────────────────┤\n│  Fixed size (512 tokens)   │  Baseline; fast; uniform              │\n│  Sentence splitter         │  Prose documents; preserves sentences  │\n│  Recursive character       │  LangChain default; tries paragraphs   │\n│  Semantic (embed + cluster)│  Best quality; expensive to compute   │\n│  Document structure-aware  │  PDFs with headings; HTML; Markdown   │\n│  Agentic chunking          │  LLM proposes splits; highest quality │\n└────────────────────────────┴────────────────────────────────────────┘\n\nAlways add overlap (e.g., 10% of chunk size) so context at chunk\nboundaries doesn't get lost.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 804,
+      "heading_context": "### Embedding Model Selection",
+      "confidence": "candidate",
+      "text": "┌───────────────────────────┬────────────┬───────────────────────────┐\n│  Model                    │  Dim       │  Notes                    │\n├───────────────────────────┼────────────┼───────────────────────────┤\n│  text-embedding-3-small   │  1536      │  Good quality, cheap      │\n│  text-embedding-3-large   │  3072      │  Best OpenAI quality       │\n│  cohere-embed-v3-english  │  1024      │  Strong, supports search  │\n│  nomic-embed-text         │  768       │  Open source, local-run   │\n│  Azure AI embeddings      │  varies    │  Same models, Azure VNet  │\n└───────────────────────────┴────────────┴───────────────────────────┘\n\nMismatching embedding models between index time and query time\nis the #1 production RAG bug. Pin the model version.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

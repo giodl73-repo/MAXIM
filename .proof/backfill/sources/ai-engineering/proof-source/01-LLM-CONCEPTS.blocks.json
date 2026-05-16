@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\01-LLM-CONCEPTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 42,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The LLM Stack — Layers You Interact With\n==========================================\n\n  ┌─────────────────────────────────────────────────────────────┐\n  │  Your application                                           │\n  │  System prompt + user messages + context                    │\n  ├─────────────────────────────────────────────────────────────┤\n  │  API (OpenAI / Anthropic / Azure OpenAI / Bedrock / etc.)   │\n  │  - Model selection                                          │\n  │  - Sampling parameters (temperature, top_p, etc.)          │\n  │  - Token limits, rate limits, cost                          │\n  ├─────────────────────────────────────────────────────────────┤\n  │  Inference infrastructure                                   │\n  │  - KV cache                                                 │\n  │  - Batching, speculative decoding                           │\n  │  - Quantization                                             │\n  ├─────────────────────────────────────────────────────────────┤\n  │  Model weights (frozen after training)                      │\n  │  - Pre-trained on internet-scale corpus                     │\n  │  - Fine-tuned (SFT) on instruction-following examples       │\n  │  - Aligned (RLHF / DPO) on human preference data           │\n  └─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "### Byte-Pair Encoding (BPE)",
+      "confidence": "candidate",
+      "text": "BPE algorithm (Sennrich et al. 2015, adopted by GPT family):\n  Start: vocabulary = individual bytes (256 entries)\n  Repeat until target vocab size (50k–100k):\n    Count all adjacent token pairs in corpus\n    Merge the most frequent pair into a single new token\n  Result: frequent subwords become single tokens\n\nExamples (GPT-4 tokenizer):\n  \"tokenization\"   → [\"token\", \"ization\"]       2 tokens\n  \"untokenizable\"  → [\"un\", \"token\", \"izable\"]  3 tokens\n  \" Hello\"         → [\" Hello\"]                 1 token (leading space matters)\n  \"hello\"          → [\"hello\"]                  1 token\n  \"HELLO\"          → [\"HE\", \"LLO\"]             2 tokens (different case = different token)\n  \"12345\"          → [\"123\", \"45\"]             2 tokens (numbers vary)\n  \"1+1=2\"          → [\"1\", \"+\", \"1\", \"=\", \"2\"] 5 tokens",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "### The Full Transformer Block",
+      "confidence": "candidate",
+      "text": "Transformer layer (repeated L times):\n\n  x → LayerNorm → MultiHeadAttention → residual add\n    → LayerNorm → FFN (feed-forward network) → residual add\n\n  FFN nonlinearity — what changed since the original paper:\n    FFN(x) = max(0, xW_1 + b_1)W_2 + b_2    (ReLU, 2017 original — now obsolete)\n    FFN(x) = SiLU(xW_1) ⊙ (xW_3) W_2        (SwiGLU, Llama/Mistral/Gemma/modern)\n\n  SwiGLU adds a gating projection W_3 — three weight matrices instead of two.\n  Net effect: ~33% more FFN parameters for the same d_ff; typically shrink d_ff\n  to compensate. SwiGLU trains faster and achieves better perplexity than ReLU\n  at the same total parameter count. This is why modern models outperform same-size\n  ReLU variants despite identical depth.\n\n  Pre-LN (LayerNorm before attention/FFN) is now standard vs. original Post-LN.\n  Pre-LN stabilizes training at large scale — Post-LN requires warm-up scheduling\n  to prevent early-layer gradient explosion.\n\nParameter count formula (dense transformer, approximate):\n  d_model: hidden dimension (e.g., 4096 for 7B, 8192 for 70B, 12288 for GPT-3)\n  d_ff:    FFN dimension (~2.67× d_model for SwiGLU; ~4× for ReLU)\n  L:       number of layers\n\n  Embedding params:   vocab_size × d_model     (shared input/output in most models)\n  Attention per layer: 4 × d_model²            (Q, K, V, O projections)\n  FFN per layer:       ~8 × d_model²            (SwiGLU: 3 projections × ~2.67× d_model)\n  Total params ≈ 12 × L × d_model²             (rough: attention + FFN dominate)\n\n  Llama-3-8B:  d_model=4096, L=32  → 32 × 12 × 4096² ≈ 6.4B (excl. embedding)\n  GPT-3 175B:  d_model=12288, L=96 → 96 × 12 × 12288² ≈ 175B ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "### Temperature and Sampling",
+      "confidence": "candidate",
+      "text": "At each decoding step, the model outputs logits z ∈ ℝ^|vocab|\n\nSoftmax: p_i = exp(z_i / T) / Σ exp(z_j / T)\n  T = temperature\n  T → 0: argmax decoding (greedy, deterministic)\n  T = 1: sample from the model's distribution\n  T > 1: flatter distribution, more random\n  T < 1: sharper distribution, more deterministic\n\ntop_p (nucleus sampling):\n  Sort tokens by probability descending\n  Keep smallest set whose cumulative probability ≥ p\n  Sample from that set\n  p = 0.9: dynamic vocabulary size, adapts to distribution shape\n  More principled than top_k for variable distributions\n\ntop_k:\n  Keep k highest probability tokens, sample from them\n  k = 1: greedy\n  Less principled than top_p (k=50 is very different for flat vs sharp distributions)\n\nPractical guidance:\n  Factual retrieval, code, structured output: low temperature (0.0–0.3)\n  Creative writing, brainstorming: higher temperature (0.7–1.0)\n  Never use high temperature for structured output (JSON, etc.) — use json_mode",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 382,
+      "heading_context": "## Context Engineering",
+      "confidence": "candidate",
+      "text": "DI / IoC pattern          Context engineering equivalent\n──────────────────        ────────────────────────────────────────────────\nDI container config   →   System prompt (stable config assembled at startup;\n                           injected into every request; sets capabilities,\n                           persona, constraints, output format)\n\nRuntime-resolved deps →   Retrieved documents (RAG results fetched at request\n                           time based on the specific query; analogous to\n                           resolving a repository or service at runtime\n                           rather than wiring it statically)\n\nComposed execution    →   Full messages array (system + history + retrieved\n  context                  docs + tool outputs + current task; the assembled\n                           execution context the model reasons over)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 416,
+      "heading_context": "### Prompting Patterns",
+      "confidence": "candidate",
+      "text": "Zero-shot:\n  Just the task. No examples.\n  \"Classify this review as positive or negative: ...\"\n\nFew-shot:\n  Task + k examples before the actual input.\n  \"Review: Great product! → Positive\n   Review: Total waste of money. → Negative\n   Review: It's okay I guess. → ?\"\n  In-context learning: model learns the task from examples without weight update\n\nChain-of-thought (CoT):\n  Elicit intermediate reasoning steps before the final answer.\n  \"Let's think step by step...\"\n  Dramatically improves multi-step reasoning tasks\n  Works because tokens generated mid-chain condition subsequent tokens\n\nReAct (Reason + Act):\n  Interleave reasoning traces with tool calls\n  Thought: I need to look up X\n  Action: search(\"X\")\n  Observation: [search results]\n  Thought: Given these results, the answer is...\n  This is the backbone of most agent frameworks (03-ORCHESTRATION, 04-AGENTS)\n\nStructured output:\n  Constrain output to JSON / XML / specific format\n  Options: json_mode API parameter, tool_use with a single tool,\n           grammar-constrained decoding (llama.cpp, Outlines library)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 450,
+      "heading_context": "### RAG — Retrieval-Augmented Generation",
+      "confidence": "candidate",
+      "text": "RAG Architecture\n=================\n\n  Query\n    ↓\n  Embed query → dense vector (e.g., text-embedding-3-large)\n    ↓\n  Vector search → top-k similar chunks from index\n    ↓\n  Augment prompt with retrieved chunks:\n    \"Using only the following context, answer the question:\n     [chunk 1]\n     [chunk 2]\n     [chunk 3]\n     Question: ...\"\n    ↓\n  LLM generates grounded answer\n\n  Why RAG:\n    Keeps model knowledge current (no retraining for new documents)\n    Reduces hallucination (model can cite specific source text)\n    Scales to large corpora (millions of docs, only fetch relevant)\n    Cheaper than fine-tuning\n\n  RAG components:\n    Ingestion:  document → chunks → embeddings → vector store\n    Retrieval:  query → embedding → ANN search → top-k chunks\n    Generation: prompt assembly → LLM → response + citations\n\n  Chunking strategies — tradeoff matrix:\n\n  ┌──────────────────┬──────────────────┬──────────────────────┬──────────────────┐\n  │ Strategy         │ Quality          │ Cost/Complexity      │ When to use      │\n  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤\n  │ Fixed size       │ Low — cuts mid-  │ Fastest, cheapest,   │ Baseline / proof │\n  │ (512 tokens)     │ sentence, misses │ zero dependencies    │ of concept;      │\n  │                  │ semantic bounds  │                      │ uniform docs     │\n  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤\n  │ Sentence /       │ Medium — respects│ Fast; sentence       │ Prose documents  │\n  │ paragraph        │ natural breaks,  │ tokenization adds    │ (articles, PDFs, │\n  │                  │ variable chunk   │ minor overhead       │ support tickets) │\n  │                  │ size             │                      │                  │\n  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤\n  │ Hierarchical     │ High — retrieves │ 2× index size;       │ Long documents   │\n  │ (parent/child)   │ child chunk,     │ more complex         │ with structure   │\n  │                  │ injects parent   │ retrieval logic      │ (manuals, books, │\n  │                  │ for full context │                      │ legal contracts) │\n  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤\n  │ Semantic         │ Highest — splits │ Expensive: embed     │ High-value       │\n  │ (embed + cluster │ at embedding     │ every candidate      │ corpora where    │\n  │  similarity)     │ similarity breaks│ split point          │ retrieval        │\n  │                  │                  │                      │ precision matters│\n  └──────────────────┴──────────────────┴──────────────────────┴──────────────────┘\n\n  Decision tree:\n    Prototype / quick PoC?           → Fixed size (512 tokens, 64 overlap)\n    Production prose documents?      → Sentence splitter\n    Long structured docs?            → Hierarchical (parent/child)\n    Maximum retrieval quality?       → Semantic chunking\n    Mixed structure (PDF, HTML, MD)? → Structure-aware + sentence splitter\n    LLM budget for metadata?        → Add QuestionsAnsweredExtractor (LlamaIndex)\n\n  Always add chunk overlap (10% of chunk size) to avoid losing context at boundaries.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 520,
+      "heading_context": "## Fine-Tuning vs Prompting",
+      "confidence": "candidate",
+      "text": "When to fine-tune vs when to prompt:\n\n  Prompting (few-shot / RAG):\n    ✅ Task changes frequently\n    ✅ Limited training data\n    ✅ Need to use latest model versions\n    ✅ Quick iteration\n    ✅ Transparent (behavior visible in prompt)\n    ❌ Long repeated instructions burn context tokens (cost)\n    ❌ Complex style/format hard to maintain consistently\n\n  Fine-tuning (SFT on your data):\n    ✅ Consistent style/format/persona at scale\n    ✅ Compress long system prompts into model weights\n    ✅ Domain-specific vocabulary / jargon\n    ✅ Latency-sensitive (shorter prompts)\n    ❌ Requires 100–10,000+ quality examples\n    ❌ Model snapshot — doesn't update with new information\n    ❌ Debugging is harder (behavior in weights, not visible)\n    ❌ Doesn't help with knowledge cutoff (use RAG for that)\n\n  PEFT (Parameter-Efficient Fine-Tuning):\n    LoRA: train low-rank decomposition matrices ΔW = AB^T added to frozen W\n          Rank r << d_model → 1% of parameters, ~90% of full fine-tune quality\n          Used via: HuggingFace PEFT, Axolotl, LLaMA-Factory\n    QLoRA: LoRA + quantized base model (4-bit) → fine-tune large models on consumer GPUs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 551,
+      "heading_context": "## Fine-Tuning vs Prompting",
+      "confidence": "candidate",
+      "text": "Software CI/CD                    Fine-tuning equivalent\n──────────────────────────────    ─────────────────────────────────────────────\nTest suite                    →   Training + eval dataset\n  (inputs + expected outputs)       (prompts + ideal completions)\n\nBuild artifact                →   Fine-tuned model checkpoint\n  (compiled binary, docker image)   (adapter weights or full model weights)\n\nQuality gate / SLO            →   Eval metric threshold\n  (test pass rate, error budget)    (task-specific score vs. baseline)\n\nCanary deploy → measure →     →   Fine-tune → eval → iterate\n  roll back or promote              (same loop: measure before promoting)\n\nCI/CD pipeline                →   MLOps pipeline\n  (GitHub Actions, Azure DevOps)    (HuggingFace AutoTrain, Azure ML, Vertex AI)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

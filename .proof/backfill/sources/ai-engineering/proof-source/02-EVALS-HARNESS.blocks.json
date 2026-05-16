@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\02-EVALS-HARNESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                        LLM EVAL ECOSYSTEM                                   │\n│                                                                             │\n│  ┌─────────────────────────────────────────────────────────────────────┐    │\n│  │  EVAL PIPELINE (mirrors your CI/CD pipeline)                        │   │\n│  │                                                                     │   │\n│  │  Dataset ──► Prompt Template ──► Model Call ──► Scoring ──► Report │   │\n│  │     │              │                  │              │              │   │\n│  │  test cases    system prompt +   API call(s)   rubrics /       pass/   │   │\n│  │  golden set    few-shot exs     (real model)   LLM-as-judge   fail/   │   │\n│  │  edge cases    variable fill    or mock        metrics         score  │   │\n│  └─────────────────────────────────────────────────────────────────────┘   │\n│                                                                             │\n│  TOOLING LAYER                                                              │\n│  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐              │\n│  │ PromptFoo │  │Braintrust │  │   RAGAS   │  │ LangSmith │              │\n│  │(YAML-first│  │(SDK-first │  │(RAG-spec. │  │(tracing + │              │\n│  │ open src) │  │ cloud UI) │  │ metrics)  │  │ datasets) │              │\n│  └───────────┘  └───────────┘  └───────────┘  └───────────┘              │\n│                                                                             │\n│  SCORING STRATEGIES                                                         │\n│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │\n│  │  Exact /    │  │  Embedding  │  │ LLM-as-judge│  │   Human     │     │\n│  │  Regex      │  │  Similarity │  │  (rubric)   │  │   Review    │     │\n│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘     │\n│  deterministic ◄──────────────────────────────────────► probabilistic     │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Software quality engineering         LLM eval harness equivalent\n──────────────────────────────────   ──────────────────────────────────────────────\nTest fixture corpus                → Eval dataset\n  (input + expected output pairs)      (prompt vars + golden outputs + rubrics)\n\nProperty-based assertion           → LLM-as-judge scorer\n  (does output satisfy invariant?)     (does response satisfy this rubric?)\n\nSLO / error budget                 → Scoring threshold\n  (99.9% uptime, < 50ms p99)          (>= 0.85 average score = deployable)\n\nCanary analysis / baseline gate    → Regression gate vs. baseline experiment\n  (new deploy must not regress          (new prompt/model must not drop > 5%\n   key SLI vs. previous version)         from last known-good baseline)\n\nTest pyramid (unit/int/e2e)        → Eval pyramid (deterministic / semantic / human)\n  (fast cheap tests at base,            (exact-match + regex at base,\n   slow expensive at top)               LLM-judge for semantics, human review at top)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "### The Four Failure Modes Evals Catch",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│  FAILURE MODE         │  EXAMPLE                            │\n├───────────────────────┼─────────────────────────────────────┤\n│  Regression           │  prompt change → worse outputs     │\n│  Model drift          │  provider updates model silently   │\n│  Prompt injection     │  user input hijacks system prompt  │\n│  Distribution shift   │  prod data ≠ dev test data         │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Anatomy of an Eval",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  EVAL = Dataset × Prompt × Scoring × Threshold                      │\n│                                                                     │\n│  Dataset:    test cases with (input, [expected output], [metadata]) │\n│  Prompt:     the template under test (system + user, with vars)     │\n│  Scoring:    one or more scorers applied to each output             │\n│  Threshold:  what score constitutes pass — gates deployment         │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Taxonomy",
+      "confidence": "candidate",
+      "text": "DETERMINISTIC                              PROBABILISTIC\n     │                                          │\n     ├── Exact match                            ├── Embedding similarity (cosine)\n     ├── Contains / not-contains               ├── LLM-as-judge (rubric)\n     ├── Regex                                 ├── ROUGE / BLEU (NLP metrics)\n     ├── JSON schema valid                     └── Human review\n     ├── Starts-with / ends-with\n     └── Levenshtein / edit distance\n\nUse deterministic where possible. Add LLM-as-judge for semantic/subjective dimensions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### LLM-as-Judge",
+      "confidence": "candidate",
+      "text": "JUDGE PROMPT TEMPLATE:\n─────────────────────\nSystem: You are an eval judge. Score the response on the rubric.\n        Return JSON: { \"score\": 0-1, \"reasoning\": \"...\" }\n\nUser:\n  [ORIGINAL QUERY]\n  {{ query }}\n\n  [RESPONSE TO EVALUATE]\n  {{ output }}\n\n  [RUBRIC]\n  Score 1.0 if: response is factually correct, concise (< 3 sentences),\n                uses professional tone, does not hallucinate details.\n  Score 0.5 if: correct but verbose or slightly informal.\n  Score 0.0 if: incorrect facts, made-up details, or wrong language.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 381,
+      "heading_context": "### Core Concepts",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│  BRAINTRUST PRIMITIVES                                      │\n│                                                             │\n│  Project      = namespace (one per product/feature)         │\n│  Dataset      = versioned set of test cases                 │\n│  Experiment   = one eval run (prompt + model + date)        │\n│  Score        = numeric 0-1 per criterion per test case     │\n│  Comparison   = diff between two experiments                │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 395,
+      "heading_context": "### SDK Usage (TypeScript)",
+      "confidence": "candidate",
+      "text": "import { Braintrust, Eval, Score } from \"braintrust\";\nimport Anthropic from \"@anthropic-ai/sdk\";\n\nconst client = new Anthropic();\n\n// Define the task (what you're testing)\nasync function summarizeTicket(input: { ticket: string }): Promise<string> {\n  const msg = await client.messages.create({\n    model: \"claude-haiku-4-5-20251001\",\n    max_tokens: 100,\n    system: \"Summarize in one sentence. No advice.\",\n    messages: [{ role: \"user\", content: input.ticket }],\n  });\n  return (msg.content[0] as { type: \"text\"; text: string }).text;\n}\n\n// Define scorers\nfunction exactSentenceCount(output: string): Score {\n  const count = output.split(/[.!?]+/).filter(Boolean).length;\n  return {\n    name: \"single-sentence\",\n    score: count === 1 ? 1 : 0,\n    metadata: { sentence_count: count },\n  };\n}\n\n// Run the eval\nawait Eval(\"support-summarizer\", {\n  data: () => [\n    { input: { ticket: \"Can't log in\" }, expected: \"Login issue reported\" },\n    { input: { ticket: \"Password reset not received\" }, expected: \"Password email missing\" },\n  ],\n  task: summarizeTicket,\n  scores: [\n    exactSentenceCount,\n    // Braintrust built-ins:\n    // LLMClassifier — LLM-as-judge with custom rubric\n    // Factuality — checks factual accuracy against expected\n    // Similarity — embedding cosine similarity\n  ],\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 461,
+      "heading_context": "### RAG Eval Has Two Dimensions",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  RAG PIPELINE                                                       │\n│                                                                     │\n│  Query ──► Retrieval ──► Augmented Prompt ──► Generation ──► Answer│\n│               │                                    │                │\n│           RETRIEVAL                            GENERATION           │\n│           QUALITY                              QUALITY              │\n│                                                                     │\n│  Context Recall      ←── did we fetch the right docs?               │\n│  Context Precision   ←── did we fetch only relevant docs?           │\n│  Answer Faithfulness ←── does answer stick to retrieved context?    │\n│  Answer Relevancy    ←── does answer address the question?          │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 526,
+      "heading_context": "### When to Use RAGAS vs PromptFoo vs Braintrust",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────┐\n│  USE CASE                      │  TOOL                         │\n├────────────────────────────────┼──────────────────────────────┤\n│  Simple LLM app, open source   │  PromptFoo                   │\n│  Multi-provider comparison     │  PromptFoo                   │\n│  Red-teaming / adversarial     │  PromptFoo                   │\n│  Complex eval logic in code    │  Braintrust                  │\n│  Team collaboration, UI-first  │  Braintrust                  │\n│  A/B experiment tracking       │  Braintrust                  │\n│  RAG pipeline specifically     │  RAGAS                       │\n│  Tracing + eval combined       │  LangSmith                   │\n│  Custom, zero-dependency       │  Roll your own (see below)   │\n└────────────────────────────────┴──────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 549,
+      "heading_context": "## LangSmith — Tracing + Eval Combined",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  LANGSMITH FLYWHEEL                                                 │\n│                                                                     │\n│  Production ──► Traces ──► Interesting trace? ──► Add to dataset    │\n│                                │                        │           │\n│                           stored in                  becomes a      │\n│                           LangSmith                  test case      │\n│                                                          │          │\n│                                       Eval suite ◄───────┘          │\n│                                           │                         │\n│                                    run on next                      │\n│                                    deployment                       │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 592,
+      "heading_context": "## Rolling Your Own Eval Harness",
+      "confidence": "candidate",
+      "text": "import asyncio\nimport json\nfrom anthropic import Anthropic\nfrom dataclasses import dataclass\n\n@dataclass\nclass TestCase:\n    input: dict\n    expected: str | None = None\n    tags: list[str] = None\n\n@dataclass\nclass EvalResult:\n    test_case: TestCase\n    output: str\n    scores: dict[str, float]\n    passed: bool\n\n# The core eval loop — everything else is wrapper\nasync def run_eval(\n    test_cases: list[TestCase],\n    task_fn,           # your LLM call\n    scorers: list,     # scoring functions\n    pass_threshold: float = 0.8,\n) -> list[EvalResult]:\n    results = []\n    for tc in test_cases:\n        output = await task_fn(tc.input)\n        scores = {s.__name__: s(output, tc) for s in scorers}\n        avg_score = sum(scores.values()) / len(scores)\n        results.append(EvalResult(tc, output, scores, avg_score >= pass_threshold))\n    return results\n\n# LLM-as-judge scorer (reusable)\ndef make_llm_judge(rubric: str, judge_model: str = \"claude-opus-4-6\"):\n    client = Anthropic()\n\n    def scorer(output: str, tc: TestCase) -> float:\n        response = client.messages.create(\n            model=judge_model,\n            max_tokens=256,\n            system=\"You are an eval judge. Return JSON: {\\\"score\\\": 0.0-1.0, \\\"reason\\\": \\\"...\\\"}\",\n            messages=[{\n                \"role\": \"user\",\n                \"content\": f\"Query: {tc.input}\\nOutput: {output}\\nRubric: {rubric}\"\n            }]\n        )\n        try:\n            data = json.loads(response.content[0].text)\n            return float(data[\"score\"])\n        except Exception:\n            return 0.0  # judge failure = score 0\n\n    scorer.__name__ = \"llm_judge\"\n    return scorer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 662,
+      "heading_context": "## Eval-as-CI-Gate",
+      "confidence": "candidate",
+      "text": "# .github/workflows/eval.yml\nname: LLM Eval\n\non:\n  pull_request:\n    paths:\n      - 'src/prompts/**'\n      - 'src/llm/**'\n\njobs:\n  eval:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n\n      - name: Setup Node\n        uses: actions/setup-node@v4\n        with:\n          node-version: '20'\n\n      - name: Install PromptFoo\n        run: npm install -g promptfoo\n\n      - name: Run evals\n        env:\n          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}\n          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}\n        run: |\n          promptfoo eval --ci --output results.json\n          # --ci flag: exit code 1 if any assert fails\n\n      - name: Upload eval results\n        if: always()\n        uses: actions/upload-artifact@v4\n        with:\n          name: eval-results\n          path: results.json\n\n      - name: Comment PR with results\n        if: always()\n        uses: actions/github-script@v7\n        with:\n          script: |\n            const results = require('./results.json');\n            const passed = results.results.filter(r => r.success).length;\n            const total = results.results.length;\n            const body = `### LLM Eval Results\\n\\n✅ ${passed}/${total} passed`;\n            github.rest.issues.createComment({\n              ...context.repo,\n              issue_number: context.issue.number,\n              body\n            });",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 719,
+      "heading_context": "### Practical Gate Thresholds",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  WHAT TO GATE ON                                                    │\n│                                                                     │\n│  ✅ Gate hard:   any deterministic assert fails (regex, schema)     │\n│  ✅ Gate hard:   LLM score drops > 5% from baseline                 │\n│  ⚠️  Warn only:  LLM score drops 1-5% (subjective judgment call)     │\n│  ✅ Gate hard:   red-team pass rate drops (security regression)     │\n│  ℹ️  Log only:   cost increase (alert but don't block)               │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 745,
+      "heading_context": "### Test Case Sources",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  DATASET SOURCE HIERARCHY (most to least valuable)                  │\n│                                                                     │\n│  1. Real production inputs (sampled + de-identified)                │\n│     Catches distribution shift. Hardest to get.                     │\n│                                                                     │\n│  2. Expert-curated golden set                                       │\n│     Hand-authored by domain experts. Covers known edge cases.       │\n│                                                                     │\n│  3. Adversarial / red-team cases                                    │\n│     Injection attacks, edge case inputs, length extremes.           │\n│                                                                     │\n│  4. Synthetic — LLM-generated                                       │\n│     Fast to create, cheap. Risk: generator bias.                    │\n│     Validate before promoting to golden set (see process below).    │\n│                                                                     │\n│  5. Parametric / property-based (see 19-TESTING-EVOLUTION.md)       │\n│     Generate from a distribution. Finds boundary failures.          │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 772,
+      "heading_context": "### Test Case Sources",
+      "confidence": "candidate",
+      "text": "Step 1: Generate with model A (e.g., GPT-4o)\n  → Produce (input, expected_output) pairs at scale\n\nStep 2: Human spot-check — random sample 10–20% of generated cases\n  → Domain expert reviews: is the expected_output actually correct?\n  → Mark each reviewed case as valid / invalid / needs_edit\n  → Reject the batch if error rate > 5%; adjust generation prompt\n\nStep 3: Cross-model grade with model B (different vendor, e.g., Claude)\n  → For each synthetic case, have model B score expected_output against rubric\n  → Model B has different blind spots — disagreement surfaces generator bias\n\nStep 4: Promote only cases where human_review = valid AND model_B_score >= threshold\n  → Rejected cases: discard or fix and re-review\n  → Accepted cases: add to golden set with source = \"synthetic:modelA:vYYYY-MM\"\n\nStep 5: Track synthetic vs. human-authored case performance separately\n  → If synthetic cases have 10% higher pass rate than human cases, they're too easy\n  → Synthetic set should have similar difficulty distribution to human-authored set",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 907,
+      "heading_context": "## Connection to the Broader Arc",
+      "confidence": "candidate",
+      "text": "19-TESTING-EVOLUTION.md:\n  Era 5 → eval harnesses replace test pyramids for LLM systems\n\nThis guide (02-EVALS-HARNESS.md):\n  The engineering of those harnesses — tooling, scoring, CI integration\n\n03-ORCHESTRATION.md (next):\n  LangChain / LlamaIndex / Semantic Kernel — frameworks that produce\n  the traces and outputs these evals measure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

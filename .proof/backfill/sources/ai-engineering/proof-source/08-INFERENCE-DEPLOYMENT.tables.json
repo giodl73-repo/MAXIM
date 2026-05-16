@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ai-engineering\\08-INFERENCE-DEPLOYMENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 464,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether managed API or self-hosting fits",
+          "Latency, data-control, and operations constraints",
+          "Owning GPUs adds scheduler, observability, and capacity-planning work"
+        ],
+        [
+          "Whether a model fits one GPU",
+          "Weight, activation, and KV-cache memory estimates",
+          "Quantized weights are only part of the footprint; long context can dominate"
+        ],
+        [
+          "Whether throughput is batching-bound",
+          "vLLM continuous-batching traces",
+          "Higher throughput may increase tail latency; measure the service SLO, not tokens/sec alone"
+        ],
+        [
+          "Whether prefill cost dominates",
+          "Prompt length distribution and prefix-cache hit rate",
+          "Prefix caching only helps repeated prefixes; random long prompts still pay full prefill"
+        ],
+        [
+          "Whether decode speed is the bottleneck",
+          "Tokens/sec by phase with FlashAttention enabled",
+          "FlashAttention helps attention cost but not every serving bottleneck"
+        ],
+        [
+          "Whether speculative decoding helps",
+          "Acceptance rate between draft and target models",
+          "Poor draft alignment can add complexity without speedup"
+        ],
+        [
+          "Whether structured generation is reliable",
+          "Constrained decoding with schema-invalid examples",
+          "JSON mode is not business validation; still validate semantics downstream"
+        ],
+        [
+          "Whether multi-GPU scaling is worth it",
+          "Tensor-parallel benchmark under real concurrency",
+          "More GPUs can reduce per-request latency while worsening cost per token"
+        ]
+      ]
+    }
+  ]
+}
