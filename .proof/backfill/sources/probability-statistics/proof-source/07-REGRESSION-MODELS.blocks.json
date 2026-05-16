@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\07-REGRESSION-MODELS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                      REGRESSION TAXONOMY                         |\n+------------------------------------------------------------------+\n|                                                                  |\n|  CLASSICAL LINEAR                                                |\n|  +---------------------------+                                   |\n|  | OLS: Y = Xbeta + epsilon  |  epsilon ~ Normal(0, sigma^2 I)   |\n|  | Assumptions: linearity, independence, homoscedasticity        |\n|  +---------------------------+                                   |\n|          |                                                       |\n|          v                                                       |\n|  GENERALIZED LINEAR MODELS (GLMs)                                |\n|  +---------------------------+                                   |\n|  | Relax Normality of Y.     |  Y ~ Exponential family           |\n|  | link(E[Y]) = X beta       |  (Logistic, Poisson, Gamma, ...)  |\n|  +---------------------------+                                   |\n|          |                                                       |\n|          v                                                       |\n|  REGULARIZED / HIGH-DIMENSIONAL                                  |\n|  +---------------------------+                                   |\n|  | Ridge: L2 penalty         |  For multicollinearity            |\n|  | Lasso: L1 penalty         |  For sparse models                |\n|  | Elastic Net: L1 + L2      |  For correlated predictors        |\n|  +---------------------------+                                   |\n|          |                                                       |\n|          v                                                       |\n|  MIXED EFFECTS MODELS                                            |\n|  +---------------------------+                                   |\n|  | Fixed effects + random    |  For grouped / repeated data      |\n|  | effects for groups        |  Partial pooling                  |\n|  +---------------------------+                                   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "## Geometry of OLS",
+      "confidence": "candidate",
+      "text": "  col(X)              col(X)^perp\n  +---------+         +---------+\n  |         |         |         |\n  |  X beta |         |    e    |\n  |   = Hy  |   +     | = (I-H)y|\n  |         |         |         |\n  +---------+         +---------+\n             --------------------\n                   Y = Hy + (I-H)Y\n\n  OLS minimizes ||Y - X beta||^2 by projecting Y onto col(X).\n  beta_hat is the coefficients in this projection.\n\n  Pythagorean theorem: ||Y||^2 = ||X beta_hat||^2 + ||e||^2\n  R^2 = cos^2(angle between Y and col(X))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 137,
+      "heading_context": "## Generalized Linear Models",
+      "confidence": "candidate",
+      "text": "  1. RANDOM component: Y ~ Exponential family distribution\n     (Bernoulli, Poisson, Gamma, Inverse-Gaussian, ...)\n\n  2. SYSTEMATIC component: eta = X beta  (linear predictor)\n\n  3. LINK function: g(mu) = eta  where mu = E[Y|X]\n     g is a monotone function connecting mean to linear predictor.\n\n  Common GLM instances:\n  +------------------+-------------+----------+-------------------+\n  | Name             | Distribution| Link g() | Use Case          |\n  +------------------+-------------+----------+-------------------+\n  | Linear regression| Normal      | identity | Continuous Y      |\n  | Logistic regr.   | Bernoulli   | logit    | Binary outcome    |\n  | Probit regr.     | Bernoulli   | probit   | Binary outcome    |\n  | Poisson regr.    | Poisson     | log      | Count data        |\n  | Neg. Binomial    | Neg. Binom  | log      | Overdispersed cts |\n  | Gamma regression | Gamma       | log/inv  | Positive Y, skewed|\n  | Multinomial      | Multinomial | logit    | Multi-class       |\n  +------------------+-------------+----------+-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Regularization: Ridge, Lasso, Elastic Net",
+      "confidence": "candidate",
+      "text": "  beta_hat_ridge = argmin ||Y - X beta||^2 + lambda ||beta||^2\n\n  Closed form: beta_hat = (X^T X + lambda I)^{-1} X^T Y\n\n  Effect of lambda:\n  - lambda=0: OLS (no regularization)\n  - lambda->inf: beta_hat -> 0 (full regularization)\n\n  SVD form: beta_ridge = V diag(s_i / (s_i^2 + lambda)) U^T Y\n  Small eigenvalues s_i get more shrinkage.\n\n  BAYESIAN INTERPRETATION: Ridge = MAP with Normal(0, sigma^2/lambda) prior on beta.\n  DOES NOT do variable selection: all coefficients are nonzero.\n  Best for: multicollinearity, all predictors genuinely relevant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

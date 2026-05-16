@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:bayesian-statistics
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Bayesian Statistics
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/06-BAYESIAN-STATISTICS.md
+canonical_path: probability-statistics/06-BAYESIAN-STATISTICS.md
+backsource_ids: [proof-backfill:probability-statistics:06-bayesian-statistics, git-history:probability-statistics:06-bayesian-statistics]
+concepts: [bayesian, statistics]
+root_concepts: [bayesian, statistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bayesian Statistics
 
 ## The Big Picture

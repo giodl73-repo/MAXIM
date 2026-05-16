@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\07-LIE-GROUPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                                                                  |\n|  LIE GROUP G                                                     |\n|  = Smooth manifold M                                             |\n|  + Group structure (G, *, e)                                     |\n|  + Smooth multiplication and inversion                           |\n|                                                                  |\n|  LINEARIZATION: Lie algebra g = T_e G                            |\n|                                                                  |\n|  EXPONENTIAL MAP: exp: g -> G                                    |\n|  Connects Lie algebra (linear) to Lie group (nonlinear)          |\n|                                                                  |\n|  KEY EXAMPLES:                                                   |\n|  GL(n,R): invertible linear maps                                 |\n|  SL(n,R): volume-preserving linear maps                          |\n|  O(n), SO(n): orthogonal maps and rotations                      |\n|  U(n), SU(n): unitary and special unitary maps                   |\n|  SE(3): rigid body motions in R^3                                |\n|  SO(3,1): Lorentz group for spacetime                            |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Definition and Basic Structure",
+      "confidence": "candidate",
+      "text": "  IMMEDIATE CONSEQUENCES:\n  Left translation L_g: G -> G, L_g(h) = g*h  (smooth diffeomorphism)\n  Right translation R_g: G -> G, R_g(h) = h*g  (smooth diffeomorphism)\n  Conjugation C_g: G -> G, C_g(h) = g h g^{-1}  (smooth diffeomorphism)\n\n  Left-invariant vector fields:\n  A vector field X on G is left-invariant if (L_g)_* X = X for all g.\n  i.e., d(L_g)_e X_e = X_g  for all g.\n\n  Key: A left-invariant vector field is determined by its value at e.\n  So: {left-invariant vector fields} is isomorphic to T_e G as vector spaces.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 77,
+      "heading_context": "## The Lie Algebra",
+      "confidence": "candidate",
+      "text": "  For X, Y in T_e G: extend to left-invariant vector fields X_bar, Y_bar.\n  Define: [X, Y] = [X_bar, Y_bar]_e  (Lie bracket of vector fields, evaluated at e)\n\n  Properties of the Lie bracket:\n  [X, Y] = -[Y, X]               (antisymmetry)\n  [[X,Y],Z] + [[Y,Z],X] + [[Z,X],Y] = 0   (Jacobi identity)\n  [aX + bY, Z] = a[X,Z] + b[Y,Z]            (bilinearity)\n\n  The Lie algebra is a \"first-order approximation\" to the group structure.\n  The Baker-Campbell-Hausdorff formula recovers the group from the algebra:\n  exp(X) exp(Y) = exp(X + Y + (1/2)[X,Y] + (1/12)[[X,Y],Y] - ... )",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "## SO(3): The Rotation Group",
+      "confidence": "candidate",
+      "text": "  SO(3) = {A in M_3(R): A^T A = I, det A = +1}\n  dim = 3,  Lie algebra so(3) = {antisymmetric 3x3 matrices}\n\n  PARAMETERIZATIONS:\n  1. Rotation matrices (3x3): good for composition, bad for interpolation\n  2. Euler angles (phi, theta, psi): intuitive, but GIMBAL LOCK at singularities\n  3. Axis-angle: R = exp(theta * k_hat) where k_hat = unit axis, theta = angle\n  4. Quaternions: unit quaternions in R^4 = SU(2) -- double cover of SO(3)\n\n  LIE ALGEBRA so(3):\n  Basis: e_1 = [0 0 0; 0 0 -1; 0 1 0], e_2 = [0 0 1; 0 0 0; -1 0 0], e_3 = [0 -1 0; 1 0 0; 0 0 0]\n\n  [e_1, e_2] = e_3,  [e_2, e_3] = e_1,  [e_3, e_1] = e_2\n  Isomorphic to (R^3, x) where x = cross product! (so(3) iso (R^3, x))\n\n  EXPONENTIAL MAP for SO(3) (Rodrigues' formula):\n  exp(theta * k_hat_x) = I + sin(theta) k_hat_x + (1-cos theta) k_hat_x^2\n  where k_hat_x = antisymmetric matrix of k_hat (the \"hat map\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## SO(3): The Rotation Group",
+      "confidence": "candidate",
+      "text": "  SU(2) = {[a, -b_bar; b, a_bar]: |a|^2 + |b|^2 = 1} (unit quaternions as 2x2 matrices)\n  dim = 3, simply connected.\n\n  Covering map: SU(2) -> SO(3) with kernel {+I, -I} (Z_2)\n  So SO(3) = SU(2) / Z_2.\n  This is the spinor phenomenon: a 2pi rotation = -I in SU(2) (not the identity!).\n  A 4pi rotation returns to identity. Electrons (spin-1/2) \"see\" this.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Adjoint Representation and Killing Form",
+      "confidence": "candidate",
+      "text": "  Ad: G -> GL(g)   (a representation of G on g)\n  Ad_g(X) = d/dt C_g(exp(tX))|_{t=0}\n           = d(C_g)_e X        (pushforward of conjugation map)\n\n  For matrix groups: Ad_g(X) = g X g^{-1}\n\n  The adjoint action is the \"infinitesimal\" version:\n  ad: g -> End(g)\n  ad_X(Y) = [X, Y]   (the Lie bracket IS the adjoint of the Lie algebra)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 250,
+      "heading_context": "## Symmetric Spaces",
+      "confidence": "candidate",
+      "text": "**Sym+(n) and natural gradient**: The Fisher information matrix F(θ) of a parametric model is an element of Sym+(n), making the parameter space a Riemannian manifold with metric g = F. Natural gradient descent θ_{t+1} = θ_t − η F(θ_t)^{-1} ∇L(θ_t) is exactly Riemannian gradient descent on this statistical manifold. The log-Euclidean metric d_LE(A,B) = ||log(A) − log(B)||_F approximates the affine-invariant metric at lower computational cost (O(n^3) for matrix log vs. O(n^3) for the full exp/log on Sym+(n)) and is used in practical frameworks (Geomstats, pyRiemann, geoopt).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

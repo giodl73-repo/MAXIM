@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:statistical-inference
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Statistical Inference
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/05-STATISTICAL-INFERENCE.md
+canonical_path: probability-statistics/05-STATISTICAL-INFERENCE.md
+backsource_ids: [proof-backfill:probability-statistics:05-statistical-inference, git-history:probability-statistics:05-statistical-inference]
+concepts: [statistical, inference]
+root_concepts: [statistical, inference]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Statistical Inference
 
 ## The Big Picture

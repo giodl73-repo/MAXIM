@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\08-TIME-SERIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                     TIME SERIES LANDSCAPE                        |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DECOMPOSITION                                                   |\n|  Y_t = Trend + Seasonality + Cycle + Irregular                  |\n|       (deterministic or stochastic components)                  |\n|                                                                  |\n|  STATIONARY MODELS              NON-STATIONARY                  |\n|  +-------------------+         +-------------------+            |\n|  | AR(p): Y_t depends|         | ARIMA: difference |            |\n|  | on past Y values  |         | to achieve        |            |\n|  | MA(q): Y_t depends|         | stationarity      |            |\n|  | on past errors    |         | Seasonal ARIMA    |            |\n|  | ARMA(p,q): both   |         | Unit root tests   |            |\n|  +-------------------+         +-------------------+            |\n|                                                                  |\n|  SPECTRAL DOMAIN                STATE SPACE / KALMAN            |\n|  +-------------------+         +-------------------+            |\n|  | Fourier analysis  |         | Latent state model |           |\n|  | Periodogram       |         | Optimal filtering |            |\n|  | Spectral density  |         | Prediction,       |            |\n|  | Cross-spectrum    |         | smoothing         |            |\n|  +-------------------+         +-------------------+            |\n|                                                                  |\n|  MULTIVARIATE: VAR, VECM, DLM (Dynamic Linear Models)          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "## Stationarity",
+      "confidence": "candidate",
+      "text": "  ACVF: gamma(h) = Cov(Y_t, Y_{t+h})\n  ACF:  rho(h) = gamma(h) / gamma(0) = Cov(Y_t, Y_{t+h}) / Var(Y_t)\n\n  Properties: rho(0) = 1, |rho(h)| <= 1, rho(-h) = rho(h)\n\n  PACF (Partial ACF): partial correlation between Y_t and Y_{t+h}\n  after controlling for Y_{t+1}, ..., Y_{t+h-1}.\n  PACF(h) = Corr(Y_t - P_{t|t-1,...,t-h+1} Y_t, Y_{t+h} - P_{t+h|t+1,...,t+h-1} Y_{t+h})\n\n  ACF and PACF patterns identify AR/MA order:\n  AR(p):   ACF decays geometrically, PACF cuts off after lag p\n  MA(q):   ACF cuts off after lag q, PACF decays geometrically\n  ARMA:    Both decay geometrically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 97,
+      "heading_context": "## ARMA Models",
+      "confidence": "candidate",
+      "text": "  Y_t = phi_1 Y_{t-1} + ... + phi_p Y_{t-p} + epsilon_t\n  epsilon_t ~ WN(0, sigma^2)  (white noise: uncorrelated, mean 0, constant variance)\n\n  Characteristic polynomial: phi(z) = 1 - phi_1 z - ... - phi_p z^p\n  STATIONARITY CONDITION: all roots of phi(z) outside the unit circle.\n\n  AR(1) example: Y_t = phi Y_{t-1} + epsilon_t\n  Stationary iff |phi| < 1.\n  ACF: rho(h) = phi^h  (geometric decay)\n  PACF: cuts off after lag 1.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 112,
+      "heading_context": "## ARMA Models",
+      "confidence": "candidate",
+      "text": "  Y_t = epsilon_t + theta_1 epsilon_{t-1} + ... + theta_q epsilon_{t-q}\n\n  Always stationary (finite sum of white noise).\n  INVERTIBILITY CONDITION: roots of theta(z) = 1 + theta_1 z + ... + theta_q z^q\n  outside the unit circle. Ensures unique MA representation.\n\n  MA(1) example: Y_t = epsilon_t + theta epsilon_{t-1}\n  ACF: rho(1) = theta/(1+theta^2), rho(h) = 0 for h > 1.\n  PACF: decays geometrically.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 176,
+      "heading_context": "## ARIMA and Non-Stationarity",
+      "confidence": "candidate",
+      "text": "  Augmented Dickey-Fuller (ADF):\n  H_0: unit root present (non-stationary)\n  H_1: no unit root (stationary)\n  Regression: DeltaY_t = alpha + beta t + gamma Y_{t-1} + Sum delta_k DeltaY_{t-k} + epsilon_t\n  t-statistic for gamma has non-standard (Dickey-Fuller) distribution.\n\n  KPSS test: reverses the hypotheses\n  H_0: trend stationary, H_1: unit root\n  Useful as complement to ADF (different type I/II error structure)\n\n  Phillips-Perron: non-parametric correction for serial correlation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## State Space Models and Kalman Filter",
+      "confidence": "candidate",
+      "text": "  PREDICTION STEP:\n  a_{t|t-1} = T_t a_{t-1}                     (predicted state mean)\n  P_{t|t-1} = T_t P_{t-1} T_t^T + R_t Q_t R_t^T  (predicted state variance)\n\n  UPDATE STEP:\n  v_t = y_t - Z_t a_{t|t-1}                   (innovation = actual - predicted)\n  F_t = Z_t P_{t|t-1} Z_t^T + H_t             (innovation variance)\n  K_t = P_{t|t-1} Z_t^T F_t^{-1}              (Kalman gain)\n  a_t = a_{t|t-1} + K_t v_t                   (updated state estimate)\n  P_t = (I - K_t Z_t) P_{t|t-1}               (updated state variance)\n\n  The Kalman gain K_t balances: how uncertain is the state vs. observation.\n  K_t -> 0: trust the prediction (observation is noisy)\n  K_t -> I: trust the observation (state prediction is uncertain)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 290,
+      "heading_context": "## State Space Models and Kalman Filter",
+      "confidence": "candidate",
+      "text": "- Extension to structural models (trend + seasonal + irregular)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 319,
+      "heading_context": "## GARCH and Volatility Models",
+      "confidence": "candidate",
+      "text": "  ARCH(q) — Autoregressive Conditional Heteroscedasticity:\n  Y_t = sigma_t epsilon_t,   epsilon_t ~ i.i.d. Normal(0,1)\n  sigma_t^2 = alpha_0 + alpha_1 Y_{t-1}^2 + ... + alpha_q Y_{t-q}^2\n\n  GARCH(p,q) (Generalized ARCH):\n  sigma_t^2 = alpha_0 + Sum_i alpha_i Y_{t-i}^2 + Sum_j beta_j sigma_{t-j}^2\n\n  GARCH(1,1) is ubiquitous in practice:\n  sigma_t^2 = omega + alpha Y_{t-1}^2 + beta sigma_{t-1}^2\n  alpha + beta < 1 for stationarity.\n  alpha + beta close to 1: \"volatility persistence\" (common in equities).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

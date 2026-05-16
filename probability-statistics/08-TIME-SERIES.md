@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:time-series
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Time Series Analysis
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/08-TIME-SERIES.md
+canonical_path: probability-statistics/08-TIME-SERIES.md
+backsource_ids: [proof-backfill:probability-statistics:08-time-series, git-history:probability-statistics:08-time-series]
+concepts: [time, series]
+root_concepts: [time, series]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Time Series Analysis
 
 ## The Big Picture

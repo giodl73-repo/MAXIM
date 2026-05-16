@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\07-REGRESSION-MODELS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 364,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether continuous outcomes have Gaussian residuals",
+          "OLS",
+          "Residual structure and omitted variables matter more than formula familiarity"
+        ],
+        [
+          "Whether the outcome is binary",
+          "Logistic regression",
+          "Separation and calibration can break naive fits"
+        ],
+        [
+          "Whether counts are equidispersed",
+          "Poisson regression",
+          "Overdispersion invalidates standard errors and intervals"
+        ],
+        [
+          "Whether count variance exceeds the mean",
+          "Negative-binomial regression",
+          "Dispersion may reflect latent heterogeneity or zero inflation"
+        ],
+        [
+          "Whether positive skewed outcomes need a GLM",
+          "Gamma regression",
+          "Link choice changes interpretation"
+        ],
+        [
+          "Whether multicollinearity inflates variance",
+          "Ridge regression",
+          "Ridge keeps all predictors and shrinks interpretation"
+        ],
+        [
+          "Whether sparsity is plausible",
+          "Lasso",
+          "Correlated predictors make variable selection unstable"
+        ],
+        [
+          "Whether sparse correlated predictors coexist",
+          "Elastic net",
+          "`alpha` controls the ridge/lasso compromise"
+        ],
+        [
+          "Whether observations are grouped or repeated",
+          "Linear mixed model",
+          "Random-effects structure is a modeling assumption"
+        ],
+        [
+          "Whether predictors exceed observations",
+          "Regularized regression",
+          "Cross-validation tunes prediction, not causal validity"
+        ]
+      ]
+    }
+  ]
+}

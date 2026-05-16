@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\09-INFORMATION-GEOMETRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   INFORMATION GEOMETRY LANDSCAPE                 |\n+------------------------------------------------------------------+\n|                                                                  |\n|  STATISTICAL MANIFOLD S                                          |\n|  = {p(x; theta) : theta in Theta}                               |\n|  Each point is a probability distribution.                      |\n|                                                                  |\n|  GEOMETRY ON S:                                                  |\n|  Fisher information metric g_{ij} = E[partial_i log p * partial_j log p]\n|  (Riemannian metric on the manifold of distributions)           |\n|                                                                  |\n|  TWO NATURAL CONNECTIONS:                                        |\n|  e-connection (exponential): flat for exponential families      |\n|  m-connection (mixture): flat for mixture families              |\n|  These are dual connections: together they determine the geometry|\n|                                                                  |\n|  DIVERGENCES (asymmetric distances):                            |\n|  KL divergence D_KL(p||q)                                       |\n|  alpha-divergences (generalization)                             |\n|  Bregman divergences                                            |\n|                                                                  |\n|  APPLICATIONS:                                                   |\n|  Natural gradient descent      Cramer-Rao bound (geodesic)     |\n|  Sufficient statistics         EM algorithm (e/m projections)  |\n|  Hypothesis testing geometry   Neural network optimization     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## Wasserstein Geometry vs. KL Geometry",
+      "confidence": "candidate",
+      "text": "  KL DIVERGENCE (Fisher geometry)           WASSERSTEIN DISTANCE (optimal transport)\n  ──────────────────────────────────────    ──────────────────────────────────────\n  D_KL(p||q) = ∫ p log(p/q)               W_p(mu, nu) = (inf_gamma ∫ d(x,y)^p d gamma)^{1/p}\n  Requires: p << q (absolute continuity)   Works for: any distributions on metric space\n  Ignores ground metric on X               Respects ground metric (geometry of X matters)\n  Not a true distance (asymmetric)         True distance (symmetric, triangle inequality)\n\n  WHEN TO USE KL:                          WHEN TO USE WASSERSTEIN:\n  Parametric families (exponential family)  Distributions with non-overlapping support\n  MLE (= forward KL minimization)           GANs (Wasserstein GAN avoids mode collapse)\n  Variational inference                     Domain adaptation (transport plan = alignment)\n  Information-theoretic problems            Distributional robustness (Wasserstein balls)\n  Fisher-Rao is natural metric              Generates useful interpolations (displacement)\n\n  KEY DIFFERENCE:\n  KL = ∞ when supports don't overlap.      Wasserstein is always finite on compact spaces.\n  This is why KL-based training (standard   Wasserstein GAN replaces KL with W_1,\n  GAN) suffers mode collapse: generator     giving gradients even when generator and\n  can't \"see\" the target when supports      data distributions don't overlap.\n  are disjoint.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## Alpha-Divergences",
+      "confidence": "candidate",
+      "text": "  D_alpha(p || q) = [4/(1-alpha^2)] [1 - Integral p(x)^{(1+alpha)/2} q(x)^{(1-alpha)/2} dx]\n\n  alpha = 1:  Forward KL divergence D_KL(p||q)\n  alpha = -1: Reverse KL divergence D_KL(q||p)\n  alpha = 0:  Hellinger divergence (symmetric)\n  alpha = 3:  Chi-squared divergence (between p and q)\n\n  The Fisher metric is recovered from all alpha-divergences:\n  D_alpha(p(theta) || p(theta + dtheta)) = (1/2)(1-alpha^2)/4 * dtheta^T I dtheta + O(||dtheta||^3)\n\n  All alpha-divergences have the same second-order term!\n  The Fisher metric is the universal local geometry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## Connections to Other Library Directories",
+      "confidence": "candidate",
+      "text": "  information-theory/\n    Entropy: H(p) = -E_p[log p] (this is the log-partition minus energy)\n    KL divergence D_KL(p||q) = E_p[log p/q] (basis of 09-INFORMATION-GEOMETRY)\n    Mutual information I(X;Y) = D_KL(p(X,Y) || p(X)p(Y))\n    Channel capacity = geometric optimization on simplex of input distributions\n\n  differential-geometry/\n    The statistical manifold IS a Riemannian manifold (see 04-RIEMANNIAN-GEOMETRY)\n    Connections, curvature, geodesics all apply (see 05-CONNECTIONS, 06-CURVATURE)\n    The e- and m-connections are the two canonical affine connections on S\n    Lie groups appear: exponential map on statistical manifold ~ exponential family\n\n  data-science/\n    Natural gradient -> K-FAC -> Adam optimizer (deep learning)\n    Variational inference = reverse KL minimization on posterior manifold\n    VAE (Variational Autoencoder) = ELBO optimization (ELBO = -KL + log likelihood)\n    Gaussian processes: the Fisher metric for GP family gives natural GP updates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\01-PROBABILITY-FOUNDATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              PROBABILITY SPACE  (Omega, F, P)                    |\n+------------------------------------------------------------------+\n|                                                                  |\n|  Omega  = sample space      all possible outcomes               |\n|  F      = sigma-algebra     the events we can assign probs to   |\n|  P      = probability meas  assigns numbers in [0,1] to events  |\n|                                                                  |\n|  +--------------------+                                         |\n|  |  Omega             |  <- the \"universe\"                      |\n|  |  +------+          |                                         |\n|  |  |  A   |  <- event: a subset of Omega in F                  |\n|  |  +------+          |                                         |\n|     |                    |                                      |\n|  +--------------------+                                         |\n|           |                                                      |\n|           v                                                      |\n|  P(A) in [0,1]    probability measure applied to event A        |\n|                                                                  |\n|  Random variable X: Omega -> R                                   |\n|  (a measurable function on this space)                          |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## Sigma-Algebras",
+      "confidence": "candidate",
+      "text": "  1.  Omega in F                     (whole space is measurable)\n  2.  A in F  =>  A^c in F           (closed under complement)\n  3.  A_1, A_2, ... in F  =>         (closed under countable unions)\n      Union_{i=1}^{inf} A_i in F\n\n  Consequence: also closed under countable intersections\n  (De Morgan: Intersection A_i = (Union A_i^c)^c)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "## The Kolmogorov Axioms",
+      "confidence": "candidate",
+      "text": "  K1.  P(A) >= 0                for all A in F          (non-negativity)\n  K2.  P(Omega) = 1                                      (normalization)\n  K3.  A_1, A_2, ... disjoint   =>                       (sigma-additivity)\n       P(Union A_i) = Sum P(A_i)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## The Kolmogorov Axioms",
+      "confidence": "candidate",
+      "text": "  P(emptyset) = 0              (from K2 + K3: Omega = Omega union emptyset union ...)\n  P(A^c) = 1 - P(A)            (from K2 + K3: Omega = A union A^c)\n  A subset B => P(A) <= P(B)   (monotonicity)\n  P(A union B) = P(A) + P(B) - P(A intersect B)  (inclusion-exclusion)\n  Boole's inequality:  P(Union A_i) <= Sum P(A_i)  (sigma-subadditivity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## Conditional Probability and Independence",
+      "confidence": "candidate",
+      "text": "  A, B independent  <=>  P(A intersect B) = P(A) P(B)\n  <=> P(A | B) = P(A)   (when P(B) > 0)\n  <=> P(B | A) = P(B)   (when P(A) > 0)\n\n  Events A_1, ..., A_n are mutually independent if:\n  For all S subset {1,...,n}:\n  P(Intersection_{i in S} A_i) = Product_{i in S} P(A_i)\n\n  Pairwise independence does NOT imply mutual independence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Expectation as Lebesgue Integral",
+      "confidence": "candidate",
+      "text": "  If X_n -> X pointwise a.s.,\n  and |X_n| <= Y with E[Y] < inf,\n  then E[X_n] -> E[X]\n\n  This justifies: lim E[X_n] = E[lim X_n]\n  under an integrability condition.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Key Inequalities",
+      "confidence": "candidate",
+      "text": "  CONCENTRATION INEQUALITY HIERARCHY:\n  ──────────────────────────────────────────────────────────────────────\n  BERNSTEIN'S INEQUALITY (variance-adaptive, tighter than Hoeffding):\n  For independent X_i in [a_i, b_i] with Var(X_i) = sigma_i^2:\n  P(|S_n - E[S_n]| >= t) <= 2 exp(-t^2 / (2(Sum sigma_i^2 + ct/3)))\n  Tighter than Hoeffding when variance << range (common in practice).\n\n  AZUMA-HOEFFDING (for martingales):\n  If {M_k} is a martingale with |M_k - M_{k-1}| <= c_k:\n  P(|M_n - M_0| >= t) <= 2 exp(-t^2 / (2 Sum c_k^2))\n  Needed for adaptive algorithms where choices depend on past data.\n\n  McDIARMID'S INEQUALITY (bounded differences):\n  If f(X_1,...,X_n) changes by at most c_i when X_i varies:\n  P(|f - E[f]| >= t) <= 2 exp(-2t^2 / Sum c_i^2)\n  Ubiquitous in learning theory: apply to empirical risk, VC bounds.\n\n  SUB-GAUSSIAN / SUB-EXPONENTIAL (modern unifying framework):\n  X is sub-Gaussian(sigma) if E[exp(t(X-mu))] <= exp(sigma^2 t^2/2)\n  All bounded r.v.s are sub-Gaussian. Gaussian is sub-Gaussian.\n  Sub-Gaussian tails: P(|X - mu| >= t) <= 2 exp(-t^2/(2 sigma^2))\n\n  X is sub-exponential if E[exp(t|X-mu|)] < inf for small t.\n  Chi-squared, exponential r.v.s are sub-exponential (not sub-Gaussian).\n  Sub-exponential tails: Gaussian for small t, exponential for large t.\n\n  MATRIX CONCENTRATION (for random matrices):\n  Matrix Bernstein: ||Sum X_i - E[Sum X_i]|| <= O(sqrt(sigma^2 log d) + c log d)\n  Used in: compressed sensing, random graph theory, spectral methods.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "## Almost Sure vs. In Probability vs. In L^p",
+      "confidence": "candidate",
+      "text": "  X_n --a.s.--> X:\n  P(lim_{n->inf} X_n = X) = 1\n  Convergence on a set of measure 1. Strongest.\n\n  X_n --P--> X  (in probability):\n  For all eps > 0: P(|X_n - X| > eps) -> 0\n  Weaker: each individual event shrinks, but not uniformly.\n\n  X_n --L^p--> X  (in L^p):\n  E[|X_n - X|^p] -> 0\n  L^2 convergence is mean-square convergence.\n\n  X_n --d--> X  (in distribution / weak convergence):\n  E[f(X_n)] -> E[f(X)] for all bounded continuous f\n  Weakest. CLT conclusion is convergence in distribution.\n\n  HIERARCHY:\n  a.s.  =>  in probability  =>  in distribution\n  L^2   =>  in probability  =>  in distribution\n  (a.s. and L^2 do NOT imply each other)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

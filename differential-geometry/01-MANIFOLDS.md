@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:manifolds
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Smooth Manifolds
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/01-MANIFOLDS.md
+canonical_path: differential-geometry/01-MANIFOLDS.md
+backsource_ids: [proof-backfill:differential-geometry:01-manifolds, git-history:differential-geometry:01-manifolds]
+concepts: [manifolds]
+root_concepts: [manifolds]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Smooth Manifolds
 
 ## The Big Picture

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DIFFERENTIAL GEOMETRY - DEPENDENCY STRUCTURE\n+==================================================================+\n|  LAYER 1: SMOOTH FOUNDATIONS                                     |\n|    [SMOOTH MANIFOLDS (01)] charts, atlases, smooth maps          |\n|              |                                                   |\n|              v                                                   |\n|  LAYER 2: TANGENT MACHINERY                                      |\n|    [TANGENT BUNDLES (02)] TM, T*M, vector/tensor fields          |\n|        |             |                                           |\n|        v             v                                           |\n|  LAYER 3: THREE BRANCHES (additional structures on M)            |\n|    [FORMS (03)]      [METRIC (04)]      [BUNDLES (08)]           |\n|    k-forms, d        g_ij, geodesics    P -> M, gauges           |\n|    Stokes/de Rham    exp map            Yang-Mills               |\n|             \\            |                 /                     |\n|              \\           v                /                      |\n|  LAYER 4: CURVATURE AND STRUCTURE                                |\n|    [CONNECTIONS (05)] covariant derivative, transport            |\n|    [CURVATURE (06)] Riemann, Ricci, sectional, Gauss-B           |\n|    [LIE GROUPS (07)] SO(n), SE(3), Lie algebra, exp map          |\n|              |                                                   |\n|              v                                                   |\n|  LAYER 5: APPLICATIONS (09)                                      |\n|    GR, gauge theory, symplectic geometry, information            |\n|    geometry, geometric deep learning, robotics                   |\n+==================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## The Coordinate-Free Philosophy",
+      "confidence": "candidate",
+      "text": "  COORDINATE-BOUND (classical):        COORDINATE-FREE (DG):\n  \"f: R^n -> R, partial f/partial x_i\"  \"f: M -> R, df is a 1-form\"\n  \"tangent vector (v_1,...,v_n)\"         \"derivation on smooth functions\"\n  \"metric g_{ij} in coordinates\"         \"symmetric bilinear form on TM\"\n  \"curl, div, grad on R^3\"               \"exterior derivative d on forms\"\n\n  Coordinate-free is harder to learn but:\n  - Invariant under coordinate changes\n  - Generalizes to any manifold\n  - Reveals the real structure\n  - Required for GR, gauge theories, and information geometry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## Key Connections to Other Library Directories",
+      "confidence": "candidate",
+      "text": "  topology/\n    Manifolds are topological spaces with extra (smooth) structure.\n    topology/ covers the topological foundation.\n    DG adds: smooth structure, differential calculus, metric.\n\n  mathematics/\n    Linear algebra: tangent spaces are vector spaces\n    Multivariable calculus: the computational substrate\n    Abstract algebra: Lie groups are simultaneously groups and manifolds\n\n  physics/\n    General relativity: Lorentzian manifolds, Einstein equations\n    Gauge theories: principal bundles, connections, curvature = field strength\n    Electromagnetism: F = dA (curvature of U(1) principal bundle)\n    Mechanics: phase space is a symplectic manifold (Hamiltonian formalism)\n\n  probability-statistics/\n    Information geometry: statistical manifolds with Fisher metric\n    09-INFORMATION-GEOMETRY bridges directly to this directory\n\n  data-science/\n    ML on manifolds: optimization on S^n, SO(n), positive definite matrices\n    Riemannian SGD, natural gradient (= natural gradient of Fisher metric)\n    Geometric deep learning (gauge equivariance in ML)\n  information-geometry/ (→ 09-APPLICATIONS)\n    Statistical manifolds: parametric family {p(x; θ)} is a manifold.\n    Fisher information metric: g_ij(θ) = E[∂_i log p · ∂_j log p]\n      is a canonical Riemannian metric on the parameter space.\n    Natural gradient descent = Riemannian SGD with the Fisher metric.\n    Exponential families are flat (zero curvature) under the e-connection.\n    This is the most direct DG → ML bridge: the Fisher metric IS\n      a Riemannian metric, and natural gradient IS Riemannian optimization.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\05-STATISTICAL-INFERENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                STATISTICAL INFERENCE FRAMEWORK                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DATA                                                            |\n|  X_1, ..., X_n  ~  P_theta   (i.i.d., parametric model)        |\n|                                                                  |\n|  GOAL: Recover theta (or something about theta) from X_1,...,X_n |\n|                                                                  |\n|  TASKS:                                                          |\n|  +-----------------+  +------------------+  +-----------------+ |\n|  | ESTIMATION      |  | HYPOTHESIS TEST  |  | CONFIDENCE SETS | |\n|  | theta_hat = ?   |  | H0: theta=theta0 |  | CI contains     | |\n|  | MLE, MOM, etc.  |  | vs H1: theta!=0  |  | theta with 95%  | |\n|  +-----------------+  +------------------+  +-----------------+ |\n|                                                                  |\n|  ESTIMATOR PROPERTIES:                                          |\n|  Consistency:   theta_hat -> theta in probability               |\n|  Unbiasedness:  E[theta_hat] = theta                            |\n|  Efficiency:    achieves Cramer-Rao lower bound                 |\n|  Robustness:    insensitive to model misspecification           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Maximum Likelihood Estimation",
+      "confidence": "candidate",
+      "text": "  1. CONSISTENCY: theta_hat -> theta_0 in probability  (MLE converges)\n\n  2. ASYMPTOTIC NORMALITY:\n     sqrt(n)(theta_hat - theta_0)  --d-->  Normal(0, I(theta_0)^{-1})\n\n     Where I(theta) = -E[d^2/d_theta^2 log p(X; theta)]\n     is the Fisher information matrix.\n\n  3. EFFICIENCY: MLE achieves the Cramer-Rao lower bound asymptotically.\n     No consistent estimator can have smaller asymptotic variance.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## Method of Moments",
+      "confidence": "candidate",
+      "text": "  Population k-th moment: mu_k(theta) = E_theta[X^k]\n  Sample k-th moment:     m_k = (1/n) Sum x_i^k\n\n  MOM estimator: solve mu_k(theta) = m_k for k = 1, ..., dim(theta)\n\n  Example: Gamma(alpha, beta) with E[X] = alpha/beta, E[X^2] = alpha(alpha+1)/beta^2\n  m_1 = alpha/beta  =>  alpha_hat = m_1^2 / (m_2 - m_1^2)\n  m_2 = alpha(alpha+1)/beta^2  =>  beta_hat = m_1 / (m_2 - m_1^2)\n\n  MOM is consistent (by LLN) but not necessarily asymptotically efficient.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Sufficient Statistics",
+      "confidence": "candidate",
+      "text": "  Fisher-Neyman Factorization Theorem:\n  T(X) is sufficient  <=>\n  L(theta; x) = g(T(x), theta) * h(x)\n\n  (Likelihood factors into a function of T and theta, and a function of x alone)\n\n  Examples:\n  Normal(mu, sigma^2 known): T(x) = Sum x_i  (or equivalently x_bar)\n  Poisson(lambda): T(x_1,...,x_n) = Sum x_i\n  Bernoulli(p): T(x_1,...,x_n) = Sum x_i\n  Uniform(0, theta): T(x_1,...,x_n) = max(x_i)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "## Multiple Testing",
+      "confidence": "candidate",
+      "text": "  If all H_0i are true and each test has level alpha:\n  P(at least one false rejection) = 1 - (1-alpha)^m  ->  1 as m grows\n\n  Example: m=100, alpha=0.05:  P(at least one false rejection) ≈ 0.994\n\n  CORRECTIONS:\n  Bonferroni: use alpha/m per test.  Controls FWER (family-wise error rate).\n              Conservative; valid for any dependence structure.\n\n  Benjamini-Hochberg: control FDR (false discovery rate = E[FP / max(R, 1)])\n              Sort p-values: p_(1) <= ... <= p_(m).\n              Reject H_0(k) for all k <= max{k: p_(k) <= k*q/m}.\n              Less conservative than Bonferroni; controls expected proportion of false discoveries.\n\n  Bonferroni is for: \"I don't want any false positives.\"\n  BH is for: \"I expect some false positives; I want the proportion bounded.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 380,
+      "heading_context": "## Efficiency, Robustness, and Misspecification",
+      "confidence": "candidate",
+      "text": "  M-estimators: theta_hat = argmin Sum rho(x_i, theta)\n  For squared error: rho = (x-mu)^2 -> mean\n  For absolute error: rho = |x-mu| -> median (breakdown point 50%)\n  For Huber loss: quadratic near 0, linear in tails -> bounded influence\n\n  Breakdown point: fraction of contaminated observations before\n  the estimator can take arbitrarily bad values.\n  Sample mean: breakdown point 0% (one outlier -> unbounded bias)\n  Median: breakdown point 50% (need majority contamination)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:probability-foundations
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Measure-Theoretic Probability Foundations
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/01-PROBABILITY-FOUNDATIONS.md
+canonical_path: probability-statistics/01-PROBABILITY-FOUNDATIONS.md
+backsource_ids: [proof-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]
+concepts: [probability, foundations]
+root_concepts: [probability, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Measure-Theoretic Probability Foundations
 
 ## The Big Picture

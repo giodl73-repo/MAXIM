@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "differential-geometry\\01-MANIFOLDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    SMOOTH MANIFOLD CONSTRUCTION                  |\n+------------------------------------------------------------------+\n|                                                                  |\n|  TOPOLOGICAL SPACE M                                             |\n|  +------------------------------------+                          |\n|  |  Hausdorff, second-countable       |                          |\n|  |  (technical conditions: separates  |                          |\n|  |   points; has countable basis)     |                          |\n|  +------------------------------------+                          |\n|          +                                                       |\n|  ATLAS  {(U_alpha, phi_alpha)}                                   |\n|  +-------------------------------------------------+             |\n|  | Open cover U_alpha of M                         |             |\n|  | Homeomorphisms phi_alpha: U_alpha -> V_alpha    |             |\n|  | where V_alpha open in R^n                       |             |\n|  |                                                 |             |\n|  | COMPATIBILITY: On overlaps U_alpha cap U_beta,  |             |\n|  | phi_beta o phi_alpha^{-1}: R^n -> R^n is C^inf  |             |\n|  +-------------------------------------------------+             |\n|          =                                                       |\n|  SMOOTH MANIFOLD: can do calculus                               |\n|  A function f: M -> R is smooth if f o phi^{-1} is C^inf in R^n |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 57,
+      "heading_context": "## Formal Definition (Quick Reference)",
+      "confidence": "candidate",
+      "text": "The standard construction (Hausdorff + second-countable + smooth atlas with C^inf transition maps). The key subtleties worth flagging:",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Formal Definition (Quick Reference)",
+      "confidence": "candidate",
+      "text": "  Atlas A = {(U_alpha, phi_alpha)}  covering M, where:\n\n  Transition maps: phi_beta o phi_alpha^{-1}: phi_alpha(U_alpha cap U_beta) -> phi_beta(U_alpha cap U_beta)\n  are C^inf (smooth) wherever defined.\n\n  Two atlases are compatible if their union is also an atlas.\n  A maximal atlas (containing all compatible charts) = smooth structure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "## Key Examples of Manifolds",
+      "confidence": "candidate",
+      "text": "  S^n = {x in R^{n+1} : ||x|| = 1}\n\n  Atlas with two charts (stereographic projections):\n  - Remove north pole N: phi_N(x) = stereographic proj from N -> R^n\n  - Remove south pole S: phi_S(x) = stereographic proj from S -> R^n\n  Transition map on overlap is C^inf (and conformal).\n\n  S^1 = circle (1-manifold)\n  S^2 = sphere (2-manifold)\n  S^3 = 3-sphere (is the Lie group SU(2) = unit quaternions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Submanifolds",
+      "confidence": "candidate",
+      "text": "  At each p in S, there is a chart (U, phi) of M such that\n  phi(U cap S) = phi(U) cap (R^k x {0})\n  (S looks like the first k coordinates in this chart)\n\n  Regular level set: If f: M -> N is smooth and c in N is a regular value\n  (df_p surjective for all p in f^{-1}(c)), then f^{-1}(c) is a submanifold\n  of M with dim(M) - dim(N).\n\n  Example: S^{n-1} = {||x||^2 = 1} = level set of f: R^n -> R, f(x) = ||x||^2.\n  df_x = 2x^T != 0 for x != 0, so 1 is a regular value.\n  S^{n-1} is an (n-1)-manifold. ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## Tangent Vectors — Two Equivalent Definitions",
+      "confidence": "candidate",
+      "text": "  A tangent vector at p = equivalence class of smooth curves gamma: (-eps, eps) -> M\n  with gamma(0) = p, where gamma_1 ~ gamma_2 iff (phi o gamma_1)'(0) = (phi o gamma_2)'(0)\n  in any (hence all) charts phi.\n\n  The equivalence class [gamma] is the \"velocity\" of gamma at p.\n  This is coordinate-free and geometric.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Tangent Vectors — Two Equivalent Definitions",
+      "confidence": "candidate",
+      "text": "  A tangent vector at p = linear map v: C^inf(M) -> R satisfying\n  Leibniz rule: v(fg) = v(f) g(p) + f(p) v(g)\n\n  In local coordinates (x^1, ..., x^n):\n  v = Sum_i v^i (partial/partial x^i)|_p\n\n  The partial derivatives partial/partial x^i form a basis of T_p M.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## Charts, Coordinates, and Invariance",
+      "confidence": "candidate",
+      "text": "  INTRINSIC:                  COORDINATE EXPRESSION:\n  Smooth function f: M -> R   f o phi^{-1}: R^n -> R\n  Tangent vector v at p       v = Sum_i v^i partial_i  (components in chart)\n  Smooth map F: M -> N        psi o F o phi^{-1}: R^m -> R^n\n\n  CHANGE OF COORDINATES (if phi, psi are two charts at p):\n  v^i_new = Sum_j (partial x^i_new / partial x^j_old) v^j_old\n\n  This is the transformation law for contravariant vectors.\n  The Jacobian matrix of the transition map tells you how components change.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## Partition of Unity",
+      "confidence": "candidate",
+      "text": "  Given any open cover {U_alpha} of a smooth manifold M,\n  there exists a partition of unity: smooth functions {rho_alpha: M -> [0,1]} such that:\n  - supp(rho_alpha) subset U_alpha  (each function supported in one chart)\n  - Sum_alpha rho_alpha(p) = 1 for all p in M  (they sum to 1)\n\n  Use: To define a global object, define it locally in each chart and\n  glue together using a partition of unity.\n\n  Example: Riemannian metrics. Define g_alpha in each chart U_alpha.\n  Then g = Sum_alpha rho_alpha g_alpha is a global Riemannian metric.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "## Manifolds in Practice — Why Smooth Structure Matters",
+      "confidence": "candidate",
+      "text": "WHERE MANIFOLDS APPEAR IN ML / ENGINEERING:\n\n  PARAMETER SPACES:\n    Neural network weights with orthogonality constraint → Stiefel manifold St(k,n)\n    Rotation matrices → SO(3)   (6D → 3D manifold, smooth, compact)\n    Positive definite matrices → SPD(n) = Sym+(n)   (open cone, non-compact)\n    Probability simplices → open simplex Δⁿ  (or with Fisher metric: stat. manifold)\n\n  CONFIGURATION SPACES:\n    n-joint robot arm → T^n (n-torus, one angle per joint)\n    Rigid body in 3D → SE(3) = SO(3) ⋉ R³  (Lie group)\n    Camera pose → SE(3)\n\n  DATA MANIFOLDS:\n    High-dimensional data often lies near a low-dimensional manifold\n    Manifold hypothesis in ML: learn the intrinsic coordinates\n\n  WHY SMOOTH STRUCTURE IS NEEDED:\n    Gradient descent requires ∂f/∂θ → need smooth charts.\n    Riemannian SGD: θ_{t+1} = Exp_{θ_t}(-η grad_g f) → need exp map (smooth).\n    Natural gradient: F^{-1} ∇f → Fisher metric F is a smooth (0,2) tensor.\n    Without smooth structure, none of these are well-defined.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

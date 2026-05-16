@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:differential-geometry:differential-forms
+kind: guide
+module: differential-geometry
+section: differential-geometry
+title: Differential Forms
+status: source-custody
+source_custody: partial
+current_path: differential-geometry/03-DIFFERENTIAL-FORMS.md
+canonical_path: differential-geometry/03-DIFFERENTIAL-FORMS.md
+backsource_ids: [proof-backfill:differential-geometry:03-differential-forms, git-history:differential-geometry:03-differential-forms]
+concepts: [differential, forms]
+root_concepts: [differential, forms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Differential Forms
 
 ## The Big Picture

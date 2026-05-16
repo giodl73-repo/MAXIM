@@ -1,0 +1,487 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "03-LIMIT-THEOREMS.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:limit-theorems
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Limit Theorems
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/03-LIMIT-THEOREMS.md
+canonical_path: probability-statistics/03-LIMIT-THEOREMS.md
+backsource_ids: [proof-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]
+concepts: [limit, theorems]
+root_concepts: [limit, theorems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Limit Theorems
+
+## The Big Picture
+
+Limit theorems explain why statistical practice works. They are the mathematical bedrock under every sample mean, every confidence interval, and every SGD training run.
+
+```
++------------------------------------------------------------------+
+|                     LIMIT THEOREM HIERARCHY                      |
++------------------------------------------------------------------+
+|                                                                  |
+|  LAWS OF LARGE NUMBERS (LLN)                                     |
+|  "Sample means converge to population means"                    |
+|  Weak LLN: convergence in probability                           |
+|  Strong LLN: convergence almost surely                          |
+|                          |                                       |
+|                          v                                       |
+|  CENTRAL LIMIT THEOREM (CLT)                                    |
+|  "The fluctuations around the mean are Normal"                  |
+|  Rate of convergence: 1/sqrt(n)                                 |
+|                          |                                       |
+|                          v                                       |
+|  DERIVED RESULTS                                                 |
+|  Slutsky's theorem    -- combine convergence types              |
+|  Continuous mapping   -- apply continuous functions             |
+|  Delta method         -- CLT for transformed statistics         |
+|  Berry-Esseen         -- quantify CLT error rate               |
+|                                                                  |
++------------------------------------------------------------------+
+|                  APPLICATIONS                                    |
+|  Algorithm average-case analysis   Monte Carlo integration       |
+|  SGD convergence theory            Confidence intervals          |
+|  A/B test sample sizes             Extreme value theory          |
++------------------------------------------------------------------+
+```
+
+---
+
+## Law of Large Numbers — Weak Form
+
+**Setup**: X_1, X_2, ... i.i.d. with E[X_1] = mu < inf.
+
+**Weak LLN** (Chebyshev version, requires finite variance):
+
+```
+  Define X_bar_n = (1/n) Sum_{i=1}^n X_i
+
+  For all epsilon > 0:
+  P(|X_bar_n - mu| > epsilon) -> 0   as n -> inf
+
+  "Convergence in probability": the sample mean is close
+  to mu with high probability, for large n.
+
+  PROOF SKETCH (finite variance case):
+  E[X_bar_n] = mu                        (linearity)
+  Var(X_bar_n) = sigma^2 / n             (independence)
+  By Chebyshev: P(|X_bar_n - mu| > eps) <= sigma^2 / (n eps^2) -> 0
+```
+
+The Chebyshev proof is short but needs finite variance. The LLN holds under much weaker conditions.
+
+**Weak LLN (Kolmogorov, finite mean only)**:
+
+Requires only E|X_1| < inf. The proof uses truncation and characteristic functions — the finiteness of the first moment is the essential condition.
+
+---
+
+## Law of Large Numbers — Strong Form
+
+**Strong LLN** (Kolmogorov):
+
+```
+  P(X_bar_n -> mu) = 1                  (almost sure convergence)
+
+  Stronger than weak: not just high probability for each n,
+  but the entire sequence converges on a probability-1 set.
+
+  Condition: E|X_1| < inf.
+  If E|X_1| = inf, the sample mean can diverge almost surely.
+```
+
+**The Borel-Cantelli Lemma** (key tool in the proof):
+
+```
+  If Sum_{n=1}^inf P(A_n) < inf,
+  then P(A_n occurs infinitely often) = 0.
+
+  Conversely (with independence):
+  If Sum P(A_n) = inf and A_n independent,
+  then P(A_n occurs infinitely often) = 1.
+
+  Intuition: "infinitely often" is controlled by the series of probabilities.
+```
+
+**Algorithm analysis connection**: Average-case complexity uses strong LLN. If an algorithm has expected cost mu per operation (with finite variance), and you run it on n independent inputs, the total cost converges to n*mu almost surely. Monte Carlo algorithms rely on this: the empirical average of f(X_i) converges to E[f(X)] for any f with finite expectation.
+
+---
+
+## Central Limit Theorem
+
+**Setup**: X_1, X_2, ... i.i.d. with E[X_1] = mu, Var(X_1) = sigma^2 < inf.
+
+**CLT**:
+
+```
+  sqrt(n) (X_bar_n - mu) / sigma  --d-->  Normal(0, 1)
+
+  Equivalently:
+  sqrt(n) (X_bar_n - mu)  --d-->  Normal(0, sigma^2)
+
+  Or in CDF terms:
+  P(sqrt(n)(X_bar_n - mu)/sigma <= x)  ->  Phi(x)
+
+  Where Phi = standard normal CDF.
+```
+
+**Proof via characteristic functions**: This is the cleanest proof.
+
+```
+  Let Y_i = (X_i - mu)/sigma.  Then E[Y_i] = 0, E[Y_i^2] = 1.
+
+  S_n = (1/sqrt(n)) Sum Y_i
+
+  phi_{S_n}(t) = [phi_{Y}(t/sqrt(n))]^n
+
+  Taylor expand phi_Y(t) = 1 - t^2/2 + o(t^2) near t=0
+  (using E[Y]=0, E[Y^2]=1)
+
+  phi_{S_n}(t) = [1 - t^2/(2n) + o(1/n)]^n  ->  e^{-t^2/2}
+
+  And e^{-t^2/2} is the CF of Normal(0,1). QED.
+```
+
+**What the CLT says geometrically**: No matter what shape the original distribution has, summing n i.i.d. copies and centering/scaling produces something that looks increasingly Normal. The Normal is the attractor of the convolution semigroup.
+
+---
+
+## Berry-Esseen Theorem — Quantifying CLT Error
+
+The CLT says convergence happens; Berry-Esseen says how fast:
+
+```
+  If E|X_1|^3 = rho < inf, then:
+
+  sup_x |P(S_n <= x) - Phi(x)| <= C * rho / (sigma^3 * sqrt(n))
+
+  Where C is a universal constant (best known: C < 0.4748).
+
+  Rate: O(1/sqrt(n)).
+
+  For n=100 with typical distributions: error ~ 0.05 or less.
+  For n=1000: error ~ 0.015.
+
+  This quantifies when CLT-based confidence intervals are accurate.
+```
+
+---
+
+## Generalizations of the CLT
+
+**Non-identically distributed (Lindeberg-Feller CLT)**:
+
+```
+  For independent (NOT necessarily identically distributed) X_i:
+  The CLT holds if the Lindeberg condition holds:
+  For all eps > 0:
+  (1/s_n^2) Sum_i E[(X_i - mu_i)^2 * 1{|X_i - mu_i| > eps s_n}] -> 0
+
+  Where s_n^2 = Sum_i Var(X_i).
+
+  Informal: No single term dominates the variance of the sum.
+```
+
+**Heavy-tailed CLT (Stable distributions)**:
+
+```
+  If X has a heavy tail (|x|^{-alpha} decay, 0 < alpha < 2):
+  The normalized sum S_n / n^{1/alpha} converges to an alpha-stable distribution.
+  For alpha=2: recovers the Gaussian CLT.
+  For alpha=1: sum / n*log(n) -> Cauchy.
+  These are the Levy stable distributions.
+```
+
+---
+
+## Slutsky's Theorem
+
+**Slutsky**: If X_n -d-> X and Y_n -p-> c (constant), then:
+
+```
+  X_n + Y_n  --d-->  X + c
+  X_n * Y_n  --d-->  cX
+  X_n / Y_n  --d-->  X/c   (if c != 0)
+```
+
+**Why it matters**: Statistical estimators often involve plugging in estimated quantities. If you have a CLT for X_n and a consistent estimator Y_n -> c, you can combine them. Used constantly for t-statistics, estimated standard errors, etc.
+
+**Example — Student t-statistic**:
+
+```
+  sqrt(n)(X_bar - mu)/sigma  --d-->  Normal(0,1)    (CLT)
+
+  Sample standard deviation: s_n -> sigma in probability  (consistency)
+
+  By Slutsky:
+  sqrt(n)(X_bar - mu)/s_n  --d-->  Normal(0,1)/1 = Normal(0,1)
+
+  (Exact finite-n distribution is t_{n-1}; CLT gives the limit.)
+```
+
+---
+
+## Continuous Mapping Theorem
+
+If X_n -d-> X and g is continuous (or continuous a.e. w.r.t. the law of X):
+
+```
+  g(X_n)  --d-->  g(X)
+
+  Works for:
+  - a.s. convergence -> a.s. convergence
+  - in probability -> in probability
+  - in distribution -> in distribution
+```
+
+**Example**: If X_n -d-> Normal(0,1), then X_n^2 -d-> Chi-squared(1).
+
+---
+
+## The Delta Method
+
+The delta method applies the CLT + continuous mapping to derive asymptotic distributions for transformed statistics.
+
+**Setup**: sqrt(n)(T_n - theta) -d-> Normal(0, sigma^2) and g is differentiable at theta.
+
+```
+  Delta method:
+  sqrt(n)(g(T_n) - g(theta))  --d-->  Normal(0, [g'(theta)]^2 * sigma^2)
+
+  Proof sketch: First-order Taylor expansion g(T_n) ≈ g(theta) + g'(theta)(T_n - theta)
+  Then apply Slutsky.
+
+  Multivariate version:
+  sqrt(n)(g(T_n) - g(theta))  --d-->  Normal(0, gradient_g^T * Sigma * gradient_g)
+```
+
+**Example — log transform**:
+
+```
+  If sqrt(n)(X_bar - mu) --d-> Normal(0, sigma^2), then:
+  sqrt(n)(log(X_bar) - log(mu)) --d-> Normal(0, sigma^2/mu^2)
+
+  This gives asymptotic CI for log(mu): log(X_bar) ± z_{alpha/2} * s/(sqrt(n) * X_bar)
+```
+
+**Application — MLE asymptotics**: The delta method with the information inequality gives asymptotic distributions for functions of MLEs.
+
+---
+
+## Law of the Iterated Logarithm
+
+Stronger than the CLT — tells you the exact rate of fluctuations in the almost sure limit:
+
+```
+  limsup_{n->inf}  S_n / sqrt(2n log log n)  =  sigma     a.s.
+  liminf_{n->inf}  S_n / sqrt(2n log log n)  = -sigma     a.s.
+
+  Where S_n = Sum_{i=1}^n (X_i - mu).
+
+  The sample mean fluctuates at rate sqrt(log log n / n), which is
+  slightly faster than 1/sqrt(n) but much slower than any power of n.
+```
+
+This is the "sharp" result beyond the CLT: the CLT tells you the distribution of fluctuations, the LIL tells you how large they get almost surely.
+
+---
+
+## Large Deviations Theory
+
+While LLN and CLT describe typical behavior, large deviations theory quantifies the probability of rare events far from the mean.
+
+```
+  Cramer's theorem: For i.i.d. X_i with log-MGF Lambda(t) = log E[e^{tX}]:
+
+  P(X_bar_n >= x)  ≈  exp(-n I(x))   for x > mu
+
+  Where I(x) = sup_t {tx - Lambda(t)}  is the Legendre transform of Lambda.
+  I(x) is called the rate function or Cramer transform.
+
+  I(x) = 0 at x = mu, I(x) > 0 for x != mu, I is convex.
+  Rate of exponential decay: e^{-n I(x)}.
+```
+
+**Connection to information theory**: The rate function I(x) is the KL divergence between the distribution "tilted" to have mean x and the original distribution. Large deviations and relative entropy are deeply related.
+
+**Gärtner-Ellis theorem**: Extends Cramér's theorem to dependent sequences. If Lambda(t) = lim (1/n) log E[exp(t S_n)] exists and is differentiable, then the large deviation principle holds with rate function I(x) = sup_t {tx − Lambda(t)} (the Legendre transform), even without independence.
+
+**Algorithm analysis payoff**: The rate function formulation directly gives failure probabilities for randomized algorithms. For a randomized algorithm with bounded random cost X_i ∈ [0,1]:
+
+```
+  P(average cost exceeds mu + eps) <= exp(-n I(mu + eps))
+  where I(mu + eps) = sup_t {t(mu+eps) - log E[e^{tX}]}
+
+  For Bernoulli (success/failure): I(p+eps) = (p+eps)log((p+eps)/p) + (1-p-eps)log((1-p-eps)/(1-p))
+  This is the KL divergence D_KL(Bernoulli(p+eps) || Bernoulli(p)).
+  Rate ~ 2 eps^2 for small eps (recovering Hoeffding).
+
+  Concrete: Randomized algorithm with E[cost] = 0.3, want P(avg > 0.5) < delta.
+  Need n >= log(1/delta) / I(0.5) where I(0.5) ≈ 0.087.
+  n >= log(1/delta) / 0.087 ≈ 11.5 log(1/delta).
+```
+
+**Statistical physics connection**: The rate function I(x) is the negative entropy (or free energy) of the tilted distribution. The Legendre transform relating Lambda and I is the thermodynamic Legendre transform between free energy and entropy.
+
+---
+
+## PAC Learning and VC Dimension
+
+The connection between concentration inequalities and computational learning theory — the single most important bridge to TCS.
+
+**PAC (Probably Approximately Correct) framework** (Valiant, 1984):
+
+```
+  SETUP: Hypothesis class H, unknown distribution D over X × {0,1}.
+  GOAL: Find h ∈ H with low generalization error R(h) = P_{(x,y)~D}[h(x) ≠ y].
+  Given: n i.i.d. samples (x_1,y_1), ..., (x_n,y_n) ~ D.
+
+  DEFINITION: H is PAC-learnable if ∃ algorithm A such that:
+  For all eps > 0, delta > 0, for all distributions D:
+  Given n >= n_0(eps, delta) samples, with probability >= 1-delta:
+  R(A(S)) <= min_{h ∈ H} R(h) + eps
+
+  "Probably" = with probability 1-delta.
+  "Approximately correct" = within eps of optimal.
+```
+
+**Finite hypothesis class — via Hoeffding + union bound**:
+
+```
+  If |H| is finite, the empirical risk minimizer (ERM) satisfies:
+  P(sup_{h ∈ H} |R_n(h) - R(h)| > eps) <= 2|H| exp(-2n eps^2)
+
+  Setting RHS = delta: n >= (log(2|H|/delta)) / (2 eps^2)
+
+  Sample complexity for finite H: O(log|H| / eps^2)
+  This is the simplest sample complexity bound.
+```
+
+**VC dimension** — when H is infinite:
+
+```
+  VC DIMENSION d_VC(H):
+  The largest n such that H can shatter some set of n points.
+  "Shatter" = realize all 2^n labelings on those n points.
+
+  EXAMPLES:
+  Half-lines on R: d_VC = 1
+  Linear classifiers on R^d: d_VC = d + 1
+  k-nearest neighbors (all of {0,1}^X): d_VC = ∞
+  Decision stumps on R^d: d_VC = 2d
+
+  FUNDAMENTAL THEOREM OF STATISTICAL LEARNING:
+  For binary classification with 0-1 loss:
+  H is PAC-learnable ⟺ d_VC(H) < ∞
+
+  Sample complexity: n = O(d_VC / eps^2 + log(1/delta) / eps^2)
+  (Vapnik-Chervonenkis, 1971; sharpened by many since)
+
+  VC INEQUALITY (uniform convergence):
+  P(sup_{h ∈ H} |R_n(h) - R(h)| > eps) <= O(n^{d_VC}) exp(-n eps^2)
+  The n^{d_VC} factor is the growth function / Sauer-Shelah lemma.
+```
+
+**Rademacher complexity** — the modern refinement:
+
+```
+  Rad_n(H) = E_sigma[sup_{h ∈ H} (1/n) Sum sigma_i h(x_i)]
+  where sigma_i are i.i.d. Rademacher (±1 with equal probability).
+
+  Generalization bound:
+  R(h) <= R_n(h) + 2 Rad_n(H) + sqrt(log(1/delta) / (2n))
+
+  Rademacher complexity is data-dependent (adapts to the distribution)
+  and often much tighter than VC bounds.
+```
+
+---
+
+## Connection to Algorithm Analysis
+
+The MIT TCS background makes this precise:
+
+```
+  PROBABILITY THEORY          ALGORITHM ANALYSIS
+  ------------------          ------------------
+  LLN convergence             Average-case cost converges
+  CLT fluctuations            Variance of runtime
+  Large deviations            Probability of worst-case behavior
+  Hoeffding inequality        PAC learning sample complexity
+  Markov/Chebyshev            Probability amplification (BPP)
+
+  Specifically for randomized algorithms:
+  - The LLN underlies why randomized rounding works
+  - The CLT underlies why Monte Carlo gives sqrt(n) convergence
+  - Large deviations bound failure probabilities for
+    boosting (AdaBoost fails with probability exp(-n epsilon^2))
+```
+
+**Monte Carlo integration**: For f: R^d -> R and X ~ Uniform([0,1]^d):
+
+```
+  Integral f(x) dx = E[f(X)]  (by definition of uniform expectation)
+
+  Estimator: (1/n) Sum f(X_i)  where X_i i.i.d. Uniform([0,1]^d)
+
+  By CLT: error ~ Normal(0, Var(f(X))/n)
+  RMSE ~ sigma_f / sqrt(n)
+
+  Key insight: convergence rate is O(1/sqrt(n)) regardless of dimension d.
+  Deterministic quadrature in d dimensions: O(n^{-k/d}) for k-smooth f.
+  For d > 2k, Monte Carlo wins. For high-dimensional integration, Monte Carlo
+  is often the only viable method.
+```
+
+---
+
+## Cross-References
+
+- `probability-statistics/02-RANDOM-VARIABLES.md` — random variables and distributions are the objects limits act on.
+- `probability-statistics/05-STATISTICAL-INFERENCE.md` — confidence intervals and hypothesis tests rely on LLN/CLT approximations.
+- `machine-learning-theory/01-PAC-LEARNING.md` — learning guarantees are limit-theorem reasoning applied to empirical risk.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether averages converge in probability | Weak law of large numbers | Convergence in probability is weaker than almost sure convergence |
+| Whether sample averages converge pathwise | Strong law of large numbers | Moment and dependence assumptions matter |
+| Whether fluctuations become Gaussian | IID CLT | Finite variance is doing real work |
+| Whether CLT approximation error matters | Berry-Esseen bound | Requires a finite third absolute moment |
+| Whether non-identical terms still have a CLT | Lindeberg-Feller theorem | No single term may dominate the variance |
+| Whether limits can be algebraically combined | Slutsky theorem | One component must converge to a constant |
+| Whether a function of a convergent sequence converges | Continuous mapping theorem | Discontinuities at mass points break naive use |
+| Whether a smooth transformation inherits asymptotic normality | Delta method | Derivative zero or nonsmooth maps need different scaling |
+| Whether rare-event probabilities decay exponentially | Large deviations | Rate functions need stronger tail/MGF assumptions |
+| Whether bounded variables need concentration | Hoeffding inequality | Boundedness drives the bound, not variance precision |
+
+---
+
+## Common Confusion Points
+
+**"The CLT says everything is Normal."**
+The CLT applies to *sums* (or means) of many i.i.d. terms with finite variance. Individual observations need not be Normal. The sum of 30+ Poisson, exponential, or binomial r.v.s will be approximately Normal; a single observation will not be.
+
+**"Strong LLN is strictly stronger than weak LLN."**
+Yes: a.s. convergence implies convergence in probability, but not vice versa. The distinction matters for dependent observations and processes — a sample path that converges a.s. is qualitatively different from one that merely converges in probability.
+
+**"The Berry-Esseen rate means CLT is slow."**
+O(1/sqrt(n)) is actually quite fast in practice. For n=100, the CLT approximation is accurate to within ~5% in the tails. For n=1000, it's ~1.5%. The bound is worst-case; for symmetric distributions the error is often much smaller.
+
+**"Slutsky applies to any sequence."**
+The c in Slutsky must be a constant, not a random variable. If Y_n -d-> Y for a non-degenerate random variable Y, you cannot simply write X_n + Y_n -d-> X + Y (this would need joint convergence of (X_n, Y_n)).

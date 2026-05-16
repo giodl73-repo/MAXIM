@@ -1,0 +1,1245 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-differential-geometry-fiber-bundles",
+  "source": "../../differential-geometry",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-FIBER-BUNDLES.md#000",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "# Fiber Bundles"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#001",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#002",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "A fiber bundle is a space that locally looks like a product (base x fiber) but may be globally twisted. This is the mathematical language of gauge theories in physics and twisted vector spaces in geometry."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#003",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                    FIBER BUNDLE  E -> M                          |\n+------------------------------------------------------------------+\n|                                                                  |\n|    E (total space)                                              |\n|    |                                                             |\n|    pi (projection)                                              |\n|    |                                                             |\n|    M (base space)        F (fiber: pi^{-1}(p) ≅ F for each p)  |\n|                                                                  |\n|  LOCAL TRIVIALITY: for each p in M, there is an open U with    |\n|  pi^{-1}(U) ≅ U x F  (homeomorphism commuting with pi)        |\n|                                                                  |\n|  TRANSITION FUNCTIONS: on overlaps U_alpha cap U_beta           |\n|  phi_{beta alpha}: U_alpha cap U_beta -> Aut(F)                |\n|  (tell you how to glue the fibers together)                    |\n|                                                                  |\n|  TYPES BY FIBER:                                                |\n|  F = R^k: vector bundle (TM, T*M are examples)                 |\n|  F = G (group): principal bundle                               |\n|  F = any: general fiber bundle                                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#004",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#005",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "## Formal Definition"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#006",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "A **fiber bundle** (E, pi, M, F) consists of:\n- E: total space (smooth manifold)\n- M: base space (smooth manifold)\n- F: typical fiber (smooth manifold)\n- pi: E -> M: projection map (smooth, surjective)\n- Local trivializations: for each p in M, there is U_alpha containing p and a diffeomorphism:"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#007",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  Phi_alpha: pi^{-1}(U_alpha) -> U_alpha x F"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#008",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "such that Phi_alpha commutes with pi:\n  pr_1 o Phi_alpha = pi  (first component of Phi_alpha = pi)\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#009",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "**Transition functions**: On overlaps U_alpha cap U_beta:"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#010",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  phi_{beta alpha}(p): F -> F  for each p in U_alpha cap U_beta\n  defined by: Phi_beta o Phi_alpha^{-1}(p, f) = (p, phi_{beta alpha}(p)(f))"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#011",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "COCYCLE CONDITION:\n  phi_{gamma beta}(p) o phi_{beta alpha}(p) = phi_{gamma alpha}(p)  on triple overlaps"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#012",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "The transition functions ENCODE the bundle (determine it up to isomorphism).\n  A bundle is trivial iff ALL transition functions can be taken to be the identity.\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#013",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "**Structure group**: If the transition functions phi_{beta alpha} take values in a subgroup G subset Diff(F), the bundle has **structure group G**. This is the relevant data for gauge theories."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#014",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#015",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "## Vector Bundles"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#016",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "A **vector bundle** is a fiber bundle where F = R^k and transition functions are in GL(k,R):"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#017",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  pi^{-1}(p) = E_p is a k-dimensional vector space for each p."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#018",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Tangent bundle TM:     fiber = T_p M = R^n, structure group GL(n,R)\n  Cotangent bundle T*M:  fiber = T*_p M, structure group GL(n,R)\n  Normal bundle N(S,M):  fiber = (T_p M / T_p S) for S subset M\n  Canonical line bundle:  over RP^n, fiber = each line through origin in R^{n+1}\n  Tautological bundle:   over Gr(k,n), fiber = each k-plane in R^n"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#019",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "TRIVIAL BUNDLE: E = M x R^k.\n  Non-trivial: Mobius band = line bundle over S^1 with non-trivial transition function.\n               Tangent bundle TS^2 (hairy ball theorem: no global section).\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#020",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "**Sections**: A section of E is a smooth map s: M -> E with pi o s = id_M. In other words, a smooth choice of element s(p) in the fiber over each p."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#021",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  Section of TM = vector field\n  Section of T*M = differential 1-form\n  Section of Lambda^k T*M = k-form\n  Section of a trivial bundle = smooth function to R^k\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#022",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "**Characteristic classes**: Topological invariants of vector bundles:"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#023",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  STIEFEL-WHITNEY CLASSES w_k(E) in H^k(M; Z_2)\n  Obstruction to real orientability, spin structure.\n  w_1 = 0 iff E is orientable; w_1 = w_2 = 0 iff E has spin structure."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#024",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "CHERN CLASSES c_k(E) in H^{2k}(M; Z)   for complex vector bundles E\n  c_1 = first Chern class: obstructs triviality of complex line bundles.\n  For Hermitian bundles: c_k represented by curvature form (Chern-Weil theory)."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#025",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "PONTRYAGIN CLASSES p_k(E) in H^{4k}(M; Z)   for real bundles\n  Appear in: signature theorem, Hirzebruch-Riemann-Roch theorem.\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#026",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#027",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "## Principal Bundles"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#028",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "A **principal G-bundle** is a fiber bundle P -> M with fiber G (the structure group) acting freely and transitively on each fiber:"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#029",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  P has a smooth right G-action: P x G -> P,  (p, g) |-> p * g\n  - Free: p * g = p implies g = e\n  - Transitive on fibers: given p, q in pi^{-1}(x), there exists unique g with p * g = q\n  - pi(p * g) = pi(p)  (G acts within fibers)"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#030",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Frame bundle FM: P = set of frames (bases) of T_p M, G = GL(n,R)\n  Orthonormal frame bundle: G = O(n) (for Riemannian manifold)\n  Hopf fibration: S^3 -> S^2 with fiber S^1 = U(1)  (principal U(1)-bundle)\n  Principal SU(2)-bundle over S^4: important in gauge theory"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#031",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "ASSOCIATED VECTOR BUNDLE:\n  Given principal G-bundle P and representation rho: G -> GL(V):\n  E = P x_G V = (P x V) / ((p,v) ~ (pg, rho(g^{-1})v))\n  is a vector bundle with fiber V."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#032",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "TM comes from the frame bundle with the standard representation of GL(n,R).\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#033",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#034",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "## Connections on Principal Bundles"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#035",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "A **connection** on a principal G-bundle P -> M is a G-equivariant splitting of the tangent bundle TP into horizontal (H) and vertical (V) parts:"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#036",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  TP = V TP + H TP    (vertical = along fibers, horizontal = complement)"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#037",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "The vertical subspace V_e P = ker(d pi)_e (tangent to the fiber).\n  The horizontal subspace H_e P is a complement specified by the connection."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#038",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "G-equivariance: d(R_g) maps H to H."
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#039",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "CONNECTION FORM A: a Lie-algebra-valued 1-form A in Omega^1(P, g)\n  A takes vertical vectors to their \"generator\" in g and\n  vanishes on horizontal vectors.\n  A(zeta_X) = X for all X in g  (zeta_X = fundamental vector field of X)\n```"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#040",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "**Local connection form (gauge potential)**:"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#041",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "```\n  Over a local trivialization U x G, the connection A restricts to:\n  A|_U = A_mu dx^mu  (a g-valued 1-form on U)"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#042",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "Under gauge transformation g: U -> G (change of trivialization):\n  A -> g A g^{-1} + g^{-1} dg   (gauge transformation of the potential)"
+    },
+    {
+      "id": "08-FIBER-BUNDLES.md#043",
+      "path": [
+        "08-FIBER-BUNDLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:differential-geometry:08-fiber-bundles, git-history:differential-geometry:08-fiber-bundles]",
+        "canonical_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "concepts": "[fiber, bundles]",
+        "current_path": "differential-geometry/08-FIBER-BUNDLES.md",
+        "id": "maxim:differential-geometry:fiber-bundles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "differential-geometry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fiber, bundles]",
+        "section": "differential-geometry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fiber Bundles",
+        "updated": "null"
+      },
+      "text": "This is EXACTLY the transformation law of gauge potentials in physics:\n  For U(1): A_mu -> A_mu + partial_mu lambda  (electromagnetic gauge transform)\n  For SU(n): A_mu -> U A_mu U^{-1} + U partial_mu U^{-1}  (non-abelian gauge transform)\n```"
+    }
+  ],
+  "refs": [
+    "08-FIBER-BUNDLES.md"
+  ]
+}

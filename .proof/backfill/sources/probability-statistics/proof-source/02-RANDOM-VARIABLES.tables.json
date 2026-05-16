@@ -1,0 +1,218 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\02-RANDOM-VARIABLES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 145,
+      "heading_context": "## Common Distribution Reference",
+      "headers": [
+        "Distribution",
+        "Parameters",
+        "Mean",
+        "Variance",
+        "Key Use"
+      ],
+      "rows": [
+        [
+          "Bernoulli(p)",
+          "p in [0,1]",
+          "p",
+          "p(1-p)",
+          "Binary outcome"
+        ],
+        [
+          "Binomial(n,p)",
+          "n>=1, p in [0,1]",
+          "np",
+          "np(1-p)",
+          "k successes in n trials"
+        ],
+        [
+          "Geometric(p)",
+          "p in (0,1]",
+          "1/p",
+          "(1-p)/p^2",
+          "Trials until first success"
+        ],
+        [
+          "NegBin(r,p)",
+          "r>=1, p in (0,1]",
+          "r/p",
+          "r(1-p)/p^2",
+          "Trials until r-th success"
+        ],
+        [
+          "Poisson(lambda)",
+          "lambda > 0",
+          "lambda",
+          "lambda",
+          "Counts in fixed interval"
+        ],
+        [
+          "Hypergeometric",
+          "N,K,n",
+          "nK/N",
+          "---",
+          "Sampling without replacement"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 158,
+      "heading_context": "## Common Distribution Reference",
+      "headers": [
+        "Distribution",
+        "Parameters",
+        "Mean",
+        "Variance",
+        "Key Use"
+      ],
+      "rows": [
+        [
+          "Uniform(a,b)",
+          "a < b",
+          "(a+b)/2",
+          "(b-a)^2/12",
+          "No information prior"
+        ],
+        [
+          "Exponential(lambda)",
+          "lambda > 0",
+          "1/lambda",
+          "1/lambda^2",
+          "Waiting times"
+        ],
+        [
+          "Gamma(alpha, beta)",
+          "alpha,beta > 0",
+          "alpha/beta",
+          "alpha/beta^2",
+          "Sum of exponentials"
+        ],
+        [
+          "Beta(alpha, beta)",
+          "alpha,beta > 0",
+          "alpha/(alpha+beta)",
+          "---",
+          "Probabilities, Bayesian priors"
+        ],
+        [
+          "Normal(mu, sigma^2)",
+          "sigma > 0",
+          "mu",
+          "sigma^2",
+          "Universal via CLT"
+        ],
+        [
+          "Log-Normal(mu, sigma^2)",
+          "---",
+          "e^{mu + sigma^2/2}",
+          "---",
+          "Multiplicative processes"
+        ],
+        [
+          "Cauchy(x_0, gamma)",
+          "---",
+          "undefined",
+          "undefined",
+          "Heavy tails, no moments"
+        ],
+        [
+          "Pareto(x_m, alpha)",
+          "x_m,alpha > 0",
+          "depends",
+          "depends",
+          "Power law tails"
+        ],
+        [
+          "Student-t(nu)",
+          "nu > 0",
+          "0 (nu>1)",
+          "nu/(nu-2)",
+          "Inference with unknown variance"
+        ],
+        [
+          "Chi-squared(k)",
+          "k > 0",
+          "k",
+          "2k",
+          "Sum of squared normals"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 323,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a single binary outcome is enough",
+          "Bernoulli model",
+          "The parameter is a probability, not a rate"
+        ],
+        [
+          "Whether fixed independent binary trials are counted",
+          "Binomial model",
+          "Fixed `n` and independent trials are structural assumptions"
+        ],
+        [
+          "Whether counts arise from rare independent events",
+          "Poisson model",
+          "Equidispersion fails under clustering or heterogeneity"
+        ],
+        [
+          "Whether count variance exceeds the mean",
+          "Negative binomial model",
+          "Overdispersion may indicate latent mixture, not a different mechanism"
+        ],
+        [
+          "Whether waiting times are memoryless",
+          "Exponential model",
+          "Memorylessness is strong and often physically false"
+        ],
+        [
+          "Whether positive waiting/sum data accumulate",
+          "Gamma model",
+          "Parameterization conventions differ across texts and software"
+        ],
+        [
+          "Whether additive noise or sums dominate",
+          "Normal model",
+          "Tails and bounds matter even when CLT intuition applies"
+        ],
+        [
+          "Whether multiplicative growth creates skew",
+          "Log-normal model",
+          "Moments can be dominated by tail behavior"
+        ],
+        [
+          "Whether a probability/proportion needs a prior",
+          "Beta model",
+          "Shape parameters encode pseudo-count assumptions"
+        ],
+        [
+          "Whether variance is estimated with small samples",
+          "Student-t model",
+          "Degrees of freedom control tail thickness"
+        ],
+        [
+          "Whether extremely heavy tails break moments",
+          "Cauchy model",
+          "Mean and variance do not exist"
+        ],
+        [
+          "Whether tail power laws dominate",
+          "Pareto model",
+          "Tail-index estimation is sample-threshold sensitive"
+        ]
+      ]
+    }
+  ]
+}

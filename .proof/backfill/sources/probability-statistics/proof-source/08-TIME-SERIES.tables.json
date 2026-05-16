@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "probability-statistics\\08-TIME-SERIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 374,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a stationary short-memory series is enough",
+          "ARMA model",
+          "Order selection by AIC/BIC is only a starting point"
+        ],
+        [
+          "Whether trending nonstationarity dominates",
+          "ARIMA with differencing",
+          "Unit-root tests have low power and structural breaks mislead them"
+        ],
+        [
+          "Whether fixed seasonality is present",
+          "SARIMA",
+          "The season length must be known or well estimated"
+        ],
+        [
+          "Whether seasonality changes over time",
+          "STL plus ETS",
+          "Decomposition can leak trend into seasonal components"
+        ],
+        [
+          "Whether gaps and measurement noise matter",
+          "State-space model with Kalman filtering",
+          "State specification controls what \"missing\" means"
+        ],
+        [
+          "Whether several series interact dynamically",
+          "VAR",
+          "Parameter count grows quickly with variables and lags"
+        ],
+        [
+          "Whether volatility clusters",
+          "GARCH",
+          "Mean dynamics and distributional tails still need checking"
+        ],
+        [
+          "Whether latent components structure the series",
+          "State-space model",
+          "Flexibility can hide weak identification"
+        ],
+        [
+          "Whether autocorrelation decays hyperbolically",
+          "ARFIMA",
+          "Fractional differencing is not the same as a unit root"
+        ]
+      ]
+    }
+  ]
+}

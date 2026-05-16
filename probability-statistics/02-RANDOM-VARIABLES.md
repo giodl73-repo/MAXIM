@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:probability-statistics:random-variables
+kind: guide
+module: probability-statistics
+section: probability-statistics
+title: Random Variables and Distributions
+status: source-custody
+source_custody: partial
+current_path: probability-statistics/02-RANDOM-VARIABLES.md
+canonical_path: probability-statistics/02-RANDOM-VARIABLES.md
+backsource_ids: [proof-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]
+concepts: [random, variables]
+root_concepts: [random, variables]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Random Variables and Distributions
 
 ## The Big Picture
