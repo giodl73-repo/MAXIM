@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\02-PHARMACOKINETICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  PHARMACOKINETIC LANDSCAPE                       |\n|                                                                  |\n|  [DOSE administered]                                             |\n|       │                                                          |\n|       v Absorption (A)                                           |\n|  [Drug in systemic circulation] ── Plasma concentration-time     |\n|       │                            curve: Cmax, Tmax, AUC        |\n|       v Distribution (D)                                         |\n|  [Drug in tissues / bound to proteins]                           |\n|       │                                                          |\n|       v Metabolism (M) — mainly liver CYP enzymes                |\n|  [Drug → Metabolites] (active or inactive)                       |\n|       │                                                          |\n|       v Excretion (E) — mainly kidney, some bile                 |\n|  [Drug / metabolites eliminated]                                 |\n|                                                                  |\n|  MASTER EQUATION: Concentration(t) = f(A, D, M, E, dose, time)   |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Absorption",
+      "confidence": "candidate",
+      "text": "ORAL ABSORPTION\n────────────────\n  1. Disintegration of tablet/capsule\n  2. Dissolution into GI fluid\n  3. Transport across intestinal epithelium:\n     • Passive diffusion (most drugs, lipophilic)\n     • Active transport (amino acid-like drugs, methotrexate)\n     • P-glycoprotein efflux (pumps drug BACK into gut)\n\nFACTORS AFFECTING ABSORPTION\n  Factor           High absorption         Low absorption\n  ────────────     ─────────────────────   ─────────────────────\n  Lipophilicity    Moderate (logP 1-3)     Too low (hydrophilic)\n                                           Too high (stays in membrane)\n  Molecular weight Low (<500 Da)           High (> 500 Da: Lipinski)\n  Ionization       Unionized form          Fully ionized\n  GI pH            pKa near physiologic    Very acidic or very basic drugs\n  Food             Variable (usually ↓)    Some drugs ↑ with food (fat-soluble)\n  P-gp efflux      P-gp substrate → ↓      P-gp inhibitor → ↑ absorption\n\nROUTES OF ADMINISTRATION\n  Route           F (bioavailability)   Onset    Use case\n  ─────────────   ──────────────────    ─────    ─────────────────────\n  IV (intravenous) 100%                Seconds  Emergencies, precise dosing\n  IM               75-100%            Minutes   Vaccines, depot formulations\n  SC               75-100%            15-30 min Insulin, biologics\n  Oral             10-100%            30-90 min Most chronic medications\n  Sublingual       70-90%             2-5 min   Nitrates, buprenorphine\n  Inhaled          10-80%             Seconds   Asthma, anesthetics\n  Transdermal      ~100% (slow)       Hours-days Hormones, nicotine, fentanyl\n  Rectal           50-80%             Minutes   When oral not possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Bioavailability and First-Pass Metabolism",
+      "confidence": "candidate",
+      "text": "BIOAVAILABILITY (F)\n────────────────────\n  F = fraction of administered dose reaching systemic circulation unchanged\n\n  F_oral = F_absorption × (1 - F_first-pass)\n\n  FIRST-PASS METABOLISM\n  Drugs absorbed from GI tract enter portal circulation → liver.\n  Liver CYP enzymes metabolize drug before it reaches systemic circulation.\n\n  HIGH first-pass drugs (oral bioavailability < 20%):\n    Morphine: F = 25% (extensive first-pass → IV morphine 4× more potent)\n    Nitroglycerin: F = < 5% (must be sublingual or transdermal)\n    Lidocaine: F = 35% (cannot be used orally for arrhythmia)\n    Propranolol: F = 25% (accounts for in dose selection vs IV)\n\n  STRATEGIES TO BYPASS FIRST-PASS\n  • Sublingual: drug → systemic veins directly (nitroglycerin)\n  • Transdermal: bypasses gut and liver entirely\n  • Rectal: lower rectum → systemic veins (partial bypass)\n  • Prodrug: designed to survive first-pass, activated elsewhere\n    Codeine → morphine (CYP2D6 in liver after systemic distribution)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## Distribution",
+      "confidence": "candidate",
+      "text": "VOLUME OF DISTRIBUTION (Vd)\n────────────────────────────\n  Vd = Dose / C₀  (where C₀ = plasma concentration at time 0)\n\n  Vd is not a real volume — it is a pharmacokinetic construct:\n  \"What volume would be needed for the drug to have plasma concentration C₀?\"\n\n  LOW Vd:   Drug stays in plasma (protein-bound or hydrophilic)\n  HIGH Vd:  Drug concentrates in tissues\n\n  VALUES\n  Vd = 3-5 L:     Plasma only (large proteins, heparin)\n  Vd = 15 L:      Extracellular fluid (aminoglycosides)\n  Vd = 40 L:      Total body water (ethanol)\n  Vd = 200 L:     Extensive tissue binding (digoxin: 600 L/kg)\n  Vd = 3,500 L:   Amiodarone (60 L/kg × 70 kg body weight)\n\nPROTEIN BINDING\n────────────────\n  Most drugs bind plasma proteins (mainly albumin, α1-acid glycoprotein).\n  Only UNBOUND (\"free\") drug crosses membranes and produces effect.\n\n  Protein binding fraction fb = 0.95 means 95% bound, 5% free.\n\n  DISPLACEMENT INTERACTIONS\n  Drug A and Drug B compete for albumin binding.\n  Drug B displaces Drug A → free Drug A suddenly ↑ → toxicity.\n  Example: warfarin (99% bound) displaced by aspirin → bleeding risk.\n\nTISSUE DISTRIBUTION FACTORS\n  Lipophilicity: crosses membranes, distributes widely\n  Molecular size: < 500 Da cross most membranes\n  Ionization: unionized form crosses membranes (Henderson-Hasselbalch)\n  P-gp: pumps drugs out of CNS, intestine, tumor cells\n  Blood-brain barrier: tight junctions limit CNS entry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "## Metabolism",
+      "confidence": "candidate",
+      "text": "PHASE I METABOLISM (functionalization)\n────────────────────────────────────────\nAdds or unmasks polar functional group (-OH, -NH₂, -SH, -COOH).\nUsually makes drug more water-soluble for excretion.\n\n  Reactions: Oxidation, reduction, hydrolysis\n  Main enzyme: CYP450 (cytochrome P450) family in liver\n\n  CYP enzyme    % of drugs metabolized    Examples\n  ──────────────  ────────────────────────  ────────────────────────────\n  CYP3A4          ~50%                     Statins, calcium channel blockers\n  CYP2D6          ~25%                     Antidepressants, opioids, antipsychotics\n  CYP2C9          ~15%                     NSAIDs, warfarin, phenytoin\n  CYP2C19         ~10%                     PPIs, clopidogrel, antiepileptics\n  CYP1A2          ~5%                      Caffeine, theophylline, clozapine\n\nPHASE II METABOLISM (conjugation)\n───────────────────────────────────\nConjugates Phase I product with large polar molecule → highly water-soluble.\nUsually inactivates drug; sometimes activates.\n\n  Reactions: Glucuronidation, sulfation, acetylation, glutathione conjugation\n  Enzymes: UGT (glucuronyl transferase), SULT (sulfotransferase), NAT (acetyltransferase)\n\n  Example:\n    Morphine (active) → morphine-6-glucuronide (M6G, more active)\n                      → morphine-3-glucuronide (M3G, antagonist/neurotoxic)\n    This explains why morphine is long-acting despite short half-life.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## Excretion",
+      "confidence": "candidate",
+      "text": "RENAL EXCRETION (primary route for most drugs/metabolites)\n───────────────────────────────────────────────────────────\nThree processes:\n\n  GLOMERULAR FILTRATION\n    All unbound drug is filtered at glomerulus.\n    Rate = GFR × free fraction of drug in plasma.\n    GFR ≈ 120 mL/min in healthy adults.\n    Reduced in renal disease → drug accumulates → dose adjust.\n\n  TUBULAR SECRETION\n    Active transport: OCT (organic cation transporter), OAT (anion transporter)\n    Can exceed filtration → clearance > GFR.\n    Penicillin cleared at ~600 mL/min (5× GFR).\n    Drug interactions at transporters: probenecid blocks penicillin secretion.\n\n  TUBULAR REABSORPTION\n    Lipophilic drugs reabsorbed back into blood.\n    Ionized drugs (in acidic/basic urine) are NOT reabsorbed → faster excretion.\n    Urinary pH manipulation: treat aspirin overdose with sodium bicarbonate\n    → alkalinize urine → ionize salicylate → trap in urine → faster excretion.\n\nHEPATIC EXCRETION (bile)\n  Liver → bile → small intestine → excretion in feces.\n  ENTEROHEPATIC RECIRCULATION:\n    Drug from bile is reabsorbed from intestine → back to liver → cycle.\n    Extends duration of action.\n    Estrogen in oral contraceptives undergoes enterohepatic recirculation.\n    Antibiotics disrupting gut flora → break cycle → ↓contraceptive effectiveness.\n\nOTHER ROUTES\n  Lungs: volatile anesthetics, ethanol (breath test)\n  Sweat, saliva: minor; forensic importance\n  Breast milk: important for drug safety in lactation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## Key PK Parameters",
+      "confidence": "candidate",
+      "text": "HALF-LIFE (t½)\n────────────────\n  t½ = 0.693 × Vd / CL\n\n  Time for plasma concentration to halve.\n  After 5 half-lives: ~97% eliminated (clinically \"cleared\").\n  Time to steady state: 5 half-lives of dosing.\n\n  t½ depends on BOTH Vd and clearance:\n    High Vd + same CL → longer t½ (drug stored in tissues)\n    High CL + same Vd → shorter t½\n\nCLEARANCE (CL)\n───────────────\n  CL = Rate of elimination / Plasma concentration\n  Units: mL/min or L/hr\n\n  Hepatic clearance: CL_H = Q_H × (CL_int / (Q_H + CL_int))\n    Q_H = hepatic blood flow (~1,500 mL/min)\n    CL_int = intrinsic clearance (CYP capacity)\n\n  High extraction drugs: CL ≈ Q_H (blood flow limited)\n    → Highly sensitive to blood flow changes\n  Low extraction drugs: CL ≈ CL_int × f_unbound\n    → Sensitive to enzyme induction/inhibition and protein binding\n\nAREA UNDER THE CURVE (AUC)\n  AUC = ∫₀^∞ C(t) dt = F × Dose / CL\n  AUC proportional to total drug exposure.\n  Bioequivalence: compare AUC and Cmax of test vs reference formulation.\n\nSTEADY STATE CONCENTRATION (Css)\n  Css,avg = (F × Dose) / (CL × τ)   where τ = dosing interval\n  Achieved after ~5 × t½.\n  Loading dose: Ld = Vd × Css,target (to reach steady state immediately)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "## Engineering Bridge: PK as System Dynamics",
+      "confidence": "candidate",
+      "text": "  PHARMACOKINETICS              SYSTEMS / CONTROL THEORY PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  One-compartment model         First-order linear system:\n  C(t) = C₀·e^{-k_el·t}        Laplace transform: C(s) = C₀/(s + k_el)\n  k_el = CL / Vd                Single pole at s = -k_el. Time constant\n                                τ = 1/k_el = t½/0.693. Monoexponential\n                                decay is exactly the step response of a\n                                first-order low-pass filter.\n\n  Two-compartment model         Two-pole system (tiered buffer):\n  C(t) = A·e^{-αt} + B·e^{-βt}  Fast phase α: rapid distribution between\n                                central and peripheral compartments (fast\n                                pool ↔ slow pool). Slow phase β: elimination.\n                                Exactly a two-stage cache: fast RAM (plasma +\n                                well-perfused organs) and slow storage (fat,\n                                muscle). Vd_central and Vd_peripheral are the\n                                respective buffer capacities.\n\n  Volume of distribution Vd     Total buffer capacity:\n  Vd = Total drug / C_plasma    Plasma Vd = 0.04 L/kg (drug stays in plasma);\n                                high Vd = 10+ L/kg (drug partitions into\n                                tissue). High-tissue drugs fill the slow\n                                pool extensively — long half-life even with\n                                fast clearance.\n\n  Clearance CL (L/h)            Drain rate from the system:\n  t½ = 0.693 × Vd / CL          CL is volume processed per unit time —\n                                not the absolute amount removed. Steady-state\n                                concentration Css = F·Dose/(CL·τ) — the\n                                steady-state level when input = output rate.\n\n  First-pass metabolism         Input filter / signal attenuation:\n  F_oral = F_absorption × (1 - F_extraction_hepatic)\n                                The liver acts as a first-pass filter with\n                                attenuation 1 - E_H. High-extraction drugs\n                                (E > 0.7) lose >70% of dose before reaching\n                                systemic circulation. Route of administration\n                                determines whether the filter is in the path.\n\n  Steady state after 5 half-lives  Capacitor charging time constant:\n                                A first-order system reaches 97% of steady\n                                state after 5 time constants. No matter how\n                                large or small the dose, time-to-steady-state\n                                is determined solely by t½ (time constant),\n                                not by dose. Dose sets the level, not the time.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 334,
+      "heading_context": "## One-Compartment vs Two-Compartment Models",
+      "confidence": "candidate",
+      "text": "ONE-COMPARTMENT MODEL\n──────────────────────\nDrug distributes instantaneously to all tissues.\nC(t) = C₀ × e^{-k_el × t}     (monoexponential decay)\nk_el = CL / Vd = 0.693 / t½\n\n  LOG(C)\n    │ \\\n    │  \\  Slope = -k_el = -0.693/t½\n    │   \\\n    │    \\\n    └──────────────────→ time\n\nTWO-COMPARTMENT MODEL\n──────────────────────\nCentral compartment (plasma + highly perfused organs) +\nPeripheral compartment (muscle, fat, poorly perfused).\nDrug distributes between compartments + is eliminated.\n\nC(t) = A × e^{-αt} + B × e^{-βt}\n\n  LOG(C)\n    │ \\\n    │  ╲   α phase (distribution)\n    │   ╲\n    │    ┖────── β phase (elimination)\n    │            slope = -β\n    └──────────────────→ time\n\n  α phase: rapid initial decline (distribution into tissues)\n  β phase: slower terminal decline (elimination)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 372,
+      "heading_context": "## PK Monitoring and Drug Level Interpretation",
+      "confidence": "candidate",
+      "text": "PEAK AND TROUGH LEVELS\n───────────────────────\n  Peak (Cmax): Sample 30-60 min after end of IV infusion, or at Tmax for oral.\n               Reflects efficacy (need above MIC for antibiotics).\n  Trough (Cmin): Sample just before next dose (at steady state).\n                 Reflects toxicity avoidance (aminoglycosides, vancomycin).\n\nTHERAPEUTIC DRUG MONITORING (TDM) DRUGS\n  Drug           Target Range          Reason for TDM\n  ──────────────  ───────────────────   ─────────────────────────────\n  Vancomycin      15-20 μg/mL trough   Nephrotoxicity; resistance prevention\n  Aminoglycosides Peak 5-10 μg/mL      Toxicity at high trough; efficacy at peak\n  Phenytoin       10-20 μg/mL          Narrow TI; nonlinear kinetics\n  Digoxin         0.5-2 ng/mL          Narrow TI; toxicity (arrhythmia)\n  Cyclosporine    100-400 ng/mL        Immunosuppression; nephrotoxicity\n  Lithium         0.6-1.2 mEq/L        Narrow TI; neurological toxicity\n  Warfarin        INR 2-3              Variable response; PT/INR preferred",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

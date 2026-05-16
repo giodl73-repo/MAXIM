@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:information-theoretic
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Information-Theoretic Bounds on Generalization
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/08-INFORMATION-THEORETIC.md
+canonical_path: machine-learning-theory/08-INFORMATION-THEORETIC.md
+backsource_ids: [proof-backfill:machine-learning-theory:08-information-theoretic, git-history:machine-learning-theory:08-information-theoretic]
+concepts: [information, theoretic]
+root_concepts: [information, theoretic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information-Theoretic Bounds on Generalization
 
 ## The Big Picture

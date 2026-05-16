@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:drug-development
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Drug Development: Discovery to Approval
+status: source-custody
+source_custody: partial
+current_path: pharmacology/08-DRUG-DEVELOPMENT.md
+canonical_path: pharmacology/08-DRUG-DEVELOPMENT.md
+backsource_ids: [proof-backfill:pharmacology:08-drug-development, git-history:pharmacology:08-drug-development]
+concepts: [drug, development]
+root_concepts: [drug, development]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Drug Development: Discovery to Approval
 
 ## The Big Picture

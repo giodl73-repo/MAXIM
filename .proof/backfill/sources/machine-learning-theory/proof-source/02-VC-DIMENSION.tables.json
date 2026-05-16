@@ -1,0 +1,125 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\02-VC-DIMENSION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## VC Dimensions of Common Hypothesis Classes",
+      "headers": [
+        "Hypothesis Class",
+        "Instance Space",
+        "VCdim"
+      ],
+      "rows": [
+        [
+          "Intervals [a,b]",
+          "ℝ",
+          "2"
+        ],
+        [
+          "Halfspaces",
+          "ℝⁿ",
+          "n+1"
+        ],
+        [
+          "Axis-aligned rectangles",
+          "ℝ²",
+          "4"
+        ],
+        [
+          "Axis-aligned rectangles",
+          "ℝⁿ",
+          "2n"
+        ],
+        [
+          "Convex polygons with k sides",
+          "ℝ²",
+          "2k+1"
+        ],
+        [
+          "Polynomials of degree d",
+          "ℝ",
+          "d+1"
+        ],
+        [
+          "Sine functions sin(ax)",
+          "ℝ",
+          "∞"
+        ],
+        [
+          "Decision trees, depth k",
+          "{0,1}ⁿ",
+          "O(k·log n)"
+        ],
+        [
+          "Neural nets: k layers, w weights",
+          "ℝⁿ",
+          "O(w² log w)"
+        ],
+        [
+          "Neural nets: k layers, w weights",
+          "{0,1}ⁿ",
+          "Θ(w log w)"
+        ],
+        [
+          "k-nearest neighbor (k=1)",
+          "Any",
+          "∞"
+        ],
+        [
+          "Linear threshold on {0,1}ⁿ",
+          "{0,1}ⁿ",
+          "n"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 288,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "PAC learnability of H",
+          "Finite VC dimension",
+          "Equivalence is for binary classification under standard assumptions."
+        ],
+        [
+          "Sample-complexity scale",
+          "VC dimension in the agnostic bound",
+          "Constants and log factors matter in finite samples."
+        ],
+        [
+          "Non-learnability",
+          "Infinite shattering sequence",
+          "Show all sizes, not just one large set."
+        ],
+        [
+          "Lower-bound construction",
+          "Explicit shattered set",
+          "Every labeling must be realized."
+        ],
+        [
+          "Neural-net VC scale",
+          "Weight/layer upper bounds",
+          "Worst-case capacity bounds are often loose."
+        ],
+        [
+          "Deep-learning generalization",
+          "Beyond-VC tools such as NTK or double descent",
+          "Classical VC bounds are usually vacuous at modern scale."
+        ],
+        [
+          "Multiclass capacity",
+          "Natarajan dimension",
+          "Binary VC does not transfer directly."
+        ]
+      ]
+    }
+  ]
+}

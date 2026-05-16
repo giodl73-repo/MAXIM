@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\07-CHEMOTHERAPY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              CANCER PHARMACOLOGY LANDSCAPE                       |\n|                                                                  |\n|  GENERATION 1: Traditional Chemotherapy (1950s–1980s)            |\n|  • Targets rapidly dividing cells (all of them, not just tumor)  |\n|  • High toxicity to bone marrow, GI tract, hair                  |\n|  • Alkylating agents, antimetabolites, topoisomerase inhibitors  |\n|                                                                  |\n|  GENERATION 2: Targeted Therapy (1990s–present)                  |\n|  • Targets specific oncogenic protein (kinase, EGFR, HER2, etc.) |\n|  • Requires biomarker selection (tumor genotyping)               |\n|  • Small molecules (-ibs) and monoclonal antibodies (-mabs)      |\n|                                                                  |\n|  GENERATION 3: Immunotherapy (2010s–present)                     |\n|  • Activates or redirects immune system against tumor            |\n|  • Checkpoint inhibitors (PD-1/PD-L1, CTLA-4)                    |\n|  • CAR-T cells, bispecific antibodies                            |\n|                                                                  |\n|  SELECT PATIENT → MATCH MECHANISM → MANAGE RESISTANCE            |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Cell Cycle and Chemotherapy Targets",
+      "confidence": "candidate",
+      "text": "CELL CYCLE PHASES AND DRUG TARGETS\n────────────────────────────────────\n                         M (mitosis)\n                       ╱           ╲\n                    G2               G1\n                  ╱                    ╲\n              S (DNA synthesis)         G0 (quiescent)\n\n  G1 → S:  Checkpoint; CDK4/6 + cyclin D (target: palbociclib)\n  S phase: DNA replication (target: antimetabolites, hydroxyurea)\n  G2 → M: Checkpoint; CDK1 + cyclin B\n  M phase: Mitosis; spindle formation (target: vinca alkaloids, taxanes)\n\nCELL CYCLE-SPECIFIC DRUGS (only work in specific phase)\n  S-phase:  Antimetabolites (5-FU, methotrexate, cytarabine)\n  M-phase:  Taxanes (paclitaxel), vinca alkaloids (vincristine)\n  G1/S:     CDK4/6 inhibitors (palbociclib, ribociclib)\n\nCELL CYCLE NON-SPECIFIC (work in any phase)\n  Alkylating agents (cyclophosphamide, cisplatin)\n  Anthracyclines (doxorubicin)\n  Bleomycin (G2 arrest; lung toxicity)\n  Nitrosoureas (carmustine — crosses BBB)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 83,
+      "heading_context": "## Traditional Chemotherapy Classes",
+      "confidence": "candidate",
+      "text": "ALKYLATING AGENTS\n──────────────────\nMechanism: Form covalent crosslinks in DNA (inter- and intrastrand).\n           DNA cannot replicate or transcribe. Apoptosis triggered.\n           Also crosslink RNA and proteins.\n\nClasses:\n  Nitrogen mustards:  Cyclophosphamide, ifosfamide, mechlorethamine\n                      (prodrugs activated by CYP2B6 in liver)\n  Platinum compounds: Cisplatin, carboplatin, oxaliplatin\n                      Form DNA adducts; cisplatin → renal + neuro toxicity\n  Nitrosoureas:       Carmustine (BCNU), lomustine — cross BBB; used in CNS tumors\n  Alkyl sulfonates:   Busulfan — myeloablation in stem cell transplant prep\n  Triazines:          Temozolomide — oral; methylates DNA; glioblastoma (MGMT unmethylated = resistant)\n\nTOXICITIES\n  HEMORRHAGIC CYSTITIS: Cyclophosphamide/ifosfamide → acrolein metabolite → bladder\n                         Prevent with MESNA (thiol trapping agent) + hydration\n  NEPHROTOXICITY: Cisplatin → proximal tubule damage → amifostine protection\n  NEUROTOXICITY: Cisplatin → peripheral neuropathy, ototoxicity (irreversible)\n  CARBOPLATIN: Dose formula uses GFR (Calvert formula): dose = AUC × (GFR + 25)\n               Primarily myelosuppression; less neuro/renal than cisplatin\n\nANTIMETABOLITES\n────────────────\nMechanism: Structural analogs of nucleotides/precursors → disrupt DNA synthesis.\n\n  ANTIFOLATES\n  Methotrexate: Inhibits DHFR → ↓tetrahydrofolate → ↓purine + thymidylate synthesis\n    High-dose: CNS; requires leucovorin (folinic acid) rescue\n    Intrathecal: CNS prophylaxis in leukemia\n    Toxicity: myelosuppression, mucositis, nephrotoxicity\n\n  PYRIMIDINE ANALOGS\n  5-Fluorouracil (5-FU): Prodrug → FdUMP → inhibits thymidylate synthase\n    Colon cancer (FOLFOX: 5-FU + leucovorin + oxaliplatin)\n    Leucovorin enhances 5-FU binding to thymidylate synthase\n    Capecitabine: oral 5-FU prodrug (activated in tumor by thymidine phosphorylase)\n    Cytarabine (Ara-C): incorporated into DNA → chain termination → AML\n\n  PURINE ANALOGS\n  6-Mercaptopurine (6-MP): Metabolized by TPMT (pharmacogenomics!)\n  Fludarabine: B-cell malignancies (CLL)\n\nTOPOISOMERASE INHIBITORS\n─────────────────────────\n  Topo I inhibitors:  Irinotecan (CPT-11), topotecan\n    Form stable Top-I:DNA complex → strand breaks → apoptosis\n    SN-38 (active metabolite of irinotecan) via carboxylesterase\n    UGT1A1 inactivates SN-38 (pharmacogenomics: *28 variant → toxicity)\n\n  Topo II inhibitors: Etoposide, anthracyclines (intercalate + Top-II)\n    Doxorubicin: Most widely used anthracycline; breast, lymphoma, sarcoma\n    Cumulative cardiotoxicity (cardiomyopathy) → dose limit ~450-500 mg/m²\n    Dexrazoxane: iron chelator; reduces cardiotoxicity if needed beyond limit\n\nMITOTIC INHIBITORS\n───────────────────\n  Taxanes: Paclitaxel (Taxol), docetaxel\n    Hyperstabilize microtubules → cannot depolymerize → mitosis arrest\n    Hypersensitivity reactions (paclitaxel cremophor vehicle)\n    Nab-paclitaxel: albumin-bound nanoparticle → no Cremophor needed\n    Neuropathy (dose-limiting), alopecia, myelosuppression\n\n  Vinca alkaloids: Vincristine, vinblastine, vinorelbine\n    PREVENT tubulin polymerization → spindle cannot form\n    Vincristine: peripheral neuropathy (dose-limiting); minimal myelosuppression\n                 Used in ALL, lymphoma\n    Vinblastine: myelosuppression dominant; testicular cancer (BEP regimen)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 159,
+      "heading_context": "## Targeted Therapy",
+      "confidence": "candidate",
+      "text": "KINASE INHIBITORS (small molecules, -tinib/-nib suffix)\n─────────────────────────────────────────────────────────\n  TARGET              DRUG                  INDICATION\n  ─────────────────── ──────────────────── ──────────────────────────\n  BCR-ABL             Imatinib (Gleevec)    CML, Ph+ ALL\n                      Dasatinib, nilotinib  Imatinib resistance\n  EGFR (mutant)       Erlotinib, gefitinib  NSCLC (EGFR mut)\n                      Osimertinib           T790M resistance mutation\n  HER2                Neratinib, tucatinib  HER2+ breast cancer\n  BRAF V600E          Vemurafenib, dabrafenib Melanoma BRAF V600E\n  MEK (+ BRAF combo)  Trametinib, cobimetinib Melanoma (resistance prevention)\n  ALK fusion          Crizotinib, alectinib  NSCLC ALK+\n  CDK4/6              Palbociclib, ribociclib HR+ HER2- breast cancer (+ AI)\n  PI3K/mTOR           Alpelisib, everolimus  PIK3CA mut, HR+ breast/renal\n  BTK                 Ibrutinib, acalabrutinib CLL, MCL, Waldenström\n\nIMATINIB: THE PARADIGM SHIFT\n  BCR-ABL: fusion oncogene from t(9;22) → Philadelphia chromosome\n  Constitutively active tyrosine kinase → uncontrolled proliferation\n  Imatinib: ATP-competitive BCR-ABL inhibitor\n  CML: ~90% complete cytogenetic response (from median survival ~5 yr → near normal)\n  Mechanism of resistance: BCR-ABL T315I \"gatekeeper\" mutation → ponatinib needed\n\nMONOCLONAL ANTIBODIES (-mab suffix)\n  Trastuzumab (Herceptin): HER2+ breast cancer; ADCC + inhibits HER2 signaling\n  Bevacizumab (Avastin): anti-VEGF; anti-angiogenic; colorectal, lung, ovarian\n  Cetuximab (Erbitux): anti-EGFR; colorectal cancer (only if KRAS/NRAS wild-type)\n  Rituximab (Rituxan): anti-CD20; B-cell lymphoma, CLL, autoimmune diseases\n  ADCs (antibody-drug conjugates): antibody delivers cytotoxin to tumor\n    Ado-trastuzumab emtansine (T-DM1): HER2 + emtansine (maytansinoid)\n    Sacituzumab govitecan: TROP-2 + SN-38 (topoisomerase inhibitor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## Immunotherapy",
+      "confidence": "candidate",
+      "text": "CHECKPOINT INHIBITORS\n──────────────────────\nT cells are activated by TCR-antigen + costimulatory signals.\nCheckpoint proteins turn T cells off (physiologic immune suppression).\nTumors exploit checkpoints to evade immune destruction.\n\n  CHECKPOINT    INHIBITOR CLASS        APPROVED DRUGS\n  ────────────  ────────────────────   ─────────────────────────────────\n  PD-1          Anti-PD-1              Nivolumab, pembrolizumab, cemiplimab\n  PD-L1         Anti-PD-L1             Atezolizumab, durvalumab, avelumab\n  CTLA-4        Anti-CTLA-4            Ipilimumab\n\n  PD-1/PD-L1 AXIS\n    Tumor cells overexpress PD-L1 → binds T cell PD-1 → T cell suppressed.\n    Anti-PD-1 or anti-PD-L1 antibodies block this → T cells attack tumor.\n    Works in: NSCLC, melanoma, urothelial, renal, HCC, MSI-high tumors\n\n  CTLA-4\n    Expressed on T cells; binds B7 on APCs → T cell non-activation.\n    Ipilimumab blocks CTLA-4 → ↑T cell priming in lymph nodes.\n    Mostly melanoma; higher toxicity than anti-PD-1.\n\n  IRRELATED ADVERSE EVENTS (irAE): Immune-mediated inflammation of ANY organ\n    Colitis, pneumonitis, hepatitis, endocrinopathy (thyroid, adrenal, pituitary)\n    Treatment: high-dose corticosteroids (not tumor suppressing); hold checkpoint drug\n\nPREDICTIVE BIOMARKERS\n  PD-L1 expression (IHC): predicts response to anti-PD-1 in some tumors\n  MSI-H / dMMR: Hypermutated tumors → more neoantigens → excellent response\n  TMB (tumor mutational burden): High → more neoantigens → better response\n\nCAR-T CELLS\n  Patient's T cells extracted, genetically engineered to express Chimeric Antigen Receptor.\n  CAR targets tumor antigen (CD19 for B-cell, BCMA for myeloma).\n  T cells infused → attack tumor.\n  Approved for: B-ALL, DLBCL, multiple myeloma\n  Toxicity: CRS (cytokine release syndrome) → high fever, hypotension, organ failure\n            Treated with tocilizumab (IL-6 receptor antagonist)\n            Neurotoxicity (ICANS)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Bispecific Antibodies",
+      "confidence": "candidate",
+      "text": "BISPECIFIC ANTIBODIES (BiTEs AND RELATED)\n──────────────────────────────────────────\n  Concept: One antibody with TWO binding specificities.\n  One arm binds tumor antigen; other arm binds CD3 (T cells) or NK cell receptor.\n  → Physical proximity forces immune effector cell to engage and kill tumor cell.\n  → No need for antigen presentation; bypasses major tumor immune escape mechanisms.\n\n  BiTE (Bispecific T cell Engager) FORMAT:\n    Single-chain, very short half-life → continuous infusion initially\n    Half-life extended formats now available (blinatumomab → amivantamab)\n\n  KEY APPROVED AGENTS:\n    Blinatumomab (Blincyto): CD19×CD3 BiTE → ALL (B-cell), Ph-negative r/r\n      First approved BiTE. Impressive responses in refractory ALL.\n      Neurotoxicity and CRS are dose-limiting.\n\n    Teclistamab (Tecvayli): BCMA×CD3 → multiple myeloma (r/r, post 4 prior lines)\n      First anti-BCMA BiTE. Deep responses in heavily pretreated patients.\n      Infections (esp. serious bacterial/viral) a major concern with T-cell activation.\n\n    Talquetamab (Talvey): GPRC5D×CD3 → multiple myeloma\n      Non-BCMA target; important for post-BCMA resistance.\n      Nail/skin/taste side effects (GPRC5D expressed in stratified epithelium).\n\n    Mosunetuzumab (Lunsumio): CD20×CD3 → follicular lymphoma (r/r)\n      Fixed-duration (SC, subcutaneous): 8 cycles. Low-grade CRS; high CR rates.\n\n    Epcoritamab (Epkinly): CD20×CD3 → DLBCL, follicular lymphoma\n\n  BiTE vs CAR-T COMPARISON:\n    BiTEs:   Off-the-shelf, immediate use, no manufacturing lag\n             Re-dosable, adjustable (infusion rate ↔ toxicity)\n             Lower persistence than CAR-T → maintenance needed\n    CAR-T:   Durable remission, one-time infusion\n             Manufacturing time: 4-6 weeks; costly; specialized centers\n             Higher toxicity ceiling (CRS, ICANS)\n             Primary resistance: antigen loss, poor T-cell fitness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## Engineering Bridge: Resistance as Evolutionary Selection",
+      "confidence": "candidate",
+      "text": "  ONCOLOGY RESISTANCE           SECURITY / SYSTEMS PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Pre-existing resistant clones Heterogeneous population with rare\n  (Darwinian selection)         pre-existing variants. Treatment = adversarial\n                                selection pressure. Resistant clone outcompetes\n                                sensitive cells. \"Selection, not induction.\"\n                                Exactly: existing zero-day vulnerabilities\n                                selected by a specific patch (treatment).\n\n  Combination therapy rationale Defense-in-depth:\n  (attack multiple pathways)    P(resistance to A AND B) = P(A) × P(B)\n                                if mechanisms are independent. With\n                                simultaneous targeting of BCR-ABL + MDM2,\n                                simultaneous resistance requires two\n                                independent mutations → much lower probability.\n                                Same logic as requiring two independent\n                                system failures for an outage.\n\n  Acquired target mutation      Exploit evolves past the patch:\n  (BCR-ABL T315I, EGFR T790M)  The drug defines the selection pressure;\n                                the resistance mutation is the evolved counter.\n                                Each generation of targeted therapy is an\n                                exploit-patch cycle: imatinib → T315I →\n                                ponatinib (third-gen, covers T315I).\n\n  ctDNA monitoring for          Real-time adversarial monitoring:\n  resistance mutations          Liquid biopsy tracks the emerging resistant\n                                subclone in real time — analogous to\n                                continuous security monitoring for novel\n                                attack signatures before full outbreak.\n\n  MDR1 / P-glycoprotein         Transport-layer evasion: tumor cells\n  (drug efflux pump)            overexpress efflux pumps to exclude the drug.\n                                Analogous to egress filtering in a network:\n                                the target machine actively ejects the payload.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "## Drug Resistance",
+      "confidence": "candidate",
+      "text": "MECHANISMS OF DRUG RESISTANCE\n────────────────────────────────\n  PHARMACOKINETIC RESISTANCE\n  • ↑P-glycoprotein (MDR1): Pumps drug out of cells\n  • ↓Drug uptake transporters: Less drug enters\n  • ↑Drug metabolism: Faster inactivation\n\n  PHARMACODYNAMIC RESISTANCE\n  • Target mutation: BCR-ABL T315I, EGFR T790M, BRAF→MEK\n  • Target amplification: Too much target to inhibit\n  • Alternative pathway activation: bypass the blocked target\n    KRAS wild-type required for EGFR inhibitor → KRAS mutation = resistance\n  • Antiapoptotic upregulation: BCL-2 → venetoclax target\n\n  TUMOR HETEROGENEITY\n  • Pre-existing resistant clones selected by therapy\n  • Darwinian evolution under drug pressure\n  • Liquid biopsies: ctDNA tracks resistance mutations in real time\n\nCOMBINATION THERAPY RATIONALE\n  1. Overcome resistance mechanisms (attack multiple pathways)\n  2. Dose reduction (toxicity of each drug at lower dose)\n  3. Synergy: different mechanisms enhance each other\n  4. Cell cycle coverage (S-phase + M-phase agents together)\n\n  BEP regimen (testicular cancer):\n    Bleomycin (G2) + Etoposide (Topo II) + Cisplatin (alkylating)\n    90%+ cure rate for disseminated non-seminoma — chemotherapy's best result",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 393,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "Mostly true but not universally. KRAS wild-type is required for EGFR antibody benefit in colorectal cancer — KRAS mutation = primary resistance. But HER2 status in breast cancer: HER2+ responds dramatically to trastuzumab; HER2-low (1+ IHC) can respond to ADCs (T-DXd). The biomarker-therapy relationship is being refined continuously with newer drugs.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 396,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "They all form DNA adducts but with distinct profiles. Cisplatin: renal + ototoxicity + severe nausea. Carboplatin: dose by GFR (Calvert formula); myelosuppression dominant; less nausea. Oxaliplatin: cold-induced peripheral neuropathy (acute); cumulative sensory neuropathy (chronic); used in GI cancers. Not interchangeable in all settings.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

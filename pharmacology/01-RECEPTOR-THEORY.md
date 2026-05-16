@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:receptor-theory
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Receptor Theory: Agonists, Antagonists, Affinity
+status: source-custody
+source_custody: partial
+current_path: pharmacology/01-RECEPTOR-THEORY.md
+canonical_path: pharmacology/01-RECEPTOR-THEORY.md
+backsource_ids: [proof-backfill:pharmacology:01-receptor-theory, git-history:pharmacology:01-receptor-theory]
+concepts: [receptor, theory]
+root_concepts: [receptor, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Receptor Theory: Agonists, Antagonists, Affinity
 
 ## The Big Picture

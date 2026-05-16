@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:cardiovascular
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Cardiovascular Pharmacology
+status: source-custody
+source_custody: partial
+current_path: pharmacology/06-CARDIOVASCULAR.md
+canonical_path: pharmacology/06-CARDIOVASCULAR.md
+backsource_ids: [proof-backfill:pharmacology:06-cardiovascular, git-history:pharmacology:06-cardiovascular]
+concepts: [cardiovascular]
+root_concepts: [cardiovascular]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cardiovascular Pharmacology
 
 ## The Big Picture

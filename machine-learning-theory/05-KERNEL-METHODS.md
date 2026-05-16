@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:kernel-methods
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Kernel Methods and Reproducing Kernel Hilbert Spaces
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/05-KERNEL-METHODS.md
+canonical_path: machine-learning-theory/05-KERNEL-METHODS.md
+backsource_ids: [proof-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]
+concepts: [kernel, methods]
+root_concepts: [kernel, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Kernel Methods and Reproducing Kernel Hilbert Spaces
 
 ## The Big Picture
@@ -51,10 +70,10 @@ INTUITION: PD kernel = inner product of feature vectors
 |--------|---------|--------------|------------|
 | Linear | k(x,x') = xᵀx' | ℝⁿ itself | Trivial — no lift |
 | Polynomial (deg d) | k(x,x') = (xᵀx' + c)ᵈ | Monomials up to degree d | Finite-dim features |
-| RBF / Gaussian | k(x,x') = exp(-||x-x'||²/2σ²) | Infinite-dim | Universal approximator |
-| Laplace | k(x,x') = exp(-||x-x'||/σ) | Infinite-dim | Heavier tails than RBF |
+| RBF / Gaussian | k(x,x') = exp(-\|\|x-x'\|\|²/2σ²) | Infinite-dim | Universal approximator |
+| Laplace | k(x,x') = exp(-\|\|x-x'\|\|/σ) | Infinite-dim | Heavier tails than RBF |
 | Matérn | k(x,x') = (complicated) | Sobolev space H^ν | Differentiability-controlled |
-| Periodic | k(x,x') = exp(-2sin²(π|x-x'|/p)/σ²) | Fourier features | For periodic data |
+| Periodic | k(x,x') = exp(-2sin²(π\|x-x'\|/p)/σ²) | Fourier features | For periodic data |
 | String kernel | Counts common subsequences | Sequence space | NLP applications |
 
 **RBF kernel feature space explicitly:**

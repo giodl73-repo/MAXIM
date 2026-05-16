@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:chemotherapy
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Cancer Pharmacology and Chemotherapy
+status: source-custody
+source_custody: partial
+current_path: pharmacology/07-CHEMOTHERAPY.md
+canonical_path: pharmacology/07-CHEMOTHERAPY.md
+backsource_ids: [proof-backfill:pharmacology:07-chemotherapy, git-history:pharmacology:07-chemotherapy]
+concepts: [chemotherapy]
+root_concepts: [chemotherapy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cancer Pharmacology and Chemotherapy
 
 ## The Big Picture

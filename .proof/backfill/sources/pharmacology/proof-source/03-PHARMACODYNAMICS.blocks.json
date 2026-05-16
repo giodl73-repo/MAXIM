@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\03-PHARMACODYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  PHARMACODYNAMICS FRAMEWORK                      |\n|                                                                  |\n|  EFFECT (%) │ ───────────────── Emax (ceiling)                   |\n|         100 │          ╭────────────────────────────────         |\n|          75 │        ╱                                           |\n|          50 │      ╱ ← EC50 (potency marker)                     |\n|          25 │    ╱                                               |\n|           0 │──╱────────────────────────────────────             |\n|             └────────────────────────────────────────→           |\n|                  [Drug] (log scale)                              |\n|                                                                  |\n|  KEY PARAMETERS                                                  |\n|  EC50:   Concentration for 50% of Emax          → POTENCY        |\n|  Emax:   Maximum achievable effect              → EFFICACY       |\n|  TI:     TD50/ED50 or TD10/ED90                → SAFETY          |\n|  Hill n: Steepness of curve                    → COOPERATIVITY   |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## The Dose-Response Curve in Detail",
+      "confidence": "candidate",
+      "text": "SIGMOIDAL DOSE-RESPONSE (Emax model)\n──────────────────────────────────────\n\n  E(C) = Emax × Cⁿ / (EC50ⁿ + Cⁿ)\n\n  E = effect at concentration C\n  Emax = maximum effect\n  EC50 = concentration producing 50% Emax\n  n = Hill coefficient (steepness; n=1 for most drugs)\n\n  ON LOG SCALE: symmetrical sigmoid with inflection at EC50\n  ON LINEAR SCALE: rectangular hyperbola\n\nLOG-SCALE CURVE READING\n  ─────────────────────\n  The log10-scale is canonical because:\n  (1) EC50 falls at the midpoint of the sigmoid → easy to read\n  (2) Useful range typically spans 3-4 log units (1000-10,000× dose range)\n  (3) Doses expressed as mg/kg, μg/mL etc. are naturally log-distributed\n\n  EFFECT%  │         ←n=1→                ←n=3→\n      100  │     ╭──────────────────     ╭──────────\n       50  │   ╱                        │\n        0  │─╱──────────────────────────│──────────\n           │       ↑                    ↑\n           │      EC50 same EC50   Steep sigmoid\n           │                       n>1: more switch-like",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Potency vs Efficacy",
+      "confidence": "candidate",
+      "text": "POTENCY\n────────\n  Defined by EC50: lower EC50 = more potent.\n  Drug A (EC50 = 1 nM) is 1000× more potent than Drug B (EC50 = 1 μM).\n  Potency does not tell you how strong the effect is — only how little is needed.\n\nEFFICACY\n──────────\n  Defined by Emax: the maximum achievable response.\n  Full agonist: Emax = 100% of possible response.\n  Partial agonist: Emax < 100%.\n\nCLINICAL RELEVANCE\n  More potent drug → lower dose needed → fewer side effects at non-target sites?\n    Not necessarily. Potency is only useful if it reduces absolute dose.\n  Higher efficacy drug → can produce stronger effect.\n    Important when maximum response matters (pain control, infection clearance).\n\nEXAMPLE COMPARISON TABLE\n  Drug        EC50      Emax      Classification\n  ──────────  ─────────  ────────  ──────────────────\n  Morphine    0.1 μM    100%      Full opioid agonist\n  Fentanyl    0.001 μM  100%      Full agonist, 100× more POTENT\n  Codeine     10 μM     80%       Partial agonist, less potent AND less efficacious\n  Buprenorphine 0.001 μM 50%     Partial agonist, very potent but limited efficacy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## Therapeutic Index and Safety Window",
+      "confidence": "candidate",
+      "text": "THERAPEUTIC INDEX (TI)\n───────────────────────\n\n  TI = TD50 / ED50   (toxic dose 50% / effective dose 50%)\n\n  ─────────────────────────────────────────────────────────────────\n  DOSE:     │──────────────│──────────────────────│──────────────│\n            0            ED50                    TD50           →\n            ←   Below     →← Therapeutic window  →← Toxic       →\n                effect\n\nCLINICAL ALTERNATIVE: TI = TD10 / ED90 (more conservative)\n  Dose that is toxic in 10% / dose effective in 90% of population.\n  More relevant for safety in heterogeneous populations.\n\nDRUG EXAMPLES\n  Drug            TI (approx.)   Safety margin\n  ─────────────   ─────────────  ──────────────────────────────\n  Penicillin      > 100          Very wide; can give huge doses\n  Digoxin         ~2             Narrow; toxic ≈ 2× therapeutic\n  Warfarin        ~2-3           Narrow; requires INR monitoring\n  Lithium         ~3             Narrow; tremor/seizure near therapeutic\n  Phenytoin       ~2-5           Narrow; nonlinear kinetics\n  Theophylline    ~2             Narrow; cardiac arrhythmia\n  Acetaminophen   ~3             Narrow in overdose; hepatotoxic\n  Aspirin         ~10            Moderate; tinnitus → overdose\n\nNARROW TI DRUGS require:\n  • Therapeutic drug monitoring (TDM)\n  • Weight-based dosing\n  • Renal/hepatic dose adjustment\n  • Close clinical monitoring\n  • Patient education about signs of toxicity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "## Quantal Dose-Response: Population Variation",
+      "confidence": "candidate",
+      "text": "QUANTAL (ALL-OR-NONE) DOSE-RESPONSE\n──────────────────────────────────────\nFor a defined endpoint (e.g., \"seizure stopped\" or \"patient died\"):\n  Each patient either responds or doesn't.\n  The curve plots % of population responding vs dose.\n\n  POPULATION VARIABILITY\n  ─────────────────────\n  Normally distributed sensitivity in population.\n  → Sigmoid curve when plotted as % responding vs log(dose).\n\n  ED50 = dose producing response in 50% of population.\n  TD50 = dose producing toxicity in 50% of population.\n\n  SOURCES OF VARIABILITY\n  • Pharmacokinetic variation: CYP polymorphisms, renal function\n  • Pharmacodynamic variation: receptor polymorphisms, disease state\n  • Age and body composition\n  • Drug interactions affecting concentration\n\nCLINICAL INTERPRETATION\n  Giving ED50 to a population: 50% will respond.\n  To treat 90% of patients, need dose near ED90 (higher than ED50).\n  But if TI is narrow, ED90 may be close to TD10.\n  → Real clinical challenge: treat enough patients without harming outliers.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Time-Dependent Pharmacodynamics",
+      "confidence": "candidate",
+      "text": "HYSTERESIS LOOPS\n─────────────────\nConcentration and effect are not in sync.\n\n  CLOCKWISE HYSTERESIS (acute tolerance)\n  Effect\n\n    │     /---\\  ← at same concentration,\n    │    /     \\    effect is LESS during the\n    │   /       \\   downward phase\n    │──/─────────\\──→ Concentration\n\n  Drug tolerance develops rapidly. Common with opioids.\n\n  COUNTER-CLOCKWISE HYSTERESIS (delayed effect)\n  Effect\n\n    │          /---\\  ← effect lags behind concentration\n    │         /     \\    (buildup at effect site)\n    │    /──/         \\\n    │───/──────────────→ Concentration\n\n  Drug must reach effect site (which lags plasma).\n  Warfarin: plasma levels peak quickly, but anticoagulant effect\n  peaks 36-72 hours later (must wait for clotting factors to deplete).\n\nLINK MODEL (effect compartment)\n  Solves hysteresis by modeling effect-site concentration Ce:\n    dCe/dt = k_e0 × (Cp - Ce)   where k_e0 = rate constant\n  PD: effect vs Ce (no hysteresis)\n  PK: Cp drives Ce with lag.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Drug Tolerance and Dependence",
+      "confidence": "candidate",
+      "text": "TOLERANCE MECHANISMS\n──────────────────────\n  1. PHARMACOKINETIC tolerance:\n     Drug induces its own metabolism (CYP induction).\n     Carbamazepine (antiepileptic): induces CYP3A4 → faster clearance\n     → therapeutic levels drop over time → dose escalation needed.\n\n  2. PHARMACODYNAMIC tolerance:\n     Receptor desensitization (Module 01).\n     Receptor downregulation (fewer receptors).\n     Counter-regulatory responses: compensatory systems activated.\n     Opioids: μ-receptor internalization + counter-regulatory cAMP rebound.\n\n  3. BEHAVIORAL tolerance:\n     Learned compensatory behaviors.\n     Alcohol tolerance: brain learns to function in presence of ethanol.\n\nPHYSICAL DEPENDENCE vs ADDICTION\n  Physical dependence: physiological adaptation; withdrawal on stopping.\n  Addiction: compulsive use despite harm; reinforcement-driven.\n  These are NOT the same:\n    Patients on long-term opioids for pain are physically dependent\n    (will have withdrawal if stopped abruptly) but usually not addicted.\n    Addiction involves the reward circuitry; dependence is just adaptation.\n\nWITHDRAWAL SYNDROMES (receptor upregulation phenomenon)\n  Receptor upregulated during chronic antagonism/agonist reduction.\n  Abrupt cessation → hyperactivation.\n  β-blocker withdrawal: rebound tachycardia, hypertension, angina.\n  Opioid withdrawal: diarrhea, cramps, tachycardia, agitation.\n  Alcohol withdrawal: seizures (GABA receptor downregulated).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Engineering Bridge: PD as Transfer Function and Control Theory",
+      "confidence": "candidate",
+      "text": "  PHARMACODYNAMICS              CONTROL THEORY / SIGNAL PROCESSING\n  ──────────────────────────────────────────────────────────────────────\n  Dose-response sigmoid         Saturating nonlinear transfer function:\n  E = Emax·Cⁿ/(EC50ⁿ+Cⁿ)       Logistic / Hill function. Same shape as\n                                a sigmoid activation function in ML, or\n                                a soft saturation in nonlinear control.\n                                Linear range: C << EC50 (→ E ≈ Emax·C/EC50,\n                                first-order linear gain).\n                                Saturated range: C >> EC50 (→ E ≈ Emax,\n                                zero-order saturation plateau).\n\n  Hill coefficient n            Steepness / cooperativity:\n  n = 1: standard Hill          n controls slope at EC50. n > 1 produces\n  n > 1: positive cooperativity a steeper, more switch-like dose-response.\n                                In control: a high-n Hill function is\n                                close to a Heaviside step — an approximation\n                                to a threshold comparator.\n\n  Effect compartment (ke0)      First-order lag (low-pass filter):\n  d[Ce]/dt = ke0([C]-[Ce])      Ce(s) = C(s) × ke0/(s + ke0).\n  (link model)                  Introducing a first-order lag between plasma\n                                concentration and effect-site concentration.\n                                The phase lag explains clockwise hysteresis:\n                                for the same C on the way up vs. down, Ce\n                                is lower on the ascending arm (lag) and\n                                higher on the descending arm.\n\n  Clockwise hysteresis          Phase lag in feedback: effect lags\n  (tolerance / acute effect)    concentration → on the C-E phase plot,\n                                the trajectory is clockwise (C rises before\n                                E does). Counter-clockwise hysteresis →\n                                counter-direction: E rises BEFORE C, which\n                                signals active metabolite accumulation or\n                                sensitization.\n\n  PK/PD cascade                 Cascade transfer function:\n  E(t) = PD[PK(t, dose, route)] H_total(s) = H_PK(s) × H_PD(Ce).\n                                PK provides the impulse response (distribution\n                                + elimination); PD is the static or dynamic\n                                output nonlinearity. Predicting optimum\n                                dosing regimen = finding input drive to\n                                maintain output within therapeutic band.\n\n  AUC/MIC ratio (antibiotics)   Energy delivery metric:\n                                Total drug exposure (AUC) relative to\n                                minimum inhibitory concentration (MIC) is\n                                the time-integrated \"signal above threshold\"\n                                — analogous to a signal-to-noise ratio\n                                integrated over time.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "## PK/PD Modeling",
+      "confidence": "candidate",
+      "text": "PK/PD INTEGRATION\n──────────────────\nPK provides C(t): concentration vs time.\nPD provides E(C): effect vs concentration.\nTogether: E(t) = PD[PK(t, dose, route)]\n\nSIMPLE CASE (no hysteresis)\n  E(t) = Emax × C(t)ⁿ / (EC50ⁿ + C(t)ⁿ)\n  Combine with C(t) = (F × D / Vd) × e^{-k_el × t}\n\nCLINICAL USES\n  • Dose selection: what dose achieves E > threshold for sufficient time?\n  • Dosing interval: how long before effect drops below therapeutic?\n  • Population PK/PD: model between-subject variability\n  • AUC/MIC (antibiotics): target attainment analysis\n\nANTIBIOTIC PD CLASSIFICATION\n  Time-dependent killing (penicillin, cephalosporin):\n    Effect correlates with TIME above MIC.\n    Goal: frequent dosing or continuous infusion.\n    %T>MIC ≥ 40-50% of dosing interval.\n\n  Concentration-dependent killing (aminoglycosides, fluoroquinolones):\n    Effect correlates with Cmax/MIC or AUC/MIC.\n    Goal: once-daily high doses.\n    Target: Cmax/MIC ≥ 8-12 (aminoglycosides).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

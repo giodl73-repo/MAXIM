@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:machine-learning-theory:bias-variance
+kind: guide
+module: machine-learning-theory
+section: machine-learning-theory
+title: Bias-Variance Tradeoff and Model Selection
+status: source-custody
+source_custody: partial
+current_path: machine-learning-theory/04-BIAS-VARIANCE.md
+canonical_path: machine-learning-theory/04-BIAS-VARIANCE.md
+backsource_ids: [proof-backfill:machine-learning-theory:04-bias-variance, git-history:machine-learning-theory:04-bias-variance]
+concepts: [bias, variance]
+root_concepts: [bias, variance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bias-Variance Tradeoff and Model Selection
 
 ## The Big Picture

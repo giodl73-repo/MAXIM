@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\09-PERSONALIZED.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              PHARMACOGENOMICS LANDSCAPE                          |\n|                                                                  |\n|  GENOTYPE → PHENOTYPE → DRUG RESPONSE                            |\n|                                                                  |\n|  SNPs in:           Phenotype:              Drug impact:         |\n|  CYP enzymes    →  PM/IM/EM/UM         →   Dose adjustment       |\n|  Transporters   →  ↓/↑ drug uptake     →   Efficacy/toxicity     |\n|  Drug targets   →  Altered target       →   Response or failure  |\n|  HLA alleles    →  Immune reactions     →   Severe hypersens.    |\n|  Ion channels   →  Altered electrophys  →   QT prolongation      |\n|                                                                  |\n|  PHARMACOGENOMIC TESTING                                         |\n|  Reactive: test after adverse event or failure                   |\n|  Pre-emptive: test panel ONCE, consult EHR at every prescription |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## CYP Pharmacogenomics: The Core",
+      "confidence": "candidate",
+      "text": "METABOLIZER PHENOTYPE SPECTRUM\n────────────────────────────────\n  PHENOTYPE           GENOTYPE              ENZYME ACTIVITY\n  ─────────────────── ──────────────────    ──────────────────────\n  Poor Metabolizer    2 loss-of-func alleles  None (0%)\n  (PM)\n  Intermediate        1 functional +         Reduced (~50%)\n  Metabolizer (IM)    1 reduced-func\n  Extensive/Normal    2 functional            Normal (100%)\n  Metabolizer (EM)\n  Ultrarapid          Gene duplication        Increased (>200%)\n  Metabolizer (UM)    (3+ functional copies)\n\nKEY DRUGS AFFECTED BY EACH CYP GENE\n──────────────────────────────────────\n\nCYP2D6 (most polymorphic)\n  Poor metabolizer: 5-10% Caucasians, 1-2% East Asians\n  Ultrarapid: 1-7% Caucasians, 10-30% North Africans\n\n  Drug         EM (normal)      PM effect        UM effect\n  ──────────── ──────────────   ─────────────    ─────────────────\n  Codeine      Converts to      No analgesia     Excess morphine →\n               morphine         (prodrug fails)  overdose, death\n  Tramadol     Active metabolite No analgesia   Excess active metabolite\n               needed                            → serotonin syndrome\n  TCAs         Normal levels    Toxicity at low  Inadequate therapy\n               (amitriptyline)  doses\n  Tamoxifen    → endoxifen      No active        —\n               (active)         metabolite → ↓efficacy in breast cancer\n  Metoprolol   Normal response  ↑Bradycardia    ↓Effect (↓concentration)\n  Flecainide   Normal           Toxicity risk    —\n\nCYP2C19\n  Poor metabolizer: 2-5% Caucasians, 15-25% East Asians (much higher!)\n\n  Drug         EM             PM effect          UM effect\n  ──────────── ────────────── ──────────────     ────────────────────\n  Clopidogrel  Active         NO antiplatelet    —\n               metabolite     effect → stent\n               formed         thrombosis\n  PPIs         Normal         Better acid        Reduced acid suppression\n               suppression    suppression        (may need higher dose)\n  Voriconazole Normal levels  Toxicity risk      Inadequate therapy\n               (antifungal)   (↑levels)          (↓levels)\n  Escitalopram Normal         Higher levels →    —\n                              may need lower dose\n\nCYP2C9\n  Drug affected: Warfarin (S-enantiomer)\n  CYP2C9*2 and *3: reduced activity\n  Patient on standard warfarin dose → supratherapeutic INR → bleeding\n  FDA label recommends CYP2C9 + VKORC1 genotype for warfarin dosing\n\nCYP1A2\n  Strong inducer: smoking\n  Drugs affected: Clozapine, olanzapine, theophylline\n  Smoker on clozapine: CYP1A2 induced → faster metabolism → 40-50% lower levels\n  If smoker starts antipsychotic then QUITS SMOKING:\n  → CYP1A2 induction wanes → clozapine levels rise → toxicity\n  Monitor levels and reduce dose proactively when patients quit smoking.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Non-CYP Pharmacogenomics",
+      "confidence": "candidate",
+      "text": "PHASE II ENZYME VARIANTS\n─────────────────────────\nTPMT (thiopurine methyltransferase)\n  Inactivates: 6-mercaptopurine (6-MP), azathioprine, thioguanine\n  Low activity: 1/300 people\n  Standard dose in low-TPMT patient → drug accumulates → severe myelosuppression\n\n  Clinical practice: Test TPMT before prescribing azathioprine (IBD, transplant)\n  OR test NUDT15 (also affects thiopurine metabolism; important in East Asians)\n\n  TPMT genotype → dose reduction:\n    Heterozygous (IM): reduce dose 50%\n    Homozygous PM: dose reduce 90% or use alternative\n\nUGT1A1 (glucuronosyltransferase)\n  Metabolizes: Irinotecan active metabolite SN-38, bilirubin\n  UGT1A1*28: Gilbert syndrome polymorphism (TA repeat in promoter → ↓expression)\n  Higher SN-38 → severe neutropenia and diarrhea with standard irinotecan dose\n  FDA label: test UGT1A1 before high-dose irinotecan therapy\n\nNAT2 (N-acetyltransferase)\n  Slow acetylators: isoniazid (TB treatment), hydralazine, procainamide\n  Slow = higher drug levels = more peripheral neuropathy (isoniazid)\n  Fast = lower levels + more reactive metabolite → hepatotoxicity (isoniazid)\n  Bimodal: ~50% Caucasians slow, ~10% East Asians slow\n\nDPYD (dihydropyrimidine dehydrogenase)\n  Metabolizes: Fluoropyrimidines (5-FU, capecitabine)\n  DPYD*2A and other variants: ↓DPYD activity → 5-FU accumulates → SEVERE toxicity\n  Symptoms: mucositis, myelosuppression, diarrhea, neurotoxicity — potentially fatal\n  European guidelines: test DPYD before any 5-FU-based therapy\n  FDA added DPYD testing to 5-FU label\n  If DPYD heterozygous: reduce dose 50%\n  If DPYD homozygous null: avoid fluoropyrimidines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## HLA-Related Drug Hypersensitivity",
+      "confidence": "candidate",
+      "text": "HLA ALLELES AND DRUG HYPERSENSITIVITY REACTIONS\n─────────────────────────────────────────────────\nSome severe drug reactions are HLA allele-dependent:\n\nHLA-B*57:01 AND ABACAVIR\n  Abacavir: nucleoside reverse transcriptase inhibitor for HIV\n  HLA-B*57:01 carriers: SEVERE hypersensitivity reaction (HSR)\n    Fever, rash, GI symptoms, respiratory symptoms\n    FATAL if abacavir is re-challenged after reaction\n  Prevalence of HLA-B*57:01: 5-8% Caucasians, 2-3% Africans, <1% Asians\n  Clinical practice: Screen ALL patients before initiating abacavir (standard of care)\n  If negative: use abacavir safely; reaction essentially eliminated by screening\n  This is the PGx SUCCESS STORY: prospective screening prevents severe reactions.\n\nHLA-B*15:02 AND CARBAMAZEPINE\n  Carbamazepine (antiepileptic): Stevens-Johnson syndrome / toxic epidermal necrolysis\n  SJS/TEN: severe mucocutaneous reaction; life-threatening\n  HLA-B*15:02 prevalence: 5-15% Han Chinese, Thai, Malaysian; rare in Caucasians\n  FDA Black Box: screen Han Chinese, Thai populations before starting carbamazepine\n  Alternative: oxcarbazepine or lamotrigine (different HLA association)\n\nHLA-B*58:01 AND ALLOPURINOL\n  Allopurinol (gout treatment): SJS/TEN in HLA-B*58:01 carriers\n  Prevalence: 6-8% Han Chinese; screening recommended in some guidelines\n  for Han Chinese patients before initiating allopurinol\n\nHLA-A*31:01 AND CARBAMAZEPINE (different HLA, different reaction type)\n  Drug reaction with eosinophilia and systemic symptoms (DRESS)\n  In Caucasians and Japanese; less severe than SJS/TEN but significant\n\nMECHANISM\n  HLA proteins present drug-peptide complexes to T cells.\n  In wrong HLA allele context: off-target immune activation → drug reaction.\n  Highly allele-specific: even nearby HLA alleles don't carry the same risk.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## Pharmacogenomics of Drug Targets",
+      "confidence": "candidate",
+      "text": "TARGET GENE VARIANTS → ALTERED DRUG RESPONSE\n──────────────────────────────────────────────\n\nVKORC1 (vitamin K epoxide reductase)\n  Warfarin target: VKORC1 + CYP2C9 together explain ~50% of warfarin dose variability\n  VKORC1 -1639G>A: ↓VKORC1 expression → more sensitive to warfarin → ↓dose needed\n  Genotype-guided dosing algorithm: FDA label, several clinical trials\n  Validated warfarin dosing: uses VKORC1 + CYP2C9 + CYP4F2 + clinical factors\n\nCFTR (cystic fibrosis)\n  Specific CFTR mutations determine which modulator drug works:\n    F508del (most common, ~70%): elexacaftor/tezacaftor/ivacaftor (Trikafta)\n    G551D: ivacaftor (Kalydeco) was the first precision CF drug\n    Class I mutations (stop codons): ataluren (not yet FDA approved)\n  CF is the model for genotype-directed precision therapy\n\nSCN1A (voltage-gated Na+ channel)\n  Dravet syndrome: SCN1A loss-of-function mutations → severe childhood epilepsy\n  Na+ channel blockers (carbamazepine, lamotrigine, phenytoin): WORSEN Dravet\n  → Contraindicated if SCN1A mutation confirmed\n\nBRCA1/BRCA2 (DNA repair)\n  Germline BRCA1/2 mutations → hereditary breast/ovarian cancer\n  Pharmacogenomic implication: PARP inhibitors (olaparib, rucaparib, niraparib)\n  Work by synthetic lethality: BRCA-deficient cells cannot repair PARP-inhibited damage.\n  Only effective (approved) in tumors with BRCA mutation (germline or somatic).\n\nEGFR (epidermal growth factor receptor)\n  NSCLC EGFR mutations (exon 19 del, L858R): predict response to osimertinib\n  T790M resistance mutation: acquired; detect in ctDNA → switch to osimertinib\n  KRAS G12C, ALK fusions: predict response to sotorasib, alectinib respectively",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Engineering Bridge: Pharmacogenomics as Runtime Configuration",
+      "confidence": "candidate",
+      "text": "  PHARMACOGENOMICS              SOFTWARE / HARDWARE PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  CYP genotype                  Hardware capability profile:\n    CYP2D6 *1/*1 (EM)           → Standard CPU with full clock speed\n    CYP2D6 *4/*4 (PM)           → Deprecated hardware: drug accumulates,\n                                   increase toxicity risk\n    CYP2D6 *1×N (UM)            → Overclocked: drug eliminated too fast,\n                                   underdosing at standard dose\n  Genotyping ≡ running CPUID instruction before drug deployment.\n\n  CPIC lookup table             Compatibility matrix / feature flag lookup:\n  (gene × drug → action)        Given (CYP2C19, clopidogrel) → reduce dose\n                                or switch drug. This is exactly a capability\n                                matrix: capability × workload → recommended\n                                configuration. CPIC is the published spec.\n\n  Pre-emptive PGx panel in EHR  Capability manifest stored at deploy time:\n  (genotype once, use at any Rx) Run genotyping once → store in EHR →\n                                alert at prescribing time. The manifest is\n                                checked at every prescription (deployment)\n                                event. No need to re-test.\n\n  Pharmacovigilance signal +    Production incident → post-deploy hotfix:\n  PGx retrospective analysis    Adverse event cluster → analyze by genotype →\n                                find PGx interaction → update CPIC guideline →\n                                add check to prescribing system. Full\n                                incident-to-patch cycle.\n\n  HLA-B*5701 screening          Whitelist for hardware compatibility:\n  (abacavir, carbamazepine)     HLA-B*5701 allele → severe hypersensitivity\n                                to abacavir. Screen before prescribing =\n                                compatibility check before enabling feature.\n                                HLA-B*1502 → carbamazepine SJS in Han Chinese.\n\n  TPMT / DPYD deficiency        Capacity estimation before heavy workload:\n  (thiopurines, 5-FU)           TPMT low/absent → thiopurine toxicity from\n                                excess active metabolite. DPYD deficiency\n                                → 5-FU neurotoxicity from drug accumulation.\n                                Check metabolic capacity before high-demand task.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "## Pre-Emptive Pharmacogenomic Testing",
+      "confidence": "candidate",
+      "text": "PRE-EMPTIVE PGx PANELS\n────────────────────────\nConcept: Test patient once for a panel of PGx variants.\nStore results in EHR. Alert pharmacist/prescriber at point of prescribing.\n\nMAJOR INSTITUTIONS\n  Vanderbilt PREDICT program: 1+ million patients genotyped\n  Mayo Clinic RIGHT program\n  Multiple academic medical centers worldwide\n\nCPIC (Clinical Pharmacogenomics Implementation Consortium)\n  Publishes evidence-based guidelines for PGx-drug pairs.\n  Tiers: A (actionable) → B (actionable in specific contexts) → C → D\n  Free, publicly available: cpicpgx.org\n\nTYPICAL PANEL GENES\n  CYP2D6, CYP2C19, CYP2C9, CYP3A5\n  VKORC1 (warfarin)\n  TPMT/NUDT15 (thiopurines)\n  DPYD (fluoropyrimidines)\n  HLA-B*57:01 (abacavir), HLA-B*15:02 (carbamazepine)\n  G6PD (rasburicase, primaquine)\n  SLCO1B1 (statin myopathy)\n\nSLCO1B1 (OATP1B1 TRANSPORTER)\n  Transports statins into hepatocytes.\n  SLCO1B1 *5 variant: ↓transporter function → ↑plasma statin concentration\n  → Higher risk of statin-associated muscle symptoms (SAMS) / myopathy\n  Specifically: simvastatin (highest risk), less with atorvastatin/rosuvastatin.\n  CPIC guideline: SLCO1B1 *5 → avoid simvastatin ≥40 mg; prefer rosuvastatin/pravastatin.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 323,
+      "heading_context": "## Pharmacogenomics in Oncology: The Tumor Genotype",
+      "confidence": "candidate",
+      "text": "TUMOR (SOMATIC) PHARMACOGENOMICS\n──────────────────────────────────\nBeyond germline PGx, tumor genomics drives oncology drug selection:\n\n  NEXT-GENERATION SEQUENCING (NGS) PANELS\n  FoundationOne CDx, Guardant360, MSK-IMPACT, Tempus\n  Sequence tumor DNA → identify actionable mutations\n  FDA-approved companion diagnostics for specific drugs\n\n  MUTATION → DRUG (selected)\n  BRAF V600E/K → Vemurafenib, dabrafenib (melanoma, thyroid, NSCLC)\n  EGFR exon19del/L858R → Erlotinib, gefitinib, osimertinib (NSCLC)\n  ALK fusion → Crizotinib, alectinib (NSCLC)\n  RET fusion → Selpercatinib, pralsetinib (thyroid, lung)\n  KRAS G12C → Sotorasib, adagrasib (NSCLC, CRC)\n  NTRK fusion → Larotrectinib, entrectinib (any solid tumor, tumor-agnostic)\n  BRCA1/2 mut → Olaparib, rucaparib (breast, ovarian, prostate, pancreatic)\n  MSI-H/dMMR → Pembrolizumab (any solid tumor, tumor-agnostic)\n  TMB-H → Pembrolizumab (tumor-agnostic, specific ≥10 mut/Mb threshold)\n  HER2 amplification → Trastuzumab, pertuzumab, T-DM1, T-DXd\n\nLIQUID BIOPSY (ctDNA)\n  Circulating tumor DNA in blood → detect mutations without tissue biopsy.\n  Applications:\n    Early detection: low-sensitivity but improving (Galleri test)\n    Minimal residual disease: detect relapse before clinical symptoms\n    Resistance monitoring: detect T790M, BCR-ABL mutations as they emerge\n    Tumor heterogeneity: sample is mix of all clones, not single biopsy site",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

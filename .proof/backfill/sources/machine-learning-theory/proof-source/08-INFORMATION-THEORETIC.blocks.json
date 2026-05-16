@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\08-INFORMATION-THEORETIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|          INFORMATION-THEORETIC GENERALIZATION FRAMEWORK          |\n|                                                                  |\n|  CORE INSIGHT                                                    |\n|  The generalization gap is bounded by how much information       |\n|  the algorithm's output (W) contains about its training data (S) |\n|                                                                  |\n|   generalization gap ≤ f( I(W; S) )                              |\n|                                                                  |\n|  LOW MUTUAL INFORMATION → GOOD GENERALIZATION                    |\n|  (Algorithm \"forgets\" training data → can't have overfit it)     |\n|                                                                  |\n|  THREE MAIN FRAMEWORKS                                           |\n|  ─────────────────────                                           |\n|  PAC-Bayes:        KL(Q || P) bounds generalization              |\n|                    Output distribution Q close to prior P        |\n|                                                                  |\n|  Mutual Information: I(W; S) bounds generalization               |\n|                    Algorithm output W barely depends on S        |\n|                                                                  |\n|  CMI:              Conditional MI; tighter, handles dependence   |\n|                    across the sample                             |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Bridge: Classical Information Theory → Generalization Bounds",
+      "confidence": "candidate",
+      "text": "SHANNON INFORMATION THEORY          ML GENERALIZATION THEORY\n───────────────────────────────     ────────────────────────────────────────\nChannel capacity C = max_P I(X;Y)   MI bound: gap ≤ √(2σ² I(W;S) / m)\n  — fundamental limit on information   — algorithm W cannot overfit more than\n    transmission rate                    I(W;S) bits of information about S\n\nRate-distortion R(D)                PAC-Bayes: KL(Q||P) as rate term\n  min rate to represent source        KL(Q||P) = excess description length\n  within distortion D                 of posterior Q over prior P\n  — tradeoff: compression vs fidelity   — tradeoff: generalization vs fit\n\nFano's inequality                   Sample complexity lower bounds\n  P_e ≥ (H(Y|X) - 1) / log|Y|       m = Ω(d/ε²) via Fano applied to\n  — error floor from insufficient       d-ary hypothesis testing\n    channel capacity                    on the shattered set\n\nSource coding theorem               MDL principle\n  Optimal code length = H(source)     log|H| bits for finite class\n  — Shannon entropy = min code length   — description length of hypothesis\n\nRelative entropy / KL divergence    PAC-Bayes KL penalty\n  D_KL(P||Q) = E_P[log P/Q]          KL(Q||P) bounds how far posterior\n  — information cost of using Q        can deviate from prior\n    instead of P                        while maintaining generalization\n\nData processing inequality          Generalization under composition\n  I(X;Z) ≤ I(X;Y) if Z ← Y ← X     Post-processing the model W = g(W')\n  — processing cannot increase MI       doesn't increase the MI bound",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "## PAC-Bayes Theory",
+      "confidence": "candidate",
+      "text": "SETUP\n──────\nPrior distribution P over hypothesis space H\nPosterior distribution Q over H (after observing S)\nStochastic classifier: draw h ~ Q, then predict with h.\n\nExpected risk:   R(Q) = E_{h~Q}[R(h)]\nEmpirical risk:  R_S(Q) = E_{h~Q}[R_S(h)]\n\nPAC-BAYES THEOREM (McAllester 1999, Catoni 2007)\n─────────────────────────────────────────────────\nFor any prior P (independent of S), any δ ∈ (0,1),\nwith probability ≥ 1-δ over S:\n\n  For ALL posteriors Q simultaneously:\n\n  R(Q) ≤ R_S(Q) + √( (KL(Q||P) + log(1/δ)) / (2m) )\n\n  OR (Catoni's tighter version):\n  R(Q) ≤ (1 - e^{-c·R_S(Q) - c·(KL(Q||P)+log(2/δ))/m}) / (1 - e^{-c})\n\nKL(Q||P) = ∫ log(dQ/dP) dQ  =  E_{h~Q}[log Q(h)/P(h)]\n\nREADING THE BOUND\n  If Q ≈ P (posterior ≈ prior): KL small → tight bound\n  If Q is concentrated (small variance): KL can be large if far from P\n  Good P = good prior about what h* looks like",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## PAC-Bayes: Tightness and Numerics",
+      "confidence": "candidate",
+      "text": "BERNSTEIN-PAC-BAYES (Langford & Shawe-Taylor 2002)\n────────────────────────────────────────────────────\nMore precise inversion via Bernoulli KL:\n\n  kl(R_S(Q) || R(Q)) ≤ (KL(Q||P) + log(2/δ)) / m\n\nwhere kl(p||q) = p log(p/q) + (1-p) log((1-p)/(1-q))\n\nNUMERICAL EXAMPLE (MNIST-like setting)\n  m = 50,000 training examples\n  Neural net with weight perturbation scheme as Q\n  KL(Q||P) ≈ 10⁶ nats (derived from Gaussian noise injection)\n\n  Bound: R(Q) ≤ R_S(Q) + √( (10⁶ + log 20) / 100,000 )\n                       ≤ R_S(Q) + √10 ≈ 3  ← still vacuous!\n\n  With tighter construction (Dziugaite & Roy 2017):\n    KL(Q||P) ≈ 10,000 nats (optimized PAC-Bayes bound)\n    R(h) ≤ 0.16  ← FIRST non-vacuous bound for a real network!\n    (Compare to actual test error ≈ 0.02 — bound is loose but valid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 160,
+      "heading_context": "## Mutual Information Bounds",
+      "confidence": "candidate",
+      "text": "RUSSO-ZOU BOUND (2016)\n───────────────────────\nLet A: Z^m → W be a learning algorithm.\nS = (Z₁,...,Zₘ) iid from D.\nW = A(S) (the trained model).\n\nIf the loss function ℓ(w, z) is σ²-subgaussian in z for any w:\n\n  |E[generalization gap]| = |E_S[R(A(S)) - R_S(A(S))]|\n                          ≤ √( 2σ² · I(W; S) / m )\n\n  I(W; S) = mutual information between output model W and training set S.\n\nINTERPRETATION\n  I(W; S) = 0: algorithm ignores training data → terrible accuracy\n  I(W; S) = m·log|Z|: algorithm memorizes S → terrible generalization\n  Sweet spot: algorithm uses just enough information from S to solve task\n\nSGD IMPLICATION\n  SGD with small learning rate is \"more random\" → smaller I(W;S)\n  Large batch → less randomness → more information used\n  This formalizes \"small-batch SGD generalizes better\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## Individual-Sample Bounds",
+      "confidence": "candidate",
+      "text": "INDIVIDUAL SAMPLE BOUND (Bu et al. 2020)\n──────────────────────────────────────────\n  |E[generalization gap]| ≤ (1/m) Σᵢ √( 2σ² · I(W; Zᵢ) )\n\n  I(W; Zᵢ) = mutual information between W and the i-th training example.\n\nWHY TIGHTER?\n  I(W; S) ≤ Σᵢ I(W; Zᵢ)   by chain rule\n  So individual-sample bound ≤ full-S bound.\n\n  If most examples are \"uninformative\" but a few are influential,\n  individual bound captures this; full-S bound does not.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "## Conditional Mutual Information (CMI)",
+      "confidence": "candidate",
+      "text": "CMI BOUND (Steinke & Zakynthinou 2020)\n────────────────────────────────────────\nSUPERSAMPLE CONSTRUCTION\n  Generate 2m examples Z₁,...,Z_{2m} iid from D.\n  Let U = (U₁,...,Uₘ) ∈ {0,1}^m be a random index set.\n  Training set: S = {Z_{Uᵢ + 2(i-1)} : i = 1,...,m}\n  (For each pair, choose one for training)\n\n  CMI = I(W; U | Z₁,...,Z_{2m})\n       = how much knowing the algorithm output W tells us\n         about which samples were used for training,\n         given all 2m examples.\n\n  |E[generalization gap]| ≤ √( 2σ² · CMI(W) / m )\n\nADVANTAGE\n  CMI is smaller than I(W; S) because conditioning on all 2m\n  examples removes data-content information.\n  CMI measures only \"which were training examples\" —\n  not the content of the examples.\n\n  Tighter for deterministic algorithms (I(W;S) could be large,\n  CMI can be small if algorithm doesn't identify which samples\n  were training examples).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## MDL and Compression",
+      "confidence": "candidate",
+      "text": "MINIMUM DESCRIPTION LENGTH (MDL) VIEW\n───────────────────────────────────────\nMDL PRINCIPLE: The best hypothesis is the one that compresses\nthe data most, i.e., minimizes description length:\n\n  L(h) + L(data | h)\n\nwhere L(x) = -log₂ P(x) is the code length under a prior P.\n\n**Two-part MDL vs NML MDL.** The formulation above (encode h then encode data given h) is two-part MDL — an approximation. Rissanen's full theory uses Normalized Maximum Likelihood (NML):\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 256,
+      "heading_context": "## MDL and Compression",
+      "confidence": "candidate",
+      "text": "TWO-PART MDL          L(h) + L(data | h)       = code length of h + residuals",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## MDL and Compression",
+      "confidence": "candidate",
+      "text": "               ────────────────────────────   ──────────────────────────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## MDL and Compression",
+      "confidence": "candidate",
+      "text": "\nNML MDL selects the model with minimum total description length, where complexity is measured by regret of the best code — a minimax-optimal characterization. The connection to PAC-Bayes: the Jeffreys prior P(h) ∝ √det I(h) in PAC-Bayes gives the tightest possible bound when the posterior concentrates on the MLE.\n\nCONNECTION TO PAC-BAYES\n  PAC-Bayes with P = prior, Q = posterior:\n    KL(Q || P) = description overhead of Q over P\n  = additional bits needed to describe Q given P\n\nOCCAM'S RAZOR THEOREM (formal version)\n  If an algorithm outputs h that represents S in s bits\n  beyond a universal prior:\n\n    R(h) ≤ R_S(h) + √( (s + log(1/δ)) / (2m) )\n\n  Short description (small s) → good generalization.\n\nPRACTICAL CONSEQUENCES\n  • MDL-based compression of neural net weights → generalization bound\n  • Weight quantization: compressing weights to k bits each\n    reduces effective s\n  • Sparse networks (many zero weights) have smaller s\n  • Lottery ticket hypothesis: small sparse subnetworks generalize\n    because they have small s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "## Comparison of Approaches",
+      "confidence": "candidate",
+      "text": "FRAMEWORK         STRENGTHS                    WEAKNESSES\n──────────────    ─────────────────────────    ──────────────────────\nVC Bounds         Distribution-free            Vacuous for deep nets\n                  Combinatorially clean        Only binary classification\n                  Fundamental theorem          Only worst-case D\n\nRademacher        Any loss function             Still vacuous for deep nets\n                  Data-dependent               Requires bounding sup\n\nPAC-Bayes         Numerically non-vacuous!      Prior choice is critical\n                  Works for stochastic algs     KL computation expensive\n                  Tight for specific algs       Not fully interpretable\n\nMI Bounds         Connects to SGD analysis      Tight only in expectation\n(Russo-Zou)       Captures randomness           Not high-probability bound\n                  Generalizes to online\n\nCMI Bounds        Tightest IT bound known       Supersample construction\n                  Works for deterministic algs  complex to compute\n                  Better than I(W;S)\n\nMDL / Compression Interpretable                 Approximate; coding overhead\n                  Connect to physics (free E)   Empirically limited",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 334,
+      "heading_context": "## Connection to Physics: Free Energy",
+      "confidence": "candidate",
+      "text": "FREE ENERGY CONNECTION\n───────────────────────\nPAC-Bayes resembles the variational free energy in stat. mech.:\n\n  F(Q) = E_{h~Q}[L(h)] + (1/β) KL(Q || P)\n\n  = average energy + (1/β) × entropy relative to prior\n\n  Minimize F over Q:\n    Optimal Q = Gibbs distribution: Q*(h) ∝ P(h) · e^{-β L(h)}\n\n  For learning: L(h) = empirical risk R_S(h)\n    Optimal posterior = P(h) × exp(-β m R_S(h))\n\n  The PAC-Bayes bound says R(Q) ≈ R_S(Q) + O(1/β):\n    High β = strong regularization toward prior = better bound but worse fit\n    Low β = weak regularization = worse bound but better fit\n    Optimal β balances these → Catoni's tighter PAC-Bayes bound\n\nLANGEVIN DYNAMICS\n  SGD + Gaussian noise = discrete Langevin dynamics\n  Converges to Gibbs distribution → PAC-Bayes posterior\n  SGD is implicitly doing variational inference!\n\n**ELBO = PAC-Bayes objective.** The standard variational inference ELBO is:\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "## Connection to Physics: Free Energy",
+      "confidence": "candidate",
+      "text": "               ─────────────────────────   ─────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

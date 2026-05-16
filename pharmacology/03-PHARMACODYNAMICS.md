@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:pharmacodynamics
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Pharmacodynamics: Dose-Response and EC50
+status: source-custody
+source_custody: partial
+current_path: pharmacology/03-PHARMACODYNAMICS.md
+canonical_path: pharmacology/03-PHARMACODYNAMICS.md
+backsource_ids: [proof-backfill:pharmacology:03-pharmacodynamics, git-history:pharmacology:03-pharmacodynamics]
+concepts: [pharmacodynamics]
+root_concepts: [pharmacodynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pharmacodynamics: Dose-Response and EC50
 
 ## The Big Picture

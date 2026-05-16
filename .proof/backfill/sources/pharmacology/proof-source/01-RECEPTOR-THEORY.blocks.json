@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\01-RECEPTOR-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  RECEPTOR THEORY LANDSCAPE                       |\n|                                                                  |\n|  RECEPTOR = Macromolecule that binds drug → transduces signal    |\n|                                                                  |\n|  DRUG-RECEPTOR INTERACTION                                       |\n|  Drug (D) + Receptor (R) ⇌ Drug-Receptor complex (DR) → Effect   |\n|                                                                  |\n|  KEY QUESTIONS                                                   |\n|  1. How tightly does drug bind?   → Affinity (Kd)                |\n|  2. How much receptor is occupied? → Occupancy                   |\n|  3. What effect does binding produce? → Efficacy / Intrinsic     |\n|                                         activity                 |\n|  4. Full agonist? Partial? Antagonist? Inverse?                  |\n|                                                                  |\n|  OCCUPANCY THEORY (Clark 1926)                                   |\n|  Effect ∝ fraction of receptors occupied by drug                 |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Receptor Types",
+      "confidence": "candidate",
+      "text": "MEMBRANE RECEPTORS (extracellular target)\n──────────────────────────────────────────\n\n  TYPE                 MECHANISM               SPEED    EXAMPLES\n  ─────────────────    ─────────────────────   ─────    ────────────────────\n  Ionotropic (ligand-  Drug opens ion channel  ms       GABA_A, nAChR\n  gated ion channel)                                    NMDA (glutamate)\n\n  GPCR (G-protein      Drug → G-protein →      sec      Adrenergic (β-blocker)\n  coupled receptor)    adenylyl cyclase →              Opioid, dopamine\n                       cAMP, PKA cascade               Muscarinic (atropine)\n\n  Receptor tyrosine    Drug → autophospho-     min      Insulin receptor\n  kinase (RTK)         rylation → MAPK, PI3K           EGF receptor (erlotinib)\n                       cascades\n\n  Cytokine receptors   JAK-STAT pathway        min-hr   EPO, IL-2, IFN-γ\n\nINTRACELLULAR RECEPTORS\n────────────────────────\n  Nuclear receptors: Steroid/thyroid hormones enter cell,\n  bind nuclear receptor → transcription factor → gene expression changes.\n  Time: hours. Duration: long.\n\n  Examples:\n    Glucocorticoid receptor → cortisol, prednisone\n    Estrogen receptor → estrogens, tamoxifen (antagonist)\n    PPAR → fibrates (cardiovascular), thiazolidinediones (diabetes)\n    Retinoid receptor → vitamin A, isotretinoin\n\nSTRUCTURAL FEATURES\n  All receptors: binding domain (orthosteric site) + effector domain\n  Allosteric sites: distinct from orthosteric, modulate without blocking",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## Law of Mass Action and Occupancy",
+      "confidence": "candidate",
+      "text": "DRUG-RECEPTOR BINDING\n──────────────────────\n  D + R ⇌ DR\n       k₊₁\n  D + R ──→ DR  (association rate)\n       k₋₁\n  DR ──→ D + R  (dissociation rate)\n\n  At equilibrium:\n    Kd = k₋₁/k₊₁ = [D][R] / [DR]   (dissociation constant)\n\nFRACTIONAL RECEPTOR OCCUPANCY (pO)\n  pO = [DR] / ([R] + [DR]) = [D] / ([D] + Kd)\n\n  This is the Hill equation with n=1 (no cooperativity).\n\n  When [D] = Kd:   pO = 0.5    (50% occupancy)\n  When [D] = 9Kd:  pO = 0.9    (90% occupancy)\n  When [D] = 99Kd: pO = 0.99   (99% occupancy)\n\n  Kd has units of concentration (nM, μM, μg/mL).\n  Lower Kd = higher affinity = drug binds at lower concentration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "## Efficacy: What Happens After Binding",
+      "confidence": "candidate",
+      "text": "INTRINSIC ACTIVITY (α)\n────────────────────────\nEffect = α × pO × Emax\n\n  α = 1.0   Full agonist (maximum possible response)\n  0 < α < 1 Partial agonist (less than maximum response)\n  α = 0     Antagonist (no response, just blocks)\n  α < 0     Inverse agonist (active receptors turned OFF)\n\nEFFICACY vs POTENCY\n  Efficacy = maximum achievable effect (Emax × α)\n  Potency  = concentration needed for 50% of maximum response (EC50)\n\n  ┌─────────────────────────────────────────────────────────┐\n  │           DOSE-RESPONSE CURVES                          │\n  │                                                         │\n  │ Effect  100% │ ━━━━━━━━━━━━ A (full agonist)            │\n  │          75% │     ━━━━━━━━ B (partial agonist)         │\n  │          50% │ A50%          B50%                       │\n  │              │ │              │                         │\n  │              └─│──────────────│──────────→ [Drug]       │\n  │                EC50_A         EC50_B                    │\n  │                (lower = more potent)                    │\n  └─────────────────────────────────────────────────────────┘\n\n  Drug A: high efficacy, high potency (low EC50)\n  Drug B: lower efficacy, lower potency — different in BOTH ways",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Antagonism Types",
+      "confidence": "candidate",
+      "text": "COMPETITIVE (SURMOUNTABLE) ANTAGONISM\n───────────────────────────────────────\nAntagonist competes with agonist for same binding site.\nAt equilibrium:\n\n  pO = [D] / ([D] + Kd(1 + [I]/Ki))\n\n  where [I] = antagonist concentration, Ki = antagonist Kd\n\n  Effect: shifts agonist dose-response curve RIGHT (higher EC50)\n  Enough agonist can overcome the antagonist (surmountable).\n\n  Example: atropine (anticholinergic) blocks acetylcholine at mAChR.\n  High doses of ACh can overcome atropine.\n\nNON-COMPETITIVE ANTAGONISM\n───────────────────────────\nAntagonist binds at a different site (allosteric) or binds\nirreversibly to the orthosteric site.\n\n  Effect: reduces Emax (cannot be surmounted by more agonist)\n  Dose-response: same EC50, lower ceiling.\n\n  Example: phenoxybenzamine (irreversible α-blocker in pheochromocytoma)\n\nIRREVERSIBLE ANTAGONISM\n────────────────────────\nCovalent binding. Drug effect outlasts drug presence.\nDuration determined by rate of new protein synthesis, not drug clearance.\n\n  Examples:\n    Aspirin: irreversibly acetylates COX-1 in platelets.\n    Platelet effect lasts 7-10 days (platelet lifetime — platelets\n    have no nucleus, can't make new COX-1).\n\nUNCOMPETITIVE ANTAGONISM\n─────────────────────────\nBinds to agonist-BOUND receptor only. Rare but important:\n  Memantine (Alzheimer's): binds NMDA channel when open.\n  More activated channel = more blocking.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Partial Agonists: The Dual Role",
+      "confidence": "candidate",
+      "text": "PARTIAL AGONIST BEHAVIOR\n──────────────────────────\nIn presence of full agonist:\n  Partial agonist competes with full agonist.\n  Net effect: REDUCES response (acts as functional antagonist).\n\n  If full agonist is causing toxicity/addiction:\n    Partial agonist displaces full agonist → less effect\n    But doesn't produce zero effect (has own intrinsic activity)\n\nIn absence of full agonist:\n  Partial agonist is the only thing activating receptor → some effect.\n\nCLINICAL EXAMPLE: BUPRENORPHINE\n  Full agonist at opioid receptor = morphine, heroin → high efficacy, addiction\n  Partial agonist = buprenorphine (Suboxone)\n    • If opioid-dependent: buprenorphine displaces heroin → prevents withdrawal\n    • Ceiling effect: buprenorphine can't cause the same euphoria as full agonist\n    • Difficult to overdose (ceiling on respiratory depression)\n    • Used to treat opioid addiction\n\n  Partial agonist = \"ceiling\" drug — both antagonist (displaces full agonist)\n  and agonist (prevents withdrawal).\n\nOTHER PARTIAL AGONISTS\n  Aripiprazole (atypical antipsychotic): D2 partial agonist\n  Buspirone (anxiolytic): 5-HT1A partial agonist\n  Varenicline (smoking cessation): nAChR partial agonist",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "## GPCR Signaling Cascade: The Full Mechanism",
+      "confidence": "candidate",
+      "text": "GPCR → EFFECTOR PATHWAY\n──────────────────────────\n\n  AGONIST\n    │\n    v\n  ┌─────────────────────────────────────────────────────┐\n  │  RECEPTOR (7-transmembrane GPCR)                    │\n  │  Conformational change → activates Gα subunit       │\n  └───────────────────────┬─────────────────────────────┘\n                          │\n          ┌───────────────┼──────────────────┐\n          │               │                  │\n          v               v                  v\n   Gαs (stimulates)  Gαi (inhibits)    Gαq (activates)\n   adenylyl cyclase  adenylyl cyclase  phospholipase C\n          │               │                  │\n          v               v                  v\n        cAMP↑           cAMP↓          DAG + IP3\n          │                                  │\n          v                          ┌───────┴──────┐\n         PKA                         │              │\n          │                        PKC           Ca²⁺ release\n          v                          │              │\n    Phosphorylation              Protein           CaM kinase\n    of target proteins           phosphorylation        │\n                                                   Multiple effects\n\nBETA-ADRENERGIC RECEPTOR (heart)\n  Epinephrine → Gαs → ↑cAMP → ↑PKA → ↑heart rate, ↑contractility\n  β-blocker (propranolol): competitive antagonist → blocks this cascade\n  → ↓heart rate, ↓blood pressure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "## Receptor Regulation: Desensitization and Upregulation",
+      "confidence": "candidate",
+      "text": "PROLONGED AGONIST EXPOSURE → DESENSITIZATION\n──────────────────────────────────────────────\nTolerance: the need for more drug to achieve the same effect.\n\n  TIME COURSE\n  Short-term (min-hr): Receptor phosphorylation → β-arrestin binding\n                        → Uncoupled from G-protein (functional desensitization)\n\n  Medium-term (hr-days): Receptor internalization (endocytosis)\n                          → Fewer receptors on surface (downregulation)\n\n  Long-term (days-wk): Decreased receptor gene expression\n                        → Fewer receptors total\n\n  CLINICAL: Opioid tolerance, β-agonist tolerance in asthma,\n  nitrate tolerance (nitroglycerin becomes ineffective with constant use)\n\nRECEPTOR UPREGULATION (after antagonist exposure)\n  β-blocker (propranolol) chronically used → heart upregulates β-receptors\n  → Suddenly stopping propranolol: excess β-receptors + normal catecholamines\n  → Rebound tachycardia, potentially dangerous\n  → NEVER abruptly stop β-blockers in cardiac patients",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 308,
+      "heading_context": "## Hill Equation and Cooperativity",
+      "confidence": "candidate",
+      "text": "HILL EQUATION (generalized)\n────────────────────────────\n  pO = [D]ⁿ / ([D]ⁿ + Kd^n)\n\n  n = Hill coefficient\n  n = 1: no cooperativity (standard Michaelis-Menten)\n  n > 1: positive cooperativity (binding promotes more binding)\n  n < 1: negative cooperativity\n\nSIGMOIDAL DOSE-RESPONSE CURVE\n  Plotted as effect vs log[D]:\n  n = 1: sigmoidal, symmetric about EC50\n  n > 1: steeper sigmoid\n  n < 1: shallower sigmoid\n\n  The log-scale plot linearizes the curve for reading EC50 directly.\n\nEXAMPLES OF COOPERATIVITY\n  Hemoglobin + O₂: n ≈ 2.8 (positive cooperativity — O₂ binding\n    promotes further O₂ binding)\n  Most drug-receptor interactions: n ≈ 1 (no cooperativity)\n  Allosteric enzymes: can be positive (n>1) or negative (n<1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "## Engineering Bridge: Receptor Theory as Resource Allocation",
+      "confidence": "candidate",
+      "text": "  RECEPTOR THEORY               CS / SYSTEMS PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Fractional occupancy          Resource utilization:\n  pO = [D] / ([D] + Kd)         ρ = λ / (λ + μ) in an M/M/1 queue\n                                where λ = arrival rate, μ = service rate.\n                                Kd = μ/k₊₁ is the ratio of departure\n                                to arrival rates — analogous to the\n                                timeout/backoff ratio in retry logic.\n                                At [D] = Kd: 50% occupancy (= ρ = 0.5).\n\n  Competitive antagonism        Resource contention at a shared binding site:\n  pO = [D] / ([D] + Kd(1+[I]/Ki))  the antagonist competes for the same\n                                site — exactly lock contention. More agonist\n                                ([D] ↑) can displace the antagonist —\n                                surmountable, like increasing priority to\n                                win a contended resource.\n\n  Non-competitive antagonism    Allosteric lock on the resource: the\n  (reduces Emax, not EC50)      antagonist doesn't compete for the same\n                                slot but disables the resource regardless\n                                of occupancy. Cannot be overcome by more\n                                agonist — analogous to a deadlock that\n                                can't be broken by adding more requests.\n\n  Receptor desensitization      Adaptive throttling / circuit breaker:\n  (β-arrestin → internalization) sustained high signal → receptor\n                                phosphorylation → uncoupling → internalization.\n                                The system reduces its own responsiveness\n                                under sustained load — exactly a circuit\n                                breaker pattern or adaptive rate limiting.\n\n  Partial agonist               Partial activation function with ceiling:\n  (α < 1)                       saturates at α·Emax < Emax. In presence of\n                                full agonist, acts as antagonist by\n                                displacing it and replacing with lower-\n                                ceiling activation — ceiling drug pattern.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

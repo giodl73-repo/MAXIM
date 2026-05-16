@@ -1,0 +1,108 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\05-KERNEL-METHODS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 69,
+      "heading_context": "## Common Kernels",
+      "headers": [
+        "Kernel",
+        "Formula",
+        "Feature Space",
+        "Properties"
+      ],
+      "rows": [
+        [
+          "Linear",
+          "k(x,x') = xᵀx'",
+          "ℝⁿ itself",
+          "Trivial — no lift"
+        ],
+        [
+          "Polynomial (deg d)",
+          "k(x,x') = (xᵀx' + c)ᵈ",
+          "Monomials up to degree d",
+          "Finite-dim features"
+        ],
+        [
+          "RBF / Gaussian",
+          "k(x,x') = exp(-\\|\\|x-x'\\|\\|²/2σ²)",
+          "Infinite-dim",
+          "Universal approximator"
+        ],
+        [
+          "Laplace",
+          "k(x,x') = exp(-\\|\\|x-x'\\|\\|/σ)",
+          "Infinite-dim",
+          "Heavier tails than RBF"
+        ],
+        [
+          "Matérn",
+          "k(x,x') = (complicated)",
+          "Sobolev space H^ν",
+          "Differentiability-controlled"
+        ],
+        [
+          "Periodic",
+          "k(x,x') = exp(-2sin²(π\\|x-x'\\|/p)/σ²)",
+          "Fourier features",
+          "For periodic data"
+        ],
+        [
+          "String kernel",
+          "Counts common subsequences",
+          "Sequence space",
+          "NLP applications"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 312,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Method",
+        "Key Hyperparameter"
+      ],
+      "rows": [
+        [
+          "Nonlinear classification, small-medium data",
+          "Kernel SVM",
+          "C (margin), kernel bandwidth"
+        ],
+        [
+          "Nonlinear regression",
+          "Kernel ridge regression",
+          "λ (regularization), kernel"
+        ],
+        [
+          "Unknown feature space, smooth data",
+          "RBF kernel",
+          "σ (bandwidth)"
+        ],
+        [
+          "Polynomial features needed",
+          "Polynomial kernel",
+          "degree d, constant c"
+        ],
+        [
+          "Time series / sequences",
+          "Sequence kernels",
+          "Gap penalty, length"
+        ],
+        [
+          "Want interpretable features",
+          "Explicit feature map",
+          "Degree, Fourier features"
+        ],
+        [
+          "Large m (> 10⁶)",
+          "Random Fourier features",
+          "Approximation rank"
+        ]
+      ]
+    }
+  ]
+}

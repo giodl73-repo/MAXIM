@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pharmacology:pharmacokinetics
+kind: guide
+module: pharmacology
+section: pharmacology
+title: Pharmacokinetics: ADME
+status: source-custody
+source_custody: partial
+current_path: pharmacology/02-PHARMACOKINETICS.md
+canonical_path: pharmacology/02-PHARMACOKINETICS.md
+backsource_ids: [proof-backfill:pharmacology:02-pharmacokinetics, git-history:pharmacology:02-pharmacokinetics]
+concepts: [pharmacokinetics]
+root_concepts: [pharmacokinetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pharmacokinetics: ADME
 
 ## The Big Picture

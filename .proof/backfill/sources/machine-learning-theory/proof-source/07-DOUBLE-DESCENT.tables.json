@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\07-DOUBLE-DESCENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 370,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Classical U-shaped error",
+          "Underparameterized bias-variance regime",
+          "Cross-validation estimates, not proves, the optimum."
+        ],
+        [
+          "Error peak near P ~= m",
+          "Interpolation threshold",
+          "Peak location depends on data noise and model family."
+        ],
+        [
+          "Error drops again for P >> m",
+          "Double descent or benign overfitting",
+          "More parameters help only with the right inductive bias."
+        ],
+        [
+          "Epoch-wise peak then decline",
+          "Epoch-wise double descent",
+          "Early stopping can stop at the wrong side of the peak."
+        ],
+        [
+          "Memorization then generalization",
+          "Grokking dynamics",
+          "Weight decay and data structure are central."
+        ],
+        [
+          "Larger model improves same-data performance",
+          "Scaling-law regime",
+          "Compute/data balance can dominate raw parameter count."
+        ],
+        [
+          "SGD beats Adam in generalization",
+          "Implicit regularization difference",
+          "Optimizer effects are architecture- and schedule-dependent."
+        ]
+      ]
+    }
+  ]
+}

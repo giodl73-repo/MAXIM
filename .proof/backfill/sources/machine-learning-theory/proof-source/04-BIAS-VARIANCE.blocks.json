@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\04-BIAS-VARIANCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|                  BIAS-VARIANCE FRAMEWORK                         |\n|                                                                  |\n|  TOTAL EXPECTED ERROR = BIAS² + VARIANCE + IRREDUCIBLE NOISE     |\n|                                                                  |\n|  BIAS: Error from wrong assumptions in the model class           |\n|        Underfitting. Too simple. High if H can't represent f*.   |\n|                                                                  |\n|  VARIANCE: Error from sensitivity to training set fluctuations   |\n|            Overfitting. Too complex. High if model memorizes S.  |\n|                                                                  |\n|  NOISE: Irreducible. Intrinsic randomness in the label process.  |\n|         Cannot be eliminated by any model.                       |\n|                                                                  |\n|    ↑                                                             |\n|  Error                                            Total error    |\n|    |              Variance                      ╱                |\n|    |               ╱╲                          ╱                 |\n|    |              ╱  ╲                        ╱                  |\n|    |             ╱    ╲                      ╱                   |\n|    |            ╱      ╲                    ╱                    |\n|    |  Bias²    ╱        ╲__________________╱                     |\n|    |───────────────────────────────────────                      |\n|    +───────────────────────────────────────→ Model complexity    |\n|                              ↑                                   |\n|                          Optimal point                           |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## Formal Decomposition",
+      "confidence": "candidate",
+      "text": "BIAS-VARIANCE DECOMPOSITION\n─────────────────────────────\n\nFor a fixed test point x, let ĥ_S(x) be the predictor trained on S.\nExpected squared error over S and ε:\n\nE_{S,ε}[(y - ĥ_S(x))²]\n\n= (E_S[ĥ_S(x)] - f(x))²    +    Var_S[ĥ_S(x)]    +    σ²\n  ─────────────────────────       ────────────────        ────\n         Bias²                        Variance         Noise\n\nWHERE\n  Bias(x)     = E_S[ĥ_S(x)] - f(x)        (average prediction - true value)\n  Variance(x) = E_S[(ĥ_S(x) - E_S[ĥ_S(x)])²]   (variation across training sets)\n\nDERIVATION KEY STEP\n  E[(y - ĥ)²] = E[(y - f + f - E[ĥ] + E[ĥ] - ĥ)²]\n  = E[ε²] + (f - E[ĥ])² + E[(E[ĥ] - ĥ)²] + cross terms\n  Cross terms vanish by independence. QED.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## The Classical U-Curve and Model Selection",
+      "confidence": "candidate",
+      "text": "CLASSICAL PICTURE: U-SHAPED TEST ERROR CURVE\n────────────────────────────────────────────\n\n  Error\n    │                                          Total (test)\n    │ ▲                                     ╱\n    │  ╲ Bias²                            ╱\n    │   ╲                               ╱\n    │    ╲          Variance          ╱\n    │     ╲         ╱               ╱\n    │      ╲       ╱   Total       ╱\n    │       ╲     ╱   (train)     ╱\n    │        ╲   ╱ ──────────────\n    │         ╲ ╱\n    │          ╳  ← Optimal model complexity\n    │           ╲\n    └────────────────────────────────────────→ Model complexity\n\n  Train error: monotonically decreasing\n  Test error:  U-shaped, with minimum at optimal complexity\n\n  Model selection: choose complexity at the minimum of test error.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## The Bias-Variance Tradeoff in Classification",
+      "confidence": "candidate",
+      "text": "CLASSIFICATION (0-1 loss)\n──────────────────────────\nNo clean additive decomposition in general.\n\nSeveral variants exist:\n\n  DOMINGOS (2000): Signed bias-variance-noise\n    • Bias: systematic errors (same direction)\n    • Variance: random errors (vary with training set)\n    • Noise: Bayes error floor\n\n  BAYESIAN: Via squared loss on posterior probabilities\n    P(Y=1|X=x) → apply regression decomposition to probabilities\n\n  PRACTICAL IMPLICATION\n    Bias-variance intuition still applies qualitatively.\n    Large model, small data → overfitting → high effective variance.\n    Small model, large data → underfitting → high bias.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## Bias-Variance as a Function of Training Set Size",
+      "confidence": "candidate",
+      "text": "FIXED MODEL CLASS, VARYING m\n───────────────────────────────\n\n  m small:  Variance dominates. Model memorizes few samples.\n            Test >> Train error (large generalization gap).\n\n  m → ∞:   Variance → 0. Bias remains fixed (determined by H).\n            Test error → Bias² + σ²  (learning curve asymptote)\n\n  LEARNING CURVE\n    ↑\n  Error\n    │ ████                         ← Test error\n    │ ████╲\n    │ ████ ╲────────────────────   ← Test converges to bias + noise\n    │ ████  ╲                      ← Train error rises toward asymptote\n    │  ↑    ╲────────────────────  ← Train error (starts at 0)\n    │ optimal\n    └────────────────────────→ m (training set size)\n\n  If test and train error converge to a HIGH value: bias problem\n  If test and train error converge to a LOW value: good model\n  If gap between test and train stays large: variance problem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## Regularization as Bias-Variance Control",
+      "confidence": "candidate",
+      "text": "RIDGE REGRESSION (L2 regularization)\n──────────────────────────────────────\n  ĥ_λ = argmin_{w} [ (1/m)||Xw - y||² + λ||w||² ]\n\n  Solution:  ŵ_λ = (XᵀX + λI)⁻¹ Xᵀy\n\n  BIAS:     E[ŵ_λ] = (XᵀX + λI)⁻¹ XᵀX · w*\n            Bias = λ · (XᵀX + λI)⁻¹ · w*   [nonzero if λ > 0]\n\n  VARIANCE: Var[ŵ_λ] = σ² · (XᵀX + λI)⁻¹ XᵀX (XᵀX + λI)⁻¹\n            Smaller than OLS variance (λ shrinks eigenvalues)\n\n  AS λ INCREASES:\n    Bias↑   Variance↓\n    Optimal λ balances these; found via cross-validation.\n\nLASSO (L1 regularization)\n  Same bias-variance tradeoff but induces sparsity.\n  Useful when true w* is sparse.\n\nDROPOUT (neural nets)\n  Approximates ensemble of models → variance reduction.\n  Effective regularization without explicit penalty term.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 274,
+      "heading_context": "## Regularization as Bias-Variance Control",
+      "confidence": "candidate",
+      "text": "**AIC and BIC derivations.** AIC = -2 log L + 2k follows from Akaike (1974): minimizing AIC is asymptotically equivalent to minimizing expected KL divergence KL(P_true || P_model) — the expected information loss from using the model instead of the true distribution. The 2k penalty is an asymptotic bias correction: the MLE overfits by approximately k/m in expected KL, so penalizing by 2k (on the -2 log L scale) corrects this. BIC = -2 log L + k log m follows from the Laplace approximation to the marginal likelihood: ∫ P(data|θ) P(θ) dθ ≈ P(data|θ̂_MAP) · (2π/m)^{k/2} · |I(θ̂)|^{-1/2}, where the (2π/m)^{k/2} term gives the k log m penalty. BIC is a model evidence approximation; AIC is a predictive risk estimator.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "## Model Selection Methods",
+      "confidence": "candidate",
+      "text": "METHOD              APPROACH                      NOTES\n──────────────────  ──────────────────────────    ──────────────────────\nHold-out validation Train/val/test split          Simple; wastes data\nK-fold CV           Rotate through k folds        Better use of data\nLeave-one-out CV    K-fold with K=m               Expensive; unbiased\nBootstrap           Resample with replacement     Good for small data\nAIC                 -2 log L + 2k                Penalizes complexity\n                    (k = num parameters)          Asymptotically efficient\nBIC                 -2 log L + k·log m           Penalizes more with m\n                    (m = sample size)             Consistent model selection\nMDL                 Minimum description length    Information-theoretic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "## Connection to Regularization Theory",
+      "confidence": "candidate",
+      "text": "REGULARIZATION AS IMPLICIT BIAS CONTROL\n──────────────────────────────────────────\n\nTIKHONOV REGULARIZATION (generalization of L2)\n  Adds ||Lw||² for some operator L\n  L = identity → Ridge; L = differences → smoothness prior\n\nKERNEL RIDGE REGRESSION\n  In RKHS with kernel k:\n    ĥ = argmin_{h ∈ H_k} [ (1/m)Σ loss(h(xᵢ),yᵢ) + λ||h||²_{H_k} ]\n\n  Bias: controlled by λ and richness of k (can represent f*?)\n  Variance: O(tr(K)/(λ²m)) where K is the kernel Gram matrix\n\n  Optimal λ ~ m^{-2/(2β+d)} for Sobolev spaces (β smoothness, d dims)\n  → Regularization must decrease as m grows\n\n**Spectral decomposition of kernel ridge regression bias-variance.** Via Mercer decomposition of the kernel (eigenfunctions φⱼ, eigenvalues μⱼ), the kernel ridge estimator decomposes as:\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## Connection to Regularization Theory",
+      "confidence": "candidate",
+      "text": "  As λ → 0:  bias → 0, variance → σ² Σⱼ 1/m  (explodes if Σμⱼ diverges)\n  As λ → ∞:  variance → 0, bias → Σⱼ fⱼ² = ‖f*‖²  (complete shrinkage)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "## Connection to Regularization Theory",
+      "confidence": "candidate",
+      "text": "\nTHE DOUBLE DESCENT PROBLEM\n  Classical theory says: increase complexity → increase variance → overfit\n  Practice shows: keep increasing complexity past interpolation → underfit\n                  decreases again (benign overfitting)\n  This is Module 07. The bias-variance picture is incomplete.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

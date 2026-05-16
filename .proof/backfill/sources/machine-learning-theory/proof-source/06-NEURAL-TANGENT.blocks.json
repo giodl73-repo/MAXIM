@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "machine-learning-theory\\06-NEURAL-TANGENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              NEURAL TANGENT KERNEL FRAMEWORK                     |\n|                                                                  |\n|  SETUP                                                           |\n|  Network f(x; θ) parameterized by θ ∈ ℝᴾ                         |\n|  P = number of parameters (neurons × weights)                    |\n|                                                                  |\n|  NTK DEFINITION                                                  |\n|  K^(t)(x, x') = ⟨∇_θ f(x; θᵗ), ∇_θ f(x'; θᵗ)⟩                    |\n|                                                                  |\n|  INFINITE-WIDTH MIRACLE                                          |\n|  As width → ∞:                                                   |\n|  (1) NTK converges to a deterministic kernel K*                  |\n|  (2) K^(t) stays constant during training: K^(t) = K* for all t  |\n|  (3) Training = kernel regression with K*                        |\n|                                                                  |\n|  IMPLICATION: For sufficiently wide networks, training is        |\n|  equivalent to kernel regression in a fixed RKHS.                |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Gradient Descent as Kernel Regression",
+      "confidence": "candidate",
+      "text": "GRADIENT FLOW DYNAMICS\n────────────────────────\n  dθ/dt = -∇_θ L(θ)   where  L(θ) = (1/2)||f(X;θ) - y||²\n\n  df(X;θ)/dt = J(θ) · dθ/dt = -J(θ) · J(θ)ᵀ · (f(X;θ) - y)\n\nwhere J(θ)ᵢⱼ = ∂f(xᵢ;θ)/∂θⱼ  is the Jacobian (m × P matrix)\n\nDEFINE KERNEL MATRIX\n  K(θ) = J(θ) · J(θ)ᵀ   (m × m matrix)\n  K(θ)ᵢⱼ = ⟨∇_θ f(xᵢ;θ), ∇_θ f(xⱼ;θ)⟩  = NTK evaluated at (xᵢ,xⱼ)\n\nDYNAMICS OF RESIDUALS\n  d(f(X;θ) - y)/dt = -K(θ) · (f(X;θ) - y)\n\n  If K(θ) is CONSTANT = K*:\n    f(X;θᵗ) - y = e^{-K* t} · (f(X;θ⁰) - y)\n    → Exponential convergence at rate = min eigenvalue of K*\n    → At t→∞: f(X;θ∞) = y  (interpolates training data)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## Bridge: Random Matrix Theory → NTK Eigenvalue Spectrum",
+      "confidence": "candidate",
+      "text": "MARCHENKO-PASTUR LAW\n  For a random feature matrix Φ ∈ ℝ^{m×n} with iid entries (n = width),\n  the empirical spectral distribution of (1/n)ΦΦᵀ converges as m,n → ∞\n  with γ = m/n fixed to the Marchenko-Pastur distribution:\n\n    ρ_MP(λ) = (1/2πγ) √((λ+ - λ)(λ - λ-)) / λ\n    λ± = (1 ± √γ)²\n\n  λ_min(K) ≈ (1 - √γ)² · σ²   (if γ < 1, i.e., n > m)\n  If γ > 1 (m > n): K is rank-deficient; λ_min = 0.\n\nNTK SPECTRUM AND TRAINING CONVERGENCE\n  Convergence rate of gradient descent = λ_min(K^∞).\n  For K^∞ determined by a PD kernel over m points:\n\n  • If K^∞ has all eigenvalues bounded away from 0 (full rank, well-conditioned):\n    linear convergence rate = λ_min(K^∞) > 0.\n\n  • Condition number κ(K^∞) = λ_max/λ_min determines convergence speed:\n    large κ → slow convergence (stiff system of ODEs).\n\n  • For ReLU NTK on uniform sphere data:\n    eigenvalues decay polynomially ~ j^{-d-1} where d = input dimension.\n    λ_min → 0 as m grows relative to d — generalization degrades.\n\nWIGNER SEMICIRCLE AND WEIGHT INITIALIZATION\n  At initialization, weight matrices Wˡ have iid Gaussian entries.\n  The singular value distribution of Wˡ follows the Marchenko-Pastur law.\n  The signal propagation through layers (mean field theory) depends on:\n    q¹(x,x') = E[(Wˡ·x)(Wˡ·x')] = σ²_w · ‖x‖² δ_{x=x'}\n  Controlled by the weight variance σ²_w — the \"edge of chaos\" initialization\n  (σ²_w = 2 for ReLU) corresponds to spectral radius ≈ 1, keeping gradients\n  from vanishing or exploding.\n\nFREE PROBABILITY (operator-valued generalization)\n  For compositional models (deep networks), the spectral distribution of\n  products of random matrices is analyzed via free convolution (Voiculescu):\n    ρ_{AB} = ρ_A ⊞ ρ_B  (free convolution, not classical convolution)\n  This is the correct tool for deep network spectra where layer widths vary.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "## Convergence of Infinite-Width Networks",
+      "confidence": "candidate",
+      "text": "WIDTH SCALING AND NTK\n──────────────────────\nConsider a fully connected network with L layers, width n:\n\n  Layer ℓ: hᵗ⁺¹(x) = (1/√n) Wℓ · σ(hˡ(x)) + bˡ\n\n  NTK at initialization (random Wˡ, bˡ):\n    K^(0)(x, x') = E_θ[⟨∇_θ f(x;θ), ∇_θ f(x';θ)⟩]\n\n  As n → ∞: K^(0) → K^∞ (deterministic limit)\n\n  KEY THEOREM (Jacot, Gabriel, Hongler 2018)\n  For n → ∞ (appropriately normalized):\n  (1) At initialization: K^(0) converges in probability to K^∞\n  (2) During training: K^(t) stays close to K^∞ for all t\n  (3) Training dynamics are determined by K^∞ alone\n\n  \"The kernel does not change.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## The NTK Formula (Recursive)",
+      "confidence": "candidate",
+      "text": "NTK RECURSION\n──────────────\nFor a depth-L network with activation σ:\n\n  K^∞(x, x') = Σᵢ₌₁ᴸ Θᵢ(x, x')\n\nwhere the kernel decomposition involves:\n\n  Σ⁰(x, x') = x·x'/d   (input correlation)\n\n  Kᵢ(x, x') = E_{(u,v) ~ N(0, [Σⁱ⁻¹])}[σ(u)σ(v)]   (covariance kernel)\n\n  Σᵢ(x, x') = E_{(u,v) ~ N(0, [Σⁱ⁻¹])}[σ(u)σ(v)]   (next layer kernel)\n\n  Θᵢ(x, x') = K̃ᵢ(x, x') · E[σ'(u)σ'(v)]   (derivative contribution)\n\nSPECIFIC CASE: ReLU activation\n  Kᵢ can be computed in closed form via arc-cosine kernels:\n    E[ReLU(u)ReLU(v)] = (1/2π)(sin θ + (π-θ)cos θ) ||u||||v||\n  where θ = arccos(u·v/(||u||||v||))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "## NTK and Lazy Training",
+      "confidence": "candidate",
+      "text": "LAZY TRAINING REGIME\n─────────────────────\nWhen width n → ∞ (or learning rate small), parameters barely move:\n\n  ||θᵗ - θ⁰||₂ → 0 as n → ∞ (for fixed t)\n\n  \"Lazy\" because parameters stay near initialization.\n  Network behaves as a linearized model around θ⁰:\n\n    f(x; θ) ≈ f(x; θ⁰) + ⟨∇_θ f(x; θ⁰), θ - θ⁰⟩\n\n  This linearized model = kernel regression with NTK.\n\nCONTRAST WITH FEATURE LEARNING\n  Finite-width networks: θ moves significantly during training.\n  Features (internal representations) evolve.\n  This is the \"feature learning\" regime — where neural nets\n  outperform kernel methods in practice.\n\n  NTK regime:  parameters barely move → no feature learning\n  Feature learning regime:  parameters move → representations improve\n\n  The gap between NTK theory and practical neural nets\n  = the gap between kernel regression and feature learning.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## What the NTK Predicts",
+      "confidence": "candidate",
+      "text": "NTK PREDICTIONS\n────────────────\nUnder NTK regime (infinite width, small learning rate):\n\n(1) GLOBAL CONVERGENCE\n    Gradient descent converges to global minimum (not just local)\n    because optimization is linear (kernel regression).\n\n(2) GENERALIZATION\n    Generalization = RKHS generalization with kernel K^∞.\n    Rademacher complexity of H_{K^∞} bounds the gap.\n\n(3) ARCHITECTURE ENCODES INDUCTIVE BIAS\n    K^∞ depends on network architecture.\n    Convolutional nets → translation-equivariant K^∞\n    Recurrent nets → sequential structure in K^∞\n    The NTK captures architectural inductive bias precisely.\n\n(4) INTERPOLATION\n    At t → ∞, network interpolates training data exactly.\n    Generalization depends on smoothness of K^∞.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Limitations of the NTK",
+      "confidence": "candidate",
+      "text": "WHERE NTK FAILS TO DESCRIBE PRACTICE\n──────────────────────────────────────\n\n(1) NTK REGIME ≠ PRACTICAL REGIME\n    Real networks have finite width.\n    In practice, learning rate is not infinitesimal.\n    Parameters move far from initialization.\n    Feature learning happens — representations improve.\n\n(2) NTK BOUNDS STILL VACUOUS\n    Even with kernel theory, for m = 10⁶, d = 10⁸ parameters:\n    RKHS bound ~ √(tr(K)/m) is not small enough.\n\n(3) NTK DOESN'T EXPLAIN NEURAL NET SUPERIORITY\n    Practical nets outperform kernel regression with NTK.\n    This means feature learning (beyond NTK) is responsible.\n    NTK describes what happens — but not why nets beat kernels.\n\n(4) PHASE TRANSITIONS\n    Practical nets exhibit phase transitions (grokking, double descent)\n    not predicted by NTK (kernel regression has no phase transitions).\n\nMEAN FIELD THEORY: alternative approach for large but finite width\n  Parameters move, kernels evolve, representations are learned.\n  Harder to analyze but closer to practice.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Finite-Width Corrections",
+      "confidence": "candidate",
+      "text": "1/n CORRECTIONS TO NTK\n────────────────────────\nFor width n < ∞, the NTK evolves during training:\n\n  K^(t) = K^∞ + (1/n) · δK^(t) + O(1/n²)\n\nThe correction δK^(t) captures feature learning at leading order.\n\nMEAN FIELD LIMIT (different from NTK)\n  Instead of n → ∞ with fixed initialization variance:\n  Consider particles (neurons) evolving in weight space.\n  The measure over neurons evolves via Wasserstein gradient flow.\n  Feature learning is represented as distribution over neurons shifting.\n\n  This gives a separate theory closer to practical training.\n\n**Mean field theory: Wasserstein gradient flow perspective (Mei, Montanari, Nguyen 2018).** In the mean field limit, treat each neuron as a particle with weight vector θᵢ ∈ ℝᵈ. The network is a weighted sum f(x; μ) = ∫ h(x, θ) dμ(θ) where μ is a probability measure over weight space. Training minimizes a functional F[μ] = R(μ) + λ·Ω(μ) over the space of measures (the Wasserstein space W₂). The gradient flow in W₂ is:\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "## Connections to Other Theory",
+      "confidence": "candidate",
+      "text": "NTK ←→ KERNEL RIDGE REGRESSION\n  NTK training = kernel ridge with K^∞ + Tikhonov regularization\n  Implicit regularization from stopping early → λ depends on t\n\nNTK ←→ GAUSSIAN PROCESSES\n  Random neural net at initialization = Gaussian process\n  with covariance kernel = NNGP kernel (related to NTK)\n  Training neural net with squared loss = GP posterior inference\n  (in the NTK/infinite-width limit)\n\n**NNGP vs NTK: two kernels, two views of the infinite-width network.** The NNGP kernel K_NNGP(x, x') = E_θ[f(x;θ) f(x';θ)] is the covariance of the random function at initialization — the prior in GP regression. The NTK kernel K_NTK(x, x') = E_θ[⟨∇_θ f(x;θ), ∇_θ f(x';θ)⟩] captures how the function changes during training. Recursively:\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "## Connections to Other Theory",
+      "confidence": "candidate",
+      "text": "\nTraining the network with MSE loss corresponds to GP posterior inference with kernel K_NTK (not K_NNGP). The random network at initialization is a GP with kernel K_NNGP. The trained network (in the NTK limit) is a GP posterior with kernel K_NTK and likelihood determined by the training data. These are different — and for deep networks, K_NTK has richer structure due to the depth-dependent derivative terms.\n\nNTK ←→ DOUBLE DESCENT\n  In NTK regime, the interpolating solution is unique (kernel is PD)\n  → minimum-norm interpolant in RKHS\n  → benign overfitting under certain conditions (Module 07)\n\nNTK ←→ MEAN FIELD\n  NTK: width → ∞, parameters nearly frozen  [lazy training]\n  Mean field: width → ∞, particles evolve   [active training]\n  These are different infinite-width limits depending on scaling.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
