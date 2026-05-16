@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:polymers-processing
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Polymer Processing: Extrusion, Molding
+status: source-custody
+source_custody: partial
+current_path: materials-processing/08-POLYMERS-PROCESSING.md
+canonical_path: materials-processing/08-POLYMERS-PROCESSING.md
+backsource_ids: [proof-backfill:materials-processing:08-polymers-processing, git-history:materials-processing:08-polymers-processing]
+concepts: [polymers, processing]
+root_concepts: [polymers, processing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Polymer Processing: Extrusion, Molding
 
 ## The Big Picture
@@ -92,9 +111,9 @@ SINGLE-SCREW EXTRUDER ANATOMY
                │
                ▼
   ┌─────────────────────────────────────────────────┐
-  │  Feed zone  │  Compression zone  │ Metering zone │
-  │  (deep      │  (decreasing       │ (shallow,     │
-  │   channels) │   channel depth)   │  pumping)     │
+  │  Feed zone  │  Compression zone  │Metering zone │
+  │  (deep      │  (decreasing       │(shallow,     │
+  │   channels) │   channel depth)   │ pumping)     │
   └─────────────────────────────────────────────────┘
                                                   → Die
        Barrel heaters (multiple zones)

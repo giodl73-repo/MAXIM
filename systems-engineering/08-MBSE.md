@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:mbse
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: Model-Based Systems Engineering (MBSE)
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/08-MBSE.md
+canonical_path: systems-engineering/08-MBSE.md
+backsource_ids: [proof-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]
+concepts: [mbse]
+root_concepts: [mbse]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Model-Based Systems Engineering (MBSE)
 
 ## The Big Picture

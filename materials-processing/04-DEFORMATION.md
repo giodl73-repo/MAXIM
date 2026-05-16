@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:deformation
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Plastic Deformation and Work Hardening
+status: source-custody
+source_custody: partial
+current_path: materials-processing/04-DEFORMATION.md
+canonical_path: materials-processing/04-DEFORMATION.md
+backsource_ids: [proof-backfill:materials-processing:04-deformation, git-history:materials-processing:04-deformation]
+concepts: [deformation]
+root_concepts: [deformation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plastic Deformation and Work Hardening
 
 ## The Big Picture

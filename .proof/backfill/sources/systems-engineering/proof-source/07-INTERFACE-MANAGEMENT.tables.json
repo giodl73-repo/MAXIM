@@ -1,0 +1,133 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\07-INTERFACE-MANAGEMENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 295,
+      "heading_context": "## Standards for Interface Definitions",
+      "headers": [
+        "Standard",
+        "Interface Type",
+        "Domain"
+      ],
+      "rows": [
+        [
+          "MIL-STD-1553",
+          "1 Mbit/s dual-redundant bus",
+          "Military avionics"
+        ],
+        [
+          "ARINC 429",
+          "100 kbit/s unidirectional serial",
+          "Civil avionics"
+        ],
+        [
+          "CAN (ISO 11898)",
+          "1 Mbit/s differential serial bus",
+          "Automotive, industrial"
+        ],
+        [
+          "Ethernet (IEEE 802.3)",
+          "10M–100G",
+          "Commercial IT, modern vehicles"
+        ],
+        [
+          "ARINC 664 (AFDX)",
+          "Deterministic Ethernet for avionics",
+          "Civil avionics"
+        ],
+        [
+          "SpaceWire (ECSS-E-ST-50-12)",
+          "200 Mbit/s point-to-point",
+          "Spacecraft"
+        ],
+        [
+          "RS-422/485",
+          "Differential serial",
+          "Industrial, legacy"
+        ],
+        [
+          "USB 3.x",
+          "5–40 Gbit/s",
+          "Consumer, lab test"
+        ],
+        [
+          "PCIe",
+          "8–32 GT/s per lane",
+          "Embedded computing"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 309,
+      "heading_context": "## Standards for Interface Definitions",
+      "headers": [
+        "Standard",
+        "Domain"
+      ],
+      "rows": [
+        [
+          "MIL-C-5015",
+          "Military circular connector (legacy, widely used)"
+        ],
+        [
+          "MIL-DTL-38999",
+          "Modern military circular connector (Series III)"
+        ],
+        [
+          "D-Sub (DE-9, DB-25)",
+          "Legacy serial/parallel data"
+        ],
+        [
+          "VPX (VITA 65)",
+          "Rugged embedded computing boards"
+        ],
+        [
+          "OpenVPX",
+          "Interoperability on VPX"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 350,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Interface Challenge",
+        "Action"
+      ],
+      "rows": [
+        [
+          "Define what crosses a subsystem boundary",
+          "Write ICD (Interface Control Document)"
+        ],
+        [
+          "Map all interfaces in the system",
+          "Create interface matrix + N² diagram"
+        ],
+        [
+          "Control changes after baseline",
+          "ICWG + ECR/ECO process"
+        ],
+        [
+          "Test a subsystem before mating hardware available",
+          "Simulator/stub for unavailable hardware"
+        ],
+        [
+          "Integrate without losing isolation",
+          "Incremental integration, one interface at a time"
+        ],
+        [
+          "Early detection of interface mismatches",
+          "Interface requirements review workshop (both teams)"
+        ],
+        [
+          "Capture interfaces in system model",
+          "SysML ports + flow specifications in IBD"
+        ]
+      ]
+    }
+  ]
+}

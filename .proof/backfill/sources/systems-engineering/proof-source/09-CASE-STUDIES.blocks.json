@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\09-CASE-STUDIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CASE STUDY MAP\n──────────────────────────────────────────────────────────────────\nCLASSIC FAILURES (fundamental SE failures):\n  Mars Climate Orbiter (1999)      Units mismatch — interface failure\n  Therac-25 (1985–1987)            SW safety without system-level view\n  Ariane 5 Flight 501 (1996)       Reuse without re-verification\n  Boeing 737 MAX (2018–2019)       Requirements and safety process failures\n  Tacoma Narrows Bridge (1940)     Missing physics in requirements\n\nCOMPLEX SUCCESSES:\n  Apollo Program (1961–1969)       SE discipline invented under pressure\n  Space Shuttle Challenger (1986)  Where SE broke down (for contrast)\n  F-22 Raptor development          Large-scale MBSE adoption\n  ISS (International Space Station) SoS (System of Systems) SE\n\nSOFTWARE-SE INTERSECTIONS:\n  Denver Airport Baggage System    SW in physical system integration\n  Healthcare.gov launch (2013)     Requirements + integration failure\n  Knight Capital (2012)            Change management, deployment risk",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### What Happened",
+      "confidence": "candidate",
+      "text": "TIMELINE\n  2012-08-01: Knight Capital deploys new market-making code to 8 servers\n  One server NOT updated — still running old code with dormant \"Power Peg\" function\n  Power Peg: dead code path from 2003, repurposed flag reactivated by new deployment\n  09:30: Market opens. Old code activates, places millions of errant orders\n  09:31-10:15: $440M loss in 45 minutes. Knight Capital effectively bankrupt.\n\nROOT CAUSE CHAIN:\n  Deployment to 8 servers manually — 1 server missed          ← no automated deployment\n  Code reused a deployment flag for new purpose               ← dead code not removed\n  No rollback mechanism once errant trading started           ← no kill switch\n  No monitoring detected the anomaly for 45 minutes           ← no observability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "### SE Lessons",
+      "confidence": "candidate",
+      "text": "SE FAILURE PATTERN                    LESSON\n──────────────────────────────────────────────────────────────────\nManual deployment across fleet        Automated deployment (CI/CD) with\n                                      verified rollout to all nodes\nDead code left in codebase            Configuration management: remove\n                                      dead code paths; don't reuse flags\nNo real-time monitoring               Observability: anomaly detection on\n                                      critical financial metrics\nNo automated rollback                 Kill switches and circuit breakers\n                                      for safety-critical deployments",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### What Happened",
+      "confidence": "candidate",
+      "text": "TIMELINE\n  2010: ACA signed into law. Healthcare.gov required by Oct 2013.\n  2011-2013: 55+ contractors, no single systems integrator assigned\n  CGI Federal as lead web contractor; QSSI for data hub\n  NO end-to-end integration testing before launch\n  2013-10-01: Launch. Site crashes immediately.\n    6 users successfully enrolled on Day 1 (out of millions attempting)\n    Peak error rate: >70% of sessions failed\n  2013-10-20: \"Tech surge\" — new team brought in\n  2013-12-01: Site functional after 2-month emergency remediation\n\nROOT CAUSE CHAIN:\n  No systems integrator to own cross-contractor interfaces      ← no SE authority\n  Requirements changed continuously without impact analysis     ← no requirements baseline\n  No end-to-end integration test environment                    ← no integration plan\n  Each contractor tested in isolation                           ← interface mismatches\n  Late decision to require account creation before browsing     ← requirements change at T-2 weeks\n  Capacity planning: estimated 50K concurrent, got 250K+       ← load requirements wrong",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "### SE Lessons",
+      "confidence": "candidate",
+      "text": "SE FAILURE PATTERN                    LESSON\n──────────────────────────────────────────────────────────────────\nNo systems integrator                 SoS requires a single authority\n                                      owning cross-boundary interfaces\nNo integration test environment       Integration must be planned and\n                                      resourced from project start\nLate requirements changes             Change control with impact analysis;\n                                      freeze interfaces before build\nMulti-vendor with no ICD baseline     ICDs between contractors must be\n                                      baselined and enforced like API contracts\nCapacity requirements wrong           Performance requirements need load\n                                      testing against realistic demand models",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### What Happened",
+      "confidence": "candidate",
+      "text": "TIMELINE\n──────────────────────────────────────────────────────────────────\n1998-12-11: MCO launched (Mars Climate Orbiter spacecraft)\n1999-09-23: MCO arrives at Mars, initiates orbit insertion burn\n             → satellite enters Mars atmosphere at wrong angle\n             → atmospheric friction destroys spacecraft\n             → $327M mission lost\n\nROOT CAUSE:\n  Lockheed Martin Astronautics (ground software) output\n  navigation forces in English units (pound-force seconds).\n\n  NASA JPL navigation software expected\n  metric units (newton-seconds).\n\n  This mismatch was passed as a navigation parameter\n  across an interface for 10 months of cruise.\n  The spacecraft drifted progressively off course.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### SE Lessons",
+      "confidence": "candidate",
+      "text": "LESSONS LEARNED\n──────────────────────────────────────────────────────────────────\n1. Interface Control Document (ICD) failure:\n   The ICD should have specified: parameter name, units, sign convention.\n   Either the ICD didn't specify units, or the deviation from ICD\n   wasn't caught by code review or testing.\n\n2. Anomaly not investigated:\n   Small navigation residuals (errors) were reported for months.\n   Multiple engineers noticed but didn't escalate effectively.\n   \"Residuals within acceptable range\" → accepted as normal.\n   No root cause investigation was triggered.\n\n3. Independent verification gaps:\n   Navigation data was not cross-checked by an independent team.\n   In-loop simulation during cruise should have revealed drift.\n\nDIRECT SE FIXES AFTER MCO:\n  Unit specification mandatory in all interface specifications\n  Navigation cross-check procedures revised\n  Anomaly investigation triggers lowered\n  Independent validation of navigation data required\n\nBROADER PRINCIPLE:\n  Small consistent deviations from expected are early warning signals.\n  Investigation should happen when pattern is noticed, not at failure.\n  \"Acceptable range\" doesn't mean \"no problem exists.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### What Happened",
+      "confidence": "candidate",
+      "text": "THERAC-25: RADIATION THERAPY MACHINE\n──────────────────────────────────────────────────────────────────\nMedical linear accelerator for cancer radiation therapy.\n1985–1987: 6 patients given radiation overdoses.\n3 patients died. 3 severely injured.\n\nOverdose: 100× intended dose (100 rads vs 10,000 rads delivered).\n\nTECHNICAL CAUSE:\n  Race condition in control software.\n  Rapid operator key entry while machine transitioning mode\n  → software flag not cleared at right time\n  → machine entered X-ray mode (high power) while configured for\n     electron mode (low power, no physical shield engaged)\n  → raw electron beam at full X-ray power hit patient directly\n     (with no beam-flattening filter)\n\nKEY SE FAILURE: The previous Therac-20 had hardware interlocks.\n  The Therac-25 removed hardware interlocks and relied on software alone.\n  Software redundancy was never validated as equivalent to hardware.\n  The software was reused from Therac-20 without full re-verification.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "### SE Lessons",
+      "confidence": "candidate",
+      "text": "LESSONS LEARNED (Nancy Leveson's definitive analysis)\n──────────────────────────────────────────────────────────────────\n1. Removed safety-critical hardware without safety analysis:\n   Physical interlocks provide independence from software.\n   Removing hardware interlocks required demonstrating software\n   was at least as safe — this was never done.\n   SE principle: Safety-critical functions require defense-in-depth.\n   Software alone is insufficient for safety-critical functions.\n\n2. Reuse without re-verification:\n   Code reused from Therac-20, which had hardware safety barriers.\n   With barriers, software race condition was harmless.\n   Without barriers, same code was lethal.\n   SE principle: Reusing components in a different context\n   requires re-analysis of requirements, not just the component.\n\n3. Severity underreported and investigation delayed:\n   AECL (manufacturer) initially dismissed patient reports.\n   \"Software is correct\" assertion without investigation.\n   SE principle: When reported harm exceeds expected range,\n   investigate immediately regardless of apparent confidence in system.\n\n4. Inadequate testing:\n   Race condition only reproducible under specific timing.\n   Testing did not cover concurrent state transitions.\n   SE principle: Test for timing vulnerabilities in concurrent systems.\n   Formal methods (model checking) can find these.\n\n5. Error messages weren't actionable:\n   \"MALFUNCTION 54\" — no information about what to do.\n   Operator continued treating patients to avoid schedule delays.\n   SE principle: Safety-critical error messages must mandate action.\n   Never design a safety system where user can continue past an error.\n\nRESULT: Therac-25 became the canonical case in software safety.\n  Every software safety standard (IEC 61508, DO-178C) references its lessons.\n  Led directly to IEC 60601-1 (medical electrical equipment requirements).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "### What Happened",
+      "confidence": "candidate",
+      "text": "ARIANE 5 FLIGHT 501\n──────────────────────────────────────────────────────────────────\n1996-06-04: First flight of Ariane 5 launch vehicle.\n37 seconds after launch: rocket deviates sharply, self-destructs.\nPayload destroyed: $370M (Cluster scientific satellites).\n\nROOT CAUSE:\n  Reused Inertial Reference System (IRS) software from Ariane 4.\n  Ariane 4 code converted a 64-bit floating point horizontal\n  velocity to a 16-bit integer.\n  This conversion could overflow — but on Ariane 4, the\n  velocity value was always < 16-bit max.\n\n  Ariane 5 flew a different trajectory. Same code ran.\n  Ariane 5's horizontal velocity exceeded Ariane 4 limits.\n  → 64-bit float converted to 16-bit int → OVERFLOW\n  → Ada exception raised → IRS shut down and sent error code to\n     flight computer → flight computer interpreted error code\n     as valid navigation data → commanded full deflection of\n     nozzles → aerodynamic forces destroyed vehicle.\n\nDETAILED FAILURE CHAIN:\n  Software bug (overflow) → exception → diagnostic data output\n  → interpreted as navigation data → wrong flight command\n  → physical destruction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "### SE Lessons",
+      "confidence": "candidate",
+      "text": "LESSONS LEARNED\n──────────────────────────────────────────────────────────────────\n1. Reuse requires re-analysis in new context:\n   Software was \"qualified\" for Ariane 4 envelope.\n   Qualification is context-specific.\n   New vehicle with different trajectory = new context = new analysis.\n   SE principle: Verify requirements on the new system, not just the component.\n\n2. Exception handling in safety-critical software:\n   When IRS failed, it should have failed safe (hold last valid value,\n   or transfer to backup).\n   Instead it sent raw exception diagnostic data on the output bus.\n   Flight computer had no protection against invalid data on nav bus.\n   SE principle: Every failure mode must have an explicit safe response.\n\n3. Unnecessary code running:\n   The overflow-prone function was for horizontal bias calculation.\n   That calculation was only needed for 50 seconds before launch.\n   It was still running at 37 seconds into flight (post-launch),\n   where it served no purpose.\n   SE principle: Eliminate unnecessary functionality from safety-critical\n   systems. Code that is not needed should not run.\n\n4. Independent review scope:\n   The software was reviewed and certified for Ariane 4.\n   An independent review of the reuse decision was not done.\n   SE principle: Changes in context require new independent review.\n\nRESULT: Led to rigorous software reuse policies in space industry.\n  ESA SW engineering standards updated.\n  ECSS-Q-ST-80C (space SW engineering) now requires:\n  explicit analysis when reusing heritage software.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 335,
+      "heading_context": "### What Happened",
+      "confidence": "candidate",
+      "text": "BOEING 737 MAX ACCIDENTS\n──────────────────────────────────────────────────────────────────\n2018-10-29: Lion Air Flight 610 crashes, 189 killed.\n2019-03-10: Ethiopian Airlines Flight 302 crashes, 157 killed.\nTotal: 346 killed. 737 MAX grounded worldwide.\n\nTECHNICAL CAUSE (simplified):\n  MCAS (Maneuvering Characteristics Augmentation System):\n    Added to compensate for changed engine position (larger engines\n    moved forward on wing → changed pitch characteristics).\n    MCAS pushed nose down when it detected high angle of attack (AoA).\n\n  Single AoA sensor:\n    MCAS received input from single AoA sensor.\n    If sensor failed, MCAS activated repeatedly.\n    When pilots countered, MCAS re-activated (short activation logic).\n    Runaway nose-down → unrecoverable.\n\n  Single point of failure: one sensor\n  Runaway trigger: MCAS could re-activate after pilot counter-input\n  No redundancy validation: dual AoA disagreement warning was optional\n    (customers could pay extra for it — Boeing didn't make it standard)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 362,
+      "heading_context": "### SE Lessons",
+      "confidence": "candidate",
+      "text": "LESSONS LEARNED\n──────────────────────────────────────────────────────────────────\n1. Single point of failure in safety-critical path:\n   MCAS relied on single AoA sensor.\n   Standard SE practice: safety-critical sensing must be redundant.\n   AoA sensor disagree alert was \"optional\" = $8K add-on.\n   SE principle: Safety equipment cannot be optional on safety-critical system.\n\n2. Hazard severity was understated:\n   MCAS was characterized as a handling quality system (not safety-critical)\n   → lower design assurance level (DAL) → less rigorous certification.\n   MCAS effect (unrecoverable nose-down) is clearly catastrophic.\n   SE principle: Safety classification must reflect worst-case consequence,\n   not nominal function.\n\n3. Runaway control not adequately analyzed:\n   MCAS could continuously re-activate after pilot counter-input.\n   This interaction was not in the FMEA scope.\n   SE principle: FMEA must include human-machine interaction failure modes.\n   \"Pilot follows incorrect checklist\" is a failure mode.\n\n4. Lack of full disclosure:\n   737 MAX MCAS details were not fully disclosed to pilots or airlines.\n   Assumption: \"qualified 737 pilots need no additional MCAS training.\"\n   SE principle: If a system significantly changes operational characteristics,\n   operators must be informed and trained.\n\n5. Certification pressure on derivative vs new type:\n   Full new type certification for a new aircraft vs\n   supplemental certification for a derivative saves years/billions.\n   MCAS scope grew during development, but certification basis\n   was not updated accordingly.\n   SE principle: Changes in scope trigger changes in certification basis.\n\nRESULT: Congressional hearings. FAA restructuring.\n  Boeing leadership change. $20B+ total cost.\n  2023: DOJ investigation, additional safety improvements required.\n  Triggered fundamental review of FAA Organization Designation Authorization (ODA).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 407,
+      "heading_context": "## Apollo Program: A SE Success",
+      "confidence": "candidate",
+      "text": "APOLLO: INVENTING SE UNDER PRESSURE\n──────────────────────────────────────────────────────────────────\nContext: 1961, Kennedy's \"moon before decade's end\" commitment.\n  Technology to get to the Moon did not exist.\n  500,000 people, 20,000 companies, $25B (equivalent ~$175B today).\n  No precedent for systems this complex.\n\nSE contributions invented during Apollo:\n  Formal requirements specification for complex systems\n  Configuration management (track WHICH hardware is in WHICH vehicle)\n  Systems integration testing (all systems integrated in SIL before flight)\n  Mission operations as systems engineering (Mission Control)\n  Earned Value Management (track cost and schedule vs plan)\n  Formal failure mode analysis (FMEA applied systematically post-Apollo 1 fire)\n\nApollo 13 (1970) — SE success under failure:\n  Oxygen tank explosion → life-threatening emergency\n  Mission Control improvised CO₂ scrubber using available parts\n  (lunar module scrubber canisters ≠ command module sockets)\n  Successfully brought crew home in 4 days\n  → Ground-based systems engineering + simulation capability\n    was the enabling factor\n\nAPOLLO 1 FIRE (1967) — Where SE was weak:\n  Command module had 11 miles of wiring, no systematic EMC review\n  Flammable materials in 100% oxygen environment (not analyzed)\n  No abort procedure for launch pad fire\n  → 3 astronauts killed\n  → Led to full safety review, FMEA methodology expansion\n  → Apollo 7 flew 18 months later, all missions successful after",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 444,
+      "heading_context": "## Denver Airport Automated Baggage System",
+      "confidence": "candidate",
+      "text": "DENVER AIRPORT BAGGAGE SYSTEM (1993–1995)\n──────────────────────────────────────────────────────────────────\nScope: Fully automated baggage handling system for new Denver\n  International Airport. 4,000 automated cars, 21 miles of track.\n  30 destinations. Simultaneous loading/unloading while aircraft at gate.\n  Largest automated baggage system attempted.\n\nSchedule: Airport opened 1993. System would be ready.\nResult: Airport opening delayed 16 months waiting for baggage system.\n  Total delay cost: $500M+.\n  System activated 1995 — only for United Airlines concourse.\n  Full system (all concourses) never completed as designed.\n  Manual backup system built in parallel.\n\nROOT CAUSES:\n  1. Requirements ambiguity:\n     No formal requirements specification written.\n     Contract awarded, design began without agreed requirements.\n     Scope changed throughout development (e.g., added automated\n     baggage from check-in at later stage — massive integration change).\n\n  2. Integration not planned:\n     Mechanical, software, and systems teams worked independently.\n     Assumed integration would be straightforward.\n     First system-level test: cars crashed into each other,\n     bags fell from carts, system jammed continuously.\n\n  3. Concurrency underestimated:\n     30 simultaneous destinations with continuous car routing\n     → combinatorial routing problem not analyzed\n     → software could not compute paths fast enough at design load\n\n  4. Physical-software interaction not modeled:\n     Mechanical timing assumptions (car acceleration, deceleration)\n     were not matched to software timing model.\n     Cars arrived at positions before software expected them.\n\nLESSONS:\n  Physical-cyber integration requires co-design, not sequential design.\n  Requirements specification is not optional for novel systems.\n  System-level integration testing must start early.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 492,
+      "heading_context": "## International Space Station: SoS SE Success",
+      "confidence": "candidate",
+      "text": "ISS: SYSTEM OF SYSTEMS SE\n──────────────────────────────────────────────────────────────────\nContext:\n  16 nations, 5 space agencies, 20+ year operational life.\n  Individual modules built by NASA, Roscosmos, JAXA, ESA, CSA.\n  First module launched 1998; completed 2011.\n  Currently inhabited (2025+).\n\nSE challenges solved:\n  Multi-national interface management:\n    Every physical and data interface required bilateral ICD.\n    American docking systems compatible with Russian Soyuz.\n    Power systems: Russian (28VDC) + American (120VDC) co-exist.\n    Data systems: MIL-STD-1553, Ethernet, and Russian equivalents.\n\n  Long lifecycle requirement management:\n    Requirements from 1984 still relevant to 2025 hardware.\n    Formal CM maintained across decades and agencies.\n\n  Evolving SoS:\n    Commercial crew (SpaceX Dragon, Boeing Starliner) integrated\n    as new \"system\" added to ISS \"system of systems.\"\n    New ICDs, new verification → same ISS.\n\n  Key SE success factors:\n    Early and aggressive interface definition\n    Multinational CCB with treaty-level authority over changes\n    Formal test at every integration point before launch\n    Operations SE as rigorous as development SE\n\nOngoing challenges:\n  Russian segment cooperation post-2022 (geopolitical)\n  Lifetime extension decisions (original design life: 2024)\n  Demonstrates: SoS lifecycle SE continues as long as system operates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

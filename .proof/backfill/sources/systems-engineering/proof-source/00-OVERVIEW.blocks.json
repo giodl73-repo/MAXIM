@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WHY SYSTEMS ENGINEERING EXISTS\n──────────────────────────────────────────────────────────────────\nSimple product:    One discipline → design → build → done\n  One engineer can hold the whole thing in their head.\n\nComplex system:    Multiple disciplines, emergent behaviors,\n                   interfaces between subsystems, long lifecycle.\n\n  Aircraft example: four discipline subsystems plus their interfaces.\n\n  Subsystems:  Structures | Avionics | Propulsion | Flight Control\n\n  INTERFACES (where failures actually happen):\n    avionics weight   -> structural load budget\n    fuel system       -> propulsion + structures\n    EMP -> electronics -> flight control stability\n\n  SE manages the interfaces that no single discipline owns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## The Systems Engineering Taxonomy",
+      "confidence": "candidate",
+      "text": "SYSTEMS ENGINEERING KNOWLEDGE AREAS (INCOSE Systems Engineering Handbook)\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  PROCESS                                                        │\n│  Lifecycle models (waterfall, vee, spiral, agile hybrid)        │\n│  Technical processes (requirements, architecture, design, V&V)  │\n│  Project processes (planning, risk, configuration management)   │\n├─────────────────────────────────────────────────────────────────┤\n│  METHODS                                                         │\n│  Requirements engineering (stakeholder analysis, elicitation)  │\n│  Functional analysis / functional decomposition                 │\n│  Trade studies (Pugh matrix, AHP, MCDM)                        │\n│  FMEA / FTA / reliability engineering                           │\n│  Interface management (ICD, ICDs, IMS)                         │\n│  Verification and validation (V&V) planning                     │\n├─────────────────────────────────────────────────────────────────┤\n│  TOOLS                                                          │\n│  MBSE (Model-Based SE) -- SysML, Cameo, Rhapsody                │\n│  Simulation -- MATLAB/Simulink, AMESim                          │\n│  Requirements management -- DOORS, Jama, Polarion               │\n│  PLM -- Windchill, Teamcenter, Enovia                           │\n│  SE-specific: SEAM, Vitech CORE, IBM Rational                   │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "## Domains Where SE is Practiced",
+      "confidence": "candidate",
+      "text": "SE DOMAIN MAP\n──────────────────────────────────────────────────────────────────\nDEFENSE / AEROSPACE         Most rigorous SE practice\n  Aircraft, spacecraft      Mandated by MIL-STD-499, NASA-STD-7009\n  Missiles, satellites      Long lifecycle, high cost of failure\n  Naval systems             DO-178C (avionics SW), MIL-SPEC throughout\n\nCIVIL / CRITICAL INFRA      SE growing, not always called \"SE\"\n  Transportation systems    Railway: CENELEC 50128, NFPA 130\n  Power grids               IEEE Std 1220, energy systems\n  Large construction        Systems integration across contractors\n\nCOMMERCIAL TECH             SE principles, Agile vocabulary\n  Automotive                ISO 26262 (functional safety), V-model\n  Medical devices           IEC 62304 (software), IEC 60601\n  Consumer electronics      Condensed SE (time-to-market pressure)\n\nSOFTWARE / IT               SE principles well-integrated\n  Enterprise systems        TOGAF, DoDAF, ArchiMate frameworks\n  Mission-critical SW       DO-178C, IEC 61508 for safety-critical\n  Cloud platforms           SRE (Site Reliability Engineering)\n                            = operational SE for software systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "### Emergent Properties",
+      "confidence": "candidate",
+      "text": "EMERGENCE: properties of a system not present in any component\n──────────────────────────────────────────────────────────────────\nSimple emergence:      predictable from component properties\n  System weight = sum of component weights (no emergence)\n\nComplex emergence:     unpredictable from components alone\n  Software reliability: depends on interactions, not just code quality\n  Traffic jam: emerges from individual driver behavior\n  Aircraft flutter: aerodynamic + structural interaction instability\n\nSE must manage emergent behavior:\n  Identify emergent properties early (hazard analysis)\n  Model interactions (simulation, SysML)\n  Test at system level (not just unit/subsystem)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## The SE Lifecycle",
+      "confidence": "candidate",
+      "text": "GENERIC SYSTEMS LIFECYCLE\n──────────────────────────────────────────────────────────────────\nConcept        → Feasibility, market need, mission analysis\n   │               \"What problem are we solving?\"\n   ▼\nDevelopment    → Requirements, design, build, V&V\n   │               \"What does it do and how do we prove it?\"\n   ▼\nProduction     → Manufacturing, quality, delivery\n   │               \"Replicate it reliably\"\n   ▼\nUtilization    → Operations, support, maintenance\n   │               \"Keep it running\"\n   ▼\nSupport        → Training, spares, updates, field service\n   │               \"Sustain it economically\"\n   ▼\nRetirement     → Decommission, disposal, transition\n               \"End it safely and responsibly\"\n\nSE has formal processes for EACH phase.\nRequirements change across phases — requirements in Concept are not\nthe same detail level as requirements in Development.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

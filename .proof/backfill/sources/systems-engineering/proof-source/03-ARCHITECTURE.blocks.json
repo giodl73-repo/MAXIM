@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\03-ARCHITECTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WHAT ARCHITECTURE DEFINES\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  System boundary         │  What is inside vs outside           │\n│  Functional decomposition│  What the major functions are        │\n│  Physical decomposition  │  What the major components are       │\n│  Interfaces              │  How elements connect and communicate│\n│  Allocation              │  Which physical element does which   │\n│                          │  function                            │\n│  Design principles       │  Redundancy strategy, fault tolerance│\n│                          │  make/buy decisions, modularity      │\n│  Constraints             │  Technology limits, standards, budget│\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "### DoDAF (Department of Defense Architecture Framework)",
+      "confidence": "candidate",
+      "text": "DODAF VIEW TYPES\n──────────────────────────────────────────────────────────────────\nAll Views (AV):  Context and glossary\n  AV-1: Overview and summary\n  AV-2: Integrated dictionary\n\nOperational Views (OV): What the system must do\n  OV-1: High-level operational concept graphic\n  OV-2: Operational resource flow\n  OV-3: Operational resource flow matrix\n  OV-5: Operational activity model\n\nSystems Views (SV): How the system does it\n  SV-1: Systems interface description\n  SV-2: Systems resource flow\n  SV-4: Systems functionality description\n  SV-10: Systems event-trace description (behavior)\n\nTechnical Standards Views (TV):\n  TV-1: Technical standards profile (which standards apply)\n\nBridge: DoDAF = DoD-specific version of enterprise architecture.\nAligns with TOGAF (commercial) and ArchiMate (notation standard).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Functional Decomposition",
+      "confidence": "candidate",
+      "text": "FUNCTIONAL DECOMPOSITION\n──────────────────────────────────────────────────────────────────\nStart with top-level system function (mission function):\n  \"Deliver payload to destination\"\n\nDecompose to Level 1 functions:\n  1.1 Navigate to destination\n  1.2 Monitor system health\n  1.3 Communicate with ground\n  1.4 Manage payload\n\nEach Level 1 decomposes further:\n  1.1.1 Receive navigation input\n  1.1.2 Compute optimal path\n  1.1.3 Actuate flight control surfaces\n  1.1.4 Monitor position error\n\nDecompose until functions are at a level where\na single technology/component can fulfill them.\nStop when a function can be directly allocated\nto a known component type.\n\nFUNCTIONAL FLOW BLOCK DIAGRAM (FFBD):\n  Shows sequence, branches, and iterations of functions\n  \"F1 → F2 → [F3A OR F3B] → F4\"\n  Used in defense SE (MIL-HDBK-499)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### N-squared Diagram (N-squared)",
+      "confidence": "candidate",
+      "text": "N² DIAGRAM: INTERFACE MAPPING\n──────────────────────────────────────────────────────────────────\nMatrix where rows and columns = system elements.\nOff-diagonal cells = interfaces between elements.\n\n     │ Nav  │ Prop │ Power│ Comm │ GNC  │\n─────┼──────┼──────┼──────┼──────┼──────┤\nNav  │ self │  ─   │ 28V  │  ─   │ pos  │\nProp │  ─   │ self │ 28V  │  ─   │thrust│\nPower│  ─   │  ─   │ self │  ─   │  ─   │\nComm │  ─   │  ─   │ 28V  │ self │  ─   │\nGNC  │nav sv│thrust│  ─   │cmd   │ self │\n\nRow→column: what element in row PROVIDES to element in column\nColumn→row: what element in row RECEIVES from element in column\n\nN² diagram reveals:\n  Hidden interfaces (are any crossed out?)\n  Circular dependencies (follow circular paths)\n  Concentrated coupling (one element has many connections = integration risk)\n  Interface inventory for ICD planning",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Allocation: Function → Form",
+      "confidence": "candidate",
+      "text": "FUNCTIONAL TO PHYSICAL ALLOCATION\n──────────────────────────────────────────────────────────────────\nFunctions from functional architecture must be\nallocated to physical components.\n\nFunction              →  Physical element\n1.1.2 Compute path    →  Mission Computer (hardware + software)\n1.1.3 Actuate surfaces→  Flight Control Computer + Actuators\n1.2 Monitor health    →  Onboard Health Management System\n1.3 Communicate       →  UHF Radio + Datalink\n\nOne function → one physical element: simple (one-to-one)\nOne function → multiple elements: implemented across subsystems\nMultiple functions → one element: multifunctional unit (complex)\n\nAllocation matrix documents this formally.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### Architecture Patterns in Complex Systems",
+      "confidence": "candidate",
+      "text": "COMMON PHYSICAL ARCHITECTURE PATTERNS\n──────────────────────────────────────────────────────────────────\nFEDERATED ARCHITECTURE\n  Each subsystem has its own processor and buses\n  Traditional approach (pre-2000 aircraft, spacecraft)\n  High redundancy per subsystem\n  High SWaP (size/weight/power) — lots of duplicated hardware\n\nCENTRALIZED / IMA (Integrated Modular Architecture)\n  Shared computing resources (processors, I/O)\n  Partitioned software runs on common hardware\n  DO-178C, ARINC 653 partitioning\n  Boeing 787, Airbus A380 avionics — saves weight, complexity\n  Single hardware failure can affect multiple functions (risk)\n\nDISTRIBUTED (service-oriented)\n  Many processing nodes on high-bandwidth network\n  Functions as services, network provides integration\n  Modern vehicles (automotive Ethernet, automotive SOA)\n  Tesla's EE architecture: zone-based with central compute\n\nHIERARCHICAL (layered control)\n  Mission level → Subsystem level → Component level\n  Each level commands/queries level below\n  Industrial automation: PLC → drive → actuator",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "### Pugh Matrix (Concept Selection Matrix)",
+      "confidence": "candidate",
+      "text": "PUGH MATRIX\n──────────────────────────────────────────────────────────────────\n        │ Criteria │ Weight │ Alt A │ Alt B │ Alt C │\n        ├──────────┼────────┼───────┼───────┼───────┤\n        │ Range    │  0.30  │ DATUM │   +   │   –   │\n        │ Speed    │  0.25  │ DATUM │   +   │   S   │\n        │ Cost     │  0.20  │ DATUM │   –   │   +   │\n        │ Maint.   │  0.15  │ DATUM │   S   │   S   │\n        │ Risk     │  0.10  │ DATUM │   –   │   –   │\n        ├──────────┼────────┼───────┼───────┼───────┤\n        │ Score    │        │  0    │ +0.25 │ -0.05 │\n\n+ = better than datum, – = worse, S = same\nWeighted: (+0.30+0.25 – 0.20 – 0.10) × weights\n\nWhen: early concept selection, many alternatives, qualitative\nGood for: narrowing field from many alternatives\nWeakness: \"+\" and \"–\" are subjective; may mask quantitative differences",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "### Weighted Decision Matrix (AHP — Analytic Hierarchy Process)",
+      "confidence": "candidate",
+      "text": "WEIGHTED DECISION MATRIX\n──────────────────────────────────────────────────────────────────\n1. Define criteria and weights (sum to 1.0)\n2. Score each alternative on each criterion (1–10 or 0–5)\n3. Weighted score = sum(weight × score) per alternative\n\nExample: Sensor selection trade study\n\nCriterion    Weight  Optical  RF     Acoustic\n──────────────────────────────────────────────\nDetection    0.30      9      7        4\nRange        0.25      8      9        3\nAll-weather  0.20      3      9        6\nCost         0.15      6      5        8\nSWaP         0.10      7      5        7\n\nWeighted     ─        6.95   7.35     5.00\nscores\n\nResult: RF sensor wins on this criteria set.\n\nAHP formalizes criteria weighting via pairwise comparisons\n  (Saaty scale 1–9)\nEnsures logical consistency in weights.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## Architecture Patterns and Their Tradeoffs",
+      "confidence": "candidate",
+      "text": "ARCHITECTURAL TRADEOFF SPACE\n──────────────────────────────────────────────────────────────────\nREDUNDANCY:\n  None:         Simple, cheap, SPOF (single point of failure)\n  Passive (hot): Both units active, failure → instant switchover\n  Active/standby: Standby detects failure, activates (seconds)\n  Voting (TMR):  3 units vote, 2-of-3 continues with disagreement\n\n  TMR:  ┌──A──┐\n        ├──B──┤ → Voter → Output\n        └──C──┘\n  Detects: any single failure\n  Masks:   any single failure (operation continues)\n  Fails:   if 2 fail with same value (common cause)\n\nCOUPLING vs COHESION:\n  Tight coupling:   subsystems directly dependent → fragile, hard to change\n  Loose coupling:   clear interfaces, message-based → resilient, modular\n  SE principle:     maximize cohesion within subsystem,\n                    minimize coupling between subsystems\n\nMODULARITY:\n  Highly modular:   easy substitution, independent testing, upgrade path\n                    Interface overhead → complexity, performance cost\n  Integrated:       optimized for performance, hard to change\n                    Platform-specific → integration risk\n\nMAKE vs BUY vs REUSE:\n  Make:   full control, custom performance, high cost + schedule risk\n  Buy:    proven, fast, COTS → integration risk, support dependency\n  Reuse:  heritage system → known properties, may need adaptation\n  Hybrid: buy the COTS, integrate custom mission SW on standard HW",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "## Architecture Assessment",
+      "confidence": "candidate",
+      "text": "ARCHITECTURE ASSESSMENT METHODS\n──────────────────────────────────────────────────────────────────\nATAM (Architecture Tradeoff Analysis Method) — SEI Carnegie Mellon\n  Structured review of architecture against quality attributes\n  Steps:\n    1. Present architecture\n    2. Identify architectural approaches for each quality scenario\n    3. Analyze each approach against scenarios\n    4. Find sensitivity points (one element affects multiple qualities)\n    5. Find tradeoff points (improving one quality degrades another)\n    6. Find risks and non-risks\n  Output: prioritized list of risks and sensitivity points\n\nSimulation-based assessment:\n  Model architecture in simulation before hardware\n  MATLAB/Simulink, SysML with parametric diagrams\n  Evaluate performance, timing, resource utilization\n\nDigital Twin for architecture evaluation:\n  Build digital twin of the architecture model\n  Run operational scenarios\n  Evaluate emergent behavior\n\nFailure mode impact at architecture level (FMAA — architectural FMEA):\n  For each element, ask: what happens to the system if this fails?\n  Identifies single points of failure in architecture",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

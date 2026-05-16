@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:se-process
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: Systems Engineering Process and Lifecycle
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/01-SE-PROCESS.md
+canonical_path: systems-engineering/01-SE-PROCESS.md
+backsource_ids: [proof-backfill:systems-engineering:01-se-process, git-history:systems-engineering:01-se-process]
+concepts: [se, process]
+root_concepts: [se, process]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Systems Engineering Process and Lifecycle
 
 ## The Big Picture

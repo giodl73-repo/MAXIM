@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:architecture
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: System Architecture and Trade Studies
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/03-ARCHITECTURE.md
+canonical_path: systems-engineering/03-ARCHITECTURE.md
+backsource_ids: [proof-backfill:systems-engineering:03-architecture, git-history:systems-engineering:03-architecture]
+concepts: [architecture]
+root_concepts: [architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # System Architecture and Trade Studies
 
 ## The Big Picture

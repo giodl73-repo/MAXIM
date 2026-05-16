@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\02-HEAT-TREATMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Heat treatment is a parameterized procedure: inputs (temperature profile T(t), atmosphere, quench medium) deterministically produce a target microstructure. Each named process — normalize, full anneal, Q&T, carburize+quench+temper — is a specific parameterization. This maps directly to a build pipeline with configurable stages: the same \"compile\" step (austenitize) followed by different \"link\" parameters (quench vs. furnace cool) produces entirely different outputs. Pre-conditions (starting microstructure, prior cold work) and post-conditions (hardness, grain size, residual stress) define each procedure's contract.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "HEAT TREATMENT TAXONOMY\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  FULL PROCESSING (through-thickness)                            │\n│                                                                 │\n│  Annealing family:       Hardening family:                      │\n│    Full anneal             Austenitize + quench                 │\n│    Process anneal          Martempering                         │\n│    Spheroidize anneal      Austempering                         │\n│    Stress relief           Temper (always follows quench)       │\n│    Normalizing                                                  │\n│                            Solution treat + age (Al, Ti, Ni)    │\n├─────────────────────────────────────────────────────────────────┤\n│  SURFACE (shallow depth, tough core maintained)                  │\n│    Carburizing (diffusion of C into surface)                    │\n│    Nitriding (diffusion of N into surface)                      │\n│    Carbonitriding (C + N)                                        │\n│    Induction hardening (localized austenitize + quench)         │\n│    Flame hardening (torch + quench)                             │\n│    Laser surface hardening                                       │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "### Full Anneal",
+      "confidence": "candidate",
+      "text": "FULL ANNEAL\n──────────────────────────────────────────────────────────────────\nPurpose: Maximum softness, maximum ductility, relieve internal stress.\n         Prepare for machining or forming.\n\nProcess:\n  1. Heat to 30–50°C above A3 (for hypoeutectoid, ~900–950°C)\n     or above A1 (for hypereutectoid, ~750–800°C)\n  2. Soak until fully austenitic\n  3. Furnace cool SLOWLY (typically 50°C/hour or less)\n     → through A1 with slow cooling → coarse pearlite + ferrite\n\nResult:\n  Very soft: 150–200 HV for 0.4%C steel\n  Coarse pearlite: lamellar spacing large → soft\n  Maximum machinability\n  Ductility: 25–30% elongation\n\nLimitation:\n  Very long cycle time (many hours for large parts)\n  Costly furnace time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Normalizing",
+      "confidence": "candidate",
+      "text": "NORMALIZING\n──────────────────────────────────────────────────────────────────\nPurpose: Refine grain size, uniform microstructure, moderate\n         properties. Intermediate between full anneal and hardening.\n         Most common \"as-supplied\" condition for structural steel.\n\nProcess:\n  1. Heat to 30–50°C above A3 (~900–950°C)\n  2. Soak (20 min per inch of cross-section)\n  3. Air cool in still air (faster than full anneal, slower than quench)\n\nResult:\n  Fine pearlite + ferrite\n  Harder than full anneal (~200–280 HV)\n  Good machinability and toughness\n  Grain refinement: removes cast structure, improves forgings\n\nvs. Full anneal:\n  Faster cycle\n  Slightly harder / higher strength\n  Better impact toughness than coarse pearlite from full anneal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "### Stress Relief Anneal",
+      "confidence": "candidate",
+      "text": "STRESS RELIEF ANNEAL\n──────────────────────────────────────────────────────────────────\nPurpose: Reduce residual stresses from welding, machining,\n         cold work, without changing hardness significantly.\n\nProcess:\n  Steel: hold at 500–650°C (below A1) for 1–4 hours\n         Must stay below A1 to avoid phase transformation\n  Aluminum: 300–350°C for aluminum alloys\n  Weldments: typically 600–650°C for 1 hour per inch of thickness\n\nMechanism:\n  Temperature allows dislocation recovery and creep\n  Residual stresses relax to material's yield stress at that temperature\n  No phase transformation (below A1)\n  Hardness change: minimal (slight softening)\n\nApplications:\n  Post-weld stress relief of heavy fabrications\n  Dimensional stability: machined precision components\n  Prevent stress corrosion cracking (SCC)\n  Post-straightening of distorted parts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Spheroidize Anneal",
+      "confidence": "candidate",
+      "text": "SPHEROIDIZE (SPHEROIDIZING) ANNEAL\n──────────────────────────────────────────────────────────────────\nPurpose: Convert lamellar pearlite (cementite plates) to\n         spheroidal cementite particles → maximum softness\n         for cold working operations (drawing, cold heading).\n\nProcess (typical for high-carbon steel):\n  Option A: Hold just below A1 (700–720°C) for 8–24 hours\n  Option B: Cycle above/below A1 repeatedly\n  Option C: For heavily work-hardened steel, start above A1\n\nResult:\n  Spherical Fe₃C particles in ferrite matrix\n  Softest possible microstructure for high-carbon steels\n  Excellent cold formability\n  ~150–180 HV for 1.0%C steel (vs ~280 HV spheroidized)\n\nApplications:\n  High-carbon steel wire before cold drawing\n  Bearing steel (52100) before machining\n  Required for any cold heading of high-carbon steel (bolts, screws)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "### Austenitizing and Quenching",
+      "confidence": "candidate",
+      "text": "QUENCH HARDENING PROCESS\n──────────────────────────────────────────────────────────────────\n1. AUSTENITIZE\n   Heat steel into single-phase austenite region\n   Temperature: 30–80°C above Ac3 (complete austenitization)\n   Soak time: dependent on cross-section, typically 1 hour/inch\n   Purpose: Dissolve carbides, homogenize carbon in austenite\n\n2. QUENCH (rapid cooling)\n   Transfer to quench medium immediately\n   Cooling rate must exceed critical cooling rate → martensite\n\nQuench media (fastest to slowest):\n  Brine (10% NaCl in water):    fastest, most distortion/cracking risk\n  Cold water:                   very fast\n  Warm water (50–60°C):         fast, less cracking\n  Polymer quench (PAG):         adjustable by concentration\n  Oil (mineral quench oil):     moderate, good for alloy steels\n  Forced air / gas quench:      slow, for high-hardenability alloys\n  Still air:                    very slow, limited to very high Cr tools\n\nDistortion and cracking risk:\n  Faster quench → more martensite, more quench cracking risk\n  Choose slowest quench that gives required microstructure\n  4340: oil quench → fully martensitic (vs. 1080: requires water)\n\n3. TEMPER IMMEDIATELY\n   Martensite is brittle — must temper before cooling to room temp\n   Especially critical for high-carbon, large cross-sections",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### Quench Cracking Prevention",
+      "confidence": "candidate",
+      "text": "QUENCH CRACKING RISK FACTORS AND MITIGATION\n──────────────────────────────────────────────────────────────────\nRisk factors:\n  High carbon (>0.5%C): martensite more brittle, more volume expansion\n  Large cross-section: thermal gradients → differential transformation\n  Sharp corners, holes: stress concentration during transformation\n  Slow medium for high-hardenability steel: unnecessary gradient\n  Delay before tempering: martensite sits unstable, crack propagates\n\nMitigation:\n  Minimize sharp corners (r > 2mm preferred)\n  Use slowest quench medium that achieves target hardness\n  Temper within 30 minutes of quenching (sooner is better)\n  Martempering: quench to just above Ms, equalize, then air cool\n  Pre-heat complex shapes (reduces thermal gradient at quench entry)\n  Choose alloy steel (oil quench) over plain carbon (water quench)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### Tempering Mechanisms",
+      "confidence": "candidate",
+      "text": "TEMPERING OF MARTENSITE\n──────────────────────────────────────────────────────────────────\nMartensite is metastable (supersaturated BCT structure).\nTempering allows controlled decomposition to stable state.\n\nSTAGE I TEMPERING (below ~250°C):\n  Epsilon carbide (Fe₂.₄C) precipitates from martensite\n  Carbon partially rejected from BCT → less tetragonal distortion\n  Hardness drops slightly\n  Brittleness reduced somewhat\n\nSTAGE II TEMPERING (~200–300°C):\n  Retained austenite transforms to bainite/ferrite\n  (Important in high-carbon steels with significant retained γ)\n\nSTAGE III TEMPERING (250–400°C):\n  Epsilon carbide → cementite (Fe₃C) replaces epsilon carbide\n  Martensite → tempered martensite (ferrite + fine carbides)\n  Major hardness reduction begins in this range\n  Significant improvement in ductility and toughness\n\nSTAGE IV TEMPERING (above 400°C):\n  Cementite coarsens and spheroidizes\n  Major reduction in hardness (recovery of bulk ductility)\n  Above 600°C: approaching normalized/annealed properties\n\nTEMPERED MARTENSITE EMBRITTLEMENT (TME): 300–400°C\n  Complex carbide precipitation at grain boundaries\n  Impact toughness decreases (trough in Charpy vs. temp)\n  Avoid tempering in this range when toughness critical\n  Also called \"350°C embrittlement\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "### Tempering Temperature vs Properties",
+      "confidence": "candidate",
+      "text": "TEMPERING TEMPERATURE EFFECT (medium carbon steel, e.g., 4140)\n──────────────────────────────────────────────────────────────────\nTemp(°C)  Hardness(HRC)  UTS(MPa)  Elongation  Charpy(J)\n────────  ─────────────  ────────  ──────────  ─────────\nAs-quenched  ~58         2000      <5%         <10\n150           55          1900      5%          15\n200           53          1800      6%          20\n300           48          1600      8%          25     ← TME zone starts\n400           43          1400      12%         35     ← TME trough\n500           38          1200      16%         80\n600           32          1050      20%         120\n650           28           900      25%         150\n\nTypical structural applications: 550–650°C temper (Q&T condition)\nHigh-strength bolts: 400–500°C (compromise strength/toughness)\nSprings: 350–450°C (high hardness needed)\nDies and tools: 150–250°C (maximum hardness with some temper)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "### Carburizing",
+      "confidence": "candidate",
+      "text": "GAS CARBURIZING\n──────────────────────────────────────────────────────────────────\nPurpose: Introduce carbon into surface layer (case) while\n         maintaining low-carbon (tough) core.\nStarting material: low-carbon steel (0.15–0.25% C)\n\nProcess:\n  1. Heat to 850–950°C in carburizing atmosphere (CH₄ or propane)\n     CH₄ → C(nascent) + 2H₂  at steel surface\n  2. Carbon diffuses into steel surface\n  3. Carbon profile: ~0.8% at surface → ~0.2% at case/core boundary\n  4. Case depth (time/temperature controlled):\n       ~0.5mm: 2 hours at 900°C\n       ~1.0mm: 5–6 hours at 900°C\n       ~2.0mm: 15–20 hours at 900°C\n       Case depth ∝ √(D×t) with D(carbon in γ) increasing with T\n\n  5. Direct quench (from carburizing temperature) or:\n  6. Slow cool + reheat + quench (for better grain structure)\n  7. Low temper (150–200°C) to reduce brittleness\n\nResult:\n  Surface: ~0.8%C, martensite after quench → 60–65 HRC\n  Core: ~0.2%C, low-carbon martensite or pearlite → 35–45 HRC\n  Compressive residual stress at surface → excellent fatigue resistance\n\nApplications: Gears, cams, pins, bearing surfaces",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "### Nitriding",
+      "confidence": "candidate",
+      "text": "GAS NITRIDING\n──────────────────────────────────────────────────────────────────\nPurpose: Introduce nitrogen into surface for hard, wear-resistant\n         case WITHOUT quenching. Very low distortion.\n\nProcess:\n  1. Finish machine to final dimensions (no quench after nitriding)\n  2. Heat to 500–550°C in ammonia (NH₃) atmosphere\n     NH₃ → N(nascent) + H₂ at steel surface\n  3. Nitrogen diffuses into steel, forms hard nitrides (AlN, CrN, Fe₄N)\n  4. Very slow process: 15–100 hours for 0.3–0.6mm case depth\n  5. No quench required → minimum distortion\n\nNitriding steels: must contain nitride-forming elements\n  AISI 4140, 4340 (Cr, Mo nitrides)\n  Nitralloy 135 (Al-bearing, strongest nitrided case)\n\nResult:\n  White layer: ~15–25 µm, very hard (~1000+ HV), brittle\n    (Usually removed by post-grinding if fatigue is concern)\n  Diffusion zone: ~0.3–0.6mm, 650–900 HV\n  Compressive residual stress (excellent for fatigue)\n  No distortion (process below tempering temperature of pre-treated core)\n  Excellent corrosion resistance\n\nPlasma nitriding (ion nitriding):\n  Faster than gas, better control, lower temperatures possible\n  Eliminates white layer more easily",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 353,
+      "heading_context": "### Induction Hardening",
+      "confidence": "candidate",
+      "text": "INDUCTION HARDENING\n──────────────────────────────────────────────────────────────────\nPurpose: Selectively harden specific areas (gear teeth, journal)\n         without affecting entire part.\n\nProcess:\n  1. Induction coil near part surface\n  2. AC current (1 kHz–500 kHz) → induced eddy currents in part\n  3. Resistive heating → surface austenitizes in seconds (no bulk heating)\n  4. Water or polymer spray quench → martensite in surface only\n  5. No temper required for some applications (self-tempering by heat flow)\n     or low temper for toughness\n\nDepth control by frequency:\n  High frequency (100–500 kHz): shallow case (~0.5–1mm) → small parts\n  Low frequency (3–10 kHz): deep case (~3–6mm) → large shafts, gears\n\nResult:\n  Hard surface: 58–65 HRC (same as through-hardening)\n  Tough core: unchanged from original (normalized or Q&T)\n  Compressive residual stress in surface: excellent fatigue\n  Speed: seconds per part → high production rate\n  Energy efficiency: heat only what needs hardening\n\nApplications: Crankshaft journals, camshafts, gear teeth,\n  transmission shafts — the standard for automotive drivetrain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 388,
+      "heading_context": "### Aluminum Alloys (Precipitation Hardening)",
+      "confidence": "candidate",
+      "text": "ALUMINUM ALLOY HEAT TREATMENT (2024-T4/T6 example)\n──────────────────────────────────────────────────────────────────\n1. SOLUTION TREATMENT\n   Heat to ~495°C (within single-phase solid solution region)\n   Dissolve all Cu into Al matrix (single phase: α solid solution)\n   Water quench: freeze Cu in solution (supersaturated)\n   Do NOT overheat: incipient melting at grain boundaries (≥510°C)\n   Do NOT under-heat: incomplete dissolution → weaker precipitation\n\n2. AGING (PRECIPITATION)\n   T4: natural age at room temperature (24h to peak)\n     → GP zones → moderate strength, maximum formability\n   T6: artificial age at 160–177°C for 8–12 hours\n     → θ' (transition) precipitates → peak strength\n   T73: artificial overaging (200°C+ longer time)\n     → coarser precipitates → less strength, better SCC resistance\n     Used where stress corrosion cracking is the failure mode\n\nTemper designations:\n  T3: SHT + cold work + natural age\n  T4: SHT + natural age\n  T6: SHT + artificial age (peak)\n  T7: SHT + overaged (stabilized or SCC-resistant)\n  T8: SHT + cold work + artificial age\n\n2024-T4 vs 2024-T6:\n  T4: UTS 440 MPa, 19% elong. → formable\n  T6: UTS 476 MPa, 11% elong. → strongest\n  For aircraft sheet formed then installed: T3 (intermediate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 422,
+      "heading_context": "### Titanium Alloys",
+      "confidence": "candidate",
+      "text": "TITANIUM ALLOY HEAT TREATMENT (Ti-6Al-4V)\n──────────────────────────────────────────────────────────────────\nTi-6Al-4V (Grade 5): most common titanium alloy\n  Alpha (α) phase: HCP, stable below beta transus\n  Beta (β) phase: BCC, stable above beta transus (~995°C)\n  Beta transus: ~995°C (temperature where all α transforms to β)\n\nANNEALED (mill annealed):\n  Hold below beta transus (~700–850°C), air cool\n  Result: α+β equiaxed structure\n  UTS: ~950 MPa, 14% elongation\n  Baseline structural condition\n\nSOLUTION TREAT + AGE (STA) — maximum strength:\n  1. Solution treat at ~900–950°C (in α+β region, just below beta transus)\n  2. Rapid quench (water)\n  3. Age at 480–540°C for 2–4 hours → fine α precipitates in β matrix\n  UTS: ~1100–1150 MPa, 10% elongation\n  Applications: high-strength aerospace structures\n\nβ-annealed:\n  Heat above beta transus → all β → slow cool → Widmanstätten α laths\n  Lower strength, better fatigue crack growth resistance, better creep\n  Applications: rotating compressor blades (fatigue priority)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 453,
+      "heading_context": "## Furnace Types and Atmospheres",
+      "confidence": "candidate",
+      "text": "HEAT TREATMENT FURNACE TYPES\n──────────────────────────────────────────────────────────────────\nBOX/BATCH FURNACE:\n  Chamber with heating elements, door load/unload\n  Sizes: lab scale to room-size\n  Atmosphere control possible\n  Versatile for job shop, aerospace\n\nCONTINUOUS (BELT/MESH BELT) FURNACE:\n  Parts travel through on belt\n  Multiple zones (heat up, soak, cool)\n  High production rate, low per-piece cost\n  Typical: brazing, annealing, sintering\n  The continuous furnace is a pipeline processor: each zone is a\n  transformation stage, parts are the data, throughput = production rate.\n  Zone temperature profiles are the stage parameters. Same mental model\n  as a staged processing pipeline where items flow through sequential\n  stateless transformations.\n\nVACUUM FURNACE:\n  <10⁻³ torr atmosphere → no oxidation\n  Critical for: titanium, high-alloy steels, brazing\n  Partial pressure control (N₂, Ar gas)\n  Excellent surface quality\n\nATMOSPHERE TYPES:\n  Endothermic gas (RX gas): CO-H₂-N₂ mixture, slightly carburizing\n    → Used for bright annealing, controlled carburizing\n  Nitrogen + methanol: safer than endothermic, common\n  Exothermic gas: oxidizing (for oxide annealing of copper)\n  Pure nitrogen: inert, no oxidation, no carburizing\n  Vacuum: best surface quality\n\nATMOSPHERE CONTROL:\n  Carbon potential (aC): controls surface carbon during treatment\n  Equilibrium with: CO₂ content, dew point, O₂ sensor\n  Too high aC: case carburizes during anneal (unwanted)\n  Too low aC: decarburization (surface loses carbon → soft)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:solidification
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Solidification and Casting Metallurgy
+status: source-custody
+source_custody: partial
+current_path: materials-processing/03-SOLIDIFICATION.md
+canonical_path: materials-processing/03-SOLIDIFICATION.md
+backsource_ids: [proof-backfill:materials-processing:03-solidification, git-history:materials-processing:03-solidification]
+concepts: [solidification]
+root_concepts: [solidification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Solidification and Casting Metallurgy
 
 ## The Big Picture

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\02-REQUIREMENTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "REQUIREMENTS HIERARCHY\n──────────────────────────────────────────────────────────────────\nStakeholder Needs (informal)\n  \"We need an aircraft that can fly 6,000 miles nonstop\"\n       │\n       ▼ elicitation + analysis + formalization\nSystem Requirements (SRS / top-level specs)\n  \"The vehicle shall achieve a minimum range of 6,000 nmi\n   with standard fuel load at cruise altitude.\"\n       │\n       ▼ allocation to subsystems\nSubsystem Requirements (allocated baseline)\n  Airframe: structural load requirements\n  Propulsion: thrust, fuel consumption envelope\n  Fuel system: capacity, flow rate\n       │\n       ▼ further decomposition\nComponent Requirements (design specifications)\n  Engine: thrust-specific fuel consumption curve\n  Tank: structural loads, material compatibility\n       │\n       ▼\nDesign solution\n       │\n       ▼ verification (does it meet requirements?)\nTest Results / Analysis\n       │\n       ▼ validation (does it meet original needs?)\nCustomer Acceptance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## Requirement Types",
+      "confidence": "candidate",
+      "text": "REQUIREMENT TAXONOMY\n──────────────────────────────────────────────────────────────────\nFUNCTIONAL REQUIREMENTS\n  What the system SHALL DO\n  \"The system shall transmit data at ≥ 100 Mbps\"\n  \"The system shall detect targets at ≥ 50 km range\"\n  Expressed in terms of behavior, capability, function\n\nNON-FUNCTIONAL REQUIREMENTS (QoS, Quality Attributes)\n  How the system shall perform its functions\n  Performance: \"response time < 200ms at 95th percentile\"\n  Reliability: \"MTBF > 10,000 hours\"\n  Availability: \"system availability > 99.9%\"\n  Maintainability: \"MTTR < 4 hours\"\n  Interoperability: \"shall interface with MIL-STD-1553 bus\"\n  Security: \"shall comply with NIST SP 800-53 Level 2\"\n  Safety: \"shall not emit radiation exceeding FCC Part 15\"\n\nINTERFACE REQUIREMENTS\n  System boundaries with external entities\n  \"The system shall accept GPS input via RS-422 at 9600 baud\"\n  \"The system shall interface with legacy ACARS protocol\"\n\nDESIGN CONSTRAINTS\n  Restrictions on how the system can be designed\n  \"The system shall use components on the QPL (Qualified Parts List)\"\n  \"The system shall operate on 28VDC aircraft bus\"\n  \"The total weight shall not exceed 45 kg\"\n\nDERIVED REQUIREMENTS\n  Not from stakeholder — derived from design decisions\n  If you decide to use a microprocessor, it derives power requirements\n  Must be flagged — no stakeholder explicitly requested them\n  Often the source of scope creep",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### The SMART Criteria for Requirements",
+      "confidence": "candidate",
+      "text": "REQUIREMENT QUALITY ATTRIBUTES\n──────────────────────────────────────────────────────────────────\nSingular:       One requirement per statement\n  Bad:  \"The system shall detect and track targets\"\n  Good: \"The system shall detect targets...\" (separate req)\n        \"The system shall track detected targets...\" (separate req)\n\nVerifiable:     Can be tested or analyzed\n  Bad:  \"The system shall be reliable\"\n  Good: \"The system shall achieve MTBF > 5,000 hours in\n         operational environment (IEC 60068 conditions)\"\n\nUnambiguous:    One interpretation only\n  Bad:  \"The system shall have fast response\"\n  Good: \"The system response time shall be < 500ms for\n         95% of transactions under nominal load\"\n\nAchievable:     Technically feasible within constraints\n  Check against state of practice, physics, budget\n\nTraceable:      Unique identifier, traces to parent requirement\n  REQ-SYS-0042: \"shall maintain ≥ 3g maneuver capability\"\n  Parent: STAKE-007 (combat aircraft need)\n\nNecessary:      Remove it → gap in stakeholder need\n  Gold-plating = requirements that no stakeholder actually needs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "### Common Requirement Anti-Patterns",
+      "confidence": "candidate",
+      "text": "ANTI-PATTERNS (avoid)\n──────────────────────────────────────────────────────────────────\n\"All\" / \"every\":     \"The system shall handle all inputs\"\n  → What inputs? Finite or infinite? Specify.\n\n\"Minimize/maximize\": \"The system shall minimize weight\"\n  → Unmeasurable. Set a threshold: \"weight ≤ 50 kg\"\n\n\"User-friendly\":     \"The interface shall be user-friendly\"\n  → Unmeasurable. Use usability metrics: task time, error rate.\n\n\"If possible\":       \"The system shall achieve 100 km range if possible\"\n  → Not a requirement. Either it must or it doesn't.\n\nPassive voice:       \"Data shall be processed within 2 seconds\"\n  → Who processes? \"The server shall process...\" specifies the subject.\n\nRationale embedded:  \"The system shall use AES-256 because it is secure\"\n  → Requirements state what, not why. Rationale goes in a separate field.\n\nMultiple conditions: \"The system shall detect targets > 50 km in day\n                      and > 20 km in night with 90% probability\"\n  → Two requirements. Separate them.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## Requirements Elicitation",
+      "confidence": "candidate",
+      "text": "ELICITATION TECHNIQUES\n──────────────────────────────────────────────────────────────────\nStakeholder interviews\n  One-on-one with each stakeholder class\n  Open-ended questions first, then specifics\n  Good for: tacit knowledge, constraints, background\n\nWorkshops (JAD — Joint Application Design)\n  Facilitated group session with key stakeholders\n  Rapid consensus building, conflict surfacing\n  Risk: groupthink, dominant personalities\n\nObservation (Ethnographic study)\n  Watch operators using current system or workaround\n  Reveals what users actually do vs what they say they do\n  Critical for: workflow automation, ergonomics\n\nDocument analysis\n  Review existing specs, contracts, regulations\n  Mandatory for: regulated industries (FAA, FDA), gov't contracts\n\nPrototyping\n  Build mock interface, present to users for feedback\n  Rapidly surfaces ambiguity and missing requirements\n\nUse cases / user stories\n  \"As a [role], I want [capability] so that [benefit]\"\n  Good for: functional requirements, workflow\n  Weak for: non-functional requirements, constraints\n\nViewpoint analysis (VOSE — Viewpoints-Oriented Systems Engineering)\n  Different stakeholder classes have different views of same system\n  Operator: usability, reliability\n  Maintainer: accessibility, spare parts\n  Safety officer: hazard avoidance\n  Integrate all viewpoints → complete requirements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "## Requirements Traceability",
+      "confidence": "candidate",
+      "text": "REQUIREMENTS TRACEABILITY MATRIX (RTM)\n──────────────────────────────────────────────────────────────────\nRTM links:\n  Stakeholder need → System requirement → Subsystem requirement\n  System requirement → Verification method → Test result\n\nExample RTM structure:\n  REQ ID  | Description         | Parent    | Subsystem | V Method | Test ID\n  ─────────────────────────────────────────────────────────────────────────\n  SYS-001 | Range ≥ 6000 nmi    | STAKE-07  | PROP-012  | Analysis | N/A\n  SYS-002 | Speed ≥ 200 kt      | STAKE-08  | PROP-013  | Test     | T-0043\n  SYS-003 | Payload ≥ 5000 lb   | STAKE-09  | STRUC-004 | Test     | T-0045\n\nBidirectional traceability:\n  Forward: Stake need → requirement → design → test\n  Backward: test → requirement → need\n  Gap detection: requirement with no parent = gold-plating\n                 need with no requirement = missing coverage\n\nTools: IBM DOORS (industry standard), Jama Connect,\n       Polarion ALM, Codebeamer, JIRA (for software-centric)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "### IBM DOORS (Telelogic DOORS)",
+      "confidence": "candidate",
+      "text": "DOORS ARCHITECTURE\n──────────────────────────────────────────────────────────────────\nDatabase of requirement objects (attributes + text)\nModules = documents (each requirement = one row)\nLinks = traceability connections between modules\nAttributes = metadata per requirement (status, verification method, etc.)\nViews = filtered/sorted subset of module\nBaselines = frozen snapshots at review milestones\n\nDOORS structure:\n  Project\n  ├── Stakeholder Needs Module\n  ├── System Requirements Module (SRS)\n  │   └── Links to Stakeholder Needs\n  ├── Subsystem A Requirements Module\n  │   └── Links to System Requirements\n  ├── Test Cases Module\n  │   └── Links to System Requirements\n  └── Results Module\n      └── Links to Test Cases\n\nDOORS XT / DOORS Next: web-based successor, REST API,\nmore modern UX, same data model concept.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Stakeholder Analysis",
+      "confidence": "candidate",
+      "text": "STAKEHOLDER ANALYSIS FRAMEWORK\n──────────────────────────────────────────────────────────────────\nWHO are the stakeholders?\n  Users: who operates the system daily\n  Buyers: who funds/procures it\n  Maintainers: who keeps it running\n  Operators: direct interface\n  Affected parties: neighbors, regulators, public\n  Standards bodies: mandatory compliance\n\nSTAKEHOLDER CLASSIFICATION (Power-Interest grid):\n                      Interest\n                   Low        High\n  Power High  │ Keep      │  Manage\n              │ Satisfied │  Closely\n  ────────────┼───────────┼──────────\n  Power Low   │ Monitor   │  Keep\n              │           │  Informed\n\nCONFLICT RESOLUTION between stakeholder requirements:\n  Negotiate: find compromise (often with performance tradeoff)\n  Prioritize: stakeholders vote, highest priority wins\n  Trade study: formal comparison of alternatives\n  Escalate: to program manager / sponsor if unresolvable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "## CONOPS (Concept of Operations)",
+      "confidence": "candidate",
+      "text": "CONOPS DOCUMENT\n──────────────────────────────────────────────────────────────────\nDescribes how the system will be used in its operational environment\nBEFORE requirements are written.\n\nContents:\n  System purpose and mission overview\n  Operational environment description\n  System scenarios (day in the life, edge cases)\n  User roles and their interactions\n  Operational constraints (time, geography, resources)\n  Expected operational performance criteria\n\nPurpose:\n  Validates understanding of problem before solution\n  Surfaces operational requirements that stakeholders can't articulate\n  Basis for acceptance testing (did we achieve the CONOPS scenarios?)\n  Prevents \"perfect spec for wrong problem\"\n\nFormat: DoD has ConOps template (ANSI/AIAA G-043)\n  Most programs use a tailored version",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

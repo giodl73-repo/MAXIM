@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:requirements
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: Requirements Engineering and Management
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/02-REQUIREMENTS.md
+canonical_path: systems-engineering/02-REQUIREMENTS.md
+backsource_ids: [proof-backfill:systems-engineering:02-requirements, git-history:systems-engineering:02-requirements]
+concepts: [requirements]
+root_concepts: [requirements]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Requirements Engineering and Management
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:sysml
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: SysML: Systems Modeling Language
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/05-SYSML.md
+canonical_path: systems-engineering/05-SYSML.md
+backsource_ids: [proof-backfill:systems-engineering:05-sysml, git-history:systems-engineering:05-sysml]
+concepts: [sysml]
+root_concepts: [sysml]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # SysML: Systems Modeling Language
 
 ## The Big Picture

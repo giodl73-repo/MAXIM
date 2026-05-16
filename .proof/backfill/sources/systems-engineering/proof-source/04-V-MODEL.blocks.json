@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\04-V-MODEL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE VEE MODEL (V-Model)\n──────────────────────────────────────────────────────────────────\nDecompose ◄────────────────────────────────────────► Integrate\n\nConcept                                              System\nOperations  ──────────────────────────────────────► Acceptance\n                                                     Test\n    │                                                │\nSystem          ────────────────────────────────► System\nRequirements                                     Verification\nSpec (SRS)          System Design                Test\n    │                   Review (SDR)             │\n    │                                            │\nSubsystem         ──────────────────────────► Subsystem\nRequirements                                 Integration\n(Allocated                                   Test\n Baseline)     PDR / CDR                     │\n    │                                        │\nComponent         ──────────────────────► Component\nSpec /                                    Verification\nDesign-to                                 Test\n    │                                    │\n    └──────────────── BUILD ─────────────┘\n                  (bottom of the V)\n                  Code / Fabricate\n\nLeft side:    Decompose and specify\nRight side:   Integrate and verify\nHorizontal:   Each spec is verified by corresponding test",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Verification vs Validation",
+      "confidence": "candidate",
+      "text": "VERIFICATION                          VALIDATION\n──────────────────────────────────    ──────────────────────────────────\n\"Did we BUILD IT RIGHT?\"              \"Did we build THE RIGHT THING?\"\n\nAre we meeting the specification?     Are we meeting stakeholder needs?\n\nMeasured against:                     Measured against:\n  The written requirement               The original operational need\n                                        (CONOPS, stakeholder intent)\n\nWhen:                                 When:\n  Throughout development (each         After system is fully integrated\n  design review, unit tests)           Acceptance testing by customer\n\nWho:                                  Who:\n  Developer / independent test team    Customer / end user / certifier\n\nExample:                              Example:\n  Spec says \"range ≥ 6,000 nmi\"        Did the aircraft fulfill the\n  Test proves 6,340 nmi achieved       actual mission it was built for?\n  → Verified                           → Validated\n\nYou CAN verify every requirement and still fail validation:\n  The requirements were wrong / incomplete\n  The customer didn't know what they needed\n  The operational environment was different from assumed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Verification Methods (IATAD)",
+      "confidence": "candidate",
+      "text": "VERIFICATION METHODS\n──────────────────────────────────────────────────────────────────\nI — Inspection\n  Visual examination of a product, drawing, document\n  No operation or measurement\n  \"Verify that the unit has a serial number label\"\n  \"Verify that protective coating covers all fasteners\"\n  Lowest cost, but limited scope\n\nA — Analysis\n  Mathematical / logical computation from known data\n  No physical testing required\n  \"Calculate structure stress under max load via FEA\"\n  \"Verify timing margin by analysis of timing diagrams\"\n  Good for: physics-based requirements, early verification\n\nT — Test\n  Operate the item under controlled conditions, measure output\n  \"Apply 50kg load, measure deflection < 2mm\"\n  \"Transmit 1000 frames, verify frame error rate < 10⁻⁶\"\n  Most rigorous, most expensive, most credible\n\nD — Demonstration\n  Show function operates correctly, without precise measurement\n  \"Demonstrate that door locks when powered off\"\n  \"Demonstrate that manual override disables autopilot\"\n  Between inspection and test — functional but not measured\n\nSelection logic:\n  Safety-critical: Test (or Analysis where test is impossible)\n  Performance-critical: Test\n  Physical attributes: Inspection\n  Performance via physics: Analysis (validated model)\n  Functional behavior: Demonstration or Test",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Verification and Validation Planning",
+      "confidence": "candidate",
+      "text": "VERIFICATION AND VALIDATION (V&V) PLAN CONTENTS\n──────────────────────────────────────────────────────────────────\nSystem Test Plan:\n  Test philosophy and approach\n  Test levels (unit / integration / system / acceptance)\n  Test environment description\n  Test tooling and facilities\n  Schedule and resources\n  Pass/fail criteria\n  Regression testing approach\n\nPer-requirement:\n  Verification method (I/A/T/D)\n  Verification level (component / subsystem / system)\n  Test procedure reference\n  Success criteria (measurable)\n  Test environment (lab / hardware-in-loop / operational)\n\nRequirements Verification Matrix (RVM):\n  All requirements × verification methods × test references\n  Traceability to test results after test completion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Unit / Component Testing",
+      "confidence": "candidate",
+      "text": "UNIT TEST (bottom of V)\n──────────────────────────────────────────────────────────────────\nPhysical: individual component tested in isolation\n  Mechanical: stress test on a single bracket\n  Electrical: PCB functional test on bench\n  Software: unit tests for individual functions/classes\n\nPurpose:\n  Verify component meets its specification\n  Identify defects at lowest (cheapest) level\n  Before integration (not after — late defect discovery expensive)\n\nHardware unit tests:\n  Environmental (vibration, thermal, humidity)\n  Functional (inputs → expected outputs)\n  Limits testing (at boundary conditions)\n  Destructive testing for design margins (test to failure)\n\nSoftware unit tests:\n  Bridge: same as software unit tests you know\n  White box: path coverage, branch coverage\n  Black box: boundary value analysis, equivalence partitions\n  DO-178C (aviation software) mandates coverage levels:\n    Level A (catastrophic failure): MC/DC coverage\n    Level B (hazardous): decision coverage\n    Level C (major): statement coverage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### Integration Testing",
+      "confidence": "candidate",
+      "text": "INTEGRATION TESTING\n──────────────────────────────────────────────────────────────────\nPurpose: verify interfaces between components work as designed\n\nStrategies:\n  Big bang:     integrate all at once → hard to isolate failures\n  Top-down:     integrate from top level, stub lower\n  Bottom-up:    integrate from bottom, driver to exercise\n  Incremental:  integrate one component at a time\n\nHW/SW Integration (HSI):\n  Most complex phase — hardware and software first meet\n  Interface bugs surface here (timing, protocol, electrical)\n  Requires: hardware ready, software loadable\n  Environment: integration bench, not full system\n\nSubsystem Integration Test (SIT):\n  All components of a subsystem integrated and tested\n  Verify subsystem-level requirements\n  Interfaces to other subsystems via simulators/stubs\n  Hardware: actual units (or EM — engineering model)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "### System-Level Testing",
+      "confidence": "candidate",
+      "text": "SYSTEM LEVEL TEST\n──────────────────────────────────────────────────────────────────\nFull system integrated, tested against system requirements (SRS)\nAll subsystems present (or fully simulated)\n\nTest types at system level:\n  Functional testing:      Do all functions work?\n  Performance testing:     Are performance requirements met?\n  Environmental:           Does system work in its environment?\n  Stress testing:          Behavior at limits and beyond (margins)\n  Failure mode testing:    Does system handle failures gracefully?\n  Regression testing:      After each change, verify nothing broke\n  Long-duration:           Hours/days of operation, reliability demo\n\nEnvironmental Test Sequence (for hardware):\n  1. Structural qualification (vibration, shock, acoustic)\n  2. Thermal cycling / thermal vacuum (spacecraft)\n  3. EMC (Electromagnetic Compatibility) testing\n  4. Humidity / salt fog (for maritime/outdoor)\n  5. Combined environment (simultaneous: temp + vibration)\n\nTest approach for safety-critical systems:\n  Hardware-In-the-Loop (HIL): real hardware + simulated environment\n  Software-In-the-Loop (SIL): software + simulated hardware\n  Iron Bird: full aircraft system test without airframe\n  Systems Integration Lab (SIL): full system, simulated scenario",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "### Acceptance Testing",
+      "confidence": "candidate",
+      "text": "ACCEPTANCE TESTING\n──────────────────────────────────────────────────────────────────\nCustomer accepts (takes ownership of) the system\nVerifies system meets contractual requirements\nDemonstrates validation against operational scenarios\n\nTypes:\n  FAT (Factory Acceptance Test): at manufacturer facility\n  SAT (Site Acceptance Test): at customer site, after installation\n  OAT (Operational Acceptance Test): with real users in real environment\n\nAcceptance criteria:\n  All level A requirements: must pass Test\n  Mandatory level B requirements: Demonstration at minimum\n  Performance requirements: quantitative pass/fail\n  Defect thresholds: how many open defects allowed at acceptance?\n\nDelta qualification:\n  Existing qualified system with modifications\n  Only verify requirements affected by modifications\n  Saves cost vs full re-qualification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Test Maturity Levels",
+      "confidence": "candidate",
+      "text": "TEST PROCESS MATURITY\n──────────────────────────────────────────────────────────────────\nLevel 0: Testing = debugging\n  No plan, test-as-you-build\n  Common in startups, prototypes\n\nLevel 1: Ad hoc testing\n  Test procedures exist but informal\n  Tests written after code/design\n\nLevel 2: Managed testing\n  Test plans written before design complete\n  Traceability to requirements exists\n\nLevel 3: Defined testing\n  Standard process, controlled\n  Formal test documentation, reviews\n  Pass/fail criteria defined upfront\n\nLevel 4: Measured testing\n  Metrics: coverage, defect escape rate\n  Independent test team\n\nLevel 5: Optimized testing\n  Continuous improvement of test process\n  Risk-based test selection\n  Test automation strategy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "## Qualification vs Certification",
+      "confidence": "candidate",
+      "text": "QUALIFICATION vs CERTIFICATION\n──────────────────────────────────────────────────────────────────\nQualification:\n  Internal process to show design meets specification\n  Qualification test article (not production hardware)\n  Tests to limits → typically 3 dB over design requirement (margin)\n  \"This design is qualified for this environment\"\n\nCertification:\n  External regulatory body approves system for use\n  FAA certification for aircraft\n  FCC certification for RF devices\n  FDA 510(k) or PMA for medical devices\n  CE marking for EU market\n\nRelationship:\n  Qualification → provides evidence for certification\n  Certification = regulator reviews qualification evidence + tests\n\nType Certificate (TC) vs Production Certificate (PC):\n  TC: proves the design is safe/airworthy (FAA)\n  PC: proves manufacturer can consistently produce to the TC\n  Supplemental Type Certificate (STC): modification to existing TC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "## Independent Verification and Validation (IV&V)",
+      "confidence": "candidate",
+      "text": "IV&V\n──────────────────────────────────────────────────────────────────\nIV&V = Verification and Validation performed by an independent party\n  not the developer, not the customer — a third party\n\nPurpose:\n  Fresh eyes — developer bias toward \"it works because I built it\"\n  Catch systematic errors that internal team cannot see\n  Regulatory requirement for safety-critical systems\n\nMandatory for:\n  NASA safety-critical software (NASA NPR 7150.2)\n  Nuclear power plant I&C systems\n  Flight control software (DO-178C Level A)\n  Medical device software (FDA, IEC 62304)\n\nIV&V scope:\n  Review design documentation for correctness\n  Execute test procedures independently\n  Analyze test results\n  Report findings directly to customer / regulator\n  Not to developer (independent reporting channel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

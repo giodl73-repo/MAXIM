@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\08-POLYMERS-PROCESSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "POLYMER PROCESSING LANDSCAPE\n──────────────────────────────────────────────────────────────────\nFEEDSTOCK TYPE → PROCESS FAMILY → OUTPUT FORM\n\nTHERMOPLASTICS (melt, shape, solidify — repeatable):\n  Pellets/granules → Extrusion        → Profile, sheet, film, pipe, wire coat\n  Pellets          → Injection Molding → Discrete 3D parts\n  Sheet            → Thermoforming    → Cups, blister packs, panels\n  Preform          → Blow Molding     → Bottles, containers\n  Pellets/powder   → Rotomolding     → Large hollow parts (tanks, kayaks)\n\nTHERMOSETS (liquid, cure — irreversible crosslink):\n  Liquid resin     → RTM/VARTM       → Fiber composite panels\n  Prepreg (tape)   → Autoclave cure  → Aerospace CFRP structure\n  Liquid           → Transfer molding → Encapsulated electronics\n\nELASTOMERS (vulcanize — crosslink with sulfur):\n  Compound         → Compression molding → Seals, tires\n  Compound         → Injection molding   → High-volume rubber parts\n\nPROCESSING PARAMETERS THAT MATTER:\n  Melt temperature  → viscosity, degradation limit\n  Shear rate        → thinning (pseudoplastic behavior)\n  Cooling rate      → crystallinity, residual stress, warpage\n  Pressure          → fill, packing, density\n  Time              → cycle time (economics), crystallization, cure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Polymer Melt Rheology (Why It Matters)",
+      "confidence": "candidate",
+      "text": "RHEOLOGY FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\nViscosity η: resistance to flow (Pa·s)\n\nNewtonian fluid (water, mineral oil):\n  η = constant (independent of shear rate)\n\nPolymer melt — Non-Newtonian pseudoplastic (shear-thinning):\n  η decreases as shear rate increases\n  Power law model: η = K × γ̇^(n-1)\n    n < 1: shear-thinning (all common polymers)\n    K = consistency index (material constant)\n    γ̇ = shear rate (1/s)\n  Systems bridge: shear-thinning is a nonlinear system where increased\n  throughput (shear rate) reduces resistance (viscosity) — positive\n  feedback on flow rate. Unlike most congestion models where resistance\n  increases with throughput, polymer flow gets easier at higher rates.\n  The Arrhenius temperature dependence (viscosity halves per 10°C) adds\n  exponential thermal sensitivity to the nonlinearity.\n\n  Typical viscosity:\n    At rest (zero shear): η ≈ 10³–10⁵ Pa·s (10³–10⁵× water)\n    At injection molding shear rates (10³–10⁴ s⁻¹): η ≈ 10²–10³ Pa·s\n\n  Practical consequence: HIGH shear rate in runner/gate → lower viscosity\n    → helps fill thin sections; back off shear to avoid degradation\n\nTemperature dependence — Arrhenius-like:\n  η ∝ exp(Ea/RT)  (Ea = activation energy, T in Kelvin)\n  → Every 10°C rise: viscosity drops ~factor of 2 for typical polymers\n  → Processing window: above Tg (glass transition) or Tm (melting point)\n    but below Tdeg (degradation temperature)\n\nVISCOELASTICITY:\n  Polymers store and release elastic energy during flow\n  Die swell (extrudate swell): melt expands on exiting die (elastic recovery)\n    → Die must be compensated to achieve desired final dimension\n  Melt fracture: above critical shear rate → sharkskin or gross melt fracture\n    → Surface defect, glossy → rough transition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### The Extrusion Process",
+      "confidence": "candidate",
+      "text": "SINGLE-SCREW EXTRUDER ANATOMY\n──────────────────────────────────────────────────────────────────\n             Hopper\n               │\n               ▼\n  ┌─────────────────────────────────────────────────┐\n  │  Feed zone  │  Compression zone  │Metering zone │\n  │  (deep      │  (decreasing       │(shallow,     │\n  │   channels) │   channel depth)   │ pumping)     │\n  └─────────────────────────────────────────────────┘\n                                                  → Die\n       Barrel heaters (multiple zones)\n       Screw (L/D ratio: 20:1 to 30:1)\n\nZONES:\n  Feed:        Pellets enter, convey solid material\n  Compression: Channels shallow → compresses, melts by shear heat + conduction\n  Metering:    Melt pumped at constant rate to die\n\nSCREW PARAMETERS:\n  L/D ratio:        length/diameter, typical 24:1 – 32:1\n  Compression ratio: feed channel depth / metering channel depth (~3:1)\n  RPM:              shear rate, output rate, melt temperature\n  Back pressure:    pressure on returning material → better mixing, higher melt T\n\nDIE:\n  Profile die:   shapes melt into desired cross-section\n  Die swell:     melt expands 5–20% beyond die opening\n  Die design:    land length, taper angle, must account for swell\n  Calibration:   downstream cooling fixture holds final dimension\n\nDOWNSTREAM:\n  Cooling tank (water) → Puller → Cutter or winder\n  Puller speed vs screw RPM ratio → sets wall thickness by drawing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "### Extrusion Outputs",
+      "confidence": "candidate",
+      "text": "EXTRUSION PRODUCT FORMS\n──────────────────────────────────────────────────────────────────\nPROFILE:    Custom cross-section → window frames (PVC), structural channels\n            Die profile ≠ final profile (swell + drawdown must be modeled)\n\nPIPE/TUBE:  Annular die with mandrel\n            Cooling: water tank immediately after die\n            Common polymers: PVC, HDPE, CPVC, PP\n            Standard: ASTM D1785 (PVC), ASTM F714 (HDPE)\n\nSHEET/FILM: Flat die (coat-hanger manifold) → uniform melt width\n            Sheet (>0.25mm): 3-roll calender stack → surface finish\n            Film (<0.25mm): blown film (tubular die → inflated bubble) or cast film\n            Biaxial orientation in blown film → improved tensile + barrier\n\nWIRE COATING: Wire pulled through annular crosshead die\n              Melt coats wire → cooling trough\n              Materials: PVC (general wiring), XLPE (high temp), PTFE (ultra high temp)\n              Speed: 100–1000 m/min\n\nTWIN-SCREW EXTRUDER:\n  Intermeshing co-rotating screws → much better mixing than single-screw\n  Used for: compounding (adding fillers, colorants, reinforcing fibers)\n            reactive extrusion (chain extension, grafting reactions)\n  Not primarily for profile production — for material preparation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Process Overview",
+      "confidence": "candidate",
+      "text": "INJECTION MOLDING CYCLE\n──────────────────────────────────────────────────────────────────\nCYCLE PHASES (sequential):\n  ┌─────────────────────────────────────────────────────────────┐\n  │ 1. CLAMPING: mold halves close → clamp force applied        │\n  │                                                             │\n  │ 2. INJECTION: screw advances → melt injected into cavity    │\n  │    Gate freezes → end of injection phase                    │\n  │                                                             │\n  │ 3. PACKING/HOLDING: extra melt pushed in to compensate      │\n  │    shrinkage → gate seal → pressure holds                   │\n  │                                                             │\n  │ 4. COOLING: part cools below ejection temperature           │\n  │    Screw recovers (rotates, feeds next shot while cooling)  │\n  │                                                             │\n  │ 5. EJECTION: mold opens → ejector pins push part out        │\n  └─────────────────────────────────────────────────────────────┘\n\nCYCLE TIME BREAKDOWN (typical):\n  Injection: 0.5–3 s  (fast fill = good part quality)\n  Packing:   2–10 s\n  Cooling:   5–60 s   (DOMINANT — part must solidify below ejection T)\n  Open/eject/close: 1–5 s\n  Total: ~10–100 s depending on wall thickness\n\nCooling dominates: reducing wall thickness by 25% → halves cooling time\n→ Most important DfM decision: minimize wall thickness (uniform)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "### Mold Design",
+      "confidence": "candidate",
+      "text": "INJECTION MOLD ANATOMY\n──────────────────────────────────────────────────────────────────\n                      Sprue bushing\n                           │\n            ┌──────────────┼──────────────┐\n            │  Runner system (cold or hot)│\n            │        │         │          │\n            │       Gate     Gate         │\n            │        ↓         ↓          │\n            │   [Cavity 1] [Cavity 2]     │\n            │                             │\n            │  Cooling channels (water)   │\n            │  Ejector pins               │\n            └─────────────────────────────┘\n              Fixed half    Moving half\n\nRUNNER SYSTEMS:\n  Cold runner: runner solidifies with part → must be ground/remelted (waste)\n    Simpler, lower tooling cost\n  Hot runner: heated manifold keeps runner molten → no runner waste\n    Higher tooling cost (~$5,000–50,000 for manifold), eliminates regrind\n    Standard for high-volume production\n\nGATE TYPES:\n  Edge gate:  simple, visible gate vestige, easy to change\n  Submarine gate: auto-degates on ejection\n  Pin gate:   small, round, minimal vestige\n  Valve gate (hot runner): pneumatic/hydraulic pin → precise control, no vestige\n  Fan gate:   wide thin gate → low stress for large flat parts\n\nCOOLING:\n  Conformal cooling channels (AM-made molds): follow part contour\n  → 30–50% cycle time reduction possible\n  Baffles/bubblers for cores that can't have straight channels\n  Temperature uniformity → warpage reduction\n\nDRAFT ANGLES:\n  Minimum: 1° per side for smooth surfaces\n  Textured surfaces: 1–3° extra per 0.025mm texture depth\n  No draft → part sticks in mold, ejection damage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### Injection Molding Defects",
+      "confidence": "candidate",
+      "text": "INJECTION MOLDING DEFECTS AND CAUSES\n──────────────────────────────────────────────────────────────────\nSHORT SHOT (incomplete fill):\n  Causes: insufficient injection pressure, temperature too low,\n          gate too small, thin wall sections restrict flow, early gate freeze\n  Fix: increase injection speed/pressure, raise melt T, enlarge gate\n\nSINK MARKS (depressions):\n  Occurs: thick sections cool last → skin solidifies, core shrinks → surface sinks\n  Causes: insufficient packing pressure/time, gate freezes too early\n  Fix: increase packing pressure/time, add packing phase, reduce wall thickness\n\nWARPAGE:\n  Non-uniform shrinkage → part distorts from mold shape\n  Causes: non-uniform cooling, asymmetric gate, orientation from flow,\n          differential crystallinity in semi-crystalline polymers\n  Fix: balance cooling, multiple gates, anneal post-mold\n\nWELD LINES (knit lines):\n  Where two melt fronts meet → cold front-to-front interface → weak bond\n  Always present where melt flows around holes or inserts\n  Strength ~50–90% of base material depending on temperature at fusion\n  Fix: increase melt T, injection speed; relocate gate to minimize weld lines in critical areas\n\nFLASH:\n  Melt escapes parting line → thin web of plastic\n  Causes: insufficient clamp force, worn parting line, excessive injection pressure\n  Fix: increase clamp, check parting line condition, reduce pressure\n\nJETTING:\n  Melt squirts through gate and folds → serpentine pattern, surface defect\n  Causes: gate too small, injection speed too high for gate geometry\n  Fix: reduce injection speed, enlarge gate, relocate gate to hit wall first\n\nBURN MARKS (diesel effect):\n  Trapped air compressed by advancing melt → heats to ignition → burns polymer\n  Causes: no venting at end-of-fill, injection too fast\n  Fix: add vents, reduce injection speed at end of fill",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### Injection Molding Materials and Shrinkage",
+      "confidence": "candidate",
+      "text": "SHRINKAGE AND MATERIAL SELECTION\n──────────────────────────────────────────────────────────────────\nMold shrinkage: polymer shrinks as it cools → mold cavity must be oversized\n\n  Amorphous polymers (PS, ABS, PC, PMMA): low, predictable shrinkage\n    Typical: 0.4–0.8%\n    Reason: no crystallization, uniform density change\n\n  Semi-crystalline polymers (PP, PE, POM, Nylon, PBT): higher, anisotropic\n    Typical: 1.5–3% (flow direction often different from transverse)\n    Reason: crystallization causes significant volume change\n    Problem: differential shrinkage → warpage if cooling not balanced\n\n  Filled materials: fiber reinforcement reduces shrinkage, causes anisotropy\n    30% glass-filled Nylon: ~0.4% vs ~2% unfilled\n    But: highly anisotropic (flow vs. transverse shrinkage different)\n    → Warpage risk high if not addressed in tool design\n\nCommon Injection Molding Polymers:\n  PP (polypropylene):    commodity, living hinge capability, chemical resistant\n  ABS:                   tough, paintable, electronic enclosures\n  PC (polycarbonate):    transparent, impact resistant, automotive\n  Nylon (PA6, PA66):     wear resistant, fatigue resistant, gears/bushings\n  POM (Delrin/acetal):   tight tolerances, bearing/gear material\n  PBT/PET:               dimensional stability, connector bodies\n  PEEK:                  high temperature (~250°C), medical/aerospace\n  TPE/TPU:               flexible, overmolding, grips, seals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### Blow Molding",
+      "confidence": "candidate",
+      "text": "BLOW MOLDING\n──────────────────────────────────────────────────────────────────\nEXTRUSION BLOW MOLDING (EBM):\n  1. Extruder produces hollow tube (parison)\n  2. Mold closes around parison\n  3. Compressed air blown in → parison inflates to mold shape\n  4. Cool → eject\n\n  Applications: HDPE bottles, automotive ducts, toys\n  Materials: HDPE, PP, PVC, PETG\n  Limitation: wall thickness control limited (depends on parison swell)\n\nINJECTION BLOW MOLDING (IBM):\n  1. Injection mold: precise preform (test-tube shape) with finish\n  2. Transfer to blow station: heated, inflated to bottle shape\n  3. Superior neck/thread precision (injection formed)\n  Applications: pharma bottles, cosmetic containers\n\nINJECTION STRETCH BLOW MOLDING (ISBM / PET bottles):\n  1. Injection mold precise PET preform\n  2. Reheat to ~100°C (above Tg=80°C)\n  3. Stretch rod extends axially + air inflates radially → biaxial orientation\n  4. PET crystallites align → high clarity, high strength, gas barrier\n\n  ISBM = how ALL PET beverage bottles are made\n  Key: biaxial orientation of PET → 4× better CO₂ barrier vs unoriented\n  Single stage (preform to bottle in one machine) vs two-stage (separate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "### Thermoforming",
+      "confidence": "candidate",
+      "text": "THERMOFORMING\n──────────────────────────────────────────────────────────────────\nHeat thermoplastic sheet → clamp over mold → vacuum/pressure forms to shape\n\nVACUUM FORMING (simplest):\n  Sheet heated to rubbery state (Tg to Tm range)\n  Mold moves into sheet, vacuum applied from mold side\n  Sheet stretches to mold → cools → part ejected\n  Male (positive) or female (negative) tooling\n\n  Limitation: wall thinning at corners (draw ratio = depth/width)\n              Higher draw ratio → severe thinning at corners and rims\n\nPRESSURE FORMING:\n  Air pressure on top surface + vacuum → higher resolution, sharper detail\n  Better for textured surfaces\n\nTWIN-SHEET FORMING:\n  Two sheets formed simultaneously → welded around perimeter\n  Creates hollow double-wall panels\n\nApplications:\n  Cups, trays, blister packs (PS, PET)\n  Refrigerator liners (ABS)\n  Automotive headliners, door panels\n  Aircraft interior trim (PEEK, PEI at elevated T)\n\nvs injection molding:\n  Thermoforming: lower tooling cost ($5,000–50,000 vs $50,000–500,000)\n  But: geometry limited (uniform thin-wall, open forms)\n  Injection: complex 3D, tight tolerances, high volume economics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "### Rotational Molding",
+      "confidence": "candidate",
+      "text": "ROTATIONAL MOLDING (ROTOMOLDING)\n──────────────────────────────────────────────────────────────────\nPolymer powder loaded into hollow mold\nMold heated in oven while rotating biaxially → powder coats inner surface\n→ Melt flows, coats evenly → cool → demold\n\nAdvantages:\n  No internal pressure required → inexpensive tooling (aluminum, even fiberglass)\n  Very large parts possible: kayaks, storage tanks, playground equipment\n  Uniform wall thickness on complex hollow shapes\n  No weld lines (single cavity)\n\nDisadvantages:\n  Slow cycle (oven heating/cooling, 20–45 min cycles)\n  Limited to hollow parts\n  Surface detail limited (no fast injection pressure to fill fine features)\n  Material: mostly LLDPE (>80% of rotomolded volume)\n\nApplications: tanks (chemical, water, fuel), kayaks, playground equipment,\n  traffic cones, agricultural equipment, marine floats",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 433,
+      "heading_context": "## Thermoset Processing",
+      "confidence": "candidate",
+      "text": "THERMOSET PROCESSING OVERVIEW\n──────────────────────────────────────────────────────────────────\nThermosets: liquid or solid that CROSSLINKS irreversibly on cure\n  Cannot be remelted (unlike thermoplastics)\n  Network polymer: high modulus, high temperature resistance\n\nKey thermoset families:\n  Epoxy (EP):      structural adhesives, CFRP prepreg, PCBs\n  Polyester (UP):  boat hulls, auto body panels, construction\n  Vinyl ester:     better corrosion resistance than UP, marine/chemical\n  Phenolic (PF):   electrical parts, brake linings, cookware handles\n  Polyurethane (PU): foam (rigid/flexible), RIM, elastomers\n\nCURE REACTION:\n  Epoxy: resin + hardener (amine or anhydride) → exothermic crosslinking\n  Cure time/temperature tradeoff: cold cure (room T) = slow + lower Tg\n                                   Hot cure (120–180°C) = fast + high Tg\n  Tg of cured epoxy: room-temp cure ~60°C; 180°C cure ~180–220°C\n\nRTM (Resin Transfer Molding):\n  Dry fiber preform in closed mold → resin injected under pressure\n  Moderate tooling cost, closed mold (clean), good surface both sides\n  Used: automotive structural, aerospace secondary structure\n\nVARTM (Vacuum-Assisted RTM):\n  One rigid tool + vacuum bag → resin drawn by vacuum\n  Low tooling cost (one-sided mold), large structures possible\n  Used: wind turbine blades, boat hulls, infrastructure repair\n\nAutoclave prepreg:\n  Carbon or glass fiber pre-impregnated with partially cured resin (\"B-stage\")\n  Layup by hand or AFP (Automated Fiber Placement)\n  Cure in autoclave: 120–180°C, 5–7 bar (nitrogen)\n  Highest quality: minimum porosity, tightly controlled fiber volume fraction\n  Cost: autoclave capital + cycle time + refrigerated prepreg storage\n  Used: primary aerospace structure (fuselage, wings, nacelles)\n\nCOMPRESSION MOLDING (thermoset):\n  Sheet Molding Compound (SMC): mat of glass + polyester resin\n  Place charge in hot mold, close press → heat + pressure → cure\n  Applications: automotive hoods/fenders, electrical enclosures\n  Cycle time: 1–5 min (much faster than autoclave)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 482,
+      "heading_context": "## Polymer Crystallinity and Thermal Properties",
+      "confidence": "candidate",
+      "text": "CRYSTALLINITY AND THERMAL TRANSITIONS\n──────────────────────────────────────────────────────────────────\nAMORPHOUS POLYMERS:\n  Random chain entanglement → no long-range order\n  Single thermal transition: Tg (glass transition temperature)\n  Below Tg: glassy, stiff, brittle\n  Above Tg: rubbery, viscous\n  Examples: PS, PC, PMMA, ABS, SAN\n  Properties: transparent (no crystallite light scattering), no sharp melting point\n\nSEMI-CRYSTALLINE POLYMERS:\n  Regions of folded-chain lamellae (crystallites) in amorphous matrix\n  Two transitions: Tg (amorphous phase) + Tm (melting, sharp)\n  Degree of crystallinity: 20–80% (never 100% — chains too long)\n  Processing affects crystallinity:\n    Slow cooling: higher crystallinity → stiffer, denser, better chemical resistance\n    Fast quench: lower crystallinity → tougher, more transparent\n  Examples: PP, PE (HDPE/LDPE/LLDPE), POM, PET, Nylon, PEEK\n\n  Nucleating agents: accelerate crystallization, finer spherulites → toughness\n    In PP: clarifier nucleants → optical clarity while maintaining semi-crystalline structure\n\nKEY THERMAL PROPERTIES:\n  Material     Tg (°C)    Tm (°C)    Max service T\n  PS           ~100       ---        ~70°C (amorphous)\n  PC           ~147       ---        ~120°C\n  POM          ~-60       ~165       ~100°C\n  PP           ~-10       ~160–165   ~100°C (unfilled)\n  Nylon 66     ~50        ~260       ~120°C (dry)\n  PEEK         ~143       ~343       ~250°C (continuous)\n  PTFE         ~115       ~327       ~260°C\n\nMOISTURE EFFECTS:\n  Hygroscopic polymers (Nylon, PC, PBT, PET) absorb moisture → plasticization\n  → Lowers Tg, reduces mechanical properties\n  CRITICAL: must dry before processing (100–120°C for 4–8 hours)\n  Wet Nylon injection molded → hydrolytic degradation → reduced MW → brittleness\n  Use: Karl Fischer titration or moisture analyzer to verify dryness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 527,
+      "heading_context": "## Polymer Additives",
+      "confidence": "candidate",
+      "text": "ADDITIVES THAT CHANGE PROCESSING AND PROPERTIES\n──────────────────────────────────────────────────────────────────\nPlasticizers:\n  Reduce Tg → increase flexibility, improve low-temp properties\n  PVC requires plasticizers (PVC rigid = unplasticized UPVC, flexible = plasticized)\n  Dioctyl phthalate (DOP/DEHP): legacy, regulatory pressure → alternatives (DINP, DEHA)\n  Migration problem: plasticizer migrates out over time → brittleness\n\nFillers:\n  Talc, calcium carbonate, glass beads: lower cost, increase modulus, reduce shrinkage\n  Glass fiber (short chopped): 10–40% loading → 2–5× modulus increase, lower ductility\n  Carbon fiber (short): higher stiffness than glass, conductive (EMI shielding)\n  Mineral fillers: reduce shrinkage/warpage in semi-crystalline polymers\n\nFlame Retardants:\n  Halogenated (Br, Cl compounds): effective, regulatory pressure (RoHS/REACH)\n  Halogen-free: aluminum trihydrate (ATH), intumescent systems, phosphorus-based\n  Required for: UL 94 ratings (HB, V-2, V-1, V-0)\n\nStabilizers:\n  Heat stabilizers (PVC): prevent HCl evolution during processing\n  UV stabilizers: HALS (Hindered Amine Light Stabilizers) for outdoor applications\n  Antioxidants: prevent oxidative chain scission during melt processing (especially PP)\n\nColorants:\n  Masterbatch: high-concentration pigment in carrier resin → let-down into base resin\n  Typical let-down ratio: 2–5% masterbatch into base\n  Carbon black: UV protection + black color (HDPE pipe spec requires CB for UV resistance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 562,
+      "heading_context": "## Polymer Joining and Secondary Operations",
+      "confidence": "candidate",
+      "text": "POLYMER JOINING\n──────────────────────────────────────────────────────────────────\nWELDING (thermoplastics only — must melt and fuse):\n\n  Ultrasonic welding:\n    High-frequency vibration (20–40 kHz) → friction heat at joint interface\n    Fast: 0.5–2 second cycles\n    Requires designed energy director (small rib at joint focuses energy)\n    Best for: amorphous polymers (ABS, PC, PS), less for semi-crystalline\n    Applications: medical devices, automotive, electronics housings\n\n  Vibration welding:\n    Linear or orbital vibration between parts → friction melts interface\n    Good for large flat parts, irregular joints\n    Applications: automotive fluid reservoirs, intake manifolds\n\n  Hot plate welding:\n    Heated platen melts both surfaces → remove platen, press together\n    Simple tooling, good for polyolefins (PE, PP) which don't ultrasonically weld well\n    Slower than ultrasonic\n\n  Spin welding:\n    Rotational friction for circular joints\n    Simple, effective for round parts (PP tanks, bottles, valves)\n\n  Laser welding:\n    Transmitting upper part + absorbing lower part (carbon black or IR dye)\n    Laser passes through upper, absorbed at interface → melts joint\n    Precise, no mechanical vibration, works on complex joint geometry\n    Cost: laser capital, need matched transmittance/absorbance\n\nADHESIVE BONDING:\n  Structural epoxy: 2K, high strength, gap-filling\n  UV-cure acrylate: fast, optical assemblies\n  Hot melt: EVA, non-structural, packaging\n\n  Surface preparation critical:\n    Polyolefins (PP, PE): low surface energy → corona/flame/plasma treatment required\n    Flame/corona: oxidizes surface → creates polar groups → adhesion\n    Without treatment: adhesive beads up → no bond",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

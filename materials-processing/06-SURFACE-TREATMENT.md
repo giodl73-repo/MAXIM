@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:surface-treatment
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Surface Treatments and Coatings
+status: source-custody
+source_custody: partial
+current_path: materials-processing/06-SURFACE-TREATMENT.md
+canonical_path: materials-processing/06-SURFACE-TREATMENT.md
+backsource_ids: [proof-backfill:materials-processing:06-surface-treatment, git-history:materials-processing:06-surface-treatment]
+concepts: [surface, treatment]
+root_concepts: [surface, treatment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Surface Treatments and Coatings
 
 ## The Big Picture
@@ -202,7 +221,7 @@ TBC system layers:
   │ Ceramic top coat: 7% YSZ (yttria-stabilized│
   │ zirconia, ZrO₂+7%Y₂O₃), ~150–500 µm thick  │
   │ Thermal conductivity: ~2 W/m·K (vs 12 for  │
-  │ substrate)  Low but non-zero→ temp gradient │
+  │ substrate)  Low but nonzero temp gradient  │
   ├────────────────────────────────────────────┤
   │ Thermally grown oxide (TGO): α-Al₂O₃      │
   │ Grows during service from MCrAlY oxidation │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:fracture-mechanics
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Fracture Mechanics and Fatigue
+status: source-custody
+source_custody: partial
+current_path: materials-processing/05-FRACTURE-MECHANICS.md
+canonical_path: materials-processing/05-FRACTURE-MECHANICS.md
+backsource_ids: [proof-backfill:materials-processing:05-fracture-mechanics, git-history:materials-processing:05-fracture-mechanics]
+concepts: [fracture, mechanics]
+root_concepts: [fracture, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fracture Mechanics and Fatigue
 
 ## The Big Picture

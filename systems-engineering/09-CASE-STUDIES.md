@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:case-studies
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: Case Studies: Aerospace, Defense, and Software
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/09-CASE-STUDIES.md
+canonical_path: systems-engineering/09-CASE-STUDIES.md
+backsource_ids: [proof-backfill:systems-engineering:09-case-studies, git-history:systems-engineering:09-case-studies]
+concepts: [case, studies]
+root_concepts: [case, studies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Case Studies: Aerospace, Defense, and Software
 
 ## The Big Picture

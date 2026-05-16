@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:phase-transformations
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Phase Transformations and TTT/CCT Diagrams
+status: source-custody
+source_custody: partial
+current_path: materials-processing/01-PHASE-TRANSFORMATIONS.md
+canonical_path: materials-processing/01-PHASE-TRANSFORMATIONS.md
+backsource_ids: [proof-backfill:materials-processing:01-phase-transformations, git-history:materials-processing:01-phase-transformations]
+concepts: [phase, transformations]
+root_concepts: [phase, transformations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Phase Transformations and TTT/CCT Diagrams
 
 ## The Big Picture
@@ -215,7 +234,7 @@ Jominy End-Quench Test (ASTM A255):
 
   ┌─────────────────────────────────────────────┐
   │ Bar cross-section                           │
-  │ ←─────── decreasing cooling rate ─────────►│
+  │ ←─────── decreasing cooling rate ─────────► │
   │                                             │
   │ Hardness vs. distance from quenched end     │
   │                                             │

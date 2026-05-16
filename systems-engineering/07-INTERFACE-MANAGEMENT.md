@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:interface-management
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: Interface Management and Integration
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/07-INTERFACE-MANAGEMENT.md
+canonical_path: systems-engineering/07-INTERFACE-MANAGEMENT.md
+backsource_ids: [proof-backfill:systems-engineering:07-interface-management, git-history:systems-engineering:07-interface-management]
+concepts: [interface, management]
+root_concepts: [interface, management]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Interface Management and Integration
 
 ## The Big Picture

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\05-SYSML.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SYSML vs UML\n──────────────────────────────────────────────────────────────────\nUML (Unified Modeling Language):\n  Designed for software systems modeling\n  13 diagram types, software-centric\n\nSysML (subset + extensions of UML):\n  Reuses 7 of UML's 13 diagrams (with modifications)\n  Adds 2 new diagram types (Requirements, Parametric)\n  Designed for systems (hardware, software, humans, procedures)\n\nSysML is standardized by OMG (Object Management Group)\nCurrent version: SysML 1.x (mature)\n  SysML 2.0 (major revision in progress, pure model, no diagram focus)\n\nSYSML DIAGRAM TAXONOMY\n──────────────────────────────────────────────────────────────────\n  SysML diagrams partition into three families:\n\n  Behavior diagrams:   act, seq, stm, uc\n  Structure diagrams:  bdd, ibd, pkg\n  Cross-cutting:       req (requirements), par (parametric)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "### Block Definition Diagram (bdd) — Structure",
+      "confidence": "candidate",
+      "text": "BLOCK DEFINITION DIAGRAM\n──────────────────────────────────────────────────────────────────\nThe \"class diagram\" equivalent for systems.\nShows: blocks (system elements), their properties, and relationships.\n\n  bdd [Package] Vehicle [Vehicle Structure]\n  ┌─────────────────────────────────────────┐\n  │ «block»                                 │\n  │ Vehicle                                 │\n  ├─────────────────────────────────────────┤\n  │ values:                                  │\n  │   mass: kg = 1500                        │\n  │   maxSpeed: m/s                          │\n  ├─────────────────────────────────────────┤\n  │ parts:                                  │\n  │   engine: Engine [1]                    │\n  │   transmission: Transmission [1]        │\n  │   wheels: Wheel [4]                     │\n  └─────────────────────────────────────────┘\n         |  composition (filled diamond) -> Engine\n         |  inheritance: Vehicle (general) -> Car (specialization)\n\nComposition ◆: part cannot exist without whole\nAggregation ◇: part can exist independently\nAssociation  : relationship\nGeneralization ◁: specialization (subtype)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "### Internal Block Diagram (ibd) — Internal Structure",
+      "confidence": "candidate",
+      "text": "INTERNAL BLOCK DIAGRAM\n──────────────────────────────────────────────────────────────────\nShows the INTERNAL structure of a specific block:\n  - Parts (internal components)\n  - Connectors (how parts connect)\n  - Ports (connection points on block boundary)\n  - Flow specifications (what flows through connections)\n\n  ibd [Block] Aircraft [Internal Structure]\n  ┌──────────────────────────────────────────────────────────────┐\n  │ :Aircraft                                                    │\n  │  ┌──────────┐   fuel   ┌────────────┐  power ┌──────────┐    │\n  │  │:Fuel     ├──────────►:Propulsion │ ──────►│:Avionics │  │\n  │  │System   │           │           │         │          │  │\n  │  └──────────┘  thrust  └─────┬──────┘         └──────────┘  │\n  │                              │                               │\n  │                              ▼ thrust                        │\n  │  ┌──────────┐         ┌──────────────┐                      │\n  │  │:Flight   │◄────────│:Structures   │                      │\n  │  │Control   │ loads   │              │                      │\n  │  └──────────┘         └──────────────┘                      │\n  └──────────────────────────────────────────────────────────────┘\n\nPorts: proxy port (delegates to part), full port (own behavior)\nFlow ports: specify direction and type of flow (energy, material, data)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### Package Diagram (pkg) — Namespace Organization",
+      "confidence": "candidate",
+      "text": "PACKAGE DIAGRAM\n──────────────────────────────────────────────────────────────────\nOrganizes model elements into namespaces (like Java packages).\nShows dependencies between packages.\n\n  pkg [Model] SystemModel [Architecture]\n  ┌──────────────────────────────────────┐\n  │ «package»  «package»  «package»      │\n  │ Structure  Behavior   Requirements   │\n  │ ─────────  ─────────  ────────────   │\n  │ Aircraft   MissionOps SysReqs        │\n  │   ├─bdd    ├─act      ├─req          │\n  │   ├─ibd    ├─seq      └─par          │\n  │   └─pkg    └─stm                     │\n  └──────────────────────────────────────┘\n\nUse cases: grouping related elements, access control,\nreuse (import one package into another)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "### Use Case Diagram (uc) — External Behavior",
+      "confidence": "candidate",
+      "text": "USE CASE DIAGRAM\n──────────────────────────────────────────────────────────────────\nSame concept as UML use cases — actors and system interactions.\n\n  uc [Package] MissionSystem [Mission Scenarios]\n  Operator actor uses cases:\n    Navigate to target\n    Monitor system health\n    Communicate with HQ\n\n  HQ actor uses cases:\n    Transmit mission orders\n    Receive status reports\n\n  Extend / Include relationships connect related use cases.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "### Activity Diagram (act) — Behavior / Process Flow",
+      "confidence": "candidate",
+      "text": "ACTIVITY DIAGRAM\n──────────────────────────────────────────────────────────────────\nShows flow of control and data across activities.\nUsed for: operational scenarios, process models, data flows.\n\n  act [Activity] StartupSequence [System Startup]\n       ┌──────────────────────────────────┐\n       │         ● (start)                │\n       │         │                        │\n       │    [Power on]                    │\n       │         │                        │\n       │  ┌──────▼──────┐                 │\n       │  │Initialize BIT│ (built-in test) │\n       │  └──────┬───────┘                │\n       │         │                        │\n       │    [BIT passed?]                 │\n       │       /    \\                     │\n       │     Yes    No                   │\n       │      │      │                   │\n       │  [Continue] [Fault→Ground]       │\n       │      │                          │\n       │      ● (end)                    │\n       └──────────────────────────────────┘\n\nObject flow: data passed between activities\nControl flow: sequence of activities\nSwim lanes: which actor/block performs each activity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### Sequence Diagram (sd) — Message Interaction",
+      "confidence": "candidate",
+      "text": "SEQUENCE DIAGRAM\n──────────────────────────────────────────────────────────────────\nShows time-ordered sequence of messages between system elements.\nDirectly equivalent to UML sequence diagram.\n\n  sd [Interaction] SensorDataFlow [GPS Update Cycle]\n  Lifelines: :GPSSensor, :NavProcessor, :FlightController.\n  Messages flow left to right:\n    GPSSensor   --(GPS frame)-->  NavProcessor       (every 1 Hz)\n    NavProcessor --(pos, vel, time)--> FlightController (computed in <10 ms)\n    FlightController internally issues servo commands.\n\nCombined fragments: loop, opt (optional), alt (conditional),\n  par (parallel), break (exception exit)\nDuration constraints: labels specify timing requirements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "### State Machine Diagram (stm) — Discrete States",
+      "confidence": "candidate",
+      "text": "STATE MACHINE DIAGRAM\n──────────────────────────────────────────────────────────────────\nShows states of a block and transitions between them.\nUsed for: lifecycle states, mode management, protocol modeling.\n\n  stm [Block] Aircraft [Flight Mode States]\n\n  States and transitions:\n    GROUND (init, check)\n      -- takeoff clearance received / throttle up -->\n    CLIMB\n      -- altitude reached -->\n    CRUISE\n      -- descent -->\n    APPROACH / LANDING\n      -- touchdown -->\n    terminal.\n\n  Engine flame-out at any time -> EMERGENCY.\n\nEntry/exit actions on states\nGuard conditions [in brackets] on transitions\nInternal transitions: events that don't change state",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "### Requirements Diagram (req) — New in SysML",
+      "confidence": "candidate",
+      "text": "REQUIREMENTS DIAGRAM\n──────────────────────────────────────────────────────────────────\nUnique to SysML (not in UML).\nShows requirements and their relationships visually.\n\n  req [Package] SystemRequirements [Top Level]\n  ┌───────────────────────────────────────────────────────────────┐\n  │ «requirement»                «requirement»                    │\n  │ System Capabilities          Performance                      │\n  │   id=\"REQ-SYS-001\"           id=\"REQ-SYS-010\"                 │\n  │   text=\"The system shall     text=\"The system shall           │\n  │   support 6000nm range\"      detect targets at ≥50km\"         │\n  │                                         │                     │\n  │ «deriveReqt»          «containment»     │ «refine»            │\n  │ id=\"REQ-FUEL-005\"     │                 ▼                     │\n  │ text=\"Fuel system     ▼        «requirement»                  │\n  │ shall have 20 ton     [child   Detection Range                │\n  │ capacity\"             reqs]    id=\"REQ-SEN-001\"               │\n  └───────────────────────────────────────────────────────────────┘\n\nRelationships:\n  «deriveReqt»:    requirement derived from another (design choice)\n  «refine»:        requirement refined by model element (design)\n  «satisfy»:       block satisfies requirement\n  «verify»:        test case verifies requirement\n  «trace»:         general traceability (no formal semantics)\n  «containment»:   hierarchy (parent-child requirement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "### Parametric Diagram (par) — Constraints / Analysis",
+      "confidence": "candidate",
+      "text": "PARAMETRIC DIAGRAM\n──────────────────────────────────────────────────────────────────\nUnique to SysML (not in UML).\nShows mathematical/constraint relationships between value properties.\nUsed to capture performance models, equations, analyses.\n\n  par [Block] VehicleDynamics [Range Equation]\n  ┌─────────────────────────────────────────────────────────────┐\n  Breguet range equation links inputs to range R:\n    Inputs: L/D ratio, SFC, initial weight W0, final weight W1.\n    Equation: R = (V/SFC) * (L/D) * ln(W0/W1).\n    Output: range R in nautical miles.\n\nConnects value properties via constraint blocks\nEnables parametric analysis within the model\nCan be linked to external simulation tools (Simulink, MATLAB)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Stereotypes and Tagged Values",
+      "confidence": "candidate",
+      "text": "STEREOTYPE SYNTAX\n──────────────────────────────────────────────────────────────────\n«block»         : a system element (physical or logical)\n«flowSpecification» : type of flow on a flow port\n«constraint»    : mathematical constraint in parametric diagram\n«requirement»   : a requirement element\n«testCase»      : a test case (verifies a requirement)\n«rationale»     : justification for a modeling decision\n«view»          : a filtered perspective on the model\n\nTagged values (additional attributes):\n  {id = \"REQ-001\", text = \"...\", status = \"approved\", ...}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

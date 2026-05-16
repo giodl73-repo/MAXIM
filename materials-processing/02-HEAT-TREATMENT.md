@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:heat-treatment
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Heat Treatment: Annealing, Quenching, Tempering
+status: source-custody
+source_custody: partial
+current_path: materials-processing/02-HEAT-TREATMENT.md
+canonical_path: materials-processing/02-HEAT-TREATMENT.md
+backsource_ids: [proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]
+concepts: [heat, treatment]
+root_concepts: [heat, treatment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Heat Treatment: Annealing, Quenching, Tempering
 
 ## The Big Picture

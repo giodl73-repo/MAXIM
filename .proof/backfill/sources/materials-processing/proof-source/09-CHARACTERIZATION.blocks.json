@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\09-CHARACTERIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CHARACTERIZATION TECHNIQUE LANDSCAPE\n──────────────────────────────────────────────────────────────────\nSCALE:        Atomic → Nano → Micro → Meso → Macro\n              (Å)     (nm)   (µm)    (mm)   (cm–m)\n\nSTRUCTURAL CHARACTERIZATION (what phases, crystal structure, microstructure):\n  Atomic/crystal:  XRD (phase ID, lattice parameter, residual stress)\n                   TEM (atom columns, defects, phases at nm scale)\n  Microstructure:  SEM (topography, phases at µm scale)\n                   Optical microscopy (grain structure, phases at µm–mm)\n  Phase chemistry: EDS/WDS (elemental maps), EBSD (crystal orientation maps)\n  Near-surface:    XPS (surface chemistry), AES (thin films)\n\nMECHANICAL CHARACTERIZATION (how it responds to load):\n  Bulk:            Tensile, compression, hardness, impact (Charpy), fatigue\n  Small-scale:     Nanoindentation (films, phases), micro-pillar compression\n  Fracture:        K_IC (compact tension), J-integral, crack growth (Paris)\n\nTHERMAL CHARACTERIZATION (phase transitions, thermal properties):\n  DSC (Differential Scanning Calorimetry): Tm, Tg, crystallinity, cure\n  TGA (Thermogravimetric Analysis): decomposition, moisture, filler content\n  Dilatometry: dimensional change vs temperature (CTE, phase changes)\n\nCHEMICAL / COMPOSITIONAL:\n  OES/GDOES: bulk elemental composition (metals)\n  ICP-MS/OES: trace elements, solution analysis\n  FTIR: organic functional groups (polymers, coatings, adhesives)\n  Raman: complementary to FTIR, surface-sensitive, works through glass\n\nNON-DESTRUCTIVE EVALUATION (NDT):\n  Radiography (X-ray, neutron): internal defects\n  Ultrasonic: internal flaws, thickness, elastic constants\n  Eddy current: surface/near-surface flaws in conductive materials\n  Penetrant / Magnetic particle: surface-open flaws",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## Optical Microscopy",
+      "confidence": "candidate",
+      "text": "OPTICAL MICROSCOPY IN METALLURGY\n──────────────────────────────────────────────────────────────────\nResolution limit: ~0.2 µm (limited by visible light wavelength ~400–700 nm)\nMagnification: 50×–1000× (typical metallographic range)\n\nSAMPLE PREPARATION (critical — determines data quality):\n  1. Section: abrasive cutoff saw (cool to avoid phase changes)\n  2. Mount: epoxy or phenolic hot-mount resin (conductive mount for SEM)\n  3. Grind: progressive SiC papers (120→240→320→400→600→800 grit)\n  4. Polish: diamond slurry (9→3→1 µm), then OPS or colloidal silica finish\n  5. Etch: chemical etch attacks boundaries/phases at different rates → contrast\n\nCOMMON ETCHANTS:\n  Nital (2–4% HNO₃ in ethanol):  steel — reveals grain boundaries, phases\n  Keller's reagent:               aluminum alloys (HF + HCl + HNO₃ + H₂O)\n  Aqua regia (3:1 HCl:HNO₃):     Ni superalloys\n  Vilella's reagent:              stainless steel (picric acid + HCl + ethanol)\n  Swab, immerse, or electrolytic etching: depends on material/phase of interest\n\nIMAGING MODES:\n  Bright field:   standard illumination → etched features appear dark\n  Dark field:     scattered light collected → fine precipitates glow bright\n  Polarized light: crystallographic contrast, grain orientation in Al\n  DIC (Nomarski): surface relief, deformation steps, coating interfaces\n\nWHAT YOU SEE:\n  Grain boundaries (etched preferentially)\n  Phase boundaries (different etch response)\n  Non-metallic inclusions (oxide, sulfide)\n  Graphite morphology in cast iron (flake vs nodular)\n  Decarburized surface layer after heat treatment\n  Case depth (carburized or nitrided layer)\n  Martensite needles vs bainite laths vs pearlite colonies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## Scanning Electron Microscopy (SEM)",
+      "confidence": "candidate",
+      "text": "SEM FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\nFocused electron beam rastered over surface → detect emitted electrons/X-rays\n\nAccelerating voltage: 1–30 kV (lower for surface sensitivity, higher for X-ray)\nResolution: 1–10 nm (much better than optical ~200 nm)\nDepth of field: >> optical → excellent topographic imaging\nVacuum required: ~10⁻⁴ torr (environmental SEM: lower vacuum, wet samples OK)\n\nSIGNAL TYPES:\n  Secondary electrons (SE): surface topography\n    Low energy (< 50 eV), escape depth ~1–10 nm\n    → Fine surface detail, fracture morphology, particle morphology\n\n  Backscattered electrons (BSE): compositional contrast (Z-contrast)\n    High energy, elastic scattering\n    Heavy elements (high Z) → scatter more → appear bright\n    → Distinguishes phases (WC bright, Co matrix dark in cemented carbide)\n    → Grain orientation contrast (EBSD prep)\n\n  X-rays: elemental composition (EDS or WDS analysis)\n\nSAMPLE REQUIREMENTS:\n  Must be electrically conductive (or coat with Au, Pt, C)\n  Polymers/ceramics: sputter coat with ~5 nm Au-Pd or carbon\n  Mounted/polished metal samples: ready to use\n\nKEY APPLICATIONS:\n  Fracture surface analysis (fractography):\n    Fatigue striations, dimpled ductile fracture, cleavage facets\n    Find crack origin (trace back from striation or river mark convergence)\n  Powder characterization: particle shape, size, surface\n  Coating cross-section: layer thickness, adhesion, defects\n  Phase identification combined with EDS\n  Inclusion analysis (automated feature analysis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### EDS and WDS (X-ray Spectroscopy)",
+      "confidence": "candidate",
+      "text": "EDS vs WDS COMPARISON\n──────────────────────────────────────────────────────────────────\nBoth: identify elements from characteristic X-ray energies emitted by beam\n\nEDS (Energy Dispersive Spectroscopy):\n  Single detector, fast (~60 seconds for spectrum)\n  Energy resolution: ~130 eV FWHM at 5.9 keV (Mn Kα)\n  Peak overlaps: common problem (Fe Kα overlaps with Cr, Ti Kβ, etc.)\n  Quantification: accurate to ~0.5–2 wt% with standards\n  Application: qualitative identification, elemental maps, phase chemistry\n\nWDS (Wavelength Dispersive Spectroscopy):\n  Crystal spectrometer, sequential wavelength scan (slower, more precise)\n  Energy resolution: ~5–10 eV (10× better than EDS)\n  Better for light elements (C, N, B) and overlapping peaks\n  More accurate quantification (~0.01 wt% detection limits with standards)\n  Available on: EPMA (Electron Probe Microanalyzer) — dedicated instrument\n\nELEMENTAL MAPPING:\n  Raster beam with EDS → color map of element concentration\n  Shows: segregation, diffusion profiles, coating composition, inclusion chemistry\n  Resolution: limited by beam interaction volume (~1 µm at 15 kV for dense metals)\n  → Can't resolve features < ~1 µm with standard EDS mapping (use TEM-EDS for finer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### EBSD (Electron Backscatter Diffraction)",
+      "confidence": "candidate",
+      "text": "EBSD — CRYSTAL ORIENTATION MAPPING\n──────────────────────────────────────────────────────────────────\nKikuchi patterns from BSE → index crystal orientation at each point\nRaster across polished (no etch) surface → orientation map (IPF map)\n\nWhat EBSD reveals:\n  Grain size distribution (automated grain detection)\n  Texture (preferred crystallographic orientation → pole figures)\n  Grain boundary character (misorientation angle → LAB vs HAB)\n  Phase identification (pattern matching vs crystal structure databases)\n  Strain/kernel average misorientation (KAM) → deformation state\n\nApplications:\n  Verify recrystallization (new equiaxed grains, low KAM)\n  Quantify deformation (high KAM = high dislocation density)\n  Texture development in rolled/drawn products\n  Identify phases in complex alloy (distinguish martensite from retained austenite)\n  EBSD + EDS combined: simultaneous chemistry + orientation\n\nSample requirement: carefully polished (OPS or electropolish finish)\n  Residual scratches cause pattern degradation → wrong orientation data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## Transmission Electron Microscopy (TEM)",
+      "confidence": "candidate",
+      "text": "TEM FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\nElectron beam transmitted THROUGH thin specimen (~50–200 nm thick)\nResolution: 0.1–0.2 nm (can image individual atom columns)\nVoltage: 80–300 kV (higher = shorter wavelength = better resolution)\n\nWHAT TEM REVEALS THAT SEM CANNOT:\n  Dislocation structure (density, arrangement, interaction)\n  Precipitate size and distribution at nanometer scale\n  Coherency of precipitates with matrix (coherency strains)\n  Stacking faults, twins at atomic scale\n  Grain boundary structure and chemistry at nm scale\n  Crystal structure of unknown phases (selected area diffraction patterns)\n\nIMAGING MODES:\n  Bright field (BF): transmitted beam → defects appear dark (diffraction contrast)\n  Dark field (DF): diffracted beam selected → precipitates/defects appear bright\n  HAADF-STEM (High-Angle Annular Dark Field):\n    Z-contrast imaging: heavy elements bright, light elements dark\n    → Atomic-column imaging, precipitate contrast, segregation\n\n  STEM-EDS: elemental maps at 1–5 nm resolution (much better than SEM-EDS)\n  EELS (Electron Energy Loss Spectroscopy): light elements, bonding states, oxidation states\n\nSAMPLE PREPARATION (labor-intensive):\n  FIB (Focused Ion Beam): site-specific lift-out → thin from specific location\n    Essential for: coatings, interfaces, specific microstructural features\n    30 kV Ga ion mill → ~100 nm specimen, then clean at low kV\n  Electropolishing: jet of electrolyte thins bulk metal sample\n  Ion milling: Ar ion beam from both sides until electron transparent\n\nApplications:\n  Precipitate identification in age-hardened alloys (γ' in Ni superalloys)\n  Dislocation density quantification after deformation\n  Thin film interface structure (adhesion layers, diffusion barriers)\n  Atomic-scale imaging of grain boundaries\n  Research: novel phases, defect mechanisms, interface chemistry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## X-ray Diffraction (XRD)",
+      "confidence": "candidate",
+      "text": "XRD FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\nX-rays diffract from crystal planes → Bragg's Law:\n  nλ = 2d sin(θ)\n  d = interplanar spacing, θ = diffraction angle, λ = X-ray wavelength\n  Each crystal phase has unique set of d-spacings → unique diffraction pattern\n\nAPPLICATIONS:\n\n1. PHASE IDENTIFICATION:\n   Compare diffraction peaks to ICDD database (powder diffraction file)\n   → Identify which phases present (α-Fe, γ-Fe, Fe₃C, Fe₄N, etc.)\n   Can detect phases down to ~3–5 wt% (detection limit)\n   Example: verify carburized steel → detect retained austenite (FCC γ-Fe peaks)\n\n2. RETAINED AUSTENITE QUANTIFICATION:\n   Compare intensities of austenite vs. martensite peaks\n   Standards: ASTM E975\n   Important for: bearing steels, gear steels (retained austenite = lower hardness,\n     dimensional instability → must be minimized or controlled)\n\n3. RESIDUAL STRESS MEASUREMENT:\n   Lattice parameter shifts with stress → sin²ψ method\n   Peak position shifts by ~0.01–0.1° 2θ per 100 MPa\n   Measure at multiple tilt angles (ψ) → slope gives stress\n   Applications: shot-peened surfaces, welded joints, machined surfaces\n   Non-destructive (surface layer ~10–50 µm penetration depth)\n\n4. CRYSTALLITE SIZE AND MICROSTRAIN (Scherrer/Williamson-Hall):\n   Peak broadening → particle/crystallite size (Scherrer equation)\n   Williamson-Hall plot separates size broadening from strain broadening\n   Applications: nanoparticles, cold-worked metals, thin films\n\n5. LATTICE PARAMETER DETERMINATION:\n   Precise d-spacing → composition in solid solutions (Vegard's law)\n   Example: carbon content in austenite (lattice expands with C content)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "### Differential Scanning Calorimetry (DSC)",
+      "confidence": "candidate",
+      "text": "DSC PRINCIPLES AND APPLICATIONS\n──────────────────────────────────────────────────────────────────\nMeasures heat flow into/out of sample vs temperature (or time)\nReference pan vs sample pan → measure differential heat input needed for same T\n\nWHAT DSC MEASURES:\n\nThermal transitions:\n  Tg (glass transition): step change in heat capacity → baseline shift\n    Amorphous polymers, glasses, metallic glasses\n    Below Tg: glassy; above Tg: rubbery → critical for service temperature\n\n  Tm (melting): endothermic peak → latent heat absorbed\n    Semi-crystalline polymers, metals, alloys\n    Area under peak = latent heat of fusion (J/g) → crystallinity calculation:\n      % crystallinity = (ΔHm_measured / ΔHm_100%) × 100\n\n  Crystallization: exothermic peak on cooling (or heating, cold crystallization)\n    Crystallization temperature, rate, enthalpy\n\n  Cure of thermosets: exothermic peak during isothermal hold\n    Total heat of reaction, degree of cure, gelation point\n    Quality control: verify epoxy has fully cured (residual cure exotherm)\n\nPhase transformations in metals:\n  Austenite → martensite: athermal (not well measured by DSC)\n  Precipitation reactions: exothermic, measureable\n  Solidus/liquidus temperatures of alloys: melting onset and completion\n\nApplications:\n  Polymer: identify material (Tg/Tm fingerprint), verify crystallinity, check cure\n  Metal: verify age-hardening precipitation sequences, measure transformation T\n  Pharmaceutical: polymorphic forms, stability\n  Food: fat crystallization, starch gelatinization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "### Thermogravimetric Analysis (TGA)",
+      "confidence": "candidate",
+      "text": "TGA PRINCIPLES AND APPLICATIONS\n──────────────────────────────────────────────────────────────────\nMeasures sample MASS vs temperature/time\nDetects: decomposition, oxidation, moisture evaporation, phase changes involving gas\n\nAPPLICATIONS:\n\nPolymer analysis:\n  Decomposition temperature: safety, processing limit\n  Filler content: burn off organic matrix → residue = inorganic filler (%)\n    QC: verify 30% glass-filled Nylon actually has 30% glass\n  Moisture content: weight loss at 100–150°C\n  Plasticizer content: loss before polymer decomposition\n  Carbon black content (in HDPE/PP): step loss in N₂ at 400–500°C\n\nCeramic/metal:\n  Oxidation kinetics: weight gain vs time at elevated T (parabolic law fit)\n  Carbon/sulfur content: loss on combustion\n  TGO growth rate on MCrAlY coatings: continuous TGA in oxidizing atmosphere\n\nDecomposition onset temperature:\n  Defines maximum processing temperature for polymers\n  Critical for injection molding (melt temperature must be below Tdeg)\n  ABS: Tdeg ~350°C; Nylon 66: ~430°C\n\nTGA + DSC combined (simultaneous TGA-DSC or STA):\n  Same sample, same experiment → correlate mass loss with heat flow\n  → Distinguish endothermic vaporization vs exothermic combustion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 368,
+      "heading_context": "## Mechanical Testing",
+      "confidence": "candidate",
+      "text": "MECHANICAL TESTING OVERVIEW\n──────────────────────────────────────────────────────────────────\nTENSILE TESTING (ASTM E8, ISO 6892):\n  Dog-bone specimen → monotonic axial load to fracture\n  Measures:\n    E (Young's modulus): initial elastic slope\n    σ_YS (0.2% offset yield strength): practical yield\n    UTS (ultimate tensile strength): maximum load\n    Elongation at fracture (%El): ductility\n    Reduction in area (%RA): ductility (sensitive to inclusions)\n\n  Precision: load cell ±0.5%, extensometer ±0.5%\n  Critical details: specimen geometry (parallel vs full-section), gauge length (25 vs 50 mm)\n    → Results differ — must specify\n\nHARDNESS TESTING:\n  Rockwell (HR): most industrial, fast, direct scale reading\n    HRC (cone indenter): hard materials, tool steel, case hardened\n    HRB (ball indenter): softer materials, annealed steel, Al\n  Vickers (HV): versatile, applies to any material, small load possible\n    Pyramid indenter → optical measurement of indent diagonal\n    Micro-Vickers (HV 0.1–1 kg): phases, thin layers, case depth profiles\n  Brinell (HB): large ball indenter → averages over larger area → for cast, PM parts\n    Standard for: aluminum castings, gray iron\n  Knoop: elongated diamond → very light loads → surface layers, ceramics\n\nCONVERSION (approximate):\n  HRC 60 ≈ HV 746 ≈ HB 578 (very hard tool steel)\n  HRC 40 ≈ HV 392 ≈ HB 372 (hardened gear)\n  HRC 20 ≈ HV 248 ≈ HB 238 (normalized steel)\n  Conversion formulas: ASTM E140 (never perfectly accurate — material dependent)\n\nIMPACT TESTING:\n  Charpy V-notch (CVN): standard (ASTM A370)\n  Energy vs temperature → DBTT determination\n  Specification: structural steel ASTM A36, A572 require minimum CVN at -20°C\n\nFATIGUE TESTING:\n  R.R. Moore rotating bending: constant amplitude → S-N curves\n  Servo-hydraulic (MTS): any load ratio R, frequency, environment\n  Crack growth (ASTM E647): pre-cracked CT specimen → da/dN vs ΔK",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 414,
+      "heading_context": "### Nanoindentation",
+      "confidence": "candidate",
+      "text": "NANOINDENTATION (INSTRUMENTED INDENTATION)\n──────────────────────────────────────────────────────────────────\nBerkovich (3-sided pyramid) or cube corner indenter\nLoad and displacement measured continuously → P-h curve\nDepth resolution: < 1 nm; load resolution: < 1 µN\n\nWHAT IT MEASURES:\n  Hardness H = P / A (projected area from depth)\n  Reduced modulus Er from unloading stiffness (Oliver-Pharr method)\n  Creep: hold at peak load → displacement vs time\n  Strain rate sensitivity: multiple loading rates\n\nAPPLICATIONS:\n  Thin films: measure coating hardness (depth < 1/10 film thickness → substrate effect)\n  Individual phases: test γ vs γ' in Ni superalloys separately\n  Graded structures: hardness profile across carburized case\n  Small samples: test where bulk tensile specimen impossible\n  Polymers: measure Tg via nanoindentation (modulus drop)\n\nLIMITATION:\n  Pileup: soft materials pile up around indent → area underestimated → H wrong\n  Residual stress: changes hardness and modulus measurement\n  Surface roughness: must be < 5–10% of indent depth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 444,
+      "heading_context": "## Non-Destructive Evaluation (NDE)",
+      "confidence": "candidate",
+      "text": "NDE OVERVIEW — DETECT INTERNAL DEFECTS WITHOUT DESTRUCTION\n──────────────────────────────────────────────────────────────────\nNDE METHODS COMPARED:\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │ METHOD        │ DEFECT TYPE         │ DETECTION LIMIT        │\n  ├──────────────────────────────────────────────────────────────┤\n  │ Radiography   │ Internal voids,     │ ~1–2% of section       │\n  │ (X-ray, γ)    │ inclusions, cracks  │ thickness; shape        │\n  │               │ if open to beam     │ dependent               │\n  ├──────────────────────────────────────────────────────────────┤\n  │ Ultrasonic    │ Internal cracks,    │ 0.5–1 mm (pulse-echo)  │\n  │ (UT)          │ delaminations,      │ TOFD/phased array:     │\n  │               │ porosity            │ better resolution      │\n  ├──────────────────────────────────────────────────────────────┤\n  │ Eddy current  │ Surface + near-     │ 0.1–0.5 mm from        │\n  │ (ET)          │ surface cracks      │ surface, depth ~3 mm   │\n  │               │ (conductive only)   │                         │\n  ├──────────────────────────────────────────────────────────────┤\n  │ Liquid        │ Surface-open        │ ~0.025 mm (surface     │\n  │ penetrant (PT)│ cracks only         │ only, all materials)   │\n  ├──────────────────────────────────────────────────────────────┤\n  │ Magnetic      │ Surface + near-     │ ~0.1 mm (ferromagnetic  │\n  │ particle (MT) │ surface cracks      │ materials only)         │\n  └──────────────────────────────────────────────────────────────┘\n\nPHASED ARRAY UT (PAUT):\n  Multiple elements electronically steered → images without moving probe\n  Time-of-flight diffraction (TOFD): accurate depth sizing\n  Full Matrix Capture (FMC) + Total Focusing Method (TFM):\n    Software-focused imaging → highest resolution UT\n  Applications: weld inspection, aerospace composites, pipeline\n\nCOMPUTED TOMOGRAPHY (CT) for materials:\n  Industrial CT (micro-CT): 3D X-ray image of internal structure\n  Resolution: 1–50 µm (micro-CT), better with synchrotron\n  Applications: additive manufacturing pore mapping, casting inspection,\n    fiber orientation in CFRP, electronics packaging failure analysis\n  Limitation: thick metal sections attenuate too much for micro-CT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 490,
+      "heading_context": "## Surface and Near-Surface Analysis",
+      "confidence": "candidate",
+      "text": "SURFACE ANALYSIS TECHNIQUES\n──────────────────────────────────────────────────────────────────\nXPS (X-ray Photoelectron Spectroscopy):\n  X-ray excites photoelectrons from surface → measure kinetic energy\n  Sampling depth: 2–10 nm (extreme surface sensitivity)\n  Elements detected: Li and above (not H, He)\n  Provides: elemental composition AND chemical bonding state\n    Fe → metallic Fe vs FeO vs Fe₂O₃ vs FeOOH\n    Ti → metallic vs TiO₂ vs TiC vs TiN\n  Applications:\n    Coating adhesion failure (which layer failed? interface chemistry)\n    Passivation layer thickness and composition\n    Contamination identification (why won't this bond?)\n    Lubricant film characterization\n\nAES (Auger Electron Spectroscopy):\n  Electron beam excites Auger electrons\n  Sampling depth similar to XPS (~2–5 nm)\n  Advantage: fine beam (~10 nm) → spatial mapping, depth profiles\n  Applications: thin film interdiffusion, grain boundary segregation (fracture surface)\n\nSIMS (Secondary Ion Mass Spectrometry):\n  Sputtered ions from primary ion beam analyzed by mass spectrometer\n  Extreme sensitivity: sub-ppm trace elements\n  Depth profiling: compositional profile with nm resolution\n  Applications: semiconductor dopant profiles, oxide layer chemistry, trace contamination\n\nProfilometry:\n  Contact (stylus) or optical (white light interferometry, confocal)\n  Measures: surface roughness (Ra, Rz, Rq), waviness, step height\n  Output: Ra, Rz, Rq, power spectral density\n  Critical for: PVD coating adhesion verification (Ra < 0.3 µm required)\n              sealing surfaces, bearing surfaces",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 530,
+      "heading_context": "## Chemical Analysis",
+      "confidence": "candidate",
+      "text": "BULK CHEMICAL ANALYSIS\n──────────────────────────────────────────────────────────────────\nOES (Optical Emission Spectroscopy) — spark OES:\n  Electric spark excites metal surface → emission spectrum\n  Quantifies: C, Si, Mn, P, S, Cr, Ni, Mo, V, Cu in steels\n  Fast (< 30 seconds per analysis), shop-floor instrument\n  Standard: mill cert verification, incoming inspection of steel\n  Detection limits: ~0.001–0.01 wt%\n\nICP-OES / ICP-MS (Inductively Coupled Plasma):\n  Solution analysis: dissolve sample in acid → spray into Ar plasma\n  ICP-OES: 0.1–10 ppm detection limits (multi-element simultaneously)\n  ICP-MS:  0.001–0.1 ppb detection limits (very sensitive, trace elements)\n  Applications: trace element certification, process bath analysis, water\n\nLECO (combustion analysis):\n  Carbon, sulfur, nitrogen, oxygen, hydrogen by combustion + gas detection\n  C/S: burn in O₂, detect CO₂ and SO₂ by IR\n  N/O: inert gas fusion, detect N₂ and CO by TCD/IR\n  Critical for: C in steel (ppm level in IF steel), oxygen in steel/titanium\n\nFTIR (Fourier Transform Infrared Spectroscopy):\n  IR absorption → molecular bond vibrations → functional group identification\n  Polymers: identify polymer type (PE, PP, PET all have distinctive spectra)\n            detect oxidation (carbonyl peak at 1720 cm⁻¹)\n            monitor cure of adhesives/coatings\n  Not useful for: pure metals (no IR-active bonds), most ceramics\n\nRaman Spectroscopy:\n  Complementary to FTIR (different selection rules)\n  Works through glass containers, aqueous samples\n  Applications: carbon allotropes (graphene, diamond, DLC — sp2 vs sp3 D/G ratio)\n               ceramic phase identification (Al₂O₃ polymorphs)\n               polymer stress (peak shift under strain)\n               in-situ monitoring through reactor windows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
