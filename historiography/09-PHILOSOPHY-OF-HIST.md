@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:philosophy-of-hist
+kind: guide
+module: historiography
+section: historiography
+title: Philosophy of History: Causation, Explanation, Periodization, Counterfactuals
+status: source-custody
+source_custody: partial
+current_path: historiography/09-PHILOSOPHY-OF-HIST.md
+canonical_path: historiography/09-PHILOSOPHY-OF-HIST.md
+backsource_ids: [proof-backfill:historiography:09-philosophy-of-hist, git-history:historiography:09-philosophy-of-hist]
+concepts: [philosophy, of, hist]
+root_concepts: [philosophy, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophy of History: Causation, Explanation, Periodization, Counterfactuals
 
 ## The Big Picture

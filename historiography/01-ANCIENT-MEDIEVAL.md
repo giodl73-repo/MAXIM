@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:ancient-medieval
+kind: guide
+module: historiography
+section: historiography
+title: Ancient and Medieval Historians
+status: source-custody
+source_custody: partial
+current_path: historiography/01-ANCIENT-MEDIEVAL.md
+canonical_path: historiography/01-ANCIENT-MEDIEVAL.md
+backsource_ids: [proof-backfill:historiography:01-ancient-medieval, git-history:historiography:01-ancient-medieval]
+concepts: [ancient, medieval]
+root_concepts: [ancient, medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient and Medieval Historians
 
 ## The Big Picture

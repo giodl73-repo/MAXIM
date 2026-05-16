@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:causation
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Causation and Explanation: Hempel DN Model, Causal Mechanisms, Interventionism
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/07-CAUSATION.md
+canonical_path: philosophy-of-science/07-CAUSATION.md
+backsource_ids: [proof-backfill:philosophy-of-science:07-causation, git-history:philosophy-of-science:07-causation]
+concepts: [causation]
+root_concepts: [causation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Causation and Explanation: Hempel DN Model, Causal Mechanisms, Interventionism
 
 ## The Big Picture
@@ -16,12 +35,12 @@ Two questions that look similar but are distinct: (1) What is causation? (2) Wha
 |  |  Deduction from  |  |  Explanation via  |  |  Explanation  | |
 |  |  laws + conds.   |  |  causal processes |  |  relative to  | |
 |  |                  |  |  and conserved    |  |  interests and| |
-|  |                  |  |  quantities       |  |  contrast classes|
+|  |                  |  |  quantities       |  |  contrast cls.| |
 |  +------------------+  +-------------------+  +---------------+ |
 |                                                                  |
 |  THEORIES OF CAUSATION:                                          |
 |  +------------------+  +-------------------+  +---------------+ |
-|  |  REGULARITY      |  |  COUNTERFACTUAL   |  |  INTERVENTIONIST|
+|  |  REGULARITY      |  |  COUNTERFACTUAL   |  |INTERVENTIONIST| |
 |  |  (Hume)          |  |  (Lewis)          |  |  (Woodward)   | |
 |  |  C causes E =    |  |  C causes E =     |  |  C causes E = | |
 |  |  Cs regularly    |  |  if C had not     |  |  ideal interv.| |

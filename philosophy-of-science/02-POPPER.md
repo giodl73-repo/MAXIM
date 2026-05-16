@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:popper
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Popper and Falsificationism: Demarcation, Corroboration, Critical Rationalism
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/02-POPPER.md
+canonical_path: philosophy-of-science/02-POPPER.md
+backsource_ids: [proof-backfill:philosophy-of-science:02-popper, git-history:philosophy-of-science:02-popper]
+concepts: [popper]
+root_concepts: [popper]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Popper and Falsificationism: Demarcation, Corroboration, Critical Rationalism
 
 ## The Big Picture

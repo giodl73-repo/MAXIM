@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:postmodern-challenge
+kind: guide
+module: historiography
+section: historiography
+title: The Postmodern Challenge: Metahistory, Linguistic Turn, Limits
+status: source-custody
+source_custody: partial
+current_path: historiography/06-POSTMODERN-CHALLENGE.md
+canonical_path: historiography/06-POSTMODERN-CHALLENGE.md
+backsource_ids: [proof-backfill:historiography:06-postmodern-challenge, git-history:historiography:06-postmodern-challenge]
+concepts: [postmodern, challenge]
+root_concepts: [postmodern, challenge]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Postmodern Challenge: Metahistory, Linguistic Turn, Limits
 
 ## The Big Picture

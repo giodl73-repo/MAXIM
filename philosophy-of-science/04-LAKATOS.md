@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:lakatos
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Lakatos and Research Programs: Hard Core, Protective Belt, Progressive vs. Degenerating
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/04-LAKATOS.md
+canonical_path: philosophy-of-science/04-LAKATOS.md
+backsource_ids: [proof-backfill:philosophy-of-science:04-lakatos, git-history:philosophy-of-science:04-lakatos]
+concepts: [lakatos]
+root_concepts: [lakatos]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lakatos and Research Programs: Hard Core, Protective Belt, Progressive vs. Degenerating
 
 ## The Big Picture

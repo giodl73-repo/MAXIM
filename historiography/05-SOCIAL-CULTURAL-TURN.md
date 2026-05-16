@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:social-cultural-turn
+kind: guide
+module: historiography
+section: historiography
+title: Social History and Cultural Turn: Class, Microhistory, Gender
+status: source-custody
+source_custody: partial
+current_path: historiography/05-SOCIAL-CULTURAL-TURN.md
+canonical_path: historiography/05-SOCIAL-CULTURAL-TURN.md
+backsource_ids: [proof-backfill:historiography:05-social-cultural-turn, git-history:historiography:05-social-cultural-turn]
+concepts: [social, cultural, turn]
+root_concepts: [social, cultural]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social History and Cultural Turn: Class, Microhistory, Gender
 
 ## The Big Picture

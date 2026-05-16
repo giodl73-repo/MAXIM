@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:overview
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Philosophy of Science - Landscape
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/00-OVERVIEW.md
+canonical_path: philosophy-of-science/00-OVERVIEW.md
+backsource_ids: [proof-backfill:philosophy-of-science:00-overview, git-history:philosophy-of-science:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophy of Science — Landscape
 
 ## The Big Picture
@@ -6,7 +25,7 @@ Philosophy of science sits at the intersection of epistemology, metaphysics, and
 
 ```
 +------------------------------------------------------------------+
-|               PHILOSOPHY OF SCIENCE — PROBLEM MAP               |
+|               PHILOSOPHY OF SCIENCE — PROBLEM MAP                |
 +------------------------------------------------------------------+
 |                                                                  |
 |  DEMARCATION              STRUCTURE              CONFIRMATION    |
@@ -50,9 +69,9 @@ The field developed in roughly three phases:
 |  Vienna Circle              |  Verificationism, Carnap's         |
 |  Schlick, Carnap, Neurath   |  logical syntax, Hempel's DN model |
 +-----------------------------+------------------------------------+
-|  1950s–1970s                |  Critical Rationalism + Historicism|
+|  1950s–1970s                |  Critical Rationalism + Hist.      |
 |  Popper, Kuhn, Lakatos,     |  Falsificationism, paradigm theory |
-|  Feyerabend                 |  Research programs, "anything goes"|
+|  Feyerabend                 |  Research programs, anything goes  |
 +-----------------------------+------------------------------------+
 |  1970s–present              |  Post-positivist pluralism         |
 |  van Fraassen, Boyd,        |  Anti-realism, structural realism, |
@@ -114,7 +133,7 @@ Kuhn opened this. SSK (Edinburgh school) went further: even true and false belie
 +------------------------------+----------------------------------+
 |  Decidability (Turing)       |  Empirical undecidability:       |
 |  Some problems have no       |  some questions lie beyond any   |
-|  algorithmic solution        |  possible evidence (modal claims,|
+|  algorithmic solution        |  possible evidence (modal claims, |
 |                              |  unobservable realm)             |
 +------------------------------+----------------------------------+
 |  Godel incompleteness        |  Neurath's boat: no system can   |
@@ -123,7 +142,7 @@ Kuhn opened this. SSK (Edinburgh school) went further: even true and false belie
 +------------------------------+----------------------------------+
 |  No Free Lunch theorem       |  Underdetermination: no prior-   |
 |  All algorithms equal over   |  free theory-selection procedure |
-|  all problems uniformly      |  works across all possible worlds|
+|  all problems uniformly      |  works across all possible worlds |
 +------------------------------+----------------------------------+
 |  PAC learning bounds         |  Hempel's confirmation theory:   |
 |  Sample complexity and what  |  how much evidence licenses      |
@@ -152,12 +171,12 @@ The reproducibility crisis makes this concrete:
 
 ```
 +------------------------------------------------------------------+
-|          PHILOSOPHY PROBLEM → PRACTICE MANIFESTATION            |
+|          PHILOSOPHY PROBLEM → PRACTICE MANIFESTATION             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  POPPER FALSIFICATIONISM                                         |
 |  Pre-register hypotheses before seeing data. Otherwise HARKing  |
-|  (Hypothesizing After Results Known) makes results unfalsifiable.|
+|  (Hypothesizing After Results Known) makes results unfalsifiable. |
 |  Pre-registration = operationalizing Popper.                    |
 |                                                                  |
 |  BAYESIAN CONFIRMATION                                           |
@@ -167,12 +186,12 @@ The reproducibility crisis makes this concrete:
 |                                                                  |
 |  DUHEM-QUINE HOLISM                                             |
 |  A failed experiment doesn't unambiguously target the theory.   |
-|  Could be instrumentation, sample quality, auxiliary assumptions.|
+|  Could be instrumentation, sample quality, auxiliary assumptions. |
 |  "Failed replication" often means changed auxiliaries.          |
 |                                                                  |
 |  KUHN NORMAL SCIENCE                                             |
-|  Peer review enforces paradigm. Revolutionary work gets rejected.|
-|  Kuhnian structure predicts publication bias and anomaly hoarding|
+|  Peer review enforces paradigm. Revolutionary work gets rejected. |
+|  Kuhnian structure predicts publication bias and anomaly hoarding |
 |                                                                  |
 |  SSK / SOCIAL DIMENSION                                          |
 |  Funding structures, career incentives, replication rewards:    |

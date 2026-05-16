@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:enlightenment
+kind: guide
+module: historiography
+section: historiography
+title: Enlightenment Historiography: Reason, Progress, and Criticism
+status: source-custody
+source_custody: partial
+current_path: historiography/02-ENLIGHTENMENT.md
+canonical_path: historiography/02-ENLIGHTENMENT.md
+backsource_ids: [proof-backfill:historiography:02-enlightenment, git-history:historiography:02-enlightenment]
+concepts: [enlightenment]
+root_concepts: [enlightenment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Enlightenment Historiography: Reason, Progress, and Criticism
 
 ## The Big Picture

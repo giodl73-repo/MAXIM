@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:annales-school
+kind: guide
+module: historiography
+section: historiography
+title: The Annales School: Longue Duree, Mentalites, Total History
+status: source-custody
+source_custody: partial
+current_path: historiography/04-ANNALES-SCHOOL.md
+canonical_path: historiography/04-ANNALES-SCHOOL.md
+backsource_ids: [proof-backfill:historiography:04-annales-school, git-history:historiography:04-annales-school]
+concepts: [annales, school]
+root_concepts: [annales, school]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Annales School: Longue Duree, Mentalites, Total History
 
 ## The Big Picture

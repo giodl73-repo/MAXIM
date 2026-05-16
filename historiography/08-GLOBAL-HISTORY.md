@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:global-history
+kind: guide
+module: historiography
+section: historiography
+title: Global and World History: Connected Histories, Provincializing Europe
+status: source-custody
+source_custody: partial
+current_path: historiography/08-GLOBAL-HISTORY.md
+canonical_path: historiography/08-GLOBAL-HISTORY.md
+backsource_ids: [proof-backfill:historiography:08-global-history, git-history:historiography:08-global-history]
+concepts: [global, history]
+root_concepts: [global, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global and World History: Connected Histories, Provincializing Europe
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:scientific-realism
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Scientific Realism: IBE, No-Miracles, Anti-Realism, van Fraassen, Structural Realism
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/06-SCIENTIFIC-REALISM.md
+canonical_path: philosophy-of-science/06-SCIENTIFIC-REALISM.md
+backsource_ids: [proof-backfill:philosophy-of-science:06-scientific-realism, git-history:philosophy-of-science:06-scientific-realism]
+concepts: [scientific, realism]
+root_concepts: [scientific, realism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scientific Realism: IBE, No-Miracles, Anti-Realism, van Fraassen, Structural Realism
 
 ## The Big Picture
@@ -19,7 +38,7 @@ The central question: do theoretical entities posited by successful science — 
 |                                                                  |
 |  ANTI-REALISM VARIANTS:                                          |
 |  +-----------------+------------------+----------------------+  |
-|  |  INSTRUMENTALISM |  CONSTRUCTIVE    |  PRAGMATISM         |  |
+|  |  INSTRUMENTALISM|  CONSTRUCTIVE    |  PRAGMATISM          |  |
 |  |  Theories are   |  EMPIRICISM      |  Theories are tools  |  |
 |  |  computational  |  (van Fraassen)  |  for coping with     |  |
 |  |  tools, not     |  Theories need   |  experience; no      |  |
