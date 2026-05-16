@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:autoimmunity
+kind: guide
+module: immunology
+section: immunology
+title: Autoimmunity
+status: source-custody
+source_custody: partial
+current_path: immunology/08-AUTOIMMUNITY.md
+canonical_path: immunology/08-AUTOIMMUNITY.md
+backsource_ids: [proof-backfill:immunology:08-autoimmunity, git-history:immunology:08-autoimmunity]
+concepts: [autoimmunity]
+root_concepts: [autoimmunity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Autoimmunity
 
 ## The Big Picture

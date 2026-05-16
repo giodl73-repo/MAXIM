@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "immunology\\02-ADAPTIVE-IMMUNITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED\n=================================================\n\n  THE ML ANALOGY (not metaphor — formal parallel):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  ML System                 │  Adaptive Immune System             │\n  ├────────────────────────────┼─────────────────────────────────────┤\n  │  Training data             │  Antigen exposure (infection/vaccine)│\n  │  Model parameters          │  BCR/TCR receptor sequences          │\n  │  Training (gradient desc.) │  Clonal selection + affinity matur. │\n  │  Inference                 │  Effector cell response              │\n  │  Model persistence         │  Long-lived memory cells             │\n  │  Ensemble of models        │  Memory B + T cell pool              │\n  │  Catastrophic forgetting   │  Immune senescence (aging)           │\n  └──────────────────────────────────────────────────────────────────┘\n\n  CHARACTERISTICS:\n  ─ Specificity: Each lymphocyte has ONE receptor recognizing ONE shape\n  ─ Diversity: ~10¹⁸ potential receptor sequences in the repertoire\n  ─ Self-tolerance: Self-reactive cells deleted in development\n  ─ Memory: Long-lived cells persist after infection clears\n  ─ Clonality: One matching cell → proliferates → clones of identical cells\n\n  TWO ARMS:\n  HUMORAL  (B cells → antibodies):\n    Targets: Extracellular pathogens, toxins, viruses\n    Effectors: Immunoglobulins circulate in serum/secretions\n\n  CELL-MEDIATED (T cells → cytokines + killing):\n    Targets: Intracellular pathogens, tumors, transplanted organs\n    Effectors: Cytokines (help), perforin/granzyme (kill)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### B Cell Development (Bone Marrow)",
+      "confidence": "candidate",
+      "text": "  B CELL DEVELOPMENT\n  ===================\n\n  SITE: Bone marrow (primary lymphoid organ)\n\n  DEVELOPMENTAL STAGES:\n  Hematopoietic stem cell\n       │\n       ▼ Commitment to lymphoid lineage\n  Common lymphoid progenitor\n       │\n       ▼ Transcription factors: Ikaros, E2A, EBF1, Pax5\n  Pro-B cell\n       │ VDJ recombination of IMMUNOGLOBULIN HEAVY CHAIN gene\n       ▼ (D-J joining first, then V-DJ joining)\n  Pre-B cell\n       │ Pre-B cell receptor (μ heavy chain + surrogate light chain)\n       │ Signals: proliferate + stop heavy chain rearrangement\n       ▼\n  Immature B cell\n       │ VJ recombination of IMMUNOGLOBULIN LIGHT CHAIN gene\n       │ IgM expressed on surface\n       ▼ CENTRAL TOLERANCE CHECKPOINT\n       │ If IgM binds self-antigen → CLONAL DELETION or receptor editing\n  Mature naïve B cell\n       │ Exits bone marrow to blood/spleen\n       ▼ Encounters antigen in periphery → activated\n  Germinal center reaction → Plasma cell + Memory B cell\n\n  CENTRAL TOLERANCE MECHANISMS IN B CELLS:\n  ─ Clonal deletion: Strong BCR self-reactivity → apoptosis\n  ─ Receptor editing: RAG genes reactivate → new light chain rearranged\n  ─ Anergy: B cell still alive but functionally unresponsive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "### T Cell Development (Thymus)",
+      "confidence": "candidate",
+      "text": "  T CELL DEVELOPMENT IN THE THYMUS\n  ===================================\n\n  SITE: Thymus (primary lymphoid organ; involutes with age)\n\n  ENTRY: Bone marrow-derived T cell progenitors enter thymus\n\n  STAGE 1: CORTEX — POSITIVE SELECTION\n  ┌─────────────────────────────────────────────────────────────┐\n  │ Double-positive (CD4+CD8+) thymocytes                       │\n  │ TCR must be able to bind self-MHC (at least weakly)         │\n  │                                                             │\n  │ Test: Cortical thymic epithelial cells present self-peptide │\n  │       on MHC I and MHC II                                   │\n  │                                                             │\n  │ Result:                                                     │\n  │   Binds MHC I: Become CD8+ T cell (single positive)         │\n  │   Binds MHC II: Become CD4+ T cell (single positive)        │\n  │   Binds neither: Die by neglect (~95% of thymocytes)        │\n  │                                                             │\n  │ Why positive selection?: Ensures T cells can recognize      │\n  │ self-MHC molecules (which display foreign peptides in       │\n  │ infection) — TCRs that can't bind MHC are useless           │\n  └─────────────────────────────────────────────────────────────┘\n\n  STAGE 2: MEDULLA — NEGATIVE SELECTION\n  ┌─────────────────────────────────────────────────────────────┐\n  │ Single-positive thymocytes encounter medullary DCs + mTECs  │\n  │ mTECs express AIRE (AutoImmune REgulator) transcription     │\n  │ factor → express tissue-restricted antigens (insulin, etc.) │\n  │                                                             │\n  │ Test: Does TCR bind self-peptide:self-MHC too strongly?     │\n  │                                                             │\n  │ Result:                                                     │\n  │   Binds self-peptide too strongly: CLONAL DELETION (apopt.) │\n  │   Intermediate binding → TREG development                   │\n  │   Appropriate binding: Survive, mature, exit to periphery   │\n  │                                                             │\n  │ Why negative selection?: Removes self-reactive T cells      │\n  │ before they can cause autoimmunity                          │\n  │                                                             │\n  │ AIRE mutations → APECED syndrome (multi-organ autoimmunity) │\n  └─────────────────────────────────────────────────────────────┘\n\n  CHECKPOINT SUMMARY:\n  Double-positive → Single-positive: Positive selection (learn MHC restriction)\n  Single-positive → Mature: Negative selection (delete self-reactive)\n\n  ~2% of thymocytes survive both checkpoints and exit as mature T cells",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Clonal Selection Theory",
+      "confidence": "candidate",
+      "text": "  CLONAL SELECTION: THE CORE PRINCIPLE OF ADAPTIVE IMMUNITY\n  ===========================================================\n\n  MACFARLANE BURNET'S THEORY (1957, Nobel Prize 1960):\n\n  Before antigen exposure:\n  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐\n  │TCR│  │TCR│  │TCR│  │TCR│  │TCR│  │TCR│  │TCR│\n  │ A │  │ B │  │ C │  │ D │  │ E │  │ F │  │ G │\n  └───┘  └───┘  └───┘  └───┘  └───┘  └───┘  └───┘\n  Each T cell: unique receptor, 1 copy in repertoire\n\n  Antigen X enters:\n\n  ┌───┐  ┌───┐  ┌───┐  [X binds C]  ┌───┐  ┌───┐  ┌───┐\n  │TCR│  │TCR│  │TCR│               │TCR│  │TCR│  │TCR│\n  │ A │  │ B │  │ C │ ◄───X         │ D │  │ E │  │ F │\n  └───┘  └───┘  └───┘               └───┘  └───┘  └───┘\n                  ↓ CLONAL EXPANSION\n           ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐\n           │ C │ │ C │ │ C │ │ C │ │ C │\n           └───┘ └───┘ └───┘ └───┘ └───┘\n           (1,000s of copies)\n           All identical clones — same receptor\n           All become effector cells (fight infection)\n           Some become memory cells\n\n  After infection clears:\n  Most effector clones die → small pool of memory C cells persist\n\n  PREDICTIONS OF CLONAL SELECTION (all verified):\n  ✓ Each lymphocyte has one antigen specificity\n  ✓ Antigen selects which cells respond (not what specificity to make)\n  ✓ Clonal expansion amplifies the response\n  ✓ Memory cells are antigen-specific\n  ✓ Self-reactive clones are deleted",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 201,
+      "heading_context": "## Antigen Presentation via MHC",
+      "confidence": "candidate",
+      "text": "  THE TWO MHC PRESENTATION PATHWAYS\n  ====================================\n\n  MHC CLASS I: ENDOGENOUS ANTIGEN PRESENTATION\n  ┌────────────────────────────────────────────────────────────────┐\n  │ SOURCES: Cytoplasmic proteins (normal cellular + viral)        │\n  │                                                                │\n  │ PATHWAY:                                                       │\n  │ 1. Proteasome degrades cytoplasmic proteins → 8–10 aa peptides │\n  │ 2. TAP transporter moves peptides into ER                      │\n  │ 3. MHC I α-chain + β₂-microglobulin + peptide assemble in ER   │\n  │ 4. Complex traffics to cell surface                            │\n  │                                                                │\n  │ RESULT: MHC I:peptide on surface says:                         │\n  │   \"This is what I'm making inside. Is it foreign?\"             │\n  │                                                                │\n  │ RECOGNIZED BY: CD8+ cytotoxic T cells (via TCR + CD8 co-recep) │\n  │ PRESENT ON: All nucleated cells (ubiquitous)                   │\n  │                                                                │\n  │ Virally infected cell: Viral peptides on MHC I → CD8 kills it  │\n  └────────────────────────────────────────────────────────────────┘\n\n  MHC CLASS II: EXOGENOUS ANTIGEN PRESENTATION\n  ┌────────────────────────────────────────────────────────────────┐\n  │ SOURCES: Extracellular proteins taken up by endocytosis        │\n  │                                                                │\n  │ PATHWAY:                                                       │\n  │ 1. APC engulfs pathogen/protein by phagocytosis/macropinocy.   │\n  │ 2. Phagosome fuses with lysosome → acid pH, proteases          │\n  │ 3. Proteins degraded to ~13–25 aa peptides                     │\n  │ 4. MHC II α+β chains + Ii (invariant chain) in ER              │\n  │ 5. MHC II:Ii traffics to late endosome/lysosome                │\n  │ 6. Ii degraded → CLIP occupies binding groove                  │\n  │ 7. HLA-DM (chaperone) exchanges CLIP for pathogen peptide      │\n  │ 8. MHC II:peptide traffics to surface                          │\n  │                                                                │\n  │ RECOGNIZED BY: CD4+ helper T cells (via TCR + CD4 co-recep.)   │\n  │ PRESENT ON: DCs, macrophages, B cells (professional APCs)      │\n  │                                                                │\n  │ DC ingests pathogen: Pathogen peptides on MHC II → CD4 help    │\n  └────────────────────────────────────────────────────────────────┘\n\n  CROSS-PRESENTATION (special case):\n  Some DCs can load EXOGENOUS antigens onto MHC CLASS I\n  Mechanism: Phagosome-to-cytosol transfer → proteasome → TAP → MHC I\n  Importance: Priming CD8 T cells against viruses that don't infect DCs\n  Critical for: Cancer immunotherapy, DNA/mRNA vaccines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## T Cell Activation: The Two-Signal Model",
+      "confidence": "candidate",
+      "text": "  TWO SIGNALS REQUIRED FOR T CELL ACTIVATION\n  ============================================\n\n  ONE SIGNAL ALONE IS NOT ENOUGH:\n\n  SIGNAL 1: Antigen-specific (TCR)\n  TCR + co-receptor (CD4 or CD8) bind MHC:peptide\n  Activates: Lck, ZAP-70 kinases → PLCγ → IP3 + DAG\n  IP3 → Ca²⁺ release → calcineurin → NFAT\n  DAG → PKC → NF-κB\n  → IL-2 gene transcription (up to a point)\n\n  SIGNAL 2: Antigen-nonspecific (Co-stimulation)\n  CD28 on T cell binds B7 (CD80/86) on activated APC\n  Amplifies IL-2 signaling; prevents anergy; promotes survival\n\n  COMBINED (both signals):\n  Full IL-2 production → autocrine T cell proliferation\n  Differentiation into effector cells\n\n  SIGNAL 1 ALONE (no co-stimulation):\n  T cell becomes ANERGIC — functionally unresponsive\n  Cannot respond even if later re-stimulated\n  This is a PERIPHERAL TOLERANCE MECHANISM\n\n  CO-STIMULATORY CHECKPOINTS (exploited by cancer/immunotherapy):\n  ┌───────────────────────────────────────────────────────────┐\n  │ CTLA-4: Competes with CD28 for B7 binding                 │\n  │   Higher affinity than CD28 → INHIBITS T cell activation  │\n  │   Expressed after activation → dampens response           │\n  │   Anti-CTLA-4 (ipilimumab): blocks inhibition → more      │\n  │   T cell activation → cancer immunotherapy                │\n  │                                                           │\n  │ PD-1: Checkpoint expressed on chronic stimulation         │\n  │   Binds PD-L1 (on tumor cells) → inhibits T cell          │\n  │   Anti-PD-1 (pembrolizumab/nivolumab): reinvigorates      │\n  │   exhausted T cells → tumor killing                       │\n  └───────────────────────────────────────────────────────────┘\n\n  THREE SIGNALS FOR FULL CD8 T CELL ACTIVATION:\n  Signal 1: TCR:MHC I:peptide\n  Signal 2: CD28:B7 co-stimulation\n  Signal 3: Inflammatory cytokines (IL-12, IFN-γ from innate)\n  Signal 3 is needed for durable CD8 memory formation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## Germinal Center and Affinity Maturation",
+      "confidence": "candidate",
+      "text": "  GERMINAL CENTER REACTION\n  =========================\n\n  LOCATION: B cell zones of lymph nodes and spleen\n\n  PROCESS:\n  ┌──────────────────────────────────────────────────────────────┐\n  │ Activated B cell → Germinal Center (GC)                      │\n  │                                                              │\n  │ DARK ZONE: Rapid proliferation of centroblasts               │\n  │   Activation-induced cytidine deaminase (AID) enzyme         │\n  │   Introduces targeted mutations in VDJ region                │\n  │   (somatic hypermutation) — ~10⁻³ per bp per generation      │\n  │   (vs. ~10⁻⁹ in rest of genome)                              │\n  │                                                              │\n  │ LIGHT ZONE: Selection of high-affinity variants              │\n  │   Mutated B cells (centrocytes) compete for antigen          │\n  │   Antigen held on Follicular DCs (FDCs) as immune complexes  │\n  │   High-affinity BCR captures more antigen → internalize      │\n  │   Present to Tfh (T follicular helper) cells → get help      │\n  │   High affinity → survive + re-enter dark zone               │\n  │   Low affinity → die by apoptosis                            │\n  │                                                              │\n  │ ANALOGY: Gradient descent on the affinity landscape          │\n  │   Random mutations (AID) = gradient perturbation             │\n  │   Antigen competition = fitness function                     │\n  │   Multiple rounds = optimization iterations                  │\n  └──────────────────────────────────────────────────────────────┘\n\n  OUTPUT OF GERMINAL CENTER REACTION:\n  ─ Long-lived plasma cells → high-affinity antibody production\n    (migrate to bone marrow; secrete Ab for decades)\n  ─ Memory B cells → rapid response on re-exposure\n  ─ Isotype switching: IgM → IgG, IgA, or IgE\n    (AID also mediates class switch recombination)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

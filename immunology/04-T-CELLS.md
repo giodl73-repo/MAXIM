@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:t-cells
+kind: guide
+module: immunology
+section: immunology
+title: T Cells
+status: source-custody
+source_custody: partial
+current_path: immunology/04-T-CELLS.md
+canonical_path: immunology/04-T-CELLS.md
+backsource_ids: [proof-backfill:immunology:04-t-cells, git-history:immunology:04-t-cells]
+concepts: [t, cells]
+root_concepts: [t, cells]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # T Cells
 
 ## The Big Picture

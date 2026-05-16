@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:vaccines
+kind: guide
+module: immunology
+section: immunology
+title: Vaccines and Vaccination
+status: source-custody
+source_custody: partial
+current_path: immunology/06-VACCINES.md
+canonical_path: immunology/06-VACCINES.md
+backsource_ids: [proof-backfill:immunology:06-vaccines, git-history:immunology:06-vaccines]
+concepts: [vaccines]
+root_concepts: [vaccines]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vaccines and Vaccination
 
 ## The Big Picture

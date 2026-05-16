@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:microbiome
+kind: guide
+module: microbiology
+section: microbiology
+title: The Human Microbiome
+status: source-custody
+source_custody: partial
+current_path: microbiology/04-MICROBIOME.md
+canonical_path: microbiology/04-MICROBIOME.md
+backsource_ids: [proof-backfill:microbiology:04-microbiome, git-history:microbiology:04-microbiome]
+concepts: [microbiome]
+root_concepts: [microbiome]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Human Microbiome
 
 ## The Big Picture

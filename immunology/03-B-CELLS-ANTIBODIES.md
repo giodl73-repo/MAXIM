@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:b-cells-antibodies
+kind: guide
+module: immunology
+section: immunology
+title: B Cells and Antibodies
+status: source-custody
+source_custody: partial
+current_path: immunology/03-B-CELLS-ANTIBODIES.md
+canonical_path: immunology/03-B-CELLS-ANTIBODIES.md
+backsource_ids: [proof-backfill:immunology:03-b-cells-antibodies, git-history:immunology:03-b-cells-antibodies]
+concepts: [b, cells, antibodies]
+root_concepts: [b, cells]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # B Cells and Antibodies
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:antimicrobial-resistance
+kind: guide
+module: microbiology
+section: microbiology
+title: Antimicrobial Resistance
+status: source-custody
+source_custody: partial
+current_path: microbiology/07-ANTIMICROBIAL-RESISTANCE.md
+canonical_path: microbiology/07-ANTIMICROBIAL-RESISTANCE.md
+backsource_ids: [proof-backfill:microbiology:07-antimicrobial-resistance, git-history:microbiology:07-antimicrobial-resistance]
+concepts: [antimicrobial, resistance]
+root_concepts: [antimicrobial, resistance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Antimicrobial Resistance
 
 ## The Big Picture

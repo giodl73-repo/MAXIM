@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:bacterial-biology
+kind: guide
+module: microbiology
+section: microbiology
+title: Bacterial Biology
+status: source-custody
+source_custody: partial
+current_path: microbiology/01-BACTERIAL-BIOLOGY.md
+canonical_path: microbiology/01-BACTERIAL-BIOLOGY.md
+backsource_ids: [proof-backfill:microbiology:01-bacterial-biology, git-history:microbiology:01-bacterial-biology]
+concepts: [bacterial, biology]
+root_concepts: [bacterial, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bacterial Biology
 
 ## The Big Picture

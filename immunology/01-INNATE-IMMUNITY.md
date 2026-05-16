@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:innate-immunity
+kind: guide
+module: immunology
+section: immunology
+title: Innate Immunity
+status: source-custody
+source_custody: partial
+current_path: immunology/01-INNATE-IMMUNITY.md
+canonical_path: immunology/01-INNATE-IMMUNITY.md
+backsource_ids: [proof-backfill:immunology:01-innate-immunity, git-history:immunology:01-innate-immunity]
+concepts: [innate, immunity]
+root_concepts: [innate, immunity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Innate Immunity
 
 ## The Big Picture
@@ -190,8 +209,8 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   │                                 │                                 │
   │                           C3 → C3a + C3b                         │
   │                                 │                                 │
-  │                    ┌────────────┴────────────┐                   │
-  │                    │                         │                   │
+  │                    complement splits into outcomes:              │
+  │                                                                  │
   │              C3b OPSONIZES             C3b + C3b → C5 convertase │
   │              bacteria for              → C5 → C5a + C5b          │
   │              phagocytosis              → C5b678 + C9 → MAC       │
@@ -342,8 +361,8 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   │    → Plasma proteins leak into tissue → edema (swelling)     │
   │    → Fibrin deposition → clot formation at site              │
   │                                                              │
-  │ 3. Leukocyte extravasation (rolling → adhesion → diapedesis)│
-  │    Chemokines (IL-8/CXCL8) → leukocyte rolling on selectins│
+  │ 3. Leukocyte extravasation (rolling → adhesion → diapedesis) │
+  │    Chemokines (IL-8/CXCL8) → leukocyte rolling on selectins  │
   │    → integrin activation → firm adhesion (ICAM-1:LFA-1)      │
   │    → diapedesis through vessel wall → chemokine gradient     │
   └──────────────────────────────────────────────────────────────┘
