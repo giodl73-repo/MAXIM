@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:norse
+kind: guide
+module: mythology
+section: mythology
+title: Norse Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/02-NORSE.md
+canonical_path: mythology/02-NORSE.md
+backsource_ids: [proof-backfill:mythology:02-norse, git-history:mythology:02-norse]
+concepts: [norse]
+root_concepts: [norse]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Norse Mythology
 
 ## The Big Picture
@@ -90,7 +109,7 @@ CREATION OF HUMANS:
 ├───────────────┼─────────────────────────────────────────────────┤
 │ THOR          │ Thunder, strength, protection of mankind        │
 │ (Donar)       │ Son of Odin and Jörð (Earth personified)        │
-│               │ Mjölnir (hammer), iron gauntlets, belt Megingjörð│
+│               │ Mjölnir (hammer), iron gloves, belt Megingjörð  │
 │               │ Eternal enemy of Jörmungandr (World Serpent)    │
 │               │ Kills it at Ragnarok, walks 9 steps, dies       │
 │               │ Married to Sif (golden hair); most popular god  │
@@ -106,7 +125,7 @@ CREATION OF HUMANS:
 │               │ At Ragnarok: steers Naglfar (ship of nails)     │
 ├───────────────┼─────────────────────────────────────────────────┤
 │ FREYR         │ Fertility, sunshine, rain, sex, prosperity      │
-│               │ Vanir god, lives in Asgard (Aesir-Vanir exchange)│
+│               │ Vanir god, lives in Asgard (Aesir-Vanir swap)   │
 │               │ Magic sword that fights on its own              │
 │               │ Gave sword away for love of Gerðr → at Ragnarok │
 │               │ must fight bare-handed; killed by Surtr         │
@@ -192,7 +211,7 @@ Runes were the Germanic alphabet used for writing AND for magic. The Elder Futha
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    ELDER FUTHARK                                 │
-├──────┬───────┬───────────┬──────────────────────────────────────┤
+├──────┬───────┬───────────┬───────────────────────────────────────┤
 │  ᚠ   │ Fehu  │ F         │ Cattle, wealth, prosperity, luck     │
 │  ᚢ   │ Uruz  │ U         │ Aurochs, primal strength, vitality   │
 │  ᚦ   │ Thurisaz│ TH      │ Giant/Thor's hammer, defense/attack  │
@@ -203,7 +222,7 @@ Runes were the Germanic alphabet used for writing AND for magic. The Elder Futha
 │  ᚹ   │ Wunjo │ W         │ Joy, harmony, perfection, fellowship │
 ├──────┼───────┼───────────┼──────────────────────────────────────┤
 │  ᚺ   │ Hagalaz│ H        │ Hail, disruption, transformation     │
-│  ᚾ   │ Nauthiz│ N        │ Need, constraint, resistance, endurance│
+│  ᚾ   │ Nauthiz│ N        │ Need, constraint, resistance         │
 │  ᛁ   │ Isaz  │ I         │ Ice, stillness, clarity, blockage    │
 │  ᛃ   │ Jera  │ J/Y       │ Year, harvest, cyclical time, reward │
 │  ᛇ   │ Eihwaz│ Ei        │ Yew tree, endurance, death-life      │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:nematoda-ecdysozoa
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Nematoda and Ecdysozoa - The Molting Superphylum
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/04-NEMATODA-ECDYSOZOA.md
+canonical_path: animal-phylogeny/04-NEMATODA-ECDYSOZOA.md
+backsource_ids: [proof-backfill:animal-phylogeny:04-nematoda-ecdysozoa, git-history:animal-phylogeny:04-nematoda-ecdysozoa]
+concepts: [nematoda, ecdysozoa]
+root_concepts: [nematoda, ecdysozoa]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nematoda & Ecdysozoa — The Molting Superphylum
 
 ## The Big Picture

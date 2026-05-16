@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:overview
+kind: guide
+module: mythology
+section: mythology
+title: Mythology - Comparative Overview
+status: source-custody
+source_custody: partial
+current_path: mythology/00-OVERVIEW.md
+canonical_path: mythology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:mythology:00-overview, git-history:mythology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mythology — Comparative Overview
 
 ## The Big Picture
@@ -30,7 +49,7 @@ Mythology is the systematic study of **sacred narratives** — stories that a cu
 │                                                                          │
 │  SCOPE: explains specific cross-cultural pattern                         │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
-│  │  FRAZER (1890) — Comparative Religion / Golden Bough            │   │
+│  │  FRAZER (1890) — Comparative Religion / Golden Bough            │    │
 │  │  Pattern: dying-and-rising god; sacred king; vegetation cycle   │    │
 │  │  Mechanism: ecological — seasonal agricultural ritual as base   │    │
 │  │  Status: influential but contested; over-reduces differences    │    │
@@ -38,7 +57,7 @@ Mythology is the systematic study of **sacred narratives** — stories that a cu
 │                                                                          │
 │  SCOPE: Indo-European traditions ONLY (not applicable to non-IE)         │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
-│  │  DUMÉZIL (1958) — Indo-European Trifunctionalism                │   │
+│  │  DUMÉZIL (1958) — Indo-European Trifunctionalism                │    │
 │  │  Pattern: sovereignty / warrior / productive — in every IE      │    │
 │  │  pantheon (Vedic, Roman, Norse, Celtic, Iranian, Baltic)        │    │
 │  │  Mechanism: historical — inherited from Proto-Indo-European     │    │
@@ -61,16 +80,16 @@ Mythology is the systematic study of **sacred narratives** — stories that a cu
 │                                                                  │
 │           DEPARTURE              INITIATION           RETURN     │
 │                                                                  │
-│  Ordinary ──→ Call to ──→ Refusal ──→ Crossing ──→ Road of     │
+│  Ordinary ──→ Call to ──→ Refusal ──→ Crossing ──→ Road of       │
 │  World       Adventure   of Call      Threshold    Trials        │
 │                                                                  │
-│                                    ──→ Supreme ──→ Ordeal      │
+│                                    ──→ Supreme ──→ Ordeal        │
 │                                        Road of      Abyss        │
 │                                        Trials                    │
 │                                                                  │
-│                                    ──→ Reward ──→ Road Back    │
+│                                    ──→ Reward ──→ Road Back      │
 │                                                                  │
-│  ←── Return with ←── Resurrection ←── Crossing ←── Elixir/    │
+│  ←── Return with ←── Resurrection ←── Crossing ←── Elixir/       │
 │       Elixir                          Return        Boon         │
 │                                       Threshold                  │
 │                                                                  │
@@ -200,10 +219,10 @@ The Proto-Indo-European (PIE) people (~4500–2500 BCE, Pontic steppe) spread la
 │  Blacksmith     Hephaestus Vulcan     Tvashtri    —              │
 │  Dawn goddess   Eos        Aurora     Ushas       Ēostre         │
 │  Twins          Dioscuri   Gemini     Ashvins     Alcis          │
-│  Dragon battle  Apollo/    —          Indra/Vrtra Thor/Jörmungandr│
+│  Dragon battle  Apollo    —          Indra/Vrtra Thor/Jörmungandr│
 │  (PIE *h₂egʷh-) Python                            Beowulf/Grendel│
 │                                                                  │
-│  Dragon/Serpent combat (PIE *h₁óg̑ʷʰis) is possibly the        │
+│  Dragon/Serpent combat (PIE *h₁óg̑ʷʰis) is possibly the           │
 │  oldest reconstructable IE myth: champion hero slays serpent     │
 │  near waters, frees cattle/waters (weather-control myth)         │
 └──────────────────────────────────────────────────────────────────┘
@@ -260,7 +279,7 @@ COSMIC GEOGRAPHY (nearly universal):
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
 │             PANTHEON COMPARISON — KEY DEITIES BY DOMAIN                        │
-├──────────┬────────────┬──────────┬───────────┬─────────┬───────────┬──────────┤
+├──────────┬────────────┬──────────┬───────────┬─────────┬───────────┬───────────┤
 │ DOMAIN   │ GREEK      │ NORSE    │ EGYPTIAN  │ HINDU   │ MESO.     │ SUMERIAN │
 ├──────────┼────────────┼──────────┼───────────┼─────────┼───────────┼──────────┤
 │ Creator  │ Hesiod's   │ Odin     │ Atum/     │ Brahma/ │ Quetzal-  │ Marduk   │
@@ -310,7 +329,7 @@ PRIMARY SOURCES by tradition:
 │ CELTIC:      NO pre-Christian primary sources!               │
 │              Irish manuscripts 7th–12th CE (Christian monks) │
 │              Welsh: Mabinogion 11th–13th CE manuscripts      │
-│ MESOAMERICAN:Popol Vuh (K'iche' Maya, ~1554 CE, post-Conquest)│
+│ MESOAMERICAN:Popol Vuh (Kiche Maya, ~1554 CE, post-Conquest) │
 │              Colonial-period Aztec codices                   │
 │ SLAVIC:      NO primary mythological texts survived          │
 │              Reconstructed from folklore, chronicles,        │

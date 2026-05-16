@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:slavic
+kind: guide
+module: mythology
+section: mythology
+title: Slavic Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/04-SLAVIC.md
+canonical_path: mythology/04-SLAVIC.md
+backsource_ids: [proof-backfill:mythology:04-slavic, git-history:mythology:04-slavic]
+concepts: [slavic]
+root_concepts: [slavic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Slavic Mythology
 
 ## The Big Picture

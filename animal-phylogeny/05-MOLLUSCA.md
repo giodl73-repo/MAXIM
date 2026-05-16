@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:mollusca
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Mollusca - The Second Most Species-Rich Animal Phylum
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/05-MOLLUSCA.md
+canonical_path: animal-phylogeny/05-MOLLUSCA.md
+backsource_ids: [proof-backfill:animal-phylogeny:05-mollusca, git-history:animal-phylogeny:05-mollusca]
+concepts: [mollusca]
+root_concepts: [mollusca]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mollusca — The Second Most Species-Rich Animal Phylum
 
 ## The Big Picture

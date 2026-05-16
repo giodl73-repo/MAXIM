@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:abrahamic-comparative
+kind: guide
+module: mythology
+section: mythology
+title: Abrahamic Mythology: Comparative Analysis
+status: source-custody
+source_custody: partial
+current_path: mythology/11-ABRAHAMIC-COMPARATIVE.md
+canonical_path: mythology/11-ABRAHAMIC-COMPARATIVE.md
+backsource_ids: [proof-backfill:mythology:11-abrahamic-comparative, git-history:mythology:11-abrahamic-comparative]
+concepts: [abrahamic, comparative]
+root_concepts: [abrahamic, comparative]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Abrahamic Mythology: Comparative Analysis
 
 ## The Big Picture
@@ -330,7 +349,7 @@ THE NIGHT JOURNEY (Isra and Mi'raj):
 │                                                                  │
 │  LURIANIC ADDITIONS:                                             │
 │  TZIMTZUM: "Contraction" — God contracted/withdrew into himself  │
-│  to make room for creation; the space left is where the world is│
+│  to make room for creation; the space left is where the world is │
 │  SHEVIRAT HA-KELIM: "Breaking of the Vessels" — divine light     │
 │  was too intense; the vessels (Sefirot) shattered; sparks of     │
 │  divine light fell into the material world; imprisoned in kelipot│
@@ -339,7 +358,7 @@ THE NIGHT JOURNEY (Isra and Mi'raj):
 │  spiritual action gathers the scattered sparks, restoring them   │
 │  to their source → the goal of existence is cosmic repair        │
 │  → Tikkun Olam is now widely used in social justice discourse;   │
-│    this has substantially modified the original mystical meaning│
+│    this has substantially modified the original mystical meaning │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

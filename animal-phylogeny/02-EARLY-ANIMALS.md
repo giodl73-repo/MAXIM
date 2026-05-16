@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:early-animals
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Early Animals - Pre-Bilaterian Grade
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/02-EARLY-ANIMALS.md
+canonical_path: animal-phylogeny/02-EARLY-ANIMALS.md
+backsource_ids: [proof-backfill:animal-phylogeny:02-early-animals, git-history:animal-phylogeny:02-early-animals]
+concepts: [early, animals]
+root_concepts: [early, animals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Animals — Pre-Bilaterian Grade
 
 ## The Big Picture

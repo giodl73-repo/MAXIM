@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:single-cell-origins
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Single-Cell Origins - From LUCA to the First Animals
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/01-SINGLE-CELL-ORIGINS.md
+canonical_path: animal-phylogeny/01-SINGLE-CELL-ORIGINS.md
+backsource_ids: [proof-backfill:animal-phylogeny:01-single-cell-origins, git-history:animal-phylogeny:01-single-cell-origins]
+concepts: [single, cell, origins]
+root_concepts: [single, cell]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Single-Cell Origins — From LUCA to the First Animals
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:overview
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Animal Phylogeny - Overview and Tree of Life
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/00-OVERVIEW.md
+canonical_path: animal-phylogeny/00-OVERVIEW.md
+backsource_ids: [proof-backfill:animal-phylogeny:00-overview, git-history:animal-phylogeny:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Animal Phylogeny — Overview & Tree of Life
 
 ## The Big Picture

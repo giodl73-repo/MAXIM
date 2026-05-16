@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:mammalia
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Mammalia - From Synapsid Ancestors to Homo sapiens
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/12-MAMMALIA.md
+canonical_path: animal-phylogeny/12-MAMMALIA.md
+backsource_ids: [proof-backfill:animal-phylogeny:12-mammalia, git-history:animal-phylogeny:12-mammalia]
+concepts: [mammalia]
+root_concepts: [mammalia]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mammalia — From Synapsid Ancestors to Homo sapiens
 
 ## The Big Picture

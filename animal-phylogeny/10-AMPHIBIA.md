@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:amphibia
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Amphibia - The Water-to-Land Transition
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/10-AMPHIBIA.md
+canonical_path: animal-phylogeny/10-AMPHIBIA.md
+backsource_ids: [proof-backfill:animal-phylogeny:10-amphibia, git-history:animal-phylogeny:10-amphibia]
+concepts: [amphibia]
+root_concepts: [amphibia]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Amphibia — The Water-to-Land Transition
 
 ## The Big Picture

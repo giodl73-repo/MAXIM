@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:arthropoda
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Arthropoda - The Most Species-Rich Phylum
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/06-ARTHROPODA.md
+canonical_path: animal-phylogeny/06-ARTHROPODA.md
+backsource_ids: [proof-backfill:animal-phylogeny:06-arthropoda, git-history:animal-phylogeny:06-arthropoda]
+concepts: [arthropoda]
+root_concepts: [arthropoda]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Arthropoda — The Most Species-Rich Phylum
 
 ## The Big Picture

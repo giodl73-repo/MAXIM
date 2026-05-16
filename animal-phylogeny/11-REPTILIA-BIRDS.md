@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:reptilia-birds
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Reptilia and Birds - Amniotes Conquer the Land
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/11-REPTILIA-BIRDS.md
+canonical_path: animal-phylogeny/11-REPTILIA-BIRDS.md
+backsource_ids: [proof-backfill:animal-phylogeny:11-reptilia-birds, git-history:animal-phylogeny:11-reptilia-birds]
+concepts: [reptilia, birds]
+root_concepts: [reptilia, birds]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reptilia and Birds — Amniotes Conquer the Land
 
 ## The Big Picture
