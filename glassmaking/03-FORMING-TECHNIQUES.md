@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:forming-techniques
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Forming Techniques - Blowing, Casting, Drawing, Pressing
+status: source-custody
+source_custody: partial
+current_path: glassmaking/03-FORMING-TECHNIQUES.md
+canonical_path: glassmaking/03-FORMING-TECHNIQUES.md
+backsource_ids: [proof-backfill:glassmaking:03-forming-techniques, git-history:glassmaking:03-forming-techniques]
+concepts: [forming, techniques]
+root_concepts: [forming, techniques]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forming Techniques — Blowing, Casting, Drawing, Pressing
 
 ## The Big Picture

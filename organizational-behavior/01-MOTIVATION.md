@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:motivation
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Motivation - SDT, Herzberg, Expectancy Theory, Goal-Setting, Pay
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/01-MOTIVATION.md
+canonical_path: organizational-behavior/01-MOTIVATION.md
+backsource_ids: [proof-backfill:organizational-behavior:01-motivation, git-history:organizational-behavior:01-motivation]
+concepts: [motivation]
+root_concepts: [motivation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Motivation — SDT, Herzberg, Expectancy Theory, Goal-Setting, Pay
 
 ## The Big Picture

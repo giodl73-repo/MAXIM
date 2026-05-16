@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:glass-trades
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Glass Trades - Glassblower, Gaffer, Glazier, Optical Fabricator
+status: source-custody
+source_custody: partial
+current_path: glassmaking/10-GLASS-TRADES.md
+canonical_path: glassmaking/10-GLASS-TRADES.md
+backsource_ids: [proof-backfill:glassmaking:10-glass-trades, git-history:glassmaking:10-glass-trades]
+concepts: [glass, trades]
+root_concepts: [glass, trades]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Glass Trades — Glassblower, Gaffer, Glazier, Optical Fabricator
 
 ## The Big Picture

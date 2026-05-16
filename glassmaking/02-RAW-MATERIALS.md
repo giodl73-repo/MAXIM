@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:raw-materials
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Raw Materials - Silica Sand, Soda Ash, Cullet, Colorants
+status: source-custody
+source_custody: partial
+current_path: glassmaking/02-RAW-MATERIALS.md
+canonical_path: glassmaking/02-RAW-MATERIALS.md
+backsource_ids: [proof-backfill:glassmaking:02-raw-materials, git-history:glassmaking:02-raw-materials]
+concepts: [raw, materials]
+root_concepts: [raw, materials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Raw Materials — Silica Sand, Soda Ash, Cullet, Colorants
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:change
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Organizational Change - Kotter, Lewin, ADKAR, Sensemaking, Learning Organization
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/06-CHANGE.md
+canonical_path: organizational-behavior/06-CHANGE.md
+backsource_ids: [proof-backfill:organizational-behavior:06-change, git-history:organizational-behavior:06-change]
+concepts: [change]
+root_concepts: [change]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organizational Change — Kotter, Lewin, ADKAR, Sensemaking, Learning Organization
 
 ## The Big Picture

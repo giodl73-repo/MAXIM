@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:safety-glass
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Safety Glass - Tempered, Laminated (PVB), Automotive, Standards
+status: source-custody
+source_custody: partial
+current_path: glassmaking/06-SAFETY-GLASS.md
+canonical_path: glassmaking/06-SAFETY-GLASS.md
+backsource_ids: [proof-backfill:glassmaking:06-safety-glass, git-history:glassmaking:06-safety-glass]
+concepts: [safety, glass]
+root_concepts: [safety, glass]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Safety Glass — Tempered, Laminated (PVB), Automotive, Standards
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:overview
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Organizational Behavior - Field Map, Theory History, Evidence Base
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/00-OVERVIEW.md
+canonical_path: organizational-behavior/00-OVERVIEW.md
+backsource_ids: [proof-backfill:organizational-behavior:00-overview, git-history:organizational-behavior:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organizational Behavior — Field Map, Theory History, Evidence Base
 
 ## The Big Picture

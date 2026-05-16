@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:leadership
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Leadership - Transformational, LMX, Dark Triad, Predictors
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/02-LEADERSHIP.md
+canonical_path: organizational-behavior/02-LEADERSHIP.md
+backsource_ids: [proof-backfill:organizational-behavior:02-leadership, git-history:organizational-behavior:02-leadership]
+concepts: [leadership]
+root_concepts: [leadership]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Leadership — Transformational, LMX, Dark Triad, Predictors
 
 ## The Big Picture
