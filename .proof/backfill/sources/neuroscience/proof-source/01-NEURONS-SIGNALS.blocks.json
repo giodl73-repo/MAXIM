@@ -1,0 +1,204 @@
+{
+  "schema_version": "1",
+  "source_markdown": "neuroscience\\01-NEURONS-SIGNALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    NEURAL SIGNALING HIERARCHY — WITH LATERAL INTERACTIONS\n    ══════════════════════════════════════════════════════════\n\n    ION GRADIENTS (Nernst equilibrium)  ←── Na/K-ATPase energy cost (20W/brain)\n         │                                        │\n         ▼                                        │ energy budget constrains\n    RESTING POTENTIAL (-70 mV) [GHK]              │ max sustainable firing rate\n         │                                        ▼\n    SYNAPTIC INPUTS (EPSPs, IPSPs) ──→  CABLE THEORY (λ, τ_m) ──→ distal inputs\n         │                               attenuated at soma; thin dendrites =        │\n         │                               high impedance = large EPSP per vesicle     │\n         ▼                                                                           │\n    THRESHOLD CROSSING (-55 mV)  ←── refractory period limits max rate             │\n         │                            (absolute: ~1ms; relative: ~3ms)              │\n         ▼                                                                           │\n    ACTION POTENTIAL (Hodgkin-Huxley model)                                         │\n         │                                                                           │\n         ├──→ AXONAL PROPAGATION (cable equation, saltatory conduction)             │\n         │     AP energy cost → constrains sustainable firing rate ────────────────┘\n         │\n         ▼\n    SYNAPTIC TRANSMISSION (Ca²⁺, SNARE, quantal release)\n         │\n         │  ←── Presynaptic plasticity (facilitation, depression): prior activity\n         │       modulates release probability (p) of next AP\n         ▼\n    POSTSYNAPTIC INTEGRATION (temporal + spatial summation)\n         │\n         │  ←── Cable theory again: spatial summation is distance-weighted;\n         │       EPSPs from distal dendrites smaller than proximal at soma\n         ▼\n    DENDRITIC COMPUTATION (passive + active, NMDA AND-gate)\n         │\n         └──→ Backpropagating APs (bAPs) ──→ Depolarize dendrites ──→ enables\n              NMDA unblocking ──→ LTP induction (requires pre AND bAP coincidence)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "### Ion Concentration Gradients",
+      "confidence": "candidate",
+      "text": "    ┌──────────────────────────────────────────────────────────────┐\n    │  ION CONCENTRATIONS (approximate, mammalian neuron)          │\n    │                                                              │\n    │  Ion      │ Intracellular │ Extracellular │ Nernst Eq.       │\n    │  ─────────┼───────────────┼───────────────┼────────────────  │\n    │  K⁺       │ 140 mM        │ 5 mM          │ E_K = -90 mV    │\n    │  Na⁺      │ 10 mM         │ 140 mM        │ E_Na = +65 mV   │\n    │  Cl⁻      │ 10 mM         │ 110 mM        │ E_Cl = -65 mV   │\n    │  Ca²⁺     │ 0.0001 mM     │ 2 mM          │ E_Ca = +125 mV  │\n    │  A⁻(organ)│ 350 mM        │ 0 mM          │ —               │\n    └──────────────────────────────────────────────────────────────┘\n\n    Gradients maintained by Na⁺/K⁺ ATPase pump:\n    3 Na⁺ out, 2 K⁺ in per ATP molecule (electrogenic: net +1 charge out)\n    ~70% of neuron's metabolic energy goes to this pump!\n    Brain energy consumption: 20W × 0.70 = 14W just for ion pumping",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 107,
+      "heading_context": "### Goldman-Hodgkin-Katz (GHK) Equation",
+      "confidence": "candidate",
+      "text": "$$V_m = \\frac{RT}{F}\\ln\\frac{P_K[K^+]_o + P_{Na}[Na^+]_o + P_{Cl}[Cl^-]_i}{P_K[K^+]_i + P_{Na}[Na^+]_i + P_{Cl}[Cl^-]_o}$$",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### Goldman-Hodgkin-Katz (GHK) Equation",
+      "confidence": "candidate",
+      "text": "    At rest: P_K : P_Na : P_Cl ≈ 1 : 0.04 : 0.45\n    (K⁺ dominates because K⁺ leak channels are open at rest)\n\n    Substituting typical values:\n    V_m = 25.7 × ln[(1×5 + 0.04×140 + 0.45×10) / (1×140 + 0.04×10 + 0.45×110)]\n         = 25.7 × ln[(5 + 5.6 + 4.5) / (140 + 0.4 + 49.5)]\n         = 25.7 × ln[15.1 / 189.9]\n         = 25.7 × (-2.53) = -65 mV ≈ -70 mV typical ✓\n\n    During action potential: P_Na spikes >> P_K → V_m → E_Na ≈ +65 mV\n    Repolarization: K⁺ channels open → P_K increases → V_m → E_K ≈ -90 mV",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "### Hodgkin-Huxley Equations",
+      "confidence": "candidate",
+      "text": "    C_m dV/dt = -g_Na m³h(V - E_Na) - g_K n⁴(V - E_K) - g_L(V - E_L) + I_ext\n\n    where:\n    C_m = membrane capacitance per unit area ≈ 1 μF/cm²\n    g_Na = maximum Na⁺ conductance ≈ 120 mS/cm²\n    g_K  = maximum K⁺ conductance  ≈ 36 mS/cm²\n    g_L  = leak conductance         ≈ 0.3 mS/cm²\n    E_Na = +55 mV, E_K = -77 mV, E_L = -65 mV\n\n    m, h, n = gating variables (dimensionless, 0 to 1):\n    m = Na⁺ activation gate      (m³: three independent gates)\n    h = Na⁺ inactivation gate    (one gate, normally open at rest)\n    n = K⁺ activation gate       (n⁴: four independent gates)\n\n    Gating variable ODEs (voltage-dependent rate constants):\n    dm/dt = α_m(V)(1-m) - β_m(V)m   [similarly for h and n]\n\n    Steady state: m_∞(V) = α_m/(α_m + β_m)\n    Time constant: τ_m(V) = 1/(α_m + β_m)\n\n    Rate constants (Hodgkin-Huxley squid axon, 6.3°C):\n    α_m = 0.1(V+40)/(1-exp(-(V+40)/10))\n    β_m = 4 exp(-(V+65)/18)\n    α_h = 0.07 exp(-(V+65)/20)\n    β_h = 1/(1+exp(-(V+35)/10))\n    α_n = 0.01(V+55)/(1-exp(-(V+55)/10))\n    β_n = 0.125 exp(-(V+65)/80)\n    (V in mV; temperatures scale α,β by Q₁₀)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### Dynamical Systems View of the Hodgkin-Huxley Model",
+      "confidence": "candidate",
+      "text": "    H-H as a dynamical system:\n\n    State space: ℝ⁴ (V × m × h × n)\n    Fixed point: resting state (V = -70 mV, m ≈ 0.05, h ≈ 0.6, n ≈ 0.3)\n    Stability: stable fixed point for subthreshold inputs\n\n    BIFURCATION AT THRESHOLD:\n    The threshold is not a sharp line but a bifurcation point — the voltage\n    at which the stable fixed point loses stability and a limit cycle appears.\n\n    Type II neuron (H-H squid axon):\n    Hopf bifurcation: at threshold, a stable limit cycle (= AP) bifurcates\n    from the fixed point. Just above threshold → repetitive firing at\n    nonzero frequency (discontinuous f-I curve: jumps from 0 to ~50 Hz).\n\n    Type I neuron (many cortical neurons):\n    Saddle-node on invariant circle (SNIC) bifurcation:\n    Near threshold, V approaches a saddle-node at a specific phase,\n    slowing down → long inter-spike intervals → continuous f-I curve\n    (firing rate can approach 0 Hz near threshold).\n\n    PHASE PLANE ANALYSIS (2D reduction: V + n, fast subsystem):\n    m is fast (τ_m ~ 0.5 ms) → replace with m_∞(V) (quasi-static)\n    h + n: slow nullclines define the shape of AP trajectory\n    V-nullcline: dV/dt = 0 curve in (V, n) plane\n    n-nullcline: dn/dt = 0 curve\n    Fixed point at intersection → stable (rest) or unstable (threshold)\n    Limit cycle = repetitive AP\n\n    IMPLICATIONS:\n    • Why is the AP all-or-nothing? Threshold = separatrix between two\n      basins of attraction (rest vs limit cycle). Subthreshold perturbation\n      → returns to fixed point. Suprathreshold → orbits the limit cycle.\n    • Why is there a refractory period? After AP, trajectory re-enters\n      fixed point basin only after h recovers (Na⁺ inactivation gate).\n    • Bursting neurons: additional slow K⁺ or Ca²⁺ current adds a 5th\n      dimension; relaxation oscillation alternates between silent and firing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "### Action Potential Anatomy",
+      "confidence": "candidate",
+      "text": "    Vm (mV)\n    +50 ┤          ╭──╮   ← Peak: Na⁺ influx, V → E_Na\n        │         /    \\\n      0 ┤        /      \\\n        │       /        \\\n    -55 ┤──────●  Threshold │  ← Voltage-clamp reveals gating\n    -70 ┤ Rest    \\       /\n    -80 ┤          \\   /  ← Undershoot: K⁺ still flowing out, E_K\n    -90 ┤           ───   ← Absolute refractory: Na⁺ inactivated (h gate shut)\n        │\n        └──────────────────── time (ms)\n        0    0.5   1    1.5  2\n\n    PHASES:\n    1. Depolarization (0-0.5ms): V exceeds threshold → m opens rapidly\n       Na⁺ floods in (g_Na × m³h × (V - E_Na) >> 0)\n       Regenerative: more depolarization → more m opening → more Na⁺ in\n\n    2. Repolarization (0.5-1ms): h closes (inactivation, slower than m)\n       n opens (K⁺ channels, slower than Na⁺)\n       K⁺ flows out → repolarize\n\n    3. Undershoot/AHP (1-2ms): n still open, K⁺ still out → below rest\n       E_K = -90 mV pulls V below V_rest = -70 mV\n\n    4. Absolute refractory (0-1ms): h = 0 (Na⁺ inactivated)\n       No AP possible regardless of stimulus\n\n    5. Relative refractory (1-3ms): h partially recovered, elevated threshold\n       Stronger stimulus can fire AP (but frequency-coded information reduced)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "### Energy Cost of Action Potentials",
+      "confidence": "candidate",
+      "text": "    One AP on squid axon: ~5 × 10¹² Na⁺ ions enter (per cm²)\n    Na⁺/K⁺ pump must restore: 3 Na⁺ out per ATP → 1.67 × 10¹² ATP/cm²\n    For myelinated cortical neuron firing at 50 Hz:\n    ATP consumption ≈ 1.6 × 10⁸ ATP per second per cm of axon\n\n    Brain total: 86 × 10⁹ neurons × ~10 Hz average × ATP cost\n    → ~10²⁰ ATP per second ≈ 20W ✓ (matches measured brain metabolic rate)\n\n    Efficiency: brain is extremely efficient relative to silicon:\n    Energy per \"operation\" (AP): ~10 pJ\n    Energy per FLOP (A100 GPU): ~0.3 pJ at 700W, 2000 TFLOP/s\n    But \"operations\" are not equivalent (AP is more than 1 FLOP)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Cable Theory",
+      "confidence": "candidate",
+      "text": "    Steady-state spatial decay: V(x) = V₀ exp(-x/λ)\n    Signal decays to 1/e at distance λ from input site\n\n    Typical values (cortical pyramidal dendrite):\n    λ ≈ 0.1-1 mm (depends on dendrite diameter, membrane properties)\n    τ_m ≈ 10-30 ms\n\n    For a thin distal dendrite (d = 0.2 μm, r_m = 10,000 Ω·cm²):\n    r_i = 4ρ_axoplasm/(πd²) = 4×150/(π×(0.2×10⁻⁴)²) ≈ 1.9×10¹⁰ Ω/cm\n    r_m = R_m/πd = 10,000/(π×0.2×10⁻⁴) ≈ 1.6×10⁸ Ω·cm\n    λ = √(r_m/r_i) = √(1.6×10⁸/1.9×10¹⁰) = 0.092 mm\n\n    → Synaptic inputs at distal dendrites are severely attenuated at soma!\n    This is why active conductances in dendrites matter (amplification).\n\n    Input impedance (at terminal of semi-infinite cable):\n    Z_in = √(r_m r_i) = r_i × λ  (dimensional analysis: Ω·cm × cm/cm = Ω×... use correctly)\n    Actual: Z_in at terminal = √(R_m ρ_i) / (πd^(3/2)) ∝ d^(-3/2)\n    → Thin dendrites: high impedance → large EPSP per injected charge ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "### Neuron as Leaky Integrator",
+      "confidence": "candidate",
+      "text": "    Equivalent circuit of neuron:\n                    I_ext\n                      │\n         ┌──────────────────────────────┐\n         │  Membrane of neuron          │\n    ─────┤                              ├─────\n    Vm   │   ┌──R_m──┐   ┌──C_m──┐   │\n         │   │       │   │       │   │\n    ─────┴───┴───────┴───┴───────┴───┴─────\n    GND\n\n    Single-compartment passive neuron:\n    τ_m dV/dt = -(V - E_L) + R_m I_ext\n    τ_m = R_m C_m ≈ 10-30 ms\n\n    Leaky integrate-and-fire (LIF) model:\n    τ_m dV/dt = -(V - E_L) + R_m I_ext\n    IF V(t) ≥ V_threshold: emit spike, reset V → V_reset, t → t + t_ref\n\n    This is an RC circuit with a threshold comparator + reset:\n    V(t) = E_L + R_m I_ext(1 - e^{-t/τ_m}) (constant I, starting from E_L)\n    Time to threshold: t_spike = -τ_m ln(1 - (V_th-E_L)/(R_m I_ext))\n    Firing rate: f = 1/t_spike (for constant I > I_threshold)\n    f(I) = 1/(τ_m ln((I-I_min)/(I-I_min-ΔI_max)))  ← inverse log of the curve\n\n    Gain function (f-I curve): roughly linear for I >> threshold\n    Real neurons: often power-law f ∝ (I - I_th)^δ, δ ≈ 0.5-3\n\n    Note: LIF fires repetitively; real neurons adapt (spike-frequency adaptation)\n    via slow K⁺ channels that turn on with each spike → reduces excitability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### Anatomy of a Chemical Synapse",
+      "confidence": "candidate",
+      "text": "    ┌─────────────────────────────────────────────────────────────┐\n    │  PRESYNAPTIC TERMINAL        │  POSTSYNAPTIC DENSITY (PSD)  │\n    │                              │                              │\n    │  Synaptic vesicles (SV)      │  Receptors (AMPA, NMDA)      │\n    │  ~40 nm diameter             │  PSD-95 scaffolding          │\n    │  ~5000 glutamate molecules   │  CaMKII, SHANK, Homer        │\n    │  per vesicle                 │                              │\n    │  Active zone proteins:       │  Spine head: ~0.1-0.5 μm     │\n    │  RIM, Munc13, RIM-BP         │  Spine neck: thin, ~0.1 μm   │\n    │                              │                              │\n    │  SYNAPTIC CLEFT (~20-30 nm) │                               │\n    └─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 355,
+      "heading_context": "### Calcium-Triggered Vesicle Fusion",
+      "confidence": "candidate",
+      "text": "    AP arrives at terminal → depolarization → Ca²⁺ channel opening\n    (P/Q-type Cav2.1 at most CNS synapses, N-type Cav2.2 also)\n\n    Ca²⁺ influx → SNARE complex formation:\n    VAMP/synaptobrevin (v-SNARE on vesicle) + SNAP-25 + syntaxin (t-SNARE on membrane)\n    → 4-helix bundle zippers → pulls membranes together → fusion\n\n    Synaptotagmin I: Ca²⁺ sensor on vesicle (binds 5 Ca²⁺)\n    → Inserts into membrane → triggers final fusion step\n    KD for Ca²⁺: 10-200 μM, [Ca²⁺] at active zone: 100-300 μM during AP\n\n    Timing: Ca²⁺ enters → vesicle fuses in 0.3-0.5 ms (extremely fast)\n    Enabled by: vesicles pre-docked at active zones (ready-releasable pool ~20-30 vesicles)\n    NSF + αSNAP: disassemble SNARE complex after fusion → recycle\n\n    Quantal release:\n    Each vesicle = one quantum (Katz 1954)\n    n = number of release sites, p = release probability per site, q = quantal size\n    Mean EPSP amplitude: μ = npq\n    Variance: σ² = npq(1-p)q = μq(1-p)  (for binomial)\n    Coefficient of variation: CV² = (1-p)/np + CV²_q\n    → Can estimate n, p, q from amplitude fluctuations (quantal analysis)\n\n    Typical values (excitatory hippocampal synapse):\n    n ≈ 1-5 release sites\n    p ≈ 0.1-0.5 (stochastic!)\n    q ≈ 0.5-2 mV EPSP amplitude per vesicle\n    → Synaptic transmission is probabilistic, not deterministic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "## Synaptic Potentials and Reversal Potential",
+      "confidence": "candidate",
+      "text": "    I_syn = g_syn(V - E_syn)   where E_syn = reversal potential\n    For glutamate (AMPA): E_rev ≈ 0 mV (Na⁺ in + K⁺ out roughly equal)\n    EPSP depolarizes: V goes from -70 mV toward 0 mV\n\n    Current convention: inward current (into cell) = depolarizing\n    AMPA channel: Na⁺ influx + K⁺ efflux → net inward current at V=-70 mV\n    g_AMPA × (-70 - 0) = g_AMPA × (-70) → current inward ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 404,
+      "heading_context": "## Synaptic Potentials and Reversal Potential",
+      "confidence": "candidate",
+      "text": "    For GABA_A: E_rev ≈ -65 to -75 mV (Cl⁻ channel)\n    In adult neurons: E_Cl ≈ -65 mV < V_rest = -70 mV\n    → Small outward Cl⁻ current → slight depolarization but shunting inhibition\n    OR: in some interneurons E_Cl more negative → actual hyperpolarization\n\n    In young neurons: E_Cl ≈ -40 mV (NKCC1 active) → GABA is EXCITATORY\n    Developmental switch: NKCC1 → KCC2 at ~P7 in rats → GABA becomes inhibitory\n    Important for: neonatal seizure treatment (NKCC1 inhibitor bumetanide)\n\n    Shunting inhibition: even if IPSP doesn't hyperpolarize, it increases g_total\n    → EPSPs smaller amplitude (more current needed to achieve same ΔV)\n    → \"Vetoing\" excitatory inputs without hyperpolarization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 423,
+      "heading_context": "## Temporal and Spatial Summation",
+      "confidence": "candidate",
+      "text": "    TEMPORAL SUMMATION:\n    Two EPSPs arrive at same synapse within τ_m (~10-30ms):\n    Second EPSP rides on tail of first → larger combined depolarization\n\n    Time window: limited by τ_m (membrane time constant)\n    → Inputs arriving within τ_m can summate\n\n    SPATIAL SUMMATION:\n    EPSPs from different synapses on same neuron summate at soma\n    Attenuation by cable properties: distal inputs smaller than proximal\n    Soma integrates all inputs (with distance-dependent weighting)\n\n    COINCIDENCE DETECTION (NMDA receptor):\n    NMDA channel has Mg²⁺ block at rest:\n    At V = -70 mV: Mg²⁺ occupies pore → no current even with glutamate bound\n    For current to flow: need BOTH glutamate (ligand) AND depolarization (removes Mg²⁺)\n    → NMDA is a molecular AND gate\n    → Fires only when pre AND post active within ~100ms window\n    → This is Hebb's rule implemented in hardware: \"neurons that fire together wire together\"\n    → Ca²⁺ through NMDA channel → CaMKII activation → AMPA receptor insertion = LTP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 453,
+      "heading_context": "## Dendritic Computation",
+      "confidence": "candidate",
+      "text": "    Active dendritic mechanisms:\n    1. Backpropagating APs (bAPs): APs propagate back into dendrites\n       → Depolarize dendrites → helps NMDA activation for LTP induction\n       → Requires Na⁺ channels in dendrites (attenuated in thick L5 apical dendrites)\n\n    2. Dendritic spikes:\n       Na⁺ spikes: fast, propagate well, threshold ~-50 mV\n       Ca²⁺ spikes: slower, local amplification, in distal dendrites\n       NMDA spikes: sustained (~50 ms), require NMDA channel activation\n       → NMDA spike = nonlinear gain: if ≥ 5-10 synchronous inputs on one branch,\n         Ca²⁺ + Na⁺ spike amplifies input enormously\n\n    3. Compartmentalization:\n       Thin necks of dendritic spines: high impedance → electrical isolation\n       Each branch can act as an independent integration unit\n       Poirazi et al. (2003): single pyramidal neuron ≈ 2-layer neural network\n       (dendrite = inner layer, soma = output layer)\n\n    4. Direction selectivity in retina:\n       Asymmetric inhibitory input onto dendrites → responds to one motion direction\n       Starburst amacrine cell dendrites compute local motion direction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 485,
+      "heading_context": "### Thermodynamics: Nernst Equation as Gibbs Free Energy",
+      "confidence": "candidate",
+      "text": "    E_ion = (RT/zF) ln([ion]_out / [ion]_in)\n\n    This is ΔG = 0 written as a voltage:\n    ΔG = zFΔV + RT ln([ion]_out/[ion]_in) = 0\n    → ΔV = -(RT/zF) ln([ion]_out/[ion]_in) = E_ion\n\n    At 37°C, RT/F = 26.7 mV. Each 10-fold concentration ratio → 59 mV/z.\n\n    The Na/K-ATPase that maintains the gradients consumes ~1 ATP per 3 Na⁺ pumped.\n    This is an entropy-fighting process: it maintains a low-entropy (concentrated)\n    ion distribution by coupling it to ATP hydrolysis (highly exergonic).\n    The free energy stored in the Na⁺ gradient is:\n    ΔG_Na = RT ln([Na]_out/[Na]_in) + zFV_m ≈ -12 kJ/mol at rest\n    This gradient powers secondary active transport (SGLT, NHE, glutamate transporters).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 506,
+      "heading_context": "### Information Theory: Channel Capacity of a Spike Train",
+      "confidence": "candidate",
+      "text": "    RATE CODE (firing rate carries information):\n    Maximum rate: ~500 Hz (1/refractory period ≈ 1/2 ms)\n    Typical range: 0–100 Hz\n    If rate is Poisson-distributed over T seconds with mean rate r:\n    Information ≈ r×T × log₂(1 + r×T / noise) bits\n    Typical cortical neuron: ~1-3 bits per spike (Rieke et al., 1999)\n\n    TEMPORAL CODE (spike timing carries information):\n    If timing is precise to δt, then T/δt possible spike times\n    Maximum bits per spike: log₂(T/δt)\n    For T=100ms, δt=1ms: log₂(100) ≈ 6.6 bits per spike\n    Auditory brainstem: δt ~ 0.1 ms → ~10 bits per spike\n\n    POPULATION CODE (N neurons, correlated):\n    Independent neurons: N bits (linear)\n    Correlated noise: fewer independent dimensions → less information\n    Dimensionality reduction: spike trains from N neurons lie in a\n    low-dimensional manifold (Cunningham & Yu 2014)\n    → Population coding ≈ lossy compression with structured noise\n\n    ENERGY-INFORMATION TRADEOFF:\n    ~10 pJ per AP. At 1-3 bits per spike → ~3-10 pJ/bit\n    Modern SRAM: ~0.1-1 pJ/bit. Brain is not thermodynamically optimal\n    but the 20W budget constrains total information throughput to ~10¹² bits/sec\n    (86B neurons × ~10 Hz avg × ~1-3 bits/spike)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

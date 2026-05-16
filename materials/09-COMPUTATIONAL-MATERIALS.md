@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:computational-materials
+kind: guide
+module: materials
+section: materials
+title: Computational Materials Science
+status: source-custody
+source_custody: partial
+current_path: materials/09-COMPUTATIONAL-MATERIALS.md
+canonical_path: materials/09-COMPUTATIONAL-MATERIALS.md
+backsource_ids: [proof-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]
+concepts: [computational, materials]
+root_concepts: [computational, materials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computational Materials Science
 
 ## The Big Picture
@@ -208,7 +227,7 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 │  Sharp:  grain boundary = mathematical surface (hard to compute)    │
 │  Diffuse: order parameter φ(r) smoothly varies 0→1 across boundary  │
 │                                                                     │
-│  ORDER PARAMETER: φ = 0 (phase A), φ = 1 (phase B), 0<φ<1 (boundary)│
+│  ORDER PARAMETER: φ=0 (phase A), φ=1 (phase B), 0<φ<1 (boundary)    │
 │                                                                     │
 │  FREE ENERGY FUNCTIONAL (Landau-Ginzburg):                          │
 │    F[φ] = ∫ [f(φ) + κ/2 |∇φ|²] d³r                                  │

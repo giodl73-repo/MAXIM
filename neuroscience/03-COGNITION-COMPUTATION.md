@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:neuroscience:cognition-computation
+kind: guide
+module: neuroscience
+section: neuroscience
+title: Cognition and Computation - Neural Codes, Attractor Networks, Predictive Coding
+status: source-custody
+source_custody: partial
+current_path: neuroscience/03-COGNITION-COMPUTATION.md
+canonical_path: neuroscience/03-COGNITION-COMPUTATION.md
+backsource_ids: [proof-backfill:neuroscience:03-cognition-computation, git-history:neuroscience:03-cognition-computation]
+concepts: [cognition, computation]
+root_concepts: [cognition, computation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cognition and Computation — Neural Codes, Attractor Networks, Predictive Coding
 
 ## The Big Picture

@@ -1,0 +1,259 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\01-CRYSTAL-STRUCTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    CRYSTAL STRUCTURE LANDSCAPE\n    ════════════════════════════════════════════════════════════\n\n    Atomic arrangement\n         │\n         ├── LATTICE TYPE (how lattice points are arranged)\n         │   14 Bravais lattices in 3D\n         │   → 7 crystal systems (cubic, tetragonal, orthorhombic,\n         │     hexagonal, trigonal, monoclinic, triclinic)\n         │\n         ├── BASIS (what sits on each lattice point)\n         │   1 atom, 2 atoms, molecule, ion pair...\n         │   Space group = lattice + basis symmetry (230 total)\n         │\n         ├── UNIT CELL (smallest repeating volume)\n         │   FCC, BCC, HCP, diamond cubic, NaCl structure...\n         │\n         ├── MILLER INDICES\n         │   Planes (hkl), directions [uvw], families {hkl}, <uvw>\n         │\n         ├── DIFFRACTION\n         │   Bragg's law, systematic absences, structure factor\n         │\n         └── DEFECTS\n             Point → Line → Planar → Volume\n             (vacancies → dislocations → grain boundaries → precipitates)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## The 14 Bravais Lattices",
+      "confidence": "candidate",
+      "text": "    Crystal System    Lattice Types              a,b,c   α,β,γ\n    ─────────────────────────────────────────────────────────────\n    Cubic             P, I (BCC), F (FCC)        a=b=c   90°,90°,90°\n    Tetragonal        P, I                       a=b≠c   90°,90°,90°\n    Orthorhombic      P, C, I, F                 a≠b≠c   90°,90°,90°\n    Hexagonal         P                          a=b≠c   90°,90°,120°\n    Rhombohedral      P (= Trigonal)             a=b=c   α=β=γ≠90°\n    Monoclinic        P, C                       a≠b≠c   90°,β,90°\n    Triclinic         P                          a≠b≠c   α≠β≠γ≠90°\n\n    P = Primitive (corner atoms only)\n    I = Body-centered (P + 1 atom at cube center)\n    F = Face-centered (P + 1 atom on each face)\n    C = Base-centered (P + 1 atom on top and bottom face)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Face-Centered Cubic (FCC)",
+      "confidence": "candidate",
+      "text": "    Unit cell: cube with atoms at 8 corners + 6 face centers\n\n         ●─────────●\n        /|    ●   /|\n       / |        / |\n      ●─────────●  |\n      |  ●─────|──●\n      | /      | /\n      |/       |/\n      ●─────────●\n\n    Atoms per unit cell:\n      Corners: 8 × (1/8) = 1\n      Faces:   6 × (1/2) = 3\n      Total:   4 atoms/unit cell\n\n    Lattice parameter a (from hard sphere model):\n      Close-packed direction: [110] face diagonal\n      4r = a√2  →  r = a√2/4 = a/(2√2)\n\n    Coordination number: 12\n    (each atom touches 4 in same layer + 4 above + 4 below)\n\n    Atomic packing factor (APF):\n      APF = (4 atoms × (4/3)πr³) / a³\n          = 4 × (4/3)π(a/2√2)³ / a³\n          = 4 × (4/3)π/(2√2)³\n          = 4 × (4/3)π/16√2\n          = π/(3√2)\n          ≈ 0.7405  (highest possible for equal spheres)\n\n    Close-packed planes: {111} — three Miller planes\n    Close-packed directions: <110> — six directions\n    Slip systems: {111}<110>\n    Number of independent slip systems: 4 planes × 3 directions = 12\n    → 12 slip systems makes FCC VERY DUCTILE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### Body-Centered Cubic (BCC)",
+      "confidence": "candidate",
+      "text": "    Unit cell: cube with 1 atom at center + 8 at corners\n\n    Atoms per unit cell:\n      Corners: 8 × (1/8) = 1\n      Center:  1 × 1     = 1\n      Total:   2 atoms/unit cell\n\n    Close-packed direction: [111] body diagonal\n      4r = a√3  →  r = a√3/4\n\n    Coordination number: 8\n    (but next-nearest neighbors at a are also close: 6)\n\n    APF = (2 × (4/3)πr³) / a³\n        = 2 × (4/3)π(a√3/4)³ / a³\n        = (4π/3) × (3√3/64) × 2\n        = π√3/8\n        ≈ 0.6802\n\n    Slip systems: {110}<111>, {112}<111>, {123}<111>\n    Dominant: {110}<111> → 6 planes × 2 directions = 12 systems\n    Also: {112}<111> → 12 × 1 = 12, {123}<111> → 24 × 1 = 24\n    Total: ~48 systems → BCC also ductile (but not as ordered as FCC)\n\n    Key difference from FCC: no compact {111}-type close-packed PLANE\n    → Peierls stress higher → BCC metals stronger but less ductile at low T\n    → BCC shows ductile-to-brittle transition (DBT) temperature\n    → FCC metals remain ductile to cryogenic T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "### Hexagonal Close-Packed (HCP)",
+      "confidence": "candidate",
+      "text": "    Unit cell: hexagonal prism\n\n    Parameters: a (basal plane), c (height)\n    Ideal c/a = √(8/3) ≈ 1.633\n    Real: Mg=1.624, Zn=1.856 (non-ideal), Ti=1.587\n\n    Atoms per unit cell: 6\n      Corners:  2 hexagons × 6 corners × (1/6) = 2\n      Face centers: 2 × (1/2) = 1\n      Interior: 3 × 1 = 3\n      Total: 6 atoms (or 2-atom basis per lattice point, 3 lattice points)\n\n    APF = 0.7405 (same as FCC — both are close-packed)\n\n    Coordination number: 12\n\n    Stacking: FCC = ABC ABC... HCP = AB AB...\n      A layer: atoms at (0,0,0)\n      B layer: atoms at (1/3, 2/3, 1/2)\n      A layer: atoms at (0,0,1) [c period]\n\n    Slip systems:\n    Basal:    (0001)<11̄20>  — 1 plane × 3 directions = 3 systems\n    Prismatic: {101̄0}<11̄20>— 3 planes × 1 direction = 3 systems\n    Pyramidal: {101̄1}<11̄20>— 6 planes × 1 direction = 6 systems\n    <c+a>:    {112̄2}<112̄3̄>  — 6 planes × 1 direction = 6 systems\n\n    Without <c+a> slip, HCP cannot accommodate c-axis strains\n    → Mg: brittle along c-axis without pyramidal activation\n    → Ti: better because pyramidal slip is more accessible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 266,
+      "heading_context": "### Interplanar Spacing d_hkl (Cubic)",
+      "confidence": "candidate",
+      "text": "### Worked Example: FCC Al (a = 4.05 Å)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Worked Example: FCC Al (a = 4.05 Å)",
+      "confidence": "candidate",
+      "text": "    Identify close-packed plane and direction:\n    Close-packed plane in FCC = {111}\n    d_111 = 4.05/√3 = 2.338 Å  ← smallest d, lowest XRD angle (approx)\n    d_110 = 4.05/√2 = 2.864 Å\n    d_100 = 4.05 Å\n\n    Close-packed direction: <110>\n    Vector [110] = a(1,1,0), length = a√2 = 5.728 Å\n    Atoms touch along [110]: 4r = a√2 → r = 1.432 Å",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "### Bragg's Law",
+      "confidence": "candidate",
+      "text": "    Incoming beam             Diffracted beam\n         ╲                      ╱\n          ╲  θ              θ  ╱\n    ───────●──────────────────●───── Plane 1 (d_hkl)\n            ╲                ╱\n             ╲θ            θ╱\n    ──────────●────────────●──────── Plane 2\n              ← extra path = 2d sinθ →\n\n    For constructive interference: 2d sinθ = nλ (n=1,2,...)\n\n    Typically n=1 and we write (hkl) with all multiples:\n    (200) for 2nd-order diffraction from (100) planes\n    → treat (200) as its own Miller plane with d_200 = d_100/2\n\n    Typical X-ray sources: Cu Kα₁ λ=1.5406 Å, Mo Kα₁ λ=0.7093 Å\n    Typical 2θ range for Cu Kα: 10°-120°\n    At 2θ=40°: θ=20°, d = 1.5406/(2 sin 20°) = 2.25 Å",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "### Structure Factor F_hkl",
+      "confidence": "candidate",
+      "text": "    F_hkl = f[1 + e^{iπ(h+k)} + e^{iπ(h+l)} + e^{iπ(k+l)}]\n\n    If h,k,l all even OR all odd: F = 4f → PEAK\n    If h,k,l mixed (some even, some odd): F = 0 → ABSENT\n\n    FCC allowed: (111)✓, (200)✓, (220)✓, (311)✓, (222)✓\n    FCC absent:  (100)✗, (110)✗, (210)✗, (211)✗",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### Structure Factor F_hkl",
+      "confidence": "candidate",
+      "text": "    F_hkl = f[1 + e^{iπ(h+k+l)}]\n\n    h+k+l even:   F = 2f → PEAK\n    h+k+l odd:    F = 0  → ABSENT\n\n    BCC allowed: (110)✓, (200)✓, (211)✓, (220)✓, (310)✓, (222)✓\n    BCC absent:  (100)✗, (111)✗, (210)✗",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "### Powder Diffraction Pattern",
+      "confidence": "candidate",
+      "text": "    Diffractometer scan output (Cu Kα, Al powder):\n\n    Intensity\n        │    ║\n        │    ║\n        │    ║     ║\n        │    ║     ║     ║       ║\n        │    ║     ║     ║       ║    ║\n        └────╨─────╨─────╨───────╨────╨────── 2θ\n             38.5° 44.7° 65.1°   78.2°  82.4°\n             (111) (200) (220)    (311)  (222)\n\n    d-spacings (Å):  2.338   2.025  1.431   1.221   1.169\n    a from d_111: a = 2.338 × √3 = 4.049 Å ✓ (literature: 4.050 Å)\n\n    Powder XRD workflow:\n    1. Identify peaks by 2θ position\n    2. Calculate d_hkl from Bragg's law\n    3. Assign (hkl) from systematic absences and ratio analysis\n    4. Refine lattice parameter a from all peaks (Rietveld method)\n    5. Peak broadening → crystallite size (Scherrer), microstrain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 391,
+      "heading_context": "### Point Defects",
+      "confidence": "candidate",
+      "text": "    ┌─────────────────────────────────────────────────────────┐\n    │  POINT DEFECTS                                          │\n    │                                                         │\n    │  Vacancy: missing atom □                                │\n    │    Equilibrium concentration: n/N = exp(-E_f/kT)        │\n    │    E_f ≈ 1 eV for Cu → n/N ≈ 10⁻⁶ at 900°C              │\n    │    Vacancies required for solid-state diffusion         │\n    │                                                         │\n    │  Interstitial: extra atom in gap between lattice sites  │\n    │    Octahedral or tetrahedral holes in FCC/BCC           │\n    │    Carbon in iron: octahedral (BCC): r_oct=0.19a,       │\n    │    r_C=0.77 Å → enormous strain → limited solubility    │\n    │    (0.022%C max in α-Fe at 727°C)                       │\n    │                                                         │\n    │  Substitutional: foreign atom replacing host atom       │\n    │    Hume-Rothery rules for extensive solid solution:     │\n    │    1. Size: |r_A-r_B|/r_A < 15%                         │\n    │    2. Crystal structure: same                           │\n    │    3. Electronegativity: similar (|Δχ| < 0.4)           │\n    │    4. Valence: same often preferred                     │\n    │    Cu-Ni: complete mutual solubility (isomorphous)      │\n    │    Cu-Zn: up to 35% Zn (α-brass) → more is β, γ phases  │\n    │                                                         │\n    │  Frenkel defect: atom displaced from lattice → vacant   │\n    │    site + interstitial pair (conserves N_atoms)         │\n    │    Common in ionic crystals with large size mismatch    │\n    │                                                         │\n    │  Schottky defect: cation-anion vacancy pair             │\n    │    Maintains charge neutrality in ionic crystals        │\n    │    NaCl: equal number of Na⁺ and Cl⁻ vacancies          │\n    └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 432,
+      "heading_context": "### Line Defects: Dislocations",
+      "confidence": "candidate",
+      "text": "    Compression region above dislocation line:\n    ● ● ● ● ● ●\n    ● ● ● ● ● ●        ← extra half-plane ends here\n    ● ● ● │ ● ●   ←── dislocation line (perpendicular to page)\n    ● ● ● ● ● ●\n    ● ● ● ● ● ●\n    Tension region below\n\n    Burgers circuit: go around dislocation, closure failure = Burgers vector b\n    For edge dislocation: b ⊥ to dislocation line\n    |b| = a/√2 for FCC {111}<110> slip: b = a/2[110] = a/√2\n    Stress field: σ_xy ∝ Gb/r (decays as 1/r from dislocation core)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 501,
+      "heading_context": "### Planar Defects",
+      "confidence": "candidate",
+      "text": "    Low-angle grain boundary (θ < 10°): array of edge dislocations\n      Spacing between dislocations: D = b/θ (θ in radians)\n      Energy: γ_gb = γ_0 θ(A - ln θ) (Read-Shockley equation)\n\n    High-angle grain boundary (θ > 10-15°):\n      Structure: bad fit → atomic structure complex → less ordered\n      Energy: γ_gb ≈ 0.5–1.0 J/m² for most metals\n      (compare grain surface energy γ_s ≈ 1–3 J/m²)\n      Dihedral angle φ: cos(φ/2) = γ_gb/(2γ_s)\n\n    Special grain boundaries:\n      Twin (Σ3): coincidence site lattice, low energy γ ≈ 0.02 J/m²\n        FCC: {111} coherent twin (stacking fault = AB AB C AB AB...)\n      Σ5, Σ7: other low-energy coincidence site lattice boundaries",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 520,
+      "heading_context": "### Planar Defects",
+      "confidence": "candidate",
+      "text": "    FCC stacking: ... A B C A B C A B C ...\n    Intrinsic SF:  ... A B C A B A B C ...  (one C missing)\n    Extrinsic SF:  ... A B C A C B A B C... (extra C inserted)\n\n    Stacking fault energy γ_SFE (mJ/m²):\n      Al: 166   (high → narrow stacking faults → dislocations recombine easily)\n      Cu: 78    (medium)\n      Ni: 128   (high)\n      Co: 15    (low → wide → planar slip → HCP transformation)\n      Austenitic stainless: 15-30 (low → planar slip → TWIP/TRIP effects)\n\n    Low γ_SFE → wide partial dislocation separation → difficult cross-slip\n    → planar slip bands → TWIP (twinning-induced plasticity) steels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 539,
+      "heading_context": "### Volume Defects",
+      "confidence": "candidate",
+      "text": "  - Coherent: crystal planes continuous across interface (small misfit → elastic strain)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 547,
+      "heading_context": "### Volume Defects",
+      "confidence": "candidate",
+      "text": "  - MnS in steel: elongated by rolling → anisotropic toughness\n  - Oxide stringers: stress concentration sites → fatigue initiation",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 554,
+      "heading_context": "## Hall-Petch Strengthening",
+      "confidence": "candidate",
+      "text": "    σ_y = σ_0 + k_y / √d\n\n    σ_0  = friction stress (lattice resistance + solid solution hardening)\n    k_y  = Hall-Petch coefficient (material-dependent, ~0.1-0.5 MPa·m^(1/2))\n    d    = mean grain diameter\n\n    Mechanism: dislocations pile up at grain boundaries\n    Pile-up generates stress concentration at boundary → activates slip in next grain\n    Smaller d → shorter pile-up → harder to transmit slip → higher σ_y\n\n    Example: annealed AISI 1020 steel\n      d = 100 μm: σ_y = 250 MPa\n      d = 10 μm:  σ_y = 250 + (k/√(10μm) - k/√(100μm))\n                      ≈ 340 MPa (assuming k = 0.28 MPa·m^(1/2))\n      d = 1 μm:   σ_y ≈ 530 MPa\n\n    Breaking down: d < 10–20 nm → grain boundary sliding, inverse Hall-Petch\n    → nanocrystalline metals softer than expected\n\n    Microstructural refinement methods:\n      1. Rapid solidification (melt spinning, LPSO alloys)\n      2. Severe plastic deformation: ECAP, HPT, ARB\n      3. Recrystallization control (pinning by second-phase particles — Zener pinning)\n      4. Controlled rolling (HSLA steels: Nb, Ti, V microalloying)\n\n    Zener pinning of grain growth:\n      r_grain < r_c where r_c = 4r_p/(3f)\n      r_p = particle radius, f = volume fraction\n      → Fine TiN particles pin grain growth during HSLA steel hot rolling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 590,
+      "heading_context": "## Amorphous vs Crystalline: Comparison",
+      "confidence": "candidate",
+      "text": "    ┌──────────────────────────────┬──────────────────────────────┐\n    │  CRYSTALLINE                 │  AMORPHOUS (GLASS)           │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Long-range order            │  Short-range order only      │\n    │  (periodic lattice)          │  (like snapshot of liquid)   │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Sharp diffraction peaks     │  Broad halo in XRD           │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Anisotropic (single xtal)   │  Isotropic                   │\n    │  Isotropic (polycrystal)     │                              │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Grain boundaries = defects  │  No grain boundaries         │\n    │  -> scatter at GBs           │  -> better corrosion         │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Slip on specific planes     │  Shear bands (localized)     │\n    │  -> work hardens             │  -> no work hardening         │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Sharp T_m (first-order)     │  Glass transition T_g        │\n    │                              │  (second-order-like kinetic) │\n    ├──────────────────────────────┼──────────────────────────────┤\n    │  Examples: Fe, Al, Cu, Si    │  Silica glass, metallic glass │\n    │            NaCl, Al2O3       │  Zr41Ti14Cu12Ni10Be23 alloy   │\n    └──────────────────────────────┴──────────────────────────────┘\n\n    Metallic glasses: amorphous metals made by rapid quenching (>10⁶ K/s)\n    or multi-component alloy design (competing crystal structures)\n    Properties: no grain boundaries → no grain boundary corrosion\n    Near-theoretical strength (no dislocations to nucleate on)\n    BUT: brittle → catastrophic shear band failure\n    Applications: transformer cores (low hysteresis), sporting goods",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 627,
+      "heading_context": "## Worked Examples",
+      "confidence": "candidate",
+      "text": "### Example 1: Determine Crystal Structure from XRD",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 631,
+      "heading_context": "### Example 1: Determine Crystal Structure from XRD",
+      "confidence": "candidate",
+      "text": "    Step 1: Calculate d from Bragg's law d = λ/(2 sinθ):\n      43.3° → d = 2.087 Å\n      50.4° → d = 1.808 Å\n      74.1° → d = 1.278 Å\n      89.9° → d = 1.090 Å\n      95.1° → d = 1.044 Å\n\n    Step 2: Calculate d₁²/d_n²:\n      d₁²/d₁² = 1.000\n      d₁²/d₂² = (2.087/1.808)² = 1.333 ≈ 4/3\n      d₁²/d₃² = (2.087/1.278)² = 2.665 ≈ 8/3\n      d₁²/d₄² = (2.087/1.090)² = 3.666 ≈ 11/3\n      d₁²/d₅² = (2.087/1.044)² = 4.000 ≈ 12/3\n\n    Step 3: Multiply ratios by 3: 3, 4, 8, 11, 12\n    These are (h²+k²+l²) values:\n      3  = 1²+1²+1²   → (111) ✓ FCC allowed\n      4  = 2²+0²+0²   → (200) ✓ FCC allowed\n      8  = 2²+2²+0²   → (220) ✓ FCC allowed\n      11 = 3²+1²+1²   → (311) ✓ FCC allowed\n      12 = 2²+2²+2²   → (222) ✓ FCC allowed\n\n    Step 4: Identify as FCC. Calculate a:\n      From d₁ = 2.087 Å for (111): a = d₁√3 = 3.615 Å\n    → This is FCC copper (literature: 3.615 Å) ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 659,
+      "heading_context": "### Example 1: Determine Crystal Structure from XRD",
+      "confidence": "candidate",
+      "text": "### Example 2: Calculate Dislocation Density from Yield Strength",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 663,
+      "heading_context": "### Example 2: Calculate Dislocation Density from Yield Strength",
+      "confidence": "candidate",
+      "text": "    Taylor hardening: σ_y = σ_0 + αGb√ρ\n    Assume σ_0 = 10 MPa (friction stress of annealed Cu)\n    200 - 10 = 0.5 × 48×10⁹ × 2.56×10⁻¹⁰ × √ρ\n    190 = 6.144 √ρ\n    √ρ = 30.9 m⁻¹\n    ρ = 955 m⁻² × 10² ≈ 9.6×10¹³ m⁻²\n\n    Compare annealed Cu: ρ ~ 10¹⁰ m⁻²\n    → Heavily cold worked (10,000× increase in dislocation density)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

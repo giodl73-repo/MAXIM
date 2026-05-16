@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:crystal-structure
+kind: guide
+module: materials
+section: materials
+title: Crystal Structure - Crystallography, Defects, and Diffraction
+status: source-custody
+source_custody: partial
+current_path: materials/01-CRYSTAL-STRUCTURE.md
+canonical_path: materials/01-CRYSTAL-STRUCTURE.md
+backsource_ids: [proof-backfill:materials:01-crystal-structure, git-history:materials:01-crystal-structure]
+concepts: [crystal, structure]
+root_concepts: [crystal, structure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Crystal Structure — Crystallography, Defects, and Diffraction
 
 ## The Big Picture
@@ -587,10 +606,10 @@ For FCC: partial dislocations (b = a/6<112>) have lower energy than perfect disl
     │  -> work hardens             │  -> no work hardening         │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Sharp T_m (first-order)     │  Glass transition T_g        │
-    │                              │  (second-order-like, kinetic)│
+    │                              │  (second-order-like kinetic) │
     ├──────────────────────────────┼──────────────────────────────┤
-    │  Examples: Fe, Al, Cu, Si    │  Silica glass, metallic glass│
-    │            NaCl, Al₂O₃      │  Zr₄₁Ti₁₄Cu₁₂Ni₁₀Be₂₃ (Vitreloy)│
+    │  Examples: Fe, Al, Cu, Si    │  Silica glass, metallic glass │
+    │            NaCl, Al2O3       │  Zr41Ti14Cu12Ni10Be23 alloy   │
     └──────────────────────────────┴──────────────────────────────┘
 
     Metallic glasses: amorphous metals made by rapid quenching (>10⁶ K/s)

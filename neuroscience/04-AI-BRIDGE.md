@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:neuroscience:ai-bridge
+kind: guide
+module: neuroscience
+section: neuroscience
+title: Neuroscience → AI Bridge - Systematic Comparisons
+status: source-custody
+source_custody: partial
+current_path: neuroscience/04-AI-BRIDGE.md
+canonical_path: neuroscience/04-AI-BRIDGE.md
+backsource_ids: [proof-backfill:neuroscience:04-ai-bridge, git-history:neuroscience:04-ai-bridge]
+concepts: [ai, bridge]
+root_concepts: [ai, bridge]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neuroscience → AI Bridge — Systematic Comparisons
 
 ## Overview

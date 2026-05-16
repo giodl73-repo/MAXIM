@@ -1,0 +1,1195 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-neuroscience-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.neuroscience.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-neuroscience-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-neuroscience-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-neuroscience-source-corpus.json",
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-neuroscience-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-neuroscience-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-neuroscience-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-neuroscience-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-neuroscience-overview.json",
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-neuroscience-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.neurons-signals.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-neuroscience-neurons-signals.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-neuroscience-neurons-signals.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.neurons-signals.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-neuroscience-neurons-signals.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.neurons-signals.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-neuroscience-neurons-signals.json",
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-neuroscience-neurons-signals.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.neurons-signals.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/01-NEURONS-SIGNALS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.neurons-signals.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/01-NEURONS-SIGNALS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.neurons-signals.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/01-NEURONS-SIGNALS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.neurons-signals.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/01-NEURONS-SIGNALS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.neurons-signals.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/01-NEURONS-SIGNALS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.neurons-signals.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/01-NEURONS-SIGNALS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/01-NEURONS-SIGNALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.systems-circuits.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-neuroscience-systems-circuits.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-neuroscience-systems-circuits.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.systems-circuits.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-neuroscience-systems-circuits.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.systems-circuits.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-neuroscience-systems-circuits.json",
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-neuroscience-systems-circuits.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.systems-circuits.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/02-SYSTEMS-CIRCUITS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.systems-circuits.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/02-SYSTEMS-CIRCUITS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.systems-circuits.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/02-SYSTEMS-CIRCUITS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.systems-circuits.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/02-SYSTEMS-CIRCUITS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.systems-circuits.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/02-SYSTEMS-CIRCUITS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.systems-circuits.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/02-SYSTEMS-CIRCUITS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/02-SYSTEMS-CIRCUITS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.cognition-computation.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-neuroscience-cognition-computation.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-neuroscience-cognition-computation.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.cognition-computation.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-neuroscience-cognition-computation.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.cognition-computation.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-neuroscience-cognition-computation.json",
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-neuroscience-cognition-computation.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.cognition-computation.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/03-COGNITION-COMPUTATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.cognition-computation.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/03-COGNITION-COMPUTATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.cognition-computation.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/03-COGNITION-COMPUTATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.cognition-computation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/03-COGNITION-COMPUTATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.cognition-computation.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/03-COGNITION-COMPUTATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.cognition-computation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/03-COGNITION-COMPUTATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/03-COGNITION-COMPUTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.ai-bridge.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-neuroscience-ai-bridge.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/04-AI-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-neuroscience-ai-bridge.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/04-AI-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.ai-bridge.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-neuroscience-ai-bridge.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.ai-bridge.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.neuroscience.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-neuroscience-ai-bridge.json",
+            "module": "neuroscience",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-neuroscience-ai-bridge.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/04-AI-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.ai-bridge.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/04-AI-BRIDGE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.ai-bridge.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/04-AI-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/04-AI-BRIDGE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/04-AI-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.ai-bridge.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/04-AI-BRIDGE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.ai-bridge.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/04-AI-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/04-AI-BRIDGE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/04-AI-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.neuroscience.ai-bridge.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/neuroscience/proof-source/04-AI-BRIDGE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.neuroscience.ai-bridge.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "neuroscience",
+            "guide": "neuroscience/04-AI-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/neuroscience/proof-source/04-AI-BRIDGE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "neuroscience",
+        "guide": "neuroscience/04-AI-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

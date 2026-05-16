@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:ceramics-composites
+kind: guide
+module: materials
+section: materials
+title: Ceramics and Composites
+status: source-custody
+source_custody: partial
+current_path: materials/07-CERAMICS-COMPOSITES.md
+canonical_path: materials/07-CERAMICS-COMPOSITES.md
+backsource_ids: [proof-backfill:materials:07-ceramics-composites, git-history:materials:07-ceramics-composites]
+concepts: [ceramics, composites]
+root_concepts: [ceramics, composites]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ceramics and Composites
 
 ## The Big Picture
@@ -49,7 +68,7 @@ CERAMICS & COMPOSITES LANDSCAPE
   │    → extremely strong, directional; highest hardness and T_melt         │
   │    → even more brittle than ionic ceramics                              │
   │                                                                         │
-  │  Most ceramics: mix of ionic + covalent (Al₂O₃ ~60% ionic/40% covalent)│
+  │  Most ceramics: mix of ionic + covalent (Al2O3 ~60% ionic/40% covalent) │
   └─────────────────────────────────────────────────────────────────────────┘
 
   WHY NO PLASTIC DEFORMATION:
@@ -323,7 +342,7 @@ CERAMICS & COMPOSITES LANDSCAPE
   CERAMIC MATRIX COMPOSITES (CMC)
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  SiC/SiC: SiC fibers in SiC matrix; T_use to 1400°C                      │
-  │  C/SiC, C/C: carbon fibers in SiC or carbon matrix; >1600°C (inert atm)│
+  │  C/SiC, C/C: carbon fibers in SiC or carbon matrix; >1600 C inert atm    │
   │  Application: GE LEAP engine fan blades, turbine stage 1 shrouds         │
   │  Benefit: 25% lower density than Ni-superalloy → higher bypass ratio     │
   │  BN interphase coating: weak fiber-matrix bond → crack deflection,       │
@@ -350,7 +369,7 @@ CERAMICS & COMPOSITES LANDSCAPE
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  Fiber breakage (UD tension):    catastrophic in fiber direction        │
   │  Matrix cracking (transverse):   damage tolerance; precursor to delam   │
-  │  Delamination:                   interlaminar shear failure between plies│
+  │  Delamination:                   interlaminar shear between layers      │
   │    → caused by: out-of-plane loads, impact, free-edge effects           │
   │    → detected by: ultrasonic C-scan, thermography, X-ray CT             │
   │  Fiber microbuckling (compression): kink band formation; limits σ_c     │

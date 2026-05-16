@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:bonding-bands
+kind: guide
+module: materials
+section: materials
+title: Bonding and Band Theory - From Atomic Orbitals to Conductivity
+status: source-custody
+source_custody: partial
+current_path: materials/02-BONDING-BANDS.md
+canonical_path: materials/02-BONDING-BANDS.md
+backsource_ids: [proof-backfill:materials:02-bonding-bands, git-history:materials:02-bonding-bands]
+concepts: [bonding, bands]
+root_concepts: [bonding, bands]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bonding and Band Theory — From Atomic Orbitals to Conductivity
 
 ## The Big Picture
@@ -309,7 +328,7 @@ $$\mathbf{b}_1 = 2\pi \frac{\mathbf{a}_2 \times \mathbf{a}_3}{\mathbf{a}_1 \cdot
     │  ║███████████║  ← filled states below E_F               │
     │  ╚═══════════╝                                          │
     │                                                         │
-    │  Even infinitesimal electric field accelerates electrons │
+    │  Tiny electric fields can accelerate electrons          │
     │  → σ_e ~ 10⁷ S/m (Cu), 10⁶ S/m (Al)                     │
     │  Resistivity: ρ_e = m/(ne²τ) increases with T           │
     │  (more phonon scattering at higher T)                   │
@@ -409,7 +428,7 @@ Lorentz force on carriers: F = q(v × B)
     │   For holes:     R_H = +1/(pe) > 0          │
     │                                             │
     │   → Sign of R_H tells carrier type!         │
-    │   → Magnitude → carrier density n = 1/|R_H e|│
+    │   → Magnitude gives carrier density from R_H│
     └─────────────────────────────────────────────┘
 
     Hall mobility: μ_H = R_H · σ = |R_H|/ρ_e

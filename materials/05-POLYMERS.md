@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:polymers
+kind: guide
+module: materials
+section: materials
+title: Polymers - Chain Architecture, Thermal Transitions, Viscoelasticity
+status: source-custody
+source_custody: partial
+current_path: materials/05-POLYMERS.md
+canonical_path: materials/05-POLYMERS.md
+backsource_ids: [proof-backfill:materials:05-polymers, git-history:materials:05-polymers]
+concepts: [polymers]
+root_concepts: [polymers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Polymers — Chain Architecture, Thermal Transitions, Viscoelasticity
 
 ## The Big Picture
@@ -414,7 +433,7 @@ Response: σ(t) = σ₀ e^{i(ωt+δ)} = ε₀(E' + iE'')e^{iωt}
 ```
     ┌──────────────────────────────────────────────────────────┐
     │  THERMOPLASTICS                                          │
-    │  Linear or branched chains → melt and flow above T_g/T_m│
+    │  Linear or branched chains → melt and flow above Tg/Tm   │
     │  Recyclable, re-processable                              │
     │  Examples: PE, PP, PS, Nylon, PET, PC                    │
     │  Bond type holding together: van der Waals (physical)    │
@@ -423,7 +442,7 @@ Response: σ(t) = σ₀ e^{i(ωt+δ)} = ε₀(E' + iE'')e^{iωt}
     │  Covalently crosslinked network → cannot melt or flow   │
     │  Cannot be recycled by melting                           │
     │  Examples: epoxy, polyurethane, phenolic, silicone resin │
-    │  Cure: exothermic chemical reaction (mixing A+B, or heat)│
+    │  Cure: exothermic reaction (mixing A+B, or heat)          │
     │  Properties: higher T service, stiffer, more brittle     │
     ├──────────────────────────────────────────────────────────┤
     │  ELASTOMERS (RUBBERS)                                    │

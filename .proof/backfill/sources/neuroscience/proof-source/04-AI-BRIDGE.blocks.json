@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "neuroscience\\04-AI-BRIDGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 24,
+      "heading_context": "## Overview",
+      "confidence": "candidate",
+      "text": "    NEUROSCIENCE ←──────────────────────── AI / ML\n    ═══════════════════════════════════════════════════════════════════\n\n    MECHANISM CORRESPONDENCE MAP:\n\n    Neuroscience mechanism          Connection strength    AI analog\n    ──────────────────────────────────────────────────────────────────\n    Action potential (rate code)    ████████░░  strong     ReLU activation (rate-like)\n    Hebbian LTP/STDP                ██████░░░░  moderate   Hebb-style weight update / STDP in SNNs\n    Backpropagation?                ████░░░░░░  weak/none  Backprop (biologically implausible)\n    NMDA coincidence detection      ████████░░  strong     AND gate / attention key-query match\n    V1 simple cells (Gabor)         ██████████  exact      CNN first-layer filters (LeCun inspired by this)\n    V1→IT hierarchy                 ████████░░  strong     Convolutional network depth\n    Basal ganglia (BG) RL           ████████░░  strong     Temporal difference learning, actor-critic\n    Dopamine RPE                    ██████████  exact      TD error δ = r + γV(s') - V(s)\n    Hippocampus pattern completion  ██████░░░░  moderate   Hopfield / associative memory\n    Hippocampal indexing            ████████░░  strong     RAG (retrieval-augmented generation)\n    Working memory (PFC sustained)  ████████░░  strong     KV-cache in transformers\n    Attention (top-down, PFC→V4)    ████████░░  strong     Transformer attention mechanism\n    Predictive coding               ████████░░  strong     Diffusion/VAE latent priors; error signals\n    Sleep consolidation (SWR)       ████████░░  strong     Replay-based continual learning\n\n    PROPERTIES COMPARISON:\n    Biology: evolved over 500M years    AI: developed over 80 years\n    Wet, hot, noisy, 20W budget         Dry, cool, precise, 700W per chip\n    Self-organizing, self-repairing     Engineered, manually updated\n    Online, continuous, few-shot        Mostly batch, offline, data-hungry\n    Sparse firing (~1-5% active)        Dense activation (50-80% in MLPs)\n    ~10⁸ synapses/neuron (top-end)      ~10⁸ parameters/model (GPT-2 scale)\n\n    THE HONEST TRUTH:\n    Most modern AI is NOT brain-inspired in any deep sense.\n    CNNs and RL are the real success cases of neuroscience → AI transfer.\n    Transformers were inspired by machine translation attention, not biology.\n    The interesting science runs BOTH ways: AI tools help us understand brains.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## 1. Neuron: Hodgkin-Huxley vs Artificial (ReLU) Neuron",
+      "confidence": "candidate",
+      "text": "    BIOLOGICAL H-H NEURON:\n    ──────────────────────\n    Input:  Continuous synaptic currents (EPSPs, IPSPs, neuromodulation)\n    Integration: C_m dV/dt = Σ g_i(V-E_i) (nonlinear, voltage-dependent)\n    Output: Spike train (all-or-nothing, 0.5-1 ms duration)\n    Rate:   0-1000 Hz (typical cortical: 0.1-10 Hz average)\n    Temporal: continuous time, precise spike timing matters\n    State:  Continuous V + gating variables m, h, n (memory within spike)\n    Energy: ~10 pJ per spike\n    Noise:  High (stochastic channels, thermal noise, quantal release)\n\n    ARTIFICIAL RELU NEURON:\n    ──────────────────────\n    Input:  Weighted sum of continuous-valued activations\n    Integration: z = Σ w_i x_i + b (linear)\n    Output: f(z) = max(0,z) (continuous, rate-like)\n    Rate:   Analogous to firing rate, not spikes\n    Temporal: synchronous layers, discrete time steps\n    State:  No internal state (stateless between examples)\n    Energy: ~0.1-1 pJ per multiply-add (GPU)\n    Noise:  Zero (deterministic); dropout ≈ artificial noise\n\n    KEY DIVERGENCES:\n    1. SPIKING vs RATE: HH produces spikes; ReLU is continuous rate code\n       Spiking preserves precise timing; rate code throws timing away\n       Spiking networks (SNNs) closer to biology but harder to train\n    2. TEMPORAL DYNAMICS: HH has adaptation, bursting, refractory period\n       → same input can produce different outputs at different times\n       ReLU: same input ALWAYS same output (stateless within a layer)\n    3. DENDRITIC COMPUTATION: HH neuron has ~10,000 active dendritic compartments\n       Each can perform nonlinear computation (NMDA spike = threshold gate)\n       → Single neuron ≈ small neural network\n       ReLU neuron: point unit, no spatial extent\n    4. ENERGY: HH neuron burns ATP for every spike regardless of signal\n       → Sparse firing (1-5%) is efficient\n       ReLU: dense activation (50-80% active typical ResNet layer)\n       → MoE (mixture of experts) more like sparse biological coding",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "## 2. Plasticity: STDP/Hebb vs Backpropagation",
+      "confidence": "candidate",
+      "text": "    BIOLOGICAL PLASTICITY (Hebb + STDP):\n    ─────────────────────────────────────\n    Hebb's rule: Δw_ij ∝ x_i x_j  (co-activity)\n    STDP (Spike Timing Dependent Plasticity):\n      pre before post (δt > 0): LTP  ΔW = A+ exp(-δt/τ+)\n      post before pre (δt < 0): LTD  ΔW = -A- exp(+δt/τ-)\n      Window: ~20ms for LTP, ~20ms for LTD\n\n    LOCAL LEARNING: depends only on pre and post activity\n    No weight transport problem\n    No teacher signal required (self-organized)\n    Ongoing, real-time, online\n\n    BACKPROPAGATION:\n    ────────────────\n    δL/δw_ij = δL/δz_j × x_i  (chain rule)\n    δL/δz_j requires:\n    1. Error signal from DOWNSTREAM (not local)\n    2. Knowledge of all upstream weights (weight transport problem)\n    3. Forward pass stored (memory expensive)\n    4. Batch or mini-batch (not online)\n\n    BIOLOGICAL PLAUSIBILITY OF BACKPROP? No.\n    But nature does gradient descent somehow — evidence:\n    Predictive coding implements approximation to backprop (Millidge 2020)\n    Feedback alignment: random backward weights work almost as well (Lillicrap 2016)\n    Target propagation: propose target activations, compute local errors\n    → Biology may implement something functionally equivalent without exact backprop\n\n    KEY DIVERGENCES:\n    1. LOCAL vs GLOBAL: Hebb local; backprop global (end-to-end credit assignment)\n    2. BIDIRECTIONAL WEIGHT SYMMETRY: backprop needs forward=backward weights exactly\n       Biology: distinct forward (excitatory) and backward (feedback) pathways\n    3. CONTINUOUS vs EPISODIC: STDP online; backprop requires discrete forward pass\n    4. Catastrophic forgetting: backprop on new task destroys old knowledge\n       Biology: complementary learning systems (hippocampus fast, cortex slow)\n       CLS theory: hippocampus learns individual episodes; cortex slowly extracts statistics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 154,
+      "heading_context": "## 3. V1 Simple Cells → Convolutional Filters",
+      "confidence": "candidate",
+      "text": "    BIOLOGICAL V1 SIMPLE CELLS:\n    ───────────────────────────\n    Receptive field: ~0.1-0.5° of visual angle\n    Response: linear sum of inputs from LGN with ON/OFF center arrangement\n    Selectivity: ONE preferred orientation, ONE spatial frequency\n    Mathematical form: Gabor filter\n    g(x,y) = exp(-(x²/σ_x² + y²/σ_y²)) cos(2πfx + φ)\n\n    Each V1 neuron = ONE Gabor filter applied at ONE location\n    Cortical magnification: more V1 for fovea than periphery\n\n    CNN CONVOLUTIONAL FILTERS:\n    ──────────────────────────\n    Learned 2D filter of size k×k applied at ALL locations (weight sharing)\n    First-layer CNN filters: learn Gabor-like edges (LeCun, MNIST 1990)\n    Multiple filters per layer: multiple channels (like multiple V1 orientations)\n    Weight sharing: same filter at every spatial location = translational equivariance\n\n    The key insight: natural images have translational statistics\n    → same edge detector useful everywhere → weight sharing is optimal\n    → V1 evolved the same solution: same orientation columns tile visual space\n\n    HISTORICAL CHAIN: Hubel & Wiesel (1959) → Fukushima Neocognitron (1980) → LeCun (1989)\n    LeCun explicitly cited V1 receptive field work as motivation for CNNs\n\n    DIVERGENCES:\n    Biological: Gabor filters in V1 are followed by normalization circuits\n    Complex cells = sum of simple cells at different phases = phase-invariant (= max-pooling)\n    Non-classical RF surround suppression = divisive normalization\n    CNN batch norm ≈ divisive normalization (but simpler, not biologically realistic)\n    Feedback from higher areas modifies V1 responses → no analog in feedforward CNN",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "## 4. Cortical Columns vs Transformer Layers",
+      "confidence": "candidate",
+      "text": "    NEOCORTICAL COLUMN (6 LAYERS):\n    ──────────────────────────────\n    Layer 1 (molecular): apical tufts, top-down inputs\n    Layer 2/3: corticocortical output, feedforward to higher areas\n    Layer 4: thalamocortical input (main sensory input)\n    Layer 5: output to brainstem, SC, subcortex, feedback to L6\n    Layer 6: feedback to thalamus, claustrum\n\n    Within-column: feedforward (L4 → L2/3 → L5 → L6) and feedback (L6 → L4 via thalamus)\n    Between columns: lateral inhibition (L2/3 ↔ interneurons), skip connections (L5 → L2/3)\n    Top-down feedback: higher area L5/6 → lower area L1/2/3 (strong!)\n    Bottom-up feedforward: lower area L2/3 → higher area L4\n\n    TRANSFORMER LAYER:\n    ──────────────────\n    Self-attention: all-to-all interactions within context window\n    FFN: pointwise MLP (analogous to within-neuron processing)\n    Skip connections: residual stream (Layer 1 in cortex has modulatory inputs)\n    No explicit layer structure corresponding to L1-L6\n\n    WEAK ANALOGIES:\n    Thalamic relay → attention gate (both select which info to propagate)\n    Skip connections (L2/3 → L5) → residual stream in transformer\n    Bottom-up L2/3 → next L4 = feedforward layers\n    Top-down L5/6 → lower L1 = feedback in transformer (some architectures)\n\n    KEY DIVERGENCES:\n    1. Feedback is DOMINANT in cortex: ~70% of synapses are feedback or recurrent\n       Transformers: typically feedforward only (encoder-decoder has some feedback)\n    2. Temporal structure: cortex has oscillations (gamma, theta, alpha)\n       Transformers: no temporal dynamics within a layer\n    3. Cell type diversity: cortex has 100+ distinct cell types\n       Transformers: identical \"neurons\" in each layer\n    4. Modulatory axes: cortex has DA, ACh, NE neuromodulation changing gain\n       Transformers: no equivalent to neuromodulatory state",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## 5. Biological Attention vs Self-Attention",
+      "confidence": "candidate",
+      "text": "    BIOLOGICAL SPATIAL ATTENTION:\n    ─────────────────────────────\n    Top-down: FEF/IPS decide where to attend based on task goals\n    Effect: MULTIPLICATIVE gain of V1-V4 responses at attended location\n    Mechanism: top-down corticocortical signals + possibly thalamic gating (pulvinar)\n    Feature-based: attending to red objects enhances V4 \"red-tuned\" neurons globally\n    Temporal: sustained (seconds) or captured by salient stimuli (reflexive, 50ms)\n\n    TRANSFORMER SELF-ATTENTION:\n    ───────────────────────────\n    Attention(Q,K,V) = softmax(QK^T/√d_k) V\n    Q = query (what I'm looking for)\n    K = key (what's available)\n    V = value (what to retrieve)\n    All positions attend to all positions = all-to-all → quadratic cost\n\n    REAL ANALOGY:\n    Q ↔ task representation (what the FEF/IPS \"wants\")\n    K ↔ feature representation in sensory areas\n    V ↔ actual neural response to retrieve\n    Similarity Q·K ↔ relevance match (retinotopic similarity + feature similarity)\n    Softmax ↔ winner-take-all normalization (Recurrent cortical competition)\n\n    KEY DIVERGENCES:\n    1. MULTIPLICATIVE vs ADDITIVE: biological attention is gain (multiply)\n       Self-attention: softmax weights then sum → weighted average not gain\n    2. SPATIAL LOCALITY: biological attention operates on 2D spatial grid\n       Self-attention: operates on sequence positions (1D), or patchwise (ViT)\n    3. TEMPORAL DYNAMICS: biological attention unfolds over 50-500ms\n       Self-attention: computed in one forward pass (instantaneous)\n    4. CROSS-AREA ATTENTION: biological attention involves many areas interacting\n       Self-attention: within-layer, not between \"hierarchical\" layers of a model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## 6. Working Memory vs KV Cache",
+      "confidence": "candidate",
+      "text": "    PFC WORKING MEMORY:\n    ───────────────────\n    Capacity: ~4 chunks (Cowan 2001)\n    Duration: seconds to minutes (active maintenance required)\n    Mechanism: persistent neural firing, recurrent attractor\n    Content: any modality (visual, spatial, verbal, abstract)\n    Updating: effortful, subject to interference\n    Failure mode: distractor → activity collapse → information lost\n    Information loss: partial degradation, not complete\n\n    TRANSFORMER KV CACHE:\n    ─────────────────────\n    Capacity: context length tokens (2K to 200K+ tokens in GPT-4/Claude)\n    Duration: entire context window (never degrades within context)\n    Mechanism: stored key-value pairs from previous tokens\n    Content: token representations, all modalities\n    Updating: append-only (no active interference with earlier tokens)\n    Failure mode: context truncation (early tokens may be lost or diluted)\n    Information loss: all-or-nothing at context boundary\n\n    KEY SIMILARITIES:\n    Both: limited capacity, recent items more accessible\n    Both: retrieve via content-addressing (attention/recognition)\n\n    KEY DIVERGENCES:\n    1. CAPACITY: PFC ~4 chunks; KV cache ~200K tokens\n       BUT: \"chunks\" are semantically compressed; tokens are not compressed\n       BOTH fail at ~4 \"objects\" in strict sensory working memory experiments\n    2. ACTIVE MAINTENANCE: PFC requires ongoing neural activity; KV cache is static\n    3. GATING: PFC selectively updates (attend → update WM); KV accumulates all\n    4. CONSOLIDATION: PFC → hippocampus → neocortex (multi-timescale)\n       KV cache → no consolidation path; in-weights learning requires training",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## 7. Hippocampal Memory vs RAG",
+      "confidence": "candidate",
+      "text": "    HIPPOCAMPAL INDEXING THEORY (Teyler & DiScenna 1986):\n    ──────────────────────────────────────────────────────\n    Hippocampus stores INDEX to distributed cortical memory\n    Memory = set of cortical pattern links, pointer stored in hippocampus\n    Recall: retrieve hippocampal index → reactivate cortical patterns\n    Fast encoding: single-trial learning of new episodes (one-shot!)\n    Slow consolidation: hippocampus → neocortex via SWR replay during sleep\n    Capacity: millions of episodes\n    Search: content-addressable (partial cue → full memory)\n\n    RAG (RETRIEVAL-AUGMENTED GENERATION):\n    ─────────────────────────────────────\n    External database stores chunks of text/knowledge\n    Query encoded → vector search (FAISS, cosine similarity)\n    Top-k chunks retrieved → appended to context → generate answer\n    Fast encoding: add to database in real-time (no training required!)\n    \"Consolidation\": fine-tuning on retrieved content (periodic, not automatic)\n\n    KEY SIMILARITIES:\n    Both: separate fast storage + slow generalization\n    Both: content-addressable retrieval (partial match → full item)\n    Both: decouple \"storage\" from \"processing\"\n    Both: recent work scales capacity by adding more storage\n\n    KEY DIVERGENCES:\n    1. ENCODING: hippocampus encodes rich spatiotemporal context automatically\n       RAG: requires explicit chunking, embedding, indexing (not automatic)\n    2. SLEEP REPLAY: hippocampus consolidates during sleep = unsupervised transfer\n       No RAG equivalent; requires explicit fine-tuning decision\n    3. PATTERN COMPLETION: CA3 fills in degraded memories (Hopfield attractor)\n       RAG: retrieves nearest chunk; doesn't \"fill in\" missing info\n    4. EPISODIC vs SEMANTIC: hippocampus handles both episodes and schemas\n       RAG: mostly factual/semantic; poor at episodic \"when/where\" recall",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 352,
+      "heading_context": "## 8. Dopamine RPE vs RLHF Reward Model",
+      "confidence": "candidate",
+      "text": "    DOPAMINE TEMPORAL DIFFERENCE SIGNAL (Schultz):\n    ──────────────────────────────────────────────\n    δ_t = r_t + γV(s_{t+1}) - V(s_t)\n\n    V(s) = expected future reward from state s (encoded in striatum)\n    δ > 0: unexpected reward → dopamine burst (positive TD error)\n    δ < 0: expected reward omitted → dopamine dip (negative TD error)\n    δ = 0: expected reward delivered → dopamine flat\n\n    Biological implementation:\n    SNc/VTA dopamine neurons → compute δ_t directly\n    → signal to striatum: update V(s) and action weights\n    Learning: w → w + α δ_t ∇_w V(s) (TD update, dopamine = α × δ)\n    Timescale: seconds (matches TD discount γ ~ 0.9-0.99)\n\n    RLHF REWARD MODEL:\n    ──────────────────\n    Human rater compares two LLM outputs: A preferred to B\n    Reward model R_φ(s,a) trained to predict preferences\n    RLHF objective: maximize E[R_φ(x,y)] - β KL[π_θ||π_ref]\n    PPO update: update π_θ using advantage = δ_t from reward model\n    δ_t(PPO) = R_φ(x,y) + γV(s_{t+1}) - V(s_t)  ← EXACT BELLMAN EQUATION\n\n    EXACT MATHEMATICAL CONNECTION:\n    R_φ = dopamine signal architecture\n    V(s) = value network = striatum\n    γ = discount factor = same in both\n    α = learning rate = dopamine modulation strength\n    PPO advantage = TD error = δ_t\n    π_θ = policy = corticostriatal motor circuits\n    KL regularization = not present biologically (or: prior policy = behavior prior)\n\n    KEY DIVERGENCE:\n    Biological: online, trial-by-trial, real-time, no stored gradients\n    RLHF: offline episodes, batched updates, explicit gradient computation\n    Biological: one reward circuit for the whole organism (every goal same DA)\n    RLHF: separate reward models per task (specialized head)\n    Biological: reward is internal (hunger, pain, pleasure) AND external\n    RLHF: reward is always external human preference",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 398,
+      "heading_context": "## 9. Cerebellum Forward Model vs Model-Based RL",
+      "confidence": "candidate",
+      "text": "    CEREBELLUM:\n    ────────────\n    Receives: efference copy (copy of motor command to spinal cord)\n    Predicts: expected sensory consequences of action\n    Compares: actual sensory feedback vs prediction\n    Error:    climbing fiber error signal → Purkinje cell LTD\n    Output:   corrective motor signal BEFORE sensory feedback arrives\n    Timescale: 10-100ms predictions (ahead of 200ms sensory feedback loop)\n\n    MODEL-BASED RL FORWARD MODEL:\n    ─────────────────────────────\n    World model: T(s, a) → s' (predict next state given action)\n    Reward model: R(s, a) → r\n    Planning: rollout simulated trajectories → evaluate return → update policy\n    Model-based vs model-free: cerebellar forward model IS model-based\n\n    ANALOGIES:\n    Cerebellum forward model = world model T(s,a)\n    Inferior olive error signal = training supervision signal for T\n    Purkinje cell LTD = parameter update in T\n    Cerebellar output nucleus = planned correction applied online\n\n    DIVERGENCES:\n    Biological: prediction within ONE movement (100ms horizon)\n    Model-based RL: planning over many steps (seconds to longer)\n    Biological: one forward model per effector context\n    RL: single universal world model\n    Biological: automatic, unconscious\n    RL: explicit planning, can be deliberate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 434,
+      "heading_context": "## 10. Catastrophic Forgetting vs Complementary Learning Systems",
+      "confidence": "candidate",
+      "text": "    CATASTROPHIC FORGETTING (neural networks):\n    ──────────────────────────────────────────\n    Train network on task A → learns well\n    Train on task B → overwrites weights → loses task A\n    Gradient descent updates all weights shared between tasks\n    → Interference proportional to overlap in representations\n\n    Solutions:\n    EWC (Elastic Weight Consolidation): penalize changes to important weights\n    Importance: Fisher information I(θ) of old task\n    L_new = L_B + λ Σ_i F_i(θ_i - θ_A,i)²\n    ≈ Biological: synapse-level importance gating (Kaski & Vanhatalo, 2015)\n\n    Progressive networks: add new columns for new tasks, no forgetting\n    LoRA fine-tuning: update only low-rank delta, preserve base weights\n    → These are engineered solutions to a biological problem\n\n    COMPLEMENTARY LEARNING SYSTEMS (McClelland, McNaughton, O'Reilly 1995):\n    ──────────────────────────────────────────────────────────────────────────\n    Two systems with different learning rates:\n    Hippocampus: FAST learning, one-shot episode storage, high interference\n    Neocortex: SLOW learning, gradual extraction of statistics, no interference\n\n    Interaction:\n    New episode → immediately stored in hippocampus\n    Sleep: hippocampus replays → neocortex slowly integrates\n    Over many replays: neocortex extracts statistical regularities (semantic memory)\n    Hippocampus can then release old episode (transfer complete)\n\n    Neural implementation:\n    Hippocampus: sparse, high-dimensional codes → minimal interference\n    Neocortex: distributed, overlapping codes → good generalization, bad single-episode\n\n    THIS IS WHAT AI LACKS:\n    No automatic fast storage + slow consolidation dual system\n    No sleep replay that integrates new knowledge with old\n    Training requires seeing each example many times (humans: once!)\n    → Few-shot learning (GPT-4, etc.) is partial solution via in-context learning\n       but uses KV cache, not actual weight update",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 480,
+      "heading_context": "## 11. Neural Oscillations — No AI Analog (Yet)",
+      "confidence": "candidate",
+      "text": "    OSCILLATION BAND REFERENCE:\n    Band      Freq      Brain region    Function (tentative)\n    ──────────────────────────────────────────────────────────\n    Delta     0.5-4 Hz  Cortex, thalamus Deep sleep, consolidation\n    Theta     4-8 Hz    Hippocampus, EC Navigation, episodic memory, WM\n    Alpha     8-13 Hz   Occipital, parietal Idle/inhibition, attention gating\n    Beta      13-30 Hz  Motor, sensory   Motor control, top-down attention\n    Gamma     30-100 Hz Visual, sensory  Feature binding, attention, WM\n    SWR       150-250 Hz Hippocampus    Sleep replay, memory consolidation\n\n    THETA-GAMMA COUPLING (working memory):\n    Theta cycle (~125ms) contains gamma cycles (~25ms = ~5 gamma cycles per theta)\n    Each gamma cycle holds one WM item: 5-7 items per theta cycle\n    → Explains Miller's magical number 7: theta oscillation capacity!\n    Proposed: different items in WM at different gamma phases within theta cycle\n\n    GAMMA BINDING:\n    Visual feature binding: \"what\" and \"where\" processed in different areas\n    Hypothesis: synchronized gamma (40Hz) binds features into unified percept\n    Controversial: not all evidence supports binding-by-synchrony\n\n    SHARP-WAVE RIPPLES (SWR):\n    Only occur during slow-wave sleep and quiet rest\n    CA3 → CA1: synchronous burst → ~200 Hz ripple in CA1\n    Replay is COMPRESSED (~20×) and can be REVERSED (future planning?)\n    Disrupting SWRs (mild perturbation at SWR onset) → impairs recall next day\n\n    WHY NO AI ANALOG:\n    Transformers have no temporal dimension within a layer\n    No oscillatory competition between representations\n    No sleep phase for offline consolidation\n    Possible future: temporal spiking networks could implement oscillatory dynamics\n    → Sparse representation × temporal coding could be far more efficient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 520,
+      "heading_context": "## 12. Sparse Coding vs Dense Transformers",
+      "confidence": "candidate",
+      "text": "    BIOLOGICAL SPARSE CODING (Olshausen & Field 1996):\n    ──────────────────────────────────────────────────\n    Primary visual cortex: ~1-5% of V1 neurons active at any time\n    Sparse code: most neurons silent → efficient energy use, large capacity\n    Redundancy reduction: remove correlations → independent components\n    ICA / sparse dictionary learning recovers Gabor-like filters from natural images\n    → V1 LEARNED sparse codes from natural image statistics\n\n    Computationally: overcomplete dictionary D, sparse code s, image x:\n    min_s ||x - Ds||² + λ||s||₁   (LASSO = L1 sparse coding)\n    → This IS what V1 computes (approximately)\n\n    DENSE TRANSFORMER ACTIVATIONS:\n    ───────────────────────────────\n    Standard transformer: ~60-80% of neurons active per token\n    Energy-inefficient: nearly all parameters engaged for every token\n    Semantic richness: dense representation distributes meaning everywhere\n\n    MIXTURE OF EXPERTS (MoE) → SPARSITY:\n    MoE: route each token to k of N expert FFN blocks\n    GPT-4 rumored: 8 of 120 experts per token (k=8/N=120 → 6.7% sparse)\n    Dramatically more parameter-efficient: total params >> active params\n    → Closer to brain's sparse coding principle\n    → But routing algorithm ≠ lateral inhibition in cortex\n\n    BRAIN-LIKE SPARSE CODING IN AI (future directions):\n    k-WTA (k-Winners Take All): artificial version of lateral inhibition\n    L1 regularization: promotes sparse activations\n    Binary/ternary activations: extreme sparsity (SNNs)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 556,
+      "heading_context": "## 13. Energy Efficiency Gap",
+      "confidence": "candidate",
+      "text": "    BRAIN:                          MODERN LLM:\n    ─────────────────────────────────────────────────────\n    Power:      20 W               700 W (A100 training)\n    \"Synapses\": 10¹⁴ per brain     175B parameters (GPT-3)\n    Energy/op:  ~10⁻¹⁵ J (synapse) ~10⁻¹² J (FLOP in GPU)\n    Efficiency: ~2×10¹⁴ ops/W      ~3×10¹⁵ FLOPs/W (A100)\n    Throughput: ~10¹⁴ ops/s        ~3×10¹⁵ FLOPs/s (A100)\n\n    On raw FLOPs/W: A100 looks MORE efficient than brain!\n    BUT: this comparison is misleading because:\n    1. Brain \"operations\" (spikes + synaptic events) > 1 FLOP each\n    2. Brain generalizes from 1 example; LLM needs billions\n    3. Brain does learning + inference simultaneously\n    4. Brain does multimodal, embodied, open-world vs narrow task\n\n    LANDAUER LIMIT:\n    Minimum energy per irreversible bit operation: k_B T ln 2\n    At 37°C: 2.87×10⁻²¹ J per bit erasure\n    Modern GPU bit operation: ~10⁻¹⁸ J (1000× above Landauer limit)\n    Brain synapse: ~10⁻¹⁵ J (10⁶× above Landauer limit — still room to improve)\n    Both are far above the Landauer limit → neither is thermodynamically efficient\n\n    BIOLOGICAL TRICKS FOR EFFICIENCY:\n    1. Sparse firing (~1% active): 100× savings vs dense coding\n    2. Analog computation: graded potentials in dendrites (no ADC/DAC cost)\n    3. Short-range wiring: most synapses local (cortex: 90% within 1mm)\n    4. Asynchronous: no global clock (no synchronization overhead)\n    5. Myelination: fast long-range with minimal spike energy\n    → SNN chips (Intel Loihi 2, IBM TrueNorth) implement some of these",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

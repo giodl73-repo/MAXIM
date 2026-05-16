@@ -1,0 +1,248 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\02-BONDING-BANDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    BONDING AND BANDS LANDSCAPE\n    ══════════════════════════════════════════════════════════\n\n    Atomic orbitals          → Bonding types        → Band theory\n    1s, 2s, 2p, 3d, 4f           ionic                   energy bands\n    quantum numbers              covalent                 band gaps\n    wavefunctions                metallic                 Fermi level\n    Aufbau + Hund's rules        van der Waals            DOS\n\n                           ↓\n                    Crystal structure\n                    (periodic lattice)\n                           ↓\n               Bloch's theorem + reciprocal lattice\n                           ↓\n                  Band structure E_n(k)\n                           ↓\n              Metal / Semiconductor / Insulator\n                           ↓\n              Electrical, optical, thermal properties",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 55,
+      "heading_context": "## Four Bonding Types",
+      "confidence": "candidate",
+      "text": "### 1. Ionic Bonding",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### 1. Ionic Bonding",
+      "confidence": "candidate",
+      "text": "    Example: NaCl\n    A = 1.7476, r₀ = 2.81 Å (Na-Cl distance = (a/2) where a=5.62 Å)\n    n = 8 (from compressibility)\n    U = -(1.7476 × 6.022×10²³ × (1.602×10⁻¹⁹)²) / (4π × 8.85×10⁻¹² × 2.81×10⁻¹⁰)\n      × (1 - 1/8)\n    U ≈ -756 kJ/mol\n    Experimental (Born-Haber): -788 kJ/mol (correction needed for zero-point energy)\n\n    Properties of ionic crystals:\n    → High melting points (strong electrostatic bonds): NaCl 801°C, MgO 2852°C\n    → Brittle: shift by one lattice repeat → like-charge alignment → repulsion\n    → Non-conducting at room T (mobile ions only above T_m)\n    → Transparent in visible (band gap >> photon energy)\n    → Soluble in polar solvents (water dipole breaks ion pairs)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 94,
+      "heading_context": "### 1. Ionic Bonding",
+      "confidence": "candidate",
+      "text": "### 2. Covalent Bonding",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "### 2. Covalent Bonding",
+      "confidence": "candidate",
+      "text": "    Energy of bonding (ψ₊) and antibonding (ψ₋) MOs:\n                                    ψ₋ (antibonding)  σ*\n                                 ↗\n    Energy     ─────────────── 1s (atom A)    ─────────────── 1s (atom B)\n                                 ↘\n                                    ψ₊ (bonding)      σ\n\n    Bond order = (bonding electrons - antibonding electrons) / 2\n    H₂: 2 bonding, 0 antibonding → bond order = 1\n    He₂: 2 bonding, 2 antibonding → bond order = 0 → no bond\n\n    N₂: σ(1s)² σ*(1s)² σ(2s)² σ*(2s)² π(2p)⁴ σ(2p)²\n    = (2-2+2-2+4+2)/2 = 3 → triple bond",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "### 2. Covalent Bonding",
+      "confidence": "candidate",
+      "text": "    sp³ hybridization (diamond, Si, Ge, methane):\n      Mix one 2s + three 2p → four equivalent sp³ hybrid orbitals\n      Tetrahedral geometry, bond angle 109.5°\n      Each sp³ orbital forms a σ bond\n      Diamond: C-C bond length 1.54 Å, E_bond = 347 kJ/mol per bond\n      Hardest natural material (all σ bonds, fully 3D network)\n\n    sp² hybridization (graphene, graphite, benzene, alkenes):\n      Mix one 2s + two 2p → three sp² orbitals (trigonal planar, 120°)\n      One unhybridized p_z orbital perpendicular to plane → π bonds\n      Graphene: sp² network → π electrons delocalized over 2D lattice\n      → Dirac cone, massless fermions, minimum conductivity\n\n    sp hybridization (acetylene, CO₂, carbon nanotubes):\n      Mix one 2s + one 2p → two sp (linear, 180°)\n      Two unhybridized p orbitals → two π bonds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 149,
+      "heading_context": "### 2. Covalent Bonding",
+      "confidence": "candidate",
+      "text": "### 3. Metallic Bonding",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### 3. Metallic Bonding",
+      "confidence": "candidate",
+      "text": "    Fermi energies for common metals:\n    Cu: n = 8.49×10²⁸ m⁻³ → E_F = 7.04 eV (T_F = 81,600 K!)\n    Al: n = 18.1×10²⁸ m⁻³ → E_F = 11.7 eV\n    Na: n = 2.65×10²⁸ m⁻³ → E_F = 3.15 eV\n\n    Key insight: T_F >> T_room (room T = 0.025 eV ≈ 300 K << T_F)\n    → Only electrons within ~kT of E_F are thermally excited\n    → Most electrons \"frozen\" → quantum effect is crucial\n    → This is why metals don't contribute R per electron to heat capacity\n    (Classical Dulong-Petit would predict C_V = 3/2 R per electron)\n    (Quantum: C_V = π²nk²T/(2E_F) << 3/2 R at room T)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### 3. Metallic Bonding",
+      "confidence": "candidate",
+      "text": "    T = 0: f(E) = 1 for E < E_F, f(E) = 0 for E > E_F (step function)\n    T > 0: smearing by ~kT around E_F\n    kT at room T = 0.026 eV → smearing is tiny compared to E_F ~ 5-10 eV\n\n    f(E_F) = 0.5 exactly (definition of E_F at T > 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### 3. Metallic Bonding",
+      "confidence": "candidate",
+      "text": "    DOS increases as E^(1/2) → more states available at higher energy\n    In lower dimensions:\n      2D: g(E) = const (step function for each subband)\n      1D: g(E) ∝ E^(-1/2) (Van Hove singularities at band edges)\n      0D: g(E) ∝ δ(E - E_n) (discrete levels, quantum dot)\n\n    These dimension-dependent DOS shapes are the origin of quantum\n    dot colors, nanowire electronic properties, etc.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 219,
+      "heading_context": "### 3. Metallic Bonding",
+      "confidence": "candidate",
+      "text": "### 4. Van der Waals / Secondary Bonding",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "### 4. Van der Waals / Secondary Bonding",
+      "confidence": "candidate",
+      "text": "    Interaction strength scales with polarizability → larger atoms bind more strongly\n    Noble gases: He (very weak) → Xe (stronger)\n    T_b: He = 4.2 K, Ne = 27 K, Ar = 87 K, Kr = 120 K, Xe = 165 K\n\n    Graphite layers: held by van der Waals (π electron polarizability large)\n    Layer spacing 3.35 Å → easy cleavage (pencil marks paper!)\n    Interlayer binding energy ~ 0.04 eV/atom << C-C covalent 3.5 eV/atom\n\n    Gecko adhesion: vdW from ~500 nm setae (billions of contacts)\n    Combined area effect → macroscopic adhesion without sticky substance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### From Atomic Orbitals to Band Structure",
+      "confidence": "candidate",
+      "text": "    k ranges from -π/a to +π/a (1st Brillouin zone)\n\n    E_min at k=0:   E = ε₀ - 2γ   (if γ > 0, bonding character)\n    E_max at k=±π/a: E = ε₀ + 2γ  (antibonding character)\n\n    Bandwidth = 4γ = width of energy band\n    More overlap (smaller r, more delocalized) → larger γ → wider band\n\n    For 3D: tighter binding → bands can overlap (metals) or not (insulators)\n    This is the origin of the distinction between metal, semiconductor, insulator",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "### Reciprocal Lattice and Brillouin Zones",
+      "confidence": "candidate",
+      "text": "    Real space lattice → Reciprocal lattice:\n    FCC (a) → BCC (4π/a)\n    BCC (a) → FCC (4π/a)\n    SC (a)  → SC  (2π/a)\n\n    First Brillouin Zone = Wigner-Seitz cell of reciprocal lattice\n    = volume closer to Γ (k=0) than to any other reciprocal lattice point\n\n    BZ for FCC: truncated octahedron (14 faces: 6 squares + 8 hexagons)\n    BZ for BCC: rhombic dodecahedron (12 faces)\n    BZ for SC:  cube\n\n    High-symmetry points (notation for cubic):\n    Γ = (0,0,0) center\n    X = (1,0,0)π/a face center\n    L = (1,1,1)π/a zone corner (face diagonal in BZ)\n    K = (3/4, 3/4, 0) zone edge midpoint\n\n    Band structure usually plotted along Γ→X→M→Γ→L path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "### Metals, Semiconductors, Insulators",
+      "confidence": "candidate",
+      "text": "    ┌─────────────────────────────────────────────────────────┐\n    │  METAL (partially filled band):                         │\n    │                                                         │\n    │  ───────────── E_F (middle of conduction band)          │\n    │  ╔═══════════╗                                          │\n    │  ║           ║  ← states above E_F available            │\n    │  ╚═══════════╝                                          │\n    │  ╔═══════════╗                                          │\n    │  ║███████████║  ← filled states below E_F               │\n    │  ╚═══════════╝                                          │\n    │                                                         │\n    │  Tiny electric fields can accelerate electrons          │\n    │  → σ_e ~ 10⁷ S/m (Cu), 10⁶ S/m (Al)                     │\n    │  Resistivity: ρ_e = m/(ne²τ) increases with T           │\n    │  (more phonon scattering at higher T)                   │\n    │                                                         │\n    ├─────────────────────────────────────────────────────────┤\n    │  SEMICONDUCTOR (E_F in small gap, E_g ~ 0.5-3 eV):       │\n    │                                                          │\n    │  ─────────────   ← conduction band (CB, mostly empty)   │\n    │       E_g ↕                                             │\n    │  ─────────────   ← valence band (VB, mostly full)       │\n    │                                                          │\n    │  E_F lies in gap. At T=0: perfectly insulating.          │\n    │  At T>0: thermal excitation across E_g                  │\n    │  n_i = √(N_c N_v) exp(-E_g/2kT) intrinsic carriers      │\n    │  Sensitive to temperature and doping                     │\n    │                                                          │\n    ├─────────────────────────────────────────────────────────┤\n    │  INSULATOR (E_F in large gap, E_g > 3-4 eV):            │\n    │                                                         │\n    │  ─────────────   ← conduction band (empty)              │\n    │       E_g ↕   (too large for thermal or optical         │\n    │  ─────────────   ← valence band (full)  excitation)     │\n    │                                                         │\n    │  σ_e ~ 10⁻¹⁴ S/m for SiO₂                               │\n    │  Transparent in visible (E_photon < E_g)                │\n    └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 369,
+      "heading_context": "### Effective Mass",
+      "confidence": "candidate",
+      "text": "    Key insights from effective mass:\n    → Band curvature sets m*: flatter band → larger m* → heavier electron\n    → Near band MAXIMUM: d²E/dk² < 0 → m* < 0 → HOLE\n      Hole = absence of electron in otherwise full valence band\n      Hole moves opposite to electron: like bubble in liquid\n      Hole charge = +e, mobility μ_h usually < μ_e\n\n    Effective masses for common semiconductors:\n    Si:    m*_e = 0.26m₀, m*_h = 0.36m₀ (averaged)\n    GaAs:  m*_e = 0.067m₀, m*_h = 0.47m₀ (very light electron → high mobility)\n    Ge:    m*_e = 0.12m₀,  m*_h = 0.21m₀\n    GaN:   m*_e = 0.20m₀,  m*_h = 0.80m₀",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 413,
+      "heading_context": "## Hall Effect — Measuring Carrier Type and Density",
+      "confidence": "candidate",
+      "text": "    ┌─────────────────────────────────────────────┐\n    │                                             │\n    │   B ↑ (into page)                           │\n    │   ──────────────────────────────────────    │\n    │   I_x →    ●  ●  ●  ●                       │\n    │            electrons move ←                 │\n    │   Lorentz force on e⁻: F = -e(v × B)        │\n    │   v = -v_x x̂, B = B_z ẑ                     │\n    │   F = -e(-v_x x̂ × B_z ẑ) = ev_x B_z ŷ       │\n    │   → electrons accumulate on +y face         │\n    │   → Hall voltage V_H = positive on -y face  │\n    │                                             │\n    │   Hall coefficient R_H = E_y/(J_x B_z)      │\n    │   For electrons: R_H = -1/(ne) < 0          │\n    │   For holes:     R_H = +1/(pe) > 0          │\n    │                                             │\n    │   → Sign of R_H tells carrier type!         │\n    │   → Magnitude gives carrier density from R_H│\n    └─────────────────────────────────────────────┘\n\n    Hall mobility: μ_H = R_H · σ = |R_H|/ρ_e\n\n    Example: measure R_H = -4.7×10⁻¹⁰ m³/C for Si sample\n    n-type (negative R_H)\n    n = 1/(|R_H|·e) = 1/(4.7×10⁻¹⁰ × 1.6×10⁻¹⁹) = 1.33×10²⁸ m⁻³\n    = 1.33×10²² cm⁻³ (heavily doped)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "ascii_table_candidate",
+      "line": 448,
+      "heading_context": "## Phonons and Thermal Properties",
+      "confidence": "candidate",
+      "text": "    1D diatomic chain (two masses M, m, spring constant K):\n    Dispersion relation: ω² = K(M+m)/Mm ± K√[(M+m)²/M²m² - 4sin²(ka/2)/Mm]\n    Two branches:\n    Acoustic: ω → 0 as k → 0 (center of mass motion, sound waves)\n    Optical:  ω → finite as k → 0 (opposite motion, interacts with photons)\n\n    At k → 0 (acoustic): v_sound = a√(K/m_reduced) ≈ √(E/ρ_mass)\n    Sound speed in steel: v_s = √(210×10⁹/7800) = 5188 m/s ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 462,
+      "heading_context": "## Phonons and Thermal Properties",
+      "confidence": "candidate",
+      "text": "  → Goes to 0 as T→0 (quantum effect), approaches 3Nk (Dulong-Petit) at high T",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 481,
+      "heading_context": "## Bridge to Quantum Mechanics (Learner's Background)",
+      "confidence": "candidate",
+      "text": "    Atomic physics: spherical potential V(r)\n    → hydrogen solutions: n, l, m_l, m_s quantum numbers\n    → energy levels: E_n = -13.6/n² eV for hydrogen\n\n    Materials science: periodic potential V(r+R) = V(r)\n    → Bloch solutions: ψ_{nk}(r) = u_{nk}(r) e^{ik·r}\n    → energy bands: E_n(k), continuous in k\n    → Brillouin zone replaces principal quantum number as primary index\n\n    Connection:\n    Isolated atoms → molecular orbitals (LCAO, 2 atoms)\n                  → bonding/antibonding levels split\n                  → bands (N atoms, N states per band, N → ∞)\n    This is the tight-binding limit of band theory.\n\n    The spread of atomic levels into bands:\n    Core levels (1s, 2s, 2p): very little overlap → very flat bands\n    Valence levels (3s, 3p, 3d, 4s): large overlap → wide bands\n    → 3d transition metals: narrow d-band + wide sp band → complex DOS\n    → Explains magnetism in Fe, Co, Ni (partial filling of d-band near E_F)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 508,
+      "heading_context": "### Ferromagnetism via Band Theory",
+      "confidence": "candidate",
+      "text": "    Spin-up d-band (spin ↑): shifted down in energy → more occupied\n    Spin-down d-band (spin ↓): shifted up → less occupied\n    → Net spin → magnetic moment ~ 2.2 μ_B per Fe atom\n    → Stoner criterion for ferromagnetism: g(E_F) · I > 1\n      g(E_F) = DOS at Fermi level, I = Stoner exchange integral\n      Fe, Co, Ni satisfy this; Pd and Pt are close but don't",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "ascii_table_candidate",
+      "line": 535,
+      "heading_context": "## Mie Potential: Bonding → Elastic Modulus → Thermal Expansion",
+      "confidence": "candidate",
+      "text": "    At equilibrium r₀: dU/dr = 0 → -mA/r₀^{m+1} + nB/r₀^{n+1} = 0\n\n    Young's modulus from bond stiffness:\n    E ≈ (1/r₀) · d²U/dr² |_{r₀}\n    → Stronger bonds (deep well, large d²U/dr²) → higher E\n    Diamond: E = 1050 GPa   (strong covalent C-C)\n    Tungsten: E = 411 GPa   (strong metallic)\n    Iron:     E = 211 GPa\n    Aluminum: E = 70 GPa    (weaker metallic)\n    HDPE:     E = 0.8 GPa   (weak van der Waals between chains)\n\n    Thermal expansion from potential asymmetry:\n    U(r) ≈ U₀ + ½k(r-r₀)² - g(r-r₀)³ + ...  (anharmonic expansion)\n    Mean position ⟨r⟩_T = r₀ + gkT/k² (shifts to larger r at higher T)\n    α_thermal ∝ g/k (ratio of anharmonicity to stiffness)\n    Strong bonds (symmetric wells) → low α\n    Diamond: α = 1×10⁻⁶ K⁻¹, Invar (Fe-36Ni): α ≈ 1×10⁻⁶ K⁻¹ (anomaly: magnetostrictive cancellation)\n    Al: α = 23×10⁻⁶ K⁻¹, Polymers: α = 100-200×10⁻⁶ K⁻¹",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:semiconductors
+kind: guide
+module: materials
+section: materials
+title: Semiconductors - From Carrier Statistics to Devices
+status: source-custody
+source_custody: partial
+current_path: materials/03-SEMICONDUCTORS.md
+canonical_path: materials/03-SEMICONDUCTORS.md
+backsource_ids: [proof-backfill:materials:03-semiconductors, git-history:materials:03-semiconductors]
+concepts: [semiconductors]
+root_concepts: [semiconductors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Semiconductors — From Carrier Statistics to Devices
 
 ## The Big Picture
@@ -260,9 +279,8 @@ NPN structure: n⁺-emitter / thin p-base / n-collector
     ─────────────────────── ← gate oxide (SiO₂, t_ox ~ 1-5 nm)
     ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ← inversion layer (channel, ~1 nm thick)
     ● ● ● ● ● ● ● ● ● ● ← p-type body (N_A)
-    ┌──┐              ┌──┐
-    │n⁺│  source  drain │n⁺│
-    └──┘              └──┘
+    [n+]              [n+]
+     | source  drain  |
     Isolation   ←L→   Isolation
      (STI)           (STI)
 

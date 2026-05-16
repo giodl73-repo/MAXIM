@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:overview
+kind: guide
+module: materials
+section: materials
+title: Materials Science - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: materials/00-OVERVIEW.md
+canonical_path: materials/00-OVERVIEW.md
+backsource_ids: [proof-backfill:materials:00-overview, git-history:materials:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Materials Science — Landscape Overview
 
 ## The Four Families and the Tetrahedron
@@ -177,7 +196,7 @@ straight lines with characteristic slope on log-log plots.
     │                                                  │
     │  Mie potential: U(r) = A/r^n - B/r^m             │
     │  Bond energy E_b, equilibrium r₀, curvature      │
-    │  → E_elastic ∝ d²U/dr²|_{r₀} / r₀              │
+    │  → E_elastic ∝ d²U/dr² at r0 / r0                │
     │  → T_m ∝ E_b                                     │
     │  → α_thermal ∝ asymmetry of U(r) potential well  │
     └──────────────────────┬───────────────────────────┘
@@ -196,7 +215,7 @@ straight lines with characteristic slope on log-log plots.
                            ▼
     ┌──────────────────────────────────────────────────┐
     │  DEFECTS                                         │
-    │  • Point: vacancies, interstitials, substitutionals│
+    │  • Point: vacancies, interstitials, solute atom  │
     │  • Line: edge/screw dislocations                 │
     │  • Planar: grain boundaries, stacking faults     │
     │  → Dislocations enable plastic flow              │
@@ -341,47 +360,19 @@ Sort remaining candidates by M_I value. Plot on chart.
 
 ## Measurement and Characterization Methods
 
-```
-    ┌──────────────────────────────────────────────────────────────────┐
-    │              CHARACTERIZATION METHOD MATRIX                      │
-    │                                                                  │
-    │  Technique   │ What measured        │ Scale    │ Destructive?    │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  XRD (Bragg) │ Crystal structure,   │ bulk avg │ No            │
-    │              │ phase ID, lattice    │          │               │
-    │              │ param, texture, stress│         │               │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  TEM (HRTEM) │ Atomic columns,      │ 0.1-100nm│ Yes (lamella) │
-    │              │ dislocations, phases │          │               │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  SEM + EDS   │ Microstructure,      │ 10nm-1mm │ Light prep    │
-    │              │ fracture, composition│          │               │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  EBSD        │ Grain orientation,   │ 50nm-1mm │ Light polish  │
-    │              │ IPF maps, textures   │          │               │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  APT         │ 3D atom-by-atom chem │ < 100nm  │ Yes (needle)  │
-    │              │ segregation, clusters│          │               │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  Nanoindent  │ E, H at nm scale     │ nm-μm    │ Minimal       │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  DSC         │ T_g, T_m, ΔH_f       │ mg sample│ No (mostly)   │
-    │  TGA         │ Decomposition, mass  │ mg sample│ Yes           │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  DMA         │ E'(ω), E''(ω), tan δ │ mg-g     │ No            │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  Tensile     │ E, σ_y, UTS, ε_f     │ mm-cm    │ Yes           │
-    │  Charpy      │ CVN impact energy    │ standard │ Yes           │
-    │  J-integral  │ K_IC, J_IC           │ standard │ Yes           │
-    │  Jominy      │ Hardenability profile│ bar      │ Yes           │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  Hall effect │ Carrier n, mobility μ│ device   │ No            │
-    │  4-pt probe  │ Resistivity ρ_e      │ film/bulk│ No            │
-    │  ────────────┼──────────────────────┼──────────┼───────────────  │
-    │  Raman       │ Bonding, strain,     │ μm spot  │ No            │
-    │              │ carbon allotropes    │          │               │
-    └──────────────────────────────────────────────────────────────────┘
-```
+| Technique | What measured | Scale | Destructive? |
+|---|---|---|---|
+| XRD (Bragg) | Crystal structure, phase ID, lattice parameter, texture, stress | bulk avg | No |
+| TEM (HRTEM) | Atomic columns, dislocations, phases | 0.1-100 nm | Yes (lamella) |
+| SEM + EDS | Microstructure, fracture, composition | 10 nm-1 mm | Light prep |
+| EBSD | Grain orientation, IPF maps, textures | 50 nm-1 mm | Light polish |
+| APT | 3D atom-by-atom chemistry, segregation, clusters | < 100 nm | Yes (needle) |
+| Nanoindent | E, H at nm scale | nm-μm | Minimal |
+| DSC / TGA | T_g, T_m, ΔH_f / decomposition and mass | mg sample | No (mostly) / Yes |
+| DMA | E'(ω), E''(ω), tan δ | mg-g | No |
+| Tensile / Charpy / J-integral / Jominy | E, σ_y, UTS, ε_f / CVN / K_IC, J_IC / hardenability | standard | Yes |
+| Hall effect / 4-pt probe | Carrier n, mobility μ / resistivity ρ_e | device / film-bulk | No |
+| Raman | Bonding, strain, carbon allotropes | μm spot | No |
 
 ---
 

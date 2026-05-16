@@ -1,0 +1,174 @@
+{
+  "schema_version": "1",
+  "source_markdown": "neuroscience\\04-AI-BRIDGE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 596,
+      "heading_context": "## Decision Cheat Sheet: Cross-Reference Guide",
+      "headers": [
+        "AI / ML concept",
+        "Neuroscience mechanism to study",
+        "Why the parallel is strong"
+      ],
+      "rows": [
+        [
+          "Convolutional filters (especially early layers)",
+          "V1 simple cells, Gabor receptive fields, Hubel & Wiesel",
+          "CNNs were explicitly motivated by V1 architecture; the math is essentially identical"
+        ],
+        [
+          "Temporal difference (TD) learning",
+          "Dopamine reward prediction error (Schultz 1997)",
+          "δ = r + γV(s') - V(s) appears in both; DA bursts/dips are biological TD errors"
+        ],
+        [
+          "Actor-critic RL",
+          "Basal ganglia direct/indirect pathways",
+          "Striatum = actor; SNc dopamine = critic signal; D1/D2 receptor split = value vs cost"
+        ],
+        [
+          "Attention mechanism (transformers)",
+          "Top-down attention (PFC → visual cortex), neuromodulatory gain",
+          "Query-key dot product = relevance-weighted gating; matches top-down attentional modulation"
+        ],
+        [
+          "Retrieval-augmented generation (RAG)",
+          "Hippocampal indexing theory",
+          "Hippocampus stores indices to cortical memory traces; retrieval = pointer dereference; same two-stage architecture"
+        ],
+        [
+          "KV-cache in transformers",
+          "PFC working memory (sustained activity)",
+          "Both maintain a context buffer that can be queried; capacity-limited; gated by relevance"
+        ],
+        [
+          "Few-shot learning",
+          "One-shot learning in hippocampus",
+          "Single-trial episodic memory; contrast with cortical slow learning; complementary learning systems"
+        ],
+        [
+          "Catastrophic forgetting",
+          "Absence of sleep-based consolidation",
+          "Brain avoids forgetting via replay during SWRs; AI methods: experience replay, EWC, progressive nets"
+        ],
+        [
+          "Mixture of experts (MoE)",
+          "Sparse cortical coding (~1-5% active neurons)",
+          "Both avoid dense activation; routing = neural competition; sparse = energy-efficient"
+        ],
+        [
+          "Predictive coding / VAE",
+          "Predictive coding theory (Rao & Ballard 1999)",
+          "Top-down predictions generate prior; bottom-up inputs carry prediction error; same math"
+        ],
+        [
+          "Hopfield network / associative memory",
+          "CA3 recurrent hippocampal circuit",
+          "CA3 is a Hopfield network; pattern completion = attractor dynamics; same energy function"
+        ],
+        [
+          "Spiking neural networks (SNNs)",
+          "Biological neurons (H-H, LIF, STDP)",
+          "SNNs are direct computational models of biology; trade accuracy for temporal/energy efficiency"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 613,
+      "heading_context": "## Decision Cheat Sheet: Cross-Reference Guide",
+      "headers": [
+        "Neuroscience mechanism",
+        "AI analog",
+        "Insight gained from comparison"
+      ],
+      "rows": [
+        [
+          "NMDA coincidence detection",
+          "AND gate; attention key-query matching",
+          "Both detect co-occurrence with a multiplicative gate"
+        ],
+        [
+          "Cerebellar LTD (error-based learning)",
+          "Supervised gradient descent",
+          "Climbing fiber error = δL/δw; but learning is local (no weight transport problem)"
+        ],
+        [
+          "Hebbian STDP",
+          "Local Hebb update (no backprop)",
+          "Preserves biological locality; converges for associative tasks without global error signal"
+        ],
+        [
+          "Sharp-wave ripple replay",
+          "Experience replay (DQN)",
+          "Offline consolidation of recent experience; both improve stability of long-term learning"
+        ],
+        [
+          "Grid cells (hex lattice in EC)",
+          "Positional encoding in transformers; manifold learning",
+          "Both implement a metric embedding of a structured space; grid spacing = resolution level"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 623,
+      "heading_context": "## Open Problems: Neuroscience × AI Table",
+      "headers": [
+        "Neuroscience mystery",
+        "What solving it would unlock for AI"
+      ],
+      "rows": [
+        [
+          "How does the brain learn from 1-10 examples?",
+          "True few-shot learning without large-scale pre-training"
+        ],
+        [
+          "Mechanism of sleep replay / memory consolidation",
+          "Continuous lifelong learning without catastrophic forgetting"
+        ],
+        [
+          "How do oscillations bind representations?",
+          "Temporal coding → 100× more information per neuron"
+        ],
+        [
+          "Mechanism of dendritic computation (NMDA spikes)",
+          "Replacing point-neuron approximation → deeper dendritic networks"
+        ],
+        [
+          "How does PFC maintain >4 items with practice?",
+          "Chunking / compression → higher effective WM capacity"
+        ],
+        [
+          "What makes the brain's RL sample-efficient?",
+          "Model-based + model-free hybrid RL with minimal exploration"
+        ],
+        [
+          "How does selective attention arise from bottom-up/top-down interactions?",
+          "Dynamic computation graphs (not static weights)"
+        ],
+        [
+          "How does the brain represent abstract concepts compositionally?",
+          "Systematic generalization (transformers struggle with this)"
+        ],
+        [
+          "How does neocortex do unsupervised slow feature extraction?",
+          "Self-supervised learning closer to biological theory"
+        ],
+        [
+          "What is the algorithmic basis of causal inference in PFC?",
+          "Causal reasoning, not just pattern matching"
+        ],
+        [
+          "Why does damage to cerebellum impair timing but not consciousness?",
+          "Temporal computation separated from awareness"
+        ],
+        [
+          "How do grid cells implement the hex lattice?",
+          "Systematic metric structure in learned embeddings"
+        ]
+      ]
+    }
+  ]
+}

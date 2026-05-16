@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:metals-alloys
+kind: guide
+module: materials
+section: materials
+title: Metals and Alloys - Phase Diagrams, Heat Treatment, Strengthening
+status: source-custody
+source_custody: partial
+current_path: materials/04-METALS-ALLOYS.md
+canonical_path: materials/04-METALS-ALLOYS.md
+backsource_ids: [proof-backfill:materials:04-metals-alloys, git-history:materials:04-metals-alloys]
+concepts: [metals, alloys]
+root_concepts: [metals, alloys]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metals and Alloys — Phase Diagrams, Heat Treatment, Strengthening
 
 ## The Big Picture

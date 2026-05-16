@@ -1,39 +1,56 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:neuroscience:overview
+kind: guide
+module: neuroscience
+section: neuroscience
+title: Neuroscience - Brain Architecture Overview
+status: source-custody
+source_custody: partial
+current_path: neuroscience/00-OVERVIEW.md
+canonical_path: neuroscience/00-OVERVIEW.md
+backsource_ids: [proof-backfill:neuroscience:00-overview, git-history:neuroscience:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neuroscience — Brain Architecture Overview
 
 ## The Big Picture
 
 ```
     NEUROSCIENCE LANDSCAPE — LEVELS WITH CROSS-LEVEL CAUSAL FLOW
-    ══════════════════════════════════════════════════════════════
+    ==============================================================
 
-    ┌─────────────────────────────────────────────────────────┐
-    │                    BEHAVIOR / COGNITION                  │
-    │         (perception, memory, decision, language)         │
-    │  ↑ circuits IMPLEMENT cognition         ↑               │
-    ├─────────────────────────────────────────────────────────┤
-    │                 CIRCUITS & SYSTEMS                       │
-    │   (visual pathway, motor system, hippocampus, PFC)       │
-    │  ↑ local circuits BUILD systems         ↓ top-down      │
-    ├─────────────────────────────────────────────────────────┤
-    │             SYNAPSES & LOCAL CIRCUITS                    │
-    │     (EPSPs, LTP, inhibitory interneurons, columns)       │
-    │  ↑ APs arriving trigger transmission    ↓ activity       │
-    ├─────────────────────────────────────────────────────────┤
-    │             SINGLE NEURONS (biophysics)                  │
-    │    (Hodgkin-Huxley, cable theory, dendritic computation) │
-    │  ↑ channel gating generates APs         ↓ shapes AP     │
-    ├─────────────────────────────────────────────────────────┤
-    │                 MOLECULES & GENES                        │
-    │   (ion channels, receptors, second messengers, CRISPR)   │
-    └─────────────────────────────────────────────────────────┘
+    BEHAVIOR / COGNITION
+      (perception, memory, decision, language)
+      ↑ circuits IMPLEMENT cognition; ↓ top-down modulation
+
+    CIRCUITS & SYSTEMS
+      (visual pathway, motor system, hippocampus, PFC)
+      ↑ local circuits BUILD systems; ↓ activity shapes synapses
+
+    SYNAPSES & LOCAL CIRCUITS
+      (EPSPs, LTP, inhibitory interneurons, columns)
+      ↑ APs trigger transmission; ↓ activity shapes APs
+
+    SINGLE NEURONS (biophysics)
+      (Hodgkin-Huxley, cable theory, dendritic computation)
+      ↑ channel gating generates APs
+
+    MOLECULES & GENES
+      (ion channels, receptors, second messengers, CRISPR)
 
     Upward causation: molecules → channels → APs → synaptic release → circuit activity → cognition
-    Downward causation: attention (cognitive) modulates circuit gain; learning (behavioral)
-      changes synaptic weights; stress (behavioral) alters gene expression via CREB, BDNF
+    Downward causation: attention modulates circuit gain; learning changes synaptic weights;
+      stress alters gene expression via CREB, BDNF
 
     Energy constraint links all levels: 20W budget → sparse coding (~1% neurons active)
       → energy cost shapes circuit architecture and neural code
-
+```
     Measurement methods span levels:
       patch clamp (molecules/single neuron) → MEA/Ca2+ imaging (circuits) → fMRI (systems/behavior)
     Neuroscience is the science of bridging ALL these levels.
@@ -130,55 +147,23 @@
 
 ## Neurotransmitter Systems
 
-```
-    ┌──────────────────────────────────────────────────────────────────┐
-    │  NEUROTRANSMITTER REFERENCE                                      │
-    │                                                                  │
-    │  Glutamate — EXCITATORY (main fast excitatory)                  │
-    │  Source: widely distributed cortical neurons                    │
-    │  Receptors:                                                      │
-    │    AMPA: fast (2-4ms), Na⁺/K⁺ permeable, not Mg-blocked        │
-    │    NMDA: slow (50-500ms), Ca²⁺ permeable, Mg²⁺ block at rest   │
-    │    → NMDA requires BOTH presynaptic glutamate release AND       │
-    │      postsynaptic depolarization to remove Mg²⁺ block           │
-    │    → NMDA = coincidence detector = Hebb's rule in hardware     │
-    │    Kainate: modulatory                                           │
-    │    mGluR: metabotropic (slow, G-protein coupled)                │
-    │                                                                  │
-    │  GABA — INHIBITORY (main fast inhibitory)                       │
-    │  Source: local interneurons (~20-30% of neurons in cortex)      │
-    │  Receptors:                                                      │
-    │    GABA_A: ionotropic, Cl⁻ channel → hyperpolarization          │
-    │            benzodiazepines (Valium) potentiate → anxiolytic     │
-    │            barbiturates, alcohol also act here                  │
-    │    GABA_B: metabotropic, K⁺ current → slow IPSP                │
-    │                                                                  │
-    │  Dopamine (DA) — NEUROMODULATOR (reward, motor, salience)      │
-    │  Source: VTA → limbic, PFC; SNc → striatum (nigrostriatal)     │
-    │  Receptors: D1 (cAMP↑, Gs), D2 (cAMP↓, Gi) — see basal ganglia│
-    │  Parkinson's: SNc dopamine neuron death → striatal DA deficit   │
-    │  Schizophrenia: DA hyperactivity in mesolimbic pathway          │
-    │  Reward prediction error (RPE): Schultz 1997                    │
-    │                                                                  │
-    │  Serotonin (5-HT) — NEUROMODULATOR (mood, sleep, GI)           │
-    │  Source: raphe nuclei → widespread (entire brain + enteric NS)  │
-    │  5-HT1A, 5-HT2A, 5-HT3 (ionotropic), 5-HT4-7 (metabotropic)  │
-    │  SSRIs (Prozac) block serotonin reuptake → antidepressant       │
-    │  Psilocybin / LSD: 5-HT2A agonists                             │
-    │                                                                  │
-    │  Acetylcholine (ACh) — MEMORY, ATTENTION, NMJ                  │
-    │  Source: basal forebrain (BF) → cortex + hippocampus (memory)   │
-    │          brainstem nuclei → thalamus (arousal)                  │
-    │  Receptors: nicotinic (ionotropic), muscarinic (metabotropic)   │
-    │  Alzheimer's: BF cholinergic degeneration → memory failure      │
-    │  NMJ: ACh → nicotinic → end-plate potential → muscle AP        │
-    │                                                                  │
-    │  Norepinephrine (NE) — AROUSAL, ATTENTION, STRESS              │
-    │  Source: locus coeruleus (LC) → entire brain                   │
-    │  α1, α2, β1, β2 receptors                                       │
-    │  LC firing rate correlates with pupil dilation (arousal index)  │
-    └──────────────────────────────────────────────────────────────────┘
-```
+**Neurotransmitter reference**
+
+- **Glutamate — excitatory** (main fast excitatory): widely distributed cortical neurons.
+  - AMPA: fast (2-4 ms), Na⁺/K⁺ permeable, not Mg-blocked.
+  - NMDA: slow (50-500 ms), Ca²⁺ permeable, Mg²⁺ block at rest; requires presynaptic glutamate and postsynaptic depolarization; coincidence detector for Hebbian plasticity.
+  - Kainate: modulatory; mGluR: metabotropic and slow.
+- **GABA — inhibitory** (main fast inhibitory): local interneurons (~20-30% of cortical neurons).
+  - GABA_A: ionotropic Cl⁻ channel causing hyperpolarization; benzodiazepines potentiate; barbiturates and alcohol also act here.
+  - GABA_B: metabotropic K⁺ current causing slow IPSP.
+- **Dopamine (DA) — neuromodulator** (reward, motor, salience): VTA to limbic/PFC; SNc to striatum.
+  - Receptors: D1 (cAMP↑, Gs), D2 (cAMP↓, Gi); Parkinson's: SNc dopamine neuron death; schizophrenia: mesolimbic DA hyperactivity; reward prediction error: Schultz 1997.
+- **Serotonin (5-HT) — neuromodulator** (mood, sleep, GI): raphe nuclei to widespread targets including enteric nervous system.
+  - Receptors: 5-HT1A, 5-HT2A, 5-HT3 ionotropic, 5-HT4-7 metabotropic; SSRIs block reuptake; psilocybin/LSD are 5-HT2A agonists.
+- **Acetylcholine (ACh) — memory, attention, NMJ**: basal forebrain to cortex/hippocampus; brainstem nuclei to thalamus.
+  - Receptors: nicotinic and muscarinic; Alzheimer's: BF cholinergic degeneration; NMJ: ACh to nicotinic receptor to end-plate potential to muscle AP.
+- **Norepinephrine (NE) — arousal, attention, stress**: locus coeruleus to entire brain.
+  - α1, α2, β1, β2 receptors; LC firing rate correlates with pupil dilation.
 
 ---
 
@@ -214,34 +199,26 @@ Not just "support cells" — active participants in brain function.
 
 ## Scale: Brain by the Numbers
 
-```
-    ┌─────────────────────────────────────────────────────────────┐
-    │  Human Brain Scale                                          │
-    │                                                             │
-    │  Volume:         1350 cm³ (1.35 L)                         │
-    │  Mass:           1400 g (1.4 kg)                           │
-    │  Power:          20 W (2% body, 20% oxygen consumption)    │
-    │                                                             │
-    │  Neurons:        86 × 10⁹ (86 billion)                    │
-    │  Cortex neurons: 16 × 10⁹ (70% glutamatergic)             │
-    │  Cerebellum:     69 × 10⁹ (mostly granule cells)          │
-    │  Glia:           85 × 10⁹ (roughly 1:1 ratio with neurons) │
-    │                                                             │
-    │  Synapses:       10¹⁴ (100 trillion!) per brain            │
-    │  Per neuron avg: ~7,000 synaptic inputs                    │
-    │  Cortical neuron: up to 100,000 synapses                   │
-    │                                                             │
-    │  Firing rates:   0.1-100 Hz (typical cortical: 1-10 Hz)    │
-    │  Typical spike:  1-2 ms duration, ~100 mV amplitude        │
-    │  Resting Vm:     -70 mV                                    │
-    │  Action potential threshold: -55 mV                        │
-    │  Refractory period: 1-2 ms (absolute), 5-10 ms (relative)  │
-    │                                                             │
-    │  Conduction velocity: 0.5-80 m/s (myelinated: faster)     │
-    │  Cortex thickness: 2-4 mm                                  │
-    │  Cortical surface area: 2500 cm² (unfolded, A4 paper size) │
-    └─────────────────────────────────────────────────────────────┘
-```
+| Human brain scale metric | Typical value |
+|---|---|
+| Volume | 1350 cm³ (1.35 L) |
+| Mass | 1400 g (1.4 kg) |
+| Power | 20 W (2% body mass, 20% oxygen consumption) |
+| Neurons | 86 × 10⁹ (86 billion) |
+| Cortex neurons | 16 × 10⁹ (70% glutamatergic) |
+| Cerebellum | 69 × 10⁹ (mostly granule cells) |
+| Glia | 85 × 10⁹ (roughly 1:1 ratio with neurons) |
+| Synapses | 10¹⁴ (100 trillion) per brain |
+| Per-neuron average | ~7,000 synaptic inputs |
+| Cortical neuron maximum | Up to 100,000 synapses |
+| Firing rates | 0.1-100 Hz (typical cortical: 1-10 Hz) |
+| Typical spike | 1-2 ms duration, ~100 mV amplitude |
+| Resting Vm | -70 mV |
+| Action potential threshold | -55 mV |
+| Refractory period | 1-2 ms absolute; 5-10 ms relative |
+| Conduction velocity | 0.5-80 m/s (myelinated faster) |
+| Cortex thickness | 2-4 mm |
+| Cortical surface area | 2500 cm² (unfolded, A4 paper size) |
 
 ---
 

@@ -1,0 +1,421 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 103,
+      "heading_context": "## The Four Material Families",
+      "headers": [
+        "Property",
+        "4340 Steel",
+        "Al 7075",
+        "Ti-6Al-4V",
+        "CFRP (UD)",
+        "Si₃N₄",
+        "PEEK"
+      ],
+      "rows": [
+        [
+          "ρ (g/cm³)",
+          "7.85",
+          "2.81",
+          "4.43",
+          "1.58",
+          "3.20",
+          "1.32"
+        ],
+        [
+          "E (GPa)",
+          "210",
+          "72",
+          "114",
+          "135 axial",
+          "310",
+          "3.6"
+        ],
+        [
+          "σ_y (MPa)",
+          "1620",
+          "503",
+          "1100",
+          "—",
+          "—",
+          "91"
+        ],
+        [
+          "σ_UTS (MPa)",
+          "1760",
+          "572",
+          "1170",
+          "1500 axial",
+          "800",
+          "100"
+        ],
+        [
+          "K_IC (MPa√m)",
+          "48",
+          "24",
+          "55",
+          "30-60",
+          "5-8",
+          "5"
+        ],
+        [
+          "T_m or T_g (°C)",
+          "1425",
+          "660",
+          "1660",
+          "~180 resin",
+          "1900",
+          "143 T_g"
+        ],
+        [
+          "k (W/m·K)",
+          "44",
+          "130",
+          "6.7",
+          "3-10",
+          "20",
+          "0.25"
+        ],
+        [
+          "E/ρ (GPa·cm³/g)",
+          "27",
+          "26",
+          "26",
+          "85",
+          "97",
+          "2.7"
+        ],
+        [
+          "σ_y/ρ (MPa·cm³/g)",
+          "206",
+          "179",
+          "248",
+          "—",
+          "—",
+          "69"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 344,
+      "heading_context": "## Materials Selection Methodology (Ashby Method)",
+      "headers": [
+        "Function",
+        "Constraint",
+        "Performance Index"
+      ],
+      "rows": [
+        [
+          "Stiff tie rod (axial)",
+          "Fixed length, A",
+          "E/ρ"
+        ],
+        [
+          "Stiff beam (bending)",
+          "Fixed length",
+          "E^(1/2)/ρ"
+        ],
+        [
+          "Stiff panel (plate)",
+          "Fixed dimensions",
+          "E^(1/3)/ρ"
+        ],
+        [
+          "Strong tie rod",
+          "Fixed cross-section",
+          "σ_y/ρ"
+        ],
+        [
+          "Strong beam",
+          "Fixed length",
+          "σ_y^(2/3)/ρ"
+        ],
+        [
+          "Spring (elastic energy density)",
+          "Volume limited",
+          "σ_y²/E"
+        ],
+        [
+          "Damage tolerant plate",
+          "Any",
+          "K_IC/σ_y (= crack size)"
+        ],
+        [
+          "Thermal shock resistance",
+          "Steep ΔT",
+          "σ_y·k / (E·α_T)"
+        ],
+        [
+          "Heat sink",
+          "Fixed weight",
+          "k/ρ"
+        ],
+        [
+          "Thermal insulation panel",
+          "Fixed thickness",
+          "1/(k·ρ·c_p)^(1/2)"
+        ],
+        [
+          "Fatigue-limited shaft",
+          "Stress amplitude",
+          "σ_e^(2/3)/ρ"
+        ],
+        [
+          "Bearing surface",
+          "Wear rate",
+          "H/k_w (hardness/wear coeff)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 363,
+      "heading_context": "## Measurement and Characterization Methods",
+      "headers": [
+        "Technique",
+        "What measured",
+        "Scale",
+        "Destructive?"
+      ],
+      "rows": [
+        [
+          "XRD (Bragg)",
+          "Crystal structure, phase ID, lattice parameter, texture, stress",
+          "bulk avg",
+          "No"
+        ],
+        [
+          "TEM (HRTEM)",
+          "Atomic columns, dislocations, phases",
+          "0.1-100 nm",
+          "Yes (lamella)"
+        ],
+        [
+          "SEM + EDS",
+          "Microstructure, fracture, composition",
+          "10 nm-1 mm",
+          "Light prep"
+        ],
+        [
+          "EBSD",
+          "Grain orientation, IPF maps, textures",
+          "50 nm-1 mm",
+          "Light polish"
+        ],
+        [
+          "APT",
+          "3D atom-by-atom chemistry, segregation, clusters",
+          "< 100 nm",
+          "Yes (needle)"
+        ],
+        [
+          "Nanoindent",
+          "E, H at nm scale",
+          "nm-μm",
+          "Minimal"
+        ],
+        [
+          "DSC / TGA",
+          "T_g, T_m, ΔH_f / decomposition and mass",
+          "mg sample",
+          "No (mostly) / Yes"
+        ],
+        [
+          "DMA",
+          "E'(ω), E''(ω), tan δ",
+          "mg-g",
+          "No"
+        ],
+        [
+          "Tensile / Charpy / J-integral / Jominy",
+          "E, σ_y, UTS, ε_f / CVN / K_IC, J_IC / hardenability",
+          "standard",
+          "Yes"
+        ],
+        [
+          "Hall effect / 4-pt probe",
+          "Carrier n, mobility μ / resistivity ρ_e",
+          "device / film-bulk",
+          "No"
+        ],
+        [
+          "Raman",
+          "Bonding, strain, carbon allotropes",
+          "μm spot",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 381,
+      "heading_context": "## Historical Arc",
+      "headers": [
+        "Era",
+        "Discovery",
+        "Impact"
+      ],
+      "rows": [
+        [
+          "~3000 BCE",
+          "Bronze (Cu + 10% Sn)",
+          "First alloy engineering"
+        ],
+        [
+          "~1200 BCE",
+          "Iron smelting",
+          "Iron Age (stronger than bronze)"
+        ],
+        [
+          "1856",
+          "Bessemer converter",
+          "Cheap bulk steel"
+        ],
+        [
+          "1900",
+          "Martensitic transformation understood",
+          "Heat treatment science"
+        ],
+        [
+          "1912",
+          "X-ray diffraction (von Laue, Bragg)",
+          "Crystal structure determination"
+        ],
+        [
+          "1934",
+          "Dislocation concept (Orowan, Polanyi, Taylor)",
+          "Plasticity theory"
+        ],
+        [
+          "1947",
+          "Transistor (Bell Labs)",
+          "Semiconductor age"
+        ],
+        [
+          "1957",
+          "Age hardening mechanism (coherency strain)",
+          "High-strength Al alloys"
+        ],
+        [
+          "1960s",
+          "Fracture mechanics (Irwin, Rice J-integral)",
+          "Safe-life design"
+        ],
+        [
+          "1970s",
+          "DS/SC Ni superalloys",
+          "1000°C+ turbine entry T"
+        ],
+        [
+          "1980s",
+          "CFRP scale-up for aerospace",
+          "F-18, A320 composites"
+        ],
+        [
+          "1991",
+          "Carbon nanotubes (Iijima, NEC)",
+          "Nanomaterials field born"
+        ],
+        [
+          "2004",
+          "Graphene isolation (Geim, Novoselov, Manchester)",
+          "2D materials era"
+        ],
+        [
+          "2022+",
+          "Solid-state batteries, high-entropy alloys",
+          "Energy storage, extreme service"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 438,
+      "heading_context": "## Decision Cheat Sheet — Which Family for What?",
+      "headers": [
+        "Application Need",
+        "Primary Choice",
+        "Secondary",
+        "Avoid"
+      ],
+      "rows": [
+        [
+          "Jet engine turbine blades (1000°C)",
+          "Ni single-crystal",
+          "ODS alloys",
+          "Al, polymers"
+        ],
+        [
+          "Airframe (stiff, light)",
+          "CFRP",
+          "Al 7075",
+          "Steel (heavy)"
+        ],
+        [
+          "Biomedical implant (load-bearing)",
+          "Ti-6Al-4V / PEEK",
+          "Co-Cr alloys",
+          "Stainless (Ni allergy)"
+        ],
+        [
+          "Electronic substrate (heat sink)",
+          "Cu, AlN, diamond",
+          "Al (cheap)",
+          "Polymers"
+        ],
+        [
+          "Semiconductor device",
+          "Si, GaAs, GaN",
+          "SiC (power)",
+          "Metals"
+        ],
+        [
+          "Cutting tool (wear resistance)",
+          "WC-Co cermet",
+          "TiN/TiAlN coating",
+          "Plain steel"
+        ],
+        [
+          "Spring (elastic energy storage)",
+          "Spring steel, PEEK",
+          "Carbon fiber",
+          "Ceramics"
+        ],
+        [
+          "Optical window (IR)",
+          "Sapphire (Al₂O₃)",
+          "ZnSe, Ge",
+          "Polymers"
+        ],
+        [
+          "Magnet (permanent)",
+          "NdFeB",
+          "SmCo",
+          "Al, ceramics"
+        ],
+        [
+          "Chemical reactor (acid)",
+          "PTFE, Hastelloy C",
+          "Ceramic",
+          "Al, Cu"
+        ],
+        [
+          "Li-ion battery anode",
+          "Graphite, Si",
+          "Li metal",
+          "Metals (react w/ Li)"
+        ],
+        [
+          "Thermal barrier coating (TBC)",
+          "8YSZ (ZrO₂+8%Y₂O₃)",
+          "CMAS-resistant new",
+          "Metals"
+        ]
+      ]
+    }
+  ]
+}

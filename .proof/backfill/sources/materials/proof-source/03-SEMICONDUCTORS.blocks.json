@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\03-SEMICONDUCTORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    SEMICONDUCTOR LANDSCAPE\n    ══════════════════════════════════════════════════════════\n\n    PHYSICS                          DEVICES\n    ┌──────────────────────┐        ┌────────────────────────┐\n    │ Band structure E_g   │        │ p-n junction diode     │\n    │ Carrier statistics   │───────▶│ Bipolar transistor     │\n    │ Drift + diffusion    │        │ MOSFET (CMOS)          │\n    │ Recombination        │        │ Solar cell (PV)        │\n    │ Generation           │        │ LED / laser diode      │\n    │ Doping (n/p type)    │        │ Photodetector          │\n    └──────────────────────┘        └────────────────────────┘\n\n    Connects:  band theory (02-BONDING-BANDS) → device operation\n               materials choice (E_g, μ, n_i) → circuit performance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Intrinsic Carrier Concentration",
+      "confidence": "candidate",
+      "text": "    n_i values at 300K:\n    Si   (E_g=1.12 eV): n_i = 1.5×10¹⁰ cm⁻³  ← crucial reference\n    Ge   (E_g=0.67 eV): n_i = 2.4×10¹³ cm⁻³\n    GaAs (E_g=1.43 eV): n_i = 2.0×10⁶  cm⁻³\n    GaN  (E_g=3.4 eV):  n_i ≈ 10⁻¹⁰   cm⁻³  (negligible)\n    4H-SiC (E_g=3.3 eV):n_i ≈ 10⁻⁸   cm⁻³\n\n    Temperature dependence (from activation):\n    d(ln n_i)/dT ≈ E_g/(2kT²)\n    For Si: n_i doubles for every ~8°C near 300K\n    → Devices designed for T < 150°C (Si), < 400°C (SiC)\n\n    Mass action law (fundamental, holds even under bias):\n    np = n_i²   (equilibrium)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "### Charge Neutrality and General Solution",
+      "confidence": "candidate",
+      "text": "$$n = \\frac{N_D - N_A}{2} + \\sqrt{\\left(\\frac{N_D - N_A}{2}\\right)^2 + n_i^2}$$",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### Depletion Region",
+      "confidence": "candidate",
+      "text": "    Component widths:\n    x_n = W · N_A/(N_A + N_D)  (into n-side)\n    x_p = W · N_D/(N_A + N_D)  (into p-side)\n    Electric field max at junction: E_max = 2(V_bi-V)/W = eN_D x_n/ε_s\n    Charge: Q_dep = e N_D x_n A = e N_A x_p A (symmetric doping: equal)\n\n    At V = 0 (Si, N_A = N_D = 10¹⁶):\n    W = √(2 × 11.7 × 8.85×10⁻¹² × 0.72 / (1.6×10⁻¹⁹ × 10²²/2)) = 0.43 μm\n\n    Forward bias V > 0: W shrinks, barrier lowers → exponential current\n    Reverse bias V < 0: W grows, barrier higher → small reverse current\n    Capacitance: C_j = ε_s A / W ∝ (V_bi - V)^(-1/2)\n    → Varactor diode: voltage-tunable capacitor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "### Shockley Ideal Diode Equation",
+      "confidence": "candidate",
+      "text": "    In practice: I = I_0(e^{qV/nkT} - 1), n = ideality factor\n    n = 1: ideal diffusion current\n    n = 2: generation-recombination in depletion region (low V)\n    n = 1 to 2 depending on bias level\n\n    Si diode at room temperature: I_0 ~ 10⁻¹² A (1 pA for 1 cm² area)\n    At V = 0.6 V: I/I_0 = e^{0.6/0.026} ≈ 10^{10} → large current\n    Forward voltage at given I decreases ~2 mV/°C (due to I_0 increase with T)\n\n    Breakdown mechanisms:\n    Zener: V_BR < 5V, tunneling across narrow depletion (heavily doped)\n    Avalanche: V_BR > 7V, impact ionization cascade\n    Breakdown voltage: V_BR ≈ ε_s E_crit²/(2eN) (lower N → higher V_BR)\n    SiC: E_crit = 2.5 MV/cm vs Si: 0.3 MV/cm → SiC V_BR >> Si at same thickness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Bipolar Junction Transistor (BJT)",
+      "confidence": "candidate",
+      "text": "    Emitter injects electrons over forward-biased EB junction barrier\n    Electrons diffuse across base (width W_B << L_n)\n    Fraction α = e^(-W_B/L_n) reaches collector depletion region\n    Rest recombine → base current I_B = recombination current\n\n    I_C = α_T · I_E ≈ I_E (if W_B << L_n)\n    I_B = (1-α_T)·I_E ≈ I_E·W_B/L_n  (if W_B << L_n)\n    β = I_C/I_B = α_T/(1-α_T) ≈ L_n/W_B - 1\n\n    Example: W_B = 0.1 μm, L_n = 10 μm → β ≈ 99 ≈ 100\n    Practical β: 50-300 (depends on processing quality)\n\n    Ebers-Moll model:\n    I_C = I_S(e^{qV_BE/kT} - 1) - I_S/β_R·(e^{qV_BC/kT} - 1)\n    I_S = saturation current (same physics as diode I_0)\n    β_R = reverse β (much smaller, emitter not optimized for injection from base)\n\n    Speed: f_T = g_m/(2πC_total), g_m = I_C/(kT/q)\n    High f_T requires thin base W_B, low parasitics\n    SiGe HBT: graded Ge in base → quasi-field accelerates electrons → f_T > 500 GHz",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 276,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "    Gate (metal or poly-Si)\n         ↓\n    ─────────────────────── ← gate oxide (SiO₂, t_ox ~ 1-5 nm)\n    ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ← inversion layer (channel, ~1 nm thick)\n    ● ● ● ● ● ● ● ● ● ● ← p-type body (N_A)\n    [n+]              [n+]\n     | source  drain  |\n    Isolation   ←L→   Isolation\n     (STI)           (STI)\n\n    Key dimensions (Intel Meteor Lake 2023):\n    Gate length L ≈ 6-18 nm (depending on cell type)\n    Gate oxide EOT ≈ 0.7 nm (equivalent SiO₂ thickness)\n    Actual: HfO₂ (high-κ) with SiO₂ interfacial layer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 299,
+      "heading_context": "### Threshold Voltage",
+      "confidence": "candidate",
+      "text": "    V_FB = flat-band voltage: work function difference (φ_M - φ_Si) + oxide charge\n\n    For p-Si, N_A = 10¹⁷ cm⁻³, t_ox = 3 nm (SiO₂, ε_ox = 3.9ε₀):\n    φ_F = 0.026 ln(10¹⁷/1.5×10¹⁰) = 0.42 V\n    C_ox = 3.9×8.85×10⁻¹²/(3×10⁻⁹) = 11.5 mF/m² = 11.5 fF/μm²\n    Q_dep,max = √(2×11.7×8.85e-12×1.6e-19×10²³×0.84) = 1.65×10⁻² C/m²\n    V_T = V_FB + 0.84 + 1.65e-2/11.5e-3 = V_FB + 0.84 + 1.43 V\n\n    Body effect: increasing V_SB (reverse body-source bias) increases V_T\n    ΔV_T = -(γ/2φ_F)(√(2φ_F + V_SB) - √(2φ_F))\n    γ = √(2ε_s q N_A)/C_ox  (body-effect coefficient)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### I-V Characteristics",
+      "confidence": "candidate",
+      "text": "    Transconductance: g_m = ∂I_D/∂V_GS|_{V_DS sat} = μ_n C_ox (W/L)(V_GS-V_T)\n    Output conductance (channel length modulation):\n    I_D = I_D,sat(1 + λV_DS), λ = 1/V_A (Early voltage for MOSFET)\n\n    Transit frequency: f_T = g_m/(2π(C_GS + C_GD))\n    For minimum L MOSFET: f_T ≈ μ_n(V_GS-V_T)/(2πL²)\n    Si NMOS: f_T ~ 100-500 GHz for L ~ 10 nm\n\n    Sub-threshold current (V_GS < V_T, needed for leakage analysis):\n    I_D = I_0 exp(q(V_GS-V_T)/nkT)(1 - e^{-qV_DS/kT})\n    Subthreshold slope S = ln(10)·nkT/q = 60 mV/decade (n=1, 300K)\n    Can't go below 60 mV/dec in conventional MOSFET (thermal limit)\n    → Tunnel FETs, negative-C FETs proposed for steeper subthreshold\n\n    Power: P_dynamic = α C V²_DD f  (switching power)\n           P_static  = I_off V_DD   (leakage power)\n    At 3nm node: P_static comparable to P_dynamic → major design challenge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 362,
+      "heading_context": "### Photovoltaic Mechanism",
+      "confidence": "candidate",
+      "text": "    Shockley-Queisser (SQ) limit for single-junction (1961):\n    Fundamental losses:\n    1. Sub-bandgap photons: ℏω < E_g → transmitted (not absorbed)\n    2. Thermalization: ℏω > E_g → excess becomes heat\n    3. Radiative recombination: mandatory (detailed balance)\n    4. Voltage factor: qV_OC < E_g always\n\n    SQ maximum efficiency:\n    Si (1.12 eV):  33.7%\n    GaAs (1.43 eV): 33.8% (near optimum for AM1.5G)\n    InP (1.35 eV): 33.8%\n    Optimal E_g for AM1.5G: ~1.1-1.4 eV\n\n    Record cells (as of 2024 — see NREL Best Research-Cell Efficiency Chart\n    at https://www.nrel.gov/pv/cell-efficiency.html for current values):\n    Si single junction:  29.4% (kaneka, HIT cell)\n    GaAs single junction: 29.6% (Alta Devices)\n    3-junction concentrator: 47.6% (Fraunhofer ISE)\n    Si commercial module:  24% (SunPower M-series)\n    Perovskite/Si tandem:  33.9% (Helmholtz Berlin)\n\n    Two-junction requirement for each bandgap:\n    Top cell: large E_g, absorbs high-energy photons\n    Bottom cell: small E_g, absorbs transmitted photons\n    Current matching required (series connection)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 399,
+      "heading_context": "### LED Physics",
+      "confidence": "candidate",
+      "text": "    Requirements for efficient LED:\n    1. Direct bandgap: no phonon needed for momentum conservation\n    2. High radiative recombination rate B_r >> non-radiative rate\n    3. Carrier confinement (quantum well structures preferred)\n\n    Emission wavelength: λ = hc/E_g = 1240 nm / E_g(eV)\n\n    Material choices:\n    Red  (625-760nm): AlGaInP, GaAsP, AlGaAs (E_g = 1.6-2.0 eV)\n    Green (520-565nm): InGaN with high In content, GaP:N\n    Blue (450-490nm): InGaN/GaN (E_g ~ 2.7 eV with In₀.₁₅Ga₀.₈₅N)\n    UV   (<380nm):   AlGaN/GaN, AlN (deep UV)\n    White: Blue chip (InGaN) + YAG:Ce phosphor (converts to yellow)\n           Combined spectrum appears white to human eye\n\n    Nobel 2014: Akasaki, Amano, Nakamura for blue LED (GaN)\n    Key challenge: p-type doping of GaN\n    Mg acceptors passivated by hydrogen during MOCVD → need thermal activation at 700°C\n\n    EQE (external quantum efficiency) = photons_out / electrons_in\n    Modern LEDs: 50-80% EQE\n    Droop: EQE falls at high current density (Auger recombination)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "### Laser Diode (LD)",
+      "confidence": "candidate",
+      "text": "    Threshold condition: gain G = loss (cavity + mirror losses)\n    Below threshold: LED-like spontaneous emission\n    Above threshold: lasing (coherent, narrow linewidth)\n\n    Rate equations:\n    dN/dt = J/(qd) - N/τ_sp - v_g G(N-N_0)S\n    dS/dt = Γ v_g G(N-N_0)S - S/τ_ph + β_sp N/τ_sp\n    N = carrier density, S = photon density, G = material gain\n    Γ = confinement factor, τ_ph = photon lifetime\n\n    Applications by wavelength:\n    780 nm:  GaAs/AlGaAs → CD players, laser printers\n    850 nm:  VCSEL → short-reach fiber, 3D sensing (Face ID)\n    1310 nm: InGaAsP/InP → zero-dispersion fiber wavelength\n    1550 nm: InGaAsP/InP, EML → telecom C-band, DWDM\n    405 nm:  GaN → Blu-ray\n    DFB at 1550nm: linewidth < 1 MHz, tunable 50GHz channel spacing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 452,
+      "heading_context": "## Photodetectors",
+      "confidence": "candidate",
+      "text": "    Reverse-biased p-n junction or PIN structure.\n    Photon absorbed → electron-hole pair → swept by field → photocurrent.\n\n    Responsivity: R = I_photo/P_opt = ηq/(hf) A/W\n    η = quantum efficiency (fraction of photons that create carriers)\n    For Si at 850 nm: η ≈ 0.9, R ≈ 0.62 A/W\n\n    Bandwidth limited by:\n    1. Transit time: t_transit = W_dep/v_sat → f_-3dB ≈ 0.44/t_transit\n    2. RC time constant: R_load × C_j\n\n    Tradeoff: wider depletion → more absorption (η↑) → more transit time (f_-3dB↓)\n    APD (avalanche photodiode): internal gain M = 5-100 through impact ionization\n    Excess noise F = M^x (x = 0.5 for Si, 0.7 for InGaAs/InP)\n\n    Detector materials:\n    Si:      400-1100 nm, mature, cheap, CMOS compatible\n    InGaAs:  900-1700 nm, telecom (1310/1550 nm)\n    Ge-on-Si: 800-1600 nm, CMOS compatible Ge photodetector\n    HgCdTe:  1-10 μm (tunable via composition), night vision, FLIR\n    InSb:    3-5 μm, cooled, thermal IR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 497,
+      "heading_context": "## Materials Comparison Table",
+      "confidence": "candidate",
+      "text": "  GaN wins for RF power amplifiers → GaN PA in 5G base stations",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

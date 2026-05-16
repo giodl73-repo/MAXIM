@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\09-COMPUTATIONAL-MATERIALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────────┐\n│              MULTISCALE MATERIALS SIMULATION HIERARCHY                 │\n│                                                                        │\n│  SCALE        METHOD              TIME         ATOMS        COST       │\n│  ─────────────────────────────────────────────────────────────────     │\n│  Electrons    DFT / QMC           ps           1–1000       High       │\n│  Atoms        MD (classical)      ns–μs        10⁶–10⁸      Medium     │\n│  Grains       Phase field         ms–s         N/A          Low-Med    │\n│  Components   FEA                 s–years      N/A          Low        │\n│                                                                        │\n│  ┌───────────┐    ┌──────────┐    ┌──────────┐    ┌────────────┐       │\n│  │  DFT      │ ──►│   MD     │ ──►│  Phase   │ ──►│    FEA     │      │\n│  │ Kohn-Sham │    │ Newton   │    │  Field   │    │ Continuum  │      │\n│  │ electrons │    │ + force  │    │ diffuse  │    │ mechanics  │      │\n│  │           │    │ field    │    │ interface│    │            │      │\n│  └───────────┘    └──────────┘    └──────────┘    └────────────┘      │\n│     10⁻¹⁰m          10⁻⁹m           10⁻⁶m           10⁻³m            │\n│                                                                        │\n│  KEY: No single method spans all scales.                               │\n│  Multiscale: parameterize coarser model from finer model.             │\n└────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### Foundations",
+      "confidence": "candidate",
+      "text": "  MANY-ELECTRON PROBLEM: H Ψ(r₁,...,rₙ) = E Ψ(r₁,...,rₙ)\n  Exact but exponentially hard: wavefunction in 3N dimensions\n\n  HOHENBERG-KOHN THEOREM (1964):\n    1. Ground-state electron density ρ(r) uniquely determines\n       all ground-state properties (energy, geometry, etc.)\n    2. Variational principle: E[ρ] ≥ E_ground for any trial ρ\n\n  Result: 3N-dimensional problem → 3-dimensional problem\n  Price: E_xc[ρ] = exchange-correlation functional — UNKNOWN",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### Kohn-Sham Equations",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  Kohn-Sham (1965): replace interacting electrons with               │\n│  non-interacting electrons in an effective potential                │\n│                                                                     │\n│  [-ℏ²/2m ∇² + V_eff(r)] φᵢ(r) = εᵢ φᵢ(r)                            │\n│                                                                     │\n│  V_eff = V_ext + V_Hartree + V_xc                                   │\n│    V_ext:     external (nuclear) potential                          │\n│    V_Hartree: electron-electron Coulomb (mean field)                │\n│    V_xc:      exchange-correlation correction                       │\n│                                                                     │\n│  ρ(r) = Σᵢ |φᵢ(r)|²   (sum over occupied orbitals)                  │\n│                                                                     │\n│  SELF-CONSISTENT FIELD (SCF) LOOP:                                  │\n│    Guess ρ → compute V_eff → solve KS equations → new ρ → repeat    │\n└─────────────────────────────────────────────────────────────────────┘\nSCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Anderson mixing (also called DIIS — direct inversion in the iterative subspace) accelerates convergence by using the history of residuals to extrapolate toward the fixed point, analogous to Krylov subspace methods in linear algebra. Convergence is not guaranteed in general but is reliable for most materials with appropriate mixing parameters.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "### XC Functionals and Jacob's Ladder",
+      "confidence": "candidate",
+      "text": "  LEVEL 1 — LDA (Local Density Approximation):\n    E_xc = ∫ ε_xc(ρ(r)) ρ(r) d³r\n    Only depends on local density. Works surprisingly well for metals.\n    Overbinds molecules (~1 eV error).\n\n  LEVEL 2 — GGA (Generalized Gradient Approximation):\n    E_xc = ∫ ε_xc(ρ, ∇ρ) d³r\n    PBE (Perdew-Burke-Ernzerhof): workhorse for solids\n    BLYP, B3LYP: workhorse for chemistry\n\n  LEVEL 3 — Meta-GGA:\n    Also uses kinetic energy density τ(r) = Σ |∇φᵢ|²/2\n    SCAN functional: satisfies all 17 known exact constraints\n\n  LEVEL 4 — Hybrid (HF + DFT):\n    E_xc = α E_x^HF + (1-α) E_x^DFT + E_c^DFT\n    B3LYP (α=0.2): chemistry standard, good bandgaps\n    HSE06: screened hybrid for solids (O(N) scaling)\n\n  LEVEL 5 — RPA, double hybrids:\n    Expensive but highly accurate\n    Used for benchmarking, not routine calculations\n\n  COMMON FAILURES:\n  - Van der Waals / dispersion: add -D3 correction (Grimme)\n  - Strongly correlated (NiO, UO₂): DFT+U Hubbard correction\n  - Bandgaps systematically underestimated by LDA/GGA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### Practical DFT",
+      "confidence": "candidate",
+      "text": "  PLANE WAVE BASIS:\n    Periodic system → Bloch theorem → expand in plane waves e^{ik·r}\n    k-points: sample Brillouin zone (Monkhorst-Pack grid)\n    Cutoff energy E_cut: determines basis set size (~300–700 eV)\n\n  PSEUDOPOTENTIALS / PAW:\n    Core electrons: tightly bound, irrelevant to bonding\n    Replace: all-electron → pseudopotential (frozen core approx.)\n    PAW (Projector Augmented Wave): most accurate, VASP default\n\n  CODES: VASP (closed), Quantum ESPRESSO (open), WIEN2k, FHI-aims\n\n  TYPICAL CALCULATION:\n    1. Crystal structure → POSCAR/CIF input\n    2. Choose XC functional, k-grid, E_cut\n    3. Structure relaxation: minimize forces on atoms\n    4. Electronic structure: bands, DOS, charge density\n    5. Properties: elastic constants, phonons, formation energies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 150,
+      "heading_context": "### Classical MD",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  NEWTON'S EQUATIONS: mᵢ r̈ᵢ = Fᵢ = -∂U/∂rᵢ                           │\n│                                                                     │\n│  Integrate: Verlet algorithm (symplectic, time-reversible)          │\n│    r(t+Δt) = 2r(t) - r(t-Δt) + Δt² F(t)/m   (2nd order)             │\n│    Velocity Verlet:                                                 │\n│      r(t+Δt) = r(t) + v(t)Δt + Δt² F(t)/2m                          │\n│      v(t+Δt) = v(t) + Δt[F(t) + F(t+Δt)]/2m                         │\n│                                                                     │\n│  Timestep: Δt ~ T_vib/20 → 1 fs (atomic), 2–4 fs with constraints   │\n│  Trajectory length: MD can reach ns–μs (fast bond vibrations limit) │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "### Force Fields",
+      "confidence": "candidate",
+      "text": "  EMPIRICAL POTENTIALS:\n  Lennard-Jones (noble gases):\n    U(r) = 4ε [(σ/r)¹² - (σ/r)⁶]\n    r⁻¹² repulsion (Pauli), r⁻⁶ attraction (van der Waals)\n\n  EAM (Embedded Atom Method — metals):\n    U = Σ F(ρᵢ) + Σᵢⱼ φ(rᵢⱼ)\n    F: embedding energy as function of local electron density ρ\n    Captures metallic bonding (delocalized electrons) better than LJ\n\n  AMBER/CHARMM/OPLS (biomolecules):\n    U = bonds + angles + dihedrals + nonbonded(vdW + Coulomb)\n    Parameters fit to experimental data or ab initio calculations\n\n  REACTIVE FORCE FIELDS (ReaxFF):\n    Bond order varies with geometry → can model reactions\n    Slower than EAM but handles chemistry\n    Used for: combustion, corrosion, crack propagation\n\n  MACHINE-LEARNED POTENTIALS: (see Section 4)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### Enhanced Sampling",
+      "confidence": "candidate",
+      "text": "  PROBLEM: MD timescale << rare event timescale\n  Example: protein folding (ms), nucleation (hours), diffusion barriers\n\n  SOLUTIONS:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  Metadynamics:                                                  │\n  │  Add Gaussian bias V_bias(ξ) along collective variable ξ        │\n  │  Fills free energy minima — recovers F(ξ) as -V_bias            │\n  │  Risk: overfilling — use well-tempered metadynamics             │\n  │                                                                 │\n  │  Umbrella Sampling:                                             │\n  │  Restrain system near transition state with harmonic bias       │\n  │  Run many windows, combine with WHAM → F(ξ) profile             │\n  │                                                                 │\n  │  Replica Exchange (REMD):                                       │\n  │  N copies at different T; periodically swap coordinates         │\n  │  High-T replicas escape barriers, low-T replicas sample well    │\n  │                                                                 │\n  │  Transition Path Sampling:                                      │\n  │  Sample only reactive trajectories (A → B)                      │\n  │  No a priori reaction coordinate required                       │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Core Idea",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  SHARP INTERFACE → DIFFUSE INTERFACE:                               │\n│                                                                     │\n│  Sharp:  grain boundary = mathematical surface (hard to compute)    │\n│  Diffuse: order parameter φ(r) smoothly varies 0→1 across boundary  │\n│                                                                     │\n│  ORDER PARAMETER: φ=0 (phase A), φ=1 (phase B), 0<φ<1 (boundary)    │\n│                                                                     │\n│  FREE ENERGY FUNCTIONAL (Landau-Ginzburg):                          │\n│    F[φ] = ∫ [f(φ) + κ/2 |∇φ|²] d³r                                  │\n│    f(φ) = bulk free energy (double-well shape for two-phase)        │\n│    κ/2 |∇φ|²: interfacial energy (penalizes sharp gradients)        │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Allen-Cahn and Cahn-Hilliard",
+      "confidence": "candidate",
+      "text": "  ALLEN-CAHN (non-conserved order parameter):\n    ∂φ/∂t = -M δF/δφ = M[∇²φ - f'(φ)/κ]\n    Models: grain growth, solidification, antiphase domain coarsening\n    φ not conserved — volume of phase can change\n\n  CAHN-HILLIARD (conserved — spinodal decomposition):\n    ∂c/∂t = ∇·[M ∇(δF/δc)] = M ∇²[f''(c)c - κ∇²c]\n    Models: spinodal decomposition, phase separation in alloys\n    c conserved — total composition fixed (∫c d³r = const)\n    Note: Cahn-Hilliard is a 4th-order parabolic PDE (dc/dt ~ -M kappa nabla^4 c + ...).\n    In the spinodal region where f''(c) < 0, the nabla^2 c term has wrong-sign diffusion\n    (uphill diffusion — concentration gradients amplify rather than smooth). The nabla^4 c\n    term from the gradient energy provides regularization, selecting a characteristic\n    wavelength for the spinodal decomposition pattern. Same regularization structure as\n    the Swift-Hohenberg and thin-film equations.\n\n  COUPLED PROBLEM (solidification — Kim-Steinbach):\n    Phase field + diffusion + latent heat + anisotropy\n    → Dendritic growth patterns (snowflake morphology)\n    Benchmark: NIST solidification challenge\n\n  PARAMETERS from DFT/MD:\n    Interface energy γ → κ in F[φ]\n    Diffusivity D → M\n    Free energy landscape f(c) → thermodynamic database (CALPHAD)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "### The Revolution",
+      "confidence": "candidate",
+      "text": "  CLASSICAL FF: fast (ps/atom/step), limited chemistry\n  AIMD (ab initio MD): accurate, O(N³), max ~1000 atoms\n  MLP: DFT accuracy + classical MD speed\n\n  ARCHITECTURE EVOLUTION:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  Behler-Parrinello NN (2007):                                   │\n  │  Atom-centered symmetry functions → NN → atomic energy Eᵢ       │\n  │  E_total = Σ Eᵢ  (additivity assumption)                        │\n  │  Trained on DFT energies, forces, stresses                      │\n  │                                                                 │\n  │  Message-Passing NN (SchNet, DimeNet, PaiNN):                   │\n  │  Atoms = nodes, bonds = edges                                   │\n  │  Aggregate: vᵢ ← Σⱼ f(vⱼ, vᵢ, rᵢⱼ)  (message passing)           │\n  │  Equivariant: NequIP, MACE (respect 3D rotational symmetry)     │\n  │  ~10× better data efficiency than symmetry functions            │\n  │                                                                 │\n  │  Foundation Models:                                             │\n  │  MACE-MP-0 (2023): trained on MPTrj (150k structures)           │\n  │  M3GNet, CHGNet: properties + dynamics                          │\n  │  Universal: no per-material training → instant deployment       │\n  │  GNoME (DeepMind, 2023): 2.2M stable crystal structures         │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "### Databases and Representations",
+      "confidence": "candidate",
+      "text": "  DATABASES:\n  ┌──────────────────────┬───────────┬─────────────────────────────┐\n  │ Database             │ Entries   │ Content                     │\n  ├──────────────────────┼───────────┼─────────────────────────────┤\n  │ Materials Project    │ 154k      │ DFT energy, bands, elastic  │\n  │ AFLOW                │ 3.5M      │ High-throughput DFT         │\n  │ OQMD                 │ 1.2M      │ Formation energies          │\n  │ NOMAD                │ 12M       │ Calculations archive        │\n  │ ICSD                 │ 280k      │ Experimental crystal struct.│\n  │ CSD                  │ 1.2M      │ Molecular crystal data      │\n  └──────────────────────┴───────────┴─────────────────────────────┘\n\n  CRYSTAL REPRESENTATIONS:\n  Coulomb Matrix: Cᵢⱼ = ZᵢZⱼ/|Rᵢ-Rⱼ| (i≠j), Zᵢ²·4·2/3 (i=j)\n  SOAP (Smooth Overlap of Atomic Positions): density expansion\n  ACSF (atom-centered symmetry functions): Behler-Parrinello input\n  Crystal graph: atoms = nodes, bonds = edges + edge features\n  MatBERT, CrystalBERT: language models for crystal structure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "### Property Prediction Workflow",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  HIGH-THROUGHPUT SCREENING WORKFLOW:                                │\n│                                                                     │\n│  1. Define search space (compositional, structural, dopants)        │\n│  2. Generate candidates (substitution, prototype enumeration)       │\n│  3. Fast screening: ML property prediction                          │\n│  4. DFT calculation on top candidates (~100–1000)                   │\n│  5. Experimental validation (~10)                                   │\n│  6. Iterate: add DFT results to training set                        │\n│                                                                     │\n│  ACTIVE LEARNING:                                                   │\n│  Uncertainty quantification (GP, ensemble) → query points where     │\n│  model is uncertain → targeted DFT → model improves                 │\n│  Bayesian optimization: acquisition function (UCB, EI) guides       │\n│  search toward unexplored high-performance regions                  │\n│                                                                     │\n│  SUCCESS STORIES:                                                   │\n│  - Lithium superionic conductors (Sendek, 2017): ML screening       │\n│    identified LiZnPS₄ from 12,000 candidates                        │\n│  - GNoME (DeepMind, 2023): 2.2M stable crystals predicted           │\n│    vs. 48k known; 736 experimentally validated                      │\n│  - High-entropy alloys: ML predicts phase stability                 │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 360,
+      "heading_context": "## 6. CALPHAD and Thermodynamic Modeling",
+      "confidence": "candidate",
+      "text": "  CALPHAD (CALculation of PHAse Diagrams):\n  Model Gibbs free energy G(T, P, xᵢ) for each phase\n  Fit parameters to experimental + DFT data\n  Minimize G → equilibrium phases (phase diagram)\n\n  G_phase = G_ref + G_ideal + G_excess + G_mag\n    G_ref:    reference (weighted pure elements)\n    G_ideal:  -T Σ xᵢ ln xᵢ  (ideal mixing entropy)\n    G_excess: Redlich-Kister: Σ Lᵏᵢⱼ xᵢxⱼ(xᵢ-xⱼ)ᵏ (interaction)\n    G_mag:    magnetic contribution (Inden-Hillert-Jarl)\n\n  DATABASES: TCFE (steels), TCAL (Al alloys), assessed thermodynamics\n  CODES: Thermo-Calc, Pandat, OpenCalphad\n\n  INTEGRATION WITH DFT:\n    SQS (Special Quasirandom Structures): mimic random alloy in DFT\n    Cluster Expansion (CE): expand E(σ) in basis of cluster functions\n    ML + CALPHAD: replace CALPHAD functionals with neural networks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
