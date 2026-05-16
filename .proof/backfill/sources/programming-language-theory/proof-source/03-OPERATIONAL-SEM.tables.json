@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\03-OPERATIONAL-SEM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 374,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Historical evaluator structure",
+          "SECD machine",
+          "The dump is implicit continuation machinery, not first-class control."
+        ],
+        [
+          "First-class continuation semantics",
+          "CEK machine",
+          "Exposing kappa makes control explicit but not automatically efficient."
+        ],
+        [
+          "Call-by-name reduction",
+          "Krivine machine",
+          "No sharing means repeated work unless transformed to call-by-need."
+        ],
+        [
+          "Production laziness",
+          "STG with thunks and update frames",
+          "Sharing requires black-hole and update semantics."
+        ],
+        [
+          "Continuation-heavy compiler IR",
+          "CPS transform",
+          "CPS is a program transform, not necessarily a runtime calling convention."
+        ],
+        [
+          "Human-readable compiler IR",
+          "ANF",
+          "ANF and SSA express similar naming structure in different operational styles."
+        ]
+      ]
+    }
+  ]
+}

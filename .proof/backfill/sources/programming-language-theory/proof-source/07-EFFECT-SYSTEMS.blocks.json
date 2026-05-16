@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\07-EFFECT-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    EFFECT SYSTEMS LANDSCAPE                              |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  THE PROBLEM:                                                            |\n|  Pure functions: f : A → B (no hidden effects)                          |\n|  Impure functions: same type but read global state, throw exceptions...  |\n|  Without effect tracking: can't tell them apart                         |\n|                                                                          |\n|  APPROACHES:                                                             |\n|  ┌──────────────────┬──────────────────────┬────────────────────────┐  |\n|  │ MONADS           │ ALGEBRAIC EFFECTS    │ CAPABILITY TYPES       │  |\n|  │ Moggi 1991       │ Plotkin/Power 2003   │ Capabilities-as-tokens │  |\n|  │                  │                      │                        │  |\n|  │ Haskell IO, State│ Eff language, Koka   │ Scala CC, OCaml 5      │  |\n|  │ compose via >>=  │ compose via handlers │ capabilities restrict  │  |\n|  │ (bind)           │ algebraic operations │ effect use             │  |\n|  │                  │                      │                        │  |\n|  │ n effects =      │ n effects compose    │ n effects: capability  │  |\n|  │ 2ⁿ transformer   │ naturally            │ tokens in environment  │  |\n|  │ stack options    │ handlers are first-  │                        │  |\n|  │                  │ class                │                        │  |\n|  └──────────────────┴──────────────────────┴────────────────────────┘  |\n|                                                                          |\n|  LINEAR TYPES AND EFFECTS:                                              |\n|  Rust: ownership tracks the \"memory effect\"                             |\n|  Affine resource = can't alias; mutation safe                           |\n|  Borrow = temporary effect-limited access                               |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## 1. Moggi's Computational Lambda Calculus",
+      "confidence": "candidate",
+      "text": "MOGGI'S COMPUTATIONAL LAMBDA CALCULUS:\n\n  For each notion of computation (effect), a monad T:\n    T : Type → Type    (a type constructor)\n\n  A computation that MAY USE EFFECT E and returns A:\n    has type T_E(A)     (wrapped in the effect monad)\n\n  Values:    A → T A    (return / pure)\n  Sequencing: T A → (A → T B) → T B    (bind / >>=)\n\n  MONAD LAWS:\n    return a >>= f = f a               (left identity)\n    m >>= return = m                   (right identity)\n    (m >>= f) >>= g = m >>= λa. f a >>= g   (associativity)\n\n  EXAMPLES OF MONADS:\n    IO monad: T A = IO A (computation that can do I/O and returns A)\n    State monad: T A = S → (A, S) (computation that reads/writes state)\n    Maybe monad: T A = A | None (computation that may fail)\n    List monad: T A = [A] (nondeterministic computation: multiple results)\n    Reader monad: T A = E → A (computation that reads an environment E)\n    Writer monad: T A = (A, W) (computation that emits a log W)\n    Except monad: T A = Either E A (computation that may throw E)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## 2. Haskell's Monad Architecture",
+      "confidence": "candidate",
+      "text": "HASKELL MONAD HIERARCHY:\n\n  class Functor f where\n    fmap :: (a → b) → f a → f b\n\n  class Functor f => Applicative f where\n    pure :: a → f a\n    (<*>) :: f (a → b) → f a → f b    -- apply effectful function\n\n  class Applicative m => Monad m where\n    return :: a → m a     -- = pure\n    (>>=) :: m a → (a → m b) → m b   -- sequence + bind\n\nKEY MONADS IN HASKELL:\n\n  IO a        -- computations with I/O effects\n  State s a   -- computations with mutable state s\n  Reader e a  -- computations with read-only environment e\n  Writer w a  -- computations producing a log w\n  Maybe a     -- computations that may fail (Nothing)\n  Either e a  -- computations that may throw error e\n  STM a       -- software transactional memory\n  ST s a      -- local mutable state (can be run pure via runST)\n\nDO NOTATION (syntactic sugar for >>= chains):\n\n  do\n    x <- getLine      -- x :: String,  getLine :: IO String\n    y <- readFile x   -- y :: String,  readFile :: String → IO String\n    return (length y)\n  -- desugars to:\n  getLine >>= λx → readFile x >>= λy → return (length y)\n  -- type: IO Int",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## 3. The Monad Transformer Problem",
+      "confidence": "candidate",
+      "text": "MONAD TRANSFORMER STACK:\n\n  I want: IO + State + Exceptions + Logging\n\n  Single effect:\n    IO a, State s a, Except e a, Writer w a\n\n  Combine with transformers:\n    StateT s IO a    = s → IO (a, s)    (State over IO)\n    ExceptT e (StateT s IO) a           (Except over State over IO)\n    WriterT w (ExceptT e (StateT s IO)) a   (full stack)\n\n  READING THE TYPE:\n    A computation in WriterT w (ExceptT e (StateT s IO)) a:\n    Takes initial state s\n    May throw exception e OR return a value (Either)\n    Produces a log w\n    Is an IO action\n\n  THE EXPLOSION PROBLEM:\n    n effects → multiple possible orderings\n    StateT s (ExceptT e IO) a  ≠  ExceptT e (StateT s IO) a\n    (different: does rolling back state on exception affect it?)\n    2ⁿ possible stacks for n effects\n    Each requires: lift functions for each level\n    Code becomes: lift (lift (liftIO action))\n\n  PRACTICAL RESULT:\n    Heavy monad transformer code becomes unreadable\n    Operational meaning (stack order) is obscure\n    Changing effect order requires refactoring all code",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## 3. The Monad Transformer Problem",
+      "confidence": "candidate",
+      "text": "MTL TYPECLASSES:\n\n  class MonadState s m where\n    get :: m s\n    put :: s → m ()\n\n  class MonadError e m where\n    throwError :: e → m a\n    catchError :: m a → (e → m a) → m a\n\n  class MonadIO m where\n    liftIO :: IO a → m a\n\n  Any monad stack that has State s in it is an instance of MonadState s\n  → Code doesn't need explicit lift\n  → BUT: class inference is complex; large instance resolution overhead\n  → AND: doesn't solve the n! ordering problem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## 4. Algebraic Effects",
+      "confidence": "candidate",
+      "text": "ALGEBRAIC EFFECTS: OPERATIONS + HANDLERS\n\n  EFFECT DECLARATION:\n    effect State s :\n      operation get : Unit → s\n      operation put : s → Unit\n\n  USING THE EFFECT:\n    fun counter () : Unit =\n      let n = get () in\n      put (n + 1)\n    (* counter has type Unit → Unit with effect State Int *)\n\n  HANDLER:\n    handler runState (init : s) :\n      return x  ↦  fun s → (x, s)\n      get ()    ↦  fun s → resume s s    (* pass s to continuation; s unchanged *)\n      put s'    ↦  fun s → resume () s' (* pass () to continuation; new state s' *)\n\n    (* runState runs a computation with initial state, returns (result, finalState) *)\n\nTHE RESUME KEYWORD: resumable exceptions\n\n  Operations can RESUME the interrupted computation:\n    effect Nondeterminism :\n      operation choose : Unit → Bool\n\n    handler allChoices :\n      return x   ↦  [x]\n      choose ()  ↦  resume true ++ resume false\n                   (* try both branches; collect results *)\n\n  THIS IS WHAT MAKES ALGEBRAIC EFFECTS POWERFUL:\n    Handlers can resume the computation multiple times (nondeterminism)\n    Or not at all (abort/exception)\n    Or wrap it (state, logging)\n    The effect operation = \"call the handler\" = \"raise a resumable exception\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## 4. Algebraic Effects",
+      "confidence": "candidate",
+      "text": "ALGEBRAIC EFFECTS vs. MONADS:\n\n  COMPOSITIONALITY:\n    Two effects E₁ and E₂ can be combined freely:\n    f : A → B with effects {E₁, E₂}   (effect polymorphism)\n    No transformer stack ordering; effects compose automatically\n\n  HANDLERS ARE FIRST-CLASS:\n    Different interpretations of the same effect:\n    runState = standard state interpretation\n    logging_state = state + log all transitions\n    transactional_state = state with rollback capability\n    Same code; different handlers\n\n  EFFECT POLYMORPHISM:\n    f : {e} A → {e} B  (f preserves effects)\n    g : A → {IO, Nondeterminism} B\n    No monad constraints in signatures\n\n  CONCRETELY IN LANGUAGES:\n    OCaml 5 (2022): built-in algebraic effects + multi-core\n    Koka (Leijen): row-based effect polymorphism throughout\n    Eff: reference implementation (Bauer-Pretnar)\n    Haskell: effectful, polysemy, fused-effects libraries (user-land)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## 5. OCaml 5 Effects",
+      "confidence": "candidate",
+      "text": "OCAML 5 EFFECT EXAMPLE:\n\n  (* Effect declaration *)\n  type _ Effect.t +=\n    | Get : int Effect.t\n    | Put : int → unit Effect.t\n\n  (* Using effects *)\n  let counter () =\n    let n = Effect.perform Get in\n    Effect.perform (Put (n + 1))\n\n  (* Handler *)\n  let run_state init f =\n    let state = ref init in\n    match f () with\n    | result → result\n    | effect Get, k → continue k !state\n    | effect Put n, k → state := n; continue k ()\n\n  (* continue k v = resume the continuation k with value v *)\n\nPERFORMANCE:\n  OCaml 5 effects are designed to be zero-cost when not used\n  Effect handler overhead is comparable to exception handler\n  Much cheaper than equivalent monad transformer stacks\n\nLIMITATION:\n  OCaml 5 effects are \"one-shot\" by default (continuation used once)\n  Multi-shot continuations (nondeterminism) require deep copying\n  → Not all algebraic effect patterns are zero-cost",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 317,
+      "heading_context": "## 6. Capability-Based Effects",
+      "confidence": "candidate",
+      "text": "CAPTURE CHECKING IDEA:\n\n  In Scala (experimental):\n    def readLine(): String^{io}     (* io is a capability *)\n    def writeFile(path: String, data: String): Unit^{io}\n\n  A function that uses io must declare it:\n    def processLine^{io}() =\n      val line = readLine()      (* requires io capability *)\n      writeFile(\"log.txt\", line) (* requires io capability *)\n\n  A pure function cannot call io-capable functions:\n    def pure() : String = readLine()  (* ERROR: accessing io without capability *)\n\n  CAPABILITY POLYMORPHISM:\n    def map^{c}[A, B](f: A → B^{c}, xs: List[A]): List[B]^{c}\n    The effect c is passed as a capability variable\n    → Effect-polymorphic map\n\nADVANTAGE OVER MONADS:\n  No wrapping/unwrapping of effect types\n  Existing pure code works without changes\n  Effects are tracked without changing function signatures (ideally)\n\nSCALA CAPTURE CHECKING STATUS:\n  Experimental in Scala 3.3+; opt-in\n  Full formalization still in progress",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

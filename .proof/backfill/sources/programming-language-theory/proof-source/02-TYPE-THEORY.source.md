@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "02-TYPE-THEORY.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:programming-language-theory:type-theory
 kind: guide

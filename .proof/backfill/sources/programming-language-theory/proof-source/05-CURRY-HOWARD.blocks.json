@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\05-CURRY-HOWARD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    CURRY-HOWARD CORRESPONDENCE                           |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|     LOGIC (Intuitionistic)          TYPE THEORY / PROGRAMS               |\n|     ────────────────────────        ──────────────────────────           |\n|     Proposition P              ↔    Type τ                               |\n|     Proof of P                 ↔    Program of type τ                    |\n|     Proof normalization        ↔    Program evaluation (β-reduction)     |\n|     Implication P → Q          ↔    Function type τ → σ                 |\n|     Conjunction P ∧ Q          ↔    Product type τ × σ                  |\n|     Disjunction P ∨ Q          ↔    Sum type τ + σ                      |\n|     Truth ⊤                    ↔    Unit type ()                         |\n|     Falsehood ⊥                ↔    Empty type Void (no inhabitants)    |\n|     Universal ∀x.P(x)          ↔    Dependent function Π(x:A).B(x)     |\n|     Existential ∃x.P(x)        ↔    Dependent pair Σ(x:A).B(x)         |\n|                                                                          |\n|     STLC ↔ propositional intuitionistic logic                           |\n|     System F ↔ second-order propositional logic                         |\n|     Martin-Löf TT ↔ first-order intuitionistic predicate logic          |\n|     Coq CIC ↔ calculus of constructions (dependent types + induction)   |\n|                                                                          |\n|     Classical logic ↔ CPS transform (Griffin 1990): callcc corresponds  |\n|                        to Peirce's law ((P→Q)→P)→P                      |\n|     Linear logic ↔ Linear types / resource sensitivity (Girard 1987)    |\n|     Session types ↔ linear propositions (communications)                |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## 1. The Basic Correspondence: STLC ↔ Propositional Logic",
+      "confidence": "candidate",
+      "text": "PROPOSITIONS AS TYPES:\n\n  Propositional logic formula: P → Q (if P then Q)\n  Type theory type:            τ → σ  (function from τ to σ)\n\n  Proof of P → Q = function f : τ → σ\n    (given a proof/value of type τ, produce a proof/value of type σ)\n\nCONJUNCTION AND PRODUCT:\n\n  Logic: P ∧ Q (P and Q are both true)\n  Type:  τ × σ  (pair of values of types τ and σ)\n  Proof: (p, q) where p : τ and q : σ\n  Elimination: fst (p,q) = p  [∧-elim for P]\n               snd (p,q) = q  [∧-elim for Q]\n\nDISJUNCTION AND SUM:\n\n  Logic: P ∨ Q (at least one of P, Q is true)\n  Type:  τ + σ  (either a value of type τ or a value of type σ)\n  Proof: Left p where p : τ   [∨-intro left]\n         Right q where q : σ  [∨-intro right]\n  Elimination (case analysis): case x of Left p → f p | Right q → g q\n    (corresponds to: if P∨Q, and P→R, and Q→R, then R)\n\nTRUTH AND UNIT:\n\n  Logic: ⊤ (trivially true)\n  Type:  () (unit type with one value)\n  Proof: () (the unique proof/value)\n\nFALSEHOOD AND EMPTY TYPE:\n\n  Logic: ⊥ (false; no proof exists)\n  Type:  Void (empty type; no values)\n  Ex falso quodlibet: from ⊥ you can prove anything\n  absurd :: Void → a   (this function exists in Haskell; type: Void → a)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## 1. The Basic Correspondence: STLC ↔ Propositional Logic",
+      "confidence": "candidate",
+      "text": "TYPING RULES = NATURAL DEDUCTION RULES:\n\n  STLC T-Abs:                    NJ →-Introduction:\n  Γ, x:τ ⊢ t : σ                Γ, P ⊢ Q\n  ─────────────────              ─────────────\n  Γ ⊢ λx:τ.t : τ → σ           Γ ⊢ P → Q\n\n  STLC T-App:                    NJ →-Elimination (Modus Ponens):\n  Γ ⊢ t₁ : τ → σ    Γ ⊢ t₂ : τ  Γ ⊢ P → Q    Γ ⊢ P\n  ────────────────────────────    ─────────────────────\n  Γ ⊢ t₁ t₂ : σ                 Γ ⊢ Q\n\n  The typing context Γ = undischarged assumptions = hypothesis set\n  A typing derivation = a proof tree in natural deduction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## 2. Proof Normalization = Computation",
+      "confidence": "candidate",
+      "text": "PROOF NORMALIZATION = β-REDUCTION:\n\n  Logic: \"detour\" = apply ∧-introduction then immediately ∧-elimination:\n    Prove P ∧ Q, then immediately extract the P component.\n    The proof contains an unnecessary detour (can be simplified).\n\n  Type theory: β-redex = apply a function then immediately β-reduce\n    fst (a, b) →_β a\n    (λx. t) s →_β t[s/x]\n\n  NORMALIZATION THEOREM (for STLC):\n    Every proof/program has a unique normal form.\n    Normalization = cut elimination in logic = evaluation in PLT.\n\nSTRONG NORMALIZATION:\n  STLC: all terms normalize (no infinite loops; STLC can't express recursion)\n  System F: also strongly normalizing\n  Martin-Löf TT: normalizes (requires termination checker for recursion)\n  PCF (+ recursion): NOT normalizing (can loop; fix is not provably terminating)\n\n  THIS IS WHY COQ/AGDA REQUIRE TERMINATION PROOFS:\n    In the proof interpretation, a non-terminating program would be a\n    circular proof (using the conclusion in its own derivation = paradox)\n    Requiring termination = preventing circular proofs = consistency",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## 3. The BHK Interpretation",
+      "confidence": "candidate",
+      "text": "BHK INTERPRETATION (constructive proofs):\n\n  A proof of P → Q = a CONSTRUCTION that converts proofs of P to proofs of Q\n                   = a function\n\n  A proof of P ∧ Q = a PAIR (proof of P, proof of Q)\n\n  A proof of P ∨ Q = either a proof of P OR a proof of Q, clearly labeled\n                   = a tagged union\n\n  A proof of ∀x.P(x) = a construction that for any x produces a proof of P(x)\n                      = a function (dependent)\n\n  A proof of ∃x.P(x) = a specific witness x, PLUS a proof that P(x) holds\n                      = a dependent pair\n\nKEY PHILOSOPHICAL POINT:\n  In classical logic: P ∨ ¬P holds for all P (law of excluded middle)\n  BHK interpretation: this would require: for any P, you can either\n    provide a proof of P or a proof of ¬P\n    → This is NOT constructively valid in general\n\n  CLASSICAL LOGIC ≠ INTUITIONISTIC LOGIC under BHK\n  Intuitionistic logic requires WITNESSES (constructive proofs)\n  Classical logic allows proof by contradiction without construction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "## 3. The BHK Interpretation",
+      "confidence": "candidate",
+      "text": "CONSTRUCTIVE = ALGORITHMIC:\n\n  A constructive proof of ∃n. n > 100 AND prime(n) must EXHIBIT n.\n  A classical proof may just show: \"suppose no such n exists → contradiction\"\n    without ever naming n.\n\n  For algorithms and programs:\n    Constructive proof → extract a program\n    Classical proof → no program extractable (the witness isn't provided)\n\n  COROLLARY: Type-theoretic proof assistants (Coq, Agda, Lean) use\n  intuitionistic logic because we want to EXTRACT PROGRAMS from proofs.\n\n  You can ADD classical axioms to Coq:\n    Classical.classic : ∀ P, P ∨ ¬ P\n  But then you lose computability of extracted programs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## 4. Classical Logic and CPS",
+      "confidence": "candidate",
+      "text": "GRIFFIN'S INSIGHT:\n\n  In classical logic, Peirce's law holds:\n    ((P → Q) → P) → P\n\n  In type theory, this is:\n    callcc : ((α → β) → α) → α\n    (call-with-current-continuation)\n\n  WHY:\n    Callcc captures the \"continuation\" (rest of the computation)\n    as a first-class function.\n    Using callcc, you can implement \"abort\" — throw away the continuation.\n    Aborting = classical non-constructive reasoning (ignoring the context).\n\n  THE CPS TRANSFORM (Plotkin 1975) embeds STLC into classical logic:\n    Every function call passes an explicit continuation k.\n    callcc becomes: λk. k (λv. /* ignore current k, use saved k */)\n\nDOUBLE NEGATION TRANSLATION:\n\n  Classical logic can be EMBEDDED in intuitionistic logic via:\n    P_classical corresponds to ¬¬P_intuitionistic\n    (double negation translation: Gödel, Gentzen)\n\n  In types: this corresponds to CPS transform!\n    A classical type τ corresponds to (τ → ⊥) → ⊥ in intuitionistic types\n    = a computation that calls its continuation with a τ-value\n\n  PRACTICAL CONSEQUENCE:\n    Any classical proof can be made constructive via CPS transform\n    Continuations = classical reasoning in types\n    → call/cc in Scheme = adding classical axiom to the type theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## 5. System F ↔ Second-Order Logic",
+      "confidence": "candidate",
+      "text": "SYSTEM F (Universal polymorphism):\n  ∀α. τ  — polymorphic type\n  Λα. t  — type abstraction\n\nSECOND-ORDER PROPOSITIONAL LOGIC:\n  ∀P. F(P)  — quantify over propositions\n  (Second-order: quantify over propositional variables)\n\nCORRESPONDENCE:\n  System F type  ∀α. α → α     ↔     Formula  ∀P. P → P\n  System F term  Λα. λx:α. x   ↔     Proof    \"for all P, if P then P\"\n                                              = the proof of P → P universally\n\nIMPREDICATIVITY:\n  In second-order logic, ∀P ranges over all propositions including\n  propositions containing ∀P itself.\n  This allows encoding of induction (via Church-encoding):\n    ℕ = ∀α. α → (α → α) → α   (natural number = a proof scheme for induction)\n  But impredicativity makes consistency more delicate\n    (Girard's paradox: full impredicativity → inconsistency)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "## 6. Linear Logic ↔ Linear Types ↔ Rust",
+      "confidence": "candidate",
+      "text": "LINEAR LOGIC CONNECTIVES:\n\n  LINEAR IMPLICATION:  A ⊸ B  (consume A to produce B)\n    Compare classical:  A → B  (A can be used multiple times, ignored)\n\n  TENSOR PRODUCT:      A ⊗ B  (have BOTH A and B, each usable once)\n    Compare product:   A × B  (can project out either A or B multiple times)\n\n  PAR (additive or):   A ⅋ B\n  PLUS (additive or):  A ⊕ B  (have exactly one of A or B)\n  OF COURSE:           !A    (A is a classical resource = can use multiple times)\n  WHY NOT:             ?A    (A can be discarded, duplicated)\n\nRESOURCE SENSITIVITY:\n  Without !: every formula used exactly once\n  !A = \"classical\" resource: can be duplicated and discarded\n  → Linear logic embeds classical logic via the !-modality\n\nCORRESPONDENCE WITH LINEAR TYPES:\n\n  Linear type  f : A ⊸ B   ↔   Function that consumes A to produce B\n                                (A cannot be used after calling f)\n\n  Rust ownership:\n    T = owned value (linear resource, must be used exactly once or moved)\n    &T = shared reference = !T (can duplicate, cannot modify)\n    &mut T = exclusive reference = affine T (can use, modifies the resource)\n\n  AFFINE TYPES (use AT MOST ONCE):\n    Less restrictive than linear (can also discard)\n    Rust is an affine type system (you can drop values without using them)\n\nSESSION TYPES (Honda 1993) as linear logic propositions:\n  A communication channel has a protocol type (linear proposition)\n  Sending a message = using the A resource\n  Channel type = remaining protocol (linear continuation type)\n  → Deadlock freedom follows from linearity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 328,
+      "heading_context": "## 7. The Taxonomy of Logic-Type Correspondences",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------+\n|  LOGIC                    TYPED SYSTEM           USE         |\n+--------------------------------------------------------------+\n|  Intuitionistic prop.     STLC                  Foundations  |\n|  Second-order prop.       System F              Haskell Core |\n|  First-order pred.        Dep. types (MLTT)     Coq, Agda   |\n|  Higher-order pred.       CIC (Coq)             Proof asst. |\n|  Classical prop.          STLC + call/cc        Scheme callcc |\n|  Classical (via ¬¬)       CPS transform         Compilers   |\n|  Linear logic             Linear types          Rust (affine) |\n|  Linear logic session     Session types         Protocols   |\n|  Homotopy type theory     Univalent foundations Lean 4, Agda|\n+--------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

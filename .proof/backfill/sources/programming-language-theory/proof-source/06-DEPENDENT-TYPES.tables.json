@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "programming-language-theory\\06-DEPENDENT-TYPES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 391,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Formal mathematics environment",
+          "Lean 4 plus Mathlib",
+          "Library coverage often matters more than kernel elegance."
+        ],
+        [
+          "Verified compiler/algorithm proof",
+          "Coq",
+          "Extraction targets OCaml/Haskell; systems code may still need separate implementation."
+        ],
+        [
+          "Type-theory experimentation",
+          "Agda",
+          "Excellent for research patterns, less production-oriented."
+        ],
+        [
+          "Protocol state machine",
+          "Idris 2 and linear types",
+          "Totality and linearity checks constrain program shape."
+        ],
+        [
+          "Array bounds in the type",
+          "Length-indexed vectors",
+          "The index burden moves into proofs and APIs."
+        ],
+        [
+          "Interface lifecycle safety",
+          "Dependent state machines",
+          "State-indexed APIs can become hard to infer automatically."
+        ],
+        [
+          "Crypto implementation proof",
+          "F* and its extraction pipeline",
+          "The trusted toolchain and C extraction boundary matter."
+        ],
+        [
+          "Dependent function need",
+          "Pi type",
+          "Type checking depends on normalization/definitional equality."
+        ],
+        [
+          "Dependent pair need",
+          "Sigma type",
+          "It packages witness plus value, not just a tuple."
+        ]
+      ]
+    }
+  ]
+}

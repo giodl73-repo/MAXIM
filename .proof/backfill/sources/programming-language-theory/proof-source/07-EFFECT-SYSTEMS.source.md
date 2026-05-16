@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "07-EFFECT-SYSTEMS.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:programming-language-theory:effect-systems
 kind: guide

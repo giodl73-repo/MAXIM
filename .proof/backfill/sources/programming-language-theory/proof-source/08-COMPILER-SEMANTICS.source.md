@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "08-COMPILER-SEMANTICS.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:programming-language-theory:compiler-semantics
 kind: guide
