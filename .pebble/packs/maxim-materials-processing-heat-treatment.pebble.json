@@ -1,0 +1,2645 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-materials-processing-heat-treatment",
+  "source": "../../materials-processing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-HEAT-TREATMENT.md#000",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "# Heat Treatment: Annealing, Quenching, Tempering"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#001",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#002",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Heat treatment is a parameterized procedure: inputs (temperature profile T(t), atmosphere, quench medium) deterministically produce a target microstructure. Each named process — normalize, full anneal, Q&T, carburize+quench+temper — is a specific parameterization. This maps directly to a build pipeline with configurable stages: the same \"compile\" step (austenitize) followed by different \"link\" parameters (quench vs. furnace cool) produces entirely different outputs. Pre-conditions (starting microstructure, prior cold work) and post-conditions (hardness, grain size, residual stress) define each procedure's contract."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#003",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Heat treatment is the application of controlled thermal cycles to solid metal to achieve target microstructure and properties. It is the primary tool for controlling hardness, strength, ductility, and toughness in steel and aluminum alloys. Every cycle involves three controllable parameters: temperature, time, and cooling rate."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#004",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nHEAT TREATMENT TAXONOMY\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  FULL PROCESSING (through-thickness)                            │\n│                                                                 │\n│  Annealing family:       Hardening family:                      │\n│    Full anneal             Austenitize + quench                 │\n│    Process anneal          Martempering                         │\n│    Spheroidize anneal      Austempering                         │\n│    Stress relief           Temper (always follows quench)       │\n│    Normalizing                                                  │\n│                            Solution treat + age (Al, Ti, Ni)    │\n├─────────────────────────────────────────────────────────────────┤\n│  SURFACE (shallow depth, tough core maintained)                  │\n│    Carburizing (diffusion of C into surface)                    │\n│    Nitriding (diffusion of N into surface)                      │\n│    Carbonitriding (C + N)                                        │\n│    Induction hardening (localized austenitize + quench)         │\n│    Flame hardening (torch + quench)                             │\n│    Laser surface hardening                                       │\n└─────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#005",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#006",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Annealing Processes"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#007",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Full Anneal"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#008",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nFULL ANNEAL\n──────────────────────────────────────────────────────────────────\nPurpose: Maximum softness, maximum ductility, relieve internal stress.\n         Prepare for machining or forming."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#009",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process:\n  1. Heat to 30–50°C above A3 (for hypoeutectoid, ~900–950°C)\n     or above A1 (for hypereutectoid, ~750–800°C)\n  2. Soak until fully austenitic\n  3. Furnace cool SLOWLY (typically 50°C/hour or less)\n     → through A1 with slow cooling → coarse pearlite + ferrite"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#010",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Result:\n  Very soft: 150–200 HV for 0.4%C steel\n  Coarse pearlite: lamellar spacing large → soft\n  Maximum machinability\n  Ductility: 25–30% elongation"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#011",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Limitation:\n  Very long cycle time (many hours for large parts)\n  Costly furnace time\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#012",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Normalizing"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#013",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nNORMALIZING\n──────────────────────────────────────────────────────────────────\nPurpose: Refine grain size, uniform microstructure, moderate\n         properties. Intermediate between full anneal and hardening.\n         Most common \"as-supplied\" condition for structural steel."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#014",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process:\n  1. Heat to 30–50°C above A3 (~900–950°C)\n  2. Soak (20 min per inch of cross-section)\n  3. Air cool in still air (faster than full anneal, slower than quench)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#015",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Result:\n  Fine pearlite + ferrite\n  Harder than full anneal (~200–280 HV)\n  Good machinability and toughness\n  Grain refinement: removes cast structure, improves forgings"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#016",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "vs. Full anneal:\n  Faster cycle\n  Slightly harder / higher strength\n  Better impact toughness than coarse pearlite from full anneal\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#017",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Stress Relief Anneal"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#018",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nSTRESS RELIEF ANNEAL\n──────────────────────────────────────────────────────────────────\nPurpose: Reduce residual stresses from welding, machining,\n         cold work, without changing hardness significantly."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#019",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process:\n  Steel: hold at 500–650°C (below A1) for 1–4 hours\n         Must stay below A1 to avoid phase transformation\n  Aluminum: 300–350°C for aluminum alloys\n  Weldments: typically 600–650°C for 1 hour per inch of thickness"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#020",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Mechanism:\n  Temperature allows dislocation recovery and creep\n  Residual stresses relax to material's yield stress at that temperature\n  No phase transformation (below A1)\n  Hardness change: minimal (slight softening)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#021",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Applications:\n  Post-weld stress relief of heavy fabrications\n  Dimensional stability: machined precision components\n  Prevent stress corrosion cracking (SCC)\n  Post-straightening of distorted parts\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#022",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Spheroidize Anneal"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#023",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nSPHEROIDIZE (SPHEROIDIZING) ANNEAL\n──────────────────────────────────────────────────────────────────\nPurpose: Convert lamellar pearlite (cementite plates) to\n         spheroidal cementite particles → maximum softness\n         for cold working operations (drawing, cold heading)."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#024",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process (typical for high-carbon steel):\n  Option A: Hold just below A1 (700–720°C) for 8–24 hours\n  Option B: Cycle above/below A1 repeatedly\n  Option C: For heavily work-hardened steel, start above A1"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#025",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Result:\n  Spherical Fe₃C particles in ferrite matrix\n  Softest possible microstructure for high-carbon steels\n  Excellent cold formability\n  ~150–180 HV for 1.0%C steel (vs ~280 HV spheroidized)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#026",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Applications:\n  High-carbon steel wire before cold drawing\n  Bearing steel (52100) before machining\n  Required for any cold heading of high-carbon steel (bolts, screws)\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#027",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#028",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Quench Hardening"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#029",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Austenitizing and Quenching"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#030",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nQUENCH HARDENING PROCESS\n──────────────────────────────────────────────────────────────────\n1. AUSTENITIZE\n   Heat steel into single-phase austenite region\n   Temperature: 30–80°C above Ac3 (complete austenitization)\n   Soak time: dependent on cross-section, typically 1 hour/inch\n   Purpose: Dissolve carbides, homogenize carbon in austenite"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#031",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "2. QUENCH (rapid cooling)\n   Transfer to quench medium immediately\n   Cooling rate must exceed critical cooling rate → martensite"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#032",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Quench media (fastest to slowest):\n  Brine (10% NaCl in water):    fastest, most distortion/cracking risk\n  Cold water:                   very fast\n  Warm water (50–60°C):         fast, less cracking\n  Polymer quench (PAG):         adjustable by concentration\n  Oil (mineral quench oil):     moderate, good for alloy steels\n  Forced air / gas quench:      slow, for high-hardenability alloys\n  Still air:                    very slow, limited to very high Cr tools"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#033",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Distortion and cracking risk:\n  Faster quench → more martensite, more quench cracking risk\n  Choose slowest quench that gives required microstructure\n  4340: oil quench → fully martensitic (vs. 1080: requires water)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#034",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "3. TEMPER IMMEDIATELY\n   Martensite is brittle — must temper before cooling to room temp\n   Especially critical for high-carbon, large cross-sections\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#035",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Quench Cracking Prevention"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#036",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nQUENCH CRACKING RISK FACTORS AND MITIGATION\n──────────────────────────────────────────────────────────────────\nRisk factors:\n  High carbon (>0.5%C): martensite more brittle, more volume expansion\n  Large cross-section: thermal gradients → differential transformation\n  Sharp corners, holes: stress concentration during transformation\n  Slow medium for high-hardenability steel: unnecessary gradient\n  Delay before tempering: martensite sits unstable, crack propagates"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#037",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Mitigation:\n  Minimize sharp corners (r > 2mm preferred)\n  Use slowest quench medium that achieves target hardness\n  Temper within 30 minutes of quenching (sooner is better)\n  Martempering: quench to just above Ms, equalize, then air cool\n  Pre-heat complex shapes (reduces thermal gradient at quench entry)\n  Choose alloy steel (oil quench) over plain carbon (water quench)\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#038",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#039",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Tempering"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#040",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Tempering Mechanisms"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#041",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nTEMPERING OF MARTENSITE\n──────────────────────────────────────────────────────────────────\nMartensite is metastable (supersaturated BCT structure).\nTempering allows controlled decomposition to stable state."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#042",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "STAGE I TEMPERING (below ~250°C):\n  Epsilon carbide (Fe₂.₄C) precipitates from martensite\n  Carbon partially rejected from BCT → less tetragonal distortion\n  Hardness drops slightly\n  Brittleness reduced somewhat"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#043",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "STAGE II TEMPERING (~200–300°C):\n  Retained austenite transforms to bainite/ferrite\n  (Important in high-carbon steels with significant retained γ)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#044",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "STAGE III TEMPERING (250–400°C):\n  Epsilon carbide → cementite (Fe₃C) replaces epsilon carbide\n  Martensite → tempered martensite (ferrite + fine carbides)\n  Major hardness reduction begins in this range\n  Significant improvement in ductility and toughness"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#045",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "STAGE IV TEMPERING (above 400°C):\n  Cementite coarsens and spheroidizes\n  Major reduction in hardness (recovery of bulk ductility)\n  Above 600°C: approaching normalized/annealed properties"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#046",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "TEMPERED MARTENSITE EMBRITTLEMENT (TME): 300–400°C\n  Complex carbide precipitation at grain boundaries\n  Impact toughness decreases (trough in Charpy vs. temp)\n  Avoid tempering in this range when toughness critical\n  Also called \"350°C embrittlement\"\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#047",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Tempering Temperature vs Properties"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#048",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nTEMPERING TEMPERATURE EFFECT (medium carbon steel, e.g., 4140)\n──────────────────────────────────────────────────────────────────\nTemp(°C)  Hardness(HRC)  UTS(MPa)  Elongation  Charpy(J)\n────────  ─────────────  ────────  ──────────  ─────────\nAs-quenched  ~58         2000      <5%         <10\n150           55          1900      5%          15\n200           53          1800      6%          20\n300           48          1600      8%          25     ← TME zone starts\n400           43          1400      12%         35     ← TME trough\n500           38          1200      16%         80\n600           32          1050      20%         120\n650           28           900      25%         150"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#049",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Typical structural applications: 550–650°C temper (Q&T condition)\nHigh-strength bolts: 400–500°C (compromise strength/toughness)\nSprings: 350–450°C (high hardness needed)\nDies and tools: 150–250°C (maximum hardness with some temper)\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#050",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#051",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Case Hardening Processes"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#052",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Carburizing"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#053",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nGAS CARBURIZING\n──────────────────────────────────────────────────────────────────\nPurpose: Introduce carbon into surface layer (case) while\n         maintaining low-carbon (tough) core.\nStarting material: low-carbon steel (0.15–0.25% C)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#054",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process:\n  1. Heat to 850–950°C in carburizing atmosphere (CH₄ or propane)\n     CH₄ → C(nascent) + 2H₂  at steel surface\n  2. Carbon diffuses into steel surface\n  3. Carbon profile: ~0.8% at surface → ~0.2% at case/core boundary\n  4. Case depth (time/temperature controlled):\n       ~0.5mm: 2 hours at 900°C\n       ~1.0mm: 5–6 hours at 900°C\n       ~2.0mm: 15–20 hours at 900°C\n       Case depth ∝ √(D×t) with D(carbon in γ) increasing with T"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#055",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "5. Direct quench (from carburizing temperature) or:\n  6. Slow cool + reheat + quench (for better grain structure)\n  7. Low temper (150–200°C) to reduce brittleness"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#056",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Result:\n  Surface: ~0.8%C, martensite after quench → 60–65 HRC\n  Core: ~0.2%C, low-carbon martensite or pearlite → 35–45 HRC\n  Compressive residual stress at surface → excellent fatigue resistance"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#057",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Applications: Gears, cams, pins, bearing surfaces\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#058",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Nitriding"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#059",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nGAS NITRIDING\n──────────────────────────────────────────────────────────────────\nPurpose: Introduce nitrogen into surface for hard, wear-resistant\n         case WITHOUT quenching. Very low distortion."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#060",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process:\n  1. Finish machine to final dimensions (no quench after nitriding)\n  2. Heat to 500–550°C in ammonia (NH₃) atmosphere\n     NH₃ → N(nascent) + H₂ at steel surface\n  3. Nitrogen diffuses into steel, forms hard nitrides (AlN, CrN, Fe₄N)\n  4. Very slow process: 15–100 hours for 0.3–0.6mm case depth\n  5. No quench required → minimum distortion"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#061",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Nitriding steels: must contain nitride-forming elements\n  AISI 4140, 4340 (Cr, Mo nitrides)\n  Nitralloy 135 (Al-bearing, strongest nitrided case)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#062",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Result:\n  White layer: ~15–25 µm, very hard (~1000+ HV), brittle\n    (Usually removed by post-grinding if fatigue is concern)\n  Diffusion zone: ~0.3–0.6mm, 650–900 HV\n  Compressive residual stress (excellent for fatigue)\n  No distortion (process below tempering temperature of pre-treated core)\n  Excellent corrosion resistance"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#063",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Plasma nitriding (ion nitriding):\n  Faster than gas, better control, lower temperatures possible\n  Eliminates white layer more easily\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#064",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Induction Hardening"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#065",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nINDUCTION HARDENING\n──────────────────────────────────────────────────────────────────\nPurpose: Selectively harden specific areas (gear teeth, journal)\n         without affecting entire part."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#066",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Process:\n  1. Induction coil near part surface\n  2. AC current (1 kHz–500 kHz) → induced eddy currents in part\n  3. Resistive heating → surface austenitizes in seconds (no bulk heating)\n  4. Water or polymer spray quench → martensite in surface only\n  5. No temper required for some applications (self-tempering by heat flow)\n     or low temper for toughness"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#067",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Depth control by frequency:\n  High frequency (100–500 kHz): shallow case (~0.5–1mm) → small parts\n  Low frequency (3–10 kHz): deep case (~3–6mm) → large shafts, gears"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#068",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Result:\n  Hard surface: 58–65 HRC (same as through-hardening)\n  Tough core: unchanged from original (normalized or Q&T)\n  Compressive residual stress in surface: excellent fatigue\n  Speed: seconds per part → high production rate\n  Energy efficiency: heat only what needs hardening"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#069",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Applications: Crankshaft journals, camshafts, gear teeth,\n  transmission shafts — the standard for automotive drivetrain\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#070",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#071",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Heat Treatment of Non-Ferrous Alloys"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#072",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Aluminum Alloys (Precipitation Hardening)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#073",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nALUMINUM ALLOY HEAT TREATMENT (2024-T4/T6 example)\n──────────────────────────────────────────────────────────────────\n1. SOLUTION TREATMENT\n   Heat to ~495°C (within single-phase solid solution region)\n   Dissolve all Cu into Al matrix (single phase: α solid solution)\n   Water quench: freeze Cu in solution (supersaturated)\n   Do NOT overheat: incipient melting at grain boundaries (≥510°C)\n   Do NOT under-heat: incomplete dissolution → weaker precipitation"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#074",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "2. AGING (PRECIPITATION)\n   T4: natural age at room temperature (24h to peak)\n     → GP zones → moderate strength, maximum formability\n   T6: artificial age at 160–177°C for 8–12 hours\n     → θ' (transition) precipitates → peak strength\n   T73: artificial overaging (200°C+ longer time)\n     → coarser precipitates → less strength, better SCC resistance\n     Used where stress corrosion cracking is the failure mode"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#075",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "Temper designations:\n  T3: SHT + cold work + natural age\n  T4: SHT + natural age\n  T6: SHT + artificial age (peak)\n  T7: SHT + overaged (stabilized or SCC-resistant)\n  T8: SHT + cold work + artificial age"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#076",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "2024-T4 vs 2024-T6:\n  T4: UTS 440 MPa, 19% elong. → formable\n  T6: UTS 476 MPa, 11% elong. → strongest\n  For aircraft sheet formed then installed: T3 (intermediate)\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#077",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "### Titanium Alloys"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#078",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nTITANIUM ALLOY HEAT TREATMENT (Ti-6Al-4V)\n──────────────────────────────────────────────────────────────────\nTi-6Al-4V (Grade 5): most common titanium alloy\n  Alpha (α) phase: HCP, stable below beta transus\n  Beta (β) phase: BCC, stable above beta transus (~995°C)\n  Beta transus: ~995°C (temperature where all α transforms to β)"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#079",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "ANNEALED (mill annealed):\n  Hold below beta transus (~700–850°C), air cool\n  Result: α+β equiaxed structure\n  UTS: ~950 MPa, 14% elongation\n  Baseline structural condition"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#080",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "SOLUTION TREAT + AGE (STA) — maximum strength:\n  1. Solution treat at ~900–950°C (in α+β region, just below beta transus)\n  2. Rapid quench (water)\n  3. Age at 480–540°C for 2–4 hours → fine α precipitates in β matrix\n  UTS: ~1100–1150 MPa, 10% elongation\n  Applications: high-strength aerospace structures"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#081",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "β-annealed:\n  Heat above beta transus → all β → slow cool → Widmanstätten α laths\n  Lower strength, better fatigue crack growth resistance, better creep\n  Applications: rotating compressor blades (fatigue priority)\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#082",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#083",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Furnace Types and Atmospheres"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#084",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "```\nHEAT TREATMENT FURNACE TYPES\n──────────────────────────────────────────────────────────────────\nBOX/BATCH FURNACE:\n  Chamber with heating elements, door load/unload\n  Sizes: lab scale to room-size\n  Atmosphere control possible\n  Versatile for job shop, aerospace"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#085",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "CONTINUOUS (BELT/MESH BELT) FURNACE:\n  Parts travel through on belt\n  Multiple zones (heat up, soak, cool)\n  High production rate, low per-piece cost\n  Typical: brazing, annealing, sintering\n  The continuous furnace is a pipeline processor: each zone is a\n  transformation stage, parts are the data, throughput = production rate.\n  Zone temperature profiles are the stage parameters. Same mental model\n  as a staged processing pipeline where items flow through sequential\n  stateless transformations."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#086",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "VACUUM FURNACE:\n  <10⁻³ torr atmosphere → no oxidation\n  Critical for: titanium, high-alloy steels, brazing\n  Partial pressure control (N₂, Ar gas)\n  Excellent surface quality"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#087",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "ATMOSPHERE TYPES:\n  Endothermic gas (RX gas): CO-H₂-N₂ mixture, slightly carburizing\n    → Used for bright annealing, controlled carburizing\n  Nitrogen + methanol: safer than endothermic, common\n  Exothermic gas: oxidizing (for oxide annealing of copper)\n  Pure nitrogen: inert, no oxidation, no carburizing\n  Vacuum: best surface quality"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#088",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "ATMOSPHERE CONTROL:\n  Carbon potential (aC): controls surface carbon during treatment\n  Equilibrium with: CO₂ content, dew point, O₂ sensor\n  Too high aC: case carburizes during anneal (unwanted)\n  Too low aC: decarburization (surface loses carbon → soft)\n```"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#089",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#090",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#091",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "- `materials-processing/01-PHASE-TRANSFORMATIONS.md` - phase changes that heat treatment controls.\n- `materials/04-METALS-ALLOYS.md` - alloy systems and strengthening context.\n- `materials-processing/09-CHARACTERIZATION.md` - verifying microstructure after treatment."
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#092",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "02-HEAT-TREATMENT.md#093",
+      "path": [
+        "02-HEAT-TREATMENT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:materials-processing:02-heat-treatment, git-history:materials-processing:02-heat-treatment]",
+        "canonical_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "concepts": "[heat, treatment]",
+        "current_path": "materials-processing/02-HEAT-TREATMENT.md",
+        "id": "maxim:materials-processing:heat-treatment",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, treatment]",
+        "section": "materials-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Treatment: Annealing, Quenching, Tempering",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Machining softness in steel | Full anneal with furnace cooling | Normalizing is not annealing; air cooling gives different properties. |\n| Maximum steel hardness | Quench past critical cooling rate to martensite | Untempered martensite is brittle and must be tempered promptly. |\n| Quench brittleness | Temper at hardness-appropriate temperature | Tempering trades hardness for toughness. |\n| Moderate structural properties | Normalize from austenite | Grain refinement and air cooling drive the property balance. |\n| Hard surface/tough core | Carburize, quench, and low temper | Specify effective case depth, not just total carbon case. |\n| Distortion-sensitive hard surface | Nitriding after finish machining | Nitriding requires compatible alloy chemistry. |\n| Selective hardening | Induction hardening | Frequency sets case depth through skin effect. |\n| Weld residual stress | Stress relief anneal around 600-650 deg C | Overheating can change strength or microstructure. |\n| Aluminum maximum strength | Solution treat plus artificial age, T6 | Temper designations are not interchangeable in corrosion/SCC service. |\n| Titanium maximum strength | Solution treat and age | Alloy class controls whether STA is appropriate. |"
+    }
+  ],
+  "refs": [
+    "02-HEAT-TREATMENT.md"
+  ]
+}

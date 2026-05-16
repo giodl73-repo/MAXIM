@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:characterization
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Materials Characterization Techniques
+status: source-custody
+source_custody: partial
+current_path: materials-processing/09-CHARACTERIZATION.md
+canonical_path: materials-processing/09-CHARACTERIZATION.md
+backsource_ids: [proof-backfill:materials-processing:09-characterization, git-history:materials-processing:09-characterization]
+concepts: [characterization]
+root_concepts: [characterization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Materials Characterization Techniques
 
 ## The Big Picture

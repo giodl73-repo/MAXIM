@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:v-model
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: The V-Model and Verification/Validation
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/04-V-MODEL.md
+canonical_path: systems-engineering/04-V-MODEL.md
+backsource_ids: [proof-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]
+concepts: [v, model]
+root_concepts: [v, model]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The V-Model and Verification/Validation
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:overview
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Materials Processing - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: materials-processing/00-OVERVIEW.md
+canonical_path: materials-processing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:materials-processing:00-overview, git-history:materials-processing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Materials Processing — Landscape and Taxonomy
 
 ## The Big Picture
@@ -9,37 +28,31 @@ MATERIALS PROCESSING MAP
 ──────────────────────────────────────────────────────────────────
 RAW MATERIAL                PROCESSING                TARGET PROPERTY
 ─────────────────────────────────────────────────────────────────
-                        ┌─────────────────────┐
-                        │  THERMAL PROCESSING  │
-                        │  (change microstructure)│
-  Metal →               │  Heat treatment      │→  Hardness
-  Powder →              │  Annealing           │→  Toughness
-  Polymer →             │  Quenching/Tempering │→  Ductility
-  Ceramic →             └─────────────────────┘→  Strength
-                        ┌─────────────────────┐
-                        │  MECHANICAL DEFORM.  │
-                        │  (change grain flow) │→  Yield strength
-                        │  Rolling, forging    │→  Fatigue life
-                        │  Drawing, extrusion  │→  Surface hardness
-                        └─────────────────────┘
-                        ┌─────────────────────┐
-                        │  SOLIDIFICATION      │
-                        │  (control as-cast    │→  Porosity level
-                        │   microstructure)    │→  Grain size
-                        │  Casting metallurgy  │→  Composition
-                        └─────────────────────┘
-                        ┌─────────────────────┐
-                        │  SURFACE TREATMENT   │
-                        │  (modify surface     │→  Wear resistance
-                        │   only, not bulk)    │→  Corrosion resist.
-                        │  PVD, CVD, Nitriding │→  Fatigue life
-                        └─────────────────────┘
-                        ┌─────────────────────┐
-                        │  POWDER PROCESSING   │
-                        │  (from powder to     │→  Controlled pore
-                        │   dense solid)       │→  Complex geometry
-                        │  Pressing, Sintering │→  Near-net shape
-                        └─────────────────────┘
+                        [ THERMAL PROCESSING ]
+                        (change microstructure)
+  Metal →               Heat treatment        →  Hardness
+  Powder →              Annealing             →  Toughness
+  Polymer →             Quenching/Tempering   →  Ductility
+  Ceramic →             Thermal processing    →  Strength
+                        [ MECHANICAL DEFORM. ]
+                        (change grain flow)   →  Yield strength
+                        Rolling, forging      →  Fatigue life
+                        Drawing, extrusion    →  Surface hardness
+
+                        [ SOLIDIFICATION ]
+                        (control as-cast)     →  Porosity level
+                        microstructure        →  Grain size
+                        Casting metallurgy    →  Composition
+
+                        [ SURFACE TREATMENT ]
+                        (modify surface)      →  Wear resistance
+                        only, not bulk        →  Corrosion resist.
+                        PVD, CVD, Nitriding   →  Fatigue life
+
+                        [ POWDER PROCESSING ]
+                        (from powder to)      →  Controlled pore
+                        dense solid           →  Complex geometry
+                        Pressing, Sintering   →  Near-net shape
 ```
 
 ---

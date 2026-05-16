@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MATERIALS PROCESSING MAP\n──────────────────────────────────────────────────────────────────\nRAW MATERIAL                PROCESSING                TARGET PROPERTY\n─────────────────────────────────────────────────────────────────\n                        [ THERMAL PROCESSING ]\n                        (change microstructure)\n  Metal →               Heat treatment        →  Hardness\n  Powder →              Annealing             →  Toughness\n  Polymer →             Quenching/Tempering   →  Ductility\n  Ceramic →             Thermal processing    →  Strength\n                        [ MECHANICAL DEFORM. ]\n                        (change grain flow)   →  Yield strength\n                        Rolling, forging      →  Fatigue life\n                        Drawing, extrusion    →  Surface hardness\n\n                        [ SOLIDIFICATION ]\n                        (control as-cast)     →  Porosity level\n                        microstructure        →  Grain size\n                        Casting metallurgy    →  Composition\n\n                        [ SURFACE TREATMENT ]\n                        (modify surface)      →  Wear resistance\n                        only, not bulk        →  Corrosion resist.\n                        PVD, CVD, Nitriding   →  Fatigue life\n\n                        [ POWDER PROCESSING ]\n                        (from powder to)      →  Controlled pore\n                        dense solid           →  Complex geometry\n                        Pressing, Sintering   →  Near-net shape",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## The Microstructure–Property Relationship",
+      "confidence": "candidate",
+      "text": "PROCESSING → MICROSTRUCTURE → PROPERTIES\n──────────────────────────────────────────────────────────────────\nProcessing controls:\n  Phase presence:     what phases are present (α, β, martensite)\n  Phase fraction:     how much of each phase\n  Grain size:         fine grains → higher strength, lower ductility\n  Grain orientation:  texture → anisotropic properties\n  Defects:            dislocations, vacancies, grain boundaries\n  Composition:        local alloy chemistry (segregation)\n  Second phases:      precipitates, carbides, inclusions\n\nMicrostructure determines:\n  Yield strength:     resistance to plastic deformation onset\n  UTS:                maximum stress before fracture\n  Ductility:          elongation to fracture\n  Hardness:           resistance to indentation\n  Toughness:          energy to fracture (K_IC, Charpy)\n  Fatigue strength:   cyclic stress endurance limit\n  Creep resistance:   resistance to slow deformation at temperature\n  Wear resistance:    surface hardness + toughness balance\n  Corrosion resist.:  surface chemistry, passive layer stability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## The Phase Diagram as Process Map",
+      "confidence": "candidate",
+      "text": "IRON-CARBON PHASE DIAGRAM (simplified)\n──────────────────────────────────────────────────────────────────\nTemperature (°C)\n1538 ─────── Liquid\n1495 ─── δ-iron + Liquid\n1400 ─────────────────────────────────────────── Liquid\n         δ iron     │\n1200 ─── γ (austenite) + Liquid\n                    │  Eutectic point\n1153 ─────────────────────────────────── γ + Liquid + Fe₃C\n         γ (austenite, FCC)\n  912 ─── α+γ ─────────────────────────── γ + Fe₃C (cementite)\n                    │ Eutectoid (0.76% C)\n  723 ─────────────────────────────────── α+Fe₃C (pearlite)\n         α (ferrite, BCC) + Fe₃C (cementite)\n\n0%C (pure iron)  0.76% C  1.2%  2%      4.3%  6.7%C\n                 Eutectoid                Eutectic\n\nSteels: < 2% C   Ductile iron: 2.5–4% C   Cast iron: > 2% C\n\nHEAT TREATMENT is about controlling which phases form and when.\n  Fast cool from austenite → martensite (hard, brittle)\n  Slow cool → pearlite/ferrite (soft, ductile)\n  Controlled cool → controlled hardness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "## The Processing Triangle",
+      "confidence": "candidate",
+      "text": "MATERIALS PROCESSING DECISION TRIANGLE\n──────────────────────────────────────────────────────────────────\n                     PROPERTY\n                   (what you need)\n                       ▲\n                      / \\\n                     /   \\\n                    /     \\\n                   /       \\\n          PROCESSING ─────── MICROSTRUCTURE\n         (what you do)     (what forms)\n\nCannot specify any two corners without affecting the third.\n\nExample: I need tensile strength of 1500 MPa in steel\n  Microstructure: 95% martensite, tempered at 200°C\n  Processing: quench and temper — austenitize at 850°C,\n              oil quench, temper at 200°C for 1 hour\n\nExample: I need a ductile steel (35% elongation)\n  Microstructure: ferrite + pearlite, coarse grain\n  Processing: full anneal — slow cool in furnace from ~900°C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "### Temperature–Time as the Fundamental Control Variable",
+      "confidence": "candidate",
+      "text": "THERMAL PROCESSING CONTROL\n──────────────────────────────────────────────────────────────────\nHeat treatment = controlled thermal cycle:\n  Heating rate → affects residual stress, cracking risk\n  Soak temperature → phase transformation, solubility\n  Soak time → diffusion distance, homogeneity\n  Cooling rate → determines which phases form\n  Tempering → reduce brittleness of martensite\n\nRate of phase transformation depends on:\n  Driving force (ΔG = departure from equilibrium)\n  Diffusion rate (D = D₀ × exp(-Q/RT))\n  Nucleation sites (grain boundaries, inclusions)\n\nTTT and CCT diagrams map this:\n  Time-Temperature-Transformation (isothermal hold)\n  Continuous Cooling Transformation (constant cooling rate)\n  Both show: start/finish curves for each transformation\n\nA TTT diagram is a finite state machine. States: austenite (initial), pearlite,\nbainite, martensite (terminal states). Transitions: triggered by (temperature,\ntime) pairs crossing transformation start/finish boundaries. Reading a TTT\ndiagram = reading a state transition map: given current state (austenite at T),\nwhich states are reachable and at what holding time? The \"nose\" is the\nfastest transition path. Temperature selects which transition is active.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### Diffusion and Its Implications",
+      "confidence": "candidate",
+      "text": "FICK'S FIRST LAW:\n  J = -D × (dC/dx)    flux proportional to concentration gradient\n\nFICK'S SECOND LAW:\n  ∂C/∂t = D × ∂²C/∂x²  transient diffusion\n\nARRHENIUS TEMPERATURE DEPENDENCE:\n  D = D₀ × exp(-Q/RT)\n  Q = activation energy (J/mol)\n  R = gas constant (8.314 J/mol·K)\n  T = absolute temperature (Kelvin)\n\nImplication: doubling soak temperature is NOT the same as\n  doubling soak time. Temperature has exponential effect.\n\nExample: Carburizing steel at 950°C vs 900°C\n  Case depth ~ √(D × t)\n  D(950°C)/D(900°C) ≈ exp(-Q/R × (1/1223 - 1/1173))\n  ≈ 1.5× faster diffusion at 950°C\n  → Get same case depth in 67% of the time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

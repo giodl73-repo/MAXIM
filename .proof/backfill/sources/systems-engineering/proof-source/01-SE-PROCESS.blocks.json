@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\01-SE-PROCESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ISO 15288 PROCESS GROUPS\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  AGREEMENT PROCESSES                                            │\n│  Acquisition ·· Supply                                          │\n│  (customer-supplier relationship management)                    │\n├─────────────────────────────────────────────────────────────────┤\n│  ORGANIZATIONAL PROJECT-ENABLING PROCESSES                       │\n│  Life cycle model management ·· Infrastructure management       │\n│  Portfolio management ·· Human resource management             │\n│  Quality management ·· Knowledge management                    │\n├─────────────────────────────────────────────────────────────────┤\n│  PROJECT PROCESSES                                              │\n│  Project planning ·· Project assessment and control             │\n│  Decision management ·· Risk management                         │\n│  Configuration management ·· Information management             │\n│  Measurement ·· Quality assurance                               │\n├─────────────────────────────────────────────────────────────────┤\n│  TECHNICAL PROCESSES  ◄── The core SE work                      │\n│  Stakeholder needs and requirements definition                  │\n│  System requirements definition                                 │\n│  Architecture definition ·· Design definition                   │\n│  System analysis ·· Implementation                              │\n│  Integration ·· Verification ·· Transition ·· Validation       │\n│  Operation ·· Maintenance ·· Disposal                           │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### The Logical Flow",
+      "confidence": "candidate",
+      "text": "TECHNICAL PROCESS FLOW\n──────────────────────────────────────────────────────────────────\nStakeholder needs  →  System requirements  →  Architecture\n     (what they        (what the system         (how the system\n      actually want)    must do — specified)      is structured)\n           │                   │                       │\n           ▼                   ▼                       ▼\n    Stakeholder       System Requirements        Architecture\n    Requirements      Specification (SRS)        Description\n    Review (SRR)     or Allocated Baseline      Document (ADD)\n                                                 / MBSE Model\n\nArchitecture  →  Design definition  →  Implementation\n  (system level)  (subsystem level)     (build/code)\n       │                 │                    │\n       ▼                 ▼                    ▼\n  System Design    Detailed Design     Fabricated\n  Review (SDR)     Review (DDR)        Components\n                   Preliminary &\n                   Critical Design\n                   Reviews (PDR/CDR)\n\nImplementation  →  Integration  →  Verification  →  Validation\n  (components)     (combine)        (meets spec)     (meets need)\n       │               │                 │                │\n       ▼               ▼                 ▼                ▼\n  Unit test        Integration      Test reports      Customer\n                   testing          T&E results       acceptance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### Sequential (Waterfall) Model",
+      "confidence": "candidate",
+      "text": "WATERFALL / SEQUENTIAL MODEL\n──────────────────────────────────────────────────────────────────\nConcept → Requirements → Architecture → Design → Build → Test → Deploy\n\n  ┌──────────┐\n  │ Concept  │\n  └────┬─────┘\n       │ Requirements Review\n  ┌────▼─────┐\n  │   Req.   │\n  └────┬─────┘\n       │ System Design Review\n  ┌────▼─────┐\n  │  Arch.   │\n  └────┬─────┘\n       │ Preliminary Design Review (PDR)\n  ┌────▼─────┐\n  │  Design  │\n  └────┬─────┘\n       │ Critical Design Review (CDR)\n  ┌────▼─────┐\n  │  Build   │\n  └────┬─────┘\n       │ Test Readiness Review (TRR)\n  ┌────▼─────┐\n  │   Test   │\n  └────┬─────┘\n       │ Operational Readiness Review (ORR)\n  ┌────▼─────┐\n  │ Operate  │\n  └──────────┘\n\nAdvantages: Clear phase gates, contractual milestones, auditable\nDisadvantages: Requirements discovery late, expensive late changes\nWhen: Defense/government programs, cost-plus contracts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "### The Vee Model",
+      "confidence": "candidate",
+      "text": "VEE MODEL OVERVIEW\n──────────────────────────────────────────────────────────────────\nDecompose ──────────────────────────────────────── Integrate/Verify\n   │                                                        │\nSystem         ┌──────────────────┐          System Acceptance\nRequirements   │ System Level Req │         Test (validates needs)\n   │           └────────┬─────────┘                │\nSubsystem         │     │           Subsystem Integration\nRequirements  ┌───▼─────▼───┐       Test (verifies subsystem req)\n   │          │ Subsystem   │              │\nComponent    │   Req       │    Component Verification Test\nDesign       └──────┬───────┘           │\n   │              │    │              Unit/Component Test\n   └──────────────┘    └────────────────────────────────────┘\n                           Build / Implement\n                          (bottom of the Vee)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### Spiral Model (Boehm)",
+      "confidence": "candidate",
+      "text": "SPIRAL MODEL\n──────────────────────────────────────────────────────────────────\nIterative development with explicit risk management each cycle.\n\n         Determine objectives    Identify risks\n                    \\              /\n              ────────────────────\n             /                    \\\n    Plan next       Spiral        Evaluate alternatives\n    iteration       Cycle         Risk mitigation\n             \\                    /\n              ────────────────────\n                    /              \\\n         Develop and test         Customer review\n\nEach spiral = one iteration of planning → risk reduction → development → review\nAppropriate for: large programs with significant technical risk",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "### Agile SE (SAFe / Agile + Systems Engineering)",
+      "confidence": "candidate",
+      "text": "AGILE SE INTEGRATION CHALLENGES\n──────────────────────────────────────────────────────────────────\nPure Agile (software):\n  Sprint-based, backlog, user stories\n  Works well for: software, low physical coupling\n\nSE challenge:\n  Physical hardware has long lead times (not sprint-length)\n  Safety certification requires documentation before build\n  Interface control must be locked before parallel development\n  Test campaigns are not 2-week sprints\n\nHybrid approaches:\n  SAFe (Scaled Agile Framework) with SE discipline extensions\n  \"Lean SE\": SE discipline applied lean/agile\n  Agile at subsystem level, SE waterfall at system level\n  \"Incremental commitment\" — define system-level requirements early,\n  allow subsystem design flexibility\n\nKey: requirements that define INTERFACES must be stable early.\n     Requirements internal to a subsystem can be evolved.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Design Reviews (Technical Reviews and Audits)",
+      "confidence": "candidate",
+      "text": "STANDARD SE REVIEW SEQUENCE\n──────────────────────────────────────────────────────────────────\nMCR    Mission Concept Review\n       \"Does the mission concept make sense?\"\n       Too early to have requirements, discuss concept viability\n\nSRR    System Requirements Review\n       \"Are the system requirements complete and consistent?\"\n       Top-level requirements baseline established\n       Exit criteria: requirements allocated to subsystems\n\nSDR    System Design Review\n       \"Does the architecture meet the requirements?\"\n       Functional decomposition complete\n       Major interfaces identified\n\nPDR    Preliminary Design Review\n       \"Is the design approach sound and low risk?\"\n       Subsystem requirements baselined\n       Design-to specifications issued\n       Make/buy decisions complete\n       Interface Control Documents (ICDs) drafted\n\nCDR    Critical Design Review\n       \"Is the design complete enough to build from?\"\n       Detailed design drawings/models complete\n       Analysis done (stress, thermal, EMC, etc.)\n       ICDs approved\n       Risk items resolved or have mitigation plans\n\nTRR    Test Readiness Review\n       \"Are we ready to test?\"\n       Test plans, procedures approved\n       Hardware/software ready for formal test\n\nORR    Operational Readiness Review\n       \"Are we ready to operate/deploy?\"\n       All tests complete, acceptance criteria met\n       Support infrastructure in place",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## Technical Performance Measures (TPMs)",
+      "confidence": "candidate",
+      "text": "TECHNICAL PERFORMANCE MEASURES\n──────────────────────────────────────────────────────────────────\nTPMs are the \"vital signs\" of a program's technical health.\n\nDefinition: Key system parameters tracked across development\n  against a planned trajectory from current design estimate\n  to final requirement.\n\nExample TPMs:\n  Vehicle empty weight vs. design estimate vs. requirement\n  Radar detection range vs. requirement\n  Software CPU margin vs. requirement\n  Power consumption vs. budget\n\n                      Requirement ──── (desired final value)\n  T                  /\n  P            Design\n  M           estimate──────────────\n  Value       trajectory\n        │   /\n        │  /  Actual estimate at each review\n        │ /   (updated as design matures)\n        │/\n  ──────┴────────────────────────────► Program time\n  Concept  PDR    CDR   Build  Test\n\n  If actual trend diverges from planned → early warning signal\n  Management action before late (expensive) discovery",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## Configuration Management",
+      "confidence": "candidate",
+      "text": "CONFIGURATION MANAGEMENT (CM) IN SE\n──────────────────────────────────────────────────────────────────\nCM ensures consistency between design documentation and\nas-built/as-tested hardware and software.\n\nThree baselines (MIL-HDBK-61A):\n  Functional Baseline:   System specifications (post-SRR)\n                         \"What the system must do\"\n  Allocated Baseline:    Subsystem specs, ICDs (post-PDR)\n                         \"What each subsystem must do\"\n  Product Baseline:      Detailed drawings, code (post-CDR)\n                         \"How it is built\"\n\nChange control after each baseline:\n  Engineering Change Proposal (ECP) → formal review → approve/reject\n  Deviation: one-time variance allowed before manufacture\n  Waiver: acceptance of nonconformance after manufacture\n\nDigital bridge: CM in SE = version control in software.\nFunctional baseline = API contract (public interface).\nECP process = PR review with gate keeper approval.\nProduct baseline = released artifact with version tag.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 323,
+      "heading_context": "## Risk Management in SE",
+      "confidence": "candidate",
+      "text": "SE RISK MANAGEMENT PROCESS\n──────────────────────────────────────────────────────────────────\nIdentify →  Analyze →  Plan →  Track →  Control\n\nRisk characterization:\n  Technical risk:    will the design work?\n  Schedule risk:     will it be done in time?\n  Cost risk:         will it stay in budget?\n\nRisk rating = Likelihood × Consequence\n\n         Consequence\n         1    2    3    4    5\n    ─────────────────────────────\n  5 │  5   10   15   20   25\n  4 │  4    8   12   16   20\n  3 │  3    6    9   12   15\n  2 │  2    4    6    8   10\n  1 │  1    2    3    4    5\n\n  >12 = High (mandatory mitigation plan)\n  6-12 = Medium (watch list)\n  <6  = Low (accept)\n\nRisk handling strategies:\n  Mitigate: reduce likelihood or consequence (testing, prototypes)\n  Watch: monitor for growth without immediate action\n  Accept: cost of mitigation > expected value of risk\n  Transfer: to supplier, insurance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

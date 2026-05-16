@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\04-DEFORMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DEFORMATION MECHANISMS BY TEMPERATURE\n──────────────────────────────────────────────────────────────────\nLow T / High strain rate          High T / Low strain rate\n(Cold work regime)                (Creep regime)\n──────────────────────────────    ──────────────────────────────\nDislocation glide                 Dislocation climb + recovery\nTwinning (BCC, HCP)               Grain boundary sliding\nWork hardening accumulates        No hardening accumulation\n→ Increased yield strength        → Strain rate sensitive\n→ Decreased ductility             → Time-dependent flow\n\n\"Cold work\" < 0.3 Tm              \"Hot work\" > 0.6 Tm\n\"Warm work\" 0.3–0.6 Tm\n\nTm = melting temperature in Kelvin\nAt room temperature:\n  Al (Tm=933K): T/Tm = 298/933 = 0.32 → warm for Al\n  Fe (Tm=1811K): T/Tm = 298/1811 = 0.16 → cold for steel\n  Pb (Tm=600K): T/Tm = 298/600 = 0.50 → warm for Pb\n    (Pb cannot work harden at room temperature — it self-anneals)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Edge and Screw Dislocations",
+      "confidence": "candidate",
+      "text": "DISLOCATION TYPES\n──────────────────────────────────────────────────────────────────\nEDGE DISLOCATION:\n  Extra half-plane of atoms inserted in crystal\n  Burgers vector ⊥ to dislocation line\n  Moves by glide (easy) in glide plane containing both\n  Moves perpendicular to glide plane by climb (requires diffusion)\n\n  Perfect lattice:      With edge dislocation:\n  ○ ○ ○ ○ ○ ○          ○ ○ ○ ○ ○ ○\n  ○ ○ ○ ○ ○ ○          ○ ○ ○ ○ ○ ○\n  ○ ○ ○ ○ ○ ○          ○ ○ ○ ↓ ○ ○  ← extra half-plane\n  ○ ○ ○ ○ ○ ○          ○ ○ ○ ○ ○ ○\n\nSCREW DISLOCATION:\n  Spiral stacking: lattice planes form helix around dislocation line\n  Burgers vector ∥ to dislocation line\n  Can glide on any plane containing the dislocation line\n  (More flexibility in cross-slip)\n\nMIXED DISLOCATION:\n  Most real dislocations have both edge and screw character\n  Burgers vector at angle to dislocation line",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### Critical Resolved Shear Stress (CRSS)",
+      "confidence": "candidate",
+      "text": "SCHMID'S LAW\n──────────────────────────────────────────────────────────────────\nSlip occurs when resolved shear stress on slip system exceeds CRSS:\n  τ_resolved = σ × cos(φ) × cos(λ)\n  φ = angle between load and slip plane normal\n  λ = angle between load and slip direction\n  M = cos(φ)cos(λ) = Schmid factor\n\nSlip occurs when: τ_resolved ≥ τ_critical (material constant)\n\nSchmid factor range: 0 to 0.5\n  M = 0.5: most favorably oriented grain → slips first\n  M = 0: hard orientation (load ∥ slip plane or ∥ slip direction)\n\nFCC metals (Cu, Al, Ni, γ-Fe): {111}⟨110⟩ slip systems\n  12 independent slip systems → very ductile, low CRSS\nBCC metals (α-Fe, W, Mo): {110}⟨111⟩ + other systems\n  48 possible slip systems → high CRSS, more sensitive to temperature\nHCP metals (Ti-α, Mg, Zn): limited slip systems\n  3 basal slip systems → brittle, anisotropic\n  Twinning important for deformation of Mg",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "### The Hardening Mechanism",
+      "confidence": "candidate",
+      "text": "WHY DISLOCATIONS CAUSE WORK HARDENING\n──────────────────────────────────────────────────────────────────\nDislocation density ρ increases with deformation:\n  Annealed metal: ρ ≈ 10⁶–10⁸ cm⁻²\n  Heavily cold-worked: ρ ≈ 10¹¹–10¹² cm⁻²\n\nAs dislocations multiply, they interact with each other:\n  Intersections: \"jogs\" created → point defects → immobile segments\n  Lomer-Cottrell locks: immobile dislocation formed by reaction\n  Pile-ups: dislocations behind barriers (grain boundaries) pile up\n  → Stress field of pile-up back-stress stops new dislocations\n\nResult: to continue deformation, higher stress needed\n  → Yield strength increases with strain\n  → Ductility decreases (dislocations run out of room)\n\nTAYLOR RELATION:\n  τ ≈ τ₀ + αGb√ρ\n  G = shear modulus, b = Burgers vector magnitude, α ≈ 0.5\n  Strength proportional to square root of dislocation density",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "### True Stress-Strain and Work Hardening Rate",
+      "confidence": "candidate",
+      "text": "TRUE STRESS-STRAIN CURVE\n──────────────────────────────────────────────────────────────────\nTrue stress:   σ = F/A  (current area A, not original A₀)\nTrue strain:   ε = ln(L/L₀)  (natural log)\n\nvs. Engineering:\n  σ_eng = F/A₀,  ε_eng = (L-L₀)/L₀\n  At large strains: engineering stress shows \"necking\" drop\n  True stress continues rising until fracture\n\nPOWER LAW (Hollomon equation):\n  σ = K × εⁿ\n  K = strength coefficient (material constant)\n  n = strain hardening exponent (0 ≤ n ≤ 1)\n\n  n = 0: perfectly rigid-plastic (no hardening)\n  n = 1: linear hardening\n  Typical values:\n    Copper (annealed):    n ≈ 0.54\n    Aluminum 1100:        n ≈ 0.20\n    Low carbon steel:     n ≈ 0.22\n    Stainless 304:        n ≈ 0.44\n\nHigh n → deep drawability (uniform deformation without necking)\nLow n → quick necking, limited drawability\n\nNECKING CRITERION (Considère):\n  Necking begins when dσ/dε = σ  (i.e., when n = ε at necking)\n  Therefore: true strain at necking = n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### Recovery, Recrystallization, Grain Growth",
+      "confidence": "candidate",
+      "text": "STAGES OF ANNEALING (cold-worked metal heated)\n──────────────────────────────────────────────────────────────────\nRECOVERY (low temperature, 0.3–0.5 Tm):\n  Dislocation rearrangement, annihilation\n  Residual stress decreases significantly\n  Hardness decreases slightly\n  Electrical resistivity decreases (point defects heal)\n  Subgrain structure forms (cells with low-angle boundaries)\n  No new grain boundaries formed\n\nRECRYSTALLIZATION (medium temperature, 0.4–0.6 Tm):\n  New strain-free grains nucleate and grow\n  Consumes deformed (high-energy) microstructure\n  Rapid decrease in hardness and strength\n  Recovery of ductility\n  Driving force: stored energy of cold work (dislocation density)\n\nGRAIN GROWTH (high temperature, >0.5–0.6 Tm):\n  After recrystallization complete, grains coarsen\n  Larger grains consume smaller (capillary driving force)\n  Grain boundary energy minimized\n  Grain diameter D ∝ t^(1/2) × exp(-Q/RT)\n  Reduced strength, increased ductility\n\n        Hardness\n           │\n           │╲               ← Recrystallization knee\n           │ ╲\n           │  ╲──────────────────────\n           │    Recovery zone\n           └─────────────────────────────► Temperature\n        Recovery  Recrystallization  Grain growth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "### Recrystallization Temperature",
+      "confidence": "candidate",
+      "text": "RECRYSTALLIZATION TEMPERATURE\n──────────────────────────────────────────────────────────────────\nDefinition: Temperature at which recrystallization is complete\n  in 1 hour for heavily deformed metal.\nTypically: 0.4–0.6 × Tm (Kelvin scale)\n\nMaterial dependence:\n  Pure metal:    lower Trex (~0.3 Tm) — no solute drag\n  Alloyed:       higher Trex — solute and precipitates pin boundaries\n\nApproximate recrystallization temperatures:\n  Aluminum (1xxx): ~150°C\n  Aluminum alloys (2xxx, 7xxx): 300–400°C\n  Copper:          ~200°C\n  Iron (low-C):    ~450°C\n  Nickel:          ~600°C\n  Tungsten:        ~1200°C\n\nFactors that LOWER Trex:\n  Heavier cold work (more stored energy → larger driving force)\n  Smaller grain size (more nucleation sites)\n  Purer metal (less solute drag)\n\nFactors that RAISE Trex:\n  Alloying (solute drag on boundary migration)\n  Prior warm work (partial recovery, less driving force)\n  Large initial grain size (fewer nucleation sites)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Dynamic Recrystallization (DRX)",
+      "confidence": "candidate",
+      "text": "DYNAMIC RECRYSTALLIZATION (DRX)\n──────────────────────────────────────────────────────────────────\nRecrystallization DURING deformation (not during subsequent anneal).\nOccurs in hot working when:\n  Temperature > 0.5–0.6 Tm\n  Strain rate low enough for recovery\n  Critical strain (usually ~2× strain at peak stress)\n\nMechanism:\n  Strain accumulates → dislocations pile up → nucleate new grains\n  New grains grow, then strain accumulates again → oscillating behavior\n\nConsequences in hot rolling/forging:\n  Grain is continuously refined during pass\n  Final grain size controlled by deformation conditions\n  More deformation per pass → finer grains → higher strength\n\nDYNAMIC STRAIN AGING (DSA):\n  Solutes diffuse to dislocations DURING straining\n  \"Locks\" dislocations temporarily → Portevin–Le Chatelier effect\n  Serrated stress-strain curve (saw-tooth)\n  Common in: Al-Mg, mild steel at certain T/strain rate\n  Can cause fatigue damage in structures (avoid by design or alloy choice)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "## Deformation Textures",
+      "confidence": "candidate",
+      "text": "CRYSTALLOGRAPHIC TEXTURE\n──────────────────────────────────────────────────────────────────\nRandom polycrystal: all grain orientations equally probable\n  Properties: isotropic (same in all directions)\n\nTextured material: grain orientations non-random (preferred orientation)\n  Caused by: rolling, drawing, extrusion, solidification\n\nRolling texture (FCC, Al, Cu):\n  {110}⟨112⟩ \"brass\" and {112}⟨111⟩ \"copper\" components\n  Magnetic soft iron: {110}⟨001⟩ Goss texture → easy magnetization\n    (used in transformer laminations)\n\nConsequences of texture:\n  Anisotropy:   properties different in rolling vs transverse direction\n  Earing:       deep drawn cups have \"ears\" at 45° or 90° to roll direction\n  Springback:   anisotropic springback in sheet metal bending\n  R-value (Lankford coefficient):\n    R = ε_width / ε_thickness during tensile test\n    High R → resistant to thinning → good deep drawability\n    R depends on texture; R > 1 preferred for deep drawing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "## Flow Stress and Forming Parameters",
+      "confidence": "candidate",
+      "text": "FLOW STRESS IN HOT WORKING\n──────────────────────────────────────────────────────────────────\nFlow stress σ_f depends on: temperature, strain, strain rate\n\nSimplified power law:\n  σ_f = C × ε̇ᵐ      (at constant T and ε)\n  m = strain rate sensitivity exponent\n\n  m ≈ 0.1–0.2: most metals at hot working temperatures\n  m ≈ 0.5: superplastic materials (Ti-6Al-4V at 850°C, fine grain)\n  m = 1.0: Newtonian viscous flow (glass, hot glass processing)\n\nSuperplasticity:\n  Fine grain (<10 µm) + high T (>0.5 Tm) + slow strain rate\n  → Elongations of 200–1000% without necking\n  → Used for aerospace forming (Ti-6Al-4V SPF, blow forming)\n\nZener-Hollomon parameter (hot working):\n  Z = ε̇ × exp(Q/RT)\n  Normalizes strain rate by temperature effect\n  Lower Z → finer recrystallized grain (hot worked aluminum, steel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "## Work Hardening Applications",
+      "confidence": "candidate",
+      "text": "ENGINEERING USE OF WORK HARDENING\n──────────────────────────────────────────────────────────────────\nShot peening:\n  Metal shot impacts surface → localized surface plastic deformation\n  → Compressive residual stress in surface layer\n  → Improved fatigue life (cracks initiate at tension, not compression)\n  Application: turbine blades, springs, gears, aircraft structure\n\nCold drawing (wire, tube):\n  Progressive reduction through dies → significant cold work\n  Yield strength increases with each draw pass\n  High-strength steel wire (piano wire): 2000+ MPa by cold drawing\n  Annealing between passes if too much work hardening\n\nPrestressing:\n  Autofrettage: over-pressurize gun barrel or pressure vessel\n  → Surface compressive residual stress\n  → Increased fatigue life and burst pressure\n\nSkin pass / tension leveling:\n  Light cold work (0.5–3%) on steel sheet:\n  → Eliminate yield point phenomenon (Lüders bands)\n  → Improve flatness\n  → Slight strength increase",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\06-SURFACE-TREATMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SURFACE TREATMENT TAXONOMY\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  SURFACE MODIFICATION (no new layer added)                      │\n│    Mechanical: shot peen, laser peen, burnishing (cold work)    │\n│    Thermal: induction harden, flame harden, laser harden        │\n│    Diffusion: carburize, nitride, boriding, chromizing          │\n├─────────────────────────────────────────────────────────────────┤\n│  CONVERSION COATINGS (substrate surface chemically converted)    │\n│    Anodizing (Al) → Al₂O₃ layer                                 │\n│    Phosphating (Fe) → iron phosphate                            │\n│    Chromate conversion (Al) → chrome complex                    │\n│    Bluing (Fe) → magnetite (cosmetic/mild corrosion)            │\n├─────────────────────────────────────────────────────────────────┤\n│  APPLIED COATINGS (new layer deposited)                         │\n│    PVD (Physical Vapor Deposition): sputtering, evaporation     │\n│    CVD (Chemical Vapor Deposition): thermal or plasma           │\n│    Thermal spray: HVOF, plasma spray, arc spray                 │\n│    Electroplating / electroless plating                         │\n│    Paint / organic coatings                                     │\n│    Hot-dip galvanizing / tin coating                            │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "### PVD Process Overview",
+      "confidence": "candidate",
+      "text": "PVD PROCESS\n──────────────────────────────────────────────────────────────────\nSource material (target) → vaporized by physical means\n→ vapor travels through vacuum\n→ condenses on substrate as thin film\n\nMethods:\n  Evaporation:  electron beam or resistive heating evaporates source\n                Low energy → porous coatings, limited adhesion\n                Still used for: optical coatings, decorative\n\n  Sputtering:   Argon ions (plasma) bombard target\n                Atoms ejected, travel to substrate\n                Higher energy → denser, better adhesion\n                Magnetron sputtering: most common industrial PVD\n\n  Arc evaporation: cathodic arc ignites on target → very energetic\n                   Highest ionization, best film density and adhesion\n                   Macroparticles (droplets) → surface roughness\n                   Filtered arc: eliminates macroparticles\n\nProcess conditions:\n  Vacuum: 10⁻³ to 10⁻⁶ torr\n  Temperature: 150–500°C (substrate, depends on process)\n  Coating thickness: 1–10 µm typical\n  Deposition rate: 0.1–10 µm/hour",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### PVD Limitations",
+      "confidence": "candidate",
+      "text": "PVD LIMITATIONS\n──────────────────────────────────────────────────────────────────\nLine-of-sight deposition:\n  PVD coats what it can \"see\" from source\n  Deep holes, blind features → shadowing → incomplete coverage\n  Substrate rotation helps, but deep features remain problematic\n\nTemperature limitation:\n  Most PVD processes: 150–500°C\n  Tempered steel tools: if temper temp < PVD temp → re-tempering\n  High-speed steel (M2): temper at 540°C, PVD at 480°C → OK\n  D2 cold work steel: temper at 520°C, PVD at 480°C → marginal\n\nThickness limited:\n  >10 µm: residual stress → coating spallation\n  Most PVD tools: 2–5 µm for best balance\n\nAdhesion requires:\n  Excellent surface preparation (cleaning, plasma etch)\n  Surface roughness < Ra 0.3 µm preferred\n  No contamination, oil, oxide",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### CVD Process",
+      "confidence": "candidate",
+      "text": "CVD PROCESS\n──────────────────────────────────────────────────────────────────\nReactive gases introduced into hot furnace\n→ chemical reaction at substrate surface\n→ coating material deposited\n\nExample: TiCN CVD on cemented carbide insert\n  TiCl₄ + CH₄ + N₂ + H₂ → TiCN + HCl + other products\n  Temperature: 1000–1050°C\n  Atmosphere: controlled gas mixture\n  Deposition rate: 0.5–2 µm/hour (slower than PVD)\n  Thickness: 5–20 µm (thicker than PVD)\n\nCVD coatings on carbide inserts:\n  TiC (base layer, adhesion)\n  TiCN (transition)\n  TiN or Al₂O₃ (top layer)\n  Multi-layer stack: 3–20 µm total\n  Applied to essentially ALL carbide inserts for metal cutting\n\nAdvantages over PVD:\n  Full conformal coverage (no line-of-sight limitation)\n  Greater thickness achievable\n  Al₂O₃ only practical via CVD (not PVD — too stable)\n\nDisadvantages:\n  High temperature: 900–1100°C → cannot use on hardened steel\n  Post-coat treatment may be needed (strength recovery for cemented carbide)\n  CVD residual stress → more brittle coating",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Thermal Spray",
+      "confidence": "candidate",
+      "text": "THERMAL SPRAY PROCESSES\n──────────────────────────────────────────────────────────────────\nFeedstock (powder or wire) heated to molten/semi-molten state\n→ accelerated toward substrate by gas jet\n→ impacts, flattens (splat), solidifies\n→ layer-by-layer buildup\n\nProcesses by energy level:\n  Arc spray:     electric arc melts wire\n                 Simple, cheap, high deposition, thick coatings\n                 Porosity ~5–15%\n                 Applications: corrosion coatings (zinc, aluminum)\n\n  Flame spray:   Oxy-fuel flame melts powder/wire\n                 Economical, versatile\n                 Porosity ~5–15%\n\n  Plasma spray:  DC plasma torch → 10,000–20,000°C\n                 Can spray refractory ceramics (Al₂O₃, ZrO₂)\n                 Porosity ~2–5%\n                 Applications: TBC (thermal barrier coating) on turbines\n\n  HVOF:          High-Velocity Oxy-Fuel\n                 Supersonic jet → high impact velocity → dense coating\n                 Porosity <1%, high hardness\n                 Applications: WC-Co (tungsten carbide) hard facing\n                               aircraft landing gear rebuild\n                               pump shafts\n\n  Cold spray:    Particles never melt → purely kinetic energy\n                 Below material melting → substrate/particle not overheated\n                 Copper, aluminum, titanium, steel\n                 Additive repair of high-value components",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### Thermal Barrier Coatings (TBC)",
+      "confidence": "candidate",
+      "text": "TBC SYSTEM (gas turbine hot section)\n──────────────────────────────────────────────────────────────────\nPurpose: insulate Ni superalloy substrate from hot gas (>1000°C)\n         → allows higher turbine inlet temperature\n         → increases engine efficiency\n\nThe TBC system is a layered architecture where each layer optimizes for a different function (thermal insulation, oxidation resistance, structural integrity), and the failure mode — TGO growth causing spallation — is an interface contract violation that accumulates over thermal cycling, analogous to an interface incompatibility that worsens with each deployment cycle.\n\nTBC system layers:\n  ┌────────────────────────────────────────────┐\n  │ Ceramic top coat: 7% YSZ (yttria-stabilized│\n  │ zirconia, ZrO₂+7%Y₂O₃), ~150–500 µm thick  │\n  │ Thermal conductivity: ~2 W/m·K (vs 12 for  │\n  │ substrate)  Low but nonzero temp gradient  │\n  ├────────────────────────────────────────────┤\n  │ Thermally grown oxide (TGO): α-Al₂O₃      │\n  │ Grows during service from MCrAlY oxidation │\n  │ TGO growth → eventually causes spallation  │\n  ├────────────────────────────────────────────┤\n  │ Bond coat: MCrAlY (M=Ni, Co, Fe)           │\n  │ ~100–150 µm, applied by HVOF or plasma     │\n  │ Provides adhesion for top coat             │\n  │ Al-rich → forms protective TGO             │\n  ├────────────────────────────────────────────┤\n  │ Ni superalloy substrate (CMSX-4 or similar)│\n  └────────────────────────────────────────────┘\n\nFailure: TGO grows → stresses at TBC/TGO interface → delamination\nLifetime: 1,000–3,000 hours thermal cycles (turbine start-stop)\nInspection: fluorescent indicators in coating for damage detection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Electroplating",
+      "confidence": "candidate",
+      "text": "ELECTROPLATING PRINCIPLES\n──────────────────────────────────────────────────────────────────\nMetal ions in solution reduced at cathode (part):\n  M^n+ + ne⁻ → M (deposited metal)\n\nAt anode: metal oxidizes (dissolves) to replenish solution\n  M → M^n+ + ne⁻\n\nKey parameters:\n  Current density (A/dm²): controls deposition rate, grain size\n  Bath temperature: affects grain structure, stress\n  Additives (brighteners, levelers): surface finish control\n  Thickness: set by time × current density × efficiency\n\nThickness uniformity:\n  Plating deposits preferentially on high-current-density areas\n  (edges, corners, protrusions get thicker)\n  Throwing power: how well bath deposits on recessed areas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 288,
+      "heading_context": "### Anodizing (Aluminum)",
+      "confidence": "candidate",
+      "text": "ANODIZING PROCESS\n──────────────────────────────────────────────────────────────────\nElectrolytic oxidation: aluminum becomes ANODE in acidic bath\nAl → Al₂O₃ (oxide grows into and above original surface)\n\nAl(substrate) → Al³⁺ + 3e⁻ (at surface)\nAl³⁺ + H₂O → Al₂O₃ + H⁺ (at electrolyte-oxide interface)\n\nAnodize types:\n  Type I (Chromic acid anodize):\n    6–8% chromic acid, 20–45V\n    Thinnest layer (~2–5 µm), excellent fatigue life\n    Used where corrosion resistance needed without much thickness change\n    REACH restricted (Cr⁶⁺) → Type I alternatives being developed\n\n  Type II (Sulfuric acid anodize):\n    15% H₂SO₄, 15–22V\n    Standard anodize (~5–20 µm)\n    Sealed with hot water or dichromate → corrosion resistance\n    Colored by dyeing (porous oxide structure holds dye)\n\n  Type III (Hard anodize, sulfuric acid):\n    Low temperature, high current density\n    Dense, thick layer (12–75 µm)\n    Hardness: 400–500 HV (nearly as hard as hard chrome)\n    Wear resistance, insulation\n    Dark gray/black color\n\nSealing:\n  Anodize layer is porous → seal for corrosion resistance\n  Hot water seal: 95–100°C → boehmite seals pores\n  Dichromate seal: chromate fills pores → better corrosion, restricted\n  PTFE/silicone seal: low-friction applications",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "## Corrosion Protection Strategies",
+      "confidence": "candidate",
+      "text": "CORROSION PROTECTION HIERARCHY\n──────────────────────────────────────────────────────────────────\nMaterial selection:\n  Use inherently corrosion-resistant material (SS, Al alloy, Ti)\n  Most reliable, adds to base cost\n\nSacrificial anode (cathodic protection):\n  Zinc galvanizing: Zn is more active than Fe → Zn corrodes first\n  Protects steel even where coating has holidays/pinholes\n  Also: Mg anodes on ships and underground pipes\n\nBarrier coating:\n  Paint, epoxy, powder coat → physical barrier to moisture\n  Relies on adhesion and absence of defects\n  Inspect and maintain (marine, buried structures)\n\nConversion coating + primer + topcoat (aerospace):\n  Aluminum: anodize → chromate primer → topcoat\n  Steel: phosphate → epoxy primer → polyurethane topcoat\n  Military aircraft: DOD-PRF-23827 washprimer, MIL-PRF-23377 epoxy\n\nInhibitors:\n  Chromate inhibitor in primer → self-heals damaged areas\n  Replacing chromate: REACH/RoHS → vanadates, molybdates, Ce compounds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

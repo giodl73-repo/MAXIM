@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\01-PHASE-TRANSFORMATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "TRANSFORMATION FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\n            Austenite (γ, FCC, stable above A1)\n            cooling\n               │\n               ▼\n  ┌────────────┬────────────┬──────────────────┐\n  │            │            │                  │\n  Slow         Moderate     Fast               Very fast\n  cool         cool         cool               quench\n  │            │            │                  │\n  ▼            ▼            ▼                  ▼\nPearlite +  Bainite +   Martensite +       Martensite\nFerrite     Ferrite     small amount        (pure)\n(soft,      (intermediate) of retained     (hard,\n ductile)               austenite          brittle)\n\nHardness:   ~200 HV     ~400 HV           ~600–800 HV",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 51,
+      "heading_context": "## The Iron-Carbon System in Detail",
+      "confidence": "candidate",
+      "text": "### Key Temperatures (Equilibrium, 1 atm)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### Key Temperatures (Equilibrium, 1 atm)",
+      "confidence": "candidate",
+      "text": "KEY TEMPERATURES (approximate for plain carbon steel)\n──────────────────────────────────────────────────────────────────\n1538°C  Melting point of pure iron\n1495°C  Peritectic (δ-Fe + liquid → γ)\n1153°C  Eutectic temperature (γ ↔ iron + cementite ledeburite)\n 912°C  A3 — γ↔α+γ boundary (for hypoeutectoid steels, varies with %C)\n 723°C  A1 — eutectoid temperature (pearlite ↔ austenite)\n         Always 723°C for Fe-C binary (0.76 wt% C = eutectoid)\n         Alloys shift: Ni, Mn lower A1; Cr, Mo, V, W raise A1\n 200–    Martensite start (Ms) and finish (Mf) temperatures\n -100°C  Depend strongly on carbon and alloying content\n\nAC1, AC3: temperatures on HEATING (higher than equilibrium, rate-dependent)\nAr1, Ar3: temperatures on COOLING (lower than equilibrium, rate-dependent)\nAc = chauffage (heating), Ar = refroidissement (cooling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "### The Eutectoid Reaction",
+      "confidence": "candidate",
+      "text": "PEARLITE FORMATION (eutectoid reaction)\n──────────────────────────────────────────────────────────────────\nAt 723°C:   γ (0.76%C) ──slow cool──► α (0.02%C) + Fe₃C (6.67%C)\n            austenite                   ferrite      cementite\n\nPearlite = lamellar structure of alternating α + Fe₃C plates\n  Spacing (lamellar spacing) decreases with higher undercooling\n  Finer pearlite = harder (more phase boundary area)\n\nCoarse pearlite (small undercooling, high temperature):\n  Forms just below 723°C (650–700°C range)\n  Soft (~200 HV), ductile\n\nFine pearlite (larger undercooling):\n  Forms at lower temperatures (500–650°C)\n  Harder (~300 HV), less ductile\n\nUpper bainite (350–550°C):\n  Feathery ferrite laths with carbide between laths\n  Mixed properties\n\nLower bainite (200–350°C):\n  Acicular ferrite with fine carbide within laths\n  Higher hardness than upper bainite, good toughness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### Martensite Formation",
+      "confidence": "candidate",
+      "text": "MARTENSITE: DIFFUSIONLESS TRANSFORMATION\n──────────────────────────────────────────────────────────────────\nAt fast quench rate (below Ms temperature):\n  Austenite cannot transform to equilibrium phases (pearlite/bainite)\n  Carbon atoms \"trapped\" in BCC iron → BCT (body-centered tetragonal)\n  No diffusion: carbon stays where it was\n  Volume expansion (~4%) → compressive surface stress\n\nMs temperature (approximate): depends on %C and alloying\n  Ms(°C) ≈ 539 − 423(%C) − 30.4(%Mn) − 17.7(%Ni) − 12.1(%Cr) − 7.5(%Mo)\n\n  For 1080 steel (~0.8%C): Ms ≈ 539 − 423×0.8 = 201°C\n  For 4340 steel (~0.4%C, ~1.7%Ni, ~0.8%Cr, ~0.25%Mo):\n    Ms ≈ 539 − 170 − 52 − 14 − 2 ≈ 301°C\n\nMartensite hardness: primarily controlled by %C\n  ~0.2%C → ~300 HV\n  ~0.4%C → ~500 HV\n  ~0.6%C → ~650 HV\n  ~0.8%C → ~750 HV (approaching maximum ~850 HV)\n  Above ~0.6%C: excess retained austenite appears",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### Isothermal TTT Diagram Structure",
+      "confidence": "candidate",
+      "text": "TTT DIAGRAM (0.8% C eutectoid steel)\n──────────────────────────────────────────────────────────────────\nT(°C)\n800 ─ A3 ─────────────────────────────────────\n        Austenite stable\n723 ─ A1 ─────────────────────────────────────\n650 ─         ╲  (nose)\n              ┌────────────────────┐\n600 ─      ╔══╝                    ╚═══════════\n           ║  Pearlite                        ║\n500 ─      ║  ─────────────────               ║ Bainite\n           ╚═══════════════╗                  ║\n400 ─                      ║Bainite start     ║\n                           ║                  ║\n300 ─ Ms ──────────────────║──────────────────╬──────\n                           ║                  ║\n200 ─ Mf ─                 ╚══════════════════╝\n                            Transformation\n100 ─                        complete\n      │\n      └──────────────────────────────────────────► log t(s)\n      0.1s  1s   10s  100s  1000s  10000s\n\nReading: For isothermal hold at temperature T:\n  Left curve = transformation start (1%)\n  Right curve = transformation finish (99%)\n  Below Ms: martensite forms on cooling (no time axis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### Using TTT for Isothermal Heat Treatment",
+      "confidence": "candidate",
+      "text": "AUSTEMPERING (isothermal at bainite nose):\n  Austenitize at 850°C\n  Quench rapidly to 350°C (above Ms)\n  Hold isothermally → bainite forms (30–60 min)\n  Air cool to room temperature\n\nResult: Bainite → tough, hard (400–500 HV), no quench cracks\n        (no martensite → less distortion, no temper needed)\n        Best for springs, gears, hand tools\n\nMARTEMPERING (quench to just above Ms, then air cool):\n  Austenitize at 850°C\n  Quench to just above Ms (e.g., 220°C for 1080 steel)\n  Equalize temperature throughout part\n  Air cool through Ms → uniform martensite transformation\n\nResult: Martensite with reduced thermal gradient → less distortion\n        Must still temper to reduce brittleness\n        Best for: dies, precision tools, large cross-sections",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### CCT vs TTT",
+      "confidence": "candidate",
+      "text": "CCT DIAGRAM (Continuous Cooling)\n──────────────────────────────────────────────────────────────────\nReal heat treatment ≠ isothermal hold.\nParts are cooled continuously (water quench, oil quench, air cool).\nCCT maps transformation under CONTINUOUS COOLING conditions.\n\nCCT diagram features:\n  Transformation curves shifted right + down vs TTT\n  (more time, lower temperature needed for same transformation\n   because cooling rate is passing through, not sitting at temp)\n\n  Different cooling rates plotted as lines through the diagram:\n  Line A (very fast: water quench): only martensite\n  Line B (fast: oil quench): martensite + small bainite\n  Line C (moderate: forced air): bainite + pearlite mix\n  Line D (slow: furnace): ferrite + pearlite only\n\nCritical cooling rate:\n  Fastest cooling rate that misses the pearlite nose entirely\n  → Fully martensitic structure\n  Alloy steel (4340) has much slower critical cooling rate than\n  plain carbon steel → can be quenched in oil (not water) → less distortion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "### Hardenability and the Jominy Test",
+      "confidence": "candidate",
+      "text": "HARDENABILITY\n──────────────────────────────────────────────────────────────────\nHardenability = ability of steel to harden to martensite through\n  its cross-section (NOT maximum hardness achievable).\n\nControlled by: alloying elements that shift TTT nose to right\n  (slow transformation → gives time for martensite to form)\n  Mn, Cr, Mo, Ni, V all increase hardenability\n\nJominy End-Quench Test (ASTM A255):\n  Standardized round bar, one end quenched with water\n  Hardness measured at intervals from quenched end\n\n  ┌─────────────────────────────────────────────┐\n  │ Bar cross-section                           │\n  │ ←─────── decreasing cooling rate ─────────► │\n  │                                             │\n  │ Hardness vs. distance from quenched end     │\n  │                                             │\n  │  H  ─────╲                                  │\n  │  a         ╲                                │\n  │  r          ╲─────────────────────────────  │\n  │  d                                          │\n  │       Distance from quenched end            │\n  └─────────────────────────────────────────────┘\n\n  Steep drop: low hardenability (plain carbon steel)\n  Flat line:  high hardenability (alloy steel like 4340)\n  → 4340 hardens fully even at 50mm from quench end\n  → 1080 hardens only 5mm from quench end",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "### Nucleation and Growth",
+      "confidence": "candidate",
+      "text": "NUCLEATION THEORY IN PHASE TRANSFORMATIONS\n──────────────────────────────────────────────────────────────────\nΔG_total = -ΔG_v × V + γ × A    (nucleus formation energy balance)\n  ΔG_v = free energy per unit volume (driving force, decreases with T↓)\n  γ = interfacial energy (always positive cost)\n  V = volume, A = surface area\n\nCritical radius r*:\n  r* = 2γ / ΔG_v\n  Nuclei smaller than r* dissolve back (no free energy benefit)\n  Nuclei larger than r* grow spontaneously\n\nHomogeneous nucleation (within perfect crystal):\n  Very high ΔG* barrier\n  Rarely occurs in practice (supercooling required)\n\nHeterogeneous nucleation (at grain boundaries, inclusions, surfaces):\n  Reduced surface energy at existing boundaries\n  Lower ΔG* → nucleation at small undercooling\n  Always dominates in real materials\n\nEffect of temperature:\n  Closer to A1: low ΔG_v (small driving force), slow nucleation\n  Far below A1: high ΔG_v (fast nucleation), but slower diffusion\n  Pearlite nose = maximum transformation rate (optimum T)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "### Precipitation Hardening Mechanism",
+      "confidence": "candidate",
+      "text": "PRECIPITATION SEQUENCE (Al-Cu example, 2XXX series)\n──────────────────────────────────────────────────────────────────\nSolution treatment: hold at ~520°C → all Cu in solution (supersaturated)\nWater quench: freeze Cu in solution (no time to precipitate)\n\n  Metastable supersaturated solid solution (SSSS)\n       │\n       │  Natural aging (room temperature) or artificial aging\n       ▼\n  GP (Guinier-Preston) zones:\n    Cu-enriched coherent platelets (1–2 nm)\n    Cohere with Al lattice → elastic strain field → hardening\n    Peak: GP zones form (~12-48 h at room temp, or hours at 100°C)\n       │\n       │  Overaging (higher temperature or longer time)\n       ▼\n  θ'' → θ' → θ (equilibrium CuAl₂):\n    Becomes incoherent with lattice → strain fields diminish\n    Hardness decreases (overaging)\n\n  T6 temper = solution treat + peak age (130°C/24h for 2024)\n  T4 temper = solution treat + natural age (room temp)\n  T73 temper = overaged to improve corrosion resistance (sacrifices strength)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "## Phase Diagram Reading for Processing",
+      "confidence": "candidate",
+      "text": "LEVER RULE: Phase fractions at two-phase equilibrium\n──────────────────────────────────────────────────────────────────\nFor a two-phase region with phases α and β at composition C₀:\n\n  Weight fraction of β = (C₀ - Cα) / (Cβ - Cα)\n  Weight fraction of α = (Cβ - C₀) / (Cβ - Cα)\n\n  [─────────────────────────────────────────────]\n  Cα         C₀                              Cβ\n\n  \"Lever\" balances at C₀:\n  f_β × (C₀ - Cα) = f_α × (Cβ - C₀)\n\nExample: 0.4%C steel at 800°C (α+γ region):\n  Cα (ferrite) = 0.02%C\n  Cγ (austenite) = 0.65%C\n  f_γ = (0.4 - 0.02)/(0.65 - 0.02) = 0.38/0.63 = 60% austenite\n  f_α = 40% ferrite",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials-processing:powder-processing
+kind: guide
+module: materials-processing
+section: materials-processing
+title: Powder Processing and Sintering
+status: source-custody
+source_custody: partial
+current_path: materials-processing/07-POWDER-PROCESSING.md
+canonical_path: materials-processing/07-POWDER-PROCESSING.md
+backsource_ids: [proof-backfill:materials-processing:07-powder-processing, git-history:materials-processing:07-powder-processing]
+concepts: [powder, processing]
+root_concepts: [powder, processing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Powder Processing and Sintering
 
 ## The Big Picture

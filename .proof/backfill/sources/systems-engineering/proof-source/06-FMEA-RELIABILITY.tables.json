@@ -1,0 +1,104 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\06-FMEA-RELIABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 91,
+      "heading_context": "## FMEA (Failure Mode and Effects Analysis)",
+      "headers": [
+        "Item",
+        "Function",
+        "Failure Mode",
+        "Local Effect",
+        "End Effect",
+        "S",
+        "O",
+        "D",
+        "RPN",
+        "Action"
+      ],
+      "rows": [
+        [
+          "Fuel pump",
+          "Deliver fuel at 50 psi",
+          "Pump fails to rotate",
+          "No fuel flow",
+          "Engine flame-out",
+          "9",
+          "2",
+          "3",
+          "54",
+          "Add redundant pump"
+        ],
+        [
+          "Fuel pump",
+          "Deliver fuel at 50 psi",
+          "Pump delivers low flow",
+          "Reduced pressure",
+          "Engine underpowered",
+          "6",
+          "3",
+          "4",
+          "72",
+          "Low-pressure warning"
+        ],
+        [
+          "Check valve",
+          "Prevent backflow",
+          "Fails open",
+          "Backflow",
+          "Fuel system contamination",
+          "7",
+          "2",
+          "5",
+          "70",
+          "Test at maintenance interval"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 434,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Find all ways a system can fail",
+          "FMEA (bottom-up)"
+        ],
+        [
+          "Find what causes a specific failure",
+          "FTA (top-down)"
+        ],
+        [
+          "Quantify probability of bad outcome",
+          "FTA with failure rates"
+        ],
+        [
+          "Prioritize failure modes for mitigation",
+          "FMEA RPN or FMECA criticality"
+        ],
+        [
+          "Find single points of failure",
+          "FMEA single-effect items or FTA single-element MCS"
+        ],
+        [
+          "Calculate system MTBF from components",
+          "RBD + failure rate data"
+        ],
+        [
+          "Predict electronics reliability",
+          "MIL-HDBK-217F (defense) or Telcordia SR-332 (commercial)"
+        ],
+        [
+          "Design to availability requirement",
+          "MTBF + MTTR calculation"
+        ]
+      ]
+    }
+  ]
+}

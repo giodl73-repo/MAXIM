@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:systems-engineering:fmea-reliability
+kind: guide
+module: systems-engineering
+section: systems-engineering
+title: FMEA, Fault Trees, and Reliability Engineering
+status: source-custody
+source_custody: partial
+current_path: systems-engineering/06-FMEA-RELIABILITY.md
+canonical_path: systems-engineering/06-FMEA-RELIABILITY.md
+backsource_ids: [proof-backfill:systems-engineering:06-fmea-reliability, git-history:systems-engineering:06-fmea-reliability]
+concepts: [fmea, reliability]
+root_concepts: [fmea, reliability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # FMEA, Fault Trees, and Reliability Engineering
 
 ## The Big Picture

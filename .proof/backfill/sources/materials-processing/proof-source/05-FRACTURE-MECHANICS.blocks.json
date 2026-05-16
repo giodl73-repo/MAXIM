@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\05-FRACTURE-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WHY FRACTURE MECHANICS EXISTS\n──────────────────────────────────────────────────────────────────\nClassical stress analysis:                 Fracture mechanics:\n  Safe if σ < σ_uts                         Accounts for existing cracks\n  Assumes no defects                         Inevitable in real structures\n  Fails when:\n    Liberty ships fractured at             Griffith (1921): cracks are sharp\n    stresses well below σ_uts              stress concentrators → local stress\n    Comet aircraft disintegrated           at crack tip → ∞ for perfectly sharp\n    at stress levels that                  crack in elastic solid\n    \"should have been safe\"\n\nAnswer: real structures ALWAYS have cracks.\n  The question is not \"is there a crack?\"\n  The question is \"at what size does this crack become critical?\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "### The Stress Intensity Factor K",
+      "confidence": "candidate",
+      "text": "STRESS INTENSITY FACTOR (K)\n──────────────────────────────────────────────────────────────────\nK characterizes the stress field near a crack tip:\n  σ_ij ≈ K / (√(2πr)) × f_ij(θ)\n\n  where r = distance from crack tip, θ = angle\n\nK = Y × σ × √(πa)\n  Y = geometry factor (dimensionless, from handbooks)\n  σ = applied stress (MPa)\n  a = crack half-length (m) for internal crack\n      crack length for edge crack\n\nUnits: MPa√m  (or ksi√in in old US literature)\n\nThree modes:\n  Mode I: Opening (tension perpendicular to crack plane) — dominant\n  Mode II: Sliding (shear in crack plane, in-plane)\n  Mode III: Tearing (shear in crack plane, out-of-plane)\n\nFracture occurs when: K_I = K_IC\n  K_IC = plane-strain fracture toughness (material property)\n  Minimum K needed to fracture in most severe (plane strain) condition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Critical Crack Size and Safety",
+      "confidence": "candidate",
+      "text": "FRACTURE MECHANICS DESIGN EQUATION\n──────────────────────────────────────────────────────────────────\nAt fracture: K_IC = Y × σ_f × √(πa_c)\n\nThree linked variables — given any two, solve for third:\n\nSCENARIO 1: Given K_IC and σ, find critical crack size a_c\n  a_c = (1/π) × (K_IC / (Y × σ))²\n\n  Example: 4340 steel, K_IC = 50 MPa√m, σ = 600 MPa, Y = 1.0\n  a_c = (1/π) × (50/600)² = (1/π) × 0.00694 = 2.2 mm\n  Any crack larger than 2.2 mm → catastrophic fracture at 600 MPa\n\nSCENARIO 2: Given K_IC and a, find fracture stress σ_f\n  σ_f = K_IC / (Y × √(πa))\n  Used for: retired aircraft with known crack sizes (NDT results)\n\nSCENARIO 3: Given σ and a, check if material K_IC is sufficient\n  K_I = Y × σ × √(πa)\n  Compare to K_IC of candidate materials\n\nSAFETY FACTOR:\n  N = K_IC / K_I  (applied)\n  N = a_c / a_detected  (if NDT finds crack of size a)\n  Typically N ≥ 2–4 for non-critical structure\n  Aerospace damage tolerance: find crack, verify it won't grow to critical\n    size before next inspection interval",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Ductile vs Brittle Fracture",
+      "confidence": "candidate",
+      "text": "FRACTURE MODE COMPARISON\n──────────────────────────────────────────────────────────────────\nBRITTLE FRACTURE:\n  Little or no plastic deformation before fracture\n  Crack propagates rapidly (near speed of sound in material)\n  Fracture surface: flat, crystalline appearance (cleavage)\n  Common in: ceramics, glass, BCC metals at low T\n  Energy absorbed: minimal\n  Macroscopic warning: none (sudden)\n\nDUCTILE FRACTURE:\n  Significant plastic deformation precedes fracture\n  Fracture surface: fibrous, dimpled (microvoid coalescence)\n  Common in: FCC metals (Al, Cu), BCC steel at high T\n  Energy absorbed: substantial (dimples = microvoid nucleation and growth)\n  Macroscopic warning: necking, distortion visible before fracture\n\nDUCTILE-BRITTLE TRANSITION (DBT):\n  BCC metals (ferritic steel, W, Mo) transition from ductile to brittle\n  as temperature decreases. FCC metals (Al, Cu, austenitic SS) do NOT.\n\n  Ductile-Brittle Transition Temperature (DBTT):\n    Measured by Charpy impact test (energy vs temperature curve)\n    Ferritic steel: DBTT ≈ 0°C to −50°C depending on composition\n    High-N steel: higher DBTT (embrittled)\n    Ni additions: lower DBTT (better low-temp toughness)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "### S-N (Wöhler) Curves",
+      "confidence": "candidate",
+      "text": "S-N CURVE STRUCTURE\n──────────────────────────────────────────────────────────────────\nStress amplitude\n  │\n  │ High stress\n  │  ●\n  │    ●\n  │      ●  Low cycle (LCF)\n  │        ●\n  │          ●──── Endurance limit (steel only)\n  │                (no failure below this stress, regardless of N)\n  │\n  │                For aluminum, no true endurance limit\n  │                (failure eventually at any stress)\n  └─────────────────────────────────────────────────────────► log N\n     10²    10³   10⁴   10⁵   10⁶   10⁷   10⁸\n                         ↑\n                    ~10⁷ cycles = commonly used \"infinite life\"\n\nFerrous (steel): True endurance limit σ_e ≈ 0.5 × UTS (for polished bar)\nNon-ferrous (Al, Ti): Use σ at 10⁷ or 10⁸ cycles (no true limit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "### Factors That Reduce Fatigue Life",
+      "confidence": "candidate",
+      "text": "FATIGUE REDUCTION FACTORS\n──────────────────────────────────────────────────────────────────\nSurface finish:\n  Rough surface → stress concentrations → early crack initiation\n  Polished specimen (S-N data): Ra 0.4 µm\n  Machined shaft: Ra 1.6 µm → 80% of polished endurance\n  Hot-rolled surface: Ra 6 µm → 50–60% of polished\n  Corroded surface: 30–50% reduction\n\nStress concentrations (Kt):\n  Notch, keyway, shoulder fillet, hole, thread → amplifies stress\n  Kt = σ_local_max / σ_nominal\n  Fatigue notch factor Kf = 1 + q(Kt-1)\n  q = notch sensitivity (0 = no sensitivity, 1 = full effect)\n  Fine-grained materials: high q → more notch sensitive\n\nMean stress effect (Goodman relationship):\n  Fatigue life decreases as mean stress increases (tensile mean)\n  Goodman: σ_a/σ_e + σ_m/σ_UTS = 1\n  (σ_a = alternating component, σ_m = mean, σ_e = endurance limit)\n\nCompressive residual stress:\n  IMPROVES fatigue life (opposes crack opening)\n  Shot peen, case harden, autofrettage all add compressive surface stress\n\nSize effect:\n  Larger specimens have lower fatigue strength\n  More volume at high stress → higher probability of initiating crack",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Paris Law (Fatigue Crack Growth)",
+      "confidence": "candidate",
+      "text": "PARIS LAW: DA/DN = C × ΔK^m\n──────────────────────────────────────────────────────────────────\nda/dN = C × (ΔK)^m\n\nda/dN = crack growth rate (m/cycle or in/cycle)\nΔK    = stress intensity factor RANGE = K_max - K_min = Y × Δσ × √(πa)\nC, m  = material constants (from crack growth test data)\n         m ≈ 2–4 for most metals (steel: m ≈ 3, Al: m ≈ 4)\n\nFATIGUE CRACK GROWTH CURVE (da/dN vs ΔK):\n               log(da/dN)\n                     │              Region III:\n              Rapid  │            unstable crack\n              growth │          /  growth (K_IC)\n                     │         /\n              Paris  │       /  slope = m\n              regime │     /\n                     │   /\n              Thresh │ /\n              hold   ◄ ΔK_th (threshold — no growth below this)\n                     └──────────────────────────────► log(ΔK)\n\nΔK_th (threshold):  crack does not grow below this ΔK\n  Steel: ~5–10 MPa√m\n  Aluminum: ~1–3 MPa√m (lower threshold = more crack growth concern)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### Damage Tolerance and Inspection Intervals",
+      "confidence": "candidate",
+      "text": "DAMAGE TOLERANCE APPROACH (aircraft structures)\n──────────────────────────────────────────────────────────────────\nPhilosophy: cracks are inevitable; design so they are detectable\n  before they become critical.\n\n1. Assume initial crack size = NDT detection threshold\n   (e.g., NDT finds cracks > 0.5mm: assume a_initial = 0.5mm)\n\n2. Calculate crack growth life from a_initial to a_critical\n   Integrate Paris law: N = ∫(da) / (C × (Y × Δσ × √(πa))^m)\n\n3. Set inspection interval = fraction of calculated growth life\n   Typical: inspect at ≤ half the calculated life\n   (Factor of 2 safety on inspection intervals)\n\n4. At each inspection: if crack found below a_critical → OK, reinspect\n   If crack at or near a_critical → repair or retire\n\nFAR Part 25 (airworthiness):\n  Two-load-path (fail-safe) structures required where possible\n  Single-load-path: must pass damage tolerance analysis\n  Critical crack detection must be achievable with available NDT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 284,
+      "heading_context": "## Fracture Toughness Testing",
+      "confidence": "candidate",
+      "text": "### K_IC Test (ASTM E399)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "### K_IC Test (ASTM E399)",
+      "confidence": "candidate",
+      "text": "PLANE-STRAIN K_IC TEST\n──────────────────────────────────────────────────────────────────\nSpecimen types: compact tension (CT), single edge notch beam (SENB)\n  Pre-cracked: fatigue pre-crack at notch root\n  Sharp natural crack: ΔK must be < 0.002 E b (specimen thickness b)\n\nTest conditions:\n  Slow, monotonic loading\n  Load-displacement curve measured\n  K_IC = f(P_Q, B, W, a₀)\n\nValidity requirements (plane strain):\n  B ≥ 2.5 (K_IC/σ_YS)²     specimen thickness\n  a ≥ 2.5 (K_IC/σ_YS)²     crack length\n  W-a ≥ 2.5 (K_IC/σ_YS)²   remaining ligament\n\nIf requirements not met: K_Q (provisional value, not valid K_IC)\n  High-strength materials (σ_YS high): easier to meet thickness req\n  Tough, low-strength materials: need very thick specimens for plane strain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "### Charpy Impact Test",
+      "confidence": "candidate",
+      "text": "CHARPY IMPACT TEST\n──────────────────────────────────────────────────────────────────\nStandardized notched bar struck by pendulum hammer\nMeasures energy absorbed in fracture (joules)\nRapid, cheap, qualitative → widely used for acceptance testing\n\nNOT the same as K_IC:\n  Dynamic loading (vs. quasi-static K_IC)\n  No stress intensity factor units\n  Correlations to K_IC exist but are empirical\n\nKey uses:\n  DBTT (ductile-brittle transition temperature) determination\n  Acceptance testing (ASTM A370: structural steel CVN requirements)\n  Weld qualification (heat-affected zone toughness)\n  Low-temperature toughness verification (cryogenic structures)\n\nDBTT from Charpy:\n  Run tests at multiple temperatures → energy vs T curve\n  DBTT = temperature where 50% of fracture surface is cleavage\n         or where energy = 27 J (ASTM A36/A572 spec)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Fractography (Fracture Surface Analysis)",
+      "confidence": "candidate",
+      "text": "FRACTOGRAPHIC FEATURES\n──────────────────────────────────────────────────────────────────\nOVERLOAD (monotonic fracture):\n  Ductile: dimpled surface (microvoid coalescence)\n    Dimple size ~ inclusion/precipitate spacing\n  Brittle: river marks (cleavage)\n    River marks converge on crack origin (use to trace back)\n    Herringbone pattern on macroscale\n\nFATIGUE:\n  Beach marks (macro): curved parallel marks, visible to naked eye\n    Each mark = change in loading or crack arrest\n    Converge to origin (find origin with beach marks)\n  Striations (micro): SEM visible (~1 nm to µm/cycle spacing)\n    Each striation = one load cycle\n    Count striations → quantify growth rate at that location\n  Ratchet marks: multiple initiation sites (overloaded or corrosion)\n\nSTRESS CORROSION CRACKING (SCC):\n  Brittle-looking fracture in ductile material\n  Intergranular (grain boundary attack) or transgranular\n  Associated with specific material/environment combinations:\n    High-strength Al in NaCl or moist air\n    Brass in ammonia\n    Stainless in hot chlorides\n\nHYDROGEN EMBRITTLEMENT:\n  Brittle fracture, intergranular or transgranular\n  Whittle-like marks, no dimples\n  Delayed fracture (hours or days after loading)\n  Common: high-strength steel fasteners with cadmium plating,\n          electroplated parts (hydrogen from plating bath)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

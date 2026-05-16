@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\03-SOLIDIFICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SOLIDIFICATION FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\nLiquid metal at liquidus temperature\n        │\n        ▼  undercooling (driving force for solidification)\nNucleation: first crystals form\n        │\n        ▼  crystal growth into liquid\nCrystal growth: dendrites extend into undercooled liquid\n        │\n        ▼  latent heat of fusion released, slows cooling\nDendritic solidification: branching tree-like growth\n        │\n        ▼  final liquid solidifies between dendrite arms\nSolidification complete: as-cast grain structure formed\n\nResult determines:\n  Grain size (coarse → lower strength, more ductility)\n  Grain orientation (columnar vs equiaxed)\n  Segregation (composition variation within grains)\n  Porosity (voids from shrinkage and gas)\n  Inclusions (oxides, sulfides, non-metallic phases)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### Undercooling and Nucleation",
+      "confidence": "candidate",
+      "text": "SOLIDIFICATION NUCLEATION\n──────────────────────────────────────────────────────────────────\nLiquid must be below Tm (undercooled) for solidification to occur.\nDriving force: ΔGv = ΔHf × ΔT / Tm\n  (greater undercooling ΔT → stronger driving force)\n\nHomogeneous nucleation:\n  Requires ΔT ≈ 100–300°C undercooling for metals\n  Rarely achieved in casting (mold walls and heterogeneous sites prevent it)\n\nHeterogeneous nucleation (dominant in practice):\n  Nucleation on: mold wall, oxide particles, added inoculants\n  Lower energy barrier → nucleation at small undercooling (1–10°C)\n  More nucleation sites → finer grain size\n\nINOCULATION (grain refinement):\n  Deliberately add nucleants to melt → many more nucleation sites\n  → Finer equiaxed grain structure → better mechanical properties\n\n  Steel:    Titanium + nitrogen (TiN nucleants)\n  Aluminum: Ti + B (TiAl₃ + TiB₂ nucleants), grain refiner rod\n  Cast iron: Ferrosilicon inoculant (promotes graphite nucleation)\n  Magnesium: Zr additions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### Dendritic Structure",
+      "confidence": "candidate",
+      "text": "DENDRITIC GROWTH MECHANISM\n──────────────────────────────────────────────────────────────────\nDendrite = tree-like crystal growing with preferential orientation\n\n        Primary arm\n          │\n          ├─── Secondary arm ──── Tertiary arm\n          │       (SDAS)\n          ├─── Secondary arm\n          │\n          └─── Secondary arm\n\nSDAS = Secondary Dendrite Arm Spacing\n  Controls microsegregation and post-solidification properties\n\nSDAS depends on cooling rate:\n  Fast cooling → small SDAS (finer dendrites)\n  SDAS ∝ (cooling rate)^(-1/3) typically\n\n  Die cast aluminum: SDAS ≈ 5–15 µm\n  Sand cast aluminum: SDAS ≈ 50–100 µm\n  Directionally solidified (single crystal): columnar, SDAS controlled",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "### Microsegregation",
+      "confidence": "candidate",
+      "text": "MICROSEGREGATION (CORING)\n──────────────────────────────────────────────────────────────────\nDuring dendritic solidification, solute rejected at solid-liquid interface.\nFirst material to solidify: lower solute content (lean)\nLast material to solidify (interdendritic): higher solute content (rich)\n\nAl-Cu alloy example (2024):\n  Dendrite center: ~3% Cu\n  Interdendritic: ~6% Cu (enriched)\n  Eutectic phase (CuAl₂) at grain boundaries (if >5.65% Cu locally)\n\nEffects:\n  Non-uniform mechanical properties within grain\n  Incipient melting during heat treatment (hot spots in Cu-rich zones)\n  Corrosion preferentially attacks Cu-rich interdendritic regions\n\nRemedy: Homogenization anneal\n  Heat to just below solidus for many hours\n  Diffusion homogenizes composition\n  SDAS → determines homogenization time (D × t ∝ SDAS²)\n  Al alloys: 460–520°C for 12–24 hours (before solution treatment)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### Macrosegregation",
+      "confidence": "candidate",
+      "text": "MACROSEGREGATION\n──────────────────────────────────────────────────────────────────\nComposition variation over large scale (cm to meters).\nCaused by: bulk fluid flow, gravity, dendrite settling.\n\nTypes:\n  Normal segregation:   solute-rich liquid flows to ingot center/top\n                        as solidification progresses from outside in\n  Inverse segregation:  solute-rich liquid squeezes outward\n                        (pressure from shrinkage)\n\nA-segregates and V-segregates:\n  Flow channels in ingot casting create tubes of high-solute material\n  \"A-segregates\" = inclined channels\n  \"V-segregates\" = central vertical channels\n  Dangerous defects in large forgings (must be inspected ultrasonically)\n\nRemedy:\n  Electromagnetic stirring (EMS) in continuous casting\n  Refinement of casting practice (superheat reduction, cooling rate increase)\n  Ingot cropping: discard segregated top (pipe zone)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### Porosity",
+      "confidence": "candidate",
+      "text": "TYPES OF POROSITY\n──────────────────────────────────────────────────────────────────\nSHRINKAGE POROSITY:\n  Metal shrinks ~2–7% in volume on solidification\n  Last metal to solidify (hot spots) has no liquid feed\n  → Voids form where liquid cannot reach\n\n  Macroporosity (pipe, cavity): large void, detectable by radiograph\n  Microporosity: distributed fine voids between dendrites\n  Occurs in: isolated \"hot spots\", thick sections, poor riser design\n\n  Prevention:\n    Solidification from thin → thick → riser (directional solidification)\n    Large risers that stay liquid while part solidifies\n    Chills (metal inserts) to accelerate local cooling\n    Pressure casting or squeeze casting\n\nGAS POROSITY:\n  Dissolved gas (H₂ in Al, N₂/CO in steel) comes out of solution\n  Solubility of gas in liquid >> in solid → gas rejected on solidification\n  → Spherical voids (distinguishable from shrinkage by shape)\n\n  Source in aluminum: moisture on charge material, hydrogen from moisture\n    2Al + 3H₂O → Al₂O₃ + 3H₂ (at casting temperature)\n    Dissolved H₂ forms spherical pores on solidification\n  Prevention: degas treatment (rotary degassing with N₂/Cl₂)\n  Testing: reduced pressure test (RPT), density index\n\nCOMBINED SHRINKAGE + GAS:\n  Most common: irregular voids at hot spots filled with gas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Hot Tearing / Hot Cracking",
+      "confidence": "candidate",
+      "text": "HOT TEARING (HOT CRACKING)\n──────────────────────────────────────────────────────────────────\nCrack that forms in semi-solid state (mushy zone) as metal contracts.\nBetween dendrites where strength is nearly zero.\n\nMechanism:\n  Dendrite skeleton forms → starts to contract on cooling\n  Interdendritic liquid feeds contraction\n  If feeding insufficient → tensile stress in mushy zone\n  → Hot tear forms (wide, branching, oxide-filled crack)\n\nSusceptibility increases with:\n  Wide solidification range (large mushy zone)\n  High shrinkage alloys\n  Geometric constraints on contraction\n  Insufficient interdendritic feeding\n\nSusceptible alloys:\n  Al-Cu alloys (2024): yes (need controlled pouring)\n  Al-Si alloys (356): no (Si reduces shrinkage, narrow mushy zone)\n  High-carbon steel: susceptible\n  Single-crystal Ni superalloys: major concern → casting practice critical\n\nPrevention:\n  Add Zr to Al-Cu (grain refinement → more paths for liquid feeding)\n  Optimize alloy composition (Si in Al alloys)\n  Preheat dies to reduce thermal gradients\n  Modify die design to avoid strain concentration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "### Directional Solidification (DS) and Single Crystal (SX)",
+      "confidence": "candidate",
+      "text": "DIRECTIONAL SOLIDIFICATION (DS)\n──────────────────────────────────────────────────────────────────\nControlled heat extraction from one end of casting → columnar grains\ngrown parallel to heat flow direction.\n\nPurpose:\n  Grain boundaries perpendicular to thermal/mechanical stress eliminated\n  High-temperature creep resistance improved (no transverse grain boundaries)\n  Applied to: Ni superalloy turbine blades and vanes\n\nProcess:\n  1. Part mold in vacuum furnace\n  2. Molten superalloy poured\n  3. Mold withdrawn slowly from furnace (10–25 mm/min)\n  4. Temperature gradient maintained: solid below, liquid above\n  5. Solidification front moves upward → columnar grains aligned\n\nSINGLE CRYSTAL (SX):\n  Same as DS but with a spiral selector or \"grain selector\" at base\n  Only one grain orientation passes through spiral\n  Entire turbine blade is ONE crystal → no grain boundaries at all\n  Maximum creep resistance at turbine inlet temperature (>1000°C)\n  Commercial alloys: CMSX-4, René N6, PWA 1484\n\nProperty comparison:\n  Equiaxed: baseline\n  DS: 2× creep life vs equiaxed at same conditions\n  SX: 5–10× creep life vs equiaxed\n  → Enables 50–100°C higher turbine inlet temperature\n  → 2–5% increase in engine efficiency per 10°C turbine temp increase",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### Cast Iron Solidification",
+      "confidence": "candidate",
+      "text": "CAST IRON SOLIDIFICATION\n──────────────────────────────────────────────────────────────────\nCarbon content 2.5–4% → eutectic solidification dominates\n\nGray iron (flake graphite):\n  Si promotes graphite (not cementite) formation\n  Flake graphite forms during eutectic solidification\n  Casting properties: good machinability, damping, compressive strength\n  Tensile strength limited by stress concentrations at graphite flakes\n  Grade: ASTM A48 (30B, 35B, 40B by tensile strength)\n\nDuctile (nodular/spheroidal graphite) iron:\n  Mg + Ce additions → graphite forms spheres, not flakes\n  Treatment: Mg treatment in ladle, then inoculation\n  Much higher ductility and tensile strength vs gray iron\n  Grade: ASTM A536 (65-45-12, 80-55-06, 100-70-03: UTS-Yield-Elongation)\n  Applications: crankshafts, gears, valves, automotive structural\n\nWhite iron:\n  Fast cooling OR low Si → Fe₃C (cementite) forms instead of graphite\n  Very hard, brittle, white fracture surface\n  Used for wear applications (mill liners, pump impellers)\n\nMalleable iron:\n  Start as white iron (cementite), then anneal:\n  950–1050°C → temper carbon rosettes form from Fe₃C\n  Better ductility than white, machinability better than ductile\n  Largely superseded by ductile iron (faster to produce)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "### Aluminum Alloy Solidification",
+      "confidence": "candidate",
+      "text": "ALUMINUM CASTING ALLOY SOLIDIFICATION\n──────────────────────────────────────────────────────────────────\nA356 (Al-7Si-0.3Mg): most common sand/permanent mold cast alloy\n  Near-eutectic composition → excellent fluidity\n  Al-Si eutectic (12.6% Si) solidifies last, fills all spaces\n  As-cast: coarse eutectic Si particles → poor ductility\n\nModification (Sr, Na addition):\n  Na or Sr (50–200 ppm) → changes Si particle morphology\n  Fibrous/modified eutectic → improved ductility\n  Eutectic solidifies at lower temperature (thermal analysis detectable)\n  Sr treatment: lasts for hours; Na treatment: shorter life\n\nGrain refinement (Ti-B):\n  Al-Ti-B grain refiner rod added to melt\n  TiAl₃ + TiB₂ particles nucleate α-Al grains\n  Result: fine equiaxed α-Al → better properties, reduced hot tearing\n\nCorrect sequence:\n  1. Melt\n  2. Add grain refiner (Ti-B rod)\n  3. Add modifier (Sr)\n  4. Degas (rotary degassing)\n  5. Clean flux\n  6. Pour\n\nA380 (Al-8.5Si-3.5Cu): die casting alloy\n  Lower freezing range than A356\n  Excellent die castability (high Si, good fluidity)\n  Cu addition → some precipitation hardening possible\n  Cannot be heat treated effectively (die casting = subsurface porosity\n    → T6 treatment causes blistering)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "## Casting Simulation",
+      "confidence": "candidate",
+      "text": "SOLIDIFICATION SIMULATION\n──────────────────────────────────────────────────────────────────\nSoftware tools: MAGMAsoft, ProCAST, FLOW-3D, AnyCasting\n\nPhysics modeled:\n  Heat transfer: FEA/FVM of thermal fields\n  Fluid flow: filling, turbulence, cold shuts\n  Solidification: thermal gradients, solidification front\n  Porosity prediction: feeding, Niyama criterion\n  Residual stress: thermal contraction\n\nNiyama criterion:\n  Predicts interdendritic shrinkage porosity location:\n  Ny = (dT/dx) / √(dT/dt) [°C^0.5 s^0.5 mm^-1]\n  Low Ny → poor feeding → shrinkage risk\n  Threshold varies by alloy: Al ~1.0, Steel ~0.1\n\nApplications of simulation:\n  Optimize riser design before cutting tooling\n  Identify hot spots, gate locations\n  Predict where macro-porosity will form\n  Reduce trial-and-error (expensive scrap + tooling rework)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

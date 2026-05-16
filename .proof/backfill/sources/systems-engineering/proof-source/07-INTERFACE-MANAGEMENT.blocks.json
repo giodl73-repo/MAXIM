@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\07-INTERFACE-MANAGEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WHY INTERFACES ARE HARD\n──────────────────────────────────────────────────────────────────\nSubsystem A design team assumes:\n  Power input: 28.0 VDC ±1V\n  Signal: RS-422, 9600 baud, MSB-first\n\nSubsystem B design team assumes:\n  Power output: 28.0 VDC ±3V (within their spec, but not B's need)\n  Signal: RS-422, 9600 baud, LSB-first (different bit order)\n\nBoth teams built exactly what their spec said.\nIntegration fails.\n\nInterface failures are proportionally cheap to prevent,\ncatastrophically expensive to fix late:\n  Interface spec written wrong → change order before design\n  Design complete, interface discovered wrong → redesign both teams\n  Hardware built, interface discovered wrong → hardware rework + retest\n  System deployed, interface discovered wrong → field fix + recall",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Interface Control Documents (ICDs)",
+      "confidence": "candidate",
+      "text": "ICD STRUCTURE\n──────────────────────────────────────────────────────────────────\n1. IDENTIFICATION\n   Interface name and number\n   Drawing number / document number\n   Revision level, date, approvers\n   System A (producer side)\n   System B (consumer side)\n\n2. REFERENCE DOCUMENTS\n   Parent system specification\n   Standards applicable (MIL-STD-1553, ARINC 429, etc.)\n   Component datasheets referenced\n\n3. INTERFACE DEFINITION (the core content)\n   Physical: connector type, pinout, strain relief, mating force\n   Electrical: voltage levels, current, impedance, timing\n   Mechanical: envelope, mounting, loads at attachment points\n   Thermal: heat load exported to adjacent system, fluid flow\n   Data: protocol, message format, timing, error handling\n   Functional: what information is exchanged, when, who initiates\n\n4. ENVIRONMENTS AT INTERFACE\n   Temperature, vibration, moisture → applicable to connector/connector\n\n5. VERIFICATION\n   How will compliance with this ICD be verified?\n   Test procedure reference\n\n6. CHANGE HISTORY\n   Every approved change, reason, signatures",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "### Interface Types",
+      "confidence": "candidate",
+      "text": "INTERFACE TYPES\n──────────────────────────────────────────────────────────────────\nMECHANICAL INTERFACE\n  Attachment geometry: bolt pattern, fastener size, torque spec\n  Alignment features: dowel pins, datum surfaces\n  Envelope: cleared space for mating hardware\n  Loads: forces and moments transmitted across interface\n  Thermal: conductive heat transfer path\n\nELECTRICAL INTERFACE\n  Connector: part number, gender, contact arrangement\n  Power: voltage, current, ripple, inrush, disconnects\n  Signal: voltage levels (TTL, LVDS, RS-422), timing, loading\n  Ground reference: signal ground vs chassis ground vs floating\n  EMI/EMC: shielding, filtering at interface\n\nDATA/PROTOCOL INTERFACE\n  Physical layer: wire type, speed, connector\n  Data link: protocol (CAN, Ethernet, MIL-STD-1553, ARINC 429)\n  Application: message format, content, encoding, timing\n  Error handling: what to do when message lost/corrupted\n\nTHERMAL INTERFACE\n  Fluid connections: pipe/tube size, material, fittings, flow rate\n  Conductive path: thermal resistance at joint (W/°C), material\n  Radiative: emissivity, view factors\n\nHUMAN INTERFACE (HMI)\n  Displays: information presented, update rate, format\n  Controls: physical layout, force required, feedback\n  Alarms: when/how system alerts operator\n  Documented in HFE (Human Factors Engineering) plan",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Interface Matrix",
+      "confidence": "candidate",
+      "text": "INTERFACE MATRIX\n──────────────────────────────────────────────────────────────────\n       │Nav │Prop│Power│Comm │GNC │Struct│\n───────┼────┼────┼─────┼─────┼────┼──────┤\nNav    │ — │  — │28VDC│  — │Pos  │  — │\nProp   │  — │ — │28VDC│  — │Thrust│Loads│\nPower  │  — │  — │ — │28VDC│28VDC│Heat │\nComm   │  — │  — │28VDC│ — │Cmd  │  — │\nGNC    │ NavSv│Thr│  — │  — │ — │  — │\nStruct │  — │Loads│  — │  — │Loads│ — │\n\nEach non-empty cell = an interface = requires an ICD\nMatrix is symmetric (interface A-to-B same as B-to-A, different view)\n\nUse N² diagram (from architecture) to populate interface matrix.\nInterface matrix identifies WHICH ICDs need to be written.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Integration Strategy",
+      "confidence": "candidate",
+      "text": "INTEGRATION APPROACHES\n──────────────────────────────────────────────────────────────────\nBig Bang:\n  Integrate everything at once\n  Fast to reach system configuration\n  Impossible to isolate faults — which interface failed?\n  Only acceptable for very simple systems\n\nIncremental:\n  Integrate one element at a time\n  Fault isolation: last added = the issue (usually)\n  Methods:\n    Top-down: integrate from top, use stubs for lower elements\n    Bottom-up: integrate bottom first, use drivers to exercise\n    Horizontal: integrate by function thread (all elements on one function)\n\nParallel / Branching:\n  Multiple integration streams in parallel (different branches of architecture)\n  Merges as integration matures\n  Requires synchronized interface definitions (ICDs must be locked first)\n\nRECOMMENDATION:\n  Horizontal (function thread) integration best for system-level testing\n  Start with safety-critical / highest-risk interfaces first\n  Interface simulation (stubs) for elements not yet available",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "### Integration Test Environment",
+      "confidence": "candidate",
+      "text": "INTEGRATION ENVIRONMENTS\n──────────────────────────────────────────────────────────────────\nBench Test:\n  Individual subsystem on lab bench\n  Stimulus: signal generators, power supplies, lab equipment\n  Response: oscilloscope, logic analyzer, data acquisition\n  Fast iteration, low cost\n\nSubsystem Integration Lab (SIL):\n  Multiple subsystems integrated\n  Some real hardware, some simulated\n  Allows testing of subsystem-level interfaces\n  Lower cost than full system, higher fidelity than bench\n\nSystems Integration Lab (SIL) / Test Bed:\n  Full avionics/electronics rack\n  All computing and I/O present (or high-fidelity sim)\n  Flight software runs on target hardware\n  Physical environment simulated (pilot inputs, sensor data)\n  Used for flight software validation on aircraft\n\nHardware-in-the-Loop (HIL):\n  Physical hardware in control loop with simulated plant\n  Autopilot HIL: real avionics, simulated aircraft dynamics\n  Automotive ECU HIL: real ECU, simulated engine/vehicle\n  Most rigorous test short of real operation\n\nIron Bird (aircraft specific):\n  Full aircraft system test rig without airframe structure\n  All actuation, hydraulics, avionics, fuel, landing gear\n  Test flight control, hydraulic, electrical systems integrated\n  Reveals system-level issues before first flight",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## Interface Change Control",
+      "confidence": "candidate",
+      "text": "INTERFACE CHANGE PROCESS\n──────────────────────────────────────────────────────────────────\nAfter ICD is baselined (approved), changes require formal process:\n\nEngineering Change Request (ECR):\n  Proposer documents: what changes, why, impact\n  Impact analysis: which other ICDs or subsystems are affected?\n  Cost and schedule impact\n  → Route to Interface Control Working Group (ICWG)\n\nInterface Control Working Group (ICWG):\n  Representatives from BOTH sides of every affected interface\n  Customer (program manager) representative\n  Reviews ECR, approves, rejects, or requests more data\n\nEngineering Change Notice (ECN) / Engineering Change Order (ECO):\n  Approved change documented\n  New ICD revision issued\n  ALL affected drawings and specs updated\n  Verification of change at integration\n\nChange freeze points:\n  After PDR: system-level interfaces frozen (SV-1)\n  After CDR: detailed ICDs frozen\n  After CDR changes: require CCB (Change Control Board) approval\n  Very expensive to change after CDR — hardware may need rework",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Integration Risk Management",
+      "confidence": "candidate",
+      "text": "TOP INTEGRATION RISKS\n──────────────────────────────────────────────────────────────────\nLate ICD baselinealing:\n  Teams designing to TBD interfaces\n  Mitigation: aggressive ICD schedule, interim ICDs\n\nAssumption mismatch:\n  Two teams assume different defaults\n  (byte order, timing reference, ground reference)\n  Mitigation: formal interface review workshops\n\nSchedule compression at integration:\n  Integration is last phase, always has schedule pressure\n  Defects found late → exponential cost growth\n  Mitigation: early integration test of high-risk interfaces\n\nSimulator/stub fidelity:\n  If real hardware is replaced by low-fidelity simulator,\n  integration test misses issues → found at system test\n  Mitigation: formally track simulator fidelity vs real hardware\n\nHardware delivery delays:\n  Integration can't start without hardware\n  Mitigation: engineering model hardware (EM), incremental delivery\n\nSoftware maturity at integration:\n  SW too immature → integration reveals SW bugs, not interface bugs\n  Mitigation: SW integration readiness criteria (test coverage, etc.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 323,
+      "heading_context": "## Data Interface Definitions in MBSE",
+      "confidence": "candidate",
+      "text": "SYSML INTERFACE MODELING\n──────────────────────────────────────────────────────────────────\nFlowSpecification: typed data/energy/material that flows\n  «flowSpecification» FuelFlow\n    in: flowRate: L/s\n    out: pressure: Pa\n\nBlock A: «block» FuelPump\n    +p1: «flowPort» FuelFlow  ← typed port\n\nBlock B: «block» Engine\n    +p2: «flowPort» FuelFlow  ← matching port\n\nIn IBD, connect p1 to p2 = interface defined in model\nICD can be generated from model automatically (MBSE value)\n\nProxyPort (SysML 1.4+):\n  Represents boundary of block as seen from outside\n  Full port vs proxy port distinction = interface behavior\n  Replaces older flow port notation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials-processing\\07-POWDER-PROCESSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "POWDER PROCESSING ROUTES\n──────────────────────────────────────────────────────────────────\nPOWDER PRODUCTION → POWDER CONDITIONING → SHAPING → DENSIFICATION → FINISHING\n\nPowder production:\n  Atomization (liquid metal): water, gas, or centrifugal\n  Chemical reduction (oxides → metal powder): Fe, W, Mo\n  Mechanical comminution: brittle materials (ceramics)\n  Electrolytic: Cu, Fe (dendritic/flaky powders)\n  Carbonyl decomposition: Ni, Fe (very fine, pure)\n\nPowder conditioning:\n  Screening (size classification)\n  Blending (mix powders + lubricants)\n  Annealing (reduce work hardening from atomization)\n\nShaping methods:\n  Uniaxial pressing: die compaction (most common PM parts)\n  Cold Isostatic Pressing (CIP): flexible membrane, hydrostatic\n  Injection Molding (MIM): binder + powder mix\n  Tape casting: thin sheets (electronic substrates)\n  Slip casting: ceramics in plaster molds\n  Extrusion: binder-assisted extrusion\n\nDensification:\n  Sintering (solid-state or liquid-phase): furnace process\n  Hot Pressing (HP): simultaneous pressure + heat\n  HIP (Hot Isostatic Pressing): gas pressure + heat\n  SPS (Spark Plasma Sintering): pulsed DC current + pressure\n\nFinishing:\n  Machining (limited — hardness of many PM parts)\n  Infiltration (fill residual pores)\n  Surface treatment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### Driving Force and Mechanisms",
+      "confidence": "candidate",
+      "text": "SINTERING DRIVING FORCE\n──────────────────────────────────────────────────────────────────\nDriving force: reduction in total surface energy\n  Powder has enormous surface area → high surface energy\n  Sintering reduces surface area → energy released\n\nSurface energy of a sphere radius r:\n  E_surface = 4πr² × γ\n  Larger surface area = more energy = driving force to sinter\n\nSintering mechanisms (contribute in parallel):\n  ┌──────────────────────────────────────────────────────────────┐\n  │ SURFACE DIFFUSION:    Atoms move on surface, fill neck       │\n  │                       → Neck grows, no densification         │\n  │                                                              │\n  │ VOLUME DIFFUSION:     Atoms diffuse through bulk, fill neck  │\n  │                       → Densification (pores shrink)         │\n  │                                                              │\n  │ GRAIN BOUNDARY DIFF:  Atoms move along GB, most important    │\n  │                       for densification in metals            │\n  │                                                              │\n  │ VISCOUS FLOW:         Glass/amorphous → flow fills pores     │\n  │                       Important for: glass sintering         │\n  └──────────────────────────────────────────────────────────────┘\n\nNeck growth equation (early stage, surface diffusion dominates):\n  (X/D)⁷ = (56 Ds δs γ Ω) / (kT) × (t/D⁴)\n  X = neck radius, D = particle diameter, Ds = surface diffusivity\n  Linear: densification only from volume or grain boundary diffusion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Sintering Stages",
+      "confidence": "candidate",
+      "text": "THREE STAGES OF SINTERING\n──────────────────────────────────────────────────────────────────\nSTAGE 1 (Neck formation, initial): Density ~60–70% → ~70–80%\n  Rapid neck growth between adjacent powder particles\n  Contact areas grow (neck radius X/D ≈ 0 to 0.4)\n  Little shrinkage, most dimensional change comes later\n  Surface area decreases rapidly\n\nSTAGE 2 (Pore rounding, intermediate): ~70–80% → ~92–95%\n  Pores become interconnected but cylindrical tubes\n  Pores shrink, grain growth begins\n  Significant densification and shrinkage\n  Pore channels remain open → can gas-debind during this stage\n\nSTAGE 3 (Pore elimination, final): ~92–95% → 99%+\n  Isolated closed pores\n  Slow densification (pores must be eliminated against grain boundaries)\n  Grain growth accelerates (fewer pores to pin boundaries)\n  Oversintering (excessively high T or long t): grain coarsening → weaker\n\nSintering map: plots temperature, density, mechanism dominance\n  Enables process optimization for specific material",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "## Conventional PM (Die Pressing + Sintering)",
+      "confidence": "candidate",
+      "text": "CONVENTIONAL PM PROCESS\n──────────────────────────────────────────────────────────────────\n1. POWDER PREPARATION\n   Powder + lubricant (zinc stearate) → blend\n   Lubricant: reduces die friction, aids green compact ejection\n\n2. PRESSING (Compaction)\n   Die: rigid tooling (WC, tool steel)\n   Press: mechanical, hydraulic, or servo\n   Typical pressures: 150–800 MPa (varies by material, density target)\n\n   Pressure effects:\n     Higher pressure → higher green density → easier sintering\n     But: elastic springback → dimensional change on ejection\n     Upper limit: tooling fracture, die wear\n\n3. GREEN COMPACT\n   Parts have enough strength to handle, transfer to furnace\n   Green strength: from mechanical interlocking + small diffusion bonds\n   ~5–20 MPa (weak by any standard)\n   Handles: carefully (green parts are fragile)\n\n4. SINTERING FURNACE\n   Three zones:\n     Burn-off zone: lubricant evaporates/burns at 200–500°C\n     Sintering zone: 1000–1300°C (steel), 1400°C+ (ceramics/WC)\n     Cooling zone: controlled rate (prevent distortion, residual stress)\n\n5. FINAL PM PART\n   Density: 90–96% theoretical (with standard PM)\n   Residual porosity: 4–10% (interconnected at low density, closed at high)\n   Properties: adequate for structural PM parts\n   Applications: gears, bearings, connecting rods (automotive)\n\nPM vs forging for same steel part:\n  PM: near-net shape, lower cost at high volume, slightly lower properties\n  Forging: better mechanical properties, higher cost, more material waste\n  PM + forge (sinter-forge): near-net shape + forged properties",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## MIM (Metal Injection Molding)",
+      "confidence": "candidate",
+      "text": "MIM PROCESS\n──────────────────────────────────────────────────────────────────\nPurpose: Net-shape complex metal parts with injection mold process.\nBridges injection molding (geometry freedom) + PM (metal properties).\n\n1. FEEDSTOCK PREPARATION\n   Fine metal powder (5–15 µm) + binder (40–50 vol% binder)\n   Binders: thermoplastic (paraffin + polyethylene) or\n            water-soluble (PEG + water)\n   Mix at elevated temperature → homogeneous \"feedstock\"\n   Pelletize for injection molding machine\n\n2. INJECTION MOLDING\n   Standard injection mold machine, standard tooling design\n   Gate placement critical (no regrind for most MIM)\n   \"Green part\" = metal powder in binder matrix\n   Dimensions: ~20% larger than final (must account for shrinkage)\n\n3. DEBINDING (binder removal)\n   Thermal (two-stage): burn out paraffin first, then backbone polymer\n   Solvent: solvent removes first binder, retain backbone polymer\n   Catalytic: nitric acid depolymerizes backbone binder\n   \"Brown part\" = skeleton structure of powder (3% interconnected pores)\n\n4. SINTERING\n   950–1350°C in H₂ or N₂ atmosphere\n   High shrinkage (15–20% linear) → predictable → mold compensated\n   Density: 95–99% theoretical\n\nMIM materials: SS 316L, 17-4 PH, Fe-Ni, Ti-6Al-4V, WC-Co, ceramics\nMIM applications: firearms components, dental implants, watch parts,\n  surgical instruments, laptop hinges — complex 3D geometry, high volume\n\nvs DMLS (metal AM):\n  MIM: high volume, lower cost per part, no porosity issues\n  DMLS: low volume, no tooling, arbitrary geometry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## HIP (Hot Isostatic Pressing)",
+      "confidence": "candidate",
+      "text": "HIP PROCESS\n──────────────────────────────────────────────────────────────────\nSimultaneous application of:\n  High temperature: 950–1300°C (material-dependent)\n  High gas pressure: 100–200 MPa (argon gas, isostatic)\n\nResult: closes all pores (closed or open if encapsulated)\n→ near-theoretical density (99.5–99.9%)\n\nApplications:\n\n1. POST-PROCESS HIP (for cast or PM parts):\n   Close residual porosity after conventional casting or PM sintering\n   Ti-6Al-4V castings: HIP at 900°C, 100 MPa → fatigue life doubles\n   DMLS/SLM metal AM: HIP closes sub-surface pores → flight-qualified\n   Cemented carbide: HIP at final stage → highest density, best performance\n\n2. POWDER HIP (near-net shape):\n   Load powder into metal can (container)\n   Evacuate, seal, HIP → fully dense near-net shape part\n   No intermediate compaction required\n   Excellent properties: HIPed powder is equivalent to wrought\n   Applications: tool steels (PM-T15, CPM grades), Ni superalloy billets\n   Large parts: turbine discs, extrusion dies\n\n3. DIFFUSION BONDING via HIP:\n   Multi-material assemblies sintered together\n   Metal-ceramic composites, claddings\n\nHIP limitations:\n  Slow: 4–24 hour cycle\n  Expensive: capital-intensive equipment, inert gas cost\n  Closed pores only: open surface pores require encapsulation first\n  Cannot close all crack-like defects (requires intimate contact between surfaces)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## SPS (Spark Plasma Sintering) / FAST",
+      "confidence": "candidate",
+      "text": "SPARK PLASMA SINTERING (FIELD-ASSISTED SINTERING, FAST)\n──────────────────────────────────────────────────────────────────\nPulsed DC current + uniaxial pressure, very fast heating\n  Current: pulsed DC (often attributed to \"sparks\" but mechanism debated)\n  Heating rate: 100–1000°C/min (vs 5–20°C/min for conventional)\n  Pressure: 50–100 MPa\n  Cycle time: minutes (vs hours for conventional sintering)\n\nMechanism debate:\n  Originally claimed: sparks at particle contacts → local melting → rapid bonding\n  More accepted: Joule heating + current-enhanced diffusion\n  Electrically conductive powders: direct Joule heating\n  Non-conductive (ceramics): heated by graphite die\n\nAdvantages:\n  Rapid: 2–10 minutes soak time → grain growth suppressed\n  Fine microstructures: difficult to achieve with conventional sintering\n  Novel materials: metastable phases, gradient compositions\n  High final density without exaggerated grain growth\n\nApplications:\n  Nano-grained ceramics (Al₂O₃, SiC, WC) → fine grain → high toughness\n  Functionally graded materials (composition gradient)\n  Research/development (small batch sizes)\n  Refractory materials: TiB₂, HfC, TaC → rapid sintering\n\nLimitations:\n  Lab/pilot scale (typically <200mm diameter specimens)\n  Graphite die → carbon contamination possible for reactive materials\n  No complex geometry (like HIP can do)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "## Cemented Carbide (WC-Co)",
+      "confidence": "candidate",
+      "text": "CEMENTED CARBIDE (HARDMETAL)\n──────────────────────────────────────────────────────────────────\nThe premier PM hard material: WC (ceramic) bonded by Co (metal binder)\nFoundation of modern metal cutting tooling\n\nPOWDER PREPARATION:\n  WC powder (0.5–10 µm particle size) + Co powder\n  Ball milled with ethanol (intimate mixing, breakup agglomerates)\n  Spray dried → free-flowing granules for pressing\n\nPRESSING:\n  Die press or CIP to near-net shape\n  High pressure: 150–400 MPa\n\nLIQUID-PHASE SINTERING:\n  Sintering at 1370–1450°C (above Co melting, Co liquid at 1495°C in WC-Co)\n  Co melts, wets WC → liquid phase sintering → fast densification\n  WC grains dissolve in Co, reprecipitate → grain rounding, bonding\n  Final density: 99.9%+\n\nSTRUCTURE:\n  WC grains (hard, brittle): 1200–1600 HV\n  Co binder (tough, ductile): holds WC together\n  Interlocked WC + Co → \"cemented\" carbide\n\nGRADING:\n  Coarser WC + higher Co → tougher, better for interrupted cuts (milling)\n  Finer WC + lower Co → harder, more wear resistant (fine turning)\n\n  WC grain size:   0.5–10 µm (coarse → fine: submicron grades)\n  Co content:      3–25% (3% = wear-resistant, 25% = toughest, mining)\n\nAPPLICATIONS:\n  Cutting tool inserts (majority): turning, milling, drilling\n  Rock drilling bits\n  Wire drawing dies\n  Metal forming dies (cold heading, stamping)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "## Ceramics Processing",
+      "confidence": "candidate",
+      "text": "CERAMIC POWDER PROCESSING\n──────────────────────────────────────────────────────────────────\nCeramics cannot be processed like metals:\n  No ductility → cannot plastically deform into shape\n  High melting points → casting impractical for most\n  Hard → machining very limited/expensive\n  Solution: start as powder, sinter to shape\n\nCommon structural ceramics:\n  Alumina (Al₂O₃): hardness 2000 HV, inert, insulating\n  Silicon carbide (SiC): hardness 2500 HV, thermal shock resistant\n  Silicon nitride (Si₃N₄): toughest structural ceramic, bearing balls\n  Zirconia (ZrO₂): toughened by transformation plasticity\n  WC (cemented carbide as above)\n\nDensification challenge:\n  Ceramics diffuse much slower than metals → need higher T, longer time\n  Or: liquid phase sintering additives (Si₃N₄ → MgO or Y₂O₃ + Al₂O₃)\n\nSintering conditions:\n  Al₂O₃: 1500–1700°C, 2–4 hours\n  SiC: 2000–2100°C or hot pressing\n  Si₃N₄: 1700–1800°C with liquid phase additives\n  ZrO₂ (TZP): 1400–1500°C\n\nTransformation-toughened zirconia (TTZ):\n  ZrO₂ tetragonal → monoclinic transformation (phase change on stress)\n  Volume expansion at crack tip → compressive stress → crack arrest\n  Kic up to 8–12 MPa√m (vs ~3–4 for untoughened ZrO₂)\n  Applications: dental crowns (high aesthetic + strength), cutting inserts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

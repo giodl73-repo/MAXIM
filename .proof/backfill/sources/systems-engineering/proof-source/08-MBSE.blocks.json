@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "systems-engineering\\08-MBSE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DOCUMENT-CENTRIC SE (Traditional)\n──────────────────────────────────────────────────────────────────\n┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐\n│   SRS    │  │   ICD    │  │  Arch    │  │  FMEA    │\n│ v3.2.1   │  │ v2.1.0   │  │  Descr   │  │ v4.0     │\n└──────────┘  └──────────┘  └──────────┘  └──────────┘\n     │              │              │             │\n     └──────────────┴──────────────┴─────────────┘\n                           │\n               No automated consistency check\n               Manual cross-referencing\n               Version drift inevitable\n               Requirement changed in SRS, not propagated to ICD\n               FMEA references wrong architecture version\n\nMODEL-BASED SE (MBSE)\n──────────────────────────────────────────────────────────────────\n                    ┌──────────────────────────────┐\n                    │       SYSTEM MODEL           │\n                    │                              │\n                    │  Requirements + Architecture │\n                    │  + Behavior + ICDs + Analyses│\n                    │  All in one consistent model │\n                    └──────────────────────────────┘\n                         │           │           │\n                         │  generate views       │\n                   ┌──────┘      ┌───┘       ┌──────┘\n                   ▼             ▼            ▼\n               SRS view      ICD view    Test view\n               (auto-gen)   (auto-gen)   (auto-gen)\n               Always        Always      Always\n               consistent    consistent  consistent",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## Why MBSE?",
+      "confidence": "candidate",
+      "text": "MBSE MOTIVATION\n──────────────────────────────────────────────────────────────────\nProblem 1: Ambiguity in natural language\n  \"The system shall respond quickly\" → 10 engineers, 10 interpretations\n  Model: \"ResponseTime: Duration [unit=ms] ≤ 200\" → unambiguous\n\nProblem 2: Traceability is manual in documents\n  Requirement changed → manually find all affected items → miss some\n  Model: change requirement → automated impact analysis → consistent\n\nProblem 3: Integration of analysis\n  FEA model, FMEA spreadsheet, requirements doc → separate tools\n  Model: single data source → analysis driven from model data\n\nProblem 4: Communication across disciplines\n  Mechanical engineer reads SRS differently from software engineer\n  Model: multiple views of same model → each discipline sees their view\n  Consistent because generated from same underlying data\n\nProblem 5: Reuse\n  \"Can we reuse this subsystem design?\" → compare docs manually\n  Model: compare models formally → automated compatibility check",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### INCOSE OOSEM (Object-Oriented SE Method)",
+      "confidence": "candidate",
+      "text": "OOSEM METHOD\n──────────────────────────────────────────────────────────────────\nObject-Oriented approach applied to SE\nUses SysML as modeling language\n\nSteps:\n1. Analyze stakeholder needs (use case model)\n2. Define system requirements (SysML requirements diagram)\n3. Define logical architecture (BDD + IBD at logical level)\n4. Synthesize physical architecture (allocate to physical)\n5. Optimize and evaluate (parametric diagrams, simulation)\n6. Integrate (verify interfaces via model)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### ARCADIA / Capella",
+      "confidence": "candidate",
+      "text": "ARCADIA METHODOLOGY (Thales, widely used in France/Europe)\n──────────────────────────────────────────────────────────────────\nFour analysis levels:\n  OA: Operational Analysis\n    Who uses the system? Operational capabilities needed?\n    Actors, operational activities, operational capability\n\n  SA: System Analysis\n    What does the system do (functions)?\n    System functions, data flows, system interfaces (external)\n\n  LA: Logical Architecture\n    How does the system do it (logical components)?\n    Logical components, logical data flows\n\n  PA: Physical Architecture\n    How is it implemented (physical components)?\n    Physical component allocation, ICDs, technologies\n\nTool: Capella (Eclipse-based, open source, Thales)\nWidely used in French defense, rail, automotive (Thales, Airbus)\nStrong functional analysis capability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "### RFLP (Dassault Systèmes / Cameo)",
+      "confidence": "candidate",
+      "text": "RFLP METHOD (Requirements-Functional-Logical-Physical)\n──────────────────────────────────────────────────────────────────\nR - Requirements    Stakeholder and system requirements\nF - Functional      Functional decomposition, data flows\nL - Logical         Architecture (vendor-agnostic)\nP - Physical        Actual product configuration\n\nEach level traced to next\nCameo Systems Modeler (formerly Magic Systems) implements RFLP\nPopular in aerospace (Boeing, Airbus, NASA)\nStrong integration with simulation (Simulink via SysML parametric)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## MBSE Tools Landscape",
+      "confidence": "candidate",
+      "text": "MBSE TOOL CATEGORIES\n──────────────────────────────────────────────────────────────────\nFull MBSE Tools (SysML-capable):\n  Cameo Systems Modeler    Industry standard (Dassault/No Magic)\n    → Best SysML 1.x implementation, Java-based, expensive\n  IBM Rhapsody             IBM, strong HW/SW co-design, code gen\n  YAKINDU (itemis CREATE)  Strong state machine focus\n  Enterprise Architect     Sparx Systems, lower cost, broad use\n  Papyrus (Eclipse)        Open source, SysML plugin\n  Capella (Thales/Eclipse) Open source, ARCADIA-specific\n\nRequirements Management (MBSE adjacent):\n  IBM DOORS / DOORS Next   Industry standard RM tool\n  Jama Connect             Modern RM, collaboration focus\n  Polarion ALM             Siemens, full ALM\n\nSimulation integration:\n  MATLAB/Simulink          Parametric analysis, behavior sim\n  SystemC / ModelSim       Hardware simulation\n  AMESim (Siemens)         Multi-domain physical simulation\n  OpenModelica             Open source Modelica\n\nPLM Integration:\n  Windchill (PTC)          PLM backbone, MBSE add-on\n  Teamcenter (Siemens)     PLM + simulation + MBSE\n  Enovia (Dassault)        CATIA ecosystem MBSE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "## The System Model Contents",
+      "confidence": "candidate",
+      "text": "WHAT GOES IN THE SYSTEM MODEL\n──────────────────────────────────────────────────────────────────\nRequirements layer:\n  Stakeholder needs\n  System requirements (all levels)\n  Derived requirements\n  Rationale\n  Verification methods\n\nStructural layer:\n  Block hierarchy (system → subsystems → components)\n  Interface definitions (ports, flow specifications)\n  ICDs captured as IBD connections\n  Allocation matrix (function → physical)\n\nBehavioral layer:\n  Use cases (external interactions)\n  Activity diagrams (operational flows)\n  Sequence diagrams (message timing)\n  State machines (mode management)\n\nAnalysis layer:\n  Parametric constraints (performance equations)\n  Budgets (mass, power, link margin, volume)\n  FMEA capture (criticality attributes on blocks)\n  Trade study parameters\n\nVerification layer:\n  Test cases linked to requirements\n  Test results (pass/fail) against requirements\n  Verification methods per requirement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Digital Thread and Digital Twin",
+      "confidence": "candidate",
+      "text": "DIGITAL THREAD\n──────────────────────────────────────────────────────────────────\nThe digital thread is the continuous data lineage from:\n  Customer requirement → system model → design → manufacturing\n  → test → operations → sustainment → disposal\n\nAll data linked, traceable, consistent.\nNo data islands. No manual re-entry.\n\n┌─────────┐    ┌──────────┐    ┌─────────┐    ┌─────────────┐\n│Customer │    │ System   │    │  CAD /  │    │ MES / Test  │\n│ Need    │───►│  Model   │───►│  CAM    │───►│ Results     │\n│ (CRM)   │    │ (MBSE)   │    │  (PLM)  │    │ (MES/QMS)   │\n└─────────┘    └──────────┘    └─────────┘    └─────────────┘\n         single data model, bidirectional traceability\n\nDIGITAL TWIN (in SE context):\n  Physical system running in operation\n  + digital model continuously updated from sensor data\n  = digital twin\n\n  Uses in MBSE:\n    Virtual commissioning: test control software on digital twin\n    Operational monitoring: compare actual vs model predictions\n    Failure prediction: model-driven prognostics\n    Fleet management: each unit has its own twin",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## MBSE in Practice: Typical Implementation Path",
+      "confidence": "candidate",
+      "text": "MBSE ADOPTION JOURNEY\n──────────────────────────────────────────────────────────────────\nLevel 0 — Documents only\n  Word/Excel/PDF for all SE artifacts\n  No model tool\n\nLevel 1 — Tool adoption\n  SysML tool purchased, introductory training\n  Some requirements in tool\n  Diagrams created but disconnected from documents\n\nLevel 2 — Partial model\n  Requirements in DOORS or equivalent\n  SysML used for architecture diagrams\n  Some traceability established\n  Still dual-maintenance (docs AND model)\n\nLevel 3 — Model as source\n  Model generates views (PDF/Word/HTML)\n  Documents derived from model, not independently maintained\n  Traceability complete\n  Analysis (FMEA, budgets) driven from model data\n\nLevel 4 — Executable model\n  Behaviors in model are simulated / analyzed automatically\n  Parametric constraints evaluated → performance prediction\n  Test cases generated from model\n  Near real-time consistency checks\n\nLevel 5 — Digital thread\n  Model connected to PLM, CAD, MES, test tools\n  Full digital thread: requirement → design → build → test\n  Continuous update from production/operations\n  Most programs at 1–3, few at 4, almost none at 5 today",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "## Budgets and Resource Tracking in MBSE",
+      "confidence": "candidate",
+      "text": "RESOURCE BUDGETS\n──────────────────────────────────────────────────────────────────\nA \"budget\" is a shared resource allocated across subsystems.\nMBSE model captures allocations and rolls them up.\n\nCommon budgets:\n  Mass:          Structural weight budget (kg allocated per subsystem)\n  Power:         Available watts per subsystem, from power system\n  Volume / SWaP: Size, Weight, and Power (military systems)\n  Thermal:       Heat dissipation to shared cooling system\n  Link margin:   RF link budget (dB margins for comm system)\n  CPU utilization: Software CPU budget per process/partition\n  Memory:        RAM and storage allocation per software partition\n  ICD bandwidth: Data rate budget on shared buses\n\nModel-based budget roll-up:\n  Each block has a valueProperty \"mass: kg\"\n  Parent block computes sum of children\n  Constraint: sum ≤ budget allocation\n  Parametric diagram enforces this automatically\n  → No spreadsheet, automatically consistent with architecture changes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "## MBSE and Safety Standards",
+      "confidence": "candidate",
+      "text": "MBSE INTEGRATION WITH SAFETY\n──────────────────────────────────────────────────────────────────\nDO-178C (avionics SW): safety objectives derived from hazard analysis\n  Model-based requirements → FMEA in model → Derived safety objectives\n  → Software requirements with DAL (Design Assurance Level) in model\n\nARP4754A (aircraft development): MBSE becoming standard approach\n  Model traces: requirement → design → analysis → test\n  Design organization approval for MBSE use (FAA/EASA)\n  Tool qualification (DO-330) for safety-critical model use\n\nISO 26262 (automotive): V-model required\n  MBSE tools used at Item Integration and Testing (HARA in model)\n  Safety goals → functional safety requirements → SysML\n\nIEC 61508 (general functional safety):\n  Evidence artifacts can be model-generated views\n  Traceability matrix auto-generated from model\n\nTool qualification:\n  For model tool to generate safety-critical artifacts,\n  the tool itself must be qualified (DO-330 / ISO 26262 Part 8)\n  This adds process overhead — not all programs qualify tools",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
