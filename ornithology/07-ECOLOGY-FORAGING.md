@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:ecology-foraging
+kind: guide
+module: ornithology
+section: ornithology
+title: Ecology and Foraging Strategies
+status: source-custody
+source_custody: partial
+current_path: ornithology/07-ECOLOGY-FORAGING.md
+canonical_path: ornithology/07-ECOLOGY-FORAGING.md
+backsource_ids: [proof-backfill:ornithology:07-ecology-foraging, git-history:ornithology:07-ecology-foraging]
+concepts: [ecology, foraging]
+root_concepts: [ecology, foraging]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ecology and Foraging Strategies
 
 ## The Big Picture

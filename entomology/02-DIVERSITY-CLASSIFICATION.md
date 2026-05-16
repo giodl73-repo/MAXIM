@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:diversity-classification
+kind: guide
+module: entomology
+section: entomology
+title: Insect Diversity and Classification: Major Orders
+status: source-custody
+source_custody: partial
+current_path: entomology/02-DIVERSITY-CLASSIFICATION.md
+canonical_path: entomology/02-DIVERSITY-CLASSIFICATION.md
+backsource_ids: [proof-backfill:entomology:02-diversity-classification, git-history:entomology:02-diversity-classification]
+concepts: [diversity, classification]
+root_concepts: [diversity, classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Insect Diversity and Classification: Major Orders
 
 ## The Big Picture

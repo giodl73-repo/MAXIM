@@ -1,0 +1,382 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "06-POLLINATION.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:pollination
+kind: guide
+module: entomology
+section: entomology
+title: Pollination Biology and Pollinator Decline
+status: source-custody
+source_custody: partial
+current_path: entomology/06-POLLINATION.md
+canonical_path: entomology/06-POLLINATION.md
+backsource_ids: [proof-backfill:entomology:06-pollination, git-history:entomology:06-pollination]
+concepts: [pollination]
+root_concepts: [pollination]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Pollination Biology and Pollinator Decline
+
+## The Big Picture
+
+Pollination by animals is required or beneficial for most flowering plant
+species and many high-value crops, though staple calories are still dominated by
+wind-pollinated cereals and vegetatively propagated crops. The system operates
+like a market economy: plants advertise and pay with nectar, pollen, oils,
+resins, heat, shelter, or deception; pollinators forage based on reward, memory,
+competition, and morphology. Pollinator decline is a dependency-graph risk, not
+just a honey-bee management problem.
+
+```
+POLLINATION ECOLOGY OVERVIEW
+================================
+
+WHAT IS POLLINATION?
+  Transfer of pollen grains from anther (male) to stigma (female)
+  Required for sexual reproduction in ~250,000 flowering plant spp
+
+WHO POLLINATES?
+  +------------------+-------------------+-------------------+
+  | BIOTIC           |                   | ABIOTIC           |
+  +------------------+-------------------+-------------------+
+  | Insects          | ~75% of all spp   |                   |
+  |  - Bees          | dominant globally | Wind (10-20% spp) |
+  |  - Flies         | second most       | Water (aquatic)   |
+  |  - Butterflies   | third             |                   |
+  |  - Moths         | nocturnal         |                   |
+  |  - Beetles       | "mess and soil"   |                   |
+  | Vertebrates      | ~3% of spp        |                   |
+  |  - Birds         | tropics/subtropics|                   |
+  |  - Bats          | nocturnal tropics |                   |
+  +------------------+-------------------+-------------------+
+
+CROP DEPENDENCY:
+  ~87 of 115 leading global food crops require/benefit from
+  animal pollination (Klein et al. 2007), but cereal staples dominate calories
+  Economic value: ~$150-500 billion USD/yr (2020 estimates)
+  Exceptions: cereals (wind-pollinated), rice, wheat, maize
+```
+
+---
+
+## Pollinator-Flower Syndrome
+
+Convergent evolution produced predictable associations between flower morphology and pollinator type. These "pollination syndromes" are heuristic rather than rigid rules.
+
+```
+POLLINATION SYNDROMES
+======================
+
+BEE POLLINATION (melittophily)
+  Color:    yellow, blue, UV-patterned (invisible to humans)
+  Shape:    tubular, bilaterally symmetric (zygomorphic)
+  Reward:   nectar (sugars) + pollen (protein/fat)
+  Scent:    sweet, aromatic, often detectable in daylight
+  Examples: Salvia, Digitalis, Lupinus, Antirrhinum
+
+BUTTERFLY POLLINATION (psychophily)
+  Color:    red, orange, pink (butterflies see red; bees largely cannot)
+  Shape:    narrow tube, landing platform needed
+  Reward:   dilute nectar; pollen incidental
+  Scent:    light or absent (visual primary cue)
+  Examples: Buddleja, Verbena, Lantana
+
+MOTH POLLINATION (sphingophily/phalaenophily)
+  Color:    white or pale (visible at night)
+  Shape:    deep tube (sphinx moth proboscis 25-30cm in extreme cases)
+  Reward:   nectar (concentrated; deep)
+  Scent:    strong, sweet, particularly at night
+  Examples: Nicotiana, Oenothera, Hoya; Darwin's orchid (Angraecum)
+
+BEETLE POLLINATION (cantharophily)
+  Color:    white, cream, greenish (beetle color vision limited)
+  Shape:    bowl-shaped, open, unspecialized
+  Reward:   pollen, starchy tissues, oils
+  Scent:    fruity, spicy, fermenting, musty (strong)
+  Examples: Magnolia, Calycanthus, Annona; ancient angiosperms
+
+FLY POLLINATION (myophily/sapromyophily)
+  Syrphid (hoverfly) pollination: mimic bees; visit open flowers
+  Blowfly/carrion fly pollination:
+    Color:   dark purple, brown, mottled (resemble meat/dung)
+    Shape:   trap-flower or open
+    Reward:  often NONE (deceptive; mimics rotting flesh)
+    Scent:   sulfur compounds, indole, skatole (carrion odor)
+    Examples: Stapelia, Rafflesia, Amorphophallus titanum
+    Note: Rafflesia + Amorphophallus achieve pollination via deceit
+          -> thermogenic flowers release heat to volatilize odor
+
+HUMMINGBIRD POLLINATION (ornithophily)
+  Color:    red, orange (birds see red; many bees cannot)
+  Shape:    tubular, sturdy (bird hovering; no perch needed)
+  Reward:   copious dilute nectar
+  Scent:    little (birds have poor olfaction)
+```
+
+---
+
+## Bee Diversity and Functional Roles
+
+```
+BEE DIVERSITY (~20,000 spp)
+==============================
+
+  SOLITARY BEES (~90% of species):
+    No workers; female provisions each cell individually
+    One generation/year (most); short adult life
+    Examples: Osmia (mason bees), Megachile (leafcutter bees),
+              Andrena (mining bees), Xylocopa (carpenter bees)
+    Foraging: often highly specialized (oligolectic/monolectic)
+
+  SOCIAL BEES (~10% of species):
+    Halictidae: sweat bees -- range from solitary to eusocial
+                Primitively eusocial (Lasioglossum)
+    Apidae:     Bumble bees (annual, Bombus) + Honey bees (Apis, perennial)
+    Meliponini: stingless bees (tropics) -- important crop pollinators
+
+  FUNCTIONAL DIVERSITY:
+  +-------------------+------------------------------------+
+  | Species           | Specialization                     |
+  +-------------------+------------------------------------+
+  | Apis mellifera    | Generalist; honey production;      |
+  |                   | commercial pollinator (almond, etc)|
+  | Bombus spp.       | Buzz pollination; cold tolerance;  |
+  |                   | important for tomato, blueberry    |
+  | Osmia bicornis    | Fruit tree pollinator; early season|
+  | Andrena spp.      | Spring specialists; willow, etc.   |
+  | Xylocopa spp.     | Large carpenter bees; buzz poll.   |
+  | Meliponini        | Tropical crops; stingless          |
+  +-------------------+------------------------------------+
+
+  BUZZ POLLINATION (sonication):
+    Some flowers (Solanum/tomato, Vaccinium/blueberry, Cassia)
+    have poricidal anthers -- pollen only released by vibration
+    Bumblebees + some solitary bees: grab anther, vibrate flight
+    muscles at ~400 Hz -> pollen explosively expelled
+    Honey bees CANNOT buzz-pollinate (different flight muscle type)
+    -> commercial tomato production requires bumblebees
+```
+
+---
+
+## The Reward Economy
+
+```
+FLORAL REWARD TYPES
+=====================
+
+NECTAR:
+  Primary reward for most pollinators
+  Composition: sucrose, glucose, fructose (ratio varies by species)
+  Bee-pollinated: high sucrose
+  Bird-pollinated: high sucrose
+  Butterfly-pollinated: often more hexoses
+  Amino acids: present in many nectars (protein supplement)
+  Secondary compounds: some nectars contain alkaloids (Rhododendron),
+    resins, toxic compounds -- pollinator filtering
+  Production: nectaries (floral or extrafloral)
+  Energy content: 2-10 μJ per flower; varies enormously
+
+POLLEN:
+  Protein + fat source for bees (primary larval food)
+  Nutritional quality varies: Asteraceae pollen = high quality
+  Some species collect only pollen (buzz-pollination specialists)
+
+OILS:
+  Fatty acid-rich secretions from elaiophores
+  Collected by oil bees (Centridini, Macropis, Rediviva)
+  Used for larval provisions + nest waterproofing
+  Specialized oil flowers: Calceolaria, Diascia, Krameria
+
+SCENT COMPOUNDS:
+  Male euglossine bees collect aromatic compounds from orchids
+  Used for courtship display compound (not fed to larvae)
+  Orchids get pollinated; no nectar cost
+  Highly coevolved: specific orchid-bee species pairs
+
+SHELTER AND MATES:
+  Some orchids provide "pseudocopulation" sites
+  (Ophrys: mimics female bee pheromone + shape)
+  Male bees attempt to copulate -> pick up/deposit pollinia
+  Plant pays nothing; complete deception
+```
+
+---
+
+## Pollinator Decline: The Crisis
+
+```
+POLLINATOR DECLINE OVERVIEW
+==============================
+
+DOCUMENTED TRENDS:
+  Wild bees: ~40% of species declining globally (IPBES 2016)
+  Managed honey bees: colony losses 30-45%/yr in N. hemisphere (2006-present)
+  Butterflies: ~36% spp declining in Europe; UK: 40% decline since 1990s
+  Hoverflies: German flying insect biomass -76% in 27 years (Hallmann 2017)
+  Moths: 50% abundance decline in UK (1976-2015)
+
+GEOGRAPHIC PATTERN:
+  Most severe: temperate Europe and N. America (intensive agriculture)
+  Tropical: less data; some evidence of stability in intact forest
+  Urban areas: often more diverse than agricultural monocultures
+               (diverse urban plantings, reduced pesticide use)
+
+DRIVERS (multiple, synergistic):
+  1. Habitat loss + fragmentation
+  2. Pesticides (particularly neonicotinoids)
+  3. Pathogens (Varroa mite + viruses; Nosema)
+  4. Invasive species (Bombus terrestris introduction)
+  5. Climate change (phenological mismatch)
+  6. Intensive agriculture (monoculture -> nutritional desert)
+```
+
+### Neonicotinoids: The Dominant Pesticide Controversy
+
+```
+NEONICOTINOIDS -- MODE OF ACTION AND EVIDENCE
+===============================================
+
+Chemistry:
+  Systemic insecticides: applied to soil/seed -> translocated to
+  all plant tissues including nectar and pollen
+  Target: nicotinic acetylcholine receptors (nAChR) in insect CNS
+  Insects: much higher sensitivity than vertebrates (receptor structure)
+
+Mechanism:
+  Bind permanently to nAChR -> prolonged excitation -> paralysis/death
+  Sublethal doses: impair navigation, memory, foraging, reproduction
+
+Evidence base:
+  Lab studies: clear dose-dependent effects on bee cognition + navigation
+               (Gill et al. 2012; Henry et al. 2012)
+  Field studies: contested; dose in real fields lower than lab
+               (Woodcock et al. 2017; Rundlof et al. 2015 -- different results)
+  Meta-analyses: overall negative effect on wild bees at field-realistic doses
+               (Woodcock 2017; Woodcock 2019)
+
+Regulatory response:
+  EU: outdoor use ban (2018) -- clothianidin, imidacloprid, thiamethoxam
+  Ongoing: emergency use authorizations in some EU countries
+  UK post-Brexit: allowed sugar beet use (2021-2023)
+  US EPA: ongoing review
+
+Key issue: neonicotinoids remain in soil 200-500 days; contaminate
+           water courses and wildflower pollen near treated crops
+```
+
+### Phenological Mismatch
+
+```
+CLIMATE CHANGE AND PHENOLOGICAL MISMATCH
+==========================================
+
+  Plant flowering:  advancing ~6.5 days/decade (global average)
+  Pollinator emergence: advancing but at different rate
+
+  Mismatch:
+    Plant flowers early -> pollinator not yet emerged
+    Pollinator emerges -> plant not yet in flower
+    Even 1-3 week mismatch can reduce seed set 50-90%
+
+  Examples:
+    Spring ephemerals + early bumblebee queens: well-synchronized
+    Bumblebees: queen emergence advancing less than plant flowering
+    Monarch butterfly + milkweed: migratory route + host timing disrupted
+
+  Species specific to narrow temporal window most vulnerable
+  Generalist pollinators (Apis mellifera) more resilient
+
+  KEY CONCEPT: same warming rate affects different species differently
+  because emergence cues differ (temperature threshold, photoperiod)
+```
+
+---
+
+## Conservation and Management
+
+```
+POLLINATOR CONSERVATION FRAMEWORK
+====================================
+
+HABITAT-BASED:
+  Wildflower strips in agricultural landscapes
+    +25% bee diversity in UK hedgerow + margin studies
+  Hedgerow retention (nesting habitat for solitary bees)
+  Reduced mowing frequency (roadside verges)
+  Agri-environment schemes (EU: ~2-3% yield cost for 15-25% pollinator gain)
+
+PESTICIDE-BASED:
+  Integrated Pest Management (IPM): reduce prophylactic use
+  Spray timing: avoid flowering crops; early morning/late evening
+  Systemic avoidance for bee-pollinated crops
+  Drift reduction technology
+
+MANAGED BEES:
+  Apis mellifera (commercial pollination): almond ~$450M/yr California alone
+    Risk: colony collapse disorder; disease transmission to wild bees
+  Osmia bicornis: controlled release for fruit orchards
+  Bombus spp.: commercial rearing for greenhouse tomatoes
+    Risk: pathogen release to wild populations (Nosema bombi spillover)
+
+MONITORING:
+  Pan trap networks: standardized solitary bee abundance
+  Transect surveys: butterflies, bumblebees (UK Butterfly Monitoring Scheme)
+  Malaise traps: total flying insect biomass (Hallmann Krefeld study)
+  eDNA from honey bee hives: plant diversity in foraging range
+
+URBAN POLLINATION:
+  Cities often have higher floral diversity than intensive farmland
+  Apis mellifera in cities: often healthier than rural populations
+  "Insect hotels" for solitary bees: marginal benefit unless combined
+  with floral resource planting
+```
+
+---
+
+### Engineering Bridges
+
+Pollination is a marketplace with explicit incentive design. The flower is the service provider; the pollinator is the consumer; pollen transfer is the service the plant needs but cannot directly force. The flower's reward (nectar, pollen, oil, heat, shelter — depending on syndrome) is the incentive payment designed to attract and retain the consumer. Evolutionary pressure optimizes the flower's advertising (floral color, scent, UV pattern) and reward quality/quantity to attract the right consumer reliably, and the flower structure to ensure pollen attachment and transfer occurs during the transaction. Pollination syndromes are the API contracts: bee syndrome flowers advertise on the bee-visible spectrum (UV + blue + yellow; not red), offer nectar + pollen reward, and have morphology that fits a bee's body. Hummingbird syndrome flowers: red (bird-visible), tubular (bill-fit), nectar-rich, little scent (birds have poor olfaction). The syndrome is a published interface specification; the pollinator is the expected consumer. Deceptive orchids (offer no reward, mimic nectar/sex/brood sites) are the equivalent of a service that advertises capabilities it doesn't actually deliver.
+
+Pollinator decline is a cascading failure through a dependency graph. ~87% of flowering plant species depend on animal pollination; many animal species depend on those plant species for food; many human crops depend on managed and wild pollinators. The dependency graph has high fan-out at the pollinator nodes: losing a generalist pollinator like a bumble bee species or a managed honey bee population disconnects many plant-pollinator edges simultaneously. This is similar to removing a widely-depended-upon infrastructure service: the immediate failure is local, but the transitive failures propagate through the dependency graph in ways that are difficult to predict from looking only at the failed node.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Crop-dependence claim | Species count, production volume, economic value, and calories separately | Pollinator-dependent crops are nutritionally/economically important even if cereals dominate calories |
+| Pollination-syndrome claim | Flower color, scent, reward, shape, and visitor morphology | Syndromes are probabilistic pattern-recognition tools |
+| Honey-bee claim | Managed Apis service vs wild-pollinator diversity | Honey bees are livestock; wild bees supply resilience and specialization |
+| Buzz-pollination claim | Poricidal anthers and vibration behavior | Bumblebees and some solitary bees do it; honey bees generally do not |
+| Decline claim | Region, taxon, metric, and monitoring method | Managed colony loss, wild range contraction, and biomass decline are different signals |
+| Pesticide claim | Exposure route, dose, crop, timing, and landscape context | Lab effects do not automatically equal field population collapse |
+| Conservation claim | Floral continuity, nesting substrate, pesticide reduction, and landscape connectivity | Insect hotels alone are not habitat restoration |
+| Deceptive-pollination claim | Reward absence, mimicry target, and pollinator learning | Deception works only while encounter rates and alternatives keep the system viable |
+
+---
+
+## Cross-References
+
+- `05-INSECT-PLANT.md` gives the broader herbivory, mutualism, and coevolution frame.
+- `08-ECONOMIC-ENTOMOLOGY.md` connects pollination to agricultural value and managed bees.
+- `../botany/05-FLOWERS-REPRODUCTION.md` supplies the plant reproductive anatomy.
+
+## Common Confusion Points
+
+**Honey bees are not the only pollinators**: Commercial beekeeping has created a cognitive bias toward Apis mellifera. Wild bees (solitary + bumble) often outperform honey bees on per-visit efficiency for many crops. Diverse wild pollinator communities provide more stable pollination than mono-species managed systems.
+
+**Colony Collapse Disorder (CCD) is one phenomenon among many**: CCD (2006 US; characterized by sudden worker disappearance, no dead bodies) was a specific syndrome possibly caused by Nosema ceranae + pesticide interaction. General "colony losses" are high but often from Varroa mite + viral load — different causation from CCD proper.
+
+**Pollination syndromes are probabilistic, not deterministic**: A red tubular flower is *likely* bird-pollinated but can be pollinated by long-tongued bees or butterflies. Syndrome classifications are pattern-recognition tools, not rules. Many flowers receive pollination from multiple functional groups.
+
+**Not all insect visits are pollinations**: Nectar robbers (biting through corolla base without entering flower), pollen thieves (collecting pollen without contacting stigma), and floral parasites contribute to insect flower visits but do not accomplish pollination. Counting insect visits overestimates pollination rates.
+
+**Wild bee decline is more severe than honey bee decline**: Managed Apis mellifera populations are intensively managed and can recover from colony losses. Wild solitary bees and bumblebees have no managed backup — population declines are genuine range contractions. The most useful conservation focus is on wild bee communities, not managed stocks.

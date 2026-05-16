@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:eusociality
+kind: guide
+module: entomology
+section: entomology
+title: Eusociality: Ants, Bees, Wasps, and Termites
+status: source-custody
+source_custody: partial
+current_path: entomology/04-EUSOCIALITY.md
+canonical_path: entomology/04-EUSOCIALITY.md
+backsource_ids: [proof-backfill:entomology:04-eusociality, git-history:entomology:04-eusociality]
+concepts: [eusociality]
+root_concepts: [eusociality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Eusociality: Ants, Bees, Wasps, and Termites
 
 ## The Big Picture

@@ -1,0 +1,374 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "00-OVERVIEW.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:overview
+kind: guide
+module: entomology
+section: entomology
+title: Entomology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: entomology/00-OVERVIEW.md
+canonical_path: entomology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:entomology:00-overview, git-history:entomology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Entomology — Landscape and Taxonomy
+
+## The Big Picture
+
+Insects dominate terrestrial animal diversity by species count, abundance, and
+ecological function. Biomass rankings depend on whether termites, ants, marine
+crustaceans, livestock, and humans are counted, but the practical conclusion is
+unchanged: terrestrial ecosystems are insect-structured systems. The collector
+who tries to catalog insects never finishes. That is the first fact of
+entomology.
+
+```
++------------------------------------------------------------------+
+|                    ARTHROPOD TREE OF LIFE                        |
+|                                                                  |
+|   ARTHROPODA (segmented exoskeleton + jointed legs)              |
+|   ├── CHELICERATA  (no antennae, chelicerae)                     |
+|   │   ├── Arachnida  (spiders, scorpions, mites, ticks)          |
+|   │   └── Merostomata (horseshoe crabs)                          |
+|   ├── MYRIAPODA   (many legs)                                    |
+|   │   ├── Chilopoda  (centipedes)                                |
+|   │   └── Diplopoda  (millipedes)                                |
+|   ├── CRUSTACEA   (marine + terrestrial; paraphyletic)           |
+|   │   ├── Malacostraca (crabs, shrimp, lobsters, isopods)        |
+|   │   └── Branchiopoda, Copepoda, Cirripedia ...                 |
+|   └── HEXAPODA    <- THE DOMINANT CLADE                          |
+|       ├── Collembola (springtails; not true insects)             |
+|       ├── Protura, Diplura (non-insect hexapods)                 |
+|       └── INSECTA  ~1,000,000 described species                  |
+|           ├── Apterygota (primitively wingless)                  |
+|           └── Pterygota  (winged + secondarily wingless)         |
+|               ├── Palaeoptera (Odonata, Ephemeroptera)           |
+|               └── Neoptera (~99% of insects)                     |
++------------------------------------------------------------------+
+
+Scale:  ~1 million described insect species
+        ~5-10 million estimated total
+        ~10^18 individual insects alive at any moment
+```
+
+---
+
+## What Defines an Insect
+
+```
+INSECT GROUND PLAN — the diagnostic character suite
++----------------------------------------------------+
+|                                                    |
+|   HEAD          THORAX           ABDOMEN           |
+|  (6 fused)    (3 segments)     (11 max, varies)    |
+|                                                    |
+|  Antennae 1pr  Legs x 3 pairs   No legs (adult)    |
+|  Eyes: compound Wings (0, 1, 2pr) Cerci (some)     |
+|  + 3 ocelli    Spiracles 2pr    Spiracles 8pr      |
+|  Mouthparts                     Gonopore           |
+|  vary widely                    Ovipositor (F)     |
+|                                                    |
++----------------------------------------------------+
+
+KEY DIAGNOSTIC: 3 pairs of legs = Hexapoda
+INSECT-SPECIFIC: 3 tagmata (head/thorax/abdomen) + tracheal system
+
+Not insects but commonly confused:
+  Spiders:    4 pairs legs, 2 tagmata, no antennae   -> Arachnida
+  Centipedes: 1 leg pair/segment, many segments      -> Chilopoda
+  Woodlice:   7 pairs legs, no wings                 -> Crustacea
+  Springtails: 6 legs but entognathous mouthparts    -> Collembola
+```
+
+---
+
+## Major Orders: The Classification Landscape
+
+```
+INSECTA — SPECIES-WEIGHTED ORDER TREE
+|
++-- APTERYGOTA (primitively wingless)                              ~900 spp
+|   +-- Archaeognatha -- bristletails (~500 spp)
+|   +-- Zygentoma    -- silverfish, firebrats (~400 spp)
+|
++-- PTERYGOTA (winged)                                        ~1,019,000 spp
+    +-- PALAEOPTERA (cannot fold wings flat)                     ~8,000 spp
+    |   +-- Ephemeroptera -- mayflies (~3,000 spp)
+    |   +-- Odonata       -- dragonflies, damselflies (~5,000 spp)
+    |
+    +-- NEOPTERA (can fold wings over abdomen)              ~1,011,000 spp
+        +-- POLYNEOPTERA ("many-veined")                      ~43,200 spp
+        |   +-- Orthoptera  -- grasshoppers, crickets (~25,000)
+        |   +-- Blattodea   -- cockroaches + TERMITES (~7,000)
+        |   +-- Phasmatodea -- stick insects (~3,000)
+        |   +-- Plecoptera  -- stoneflies (~3,500)
+        |   +-- Mantodea    -- mantids (~2,400)
+        |   +-- Dermaptera  -- earwigs (~1,800)
+        |
+        +-- PARANEOPTERA                                      ~91,300 spp
+        |   +-- Hemiptera   -- true bugs, cicadas, aphids (~80,000)
+        |   +-- Thysanoptera -- thrips (~5,800)
+        |   +-- Psocoptera  -- booklice, bark lice (~5,500)
+        |
+        +-- HOLOMETABOLA (complete metamorphosis)            ~876,600 spp
+            |                                                (87% of all insects)
+            |
+            |  SPECIES COUNT (described, to scale):
+            |  Coleoptera   ████████████████████████████████████████  400,000
+            |  Lepidoptera  ████████████████                         180,000
+            |  Hymenoptera  ███████████████                          153,000
+            |  Diptera      ██████████████                           152,000
+            |  Trichoptera  █▌                                        14,500
+            |  Neuroptera   ▌                                          6,000
+            |  Siphonaptera ▏                                          2,500
+            |  Strepsiptera ▏                                            600
+            |
+            +-- Coleoptera  -- BEETLES (~400,000 spp)  <- LARGEST ORDER OF LIFE
+            +-- Lepidoptera -- moths + butterflies (~180,000 spp)
+            +-- Hymenoptera -- ants, bees, wasps (~153,000 spp)
+            +-- Diptera     -- true flies (~152,000 spp)
+            +-- Trichoptera -- caddisflies (~14,500 spp)
+            +-- Neuroptera  -- lacewings (~6,000 spp)
+            +-- Siphonaptera -- fleas (~2,500 spp)
+            +-- Strepsiptera -- stylopids (~600 spp)
+```
+
+The bar chart makes the point that the Numerical Dominance section states in prose: four orders — beetles, moths, wasps, flies — contain ~97% of holometabolan diversity. Everything else is rounding error.
+
+Haldane's quip — "God has an inordinate fondness for beetles" — reflects real data: ~400,000 described Coleoptera, ~25% of all animal species.
+
+---
+
+## The Collector's Count
+
+The numbers are the argument. Not analogy, not metaphor — raw inventory.
+
+```
+INSECT SPECIES vs EVERYTHING ELSE
+====================================
+
+  Described beetle species (Coleoptera):     ~400,000
+  ALL described vertebrate species:          ~70,000
+      Mammals:        ~6,400
+      Birds:          ~10,600
+      Reptiles:       ~11,700
+      Amphibians:     ~8,500
+      Fish:           ~35,000
+                                             --------
+  BEETLES ALONE > ALL VERTEBRATES COMBINED       ✓
+
+  Described insect species:                  ~1,020,000
+  ALL described animal species:              ~1,500,000
+  Insects as fraction of known animals:         ~68%
+  Insects as fraction (incl. undescribed est.): ~80%
+
+  THE UNDESCRIBED MAJORITY:
+  ┌─────────────────────────────────────────────────────┐
+  │  Described insect species:          ~1,020,000      │
+  │  Estimated real total:              ~5,500,000      │
+  │  Undescribed fraction:                   ~81%       │
+  │                                                     │
+  │  At current description rate (~7,000 new spp/yr):   │
+  │    Time to describe all:            ~640 years      │
+  │    Taxonomists actively publishing:  ~3,000 world   │
+  │    Undescribed spp per taxonomist:   ~1,500         │
+  └─────────────────────────────────────────────────────┘
+
+  WHERE THE UNDESCRIBED SPECIES HIDE:
+    Parasitoid Hymenoptera (ichneumonids, braconids): ~200,000+ undescribed
+    Tropical canopy beetles:                          ~500,000+ undescribed
+    Soil/leaf-litter microfauna:                      ~400,000+ undescribed
+    Diptera (esp. Phoridae, Cecidomyiidae):           ~300,000+ undescribed
+
+  INDIVIDUAL COUNT:
+    Estimated insects alive right now:        ~10,000,000,000,000,000,000
+    That is 10^19 — ten quintillion
+    Insects per human:                        ~1.25 billion
+    Ants alone:                               ~20 quadrillion (10^16)
+```
+
+Every number above is a lower bound. The collector counts, and the count is never finished.
+
+---
+
+## Numerical Dominance
+
+```
++-----------------------------------------------------------+
+|  INSECT DOMINANCE AT A GLANCE                             |
+|                                                           |
+|  Described species:    ~1,000,000 (vs ~65,000 vertebrates)|
+|  Estimated total spp:  5-10M (insects alone)              |
+|  Individual biomass:   ants alone ~20% of all animal mass |
+|  Fossil record:        ~400 Mya (Devonian hexapods)       |
+|  Peak diversity:       Carboniferous (giant dragonflies)  |
+|                                                           |
+|  GLOBAL INSECT BIOMASS (rough order of magnitude)         |
+|  Ants:     ~20 million tonnes C (dry)                     |
+|  Termites: ~4-8 million tonnes C                          |
+|  Wild vertebrates: ~2 million tonnes C                    |
+|  Humans:   ~0.06 billion tonnes C (wet mass)              |
+|                                                           |
+|  Remove insects and terrestrial ecosystems collapse       |
+|  within years. No other animal group comes close.         |
++-----------------------------------------------------------+
+```
+
+---
+
+## Functional Roles in Ecosystems
+
+```
+INSECT ECOSYSTEM FUNCTIONS
++----------------------------------------------------------+
+| POLLINATION     | ~75% of flowering plants               |
+| PRIMARY SERVICE | Hymenoptera, Diptera, Lepidoptera      |
++----------------------------------------------------------+
+| DECOMPOSITION   | Nutrient cycling, soil formation        |
+|                 | Coleoptera, Diptera larvae              |
++----------------------------------------------------------+
+| PREDATION       | Top-down population regulation         |
+| & PARASITISM    | Odonata, Mantodea, Hymenoptera         |
++----------------------------------------------------------+
+| HERBIVORY       | Primary consumer biomass transfer       |
+|                 | ~40% of insect species phytophagous     |
++----------------------------------------------------------+
+| FOOD WEB BASE   | ~60% of bird diet (breeding season)    |
+|                 | Most freshwater fish, amphibians       |
++----------------------------------------------------------+
+| SOIL ENGINEERNG | Termites, ants: aeration, mixing        |
+|                 | Nutrient redistribution                 |
++----------------------------------------------------------+
+```
+
+---
+
+## Evolutionary Origins and Timeline
+
+```
+INSECT EVOLUTIONARY TIMELINE
+=====================================================
+
+~480 Mya --- Hexapod divergence from crustacean ancestor
+             (Cambrian; molecular clock estimate)
+
+~410 Mya --- First definitive insect fossils (Devonian)
+             Collembola-like hexapods
+
+~350 Mya --- First winged insects (Carboniferous)
+             Palaeoptera diverge; Meganeura: 60cm wingspan
+
+~320 Mya --- Neoptera diverge (folding wings)
+
+~300 Mya --- Hemimetabola diversification
+
+~250 Mya --- Permian-Triassic extinction: ~57% insect families lost
+
+~230 Mya --- Holometabola radiation (complete metamorphosis)
+
+~130 Mya --- Angiosperm-insect coevolution begins (Cretaceous)
+             Co-radiation of Lepidoptera, Hymenoptera
+
+~66 Mya  --- K-Pg extinction: limited insect losses vs vertebrates
+
+~50 Mya  --- Modern insect family composition established
+
+Present  --- Anthropocene insect decline:
+             strong regional biomass/abundance declines; global magnitude
+             varies by taxon, geography, land use, and sampling design
+```
+
+---
+
+## Major Subfield Map
+
+```
+ENTOMOLOGY SUBDISCIPLINES
++-----------------+------------------------------------------+
+| Morphology      | External/internal anatomy, tagmosis      |
+| Physiology      | Cuticle, trachea, nervous system         |
+| Systematics     | Taxonomy, phylogenetics, cladistics      |
+| Ecology         | Population, community, ecosystem roles   |
+| Behavioral      | Eusociality, communication, foraging     |
+| Developmental   | Embryology, metamorphosis, hormones      |
+| Pest Mgmt (IPM) | Economic damage thresholds, biocontrol   |
+| Medical/Forensic| Disease vectors, PMI estimation          |
+| Pollination Bio | Mutualisms, decline, crop dependency     |
+| Chemical Ecology| Pheromones, plant volatiles, kairomones  |
+| Conservation    | Insect decline, dark taxa, monitoring    |
++-----------------+------------------------------------------+
+```
+
+---
+
+## How This Library Is Organized
+
+```
+00-OVERVIEW.md              <- this file: landscape + taxonomy
+01-INSECT-BODY-PLAN.md      <- anatomy, physiology, cuticle, trachea
+02-DIVERSITY-CLASSIFICATION <- major orders, key features, ID logic
+03-METAMORPHOSIS.md         <- holometabola vs hemimetabola, hormones
+04-EUSOCIALITY.md           <- ants, bees, wasps, termites
+05-INSECT-PLANT.md          <- coevolution, herbivory, chemical ecology
+06-POLLINATION.md           <- pollination biology, pollinator decline
+07-INSECT-ECOLOGY.md        <- population dynamics, community ecology
+08-ECONOMIC-ENTOMOLOGY.md   <- pests, IPM, biocontrol
+09-FORENSIC-MEDICAL.md      <- forensic PMI, disease vectors
+```
+
+---
+
+### Engineering Bridges
+
+The morphological cladistic identification key used throughout entomology — if wing venation shows X then Y, if tarsal segments are Z then W — is a decision-tree classifier. Each node is a binary or multi-way split on a morphological feature; each leaf is a taxon identification. The construction of a dichotomous key from a species matrix is feature selection for a decision tree: choose the features that most efficiently partition the remaining taxa (minimize expected depth to classification). The analogy is not loose — the algorithmic structure is identical, and the performance characteristics match: shallow keys (few questions to ID) require features with high discriminative power across the full taxa set; deep keys are efficient only if well-designed.
+
+Coevolutionary arms races — host vs. parasite, plant vs. herbivore, predator vs. prey — are adversarial optimization problems with escalating strategy spaces. The Red Queen dynamic (both parties must keep evolving just to maintain their current relative fitness) is exactly the adversarial training dynamic in GANs and adversarial ML: the discriminator and generator co-evolve, neither reaching a stable solution unless one side's capacity is capped. In biological coevolution, capacity is capped by mutation rate and generation time; in adversarial ML, capacity is capped by model architecture and training compute.
+
+Phylogenetic trees are DAGs with specific constraints: directed (time flows root-to-leaf), acyclic (no reticulation in strict cladograms), and typically bifurcating (each node has exactly two children in a fully resolved tree). The analogy to dependency graphs and version DAGs is structural. Where the analogy breaks: phylogenies represent inference about a single historical process (evolution of life), while dependency graphs represent intentional design. Polytomies (unresolved nodes with 3+ children) are the phylogenetic equivalent of an ambiguous merge — the historical branching order is genuinely uncertain.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| "Is it an insect?" | Three tagmata, three leg pairs, one antenna pair | Spiders, centipedes, millipedes, and crustaceans are arthropods, not insects |
+| Hexapod vs insect | Entognathous mouthparts and lineage placement | Springtails are hexapods but not true insects |
+| Order-level ID | Wing type, mouthparts, metamorphosis, and body plan | Common names cut across taxonomy |
+| Beetle dominance | Coleoptera species count and ecological breadth | "Largest" depends on described species, not necessarily biomass |
+| Metamorphosis claim | Hemimetaboly vs holometaboly | Larva/pupa/adult separation enabled major ecological niche partitioning |
+| Pollination claim | Flowering-plant dependency and crop dependency separately | Ecological dependence is not identical to human food-calorie dependence |
+| Insect-decline claim | Metric, region, taxon, and sampling method | Biomass, abundance, richness, and extinction risk are different signals |
+| Termite classification | Isoptera nested within Blattodea | "Cockroach" is phylogenetic, not a claim about household pests |
+
+---
+
+## Cross-References
+
+- `01-INSECT-BODY-PLAN.md` gives the anatomical baseline for the section.
+- `03-METAMORPHOSIS.md` explains the developmental strategy that structures insect life histories.
+- `06-POLLINATION.md` shows the major ecological service linking insects and plants.
+
+## Common Confusion Points
+
+**Arthropod vs Insect**: All insects are arthropods; most arthropods are not insects. Spiders, crabs, centipedes are arthropods, not insects.
+
+**Hemimetabola vs Holometabola**: Hemimetabola (incomplete metamorphosis) — nymphs resemble adults. Holometabola (complete) — larva, pupa, adult are morphologically distinct. "Metamorphosis" in common speech usually means holometabolous complete metamorphosis.
+
+**Termites are cockroaches**: Molecular phylogenetics placed Isoptera inside Blattodea. Termites are eusocial wood-feeding relatives of cockroaches, commonly treated as infraorder Isoptera within Blattodea.
+
+**"Bug" is not "insect"**: True bugs (Hemiptera) have piercing-sucking mouthparts and characteristic wing structure. All bugs are insects; most insects are not bugs.
+
+**Species counts are a lower bound**: Tropical forests, soil fauna, and parasitoid Hymenoptera remain massively under-described. Estimates for total insect diversity vary widely, but ~1 million described species is clearly an undercount. The collection is never complete.
+
+**The insect decline literature**: Headlines about "40% decline" conflate different metrics — flying insect biomass (Germany, Hallmann 2017), species extinction rates, and abundance trends. Real but geographically uneven; tropical forest diversity may be less affected than temperate agricultural zones.

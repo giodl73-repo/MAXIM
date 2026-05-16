@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:insect-plant
+kind: guide
+module: entomology
+section: entomology
+title: Insect-Plant Interactions and Coevolution
+status: source-custody
+source_custody: partial
+current_path: entomology/05-INSECT-PLANT.md
+canonical_path: entomology/05-INSECT-PLANT.md
+backsource_ids: [proof-backfill:entomology:05-insect-plant, git-history:entomology:05-insect-plant]
+concepts: [insect, plant]
+root_concepts: [insect, plant]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Insect-Plant Interactions and Coevolution
 
 ## The Big Picture

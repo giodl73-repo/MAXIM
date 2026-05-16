@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:song-communication
+kind: guide
+module: ornithology
+section: ornithology
+title: Bird Song and Communication
+status: source-custody
+source_custody: partial
+current_path: ornithology/05-SONG-COMMUNICATION.md
+canonical_path: ornithology/05-SONG-COMMUNICATION.md
+backsource_ids: [proof-backfill:ornithology:05-song-communication, git-history:ornithology:05-song-communication]
+concepts: [song, communication]
+root_concepts: [song, communication]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bird Song and Communication
 
 ## The Big Picture

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "entomology\\07-INSECT-ECOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "## Life History Strategies",
+      "confidence": "candidate",
+      "text": "r vs K SELECTION IN INSECTS\n==============================\n\nr-SELECTED (opportunistic):\n  High reproductive rate, short generation time\n  Small body size, no parental care\n  Population tracks resource availability closely\n  Examples:\n    Aphids: parthenogenetic; 10-20 days/generation; 50-100 nymphs/female\n    Fruit flies: 14-day generation; 400 eggs/female\n    Mosquitoes: opportunistic larval habitat\n  Characteristic: boom-bust population dynamics\n                  colonize disturbed habitats rapidly\n\nK-SELECTED (equilibrium):\n  Low reproductive rate, long generation time\n  Large body size, possible parental care\n  Population near carrying capacity (K)\n  Examples:\n    Periodical cicadas: 17-year cycle; emerge in synchrony\n    Large beetles (Dynastes): 2-5 year development\n    Social Hymenoptera: colony-level demography\n  Characteristic: stable populations; slow recovery from perturbation\n\n+----------------------------------------------+\n| LIFE HISTORY TRADE-OFFS                      |\n| Current reproduction vs future survival      |\n| Number vs size of offspring                  |\n| Development speed vs adult size              |\n| Body size vs metabolic rate                  |\n+----------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "## Population Growth Models",
+      "confidence": "candidate",
+      "text": "BASIC INSECT POPULATION MODELS\n=================================\n\nEXPONENTIAL GROWTH (density-independent):\n  dN/dt = rN\n  N(t) = N0 * e^(rt)\n  r = intrinsic rate of natural increase\n      (birth rate - death rate)\n  Aphids: r ~ 0.3/day -> population doubles in 2.3 days\n  Appropriate for: invading populations, early colonization\n\nLOGISTIC GROWTH (density-dependent):\n  dN/dt = rN(1 - N/K)\n  K = carrying capacity\n  Population slows as N -> K\n  Density dependence: competition, disease, predation increase\n  with N -> stabilizes population\n\nLIFE TABLE ANALYSIS:\n  x    lx       mx       lx*mx\n  0    1.00    0.0       0.0\n  1    0.70    2.0       1.4     (lx = survivorship from birth)\n  2    0.40    5.0       2.0     (mx = fecundity at age x)\n  3    0.10    3.0       0.3\n  Net Reproductive Rate R0 = sum(lx*mx) = 3.7\n  If R0 > 1: population growing\n  If R0 = 1: stable\n  If R0 < 1: declining\n\nGENERATION TIME:\n  T = sum(x * lx * mx) / R0\n  Links life table to intrinsic growth rate r ~ ln(R0)/T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## Population Regulation: Density Dependence",
+      "confidence": "candidate",
+      "text": "DENSITY DEPENDENCE MECHANISMS\n================================\n\nNEGATIVE DENSITY DEPENDENCE (regulatory):\n  As N increases -> per capita birth rate decreases OR\n  As N increases -> per capita death rate increases\n  -> negative feedback -> stabilizes population\n\n  DIRECT DENSITY DEPENDENCE (same generation):\n    Intraspecific competition for food -> starvation\n    Disease transmission -> mortality increases with density\n    Predator aggregation -> predation increases with density\n\n  DELAYED DENSITY DEPENDENCE (different generation):\n    Parasitoid-host cycles (Nicholson-Bailey)\n    Plant quality decline after outbreak -> next generation suffers\n    Leads to: population CYCLES\n\nNICHOLSON-BAILEY PARASITOID-HOST MODEL:\n  Host:      Ht+1 = Ht * R * exp(-a * Pt)\n  Parasitoid: Pt+1 = Ht * (1 - exp(-a * Pt))\n  Where R = host finite rate of increase\n        a = searching efficiency of parasitoid\n  Predicts: inherently unstable oscillations\n  Reality: refugia + functional responses stabilize",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## Insect Outbreaks",
+      "confidence": "candidate",
+      "text": "OUTBREAK TYPES AND MECHANISMS\n================================\n\nERUPTIVE SPECIES (endemic low, periodic outbreak):\n  Forest defoliators: spruce budworm, gypsy moth, pine processionary\n  Mechanism: multiple competing hypotheses\n    1. Bottom-up (food quality): post-stress trees = higher N, lower tannin\n    2. Top-down (predator release): generalist predators can't track\n       rapid host population growth -> prey escape regulation\n    3. Lateral (weather): synchronizing outbreaks across landscape\n    4. Budworm + delayed density dependence:\n       Young trees -> poor habitat -> low outbreak\n       Mature trees -> good habitat -> outbreak\n       Outbreak kills trees -> forest rejuvenates -> cycle\n\nIRRUPTIVE SPECIES (locust phase polyphenism):\n  Schistocerca gregaria:\n    Solitary -> gregarious switch: serotonin in CNS\n    Trigger: hind leg mechanoreceptors stimulated >2x/min\n    Gregarious: darker, larger, aggregative, migratory\n    Swarms: 40M-80M insects/km^2; 130km/day; eat entire crop\n    Forecast model: satellite remote sensing of vegetation greenness\n                    + rainfall -> locust habitat mapping\n\nINVASIVE SPECIES OUTBREAKS:\n  Enemy release hypothesis: no natural enemies in new range\n  -> rapid population growth to levels never seen in native range\n  Examples:\n    Emerald ash borer (Agrilus planipennis): ~10B trees killed in N.America\n    Brown marmorated stink bug (Halyomorpha halys): US agriculture\n    Spotted lanternfly (Lycorma delicatula): grape + tree damage, E. USA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Thermal Ecology and Climate",
+      "confidence": "candidate",
+      "text": "INSECT THERMAL BIOLOGY\n========================\n\nECTOTHERMY:\n  Body temperature ~ ambient temperature (mostly)\n  Exception: flight muscle endothermy (bees, moths pre-flight shivering)\n             basking thermoregulation (butterflies)\n\nTHERMAL PERFORMANCE CURVES:\n  Performance (development rate, reproduction, flight)\n         /\\\n        /  \\\n       /    \\  <- optimal temperature range\n      /      \\\n  ___/        \\___ -> mortality\n      CTmin   CTmax\n  T_opt typically 70-90% of CTmax\n\nDEVELOPMENT AND TEMPERATURE:\n  Degree-day accumulation:\n    DD = (T_mean - T_base) * days\n    T_base = lower development threshold (0-10C typically)\n    Sum of degree-days to complete development = constant (species-specific)\n    Example: European corn borer: 900 DD base 10C to adult emergence\n\nCLIMATE CHANGE EFFECTS:\n  Range shifts poleward/upward: ~6km N/yr or 6m elevation/yr\n  Phenological shifts: earlier emergence (5-10 days/decade)\n  Mismatch with host plants and natural enemies\n  Winter mortality reduction -> population increase in some pests\n  Tropical insects: narrower thermal range -> vulnerable to warming\n\nDIAPAUSE AND PHOTOPERIOD:\n  Critical photoperiod triggers dormancy before winter\n  Climate-adapted genotypes vary in critical photoperiod\n  Rapid evolution possible: D. melanogaster CLP evolved in <50 yrs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Aquatic Insects and Water Quality",
+      "confidence": "candidate",
+      "text": "AQUATIC INSECT ECOLOGY\n========================\n\nMAJOR AQUATIC ORDERS:\n  Ephemeroptera (mayflies)    EPT INDEX <- most sensitive\n  Plecoptera (stoneflies)           <- water quality indicators\n  Trichoptera (caddisflies)   EPA standard biomonitoring\n  Odonata (dragonflies)       moderate sensitivity\n  Diptera (many midges)       pollution tolerant (Chironomidae)\n  Coleoptera (diving beetles) moderate sensitivity\n\nEPT INDEX (Ephemeroptera + Plecoptera + Trichoptera):\n  High EPT diversity -> clean water\n  Low EPT, high Chironomidae/Tubifex -> organic pollution\n  Standard biomonitoring metric globally\n\nFUNCTIONAL FEEDING GROUPS:\n  Shredders: tear coarse particulate organic matter (leaves)\n             -> fine particulate; Plecoptera, Trichoptera\n  Collectors: gather fine particulate organic matter\n             -> meiofauna biomass; Chironomidae, Baetidae\n  Scrapers:  eat periphyton (algal film on rocks)\n             -> Ecdyonurus, Heptageniidae\n  Predators: aquatic invertebrate predation; Odonata, Perlidae\n  Filterers: filter-feed on suspended FPOM; Simuliidae\n\nLONGITUDINAL RIVER CONTINUUM (Vannote 1980):\n  Headwaters: shredders dominant (allochthonous input)\n  Mid-reaches: collectors dominant (FPOM from upstream shredding)\n  Lower reaches: collectors + filterers (fine suspended matter)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "## Community Ecology: Insects in Food Webs",
+      "confidence": "candidate",
+      "text": "INSECT TROPHIC ROLES\n======================\n\nPRIMARY CONSUMERS (herbivores):\n  ~40% of insect species\n  Transfer plant primary production to higher trophic levels\n  Critical link: if removed, vertebrate predators collapse\n\nSECONDARY CONSUMERS (predators + parasitoids):\n  Predatory beetles (Carabidae, Coccinellidae)\n  Predatory flies (Asilidae)\n  Predatory wasps (Vespidae, Pompilidae)\n  Odonata (both larval and adult)\n\nPARASITOIDS (trophic level 2.5):\n  Larval development consumes host; host dies\n  ~150,000 described parasitoid species (mostly Hymenoptera + Diptera)\n  May constitute ~20% of insect species\n  Critical regulation of herbivore populations\n\nDECOMPOSERS:\n  Coleoptera larvae (Dermestidae, Ptinidae): keratin, bone\n  Diptera larvae (Calliphoridae, Sarcophagidae): carrion\n  Scarabaeidae: dung processing\n  Isoptera (termites): lignocellulose\n\nTROPHIC CASCADES:\n  Removal of top insect predators (Odonata, Carabidae)\n  -> herbivore release -> plant damage increase\n  Documented in agricultural systems repeatedly\n  \"Biological control\" = managed trophic cascade",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "## Migration and Long-Distance Movement",
+      "confidence": "candidate",
+      "text": "INSECT MIGRATION\n=================\n\nCATEGORIES:\n  TRUE MIGRATION: directed, long-distance, facultative or obligate\n    Monarch (Danaus plexippus): 4,500km N America -> Mexico\n    Painted lady (Vanessa cardui): 12,000km W Africa -> Arctic Circle\n    Desert locust: follows Inter-Tropical Convergence Zone\n    Dragonflies (Libellula, Pantala): transoceanic (Pantala: 14,500km)\n\n  DISPERSAL: undirected movement; colonization of new habitat\n\nNAVIGATION MECHANISMS (Monarch):\n  Time-compensated sun compass: sun position + circadian clock\n  Magnetic field detection: proposed but evidence equivocal\n  Olfactory/visual landmarks: route reinforcement\n  Inherited direction: naive monarchs can navigate without learning\n\nWIND ASSISTANCE:\n  Most \"migrants\" are wind-assisted opportunists\n  Travel in boundary layer above ground in favorable winds\n  Aphid migration: essentially wind-dispersed\n  Spruce budworm moths: weather-synchronized mass dispersal\n\nPOPULATION CONSEQUENCES:\n  Mixing prevents local adaptation in migrants\n  Source-sink dynamics: northern breeding season (high r)\n                        southern overwintering (survival only)\n  Conservation: must protect both ends of migration + stopover habitats",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

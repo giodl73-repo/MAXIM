@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:systematics
+kind: guide
+module: ornithology
+section: ornithology
+title: Systematics and Major Groups
+status: source-custody
+source_custody: partial
+current_path: ornithology/03-SYSTEMATICS.md
+canonical_path: ornithology/03-SYSTEMATICS.md
+backsource_ids: [proof-backfill:ornithology:03-systematics, git-history:ornithology:03-systematics]
+concepts: [systematics]
+root_concepts: [systematics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Systematics and Major Groups
 
 ## The Big Picture

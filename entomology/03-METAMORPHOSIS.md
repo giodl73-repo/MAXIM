@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:metamorphosis
+kind: guide
+module: entomology
+section: entomology
+title: Metamorphosis: Complete and Incomplete
+status: source-custody
+source_custody: partial
+current_path: entomology/03-METAMORPHOSIS.md
+canonical_path: entomology/03-METAMORPHOSIS.md
+backsource_ids: [proof-backfill:entomology:03-metamorphosis, git-history:entomology:03-metamorphosis]
+concepts: [metamorphosis]
+root_concepts: [metamorphosis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metamorphosis: Complete and Incomplete
 
 ## The Big Picture

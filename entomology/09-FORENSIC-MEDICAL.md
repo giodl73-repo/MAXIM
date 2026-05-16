@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:forensic-medical
+kind: guide
+module: entomology
+section: entomology
+title: Forensic and Medical Entomology
+status: source-custody
+source_custody: partial
+current_path: entomology/09-FORENSIC-MEDICAL.md
+canonical_path: entomology/09-FORENSIC-MEDICAL.md
+backsource_ids: [proof-backfill:entomology:09-forensic-medical, git-history:entomology:09-forensic-medical]
+concepts: [forensic, medical]
+root_concepts: [forensic, medical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forensic and Medical Entomology
 
 ## The Big Picture

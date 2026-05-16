@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:insect-body-plan
+kind: guide
+module: entomology
+section: entomology
+title: Insect Body Plan and Physiology
+status: source-custody
+source_custody: partial
+current_path: entomology/01-INSECT-BODY-PLAN.md
+canonical_path: entomology/01-INSECT-BODY-PLAN.md
+backsource_ids: [proof-backfill:entomology:01-insect-body-plan, git-history:entomology:01-insect-body-plan]
+concepts: [insect, body, plan]
+root_concepts: [insect, body]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Insect Body Plan and Physiology
 
 ## The Big Picture

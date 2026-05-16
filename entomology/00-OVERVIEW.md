@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:overview
+kind: guide
+module: entomology
+section: entomology
+title: Entomology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: entomology/00-OVERVIEW.md
+canonical_path: entomology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:entomology:00-overview, git-history:entomology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Entomology — Landscape and Taxonomy
 
 ## The Big Picture

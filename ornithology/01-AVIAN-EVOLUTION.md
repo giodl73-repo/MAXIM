@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:avian-evolution
+kind: guide
+module: ornithology
+section: ornithology
+title: Avian Evolution: Theropods to Modern Birds
+status: source-custody
+source_custody: partial
+current_path: ornithology/01-AVIAN-EVOLUTION.md
+canonical_path: ornithology/01-AVIAN-EVOLUTION.md
+backsource_ids: [proof-backfill:ornithology:01-avian-evolution, git-history:ornithology:01-avian-evolution]
+concepts: [avian, evolution]
+root_concepts: [avian, evolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Avian Evolution: Theropods to Modern Birds
 
 ## The Big Picture

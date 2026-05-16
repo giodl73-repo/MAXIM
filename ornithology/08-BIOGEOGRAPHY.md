@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:biogeography
+kind: guide
+module: ornithology
+section: ornithology
+title: Biogeography and Island Biology
+status: source-custody
+source_custody: partial
+current_path: ornithology/08-BIOGEOGRAPHY.md
+canonical_path: ornithology/08-BIOGEOGRAPHY.md
+backsource_ids: [proof-backfill:ornithology:08-biogeography, git-history:ornithology:08-biogeography]
+concepts: [biogeography]
+root_concepts: [biogeography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biogeography and Island Biology
 
 ## The Big Picture
