@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "medicine\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## Big Picture: The Drug Landscape",
+      "confidence": "candidate",
+      "text": "DRUG ADMINISTRATION\n       │\n       ▼  (Route, dose, formulation)\nPHARMACOKINETICS (PK): \"what the body does to the drug\"\n  A - Absorption\n      F = bioavailability; first-pass effect\n      Entry into systemic circulation; IV F=100%, PO limited by first-pass\n        |\n  D - Distribution\n      Protein binding; BBB penetration\n      Partitioning into tissues (Vd); high Vd = tissue sequestration\n        |\n  M - Metabolism\n      CYP450 enzymes; first-pass metabolism\n      CYP450 Phase I -> conjugation Phase II; prodrug activation/inactivation\n        |\n  E - Elimination\n      t1/2 = 0.693 x Vd/CL\n      Renal (GFR-dependent) + biliary; steady state at 4-5 x t1/2\n        |\n        v\n  Concentration at target site\n        |\n        v\nPHARMACODYNAMICS (PD): \"what the drug does to the body\"\n  Receptor binding        Affinity (Kd), selectivity\n  Dose-response curve     EC50 (potency), Emax (efficacy)\n  Therapeutic index       TI = TD50/ED50 - safety margin\n  Agonism/antagonism      Activates, blocks, modulates target\n  Feedback loops          Drug effect -> physiological response\n                          -> may alter drug target (tolerance,\n                             receptor downregulation)\n\nDRUG DEVELOPMENT PIPELINE:\n  Target → Lead → Preclinical → Phase I → Phase II → Phase III → NDA\n\nDRUG CLASS MODULES:\n  01 Antibiotics   02 Antivirals/Vaccines   03 Cardiovascular\n  04 CNS           05 Endocrine/Metabolic   06 Cancer\n  07 Immunomodulators  08 Respiratory/GI   09 Anesthesia\n  10 Diagnostics/Imaging",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 80,
+      "heading_context": "### Absorption",
+      "confidence": "candidate",
+      "text": "Routes and bioavailability (F):\n  IV:     F = 100% (definition)\n  IM/SC:  F = 75–100% (bypasses gut)\n  PO:     Variable; limited by:\n    ├── GI absorption (solubility, permeability, transporters)\n    ├── Gut wall metabolism (CYP3A4 in enterocytes)\n    └── First-pass hepatic metabolism (portal circulation → liver)\n\nFirst-pass effect:\n  PO drug → portal vein → liver → CYP metabolism before systemic circulation\n  High first-pass drugs need large PO dose or alternative route\n  Examples: nitroglycerin (SL), morphine (IV > PO), lidocaine (IV only),\n            testosterone (injectable/transdermal — extensive gut/liver metabolism)\n\nBioavailability calculation:\n  F = AUC_oral / AUC_IV   (area under concentration-time curve)\n\nHenderson-Hasselbalch and absorption:\n  Weak acids (pKa~4): stomach (pH 2) → mostly unionized → well-absorbed\n  Weak bases (pKa~8): intestine (pH 6–7) → mostly unionized → absorbed\n  Ionized form: water-soluble, cannot cross membranes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "### Distribution",
+      "confidence": "candidate",
+      "text": "Volume of distribution (Vd):\n  Vd = Amount of drug in body / Plasma concentration\n  Units: liters (or L/kg)\n\n  Vd = plasma volume (~3L)          → stays in blood (heparin, proteins)\n  Vd = ECF (~12–14L)                → polar, doesn't enter cells\n  Vd = TBW (~42L)                   → crosses into cells\n  Vd >> 42L (100s–1000s L)          → extensive tissue binding (chloroquine, amiodarone)\n\nProtein binding:\n  Albumin: binds acidic drugs (warfarin, phenytoin, NSAIDs)\n  α1-acid glycoprotein (AGP): binds basic drugs (lidocaine, propranolol)\n  Only free (unbound) drug is pharmacologically active\n  Displacement interactions (e.g., warfarin displaced by NSAIDs) → transient ↑ free drug\n\nBlood-brain barrier (BBB) penetration:\n  Requires: lipophilicity, small MW, low protein binding, not P-gp substrate\n  P-glycoprotein (MDR1): efflux pump at BBB; substrate drugs excluded\n  Inflammation (meningitis) can disrupt BBB → allows penetration of normally excluded drugs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "### Metabolism",
+      "confidence": "candidate",
+      "text": "Phase I reactions: oxidation/reduction/hydrolysis\n  CYP450 enzymes (liver microsomes — ER membrane):\n    CYP3A4: ~50% of drugs; inducible by rifampin, carbamazepine, St. John's wort\n    CYP2D6: codeine → morphine; polymorphic (UM/EM/IM/PM)\n    CYP2C9: warfarin, phenytoin, NSAIDs\n    CYP2C19: omeprazole, clopidogrel (prodrug activation); PM = ~15% Asians\n    CYP1A2: theophylline, caffeine; induced by smoking\n\nPhase II reactions: conjugation (glucuronidation/sulfation/acetylation/glutathione)\n  Make drug more water-soluble → renal/biliary excretion\n  UDP-glucuronosyltransferases (UGTs) most important\n  N-acetyltransferase (NAT2): INH, hydralazine, procainamide; polymorphic (fast/slow acetylators)\n\nProdrugs require metabolism for activation:\n  Clopidogrel → active thiol (CYP2C19); PMs don't respond\n  Codeine → morphine (CYP2D6); UMs → toxic morphine levels\n  Enalapril → enalaprilat (esterases)\n  Valacyclovir → acyclovir (gut/liver esterases)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Elimination",
+      "confidence": "candidate",
+      "text": "Renal clearance:\n  CLrenal = GFR × fu − Treabsorption + Tsecretion\n  (fu = unbound fraction; tubular secretion via OAT/OCT transporters)\n  Drugs eliminated renally: dose-reduce in CKD (metformin, digoxin, aminoglycosides)\n\nHalf-life (t½):\n  t½ = 0.693 × Vd / CL\n  Time to steady state: 4–5 × t½\n  Time to elimination: ~4–5 × t½ (97% eliminated at 5 × t½)\n\nSteady-state concentration:\n  Css = Dose rate / (CL)    (for continuous infusion)\n  Css = F × Dose / (CL × τ) (for multiple dosing, τ = dosing interval)\n  Depends only on clearance and dosing rate — NOT on Vd\n\nZero-order vs first-order kinetics:\n  First-order (most drugs): rate ∝ concentration → constant t½, predictable\n  Zero-order (saturable): constant rate regardless of concentration\n    Alcohol, phenytoin, salicylates (at high doses)\n    → Small dose increase → large plasma concentration increase → toxicity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Receptor Types",
+      "confidence": "candidate",
+      "text": "G protein-coupled receptors (GPCRs): 7-TM domains\n  Gs → ↑ adenylyl cyclase → ↑ cAMP (β-adrenergic, glucagon, TSH)\n  Gi → ↓ adenylyl cyclase → ↓ cAMP (α2-adrenergic, opioids, M2)\n  Gq → ↑ PLCβ → ↑ IP3/DAG → ↑ Ca²⁺ (α1, M1/M3, H1, AT1)\n\nIon channel receptors (ligand-gated): fastest response (ms)\n  nAChR, GABA-A, NMDA, 5-HT3 — direct ion flow\n\nReceptor tyrosine kinases (RTKs): dimerization → autophosphorylation → cascade\n  Insulin, EGF, PDGF, IGF-1 receptors\n\nNuclear receptors: transcription factor activation (hours-days)\n  Steroids (GR, MR, ER, AR), thyroid hormones, retinoic acid, vitamin D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "### Dose-Response Concepts",
+      "confidence": "candidate",
+      "text": "Log-dose vs response curve (sigmoidal):\n\n     100% ─────────────────────── Emax\n      │                     ╱───────────\n  %  │                   ╱\n  R  │                ╱\n  e  50% ─────────╱\n  s  │         ╱   ↑ EC50\n  p  │      ╱\n  o  │   ╱\n  n  │╱\n  s  0%\n  e       ──────────────────── log[dose]\n\nEC50: concentration producing 50% maximal effect\nEmax: maximum possible effect\nPotency: EC50 comparison (lower EC50 = more potent)\nEfficacy: Emax comparison (which drug can produce greater maximal effect)\n\nTherapeutic index (TI) = TD50 / ED50\n  (median toxic dose / median effective dose)\n  Wide TI: penicillin (very safe)\n  Narrow TI: digoxin, warfarin, lithium, aminoglycosides, phenytoin, theophylline\n  → Narrow TI drugs require monitoring (drug levels)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## 3. Drug-Drug Interactions",
+      "confidence": "candidate",
+      "text": "PHARMACOKINETIC INTERACTIONS:\n\nCYP inducers → ↓ substrate plasma levels (↓ efficacy):\n  Rifampin, carbamazepine, phenytoin, phenobarbital, St. John's wort, efavirenz, smoking\n  Examples: rifampin + warfarin → ↑ warfarin dose needed\n            St. John's wort + oral contraceptives → contraception failure\n\nCYP inhibitors → ↑ substrate plasma levels (↑ toxicity):\n  Azole antifungals (ketoconazole > itraconazole >> fluconazole): CYP3A4\n  Macrolides (erythromycin/clarithromycin, NOT azithromycin): CYP3A4\n  Grapefruit juice: CYP3A4 irreversible inhibition in gut wall\n  Fluoxetine/paroxetine: CYP2D6 inhibition\n  Amiodarone: CYP2C9/3A4 inhibition → ↑ warfarin → bleeding\n  Examples: statins + azoles → myopathy; tacrolimus + azoles → nephrotoxicity\n\nPHARMACODYNAMIC INTERACTIONS:\n\nSynergy: combined effect > sum of individual effects\n  BZD + alcohol → CNS/respiratory depression (↑ mortality)\n  Aminoglycoside + β-lactam → bactericidal synergy\n\nAntagonism: combined effect < sum\n  Naloxone reverses opioid → functional antagonism\n  Vitamin K reverses warfarin at level of GC receptor (PD antagonism)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## 4. Drug Development Pipeline",
+      "confidence": "candidate",
+      "text": "TARGET IDENTIFICATION\n  Genomics (GWAS), proteomics, phenotypic screening → biological target\n  CRISPR validation: knock out gene → confirm phenotype reversal\n\nLEAD DISCOVERY\n  HTS (high-throughput screening) of compound libraries\n  Fragment-based discovery (FBDD): small fragments → elaborated\n  Structure-based design: X-ray/cryo-EM of target → rational design\n\nPRECLINICAL STUDIES\n  In vitro: cell-based assays, SAR (structure-activity relationship)\n  In vivo: animal models (rodent/primate) → PK, toxicology, ADME\n  IND application → FDA permission to start clinical testing\n\nPHASE I (safety/PK, ~20–80 healthy volunteers)\n  Single ascending dose (SAD) → multiple ascending dose (MAD)\n  PK parameters, MTD (maximum tolerated dose), dose selection for Ph II\n  Oncology: patients (not healthy volunteers); starting at 1/10th toxic dose\n\nPHASE II (efficacy/dose, ~100–300 patients)\n  Proof-of-concept; dose-ranging; early efficacy signal\n  ~60–70% of drugs that reach Phase II fail here\n\nPHASE III (confirmatory RCT, ~1000–10,000 patients)\n  Randomized, controlled, often double-blind, multi-center\n  Powered for primary endpoint (regulatory approval threshold)\n  ~25% of drugs that reach Phase III fail\n\nNDA/BLA SUBMISSION (NDA = small molecule; BLA = biologic)\n  FDA review: 10–12 months standard; priority/accelerated review: 6 months\n  Advisory committee meetings for controversial approvals\n\nPHASE IV (post-marketing surveillance)\n  Pharmacovigilance, safety signals in real-world populations\n  REMS (Risk Evaluation and Mitigation Strategy) for high-risk drugs\n  Black box warnings can be added based on Phase IV signals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "## 5. Regulatory Pathways",
+      "confidence": "candidate",
+      "text": "STANDARD APPROVAL: full efficacy + safety data from clinical trials\nACCELERATED APPROVAL (Subpart H): surrogate endpoint (biomarker likely to predict outcome)\n  Requires post-market confirmatory trial; withdrawal if fails\n  Examples: many cancer drugs (tumor response rate → survival assumed)\nBREAKTHROUGH THERAPY DESIGNATION: FDA intensive guidance; faster review\nFAST TRACK: rolling review; frequent FDA interaction\nPRIORITY REVIEW: 6-month goal vs 10-month standard (serious condition + unmet need)\nORPHAN DRUG DESIGNATION: diseases affecting <200,000 in US\n  Benefits: 7-year market exclusivity, tax credits, waived fees\n\nBIOSIMILARS (Biologics Price Competition + Innovation Act 2009):\n  Highly similar biologic with no clinically meaningful differences\n  Interchangeable biosimilar: pharmacist can substitute without prescriber consult\n  Not automatically substitutable (complex structure, immunogenicity variability)\n  Examples: adalimumab biosimilars (humira → Hadlima/Hyrimoz)\n\nGENERIC DRUGS (Hatch-Waxman 1984):\n  Bioequivalent to brand (same dosage form, strength, route, rate/extent of absorption)\n  Require Abbreviated NDA (ANDA) — no full clinical trials\n  Bioequivalence: 90% CI of AUC and Cmax ratios within 80–125% of reference",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "### Hepatic Dosing",
+      "confidence": "candidate",
+      "text": "Child-Pugh score (5–15 points): bilirubin, albumin, INR, ascites, encephalopathy\n  Child A (5–6): mild; minimal dose change usually needed\n  Child B (7–9): moderate; reduce dose of extensively metabolized drugs\n  Child C (10–15): severe; avoid hepatotoxic drugs; protein-bound drugs altered\n\nDrugs requiring hepatic dose reduction:\n  High first-pass drugs (morphine, verapamil, propranolol) → ↑ oral bioavailability in cirrhosis\n  Coagulation factor synthesis ↓ → ↑ warfarin effect",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 377,
+      "heading_context": "### Pregnancy",
+      "confidence": "candidate",
+      "text": "FDA Pregnancy Labeling (PLLR, replaced old A/B/C/D/X categories 2015):\n  Now narrative: fetal risk summary, clinical considerations, data sections\n\nSafe in pregnancy (general):\n  Antibiotics: penicillins, cephalosporins, azithromycin, clindamycin\n  Insulin (preferred over oral agents for DM in pregnancy)\n  Thyroid replacement (levothyroxine)\n  Heparin/LMWH (warfarin crosses placenta → teratogenic)\n\nContraindicated in pregnancy:\n  Warfarin (embryopathy weeks 6–12; intracranial hemorrhage in fetus)\n  ACE inhibitors/ARBs (2nd/3rd trimester: fetal renal agenesis, oligohydramnios)\n  Statins (↓ fetal cholesterol synthesis → organogenesis disruption)\n  Methotrexate (antifolate → NTDs, fetal death)\n  Thalidomide, isotretinoin, valproate, tetracyclines (teeth/bone)\n  NSAIDs (3rd trimester → premature ductus closure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 398,
+      "heading_context": "### Pediatric PK",
+      "confidence": "candidate",
+      "text": "Neonates: immature CYP enzymes → ↑ drug exposure (especially CYP1A2/2D6/3A4)\n  Glucuronidation (UGT) immature → chloramphenicol gray baby syndrome\nInfants: CYP3A7 → CYP3A4 transition; enzyme activity may exceed adults by year 1–2\nChildren: weight-based dosing (mg/kg); volume of distribution differs (↑ body water fraction)\n  Higher renal clearance per kg → may need higher mg/kg dosing for some drugs\n\nContraindicated in children:\n  Aspirin (<12yr): Reye syndrome (hepatic encephalopathy with viral illness)\n  Tetracyclines (<8yr): tooth discoloration, bone growth inhibition\n  Fluoroquinolones (<18yr general guidance): cartilage toxicity in animal models\n  (FQ exceptions: anthrax/plague prophylaxis, or no alternatives)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 414,
+      "heading_context": "### Elderly",
+      "confidence": "candidate",
+      "text": "Beers Criteria (AGS): lists drugs to avoid/use-with-caution in adults ≥65\n  Physiological changes:\n  ↓ GFR → ↑ renally cleared drug levels\n  ↓ Hepatic blood flow → ↑ first-pass → ↑ oral bioavailability of high-EP drugs\n  ↑ Body fat / ↓ lean mass → ↑ Vd for lipophilic drugs (BZDs)\n  ↓ Albumin → ↑ free fraction of highly protein-bound drugs\n  ↑ CNS sensitivity to BZDs, opioids, anticholinergics\n\nBeers list highlights: long-acting BZDs, antihistamines (anticholinergic), tricyclics,\n  muscle relaxants, NSAIDs (GI bleed, renal), first-gen antipsychotics (fall/sedation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 431,
+      "heading_context": "## 7. Drug Naming Conventions",
+      "confidence": "candidate",
+      "text": "STEM SYSTEM (INN — International Nonproprietary Name):\nSmall molecules:\n  −olol   = β-blocker (metoprolol, atenolol, carvedilol)\n  −pril   = ACE inhibitor (lisinopril, enalapril, ramipril)\n  −sartan = ARB (losartan, valsartan, irbesartan)\n  −ipine  = dihydropyridine CCB (amlodipine, nifedipine, felodipine)\n  −statin = HMG-CoA reductase inhibitor (atorvastatin, rosuvastatin)\n  −floxacin = fluoroquinolone (ciprofloxacin, levofloxacin)\n  −cillin = penicillin class (amoxicillin, nafcillin, piperacillin)\n  −cycline = tetracycline class (doxycycline, minocycline)\n  −azole  = antifungal or PPI (omeprazole, fluconazole — different!)\n  −navir  = HIV protease inhibitor (ritonavir, darunavir)\n  −vir    = antiviral (acyclovir, ganciclovir, remdesivir)\n  −tidine = H2 blocker (famotidine, ranitidine)\n  −zosin  = α1 blocker (prazosin, doxazosin, terazosin)\n\nBiologics (monoclonal antibodies):\n  Structure: [target/source prefix] + [source infix] + -mab\n  Source infix:\n    -o-    = mouse (murino-) → fully mouse → high immunogenicity\n    -xi-   = chimeric (~25% mouse)\n    -zu-   = humanized (~5–10% mouse)\n    -u-    = fully human\n  Target prefix examples:\n    -lim-  = immune (immunomodulatory)\n    -cir-  = cardiovascular\n    -tu-   = tumor\n    -vi-   = viral\n  Examples:\n    infliXImab: chimeric, anti-TNF (immunomodulatory)\n    adalimUmab: fully human, anti-TNF\n    trastUZUmab: humanized, anti-HER2 (tumor)\n    rituXImab: chimeric, anti-CD20 (tumor/immune)\n    pembroliZUmab: humanized, anti-PD-1 (tumor)\n\n  Bispecific: [target1][target2]-[source]-mab (blinatumomab = CD3×CD19)\n  ADC: [mAb] + [linker] + [payload]; named like mAb (T-DM1 = trastuzumab-emtansine)\n  Fusion proteins: target + immunoglobulin Fc (etanercept = TNFR2-Fc; abatacept = CTLA-4-Fc)\n\nKinase inhibitors (-nib):\n  -tinib  = general kinase inhibitor\n  -ciclib = CDK inhibitor (palbociclib)\n  -rafenib= RAF inhibitor (vemurafenib)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

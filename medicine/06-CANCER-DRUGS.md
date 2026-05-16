@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:cancer-drugs
+kind: guide
+module: medicine
+section: medicine
+title: 06 - Cancer Drugs
+status: source-custody
+source_custody: partial
+current_path: medicine/06-CANCER-DRUGS.md
+canonical_path: medicine/06-CANCER-DRUGS.md
+backsource_ids: [proof-backfill:medicine:06-cancer-drugs, git-history:medicine:06-cancer-drugs]
+concepts: [cancer, drugs]
+root_concepts: [cancer, drugs]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Cancer Drugs
 
 ## Cytotoxics, Targeted Therapy (Kinase Inhibitors, mAbs), Immunotherapy, ADCs, Hormone Therapy

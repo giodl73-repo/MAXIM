@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:respiratory-gi
+kind: guide
+module: medicine
+section: medicine
+title: 08 - Respiratory and GI Drugs
+status: source-custody
+source_custody: partial
+current_path: medicine/08-RESPIRATORY-GI.md
+canonical_path: medicine/08-RESPIRATORY-GI.md
+backsource_ids: [proof-backfill:medicine:08-respiratory-gi, git-history:medicine:08-respiratory-gi]
+concepts: [respiratory, gi]
+root_concepts: [respiratory, gi]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Respiratory & GI Drugs
 
 ## Bronchodilators, Inhaled Steroids, PPIs, Antiemetics, Motility
@@ -14,29 +33,29 @@
 │  RESPIRATORY SYSTEM                                                     │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  BRONCHOSPASM AXIS                                               │   │
-│  │    β2-agonist (SABAs/LABAs) → cAMP ↑ → smooth muscle relax     │     │
-│  │    Anticholinergic (SAMA/LAMA) → block M3 → ↓ ACh-bronch-cstr  │   │
-│  │    Xanthines → PDE inhibition → cAMP ↑ (weak); adenosine block   │   │
+│  │    beta2-agonist (SABAs/LABAs) -> cAMP up -> bronchodilation     │   │
+│  │    Anticholinergic (SAMA/LAMA) -> block M3 -> less ACh constrict │   │
+│  │    Xanthines -> PDE inhibition -> cAMP up; adenosine block       │   │
 │  ├──────────────────────────────────────────────────────────────────┤   │
 │  │  INFLAMMATION AXIS                                               │   │
-│  │    ICS → NF-κB suppression → ↓ eosinophil/mast cell activity   │   │
-│  │    Biologics → anti-IgE (omalizumab), anti-IL-5, anti-TSLP     │   │
+│  │    ICS -> NF-kB suppression -> less eosinophil/mast activity     │   │
+│  │    Biologics -> anti-IgE, anti-IL-5, anti-TSLP                   │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │  UPPER GI SYSTEM                                                        │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  ACID CONTROL                                                    │   │
-│  │    PPIs → irreversible H+/K+-ATPase block (omeprazole, etc.)     │   │
-│  │    H2 blockers → competitive histamine block (famotidine)        │   │
+│  │    PPIs -> irreversible H+/K+-ATPase block (omeprazole, etc.)    │   │
+│  │    H2 blockers -> competitive histamine block (famotidine)       │   │
 │  │  MOTILITY / EMESIS                                               │   │
-│  │    Prokinetics → D2/5-HT4 targets (metoclopramide, erythromycin)│    │
-│  │    Antiemetics → 5-HT3 / D2 / NK1 / H1 targets                 │     │
+│  │    Prokinetics -> D2/5-HT4 (metoclopramide, erythromycin)        │   │
+│  │    Antiemetics -> 5-HT3 / D2 / NK1 / H1 targets                  │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │  LOWER GI SYSTEM                                                        │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  Constipation: osmotic, stimulant, bulk, secretagogue laxatives  │   │
-│  │  Diarrhea: loperamide (μ-opioid), bismuth, bile acid sequestr.   │   │
+│  │  Diarrhea: loperamide (mu-opioid), bismuth, bile sequestr.       │   │
 │  │  IBD: 5-ASA (mesalazine), azathioprine, biologics (see 07)       │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘

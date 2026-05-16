@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:endocrine-metabolic
+kind: guide
+module: medicine
+section: medicine
+title: 05 - Endocrine and Metabolic Drugs
+status: source-custody
+source_custody: partial
+current_path: medicine/05-ENDOCRINE-METABOLIC.md
+canonical_path: medicine/05-ENDOCRINE-METABOLIC.md
+backsource_ids: [proof-backfill:medicine:05-endocrine-metabolic, git-history:medicine:05-endocrine-metabolic]
+concepts: [endocrine, metabolic]
+root_concepts: [endocrine, metabolic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Endocrine & Metabolic Drugs
 
 ## Insulin, Oral Antidiabetics, Thyroid, Corticosteroids, Osteoporosis, Uric Acid

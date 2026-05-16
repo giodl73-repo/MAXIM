@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:genetic-developmental
+kind: guide
+module: disease
+section: disease
+title: 09 - Genetic and Developmental Disease
+status: source-custody
+source_custody: partial
+current_path: disease/09-GENETIC-DEVELOPMENTAL.md
+canonical_path: disease/09-GENETIC-DEVELOPMENTAL.md
+backsource_ids: [proof-backfill:disease:09-genetic-developmental, git-history:disease:09-genetic-developmental]
+concepts: [genetic, developmental]
+root_concepts: [genetic, developmental]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — Genetic & Developmental Disease
 
 ## Chromosomal Abnormalities, Inheritance Patterns, Single-Gene Disorders, Birth Defects

@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "disease\\10-EPIDEMIOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────┐\n│                   EPIDEMIOLOGY — CORE FRAMEWORK                         │\n├───────────────────┬─────────────────────────────────────────────────────┤\n│  DESCRIPTIVE      │  Who (person), where (place), when (time)           │\n│  EPIDEMIOLOGY     │  Disease surveillance, case reports, outbreak desc. │\n├───────────────────┼─────────────────────────────────────────────────────┤\n│  ANALYTIC         │  Study design: RCT > cohort > case-control >        │\n│  EPIDEMIOLOGY     │    cross-sectional > ecological                     │\n│                   │  Measures: RR, OR, NNT, attributable risk           │\n├───────────────────┼─────────────────────────────────────────────────────┤\n│  INFECTIOUS DX    │  R₀, herd immunity, transmission dynamics,          │\n│  EPIDEMIOLOGY     │  epidemic curves, outbreak investigation             │\n├───────────────────┼─────────────────────────────────────────────────────┤\n│  PUBLIC HEALTH    │  Screening (Wilson-Jungner), prevention levels,     │\n│                   │  vaccines, surveillance systems, IHR                │\n├───────────────────┼─────────────────────────────────────────────────────┤\n│  GLOBAL BURDEN    │  GBD, DALY, NCD transition, demographic transition  │\n└───────────────────┴─────────────────────────────────────────────────────┘\n\nCore question types:\n  Incidence/prevalence → descriptive\n  Cause/association → analytic (cohort, case-control, RCT)\n  Transmission dynamics → infectious epi\n  Policy decisions → cost-effectiveness, screening",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Design              Causal claim strength    Analogy\n──────────────────────────────────────────────────────────────────────\nRCT (randomized     Strong — randomization   A/B test: random assignment\ncontrolled trial)   controls confounders     eliminates selection bias\n                    by design\n\nCohort (prospective) Moderate — exposure     Observational logging: track\n                    measured before outcome; a defined cohort forward in time;\n                    confounders measured,    can measure incidence and\n                    statistically adjusted   compute relative risk (RR)\n\nCase-control        Weaker — retrospective   Post-hoc log analysis: start\n(retrospective)     selection; recall bias;  from known outcomes, look back\n                    can only compute OR,     at what differed; selection\n                    not RR                   bias and recall bias degrade\n                                             causal inference\n\nCross-sectional     Weakest for causality    A snapshot / point-in-time\n                    — exposure and outcome   metric — can't tell which\n                    measured simultaneously  came first\n\nEcological          Confounded by            Aggregate metrics — group-level\n                    aggregation fallacy      correlation ≠ individual-level\n                                             correlation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### Relative Risk (RR) — from Cohort or RCT",
+      "confidence": "candidate",
+      "text": "          Exposed    Unexposed\nDisease    a           b\nNo disease c           d\n\nIncidence in exposed = a / (a+c)\nIncidence in unexposed = b / (b+d)\n\nRR = [a/(a+c)] / [b/(b+d)]\n  RR = 1.0 → no association\n  RR > 1.0 → positive association (risk factor)\n  RR < 1.0 → negative association (protective)\n  95% CI excludes 1.0 → statistically significant",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Confounding and Bias",
+      "confidence": "candidate",
+      "text": "CONFOUNDING:\n  Confounder: associated with exposure AND outcome; not on causal pathway\n  Classic: smoking confounds coffee→heart disease association\n  Control: randomization (RCT), restriction, matching, stratification,\n           multivariate regression, propensity scores\n\nSELECTION BIAS:\n  Systematic difference in who enters/stays in study\n  Types: healthy worker effect, Berkson's bias (hospital controls ≠ community),\n         loss to follow-up, volunteer bias\n\nINFORMATION BIAS:\n  Misclassification of exposure or outcome\n  Non-differential misclassification → biases toward null\n  Differential (recall) bias → biases in either direction\n  Observer bias → use blinding\n\nEFFECT MODIFICATION (interaction):\n  Effect of exposure differs by level of third variable\n  NOT a bias — biological phenomenon; report stratum-specific effects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### R₀ (Basic Reproduction Number)",
+      "confidence": "candidate",
+      "text": "R₀ = average number of secondary cases per infectious case\n     in a FULLY SUSCEPTIBLE population\n\nR₀ = β × c × D\n  β = transmission probability per contact\n  c = contact rate (contacts per unit time)\n  D = infectious duration\n\nR₀ > 1 → epidemic can grow\nR₀ < 1 → epidemic dies out\nR₀ = 1 → endemic equilibrium\n\nEFFECTIVE REPRODUCTION NUMBER (Rₑ):\n  Rₑ = R₀ × S/N    (S = susceptibles, N = total population)\n  Rₑ = R₀ × (1 − immunization coverage)\n  When Rₑ < 1 → epidemic declining",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### Herd Immunity Threshold",
+      "confidence": "candidate",
+      "text": "Herd immunity threshold (HIT) = 1 − 1/R₀\n\nDerivation:\n  For epidemic to stop: Rₑ < 1\n  Rₑ = R₀ × (1−p) where p = immune fraction\n  R₀ × (1−p) = 1 when p = 1 − 1/R₀\n\nDisease-specific thresholds:\n  Measles:   R₀ = 12–18 → HIT = 92–94%\n  Pertussis: R₀ = 12–17 → HIT = 92–94%\n  Polio:     R₀ = 5–7   → HIT = 80–86%\n  COVID-19 (Wuhan): R₀ = 2–3 → HIT = 50–67%\n  COVID-19 (Delta): R₀ ≈ 6–7 → HIT = 83–86%\n  Mumps:     R₀ = 4–7   → HIT = 75–86%\n  Smallpox:  R₀ = 5–7   → HIT = 80–85%\n\nWHY measles outbreaks occur despite ~92% coverage:\n  Clustering of unvaccinated individuals → local Rₑ > 1 in pockets\n  Sub-national variation more important than national average",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 283,
+      "heading_context": "### Epidemic Curve Types",
+      "confidence": "candidate",
+      "text": "POINT SOURCE:\n  All cases exposed to source at same time (single peak)\n  Incubation period distribution → sharp narrow curve\n  Example: Salmonella from contaminated potato salad at single event\n\nPROPAGATED (person-to-person):\n  Multiple peaks, each separated by ~1 incubation period\n  Exponential growth potential\n  Example: influenza, norovirus outbreak\n\nCONTINUOUS SOURCE:\n  Prolonged plateau or gradual slope (ongoing exposure)\n  Example: contaminated water supply, air/environmental contamination\n\nMIXED:\n  Point source then propagated (common in restaurant + household spread)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## 5. Outbreak Investigation — Step-by-Step",
+      "confidence": "candidate",
+      "text": "STEP 1: Prepare for field work\n  Assemble team, safety equipment, IRB considerations, notifications\n\nSTEP 2: Establish existence of epidemic\n  Compare observed cases to expected (historical baseline, endemic level)\n  Control for seasonal variation\n\nSTEP 3: Verify diagnosis\n  Lab confirmation of pathogen; clinical + epidemiological criteria\n\nSTEP 4: Construct a working case definition\n  Confirmed / probable / suspected (based on lab / clinical / epidemiological)\n  Broad (sensitive) for epidemic curve → narrow (specific) for risk factors\n\nSTEP 5: Find and count cases (line listing)\n  Name, age, sex, onset date, exposure history, clinical features\n  Descriptive epi: person / place / time\n\nSTEP 6: Perform descriptive epidemiology\n  Attack rates by characteristic (food eaten, area visited, etc.)\n  Generate epidemic curve, map cases\n\nSTEP 7: Develop hypotheses\n  Based on descriptive data; biological plausibility; literature\n\nSTEP 8: Evaluate hypotheses analytically\n  Cohort study (defined population): RR, AR%\n  Case-control study (undefined population): OR\n  Environmental/lab testing to confirm vehicle\n\nSTEP 9: Implement control measures\n  Should not wait for definitive confirmation\n  Source control: remove contaminated product, treat water, quarantine\n  Host-directed: vaccination, prophylaxis, isolation, contact tracing\n\nSTEP 10: Communicate findings\n  Report to public health authorities; peer-reviewed publication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "## 6. Transmission Routes and Control Implications",
+      "confidence": "candidate",
+      "text": "ROUTE           MECHANISM                    CONTROL\n──────────────────────────────────────────────────────────────────\nContact\n  Direct        Physical contact (touch,      Hand hygiene, gloves,\n                sex, bite, blood)             condoms, needles\n  Indirect      Fomites (surfaces/objects)   Surface disinfection,\n                                              clean technique\nDroplet         >5–10 μm; travel <1–2 m;     Surgical mask, droplet\n                land on mucous membranes     precautions\nAirborne        <5 μm aerosols; travel >2m;  N95, negative pressure\n                remain suspended             room, HVAC filtration\n                (TB, measles, COVID-19)\nFecal-oral      Contaminated food/water;      Water treatment, hand\n  (enteric)     index: outbreak in children   hygiene, food safety\nVectorborne     Insect vector required        Vector control (bednets/\n                (malaria/dengue/Lyme/WNV)    insecticides), repellent\nVertical        Mother → child (in utero,     Antiretroviral PrEP,\n                perinatal, breastfeeding)     C-section (HSV/HIV),\n                                              avoid breastfeeding (HIV)\nZoonotic        Animal reservoir → human      Surveillance, culling,\n                (rabies, anthrax, plague)     vaccination of animals\n\nCONTACT PRECAUTIONS: Direct/indirect — gown + gloves\nDROPLET PRECAUTIONS: Surgical mask, private room, 1 m distance\nAIRBORNE PRECAUTIONS: N95 + negative pressure room\nSTANDARD PRECAUTIONS: Hand hygiene + PPE for all patients",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 428,
+      "heading_context": "## 8. Screening Principles",
+      "confidence": "candidate",
+      "text": "### Wilson-Jungner Criteria (WHO, 1968)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 445,
+      "heading_context": "### Screening Test Statistics",
+      "confidence": "candidate",
+      "text": "           Disease+   Disease−\nTest+         TP         FP       PPV = TP/(TP+FP)\nTest−         FN         TN       NPV = TN/(TN+FN)\n           Sensitivity  Specificity\n           TP/(TP+FN)   TN/(TN+FP)\n\nSENSITIVITY: probability of + test if disease present\n  High sensitivity → few false negatives → good for RULING OUT (SnNout)\n  Use when: miss = dangerous (HIV, cancer)\n\nSPECIFICITY: probability of − test if disease absent\n  High specificity → few false positives → good for RULING IN (SpPin)\n  Use when: FP = costly/harmful (unnecessary treatment)\n\nPREDICTIVE VALUES DEPEND ON PREVALENCE:\n  PPV = (sensitivity × prevalence) / [sensitivity × prevalence + (1−specificity) × (1−prevalence)]\n  Even perfect test has low PPV when disease rare\n\nEXAMPLE: HIV test (sensitivity 99.9%, specificity 99.9%)\n  In high-risk population (prevalence 1%): PPV ≈ 91% (good)\n  In low-risk population (prevalence 0.01%): PPV ≈ 9% (9 FP per 1 TP)\n  → Confirms: screen high-risk populations first\n\nROC CURVE: Sensitivity (y) vs 1−Specificity (x) across thresholds\n  AUC = overall discrimination ability; AUC 0.5 = random; 1.0 = perfect\n  Choice of cut-off depends on relative costs of FP vs FN",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 476,
+      "heading_context": "### Screening — Lead Time and Length Bias",
+      "confidence": "candidate",
+      "text": "LEAD TIME BIAS:\n  Screening advances diagnosis date (early detection)\n  But disease course unchanged → apparent ↑ survival even if no benefit\n  Control: measure cause-specific mortality, not survival time\n\nLENGTH BIAS (length-time bias):\n  Slow-progressing (indolent) cancers exist longer in presymptomatic window\n  → Disproportionately detected by screening\n  Screened cancers appear to have better prognosis (they're the slow ones)\n  Overdiagnosis: detection of disease that would never have caused symptoms\n\nOVERDIAGNOSIS:\n  Real problem in prostate (PSA), thyroid, breast cancer screening\n  Harms: treatment side effects from treating \"cancers\" that were never destined to kill\n  Balance against benefit of detecting aggressive cancers early",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 541,
+      "heading_context": "### Demographic and Epidemiological Transition",
+      "confidence": "candidate",
+      "text": "DEMOGRAPHIC TRANSITION MODEL:\nStage 1: High birth/death rates; stable low population (pre-industrial)\nStage 2: Death rate ↓ (sanitation/antibiotics); birth rate stays high → population explosion\nStage 3: Birth rate ↓; slower growth\nStage 4: Low birth/death rates; aging population; natural decrease possible\n\nEPIDEMIOLOGICAL TRANSITION (Omran):\nStage 1: Pestilence and famine dominate — infectious disease\nStage 2: Receding pandemics — infectious disease declining\nStage 3: Degenerative and man-made diseases dominate — NCDs\nStage 4 (modern): Delayed degenerative diseases — cancer/CVD in elderly\n                   Re-emerging infections (AMR, zoonoses)\n\nCURRENT GLOBAL BURDEN (GBD 2019):\nLeading causes of death:\n  1. Ischemic heart disease\n  2. Stroke\n  3. COPD\n  4. Lower respiratory infections (pneumonia)\n  5. Neonatal disorders\n  6. Trachea/lung cancer\n  7. Alzheimer's and dementia\n  8. Diabetes\n  9. Diarrheal diseases\n  10. Kidney disease\n\nRegional variation:\n  SSA: HIV, malaria, TB, neonatal, diarrheal still major\n  LMIC: double burden: NCDs ↑ while infectious diseases remain\n  High-income: CVD, cancer, dementia dominate\n\nDALY contributors vs mortality:\n  Mental disorders, MSK disorders, neurological — high DALY, lower mortality\n  → Disability burden often invisible in mortality statistics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

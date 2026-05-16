@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:neurological-psychiatric
+kind: guide
+module: disease
+section: disease
+title: 08 - Neurological and Psychiatric Disease
+status: source-custody
+source_custody: partial
+current_path: disease/08-NEUROLOGICAL-PSYCHIATRIC.md
+canonical_path: disease/08-NEUROLOGICAL-PSYCHIATRIC.md
+backsource_ids: [proof-backfill:disease:08-neurological-psychiatric, git-history:disease:08-neurological-psychiatric]
+concepts: [neurological, psychiatric]
+root_concepts: [neurological, psychiatric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Neurological & Psychiatric Disease
 
 ## Neurodegenerative, Epilepsy, Stroke, Mood, Psychosis

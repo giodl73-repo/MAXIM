@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:cardiovascular-disease
+kind: guide
+module: disease
+section: disease
+title: Cardiovascular Disease
+status: source-custody
+source_custody: partial
+current_path: disease/05-CARDIOVASCULAR-DISEASE.md
+canonical_path: disease/05-CARDIOVASCULAR-DISEASE.md
+backsource_ids: [proof-backfill:disease:05-cardiovascular-disease, git-history:disease:05-cardiovascular-disease]
+concepts: [cardiovascular, disease]
+root_concepts: [cardiovascular, disease]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cardiovascular Disease
 
 ## The Big Picture

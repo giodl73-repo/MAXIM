@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:immunomodulators
+kind: guide
+module: medicine
+section: medicine
+title: 07 - Immunomodulators
+status: source-custody
+source_custody: partial
+current_path: medicine/07-IMMUNOMODULATORS.md
+canonical_path: medicine/07-IMMUNOMODULATORS.md
+backsource_ids: [proof-backfill:medicine:07-immunomodulators, git-history:medicine:07-immunomodulators]
+concepts: [immunomodulators]
+root_concepts: [immunomodulators]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — Immunomodulators
 
 ## Biologics (mAbs/Fusion Proteins), Transplant Immunosuppression, JAK Inhibitors, IVIG, Complement
@@ -25,7 +44,7 @@
 │                        │ Siltuximab (anti-IL-6 ligand)                   │
 ├────────────────────────┼─────────────────────────────────────────────────┤
 │ IL-17/IL-23            │ Secukinumab, ixekizumab (anti-IL-17A)           │
-│                        │ Guselkumab, risankizumab, ustekinumab (anti-IL-23)│
+│                        │ Guselkumab, risankizumab, ustekinumab (IL-23)   │
 ├────────────────────────┼─────────────────────────────────────────────────┤
 │ IL-4/13, IgE, IL-5     │ Dupilumab, omalizumab, mepolizumab             │
 ├────────────────────────┼─────────────────────────────────────────────────┤
@@ -36,7 +55,7 @@
 │ JAK PATHWAY            │ JAK1/2/3 inhibitors (tofacitinib, baricitinib)  │
 │ (INTRACELLULAR)        │ JAK1-selective (upadacitinib, filgotinib)        │
 ├────────────────────────┼─────────────────────────────────────────────────┤
-│ POOLED IMMUNOGLOBULIN  │ IVIG (pooled IgG) — immunodeficiency + autoimmune│
+│ POOLED IMMUNOGLOBULIN  │ IVIG (pooled IgG) - immunodef. + autoimmune     │
 ├────────────────────────┼─────────────────────────────────────────────────┤
 │ COMPLEMENT             │ Eculizumab, ravulizumab (anti-C5)               │
 │                        │ Avacopan (C5aR1 antagonist)                     │

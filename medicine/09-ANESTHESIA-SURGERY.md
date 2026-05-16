@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:anesthesia-surgery
+kind: guide
+module: medicine
+section: medicine
+title: 09 - Anesthesia and Perioperative Care
+status: source-custody
+source_custody: partial
+current_path: medicine/09-ANESTHESIA-SURGERY.md
+canonical_path: medicine/09-ANESTHESIA-SURGERY.md
+backsource_ids: [proof-backfill:medicine:09-anesthesia-surgery, git-history:medicine:09-anesthesia-surgery]
+concepts: [anesthesia, surgery]
+root_concepts: [anesthesia, surgery]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — Anesthesia & Perioperative Care
 
 ## General, Regional, Local Anesthesia, Neuromuscular Blockers, Perioperative Medicine
@@ -26,7 +45,7 @@
 │   Reversal: neostigmine (anticholinesterase) or sugammadex (rocuronium) │
 │                                                                         │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
-│  │  GENERAL:  all three components; intubated; mechanical ventilation│  │
+│  │  GENERAL: all three components; intubated; mech ventilation      │   │
 │  │  REGIONAL: analgesia/motor block without unconsciousness         │   │
 │  │  LOCAL:    targeted nerve blockade; patient awake                │   │
 │  └──────────────────────────────────────────────────────────────────┘   │

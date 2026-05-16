@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:overview
+kind: guide
+module: medicine
+section: medicine
+title: 00 - Medicine and Pharmacology Overview
+status: source-custody
+source_custody: partial
+current_path: medicine/00-OVERVIEW.md
+canonical_path: medicine/00-OVERVIEW.md
+backsource_ids: [proof-backfill:medicine:00-overview, git-history:medicine:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 00 — Medicine & Pharmacology Overview
 
 ## PK/PD, Drug Development, Regulatory, Special Populations
@@ -12,38 +31,35 @@
 DRUG ADMINISTRATION
        │
        ▼  (Route, dose, formulation)
-┌──────────────────────────┐
-│  PHARMACOKINETICS (PK)   │  "what the body does to the drug"
-│                          │
-│  A — Absorption          │  Entry into systemic circulation
-│      (F = bioavailability│  IV: F=100%; PO: limited by first-pass
-│       first-pass effect) │
-│         ↓                │
-│  D — Distribution        │  Partitioning into tissues (Vd)
-│      (protein binding,   │  High Vd = drug sequestered in tissue
-│       BBB penetration)   │
-│         ↓                │
-│  M — Metabolism          │  CYP450 (Phase I) → conjugation (Phase II)
-│      (CYP enzymes,       │  Prodrug activation or inactivation
-│       first-pass)        │
-│         ↓                │
-│  E — Elimination         │  Renal (GFR-dependent) + biliary
-│      (t½ = 0.693×Vd/CL) │  Steady state at 4-5 × t½
-└──────────────┬───────────┘
-               │
-               │  Concentration at target site
-               ▼
-┌──────────────────────────┐
-│  PHARMACODYNAMICS (PD)   │  "what the drug does to the body"
-│                          │
-│  Receptor binding        │  Affinity (Kd), selectivity
-│  Dose-response curve     │  EC50 (potency), Emax (efficacy)
-│  Therapeutic index       │  TI = TD50/ED50 — safety margin
-│  Agonism/antagonism      │  Activates, blocks, modulates target
-│  Feedback loops          │  Drug effect → physiological response
-│                          │  → may alter drug target (tolerance,
-│                          │    receptor downregulation)
-└──────────────────────────┘
+PHARMACOKINETICS (PK): "what the body does to the drug"
+  A - Absorption
+      F = bioavailability; first-pass effect
+      Entry into systemic circulation; IV F=100%, PO limited by first-pass
+        |
+  D - Distribution
+      Protein binding; BBB penetration
+      Partitioning into tissues (Vd); high Vd = tissue sequestration
+        |
+  M - Metabolism
+      CYP450 enzymes; first-pass metabolism
+      CYP450 Phase I -> conjugation Phase II; prodrug activation/inactivation
+        |
+  E - Elimination
+      t1/2 = 0.693 x Vd/CL
+      Renal (GFR-dependent) + biliary; steady state at 4-5 x t1/2
+        |
+        v
+  Concentration at target site
+        |
+        v
+PHARMACODYNAMICS (PD): "what the drug does to the body"
+  Receptor binding        Affinity (Kd), selectivity
+  Dose-response curve     EC50 (potency), Emax (efficacy)
+  Therapeutic index       TI = TD50/ED50 - safety margin
+  Agonism/antagonism      Activates, blocks, modulates target
+  Feedback loops          Drug effect -> physiological response
+                          -> may alter drug target (tolerance,
+                             receptor downregulation)
 
 DRUG DEVELOPMENT PIPELINE:
   Target → Lead → Preclinical → Phase I → Phase II → Phase III → NDA

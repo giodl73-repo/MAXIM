@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "disease\\09-GENETIC-DEVELOPMENTAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│               GENETIC DISEASE CLASSIFICATION                             │\n├─────────────────────┬────────────────────────────────────────────────────┤\n│ CHROMOSOMAL         │ Numerical: aneuploidy (trisomy/monosomy/polyploidy)│\n│ (karyotype visible) │ Structural: deletion, duplication, translocation,  │\n│                     │   inversion, ring chromosome, isochromosome        │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ SINGLE GENE         │ Autosomal dominant (AD)                            │\n│ (Mendelian)         │ Autosomal recessive (AR)                           │\n│                     │ X-linked recessive (XLR)                           │\n│                     │ X-linked dominant (XLD)                            │\n│                     │ Y-linked (holandric)                               │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ EPIGENETIC /        │ Genomic imprinting (Prader-Willi, Angelman)        │\n│ NON-MENDELIAN       │ Mitochondrial (maternal inheritance, heteroplasmy) │\n│                     │ Triplet repeat expansion (anticipation)            │\n│                     │ Uniparental disomy (UPD)                           │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ MULTIFACTORIAL /    │ Polygenic + environment: T2DM, CAD, schizophrenia, │\n│ COMPLEX             │   cleft lip, NTDs, congenital heart defects        │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ SOMATIC / ACQUIRED  │ Mosaicism, cancer (see 04-CANCER.md)               │\n└─────────────────────┴────────────────────────────────────────────────────┘\n\nScale of defect: chromosome → region → gene → codon → trinucleotide repeat\nDiagnostic tools: karyotype → chromosomal microarray → gene panel → WES/WGS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Defect Level          Genetic                    System analog\n─────────────────────────────────────────────────────────────────\nPlatform failure      Chromosomal (aneuploidy,   Wrong hardware architecture /\n                      large deletion/dup)        OS incompatibility — affects\n                                                 everything built on top\n\nModule failure        Single-gene (Mendelian)    Bug in a specific library —\n                      CF, sickle cell, PKU       deterministic, all-or-nothing\n                                                 depending on zygosity (dose)\n\nConfiguration error   Epigenetic / imprinting    Environment variable / registry\n                      (Prader-Willi, Angelman)   key set wrong — same code,\n                                                 different expression based on\n                                                 which parent the \"config\" came from\n\nMulti-factor          Multifactorial / polygenic  Degradation from accumulated\ndegradation           (T2DM, CAD, schizophrenia) sub-threshold faults across\n                                                  many components — no single\n                                                  cause, threshold model\n\nRuntime corruption    Somatic mutation /          State corruption at runtime —\n                      mosaicism / cancer          not in the original build, not\n                                                  heritable from that cell,\n                                                  acquired after deployment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Meiotic Non-Disjunction Mechanics",
+      "confidence": "candidate",
+      "text": "Normal meiosis:\n   Meiosis I: homologous chromosomes separate\n   Meiosis II: sister chromatids separate\n   Result: haploid gametes (n=23)\n\nNon-disjunction at Meiosis I:\n   Both homologs → same cell → one gamete has 2 copies, one has 0\n   Results in ALL cells affected after fertilization\n\nNon-disjunction at Meiosis II:\n   Sister chromatids → same cell → same outcome\n   More likely to result in viable products (e.g., trisomy 21)\n\nTrisomy = 2n + 1 = 47 chromosomes\nMonosomy = 2n − 1 = 45 chromosomes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## 2. Chromosomal Disorders — Structural",
+      "confidence": "candidate",
+      "text": "Deletion: loss of chromosomal segment\n   ─────────────────────────\n   Cri-du-chat: del(5p) — cat-like cry, microcephaly, ID\n   DiGeorge/22q11.2: del(22q11.2) — conotruncal heart defects, hypocalcemia\n     (parathyroid aplasia), T-cell deficiency (thymic aplasia), cleft palate;\n     CATCH-22: Cardiac, Abnormal facies, Thymic aplasia, Cleft palate, Hypocalcemia\n\nDuplication: extra copy of a region\n   ─────────────────────────────\n   Charcot-Marie-Tooth 1A: dup(17p12) — peripheral neuropathy\n\nTranslocation:\n   Reciprocal: exchange between non-homologs; balanced carrier = normal phenotype\n   Robertsonian: centromere fusion of acrocentric chromosomes (13,14,15,21,22)\n     ─ Balanced carrier: 45 chromosomes, normal phenotype\n     ─ Unbalanced offspring: risk of trisomy or monosomy\n\nInversion:\n   Pericentric: includes centromere; may alter gene dosage at breakpoints\n   Paracentric: same arm; carrier at risk for recombinant chromosomes\n\nRing chromosome: telomeres fuse; unstable; variable deletion\nIsochromosome: duplication of one arm + deletion of other (e.g., i(17q) in medulloblastoma)\nMicrodeletion/duplication syndromes: too small for standard karyotype\n   → chromosomal microarray (CMA) detects CNVs ≥50 kb",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "### Pattern Recognition",
+      "confidence": "candidate",
+      "text": "AUTOSOMAL DOMINANT (AD):\n  ▪ Every generation affected (vertical pedigree)\n  ▪ Affected parent has 50% risk offspring\n  ▪ Males = females equally\n  ▪ New mutations common in severe lethal cases (achondroplasia ~85% de novo)\n  ▪ Variable expressivity, incomplete penetrance possible\n\nAUTOSOMAL RECESSIVE (AR):\n  ▪ Often skips generations (carrier parents × carrier parents → 25% affected)\n  ▪ More common with consanguinity\n  ▪ Males = females equally\n  ▪ Carrier frequency = √disease frequency (Hardy-Weinberg)\n\nX-LINKED RECESSIVE (XLR):\n  ▪ Affected males >> females (females need 2 copies)\n  ▪ No male-to-male transmission (fathers give Y to sons)\n  ▪ Carrier mothers: 50% sons affected, 50% daughters carriers\n  ▪ Lyon hypothesis: X-inactivation → female carriers can show mild features\n\nX-LINKED DOMINANT (XLD):\n  ▪ Heterozygous female affected; hemizygous male often lethal\n  ▪ Examples: Rett syndrome (MECP2), incontinentia pigmenti\n\nMITOCHONDRIAL:\n  ▪ Maternal inheritance (all mtDNA from oocyte cytoplasm)\n  ▪ ALL children of affected mother affected (to varying degree)\n  ▪ Father never transmits\n  ▪ Heteroplasmy: mixture of normal/mutant mtDNA in cells → variable phenotype\n\nCODOMINANT:\n  ▪ Both alleles expressed; heterozygote shows both phenotypes\n  ▪ ABO blood groups, HLA, sickle-cell trait (HbAS — some protection, no disease)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Cystic Fibrosis",
+      "confidence": "candidate",
+      "text": "CFTR (cystic fibrosis transmembrane conductance regulator)\n  Chr 7q31; encodes ATP-gated Cl⁻ channel in epithelial apical membrane\n  Most common lethal AR disease in European populations (~1/3200)\n  Carrier frequency: ~1/25 in Northern European\n\nΔF508 mutation (deletion of Phe508, exon 10):\n  Class II mutation: protein misfolded → retained in ER → ↑ proteasomal degradation\n  Other mutation classes:\n    Class I: no protein (nonsense/splice) — e.g., G542X\n    Class III: gating defect (CFTR reaches surface but doesn't open) — G551D\n    Class IV: decreased conductance\n    Class V: reduced production\n    Class VI: decreased stability\n\nPathophysiology:\n  Cl⁻ secretion blocked → Na⁺ and water follow → viscous secretions\n  Airways: thick mucus → impaired mucociliary clearance → Pseudomonas/Staph colonization → bronchiectasis\n  Pancreas: blocked ducts → autodigestion → exocrine insufficiency (malabsorption), diabetes (CFRD)\n  Intestine: meconium ileus (15% newborns)\n  Reproductive: vas deferens obstruction (CBAVD) → male infertility (99%)\n\nDiagnosis: Newborn screening (IRT) → sweat chloride test >60 mmol/L → CFTR genotyping\n\nCFTR modulators (precision medicine by mutation class):\n  Ivacaftor (potentiator): opens gating-defective CFTR (G551D, Class III)\n  Lumacaftor/tezacaftor (correctors): ↑ folding/trafficking of ΔF508\n  Elexacaftor/tezacaftor/ivacaftor (triple combo = Trikafta): ~90% CF patients\n    → FEV1 ↑14%, sweat Cl⁻ normalized — transformative treatment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "### Sickle Cell Disease",
+      "confidence": "candidate",
+      "text": "HBB gene (β-globin), chr 11p\nGlutamate → Valine at position 6 (GAG → GTG)\nHbS: α2β2(s); under deoxygenation → polymerizes → \"sickling\"\n\nSickling cascade:\n  Low O₂ (or acidosis/dehydration/cold/infection)\n  → HbS polymerization → rigid rod-like fibers → RBC distortion\n  → ↑ membrane fragility → hemolysis (MCHC ↑ in SS disease)\n  → ↑ adhesion to endothelium (via VLA-4, ICAM-1) → vaso-occlusion\n  → ischemia → inflammation → more sickling (positive feedback)\n\nClinical manifestations:\n  Vaso-occlusive crisis (bone pain — most common reason for ER)\n  ACS (acute chest syndrome): new infiltrate + respiratory symptoms → leading cause of death\n  Stroke: childhood + adult; TCD screening → hydroxyurea or transfusion\n  Splenic sequestration/autosplenectomy → functional asplenia → encapsulated organisms\n    (Strep pneumoniae, H. influenzae, N. meningitidis) → vaccinate + prophylactic penicillin\n  Dactylitis (hand-foot syndrome): earliest presentation in infants\n  Priapism, retinopathy, AVN of femoral head, nephropathy\n\nTreatment:\n  Hydroxyurea: ↑ HbF production (γ-globin) → HbF inhibits HbS polymerization\n  Voxelotor: allosteric Hb stabilizer → binds oxy form → ↓ polymerization\n  Crizanlizumab: anti-P-selectin → ↓ adhesion → ↓ VOC frequency\n  Exchange transfusion: ACS/stroke prevention/acute stroke\n  Curative: allogeneic HSCT (matched sibling); gene therapy (betibeglogene/exa-cel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "## 7. Genomic Imprinting",
+      "confidence": "candidate",
+      "text": "Chromosome 15q11-q13 imprinted region:\n  Paternal chromosome 15: expresses SNRPN + other genes; silences UBE3A\n  Maternal chromosome 15: expresses UBE3A; silences SNRPN cluster\n\nPrader-Willi Syndrome (PWS): loss of PATERNAL 15q11-q13\n  ├── Deletion 15q11 (paternal): 70%\n  ├── Maternal UPD 15 (both chr 15 from mother): 25%\n  └── Imprinting center mutation: 5%\n  Features: hypotonia + feeding difficulty (infant) → hyperphagia + obesity (child)\n           hypogonadism, short stature (↓ GH), behavioral issues, ID\n\nAngelman Syndrome (AS): loss of MATERNAL 15q11-q13 (UBE3A)\n  ├── Deletion 15q11 (maternal): 70%\n  ├── Paternal UPD 15: 5%\n  ├── Imprinting center mutation: 3%\n  └── UBE3A mutation: 11%\n  Features: severe ID, absent speech, happy affect, seizures, ataxic gait\n            \"Happy puppet\" syndrome\n\nMemory trick: Paternal → PWS (Prader-Willi); mAternal → Angelman",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "## 8. Mitochondrial Diseases",
+      "confidence": "candidate",
+      "text": "mtDNA: 16,569 bp circular; 37 genes (13 OXPHOS subunits, 22 tRNAs, 2 rRNAs)\n37 gene products + ~1500 nuclear-encoded proteins make up the mitochondrial proteome\nMaternal inheritance: sperm mitochondria degraded after fertilization\nHeteroplasmy: cells contain mix of normal + mutant mtDNA\n  High mutation load (>70-90%) → disease threshold (varies by tissue/energy demand)\n  Stochastic sorting at cell division → variable phenotype within family",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 432,
+      "heading_context": "### Neural Tube Defects (NTDs)",
+      "confidence": "candidate",
+      "text": "Neural tube closure: days 22–28 post-fertilization\n  Anterior neuropore closes day 25 → failure → anencephaly (lethal)\n  Posterior neuropore closes day 27 → failure → spina bifida\n\nSpina bifida spectrum:\n  Spina bifida occulta: bony defect, meninges/cord intact; hair tuft/dimple\n  Meningocele: meninges herniate; cord intact; good prognosis\n  Myelomeningocele: cord + roots exposed → paralysis, bladder/bowel, Chiari II\n    (cerebellar herniation through foramen magnum → hindbrain dysfunction)\n\nSHH (sonic hedgehog) signaling: dorsoventral patterning of neural tube\n  Loss → holoprosencephaly (HPE) — failure of forebrain division; trisomy 13\n\nFolic acid:\n  400 μg/day preconception → prevents 50–70% NTDs\n  Mechanism: 1-carbon metabolism (MTHFR pathway); folate for nucleotide synthesis\n  MTHFR C677T polymorphism (↓ folate metabolism) → ↑ risk\n  Folate fortification of flour in US (1998) → 28% reduction in NTD rate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 456,
+      "heading_context": "### Cardiac Malformations",
+      "confidence": "candidate",
+      "text": "Transcription factors:\n  NKX2.5: atrial septation, AV node\n  GATA4: atrial/ventricular septation\n  TBX1 (22q11 deletion): conotruncal outflow tract\n\nCyanotic CHD (right-to-left shunt → unoxygenated blood in systemic circulation):\n  Tetralogy of Fallot (ToF): RVOT obstruction + VSD + overriding aorta + RVH\n    \"Tet spell\" → squatting (↑ SVR → reverses shunt)\n  Transposition of great arteries (TGA): aorta from RV, PA from LV → parallel circuits\n    Incompatible with life unless mixing (ASD/PDA/VSD); prostaglandin E1 (keep PDA open)\n  Truncus arteriosus, TAPVR, tricuspid atresia\n\nAcyanotic CHD (left-to-right shunt → ↑ pulmonary flow):\n  VSD (most common CHD overall)\n  ASD: often silent; fixed split S2\n  PDA: continuous \"machinery\" murmur; indomethacin to close (premature infants)\n  Coarctation of aorta: HTN in arms, weak femoral pulses, rib notching\n    Turner syndrome association; bicuspid aortic valve (BAV) in 50–80%\n\nEisenmenger physiology: chronic L→R shunt → pulmonary HTN → shunt reversal → cyanosis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

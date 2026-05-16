@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "medicine\\01-ANTIBIOTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## Big Picture: Antibiotic Target Map",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                 BACTERIAL ANTIBIOTIC TARGETS                             │\n├──────────────────────────────────────────────────────────────────────────┤\n│                                                                          │\n│  CELL WALL SYNTHESIS                                                     │\n│    β-lactams: PBP binding → transpeptidation inhibition                 │\n│    Glycopeptides: D-Ala-D-Ala binding → transglycosylation inhibition   │\n│    Fosfomycin: MurA inhibition (PEP analog)                             │\n│                                                                          │\n│  CELL MEMBRANE                                                           │\n│    Polymyxins (B, E/colistin): LPS displacement → pore formation        │\n│    Daptomycin: Ca²⁺-dependent membrane depolarization                   │\n│                                                                          │\n│  PROTEIN SYNTHESIS — 30S ribosome                                       │\n│    Aminoglycosides: 30S decoding site → misreading                      │\n│    Tetracyclines: 30S A-site → block tRNA delivery                      │\n│                                                                          │\n│  PROTEIN SYNTHESIS — 50S ribosome                                       │\n│    Macrolides: 23S rRNA peptide exit tunnel → premature dissociation     │\n│    Chloramphenicol: 50S peptidyltransferase → ↓ elongation              │\n│    Linezolid/tedizolid: 23S rRNA → prevents 70S initiation complex      │\n│    Clindamycin: 23S rRNA (same site as macrolides) → dissociation       │\n│                                                                          │\n│  DNA REPLICATION / TRANSCRIPTION                                        │\n│    Fluoroquinolones: DNA gyrase (GyrAB) + Topo IV (ParCE)               │\n│    Metronidazole: DNA strand breaks via free radical                     │\n│    Rifamycins: RNA polymerase β-subunit (rpoB)                          │\n│                                                                          │\n│  FOLATE SYNTHESIS                                                        │\n│    Sulfonamides: DHPS inhibition (competes with PABA)                   │\n│    Trimethoprim: DHFR inhibition → ↓ THF → ↓ nucleotides               │\n│    TMP-SMX: double block (synergistic bactericidal at urinary levels)    │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "### Mechanism",
+      "confidence": "candidate",
+      "text": "Peptidoglycan synthesis:\n  Cytoplasm: MurA-G enzymes → UDP-MurNAc-pentapeptide (ending D-Ala-D-Ala)\n  Membrane: lipid carrier → flipped to periplasm\n  Cell wall: transglycosylase (polymerizes) + transpeptidase (cross-links)\n\nβ-lactam ring: structural analog of D-Ala-D-Ala terminus\n  → Covalently binds PBP (penicillin-binding protein = transpeptidase)\n  → Irreversible inhibition → ↓ cross-linking → weakened peptidoglycan\n  → Autolysis (cellular hydrolases activated) → bactericidal\n\nTime-dependent killing: efficacy depends on time above MIC (T>MIC)\n  Optimal when drug concentration > MIC for 40–70% of dosing interval\n  → Frequent dosing or extended infusions (β-lactam continuous infusion for resistant organisms)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 90,
+      "heading_context": "### Class Progression",
+      "confidence": "candidate",
+      "text": "PENICILLINS:\n  Natural: penicillin G (IV), V (PO) — Strep, syphilis, Clostridium\n  Antistaphylococcal (penicillinase-resistant): oxacillin/nafcillin/dicloxacillin\n    → Block penicillinase active site; bulky side chain prevents hydrolysis\n    → Active vs MSSA (NOT MRSA)\n  Aminopenicillins: ampicillin/amoxicillin — ↑ gram-neg spectrum (H. flu, E. coli, Listeria)\n  Ureidopenicillins: piperacillin-tazobactam (pip/tazo) — anti-pseudomonal + anaerobes\n\nCEPHALOSPORINS (gen 1–5):\n  Gen 1 (cefazolin/cefalexin): gram+ cocci (MSSA, Strep); surgical prophylaxis\n  Gen 2 (cefuroxime/cefoxitin): ↑ gram-neg; cefoxitin has anaerobic (B. fragilis) coverage\n  Gen 3 (ceftriaxone/cefotaxime/ceftazidime): CSF penetration; ceftazidime = anti-Pseudomonas\n  Gen 4 (cefepime): anti-Pseudomonas + gram+; Enterobacteriaceae; \"Pseudomonas gen 3\"\n  Gen 5 (ceftaroline): MRSA coverage; anti-PBP2a; used for MRSA pneumonia/skin\n  Ceftolozane-tazobactam / ceftazidime-avibactam: ESBL + some carbapenem-resistant Enterobacterales\n\nCARBAPENEMS: imipenem, meropenem, ertapenem, doripenem\n  Broadest β-lactam coverage: gram+/−/anaerobes; ESBL coverage\n  Imipenem + cilastatin (dehydropeptidase inhibitor to prevent renal inactivation)\n  Ertapenem: no anti-pseudomonal activity (unlike the rest)\n  Resistance: carbapenemases (KPC, NDM, VIM, OXA-48) — critical ESKAPE issue\n\nMONOBACTAMS: aztreonam\n  Only gram-negative aerobic coverage; NO gram+ or anaerobe\n  Useful in serious penicillin allergy (minimal cross-reactivity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### β-Lactam Resistance",
+      "confidence": "candidate",
+      "text": "Mechanisms:\n1. β-lactamase production (most common):\n   Penicillinase: hydrolyzes penicillins (Staph)\n   ESBL (extended-spectrum β-lactamase): gen 1–4 cephalosporins + penicillins; TEM/SHV/CTX-M\n     → Treat with carbapenems or ceftolozane-tazo/ceftazidime-avibactam\n   AmpC: inducible; Enterobacter/Citrobacter/Serratia (HECK YEA organisms — those on \"SPACE\")\n   Carbapenemases: KPC (serine β-lactamase), NDM/VIM (metallo-β-lactamase), OXA-48\n     → Often pan-resistant; ceftazidime-avibactam (not NDM), cefiderocol\n\n2. Altered PBPs (MRSA — mecA gene → PBP2a; low affinity for all β-lactams)\n3. Porins: ↓ influx (Pseudomonas OprD loss → imipenem resistance)\n4. Efflux pumps: MexAB-OprM, MexXY, etc. (Pseudomonas)\n\nβ-lactamase inhibitors (BLIs):\n  Clavulanic acid: suicide substrate; paired with amoxicillin (Augmentin) or ticarcillin\n  Sulbactam: piperacillin not needed; paired with ampicillin; also direct Acinetobacter activity\n  Tazobactam: paired with piperacillin\n  Avibactam: non-β-lactam BLI; active vs KPC/OXA-48 but NOT NDM\n  Relebactam: paired with imipenem/cilastatin (Recarbrio)\n  Vaborbactam: paired with meropenem (Vabomere); KPC active",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### Penicillin Allergy",
+      "confidence": "candidate",
+      "text": "True IgE-mediated (anaphylaxis): <1% of penicillin exposures\n  RAST/skin testing available for clarification\n  Major determinant: BPO (benzylpenicilloyl) in skin test\n  Cross-reactivity with cephalosporins: side-chain similarity matters; ~1–2%\n  Cross-reactivity with carbapenems: ~1%\n  Cross-reactivity with aztreonam: NO cross-reactivity with penicillin\n    Exception: aztreonam shares R1 side chain with ceftazidime → cross-reacts with that\n\n\"Penicillin allergy\" label causes massive overuse of vancomycin and fluoroquinolones\n→ Drives resistance; allergy delabeling programs important (skin testing/graded challenge)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 195,
+      "heading_context": "## 3. Macrolides",
+      "confidence": "candidate",
+      "text": "**Resistance:** Methylation of 23S rRNA (erm genes — M phenotype); active efflux (mef genes — MS phenotype). MLSB phenotype: cross-resistance macrolides + lincosamides + streptogramins.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### TMP-SMX (Trimethoprim-Sulfamethoxazole)",
+      "confidence": "candidate",
+      "text": "PABA\n  │ ← Sulfonamide blocks (DHPS competes with PABA)\n  ▼\nDihydropteroate\n  │\n  ▼\nDihydrofolate\n  │ ← TMP blocks (DHFR inhibitor, selective for bacterial over human DHFR ~100,000x)\n  ▼\nTetrahydrofolate → nucleotide synthesis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "## 8. Resistance Mechanisms (Comprehensive)",
+      "confidence": "candidate",
+      "text": "ENZYMATIC INACTIVATION:\n  β-lactamases (penicillinase, ESBL, AmpC, carbapenemases)\n  Aminoglycoside-modifying enzymes: AAC (acetyltransferases), APH (phosphotransferases),\n    ANT (nucleotidyltransferases) → add chemical groups to aminoglycoside → ↓ ribosome binding\n\nTARGET MODIFICATION:\n  MRSA: mecA → PBP2a → low β-lactam affinity\n  VRE: vanA/B → D-Ala-D-Lac substitution → ↓ vancomycin binding\n  Fluoroquinolone resistance: GyrA/ParC mutations → drug can't bind effectively\n  Linezolid resistance: G2576T in 23S rRNA (rare, selected in prolonged therapy)\n  Rifampin resistance: rpoB mutations (single step!) → never use as monotherapy\n\nEFFLUX PUMPS (MDR transporters):\n  RND family (gram-neg): MexAB-OprM (Pseudomonas), AcrAB-TolC (E. coli/Klebsiella)\n  MFS family: tet genes (tetracycline), norA (S. aureus quinolone resistance)\n  MATE family\n  → Active efflux → ↓ intracellular drug concentration\n\nREDUCED PERMEABILITY:\n  Gram-negative outer membrane: porin mutation (OprD loss → imipenem resistance in Pseudomonas)\n  Loss of OmpF/OmpC in Enterobacteriaceae → ↓ carbapenem penetration\n\nBYPASS PATHWAYS:\n  Acquired vancomycin resistance in Staph: VISA (vancomycin-intermediate) → thickened cell wall\n    traps vancomycin before reaching D-Ala-D-Ala (not the same as VRE mechanism)\n\nHORIZONTAL GENE TRANSFER (amplifies resistance spread):\n  Conjugation: plasmids (R plasmids); most dangerous (carries multiple resistance genes)\n  Transformation: uptake of environmental DNA (competent organisms: Strep pneumo, H. flu)\n  Transduction: bacteriophage-mediated transfer\n  Transposons/integrons: mobile genetic elements that \"hop\" between plasmids/chromosome",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

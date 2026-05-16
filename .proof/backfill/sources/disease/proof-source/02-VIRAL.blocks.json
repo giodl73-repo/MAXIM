@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "disease\\02-VIRAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "VIRUS CLASSIFICATION BY GENOME → REPLICATION STRATEGY\n\nClass I:   dsDNA          (Herpes, Adeno, Pox)       → nuclear DNA replication (mostly)\nClass II:  ssDNA          (Parvovirus, Anellovirus)   → convert to dsDNA first\nClass III: dsRNA          (Rotavirus, Reovirus)       → RNA-dependent RNA polymerase (RdRP)\nClass IV:  +ssRNA         (Coronaviruses, Flaviviruses,→ mRNA-like, translated directly → RdRP\n                           Picornaviruses, Togaviruses)\nClass V:   −ssRNA         (Influenza, Paramyxo, Rhabdo,→ RdRP must be packaged (can't translate\n                           Filoviruses)                  directly); −strand → +strand → mRNA\nClass VI:  +ssRNA retrovirus (HIV, HTLV)              → Reverse transcriptase: RNA → dsDNA → integrates\nClass VII: dsDNA w/ RNA   (Hepatitis B)               → Reverse transcriptase step; partially dsDNA\n\nKEY INSIGHT:\n  All RNA viruses except retroviruses use host-absent RdRP → major drug target\n  Retroviruses use reverse transcriptase → major drug target (NRTIs, NNRTIs, integrase inhibitors)\n  DNA viruses often use host DNA machinery (except large dsDNA like herpes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 45,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "**Systems Bridge:** The Baltimore classification is a type system for viruses: genome type (the data representation — dsDNA, ssRNA+, ssRNA−, etc.) fully determines permissible replication operations. A +ssRNA virus can be directly translated by host ribosomes because it is structurally identical to mRNA — it has the right \"interface.\" A −ssRNA virus cannot; it must carry its own RNA-dependent RNA polymerase (RdRP) because the host has no enzyme to read that strand, and the packaged RdRP is literally the adapter layer. A retrovirus's reverse transcriptase is a type converter: RNA → DNA, changing the representation to one the host nucleus can process. The classification also determines drug target availability: host-absent enzymes (RdRP, reverse transcriptase, integrase) are selective drug targets precisely because the host has no homolog — the same principle as targeting an interface that exists only in the external system. DNA viruses that use host DNA machinery offer fewer unique targets; large DNA viruses (herpes, pox) that encode their own polymerases are the exceptions.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Universal Viral Replication Cycle",
+      "confidence": "candidate",
+      "text": "1. ATTACHMENT: viral surface protein binds specific host receptor\n   (receptor specificity = tropism determinant)\n   HIV: gp120 → CD4 (T cells, macrophages, DCs) + CCR5/CXCR4 co-receptor\n   SARS-CoV-2: Spike (S protein) → ACE2 (lung, heart, gut)\n   Influenza: Hemagglutinin (HA) → sialic acid (α2,3: avian; α2,6: human respiratory)\n   HSV: glycoproteins gC/gD → heparan sulfate → HVEM/nectin\n\n2. ENTRY: membrane fusion or endocytosis\n   pH-independent fusion (HIV, Paramyxo): gp41/F protein at plasma membrane\n   pH-dependent fusion (Influenza, Ebola): low pH in endosome triggers HA2 conformational change\n\n3. UNCOATING: capsid removed, genome released to appropriate compartment\n   DNA viruses: nucleus (use nuclear pores, except Pox which replicates in cytoplasm)\n   RNA viruses: cytoplasm\n\n4. REPLICATION:\n   DNA viruses: host DNA polymerase (+ viral polymerase for herpes/pox)\n   +ssRNA: ribosomes directly translate → polyprotein → viral RdRP → replication\n   −ssRNA: packaged RdRP → +strand → template → −strand amplification\n   Retrovirus: RT → dsDNA → nuclear import → integrase → proviral integration\n   HBV: pregenomic RNA → RT → dsDNA (reverse transcription with remaining RNA template)\n\n5. ASSEMBLY: viral proteins + genome packaged\n   Budding (enveloped): ER, Golgi, or plasma membrane — acquires lipid envelope\n   Lytic release (non-enveloped): cell lyses → releases virions\n\n6. RELEASE:\n   Influenza: Neuraminidase cleaves sialic acid to release virions from cell surface\n   (NA inhibitors: oseltamivir/zanamivir — block release → virion clumping)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "## Influenza: Antigenic Variation",
+      "confidence": "candidate",
+      "text": "GENOME: 8 separate RNA segments (allows reassortment)\n\nSURFACE PROTEINS:\n  Hemagglutinin (HA): 18 subtypes (H1-H18) — binds sialic acid receptor\n  Neuraminidase (NA): 11 subtypes (N1-N11) — cleaves sialic acid for release\n\nANTIGENIC DRIFT: Point mutations in HA/NA → gradual change → seasonal flu variants\n  → Annual vaccine reformulation (WHO predicts next year's strains)\n\nANTIGENIC SHIFT: Reassortment between human + animal (avian/swine) flu strains\n  → New HA/NA combination → no population immunity → PANDEMIC potential\n  Requires co-infection of single cell (often pig: receptor for both avian and human strains)\n  1918 H1N1 (\"Spanish flu\"): ~50M deaths (highest death toll pandemic in history)\n  1957 H2N2, 1968 H3N2, 2009 H1N1 (swine) — all shifts\n\nPATHOGENESIS:\n  Attaches to upper (α2,6) and lower (α2,3) respiratory sialic acid\n  Avian strains (H5N1, H7N9): prefer α2,3 → lung alveolar cells → high pathogenicity\n    but poor human-to-human transmission (sparse α2,3 in upper airway)\n  HA cleavage by furin (high-path avian) vs respiratory proteases (human) — virulence determinant\n\nDRUG TARGETS:\n  M2 ion channel inhibitors: amantadine/rimantadine (all current strains resistant)\n  NA inhibitors: oseltamivir (Tamiflu), zanamivir — reduce severity if given early (< 48 hr)\n  Cap-dependent endonuclease inhibitor: baloxavir marboxil (newer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## SARS-CoV-2 / COVID-19",
+      "confidence": "candidate",
+      "text": "CLASSIFICATION: Betacoronavirus; +ssRNA; largest RNA genome (~30 kb)\n\nENTRY MECHANISM:\n  Spike protein (S): S1 (receptor binding domain, RBD) binds ACE2\n  TMPRSS2 (transmembrane serine protease): cleaves S → enables fusion\n  Furin cleavage site in S (unique to SARS-CoV-2 vs SARS-CoV-1): ↑ entry efficiency\n\nREPLICATION:\n  Positive-sense RNA → translated → ~28 proteins\n  NSP12 (RdRP): antiviral target (remdesivir — nucleoside analog, competes with ATP)\n  Extensive subgenomic RNAs for structural proteins (S, E, M, N)\n\nVARIANT EVOLUTION:\n  RBD mutations (e.g., K417, E484, N501): affect ACE2 affinity + Ab binding\n  Delta: ↑ transmissibility (furin site changes), ↑ viral load, partial immune evasion\n  Omicron: ~30 mutations in Spike → extensive immune evasion; XBB/BQ1/JN.1 subvariants\n  Antigenic distance from original strain: vaccine updates (bivalent → monovalent updated)\n\nIMMUNOPATHOLOGY:\n  Most disease severity from immune over-reaction, not direct viral killing\n  \"Cytokine storm\": IL-6, TNF, IL-1β → ARDS, multi-organ dysfunction\n  Treatments: dexamethasone (↓ mortality in severe disease), IL-6 inhibitor (tocilizumab)\n\nANTIVIRALS:\n  Paxlovid (nirmatrelvir + ritonavir): Mpro (main protease) inhibitor; ritonavir boosts levels via CYP3A4 inhibition\n  Remdesivir: RdRP inhibitor (IV, inpatient)\n  Molnupiravir: mutagenic nucleoside analog (↑ mutation rate → error catastrophe)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 151,
+      "heading_context": "## HIV: Retroviral Pathogenesis",
+      "confidence": "candidate",
+      "text": "TROPISM:\n  HIV-1 gp120 binds CD4 (primary receptor) + CCR5 or CXCR4 co-receptor\n  R5-tropic (CCR5): infects macrophages + resting CD4+ T cells (transmitted strains)\n  X4-tropic (CXCR4): infects T cells predominantly (later, more pathogenic)\n\nLIFE CYCLE:\n  gp120+gp41 complex → receptor binding → membrane fusion → capsid enters cytoplasm\n  Reverse transcriptase (RT): ssRNA → (+)ssDNA → dsDNA (RNase H degrades template RNA)\n  Integrase: dsDNA import to nucleus → integration as provirus (permanent, heritable)\n  → Transcription (Tat transactivation) → Viral mRNA → Protease cleaves Gag/Gag-Pol polyproteins → mature virion\n\nLATENCY: Integrated provirus in resting CD4+ T cells → invisible to immune system\n  Cannot be eradicated with current antiretrovirals (no ART penetrates latent reservoir)\n  HIV cure requires eliminating latent reservoir (\"shock and kill\" or \"block and lock\" strategies)\n\nCD4 DECLINE:\n  Normal CD4 count: 500–1,500 cells/μL\n  AIDS diagnosis: CD4 < 200 OR AIDS-defining illness\n  Depletion mechanism: direct viral cytopathic effect + CD8 CTL killing of infected cells + bystander apoptosis\n\nANTIRETROVIRAL DRUG CLASSES (ART):\n  NRTI (nucleoside RT inhibitor): tenofovir, emtricitabine, abacavir — chain termination\n  NNRTI (non-nucleoside RT inhibitor): efavirenz, rilpivirine — allosteric RT inhibitor\n  PI (protease inhibitor): darunavir, atazanavir — block Gag/Pol maturation\n  INSTI (integrase strand transfer inhibitor): dolutegravir, bictegravir — block proviral integration\n  Entry inhibitors: maraviroc (CCR5 antagonist), enfuvirtide (fusion inhibitor)\n  Current standard: 3-drug combination → suppress viral replication to undetectable\n  \"Undetectable = Untransmittable\" (U=U): viral load < 200 copies/mL → no sexual transmission",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Hepatitis Viruses: Comparison",
+      "confidence": "candidate",
+      "text": "        HBV              HCV               HAV              HEV\nGenome  dsDNA (partial)  +ssRNA            +ssRNA           +ssRNA\nTrans.  Blood/sexual/    Blood/IV drug/    Fecal-oral       Fecal-oral (Asia)\n        perinatal        vertical (rare)\nAcute   10%→chronic      ~80%→chronic      Self-limited      Dangerous in pregnancy\nChronic 95% neonatal,    ~80%              Never             Never\n        5% adults\nCancer  HCC (HBV DNA     HCC (via          No               No\n        integration)     cirrhosis)\nVaccine Yes (recombinant No                Yes              Yes (limited avail.)\n        HBsAg, 3 doses)\nAntiviral TDF/TAF/entecavir Direct-acting   Supportive       Supportive (ribavirin)\n          (not curative— antivirals (DAAs):\n          suppress)       SVR12 = cure\n                          NS3/4A, NS5A, NS5B\n\nHBV SEROLOGY:\n  HBsAg: surface antigen — present in active infection (acute or chronic)\n  HBsAb: protective antibody (after vaccination or cleared infection)\n  HBcAb IgM: acute infection\n  HBcAb IgG: past exposure\n  HBeAg: high replication/infectivity\n  Window period: HBsAg gone but HBsAb not yet → only HBcAb IgM present",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## HPV: Oncogenic Mechanism",
+      "confidence": "candidate",
+      "text": "HPV TYPES:\n  Low-risk (6, 11): condylomata (genital warts) — E6/E7 don't degrade p53/Rb efficiently\n  High-risk (16, 18): cervical cancer (~70%), oropharyngeal cancer, anal cancer, vulvar cancer\n\nONCOGENIC MECHANISM:\n  HPV infects basal epithelial cells (at transformation zone of cervix)\n  E6 oncoprotein → binds p53 → ubiquitin-mediated degradation → loss of cell cycle arrest\n  E7 oncoprotein → binds Rb (retinoblastoma protein) → releases E2F transcription factor\n    → uncontrolled S-phase entry\n  Both: genomic instability → accumulation of mutations → invasive carcinoma\n\nPROGRESSION: Normal → CIN 1 (LSIL) → CIN 2 → CIN 3 (HSIL/CIS) → Invasive carcinoma\n  CIN 2-3: treated (cryotherapy, LEEP) to prevent invasive disease\n  E6/E7 integration into host genome: loss of E2 (viral repressor) → ↑↑ E6/E7 expression\n\nVACCINATION:\n  Gardasil 9: targets HPV 6, 11, 16, 18, 31, 33, 45, 52, 58\n  VLP (virus-like particle) vaccine — no live virus, no DNA\n  ~90% reduction in CIN2-3 if vaccinated before exposure\n  Recommended: 9–26 years; shared decision-making 27–45",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## Oncogenic Viruses",
+      "confidence": "candidate",
+      "text": "Viruses cause ~15% of human cancers:\n\nVirus         Genome  Cancer                   Mechanism\n──────────────────────────────────────────────────────────────────────\nHPV 16/18     dsDNA   Cervical, oropharyngeal, E6→↓p53, E7→↓Rb\n                      anal, vulvar\nEBV           dsDNA   Burkitt lymphoma,         c-MYC translocation\n                      Hodgkin's, NPC, PTLD      (t(8;14)); LMP1 mimics\n                                                CD40 (B cell activation)\nHBV           dsDNA   Hepatocellular carcinoma  HBx protein disrupts\n              (partial)                          DNA repair; viral DNA\n                                                integration near oncogenes\nHCV           +ssRNA  Hepatocellular carcinoma  Via cirrhosis; NS5A →\n                                                cell cycle dysregulation\nHTLV-1        +ssRNA  Adult T-cell leukemia/    Tax protein → NF-κB,\n              (retro)  lymphoma (ATL)            ↑ CDK4/6, ↑ telomerase\nHHV-8 (KSHV) dsDNA   Kaposi's sarcoma,         vFLIP, vCyclin, vIRF1\n                      PEL, Castleman's",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
