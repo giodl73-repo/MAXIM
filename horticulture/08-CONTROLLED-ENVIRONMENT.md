@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:controlled-environment
+kind: guide
+module: horticulture
+section: horticulture
+title: Controlled Environment Agriculture: Greenhouses and Vertical Farms
+status: source-custody
+source_custody: partial
+current_path: horticulture/08-CONTROLLED-ENVIRONMENT.md
+canonical_path: horticulture/08-CONTROLLED-ENVIRONMENT.md
+backsource_ids: [proof-backfill:horticulture:08-controlled-environment, git-history:horticulture:08-controlled-environment]
+concepts: [controlled, environment]
+root_concepts: [controlled, environment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Controlled Environment Agriculture: Greenhouses and Vertical Farms
 
 ## The Big Picture

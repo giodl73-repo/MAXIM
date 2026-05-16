@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:scandinavian
+kind: guide
+module: furniture
+section: furniture
+title: Scandinavian Design Tradition
+status: source-custody
+source_custody: partial
+current_path: furniture/05-SCANDINAVIAN.md
+canonical_path: furniture/05-SCANDINAVIAN.md
+backsource_ids: [proof-backfill:furniture:05-scandinavian, git-history:furniture:05-scandinavian]
+concepts: [scandinavian]
+root_concepts: [scandinavian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scandinavian Design Tradition
 
 ## The Big Picture

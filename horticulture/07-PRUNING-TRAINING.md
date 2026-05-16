@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:pruning-training
+kind: guide
+module: horticulture
+section: horticulture
+title: Pruning, Training, and Espalier
+status: source-custody
+source_custody: partial
+current_path: horticulture/07-PRUNING-TRAINING.md
+canonical_path: horticulture/07-PRUNING-TRAINING.md
+backsource_ids: [proof-backfill:horticulture:07-pruning-training, git-history:horticulture:07-pruning-training]
+concepts: [pruning, training]
+root_concepts: [pruning, training]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pruning, Training, and Espalier
 
 ## The Big Picture

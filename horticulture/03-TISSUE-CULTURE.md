@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:tissue-culture
+kind: guide
+module: horticulture
+section: horticulture
+title: Tissue Culture and Micropropagation
+status: source-custody
+source_custody: partial
+current_path: horticulture/03-TISSUE-CULTURE.md
+canonical_path: horticulture/03-TISSUE-CULTURE.md
+backsource_ids: [proof-backfill:horticulture:03-tissue-culture, git-history:horticulture:03-tissue-culture]
+concepts: [tissue, culture]
+root_concepts: [tissue, culture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tissue Culture and Micropropagation
 
 ## The Big Picture

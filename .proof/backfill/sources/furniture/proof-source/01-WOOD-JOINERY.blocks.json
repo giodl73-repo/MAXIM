@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "furniture\\01-WOOD-JOINERY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE JOINERY PROBLEM HIERARCHY\n\n+---------------------------------------------------------------+\n|  CONSTRAINT 1: Wood moves (moisture-driven dimensional change) |\n|  Wood moves across grain; negligible along grain              |\n|  A 300mm-wide board can move 6–9mm seasonally                 |\n+---------------------------------------------------------------+\n                    |\n                    v\n+---------------------------------------------------------------+\n|  CONSTRAINT 2: Joint must resist mechanical loads             |\n|  Tension (pulling apart), compression, shear, racking         |\n|  Different joints excel at different load types               |\n+---------------------------------------------------------------+\n                    |\n                    v\n+---------------------------------------------------------------+\n|  CONSTRAINT 3: Joint must be manufacturable                   |\n|  Hand tools → machine tools → CNC → flat-pack hardware        |\n|  Cost of the joint scales with precision required             |\n+---------------------------------------------------------------+\n                    |\n                    v\n+---------------------------------------------------------------+\n|  SOLUTION SPACE: Joinery taxonomy                             |\n|  Butt < Mortise-tenon < Dovetail < Japanese interlocking      |\n|  (increasing mechanical sophistication and material cost)     |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## The Wood Movement Problem",
+      "confidence": "candidate",
+      "text": "EQUILIBRIUM MOISTURE CONTENT (EMC):\n  RH 40% = EMC ~8%  (typical heated interior, winter)\n  RH 60% = EMC ~11% (typical spring/fall)\n  RH 75% = EMC ~14% (humid summer or tropical)\n\n  Swings of RH 40% → 75% = ~6% EMC change\n  For tangential grain in 300mm oak board:\n  6% MC × (tangential shrinkage coefficient ~0.003/%) × 300mm\n  ≈ 5.4mm of movement across 300mm\n\nThis is why:\n  - Table tops must be attached with figure-8 buttons or clips (not screws)\n  - Wide panels must float in frames, not be glued\n  - Drawers stick in summer, rattle in winter\n  - Antique boards crack when brought from English dampness to American central heating",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 182,
+      "heading_context": "### Hierarchy by Mechanical Sophistication",
+      "confidence": "candidate",
+      "text": "BUTT JOINTS (weakest — require fasteners or adhesive)\n    |\n    +-- Flat butt (just two faces meeting)\n    +-- Dowel butt (cylindrical alignment pegs add shear resistance)\n    +-- Biscuit butt (flat oval biscuit in slot — alignment + glue area)\n    +-- Pocket screw (angled screw from inside — fast, hidden, modern)\n    +-- Domino (proprietary Festool system — loose tenon in routed slots)\n    +-- Cam lock + confirmat (IKEA hardware — see 07-IKEA-MODEL.md)\n\nDADO / HOUSING (groove receives shelf/panel — resists shear)\n    |\n    +-- Through dado (groove crosses full width)\n    +-- Stopped dado (groove stops before edge, hides joint)\n\nRABBET / REBATE (L-shaped notch at edge — used at cabinet backs, drawer bottoms)\n\nLAP JOINTS (one piece crosses or laps another)\n    |\n    +-- Half-lap (both pieces halved — flush on both faces)\n    +-- Cross-lap (middle of both pieces — used in grids)\n    +-- End-lap (at ends — frame corners)\n\nMORTISE AND TENON (fundamental structural joint)\n    |   [see full section below]\n\nDOVETAIL (mechanical interlock — resists tension in one direction)\n    |   [see full section below]\n\nBOX JOINT / FINGER JOINT (interlocking square fingers — drawer construction)\n\nBRIDLE JOINT (open mortise at end — used in chair legs, light frames)\n\nJAPANESE INTERLOCKING JOINERY (extreme elaboration — no glue or fasteners)\n    +-- Chigai kama (interlocking wedge-key)\n    +-- Shachisen (pins and wedges in complex 3D geometry)\n    +-- Sanmaisen-kama, kanawa-tsugi, etc.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 227,
+      "heading_context": "## Mortise and Tenon — The Fundamental Joint",
+      "confidence": "candidate",
+      "text": "BASIC ANATOMY:\n\n  MORTISE (hole)          TENON (tongue)\n  +----------+            +----------+\n  |          |            |    +-+   |\n  |  [HOLE]  |  <------   |    |T|   |\n  |          |            |    +-+   |\n  +----------+            +----------+\n  (in the stile,          (on the rail,\n   vertical member)        horizontal member)\n\nPROPORTIONS (rule of thumb):\n  Tenon thickness = 1/3 mortise member thickness\n  Tenon length = at least 3× tenon thickness\n  Tenon width = max 5× tenon thickness (beyond this, movement splits it)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 272,
+      "heading_context": "## Dovetail — Mechanical Interlock",
+      "confidence": "candidate",
+      "text": "DOVETAIL GEOMETRY:\n\n  PINS (narrow, vertical)    TAILS (wide, angled)\n       |     |                /   \\   /   \\\n       |     |               /     \\ /     \\\n      /|     |\\             /       X       \\\n     / |     | \\           /    (tails interlock)\\\n    /  |     |  \\          \\   with pins          /\n   +---+     +---+          +---+---+---+---+---+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 306,
+      "heading_context": "## Frame-and-Panel Construction",
+      "confidence": "candidate",
+      "text": "+----------------------------------+\n|  STILE    |    PANEL    |  STILE |\n| (vertical)|  (floats in |( vert.)|\n|           |   groove -- |        |\n+--+        |  NOT glued) |       ++\n|  |        |             |        |\n|  | RAIL   |    wood can |  RAIL  |\n|  |(horiz.)|    expand / |        |\n+--+        |    contract |       ++\n|           |    without  |        |\n|  STILE    |    stress   |  STILE |\n+----------------------------------+\n\n  Frame (stiles + rails): structural, stable\n  Panel: floats free -- can move seasonally\n  Groove: ~3mm wider than panel for movement allowance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 350,
+      "heading_context": "## Modern KD (Knock-Down) Joinery",
+      "confidence": "candidate",
+      "text": "CAM LOCK (IKEA standard):\n  +---------+      +-------+\n  | CAM     |      | DOWEL |\n  | (spins  |      | (pegs |\n  |  in     |      |  for  |\n  |  hole)  |      | align)|\n  +---------+      +-------+\n  Bolt from one piece enters cam in other piece;\n  turning cam with screwdriver draws pieces tight.\n  Fast, no skill, ~$0.10 per unit — genius at scale.\n\nCONFIRMAT SCREW:\n  Specialized screw with coarse thread and\n  cylindrical shank — designed for particleboard.\n  Drive in, it bites — remove and re-drive,\n  it still holds (within limits).\n\nEURO SCREW + BARREL NUT:\n  Machine screw through one piece into barrel nut\n  in other piece. Requires exact alignment.\n  Fully disassemble-and-reassemble without\n  material degradation (unlike cam, which wears).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

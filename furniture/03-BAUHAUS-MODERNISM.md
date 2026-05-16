@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:bauhaus-modernism
+kind: guide
+module: furniture
+section: furniture
+title: Bauhaus and Modernist Furniture
+status: source-custody
+source_custody: partial
+current_path: furniture/03-BAUHAUS-MODERNISM.md
+canonical_path: furniture/03-BAUHAUS-MODERNISM.md
+backsource_ids: [proof-backfill:furniture:03-bauhaus-modernism, git-history:furniture:03-bauhaus-modernism]
+concepts: [bauhaus, modernism]
+root_concepts: [bauhaus, modernism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bauhaus and Modernist Furniture
 
 ## The Big Picture

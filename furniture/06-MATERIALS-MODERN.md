@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:materials-modern
+kind: guide
+module: furniture
+section: furniture
+title: Modern Furniture Materials: Plastics, Steel, and Plywood
+status: source-custody
+source_custody: partial
+current_path: furniture/06-MATERIALS-MODERN.md
+canonical_path: furniture/06-MATERIALS-MODERN.md
+backsource_ids: [proof-backfill:furniture:06-materials-modern, git-history:furniture:06-materials-modern]
+concepts: [materials, modern]
+root_concepts: [materials, modern]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Furniture Materials: Plastics, Steel, and Plywood
 
 ## The Big Picture
