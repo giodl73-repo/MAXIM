@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:overview
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Partial Differential Equations - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/00-OVERVIEW.md
+canonical_path: partial-differential-equations/00-OVERVIEW.md
+backsource_ids: [proof-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Partial Differential Equations — Landscape and Taxonomy
 
 ## The Big Picture

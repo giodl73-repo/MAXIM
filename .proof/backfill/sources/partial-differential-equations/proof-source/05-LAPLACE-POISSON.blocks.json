@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\05-LAPLACE-POISSON.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              LAPLACE / POISSON LANDSCAPE                              |\n|                                                                       |\n|  LAPLACE EQUATION:   ∇²u = 0   (harmonic functions)                   |\n|  Electrostatics:  ∇²φ = 0  in vacuum                                  |\n|  Gravitation:     ∇²φ = 0  outside masses                             |\n|  Steady heat:     ∇²T = 0  in equilibrium                             |\n|  Ideal fluid:     ∇²φ = 0  (velocity potential, irrotational)         |\n|  Complex analysis: Re(f) and Im(f) for holomorphic f                  |\n|                                                                       |\n|  POISSON EQUATION:   ∇²u = f   (harmonic with source)                 |\n|  Electrostatics:  ∇²φ = −ρ/ε₀  (charge density source)                |\n|  Gravitation:     ∇²φ = 4πGρ   (mass density source)                  |\n|  Steady heat:     ∇²T = −Q/k   (heat source Q)                        |\n|                                                                       |\n|  KEY TOOLS:                                                           |\n|  • Fundamental solution (Green's function for free space)             |\n|  • Green's theorems (integration by parts for ∇²)                     |\n|  • Maximum principle (extrema on boundary)                            |\n|  • Mean value property                                                |\n|  • Separation of variables (spherical/cylindrical harmonics)          |\n|  • Green's functions for specific domains                             |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "### Maximum Principle",
+      "confidence": "candidate",
+      "text": "  STRONG MAXIMUM PRINCIPLE:\n\n  If ∇²u = 0 in connected Ω, and u achieves its maximum (or minimum)\n  at an INTERIOR point, then u is CONSTANT in Ω.\n\n  Equivalently: a non-constant harmonic function has no interior extrema.\n  All extrema are on the boundary ∂Ω.\n\n  COROLLARIES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ UNIQUENESS:  If ∇²u = ∇²v = 0 in Ω and u = v on ∂Ω,             │\n  │              then u = v everywhere in Ω.                        │\n  │                                                                 │\n  │ STABILITY:   max|u − v| in Ω ≤ max|u − v| on ∂Ω                 │\n  │              The solution depends continuously on boundary data. │\n  │                                                                 │\n  │ LIOUVILLE:   A bounded harmonic function on all of Rⁿ must be   │\n  │              constant. (Complex analysis: bounded entire function│\n  │              is constant.)                                      │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## Green's Theorems: The Fundamental Identity",
+      "confidence": "candidate",
+      "text": "  NOTATION: ∂u/∂n = ∇u · n̂ = normal derivative (n̂ = outward unit normal)\n\n  GREEN'S FIRST IDENTITY:\n  ∫_Ω (v∇²u) dV = ∮_{∂Ω} v ∂u/∂n dS − ∫_Ω ∇u · ∇v dV\n\n  GREEN'S SECOND IDENTITY:\n  ∫_Ω (v∇²u − u∇²v) dV = ∮_{∂Ω} (v ∂u/∂n − u ∂v/∂n) dS\n\n  APPLICATIONS:\n  (1) If ∇²u = ∇²v = 0 (both harmonic):\n      ∮_{∂Ω} (v ∂u/∂n − u ∂v/∂n) dS = 0\n\n  (2) Reciprocity: swap u and v → same result\n      The Laplacian operator is self-adjoint.\n\n  (3) Setting v = Φ (fundamental solution):\n      Leads to GREEN'S REPRESENTATION FORMULA.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## Green's Functions for Bounded Domains",
+      "confidence": "candidate",
+      "text": "  GREEN'S FUNCTION G(x,y) for domain Ω with Dirichlet BC:\n  ┌───────────────────────────────────────────────────────────────┐\n  │  ∇²_x G(x,y) = δ(x−y)    in Ω  (for fixed y)                  │\n  │  G(x,y) = 0               on ∂Ω                               │\n  └───────────────────────────────────────────────────────────────┘\n\n  Decomposition: G(x,y) = Φ(x−y) + H(x,y)\n  where H is harmonic in Ω (corrects Φ to vanish on ∂Ω).\n\n  SOLUTION TO POISSON:\n  u(x) = ∫_Ω G(x,y) f(y) dV_y   (with u=0 on ∂Ω)\n\n  SOLUTION TO LAPLACE (Dirichlet BVP):\n  u(x) = −∮_{∂Ω} ∂G/∂n_y (x,y) g(y) dS_y\n  where g = boundary data and ∂G/∂n = Poisson kernel.\n\n  SYMMETRY: G(x,y) = G(y,x)  (Green's function is symmetric)\n  This follows from the self-adjointness of ∇².",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "### Method of Images: Green's Function for the Half-Space",
+      "confidence": "candidate",
+      "text": "  DOMAIN: Ω = {x ∈ R³ : x₃ > 0} (upper half-space)\n\n  For source at y = (y₁,y₂,y₃) with y₃ > 0:\n\n  G(x,y) = Φ(x−y) − Φ(x−y*)\n\n  where y* = (y₁,y₂,−y₃) is the REFLECTION of y across x₃=0.\n\n  PHYSICAL PICTURE:\n  +----------------------------------------------------+\n  |         REAL CHARGE at y (upper half-space)        |\n  | ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·     |\n  ======================= x₃ = 0 (grounded plane) ===\n  |         IMAGE CHARGE at y* (lower half-space)      |\n  +----------------------------------------------------+\n\n  The image charge −1 at y* ensures G=0 on the boundary.\n  Method of images works for: half-space, quarter-space, wedge,\n  rectangle, sphere.\n\n  POISSON KERNEL FOR HALF-SPACE (x₃>0, source on x₃=0):\n  P(x,y') = x₃ / [2π((x₁−y₁)²+(x₂−y₂)²+x₃²)^{3/2}]\n\n  Dirichlet solution: u(x) = ∫_{R²} P(x,y') g(y') dA(y')",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "## Spherical Harmonics: Separation in Spherical Coordinates",
+      "confidence": "candidate",
+      "text": "  LAPLACIAN IN SPHERICAL COORDS (r,θ,φ):\n  ∇²u = u_rr + 2/r·u_r + 1/r²·[u_θθ + cot(θ)u_θ + csc²(θ)u_φφ]\n       = u_rr + 2/r·u_r + 1/r²·L_sphere u\n\n  SEPARATION: u = R(r)·Y(θ,φ)\n  R'' + 2/r R' − ℓ(ℓ+1)/r² R = 0  →  R = Ar^ℓ + Br^{−(ℓ+1)}\n  L_sphere Y = −ℓ(ℓ+1) Y         →  Y = Y_ℓᵐ(θ,φ) (spherical harmonics)\n\n  SPHERICAL HARMONICS:\n  Y_ℓᵐ(θ,φ) = c_ℓᵐ · P_ℓᵐ(cos θ) · e^{imφ}\n\n  ℓ = 0,1,2,...  (degree),   m = −ℓ,...,ℓ  (order)\n\n  ORTHOGONALITY: ∫ Y_ℓᵐ · Y̅_{ℓ'm'} dΩ = δ_{ℓℓ'} δ_{mm'}\n\n  PHYSICAL MEANING:\n  ℓ = 0: monopole (charge, mass)\n  ℓ = 1: dipole\n  ℓ = 2: quadrupole\n  ℓ = n: 2ⁿ-pole\n\n  Used in: atomic orbitals, gravitational multipole expansion,\n           seismology, geomagnetic field decomposition,\n           computer graphics (irradiance environment maps).\n\n  GENERAL SOLUTION IN BALL (interior):\n  u(r,θ,φ) = Σ_{ℓ=0}^∞ Σ_{m=−ℓ}^{ℓ} A_ℓᵐ · r^ℓ · Y_ℓᵐ(θ,φ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "## Regularity Theory",
+      "confidence": "candidate",
+      "text": "  INTERIOR REGULARITY:\n\n  THEOREM (Elliptic regularity): If ∇²u = f in Ω and f ∈ C^k(Ω),\n  then u ∈ C^{k+2}(Ω).\n\n  If f ∈ C∞(Ω), then u ∈ C∞(Ω).\n  If f = 0 (harmonic), u ∈ C∞ (in fact real analytic).\n\n  SOBOLEV FRAMEWORK (shift-by-2):\n  If f ∈ H^k(Ω) then u ∈ H^{k+2}(Ω).\n  Solving Poisson gains exactly two derivatives.\n\n  Lp REGULARITY (Calderón-Zygmund):\n  If f ∈ Lp(Ω), 1 < p < ∞, then D²u ∈ Lp(Ω).\n  Estimate: ‖D²u‖_{Lp} ≤ C_p ‖f‖_{Lp}\n  ──────────────────────────────────────────────────────────────────\n  Fails at the endpoints:\n    p = 1:  D²u ∉ L¹ in general (Ornstein non-inequality)\n    p = ∞:  D²u ∉ L∞ in general; must use BMO (bounded mean oscillation)\n  The C-Z constant C_p → ∞ as p → 1 or p → ∞.\n\n  BOUNDARY REGULARITY:\n  Interior regularity is free. Boundary regularity costs domain smoothness.\n  ──────────────────────────────────────────────────────────────────\n  ∂Ω ∈ C^{k+2}  and  g ∈ H^{k+3/2}(∂Ω)  →  u ∈ H^{k+2}(Ω) up to ∂Ω\n  ∂Ω ∈ C^{k,α}  (Hölder smooth)            →  Schauder estimates apply\n\n  What breaks for rough domains:\n  • Lipschitz ∂Ω: H² regularity holds, but higher regularity fails\n  • Polyhedral domains (3D): corner/edge singularities u ~ r^λ\n    (λ depends on corner angle; re-entrant corners → λ < 1 → u ∉ H²)\n  • Crack tips: u ~ r^{1/2} sin(θ/2) — the classic stress singularity\n  These singularities limit FEM convergence on non-smooth domains\n  and explain why adaptive mesh refinement near corners is essential.\n\n  WHY THIS MATTERS FOR NUMERICS:\n  FEM error: ‖u − u_h‖_{H¹} ≤ C h^k ‖u‖_{H^{k+1}}\n  If u ∉ H^{k+1} (corner singularity), the rate degrades.\n  PINNs face the same issue: spectral bias + singularities = poor\n  approximation of r^λ modes near corners.\n\n  SCHAUDER ESTIMATES (Hölder spaces):\n  ‖u‖_{C^{2,α}} ≤ C(‖f‖_{C^α} + ‖g‖_{C^{2,α}})\n  These are the classical regularity estimates; they preceded Sobolev\n  theory historically but are less natural for FEM analysis.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

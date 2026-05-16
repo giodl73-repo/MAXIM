@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\04-QUANTUM-STATS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "QUANTUM STATISTICS LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  PARTICLE SYMMETRY UNDER EXCHANGE:\n\n  ψ(x₁,x₂) = +ψ(x₂,x₁)  BOSONS:   integer spin (0, 1, 2, ...)\n                                     photons, phonons, ⁴He, W/Z bosons\n                                     ANY number in a single quantum state\n\n  ψ(x₁,x₂) = −ψ(x₂,x₁)  FERMIONS: half-integer spin (1/2, 3/2, ...)\n                                     electrons, protons, neutrons, quarks\n                                     AT MOST ONE per quantum state (Pauli)\n\n  ┌─────────────────────┬────────────────────┬────────────────────────────┐\n  │                     │ BOSONS             │ FERMIONS                   │\n  ├─────────────────────┼────────────────────┼────────────────────────────┤\n  │ Mean occupation     │ n(ε) = 1/(e^{β(ε-μ)}-1) │ n(ε) = 1/(e^{β(ε-μ)}+1) │\n  │ Distribution        │ Bose-Einstein      │ Fermi-Dirac                │\n  │ Occupation at ε=μ   │ → ∞ (diverges)    │ = 1/2                      │\n  │ T=0 occupancy       │ all in ground state│ 1 for ε<μ, 0 for ε>μ      │\n  │ Low-density limit   │ Maxwell-Boltzmann  │ Maxwell-Boltzmann          │\n  │ Signature behavior  │ BEC, superfluidity │ Fermi pressure, metal e⁻   │\n  └─────────────────────┴────────────────────┴────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### The Derivation from the Grand Canonical Ensemble",
+      "confidence": "candidate",
+      "text": "GEOMETRIC INTERPRETATION:\n\n  FERMIONS: mode is either empty or occupied.\n  ┌────┬────┐\n  │ 0  │ 1  │\n  └────┴────┘\n  Average: between 0 and 1, S-shaped as function of ε.\n\n  BOSONS: mode can have any occupation.\n  ┌────┬────┬────┬────┬────┬────┐\n  │ 0  │ 1  │ 2  │ 3  │ 4  │ ...│\n  └────┴────┴────┴────┴────┴────┘\n  Average: diverges as ε → μ from above (ε > μ required).\n\n  CLASSICAL LIMIT (e^{β(ε−μ)} >> 1):\n  Both → n ≈ e^{-β(ε−μ)} = e^{βμ} e^{-βε}   (Maxwell-Boltzmann)\n  Classical statistics is the low-density, high-temperature limit.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### Low-Temperature Expansion (Sommerfeld Expansion)",
+      "confidence": "candidate",
+      "text": "    C_V = (π²/2) N k_B (k_BT/E_F) + ...    ← linear in T",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "### Low-Temperature Expansion (Sommerfeld Expansion)",
+      "confidence": "candidate",
+      "text": "SOMMERFELD RESULT: C_V = γ T    (electronic heat capacity)\n  γ = π² N k_B² / (2 E_F)  = π² k_B²/(2) × g(E_F) × V\n\n  This LINEAR-IN-T heat capacity is the fingerprint of a Fermi gas.\n  At very low T, it dominates over the Debye phonon contribution (T³).\n\n  BRIDGE TO EXPERIMENTS:\n  Measuring C_V/T at low T:\n  C_V/T = γ + A T²\n  Intercept γ → electronic density of states g(E_F)\n  Slope A → Debye phonon contribution (3D: A = 12π⁴Nk_B/5T_D³)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Real BEC: Dilute Atomic Gases",
+      "confidence": "candidate",
+      "text": "EXPERIMENTAL ROUTE TO BEC:\n  Laser cooling → T ~ μK (laser slowing and Doppler cooling)\n  Magnetic trapping → harmonic potential V(r) = (1/2)mω²r²\n  Evaporative cooling → T ~ nK, n ~ 10¹⁴ cm⁻³\n  BEC: T_c ~ 100 nK for typical densities\n\n  For a HARMONIC TRAP (not a box), density of states g(ε) ∝ ε².\n  BEC transition: k_BT_c = ℏω̄ (N/ζ(3))^{1/3}  where ω̄ = (ωₓω_yω_z)^{1/3}\n  Below T_c: N_0/N = 1 − (T/T_c)³ (different exponent from box: 3 vs 3/2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## Photons and Phonons — Bosons with μ = 0",
+      "confidence": "candidate",
+      "text": "PLANCK vs CLASSICAL RAYLEIGH-JEANS:\n  Classical (μ → 0 in equipartition): u(ω) → k_BT ω²/π²c³  (diverges!)\n  Quantum (Planck):                   u(ω) → Planck cutoff\n                                      → resolves the ULTRAVIOLET CATASTROPHE\n\n  Wien's law: peak at ω_max = 2.82 k_BT/ℏ  (λ_max T = 2.9 mm·K)\n  Stefan-Boltzmann: total radiated power P = σT⁴  (σ = 5.67×10⁻⁸ W/m²K⁴)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "## Comparing the Three Distributions",
+      "confidence": "candidate",
+      "text": "OCCUPATION vs ENERGY:\n\n  ε ≪ μ:\n  Fermi-Dirac:    n_F → 1  (filled)\n  Bose-Einstein:  n_B → large (piling up)\n  Maxwell-Boltzmann: e^{β(μ−ε)} → large (but wrong regime for MB)\n\n  ε = μ:\n  Fermi-Dirac:    n_F = 1/2\n  Bose-Einstein:  n_B → ∞\n\n  ε ≫ μ  (β(ε−μ) >> 1, classical limit):\n  Fermi-Dirac:    n_F ≈ e^{-β(ε−μ)}  (MB)\n  Bose-Einstein:  n_B ≈ e^{-β(ε−μ)}  (MB)\n  Both → Maxwell-Boltzmann: n_MB = e^{β(μ−ε)}\n\n  Classical limit valid when n λ³ << 1  (phase space density << 1 per cell)\n  where λ = h/√(2πmkT) is the thermal de Broglie wavelength.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 352,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**The Gross-Pitaevskii equation connects BEC to superfluidity**: For a weakly interacting condensate, the macroscopic wavefunction Ψ(r,t) satisfies the Gross-Pitaevskii equation: iℏ ∂Ψ/∂t = [−ℏ²∇²/(2m) + V(r) + g|Ψ|² ] Ψ, where g = 4πℏ²a_s/m (a_s = s-wave scattering length). This is a nonlinear Schrödinger equation — the condensate is a classical field whose phase gradient carries the superfluid current: v_s = (ℏ/m)∇φ. The GP equation is where BEC connects to superfluidity, vortices, and soliton dynamics.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 354,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**The Fermi-Dirac function is the logistic sigmoid**: The Fermi function f(ε) = 1/(e^{β(ε−μ)}+1) is exactly σ(β(μ−ε)) where σ(x) = 1/(1+e^{-x}) is the logistic sigmoid used as the activation function in neural networks. In an RBM (restricted Boltzmann machine), the conditional probability P(h_j = 1 | v) = σ(W_j·v + c_j) is literally Fermi-Dirac occupancy with β = 1 and effective chemical potential μ = W_j·v + c_j. The correspondence is exact, not approximate.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

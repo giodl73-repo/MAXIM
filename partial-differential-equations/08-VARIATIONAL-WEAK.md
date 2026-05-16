@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:variational-weak
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Variational Formulation and Weak Solutions
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/08-VARIATIONAL-WEAK.md
+canonical_path: partial-differential-equations/08-VARIATIONAL-WEAK.md
+backsource_ids: [proof-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]
+concepts: [variational, weak]
+root_concepts: [variational, weak]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Variational Formulation and Weak Solutions
 
 ## The Big Picture

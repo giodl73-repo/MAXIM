@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:overview
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Statistical Mechanics - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/00-OVERVIEW.md
+canonical_path: statistical-mechanics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:statistical-mechanics:00-overview, git-history:statistical-mechanics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Statistical Mechanics — Landscape and Taxonomy
 
 ## The Big Picture
@@ -21,14 +40,14 @@ STATISTICAL MECHANICS — CONCEPTUAL STRUCTURE
 
   THREE ENSEMBLES:
   ┌────────────────┬─────────────────────────┬────────────────────────┐
-  │ Microcanonical │  fixed N, V, E           │  Z = Ω(E) (density of │
-  │                │  isolated system         │  states); S = k ln Ω  │
+  │ Microcanonical │  fixed N, V, E          │  Z = Omega(E) density  │
+  │                │  isolated system        │  states; S = k ln Om   │
   ├────────────────┼─────────────────────────┼────────────────────────┤
   │ Canonical      │  fixed N, V, T           │  Z = Σ e^{-βEₙ}       │
   │                │  heat bath at T          │  F = −kT ln Z         │
   ├────────────────┼─────────────────────────┼────────────────────────┤
-  │ Grand canonical│  fixed μ, V, T           │  Z_G = Σ e^{-β(E−μN)} │
-  │                │  heat+particle bath      │  Ω = −kT ln Z_G       │
+  │ Grand canonical│  fixed mu, V, T         │  Z_G = sum exp[-bE']   │
+  │                │  heat+particle bath     │  Om = -kT ln Z_G       │
   └────────────────┴─────────────────────────┴────────────────────────┘
 ```
 
@@ -42,9 +61,9 @@ GUIDE MAP — CONCEPTUAL CLUSTERS
 
   FOUNDATIONS (start here)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  01-FOUNDATIONS        Boltzmann distribution, entropy, microstates│
-  │  02-MICROCANONICAL     Isolated systems, density of states        │
-  │  03-CANONICAL          Partition function Z, Legendre structure   │
+  │  01-FOUNDATIONS        Entropy, microstates, Boltzmann wght      │
+  │  02-MICROCANONICAL     Isolated systems, density of states       │
+  │  03-CANONICAL          Partition function Z, Legendre structure  │
   │  04-QUANTUM-STATS      Fermi-Dirac, Bose-Einstein, quantum gases │
   └──────────────────────────────────────────────────────────────────┘
             │
@@ -52,8 +71,8 @@ GUIDE MAP — CONCEPTUAL CLUSTERS
   DEEP PHYSICS (phase transitions → RG → exactly-solvable models)
   ┌──────────────────────────────────────────────────────────────────┐
   │  05-PHASE-TRANSITIONS  Critical phenomena, universality, Landau  │
-  │  06-RENORMALIZATION    Wilson RG, fixed points, epsilon expansion │
-  │  07-ISING-MODELS       Exact solutions, Monte Carlo, spin glasses│
+  │  06-RENORMALIZATION    Wilson RG, fixed points, epsilon expan.   │
+  │  07-ISING-MODELS       Exact solutions, Monte Carlo, spin gls    │
   └──────────────────────────────────────────────────────────────────┘
             │
             ▼

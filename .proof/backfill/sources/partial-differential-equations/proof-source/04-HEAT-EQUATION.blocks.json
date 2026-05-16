@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\04-HEAT-EQUATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              HEAT EQUATION LANDSCAPE                                  |\n|                                                                       |\n|  FORMS:                                                               |\n|  u_t = α∇²u          (heat / diffusion, α = diffusivity)              |\n|  u_t = α∇²u + f      (with source f)                                  |\n|  u_t = ∇·(D(x)∇u)   (variable diffusivity D)                          |\n|  u_t = ∇·(D(u)∇u)   (nonlinear diffusion)                             |\n|  iℏψ_t = −(ℏ²/2m)∇²ψ + Vψ   (Schrödinger = i × heat)                  |\n|  V_t + ½σ²S²V_SS + rSV_S − rV = 0  (Black-Scholes)                    |\n|                                                                       |\n|  PROPERTIES:                                                          |\n|  • Infinite propagation speed (instantaneous awareness)               |\n|  • Immediate regularization (rough → smooth in any ε > 0 time)        |\n|  • Irreversible (entropy increases; backward problem ill-posed)       |\n|  • Gaussian kernel (the fundamental solution)                         |\n|  • Maximum principle (no interior extrema)                            |\n|  • Energy dissipation (‖u‖_L² decreases)                              |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## The Fundamental Solution (Heat Kernel)",
+      "confidence": "candidate",
+      "text": "  PROBLEM:   u_t = α·u_xx  on R,  u(x,0) = δ(x)  (Dirac delta)\n\n  SOLUTION:  K(x,t) = 1/√(4παt) · exp(−x²/4αt)\n\n  In n dimensions:  K(x,t) = (4παt)^{−n/2} · exp(−|x|²/4αt)\n\n  PROPERTIES OF K:\n  ┌──────────────────────────────────────────────────────────┐\n  │ ∫ K(x,t) dx = 1  for all t > 0  (mass conservation)      │\n  │ K(x,t) > 0  for all x, t>0  (strict positivity)          │\n  │ K(x,t) → δ(x) as t → 0+                                  │\n  │ K(x,t) is a Gaussian: mean 0, variance 2αt               │\n  │ K(x,t) → 0 as t → ∞ (spreads to zero)                    │\n  └──────────────────────────────────────────────────────────┘\n\n  SOLUTION TO IVP:\n  u(x,t) = ∫ K(x−y,t) u₀(y) dy = (K(·,t) * u₀)(x)\n  This is CONVOLUTION with the heat kernel.\n\n  SCALING SYMMETRY: K(λx, λ²t) = λ^{−1} K(x,t)\n  The heat equation is invariant under x → λx, t → λ²t.\n  This diffusive scaling x ~ √t is everywhere in probability theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## Separation of Variables: Finite Domain",
+      "confidence": "candidate",
+      "text": "  u_t = α·u_xx,  u(0,t) = u(L,t) = 0,  u(x,0) = u₀(x)\n\n  STEP 1: u(x,t) = X(x)T(t)\n          T'/αT = X''/X = −λ  (must be constant)\n\n  STEP 2: X eigenvalue problem\n          X'' + λX = 0,  X(0) = X(L) = 0\n          λ_n = (nπ/L)²,  X_n = sin(nπx/L)\n\n  STEP 3: T equation\n          T' + αλ_n T = 0  →  T_n(t) = e^{−αλ_n t}\n\n  STEP 4: Solution\n          u(x,t) = Σ_{n=1}^∞ b_n · e^{−α(nπ/L)²t} · sin(nπx/L)\n\n          b_n = 2/L ∫₀ᴸ u₀(x) sin(nπx/L) dx  (Fourier sine coefficients)\n\n  KEY OBSERVATION: Each mode decays exponentially with rate α(nπ/L)².\n  HIGH MODES DECAY FASTEST.\n\n  Long-time behavior: u ≈ b₁ · e^{−α(π/L)²t} · sin(πx/L)\n  The solution approaches zero dominated by the slowest-decaying fundamental mode.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## Long-Time Behavior and Spectral Theory",
+      "confidence": "candidate",
+      "text": "  For the heat equation on bounded domain Ω with Dirichlet BCs:\n  u_t = α∇²u,  u|_{∂Ω} = 0\n\n  Eigenvalue problem:  −∇²φ = λφ in Ω,  φ|_{∂Ω} = 0\n  Spectrum: 0 < λ₁ < λ₂ ≤ λ₃ ≤ ... → ∞\n\n  SOLUTION:  u(x,t) = Σ_n c_n e^{−αλ_n t} φ_n(x)\n\n  LONG TIME:  u(x,t) ≈ c₁ e^{−αλ₁ t} φ₁(x)   (if c₁ ≠ 0)\n\n  DECAY RATE: set by first eigenvalue λ₁ = (π/L)² in 1D.\n  In general: λ₁ grows as 1/L² — larger domains diffuse more slowly.\n\n  WEYL'S LAW (counting eigenvalues):\n  N(λ) = #{n: λ_n ≤ λ} ~ C_n |Ω| λ^{n/2}   as λ → ∞\n  The eigenvalue distribution encodes the volume of the domain.\n  \"Can you hear the shape of a drum?\" (Kac, 1966 — partially answered by\n  Gordon-Webb-Wolpert 1992: you cannot in general)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## Black-Scholes Equation (Finance Application)",
+      "confidence": "candidate",
+      "text": "  The Black-Scholes PDE for option pricing:\n  V_t + ½σ²S²V_SS + rSV_S − rV = 0\n\n  where V(S,t) = option value, S = stock price, σ = volatility, r = interest rate.\n\n  CHANGE OF VARIABLES:  S = e^x,  τ = T−t,  V = e^{αx+βτ} u\n  (with α, β chosen to simplify)\n\n  → Becomes the HEAT EQUATION:  u_τ = ½σ² u_xx\n\n  SOLUTION via heat kernel:\n  V(S,t) = e^{−r(T−t)} · E_Q[payoff(S_T) | S_t = S]\n  (Expected value under risk-neutral measure Q)\n\n  The fundamental solution of Black-Scholes is the lognormal distribution.\n  This is why Black-Scholes is analytically tractable: it reduces to\n  the heat equation, which we can solve exactly.\n\n  PATH-DEPENDENCE:\n  American options, barrier options → free-boundary problems\n  (Stefan problem for the heat equation).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Diffusion Models: The Heat Equation in Generative AI",
+      "confidence": "candidate",
+      "text": "DIFFUSION MODELS AS HEAT EQUATION\n══════════════════════════════════════════════════════════════════════\n\nFORWARD PROCESS (noising):\n  dX_t = √(2β(t)) dW_t        (SDE: Brownian motion with schedule β(t))\n\n  Density evolves by Fokker-Planck:\n  ∂ₜρ(x,t) = β(t) ∇²ρ(x,t)   ← THIS IS THE HEAT EQUATION on ρ\n\n  t=0: ρ₀ = data distribution (structured)\n  t=T: ρ_T ≈ N(0, I)           (Gaussian — all structure diffused away)\n\n  The heat equation smooths: high-frequency detail → low-frequency blur → noise.\n\nREVERSE PROCESS (denoising = generation):\n  dX_t = [−β(t) ∇ log p_t(X_t)] dt + √(2β(t)) dW̄_t\n\n  The score function ∇ log p_t(x) is the gradient of the log-density.\n  A neural network s_θ(x,t) ≈ ∇ log p_t(x) is trained to approximate it.\n\n  Running the reverse SDE from noise → structured data = GENERATION.\n\nWHY THE HEAT EQUATION MATTERS HERE:\n  Forward direction:  well-posed, smoothing, information-destroying\n  Backward direction: ILL-POSED (high-frequency modes explode as e^{αk²T})\n  ─────────────────────────────────────────────────────────────────────\n  The neural network regularizes the ill-posed backward heat equation.\n  It learns which modes to amplify and which to suppress.\n  Without the score, backward heat = noise amplification (Section above).\n  With the learned score, backward heat ≈ structured generation.\n\nTRAINING LOSS:\n  L(θ) = E_{t,x₀,ε}[ ‖s_θ(x_t, t) − ∇ log p(x_t | x₀)‖² ]\n  where x_t = √(ᾱ_t) x₀ + √(1−ᾱ_t) ε,  ε ~ N(0,I)\n  ─────────────────────────────────────────────────────────────────────\n  Equivalent: predict the noise ε (DDPM) or predict x₀ directly.\n  All three parameterizations are mathematically equivalent.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

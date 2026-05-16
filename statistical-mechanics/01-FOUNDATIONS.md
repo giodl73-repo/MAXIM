@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:foundations
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Probability and the Boltzmann Distribution
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/01-FOUNDATIONS.md
+canonical_path: statistical-mechanics/01-FOUNDATIONS.md
+backsource_ids: [proof-backfill:statistical-mechanics:01-foundations, git-history:statistical-mechanics:01-foundations]
+concepts: [foundations]
+root_concepts: [foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Probability and the Boltzmann Distribution
 
 ## The Big Picture
@@ -249,7 +268,7 @@ For N₂ at room temperature (T = 300K, m = 28 amu): v_rms ≈ 517 m/s.
 | Partition function | Z = Σ_n e^{-βE_n} |
 | Free energy | F = −k_BT ln Z |
 | Average energy from Z | U = −∂ln Z/∂β |
-| Temperature definition (stat mech) | 1/T = ∂S/∂E|_{N,V} |
+| Temperature definition (stat mech) | 1/T = ∂S/∂E\|_{N,V} |
 | Maxwell-Boltzmann speed distribution | f(v) ∝ v² e^{-mv²/2k_BT} |
 | Equipartition (classical, quadratic DoF) | ⟨(1/2)ax²⟩ = k_BT/2 |
 

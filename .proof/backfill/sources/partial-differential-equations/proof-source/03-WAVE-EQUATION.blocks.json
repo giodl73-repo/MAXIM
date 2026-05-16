@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\03-WAVE-EQUATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              WAVE EQUATION LANDSCAPE                                  |\n|                                                                       |\n|  1D: u_tt = c²u_xx                     (string vibration, acoustics)  |\n|  2D: u_tt = c²(u_xx + u_yy)            (drum membrane, water surface) |\n|  3D: u_tt = c²∇²u = c²(u_xx+u_yy+u_zz)(sound, light in vacuum)        |\n|                                                                       |\n|  SCALAR → SYSTEMS                                                     |\n|  Maxwell (EM):   ε₀E_tt = c²∇×(∇×E)   6-component hyperbolic system   |\n|  Elasticity:     ρu_tt = ∇·σ(u)        vector wave, two speeds        |\n|  MHD:            coupled magneto-hydro   more complex hyperbolic sys. |\n|                                                                       |\n|  PROPERTIES                                                           |\n|  • Finite propagation speed c                                         |\n|  • Energy conserved (no dissipation)                                  |\n|  • Singularities in data propagate along characteristics              |\n|  • Huygens' principle (dimension-dependent)                           |\n|  • Time-reversal symmetry (t → −t)                                    |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## 1D Wave Equation: Complete Solution",
+      "confidence": "candidate",
+      "text": "  u_tt = c²u_xx,    u(x,0) = u₀(x),    u_t(x,0) = v₀(x)\n\n  CHARACTERISTICS:  two families\n      ξ = x + ct  (left-moving)\n      η = x − ct  (right-moving)\n\n  In (ξ,η) coordinates:  u_ξη = 0\n  General solution:       u = F(ξ) + G(η) = F(x+ct) + G(x−ct)\n\n  Apply initial conditions to find F and G:\n      u(x,0) = F(x) + G(x) = u₀(x)\n      u_t(x,0) = cF'(x) − cG'(x) = v₀(x)\n\n  Integrate second equation: F(x) − G(x) = (1/c)∫₀ˣ v₀(s) ds + const\n\n  D'ALEMBERT'S FORMULA:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  u(x,t) = ½[u₀(x+ct) + u₀(x−ct)] + 1/(2c) ∫_{x−ct}^{x+ct} v₀(s)ds│\n  └─────────────────────────────────────────────────────────────────┘\n\n  DOMAIN OF DEPENDENCE of (x,t):\n      [x−ct, x+ct]  on the initial line t=0.\n  Only the initial data in this interval affects u(x,t).\n  Points outside: CAUSALLY DISCONNECTED from (x,t).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Domains of Dependence and Influence",
+      "confidence": "candidate",
+      "text": "  x-t PLANE PICTURE:\n\n  t\n  ↑\n  |             CONE OF\n  |           INFLUENCE\n  |          of (x₀,t₀)\n  t₀-----+        ·(x₀,t₀)\n  |       \\  /            /\\\n  |        \\/            /  \\\n  |        (x₀,0)       /    \\\n  |                     (x₀,t₀)\n  |                    ↑CONE OF\n  |                     DEPENDENCE\n  +------------------------→ x\n      x₀−ct₀  x₀   x₀+ct₀\n\n  DOMAIN OF DEPENDENCE of (x₀,t₀):\n    D(x₀,t₀) = {(x,0) : |x−x₀| ≤ ct₀}\n    Changing u₀ outside this interval → no effect at (x₀,t₀).\n\n  DOMAIN OF INFLUENCE of (x₀,0):\n    I(x₀) = {(x,t) : |x−x₀| ≤ ct, t≥0}\n    A disturbance at x₀ can only influence inside this forward cone.\n\n  CAUSALITY = FINITE DOMAIN OF INFLUENCE.\n  This is exactly relativistic causality when c = speed of light.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 141,
+      "heading_context": "## 3D Wave Equation: Kirchhoff's Formula",
+      "confidence": "candidate",
+      "text": "  3D WAVE EQUATION:  u_tt = c²∇²u  in R³\n\n  KIRCHHOFF'S FORMULA:\n  u(x,t) = ∂/∂t [t · M_{ct}(u₀)(x)] + t · M_{ct}(v₀)(x)\n\n  where M_r(f)(x) = average of f on sphere of radius r centered at x:\n        M_r(f)(x) = 1/(4πr²) ∫_{|y|=r} f(x+y) dσ(y)\n\n  Equivalently:\n  u(x,t) = 1/(4πc²t²) ∫_{|y-x|=ct} [t·v₀(y) + u₀(y) + ∇u₀(y)·(y-x)] dσ(y)\n\n  KEY FACT (Huygens' Principle in 3D):\n  u(x,t) depends ONLY on data on the sphere |y−x| = ct.\n  NOT on data inside the sphere.\n\n  A sharp initial pulse → sharp wavefront in 3D.\n  Echo: distant signal arrives and leaves cleanly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "### Huygens' Principle: Dimension Dependence",
+      "confidence": "candidate",
+      "text": "  ODD DIMENSIONS (1D, 3D, 5D,...):  STRONG Huygens' principle holds.\n    Signal has a sharp front AND sharp back.\n    After the wavefront passes, signal returns to zero.\n    ┌────────────────────────────────────────────────────────┐\n    │  3D: u(x,t) depends only on data on sphere |y−x|=ct    │\n    │  (thin shell, not ball)                                │\n    └────────────────────────────────────────────────────────┘\n\n  EVEN DIMENSIONS (2D, 4D,...):  WEAK Huygens' principle.\n    Signal has a sharp front but diffuse back.\n    2D: u(x,t) depends on data in DISK |y−x| ≤ ct.\n    A \"splash\" in a pond sends a wave that diffuses behind it.\n\n  PRACTICAL CONSEQUENCE:\n  Sound in 3D: you hear a gun shot cleanly (sharp front and back).\n  Sound in a 2D waveguide: you hear a reverberant tail.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## Separation of Variables: Standing Waves",
+      "confidence": "candidate",
+      "text": "  u_tt = c²u_xx,  u(0,t) = u(L,t) = 0,  u(x,0) = u₀(x),  u_t(x,0) = v₀(x)\n\n  STEP 1: Separation.  u(x,t) = X(x)T(t)\n          X(x)T''(t) = c²X''(x)T(t)\n          T''/c²T = X''/X = −λ  (separation constant)\n\n  STEP 2: X eigenvalue problem.\n          X'' + λX = 0,  X(0) = X(L) = 0\n          Eigenvalues:   λ_n = (nπ/L)²\n          Eigenfunctions: X_n(x) = sin(nπx/L)\n\n  STEP 3: T equation.\n          T'' + c²λ_n T = 0  →  T_n(t) = A_n cos(ω_n t) + B_n sin(ω_n t)\n          where ω_n = cnπ/L  (angular frequency of nth mode)\n\n  STEP 4: General solution.\n          u(x,t) = Σ_{n=1}^∞ [A_n cos(ω_n t) + B_n sin(ω_n t)] sin(nπx/L)\n\n  STEP 5: Apply ICs (Fourier series coefficients):\n          A_n = 2/L ∫₀ᴸ u₀(x) sin(nπx/L) dx\n          B_n = 2/(Lω_n) ∫₀ᴸ v₀(x) sin(nπx/L) dx\n\n  NORMAL MODES: each term is a standing wave with frequency ω_n = cnπ/L.\n  Fundamental frequency ω₁ = cπ/L, overtones at integer multiples.\n  Musical string: higher modes give harmonics.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Dispersive Waves",
+      "confidence": "candidate",
+      "text": "  LINEAR WAVE with dispersion:  u_tt + α²u_xxxx = 0  (beam vibration)\n\n  Plane wave ansatz:  u = e^{i(kx − ωt)}\n  Dispersion relation: ω² = α²k⁴  →  ω = αk²  (phase velocity ω/k = αk)\n\n  Different wavelengths travel at different speeds.\n  Initial packet spreads out (disperses).\n\n  Compare with non-dispersive (wave eq.): ω² = c²k²  →  ω/k = c\n  All wavelengths travel at same speed c.\n  Initial packet travels without deformation.\n\n  GROUP VELOCITY: v_g = dω/dk\n  PHASE VELOCITY: v_p = ω/k\n\n  Non-dispersive: v_g = v_p = c.\n  Dispersive: v_g ≠ v_p in general.\n  Energy travels at group velocity.\n\n  KdV is dispersive + nonlinear: balance gives SOLITONS (see below).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "## Maxwell's Equations as a Hyperbolic System",
+      "confidence": "candidate",
+      "text": "  MAXWELL IN VACUUM:\n  ∂B/∂t = −∇×E\n  ∂E/∂t = c²∇×B\n  ∇·E = 0\n  ∇·B = 0\n\n  This is a SYMMETRIC HYPERBOLIC SYSTEM for (E,B) ∈ R⁶.\n  Characteristic speeds: 0 (static modes) and ±c (light speed).\n\n  From Maxwell → wave equations for E and B separately:\n  ∂²E/∂t² = c²∇²E  (using ∇×(∇×E) = ∇(∇·E) − ∇²E = −∇²E)\n\n  So each component of E (and B) satisfies the 3D wave equation.\n  Light is a solution to the wave equation. That's it.\n\n  TRANSVERSE NATURE:\n  The constraints ∇·E = 0, ∇·B = 0 (no magnetic monopoles)\n  restrict to transverse waves (E,B perpendicular to propagation direction k).\n  Plane wave: E ⊥ k, B ⊥ k, E ⊥ B.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 335,
+      "heading_context": "## Relativistic and Gravitational Wave Equations",
+      "confidence": "candidate",
+      "text": "RELATIVISTIC WAVE EQUATIONS\n═══════════════════════════════════════════════════════════════════════\n\nKLEIN-GORDON EQUATION (spin-0, massive relativistic particles):\n  ∂²φ/∂t² − c²∇²φ + (mc²/ℏ)² φ = 0\n\n  Covariant form: (□ + m²c²/ℏ²) φ = 0   where □ = ∂²/∂t² − c²∇²\n\n  Dispersion: ω² = c²k² + (mc²/ℏ)²   ← massive → dispersive\n  Massless limit (m=0): reduces to standard wave equation ω = c|k|\n\n  Physical: scalar mesons (pions), Higgs field\n\nDIRAC EQUATION (spin-1/2, electrons):\n  (iγ^μ ∂_μ − mc/ℏ) ψ = 0     (ψ is a 4-component spinor)\n\n  First-order in both space and time (contrast Klein-Gordon: 2nd order).\n  Dirac constructed it to be Lorentz-covariant AND first-order in ∂_t.\n  Predicts: antimatter (positron), spin, magnetic moment.\n\nGRAVITATIONAL WAVES (linearized GR):\n  □ h_μν = 0   (in transverse-traceless gauge, vacuum)\n\n  Metric perturbation: g_μν = η_μν + h_μν,  |h_μν| << 1\n  Same wave equation as EM, but tensor (spin-2) rather than vector.\n  LIGO detection (2015): strain h ~ 10⁻²¹, frequency 35–250 Hz.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 368,
+      "heading_context": "## Numerical Methods for Hyperbolic PDEs",
+      "confidence": "candidate",
+      "text": "CFL CONDITION (Courant-Friedrichs-Lewy, 1928):\n  Δt ≤ Δx / c     (1D);   Δt ≤ 1/(c·√(1/Δx² + 1/Δy²))   (2D)\n\n  Physical meaning: the numerical domain of dependence must contain\n  the physical domain of dependence. If the time step is too large,\n  information travels faster numerically than physically → instability.\n\nLEAPFROG (STÖRMER-VERLET) TIME INTEGRATION:\n  u^{n+1}_j = 2u^n_j − u^{n−1}_j + (cΔt/Δx)²(u^n_{j+1} − 2u^n_j + u^n_{j−1})\n\n  Second-order in both space and time. Symplectic: conserves a discrete\n  energy exactly → no artificial damping. Explicit → CFL-limited.\n\nNUMERICAL DISPERSION:\n  Continuous: ω = c|k|  (non-dispersive)\n  Discrete:   ω_h = (2/Δt) arcsin[(cΔt/Δx) sin(kΔx/2)]\n  Short waves (kΔx ~ π) travel too slowly on the grid → numerical\n  dispersion error. Remedy: ≥ 10 points per wavelength, or high-order\n  schemes (4th-order FD, spectral elements, DG-FEM).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

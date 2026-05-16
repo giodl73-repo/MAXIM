@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:quantum-stats
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Quantum Statistics: Fermi-Dirac and Bose-Einstein
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/04-QUANTUM-STATS.md
+canonical_path: statistical-mechanics/04-QUANTUM-STATS.md
+backsource_ids: [proof-backfill:statistical-mechanics:04-quantum-stats, git-history:statistical-mechanics:04-quantum-stats]
+concepts: [quantum, stats]
+root_concepts: [quantum, stats]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Statistics: Fermi-Dirac and Bose-Einstein
 
 ## The Big Picture
@@ -70,7 +89,7 @@ GEOMETRIC INTERPRETATION:
 
   BOSONS: mode can have any occupation.
   ┌────┬────┬────┬────┬────┬────┐
-  │ 0  │ 1  │ 2  │ 3  │ 4  │...│
+  │ 0  │ 1  │ 2  │ 3  │ 4  │ ...│
   └────┴────┴────┴────┴────┴────┘
   Average: diverges as ε → μ from above (ε > μ required).
 

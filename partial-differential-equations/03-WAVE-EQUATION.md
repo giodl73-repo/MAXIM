@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:wave-equation
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Wave Equation and Hyperbolic Systems
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/03-WAVE-EQUATION.md
+canonical_path: partial-differential-equations/03-WAVE-EQUATION.md
+backsource_ids: [proof-backfill:partial-differential-equations:03-wave-equation, git-history:partial-differential-equations:03-wave-equation]
+concepts: [wave, equation]
+root_concepts: [wave, equation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wave Equation and Hyperbolic Systems
 
 ## The Big Picture

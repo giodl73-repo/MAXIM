@@ -1,0 +1,120 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\09-CONNECTIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 340,
+      "heading_context": "## Summary Table — The Unified Framework",
+      "headers": [
+        "Concept",
+        "Stat Mech",
+        "Information Theory",
+        "Machine Learning"
+      ],
+      "rows": [
+        [
+          "Uncertainty measure",
+          "Entropy S = −kΣp ln p",
+          "Shannon H = −Σp log p",
+          "Cross-entropy / KL divergence"
+        ],
+        [
+          "Most probable distribution",
+          "Boltzmann e^{-βE}/Z",
+          "MaxEnt distribution",
+          "EBM P(x) = e^{-E(x)}/Z"
+        ],
+        [
+          "Partition function",
+          "Z = Σ e^{-βE}",
+          "Normalizing const",
+          "Model evidence"
+        ],
+        [
+          "Free energy",
+          "F = −kT ln Z",
+          "Negative log-evidence",
+          "ELBO (negative)"
+        ],
+        [
+          "Temperature",
+          "T (controls fluctuations)",
+          "—",
+          "Learning rate / batch size"
+        ],
+        [
+          "Sampling",
+          "Gibbs/MCMC",
+          "MCMC",
+          "MCMC / Langevin SGD"
+        ],
+        [
+          "Phase transition",
+          "Symmetry breaking at T_c",
+          "—",
+          "Generalization transition"
+        ],
+        [
+          "Order parameter",
+          "⟨m⟩ magnetization",
+          "—",
+          "Test accuracy, sharpness"
+        ],
+        [
+          "Spin glass",
+          "Frustrated random couplings",
+          "—",
+          "Non-convex loss landscape"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 356,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Connection",
+        "Key identity"
+      ],
+      "rows": [
+        [
+          "Boltzmann ↔ Shannon entropy",
+          "S = k_B ln 2 × H (same formula, different units)"
+        ],
+        [
+          "Canonical ensemble = MaxEnt",
+          "Boltzmann P = MaxEnt subject to ⟨E⟩ = U"
+        ],
+        [
+          "EBM = Boltzmann distribution",
+          "P_θ(x) = e^{-E_θ(x)}/Z at β=1"
+        ],
+        [
+          "Train EBM by gradient",
+          "∂ℓ/∂θ = −E_data[∇_θE] + E_model[∇_θE]"
+        ],
+        [
+          "Variational inference ↔ free energy",
+          "ELBO = −F[q] = ⟨log P⟩_q + H(q)"
+        ],
+        [
+          "VAE ELBO decomposition",
+          "reconstruction − KL(posterior\\|\\|prior)"
+        ],
+        [
+          "Black-Scholes ↔ Fokker-Planck",
+          "Same PDE structure, σ = volatility"
+        ],
+        [
+          "SGD noise ↔ temperature",
+          "kT ~ η/B (learning rate / batch size)"
+        ],
+        [
+          "Simulated annealing",
+          "Langevin dynamics with cooling schedule"
+        ]
+      ]
+    }
+  ]
+}

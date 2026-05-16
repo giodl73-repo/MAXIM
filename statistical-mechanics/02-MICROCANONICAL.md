@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:microcanonical
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Microcanonical Ensemble
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/02-MICROCANONICAL.md
+canonical_path: statistical-mechanics/02-MICROCANONICAL.md
+backsource_ids: [proof-backfill:statistical-mechanics:02-microcanonical, git-history:statistical-mechanics:02-microcanonical]
+concepts: [microcanonical]
+root_concepts: [microcanonical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microcanonical Ensemble
 
 ## The Big Picture
@@ -267,8 +286,8 @@ At low T (k_BT << ℏω): Ω ~ e^{-ℏω/k_BT} → quantum freeze-out → C_V �
 |-----------|-------------------|
 | Find entropy of isolated system | S = k_B ln Ω(E, N, V) |
 | Count microstates of ideal gas | Phase space sphere surface area ∝ E^{3N/2-1} |
-| Recover temperature | 1/T = ∂S/∂E|_{N,V} |
-| Recover pressure | P/T = ∂S/∂V|_{N,E} |
+| Recover temperature | 1/T = ∂S/∂E\|_{N,V} |
+| Recover pressure | P/T = ∂S/∂V\|_{N,E} |
 | Prove second law | Maximize Ω_A(E_A)×Ω_B(E-E_A); equilibrium at T_A = T_B |
 | Ideal gas entropy | Sackur-Tetrode: S = Nk_B[ln(V/N) + (3/2)ln(4πmE/3Nh²) + 5/2] |
 | Negative temperature | ∂S/∂E < 0 → T < 0 (inverted population) |

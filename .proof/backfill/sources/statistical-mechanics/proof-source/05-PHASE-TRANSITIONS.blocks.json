@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\05-PHASE-TRANSITIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PHASE TRANSITION TAXONOMY\n═══════════════════════════════════════════════════════════════════════════════\n\n  FREE ENERGY F(T, P, ...) has a NON-ANALYTICITY at the transition.\n\n  FIRST ORDER (Ehrenfest: first derivative discontinuous):\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  ∂F/∂T = −S  discontinuous  →  LATENT HEAT Q = T ΔS             │\n  │  ∂F/∂P = V   discontinuous  →  DENSITY JUMP Δρ                  │\n  │  Order parameter jumps discontinuously at transition            │\n  │  Examples: melting, boiling, liquid-gas below critical point    │\n  └─────────────────────────────────────────────────────────────────┘\n\n  SECOND ORDER (continuous order parameter, divergent response):\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  ∂F/∂T = −S  continuous                                         │\n  │  ∂²F/∂T² = −C_V/T  diverges or has cusp                         │\n  │  Order parameter → 0 continuously at T_c                        │\n  │  Correlation length ξ → ∞ at T_c                                │\n  │  Example: ferromagnet (T_c = Curie), superfluid, superconductor │\n  └─────────────────────────────────────────────────────────────────┘\n\n  CRITICAL POINT: where first-order line ends and second-order behavior appears.\n  Liquid-gas critical point: T_c = 647 K, P_c = 220 atm (water).\n  At critical point: ρ_liquid = ρ_gas, meniscus vanishes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## Order Parameters",
+      "confidence": "candidate",
+      "text": "COMMON ORDER PARAMETERS:\n\n  System               Order parameter              Symmetry broken\n  ─────────────────────────────────────────────────────────────────\n  Ferromagnet          M = ⟨Σᵢ sᵢ⟩ (magnetization) Z₂ (spin flip)\n  Antiferromagnet      Staggered magnetization       Translational\n  Liquid-gas           ρ_liquid − ρ_gas              —\n  Superconductor       ⟨ψ⟩ (complex field)           U(1) phase\n  Superfluid           ⟨ψ⟩ (complex field)           U(1) phase\n  Liquid crystal       Orientation tensor Q_ij       Rotational O(3)/D_∞h\n  Crystal              Density wave ρ_G (Fourier)    Translational+Rotational\n  XY model             ⟨e^{iθ}⟩                     U(1) phase\n  Heisenberg magnet    Vector M = ⟨S⟩                O(3) rotational\n\n  SYMMETRY BREAKING:\n  The high-T phase has the full symmetry of the Hamiltonian.\n  The low-T phase spontaneously breaks a symmetry — choosing one\n  from a degenerate set of ground states.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## Mean-Field Theory",
+      "confidence": "candidate",
+      "text": "MEAN-FIELD ORDER PARAMETER (h=0):\n  T > T_c:  m = 0\n  T < T_c:  m ≈ ±√(3(1 − T/T_c))   ∝ |T_c − T|^{1/2}\n\n  Exponent β_order = 1/2  (mean-field value)\n\n  SUSCEPTIBILITY (h → 0, T > T_c):\n  χ = ∂m/∂h|_{h=0} = 1/(k_B(T−T_c)) ∝ |T − T_c|^{−1}   (Curie-Weiss law)\n  Exponent γ = 1  (mean-field value)\n\n  HEAT CAPACITY: jump at T_c (mean-field), C_V ~ |T−T_c|^0 (α=0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "## Landau Theory",
+      "confidence": "candidate",
+      "text": "LANDAU FREE ENERGY — SECOND ORDER TRANSITION:\n  Assume b > 0, a(T) = a₀(T − T_c) (changes sign at T_c):\n\n  T > T_c: a > 0 → minimum at m = 0 (disordered)\n  T < T_c: a < 0 → double well → minima at m = ±√(−a/2b) ∝ |T−T_c|^{1/2}\n\n        F(m)                F(m)\n         │ T > T_c           │ T < T_c\n         │   ∪               │ ∪     ∪\n    ─────┼──────────      ───┼────────────\n         │              -m*  0  +m*\n\n  This is a spontaneous symmetry breaking bifurcation\n  (cf. pitchfork bifurcation in dynamical systems).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## Landau Theory",
+      "confidence": "candidate",
+      "text": "LANDAU FREE ENERGY — FIRST ORDER TRANSITION:\n  b < 0: cubic minimum appears BEFORE a changes sign.\n\n        F(m) at T slightly above T*\n\n         │\n         │  local min   global min\n         │     m=0         m=m*\n         ╰───────────────────────\n                      m\n\n  Discontinuous jump at T* (latent heat).\n  Coexistence of phases in a range of T (meta-stability).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 193,
+      "heading_context": "## Critical Exponents and Universality",
+      "confidence": "candidate",
+      "text": "CRITICAL EXPONENTS DEFINED:\n\n  Order parameter:    m ~ |T − T_c|^β         (T < T_c)\n  Correlation length: ξ ~ |T − T_c|^{-ν}\n  Correlation function: G(r) ~ r^{-(d-2+η)} e^{-r/ξ}  (r << ξ at T_c: ~ r^{-(d-2+η)})\n  Susceptibility:     χ ~ |T − T_c|^{-γ}\n  Specific heat:      C_V ~ |T − T_c|^{-α}\n  Equation of state:  m ~ h^{1/δ}  (T = T_c, varying field h)\n\n  SCALING RELATIONS (thermodynamic consistency):\n  α + 2β + γ = 2    (Rushbrooke)\n  γ = β(δ − 1)      (Widom)\n  γ = ν(2 − η)      (Fisher)\n  dν = 2 − α        (hyperscaling, valid for d < d_c)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## Critical Exponents and Universality",
+      "confidence": "candidate",
+      "text": "UNIVERSALITY CLASSES — CRITICAL EXPONENTS REFERENCE TABLE:\n\n  Class             α       β       γ       ν       η      Examples\n  ─────────────────────────────────────────────────────────────────────────\n  Mean-field        0       1/2     1       1/2     0      d ≥ 4, any n\n  (d ≥ d_c)\n\n  2D Ising (exact)  0(log)  1/8     7/4     1       1/4    Square lattice\n                                                           (Onsager 1944)\n\n  3D Ising (n=1)    0.110   0.326   1.237   0.630   0.036  Ferromagnet,\n                                                           liquid-gas,\n                                                           binary alloy\n\n  3D XY (n=2)      −0.007   0.348   1.316   0.671   0.038  Superfluid ⁴He,\n                                                           easy-plane magnet\n\n  3D Heisenberg    −0.115   0.366   1.391   0.707   0.037  Isotropic\n  (n=3)                                                     ferromagnet\n\n  Note: 2D Ising β = 1/8 = 0.125 vs 3D Ising β = 0.326 — dimension\n  changes exponents dramatically. Mean-field β = 1/2 overestimates order\n  in both 2D and 3D. All rows satisfy the scaling relations\n  (α + 2β + γ = 2, dν = 2 − α for d < d_c).\n\n  Why same exponents within a class? Near T_c, fluctuations on scale ξ\n  dominate. ξ → ∞ means microscopic details (lattice spacing, etc.) are\n  irrelevant. Only d and symmetry of the order parameter determine exponents.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

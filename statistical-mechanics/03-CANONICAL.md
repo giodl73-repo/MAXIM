@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:canonical
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Canonical Ensemble
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/03-CANONICAL.md
+canonical_path: statistical-mechanics/03-CANONICAL.md
+backsource_ids: [proof-backfill:statistical-mechanics:03-canonical, git-history:statistical-mechanics:03-canonical]
+concepts: [canonical]
+root_concepts: [canonical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Canonical Ensemble
 
 ## The Big Picture
@@ -17,7 +36,7 @@ CANONICAL ENSEMBLE — MASTER STRUCTURE
   Energy can fluctuate; T fixed by heat reservoir
 
   ┌──────────────────────────────────┐     ┌──────────────────────────────┐
-  │         SYSTEM                   │◄────►│     HEAT RESERVOIR at T     │
+  │         SYSTEM                   │<--->│     HEAT RESERVOIR at T      │
   │    (small; we care about this)   │     │  (huge; β = 1/kT is fixed)   │
   └──────────────────────────────────┘     └──────────────────────────────┘
 

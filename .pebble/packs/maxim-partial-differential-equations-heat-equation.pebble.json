@@ -1,0 +1,2813 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-partial-differential-equations-heat-equation",
+  "source": "../../partial-differential-equations",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-HEAT-EQUATION.md#000",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "# Heat Equation and Parabolic Systems"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#001",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#002",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The heat equation u_t = α∇²u is the archetype of **irreversible, diffusive evolution**.\nIt models heat conduction, mass diffusion, Brownian motion, option pricing, and is the\nimaginary-time version of the Schrödinger equation."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#003",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              HEAT EQUATION LANDSCAPE                                  |\n|                                                                       |\n|  FORMS:                                                               |\n|  u_t = α∇²u          (heat / diffusion, α = diffusivity)              |\n|  u_t = α∇²u + f      (with source f)                                  |\n|  u_t = ∇·(D(x)∇u)   (variable diffusivity D)                          |\n|  u_t = ∇·(D(u)∇u)   (nonlinear diffusion)                             |\n|  iℏψ_t = −(ℏ²/2m)∇²ψ + Vψ   (Schrödinger = i × heat)                  |\n|  V_t + ½σ²S²V_SS + rSV_S − rV = 0  (Black-Scholes)                    |\n|                                                                       |\n|  PROPERTIES:                                                          |\n|  • Infinite propagation speed (instantaneous awareness)               |\n|  • Immediate regularization (rough → smooth in any ε > 0 time)        |\n|  • Irreversible (entropy increases; backward problem ill-posed)       |\n|  • Gaussian kernel (the fundamental solution)                         |\n|  • Maximum principle (no interior extrema)                            |\n|  • Energy dissipation (‖u‖_L² decreases)                              |\n|                                                                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#004",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#005",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## The Fundamental Solution (Heat Kernel)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#006",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The heat kernel K(x,t) is the solution starting from a point mass at the origin:"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#007",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM:   u_t = α·u_xx  on R,  u(x,0) = δ(x)  (Dirac delta)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#008",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "SOLUTION:  K(x,t) = 1/√(4παt) · exp(−x²/4αt)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#009",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "In n dimensions:  K(x,t) = (4παt)^{−n/2} · exp(−|x|²/4αt)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#010",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "PROPERTIES OF K:\n  ┌──────────────────────────────────────────────────────────┐\n  │ ∫ K(x,t) dx = 1  for all t > 0  (mass conservation)      │\n  │ K(x,t) > 0  for all x, t>0  (strict positivity)          │\n  │ K(x,t) → δ(x) as t → 0+                                  │\n  │ K(x,t) is a Gaussian: mean 0, variance 2αt               │\n  │ K(x,t) → 0 as t → ∞ (spreads to zero)                    │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#011",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "SOLUTION TO IVP:\n  u(x,t) = ∫ K(x−y,t) u₀(y) dy = (K(·,t) * u₀)(x)\n  This is CONVOLUTION with the heat kernel."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#012",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "SCALING SYMMETRY: K(λx, λ²t) = λ^{−1} K(x,t)\n  The heat equation is invariant under x → λx, t → λ²t.\n  This diffusive scaling x ~ √t is everywhere in probability theory.\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#013",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#014",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Physical Derivation: Fourier's Law + Continuity"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#015",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  FOURIER'S LAW:  heat flux q = −k∇T\n  (heat flows from hot to cold; flux proportional to gradient)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#016",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "ENERGY CONSERVATION:\n  ρc·∂T/∂t = −∇·q + Q  (density × heat capacity × rate = divergence of flux + source)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#017",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "SUBSTITUTING:\n  ρc·∂T/∂t = ∇·(k∇T) + Q"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#018",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "CONSTANT k:\n  ∂T/∂t = (k/ρc)∇²T + Q/ρc = α∇²T + f"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#019",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "where α = k/(ρc) is the THERMAL DIFFUSIVITY."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#020",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "DIMENSIONAL ANALYSIS:\n  [α] = m²/s    (same units as kinematic viscosity ν = μ/ρ)\n  [K(x,t)] = m^{−1}   (in 1D)\n  Diffusion length scale: L ~ √(αt)  (characteristic spreading distance)\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#021",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#022",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Separation of Variables: Finite Domain"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#023",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "On [0,L] with Dirichlet BCs:"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#024",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  u_t = α·u_xx,  u(0,t) = u(L,t) = 0,  u(x,0) = u₀(x)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#025",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "STEP 1: u(x,t) = X(x)T(t)\n          T'/αT = X''/X = −λ  (must be constant)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#026",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "STEP 2: X eigenvalue problem\n          X'' + λX = 0,  X(0) = X(L) = 0\n          λ_n = (nπ/L)²,  X_n = sin(nπx/L)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#027",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "STEP 3: T equation\n          T' + αλ_n T = 0  →  T_n(t) = e^{−αλ_n t}"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#028",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "STEP 4: Solution\n          u(x,t) = Σ_{n=1}^∞ b_n · e^{−α(nπ/L)²t} · sin(nπx/L)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#029",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "b_n = 2/L ∫₀ᴸ u₀(x) sin(nπx/L) dx  (Fourier sine coefficients)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#030",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "KEY OBSERVATION: Each mode decays exponentially with rate α(nπ/L)².\n  HIGH MODES DECAY FASTEST."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#031",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Long-time behavior: u ≈ b₁ · e^{−α(π/L)²t} · sin(πx/L)\n  The solution approaches zero dominated by the slowest-decaying fundamental mode.\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#032",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#033",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Smoothing Effect"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#034",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The heat equation instantly smooths any L² initial data:"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#035",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  If u₀ ∈ L²(R) (any square-integrable function — could be rough):"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#036",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Then u(x,t) = (K(·,t) * u₀)(x) ∈ C∞(R)  for any t > 0."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#037",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Proof sketch: K(x,t) = 1/√(4παt) e^{−x²/4αt} is C∞ for t>0,\n  and convolution with a C∞ function yields a C∞ function."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#038",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "FOURIER PERSPECTIVE:\n  û(k,t) = K̂(k,t) · û₀(k) = e^{−αk²t} · û₀(k)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#039",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The Gaussian e^{−αk²t} kills all high frequencies (large k) instantly.\n  Even if û₀ has polynomially growing high-frequency content,\n  multiplying by e^{−αk²t} makes everything decay faster than any polynomial.\n  → Infinite differentiability for t > 0."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#040",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "BACKWARD HEAT: undo the e^{−αk²t} factor by multiplying by e^{+αk²t}.\n  For large k, this blows up exponentially. Hence ill-posedness.\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#041",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#042",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Maximum and Comparison Principles"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#043",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  WEAK MAXIMUM PRINCIPLE:"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#044",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "If u_t ≤ α∇²u in Q_T = Ω × (0,T), then\n  max_{Q_T} u = max_Γ u\n  where Γ = (Ω × {0}) ∪ (∂Ω × [0,T]) is the parabolic boundary."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#045",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "PHYSICAL MEANING:\n  Temperature cannot exceed its maximum on the initial time-slice\n  or the spatial boundary at any intermediate time.\n  Interior local hot spots cannot spontaneously appear."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#046",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "COROLLARIES:\n  • Uniqueness: two solutions with same BCs/ICs are identical.\n  • Comparison: if u₀ ≤ v₀ and boundary data of u ≤ v, then u ≤ v everywhere.\n  • Non-negativity: if u₀ ≥ 0 and BCs ≥ 0, then u(x,t) ≥ 0 for all t>0."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#047",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "STRONG MAXIMUM PRINCIPLE:\n  If u achieves its maximum at any interior point (x₀,t₀) with t₀ > 0,\n  then u is constant in Ω × [0,t₀].\n  (Extremum in interior forces everything to be constant.)\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#048",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#049",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Long-Time Behavior and Spectral Theory"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#050",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The long-time asymptotics are controlled by the lowest eigenvalue:"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#051",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  For the heat equation on bounded domain Ω with Dirichlet BCs:\n  u_t = α∇²u,  u|_{∂Ω} = 0"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#052",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Eigenvalue problem:  −∇²φ = λφ in Ω,  φ|_{∂Ω} = 0\n  Spectrum: 0 < λ₁ < λ₂ ≤ λ₃ ≤ ... → ∞"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#053",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "SOLUTION:  u(x,t) = Σ_n c_n e^{−αλ_n t} φ_n(x)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#054",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "LONG TIME:  u(x,t) ≈ c₁ e^{−αλ₁ t} φ₁(x)   (if c₁ ≠ 0)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#055",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "DECAY RATE: set by first eigenvalue λ₁ = (π/L)² in 1D.\n  In general: λ₁ grows as 1/L² — larger domains diffuse more slowly."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#056",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "WEYL'S LAW (counting eigenvalues):\n  N(λ) = #{n: λ_n ≤ λ} ~ C_n |Ω| λ^{n/2}   as λ → ∞\n  The eigenvalue distribution encodes the volume of the domain.\n  \"Can you hear the shape of a drum?\" (Kac, 1966 — partially answered by\n  Gordon-Webb-Wolpert 1992: you cannot in general)\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#057",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#058",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Nonlinear Diffusion"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#059",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  POROUS MEDIUM EQUATION:  u_t = ∇·(uᵐ ∇u) = Δ(u^{m+1}/(m+1))  (m>0)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#060",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Models: gas flow in porous rock, groundwater, crowd dynamics."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#061",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "KEY DIFFERENCE from linear heat equation:\n  • Has FINITE SPEED OF PROPAGATION (unlike linear heat)\n  • If u₀ ≥ 0 with compact support, the support grows at finite speed\n  • BARENBLATT SIMILARITY SOLUTION:\n    u(x,t) = t^{−α} [C − k|x|²t^{−2β}]_+^{1/m}\n    (+ means take positive part; support is a growing ball)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#062",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "FAST DIFFUSION (m < 1):  faster spreading, extinction in finite time\n  SLOW DIFFUSION (m > 1):  finite speed of propagation"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#063",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "P-LAPLACIAN: u_t = ∇·(|∇u|^{p−2}∇u)\n  Models: non-Newtonian fluids, image processing (total variation flow at p→1).\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#064",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#065",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Black-Scholes Equation (Finance Application)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#066",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  The Black-Scholes PDE for option pricing:\n  V_t + ½σ²S²V_SS + rSV_S − rV = 0"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#067",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "where V(S,t) = option value, S = stock price, σ = volatility, r = interest rate."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#068",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "CHANGE OF VARIABLES:  S = e^x,  τ = T−t,  V = e^{αx+βτ} u\n  (with α, β chosen to simplify)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#069",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "→ Becomes the HEAT EQUATION:  u_τ = ½σ² u_xx"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#070",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "SOLUTION via heat kernel:\n  V(S,t) = e^{−r(T−t)} · E_Q[payoff(S_T) | S_t = S]\n  (Expected value under risk-neutral measure Q)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#071",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The fundamental solution of Black-Scholes is the lognormal distribution.\n  This is why Black-Scholes is analytically tractable: it reduces to\n  the heat equation, which we can solve exactly."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#072",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "PATH-DEPENDENCE:\n  American options, barrier options → free-boundary problems\n  (Stefan problem for the heat equation).\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#073",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#074",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Parabolic Systems: Reaction-Diffusion"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#075",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\n  REACTION-DIFFUSION:  u_t = D∇²u + f(u)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#076",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Single species, bistable:  u_t = u_xx + u(1−u)(u−a)  (0 < a < 1)\n  TRAVELING WAVE SOLUTIONS:  u(x,t) = U(x − st)  (wave speed s)\n  Models: nerve impulses (FitzHugh-Nagumo), combustion fronts."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#077",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "TURING INSTABILITY (two-species):\n  [u_t]   [d_u  0] [u_xx]   [f(u,v)]\n  [v_t] = [ 0  d_v][v_xx] + [g(u,v)]"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#078",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Homogeneous state (ū,v̄) stable to uniform perturbations.\n  With diffusion: can be UNSTABLE (diffusion-driven instability).\n  → Spatial patterns form spontaneously.\n  Turing (1952): mechanism for biological pattern formation\n  (stripes on zebra, spots on leopard)."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#079",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Key: activator-inhibitor dynamics + inhibitor diffuses much faster.\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#080",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#081",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Diffusion Models: The Heat Equation in Generative AI"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#082",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The forward process of score-based diffusion models (DDPM, Song & Ermon 2019, Ho et al. 2020) **is** the heat equation applied to probability distributions."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#083",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "```\nDIFFUSION MODELS AS HEAT EQUATION\n══════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#084",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "FORWARD PROCESS (noising):\n  dX_t = √(2β(t)) dW_t        (SDE: Brownian motion with schedule β(t))"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#085",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Density evolves by Fokker-Planck:\n  ∂ₜρ(x,t) = β(t) ∇²ρ(x,t)   ← THIS IS THE HEAT EQUATION on ρ"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#086",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "t=0: ρ₀ = data distribution (structured)\n  t=T: ρ_T ≈ N(0, I)           (Gaussian — all structure diffused away)"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#087",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The heat equation smooths: high-frequency detail → low-frequency blur → noise."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#088",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "REVERSE PROCESS (denoising = generation):\n  dX_t = [−β(t) ∇ log p_t(X_t)] dt + √(2β(t)) dW̄_t"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#089",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The score function ∇ log p_t(x) is the gradient of the log-density.\n  A neural network s_θ(x,t) ≈ ∇ log p_t(x) is trained to approximate it."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#090",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "Running the reverse SDE from noise → structured data = GENERATION."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#091",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "WHY THE HEAT EQUATION MATTERS HERE:\n  Forward direction:  well-posed, smoothing, information-destroying\n  Backward direction: ILL-POSED (high-frequency modes explode as e^{αk²T})\n  ─────────────────────────────────────────────────────────────────────\n  The neural network regularizes the ill-posed backward heat equation.\n  It learns which modes to amplify and which to suppress.\n  Without the score, backward heat = noise amplification (Section above).\n  With the learned score, backward heat ≈ structured generation."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#092",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "TRAINING LOSS:\n  L(θ) = E_{t,x₀,ε}[ ‖s_θ(x_t, t) − ∇ log p(x_t | x₀)‖² ]\n  where x_t = √(ᾱ_t) x₀ + √(1−ᾱ_t) ε,  ε ~ N(0,I)\n  ─────────────────────────────────────────────────────────────────────\n  Equivalent: predict the noise ε (DDPM) or predict x₀ directly.\n  All three parameterizations are mathematically equivalent.\n```"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#093",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "The key insight: **denoising diffusion = solving the heat equation backward using a learned score function**. The forward heat equation destroys structure (well-posed, smoothing). Reversing it amplifies noise (ill-posed). The neural network provides exactly the regularization needed to make the backward direction tractable — it learns which structures to reconstruct from the noise."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#094",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "This is why backward heat ill-posedness (mode explosion) directly predicts diffusion model failure modes: high-frequency details are hardest to generate because they correspond to the most unstable modes of the reversed heat equation."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#095",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#096",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#097",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "- `partial-differential-equations/01-CLASSIFICATION.md` — parabolic well-posedness and smoothing behavior.\n- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — Brownian motion and diffusion process interpretation.\n- `statistical-mechanics/08-NON-EQUILIBRIUM.md` — irreversible diffusion and entropy production context."
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#098",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-HEAT-EQUATION.md#099",
+      "path": [
+        "04-HEAT-EQUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]",
+        "canonical_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "concepts": "[heat, equation]",
+        "current_path": "partial-differential-equations/04-HEAT-EQUATION.md",
+        "id": "maxim:partial-differential-equations:heat-equation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[heat, equation]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Heat Equation and Parabolic Systems",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether a heat problem is free-space diffusion | Gaussian fundamental solution | Boundaries, variable coefficients, and sources alter the kernel |\n| Whether a length scale should grow diffusively | `L ~ sqrt(alpha t)` | Advection, reaction, or anomalous diffusion changes the scaling |\n| Whether separation of variables is appropriate | Exponentially decaying eigenmodes | Geometry and boundary conditions determine the eigenbasis |\n| What controls long-time behavior | Lowest eigenmode and decay rate `exp(-alpha lambda_1 t)` | Conserved mass or nonhomogeneous forcing can change the asymptotic state |\n| Whether backward heat is stable | Reverse the Fourier-mode decay | High-frequency modes grow like `exp(alpha k^2 T)` and amplify noise |\n| Whether maxima can form inside the domain | Parabolic maximum principle | The boundary is parabolic: initial slice plus spatial boundary |\n| Whether positivity should be preserved | Positivity-preserving heat semigroup | Sources, reactions, or sign-changing boundary data can break it |\n| Whether Black-Scholes is a heat equation in disguise | Log/discount change of variables | Financial boundary/payoff conditions carry the modeling assumptions |\n| Whether diffusion can create patterns | Turing instability in reaction-diffusion systems | It requires at least coupled species and differential diffusion rates |"
+    }
+  ],
+  "refs": [
+    "04-HEAT-EQUATION.md"
+  ]
+}

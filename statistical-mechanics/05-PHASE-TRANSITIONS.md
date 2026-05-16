@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:phase-transitions
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Phase Transitions and Critical Phenomena
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/05-PHASE-TRANSITIONS.md
+canonical_path: statistical-mechanics/05-PHASE-TRANSITIONS.md
+backsource_ids: [proof-backfill:statistical-mechanics:05-phase-transitions, git-history:statistical-mechanics:05-phase-transitions]
+concepts: [phase, transitions]
+root_concepts: [phase, transitions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Phase Transitions and Critical Phenomena
 
 ## The Big Picture
@@ -30,7 +49,7 @@ PHASE TRANSITION TAXONOMY
   │  ∂²F/∂T² = −C_V/T  diverges or has cusp                         │
   │  Order parameter → 0 continuously at T_c                        │
   │  Correlation length ξ → ∞ at T_c                                │
-  │  Examples: ferromagnet (T_c = Curie), superfluid, superconductor│
+  │  Example: ferromagnet (T_c = Curie), superfluid, superconductor │
   └─────────────────────────────────────────────────────────────────┘
 
   CRITICAL POINT: where first-order line ends and second-order behavior appears.
@@ -278,7 +297,7 @@ ISING HAMILTONIAN:
 | Landau: when is transition second-order? | b(T) > 0 near T_c (quadratic well becomes double well) |
 | Landau: when is transition first-order? | b(T) < 0 with c > 0 (cubic minima appear discontinuously) |
 | Universality class of Ising ferromagnet | d=3 Ising: β≈0.326, γ≈1.237, ν≈0.630 |
-| Critical exponent for ξ | ξ ~ |T−T_c|^{-ν} |
+| Critical exponent for ξ | ξ ~ \|T−T_c\|^{-ν} |
 | Mean-field critical exponents | β=1/2, γ=1, ν=1/2, α=0 |
 | Why universality? | ξ → ∞ at T_c; microscopic details irrelevant at scale ξ |
 | Scaling relation | α + 2β + γ = 2 (Rushbrooke) |

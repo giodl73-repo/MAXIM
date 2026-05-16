@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:heat-equation
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Heat Equation and Parabolic Systems
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/04-HEAT-EQUATION.md
+canonical_path: partial-differential-equations/04-HEAT-EQUATION.md
+backsource_ids: [proof-backfill:partial-differential-equations:04-heat-equation, git-history:partial-differential-equations:04-heat-equation]
+concepts: [heat, equation]
+root_concepts: [heat, equation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Heat Equation and Parabolic Systems
 
 ## The Big Picture

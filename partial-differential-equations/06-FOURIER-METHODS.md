@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:fourier-methods
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Fourier Methods and Separation of Variables
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/06-FOURIER-METHODS.md
+canonical_path: partial-differential-equations/06-FOURIER-METHODS.md
+backsource_ids: [proof-backfill:partial-differential-equations:06-fourier-methods, git-history:partial-differential-equations:06-fourier-methods]
+concepts: [fourier, methods]
+root_concepts: [fourier, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fourier Methods and Separation of Variables
 
 **Reader note**: The classical material below (Sturm-Liouville, separation of variables, Fourier series) serves as reference tables. The sections with the most value for working understanding are **Spectral Methods**, **Pseudospectral and Collocation Methods**, and **Fourier Methods in Modern ML** at the bottom of the file — these connect eigenfunction decomposition to modern numerical PDE solving and neural operator architectures.

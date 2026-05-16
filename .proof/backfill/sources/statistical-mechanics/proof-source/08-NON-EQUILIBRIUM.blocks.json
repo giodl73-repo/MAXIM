@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\08-NON-EQUILIBRIUM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NON-EQUILIBRIUM STATISTICAL MECHANICS — LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  EQUILIBRIUM                        NON-EQUILIBRIUM\n  S = k ln Ω                         dS/dt ≥ 0 (second law inequality)\n  F = −kT ln Z                       F is not the relevant potential\n  Boltzmann distribution             Time-dependent distributions P(x,t)\n\n  NEAR-EQUILIBRIUM (linear response):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Fluctuation-Dissipation Theorem:                                │\n  │  Response to perturbation = equilibrium fluctuations             │\n  │  Kubo formula: χ(ω) = ∫ e^{iωt} ⟨[A(t),B(0)]⟩ dt                 │\n  │  Einstein: D = k_BT/γ  (diffusion = mobility × temperature)      │\n  └──────────────────────────────────────────────────────────────────┘\n\n  FAR FROM EQUILIBRIUM:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Jarzynski equality: ⟨e^{-βW}⟩ = e^{-βΔF}                        │\n  │  Crooks relation:    P_F(W)/P_R(−W) = e^{β(W−ΔF)}                │\n  │  Valid for ANY process, however fast or far from equilibrium     │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## Brownian Motion and the Langevin Equation",
+      "confidence": "candidate",
+      "text": "    ⟨η(t) η(t')⟩ = 2γk_BT δ(t − t')    ← fluctuation-dissipation relation",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## The Fokker-Planck Equation",
+      "confidence": "candidate",
+      "text": "STEADY-STATE SOLUTION:\n  At steady state: ∂P/∂t = 0 → J = const.\n  For a confining potential (U → ∞ as |x| → ∞): J = 0 at steady state.\n  Then P_ss(x) ∝ e^{−βU(x)}  ← Boltzmann distribution!\n\n  FPE preserves the Boltzmann distribution as the steady state.\n  This is the consistency check: the Langevin/FPE dynamics must relax\n  to the correct equilibrium distribution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## The Fokker-Planck Equation",
+      "confidence": "candidate",
+      "text": "    ∂ψ/∂t = −H_FP ψ    where H_FP is a Hermitian operator (after a gauge transformation P → e^{-βU/2} ψ)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## Fluctuation-Dissipation Theorem",
+      "confidence": "candidate",
+      "text": "    H → H − h(t) A",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## Fluctuation-Dissipation Theorem",
+      "confidence": "candidate",
+      "text": "PHYSICAL MEANING:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  The dissipation when you shake a system (χ''(ω))            │\n  │  is proportional to the system's equilibrium fluctuations    │\n  │  at the same frequency (S_{AA}(ω)).                          │\n  │                                                              │\n  │  Same physics: a resistor dissipates electrical energy       │\n  │  AND generates Johnson-Nyquist thermal noise.                │\n  │  They are related: S_V(ω) = 4k_BT Re[Z(ω)]                   │\n  │  (Nyquist theorem: noise voltage spectral density ∝ T × R)   │\n  └──────────────────────────────────────────────────────────────┘\n\n  CONSEQUENCES:\n  Einstein relation:    D = k_BT / γ  (diffusion from mobility)\n  Nyquist noise:        ⟨V²⟩ = 4k_BTR Δf  (thermal noise in resistor R)\n  Brownian motion:      ⟨x²⟩ = 2Dt\n  Kramers-Kronig:       Re[χ(ω)] determined by Im[χ(ω)] (causality)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Linear Response and Transport Coefficients",
+      "confidence": "candidate",
+      "text": "KUBO FORMULAS FOR TRANSPORT:\n\n  ELECTRICAL CONDUCTIVITY (σ):\n  σ(ω) = (1/kTV) ∫₀^∞ dt e^{iωt} ⟨J(t)·J(0)⟩\n  DC conductivity: σ = lim_{ω→0} σ(ω) = (1/kTV) ∫₀^∞ dt ⟨J(t)·J(0)⟩\n\n  VISCOSITY (η):\n  η = (V/kT) ∫₀^∞ dt ⟨σ_{xy}(t) σ_{xy}(0)⟩\n  (pressure tensor autocorrelation)\n\n  THERMAL CONDUCTIVITY (κ):\n  κ = (V/kT²) ∫₀^∞ dt ⟨J_Q(t)·J_Q(0)⟩\n  (heat current autocorrelation)\n\n  DIFFUSION COEFFICIENT:\n  D = (1/3) ∫₀^∞ dt ⟨v(t)·v(0)⟩   (velocity autocorrelation)\n\n  These are GREEN-KUBO RELATIONS.\n  All transport coefficients are equilibrium time-correlation functions.\n  This is deep: dissipation (irreversible, macroscopic) emerges from\n  reversible microscopic correlations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Jarzynski Equality",
+      "confidence": "candidate",
+      "text": "CONSEQUENCES:\n\n  Jensen's inequality: ⟨e^{-βW}⟩ ≥ e^{-β⟨W⟩}  combined with Jarzynski:\n  e^{-β⟨W⟩} ≤ ⟨e^{-βW}⟩ = e^{-βΔF}\n  ⟹  ⟨W⟩ ≥ ΔF   ← Second law (irreversible work ≥ free energy change)\n\n  Jarzynski STRENGTHENS the second law:\n  Second law: ⟨W⟩ ≥ ΔF  (inequality)\n  Jarzynski:  ⟨e^{-βW}⟩ = e^{-βΔF}  (exact equality, for ANY process)\n\n  APPLICATIONS:\n  - Free energy calculation from non-equilibrium pulling experiments\n  - Single-molecule biophysics (AFM, optical tweezers)\n  - Fast free energy methods in drug design (non-equilibrium alchemical calculations)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "## Diffusion Generative Models as Non-Equilibrium Stat Mech",
+      "confidence": "candidate",
+      "text": "DIFFUSION MODEL = FORWARD + REVERSE LANGEVIN:\n\n  FORWARD PROCESS (destroy signal → noise):\n  dx = f(x,t) dt + g(t) dW_t         (Itô SDE)\n  Corresponding FPE: ∂p/∂t = −∇·(fp) + (g²/2)∇²p\n  As t → ∞: p(x,t) → N(0, σ²I)     (pure noise)\n\n  REVERSE PROCESS (noise → signal):\n  dx = [f(x,t) − g(t)² ∇_x log p(x,t)] dt + g(t) dW̄_t\n  (Anderson 1982 reverse-time SDE)\n\n  KEY INSIGHT:\n  The reverse drift requires the SCORE FUNCTION ∇_x log p(x,t) —\n  the gradient of the log-density at each noise level.\n  This is exactly −∇U/(k_BT) — the force from the free energy landscape.\n\n  The neural network learns s_θ(x,t) ≈ ∇_x log p(x,t) by\n  score matching: minimize E[||s_θ(x,t) − ∇_x log p(x,t)||²].\n\n  Sampling = running the reverse Langevin dynamics with the learned score.\n\n  PHYSICS TRANSLATION:\n  Forward process    = heating the system (adding thermal noise, T → ∞)\n  Score function     = force field −∇F/kT from the free energy landscape\n  Reverse process    = cooling with learned force field (annealing)\n  Score matching     = learning the energy landscape gradient\n  Sampling quality   = accuracy of the reversed Fokker-Planck dynamics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

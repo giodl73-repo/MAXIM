@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\01-CLASSIFICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 394,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Which boundary data an elliptic PDE needs",
+          "Dirichlet, Neumann, or Robin data on the boundary",
+          "Cauchy data for Laplace/Poisson is typically ill-posed"
+        ],
+        [
+          "Whether a parabolic problem is well-posed",
+          "Initial data plus spatial boundary data for `t > 0`",
+          "Backward heat amplifies high-frequency modes catastrophically"
+        ],
+        [
+          "Whether a hyperbolic problem has enough data",
+          "Initial displacement and velocity for second-order time dynamics",
+          "Boundary data must respect finite propagation and compatibility"
+        ],
+        [
+          "Where information travels in a first-order PDE",
+          "Characteristics",
+          "Characteristics can cross, creating shocks or multivalued classical solutions"
+        ],
+        [
+          "Which initial data determine a point",
+          "Domain of dependence",
+          "Hyperbolic cones, parabolic smoothing, and elliptic global coupling differ"
+        ],
+        [
+          "Whether uniqueness is plausible",
+          "Subtract two solutions and use an energy estimate",
+          "The estimate must match the PDE type and boundary conditions"
+        ],
+        [
+          "Whether weak solutions are the right existence frame",
+          "Lax-Milgram or a variational formulation",
+          "Weak existence may not imply classical smoothness"
+        ]
+      ]
+    }
+  ]
+}
