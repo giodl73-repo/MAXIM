@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:industrial-mycology
+kind: guide
+module: mycology
+section: mycology
+title: Industrial Mycology
+status: source-custody
+source_custody: partial
+current_path: mycology/09-INDUSTRIAL-MYCOLOGY.md
+canonical_path: mycology/09-INDUSTRIAL-MYCOLOGY.md
+backsource_ids: [proof-backfill:mycology:09-industrial-mycology, git-history:mycology:09-industrial-mycology]
+concepts: [industrial, mycology]
+root_concepts: [industrial, mycology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Mycology
 
 ## The Big Picture

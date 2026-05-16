@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "archaeology\\03-MATERIAL-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              ANALYTICAL METHODS AND WHAT THEY ANSWER             |\n|                                                                  |\n|  Question                  Method                                |\n|  ─────────────────────────────────────────────────────────────   |\n|  Where was this made?      XRF / EMPA / lead isotopes            |\n|  What did they eat?        Stable isotopes (δ¹³C, δ¹⁵N)          |\n|  Where did they live?      Sr/O isotopes (migration)             |\n|  Who were they genetically?Ancient DNA (aDNA)                    |\n|  What was in this vessel?  Lipid residue analysis                |\n|  What plants were present? Phytoliths / pollen / seeds           |\n|  What was the diet detail? Zooarchaeology + faunal analysis      |\n|  What's the elemental comp? XRF (portable or lab)                |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### Carbon and Nitrogen Isotopes (Diet)",
+      "confidence": "candidate",
+      "text": "δ¹³C FRACTIONATION (diet reconstruction):\n  C3 plants: wheat, barley, rice, most vegetables\n    δ¹³C ≈ −26 to −24‰ (per mil, relative to VPDB standard)\n  C4 plants: maize (corn), millet, sorghum, sugarcane\n    δ¹³C ≈ −12 to −10‰ (different photosynthetic pathway)\n  Marine protein: δ¹³C ≈ −12 to −20‰\n\n  Human bone collagen δ¹³C reflects diet:\n  → C3-dominated diet: ≈ −20 to −18‰\n  → Heavy C4 (maize) diet: ≈ −12 to −8‰\n  → Mixed marine/terrestrial: intermediate values\n\nARCHAEOLOGICAL APPLICATION:\n  Tracking spread of maize agriculture in North America:\n  δ¹³C shift in skeletal collagen records dietary change\n  Temporal transects across regions document when maize became dietary staple\n\nδ¹⁵N FRACTIONATION (trophic level):\n  Each step up the food chain enriches ¹⁵N by ~3–4‰\n  Plants: δ¹⁵N ≈ 0–5‰\n  Herbivores: δ¹⁵N ≈ 3–9‰\n  Carnivores/omnivores: δ¹⁵N ≈ 6–12‰\n  Nursing infants: elevated δ¹⁵N (breast milk = trophic step up)\n    → Can identify age at weaning from skeletal record\n\n  Breastfeeding signature: identifies nursing period in skeletal populations\n  High δ¹⁵N: high animal protein diet; freshwater fish; marine diet\n  Low δ¹⁵N: primarily plant diet; legume consumption (N-fixers deplete ¹⁵N)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### Strontium and Oxygen Isotopes (Migration)",
+      "confidence": "candidate",
+      "text": "δ¹⁸O (oxygen isotopes — provenance/migration):\n  Rainwater ¹⁸O/¹⁶O varies with latitude, altitude, continentality\n  → Geographic isotope map (isoscape)\n  Ingested water → incorporated into tooth enamel during formation\n  Tooth enamel doesn't remodel → records childhood location\n\n  Compare skeletal δ¹⁸O to local bedrock/water δ¹⁸O:\n  MATCH → local individual\n  MISMATCH → migrant (moved before or after teeth formed)\n\n⁸⁷Sr/⁸⁶Sr (strontium isotopes — geographic origin):\n  Strontium derives from bedrock geology (different ratios in different rocks)\n  Plants absorb Sr from local geology → animals eat plants → bones/teeth\n  Tooth enamel ⁸⁷Sr/⁸⁶Sr = local geology at time of childhood\n\n  MIGRATION DETECTION:\n  Compare tooth enamel Sr to bone Sr:\n  Enamel forms in childhood (childhood location)\n  Bone remodels → adult diet location\n  Enamel ≠ bone Sr → individual moved between childhood and death\n\nFAMOUS APPLICATIONS:\n  Amesbury Archer (Stonehenge era): buried near Stonehenge;\n    O isotopes indicate childhood in Alps → migrant\n  \"Iceman\" Ötzi: Sr isotopes place childhood in specific Alpine valleys\n  Mass grave from Tollense Valley battle (Bronze Age, Germany):\n    Many combatants were not local (foreign fighters → large-scale conflict)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### The Technical Challenge",
+      "confidence": "candidate",
+      "text": "ANCIENT DNA VS. MODERN DNA:\n  Ancient DNA is:\n    Highly fragmented: average fragment 40–100 bp (vs. kb in modern)\n    Chemically damaged: cytosine deamination (C→T) at fragment ends\n    Low in quantity: 0.01–1% of sequenced reads may be endogenous\n    Contaminated: modern human DNA is everywhere (high quality, abundant)\n\nSIGNAL-TO-NOISE PROBLEM:\n  Ancient endogenous DNA: degraded, fragmented, damaged → hard to read\n  Modern contaminant DNA: intact, long, undamaged → easy to read\n  → Analysis pipeline must:\n    1. Identify and map reads to target genome\n    2. Apply deamination filter (keep C→T damage at ends as authenticity check)\n    3. Calculate contamination rate (compare to modern reference)\n    4. Authenticate by damage pattern analysis (mapDamage tool)\n\nCOLD AND DRY = BETTER PRESERVATION:\n  Best conditions: permafrost, cold caves, extreme arid\n  Worst: tropical humid environments (DNA degrades rapidly)\n  Mammoth steppe remains: aDNA up to 1.2 Ma (horse, 2013 record)\n  Tropical human remains: rarely exceeds 10,000 years of preservation\n\nPETROUS BONE:\n  The dense inner ear bone (petrous part of temporal bone)\n  Has highest DNA yield of any skeletal element\n  Standard: 50–100 mg sample drilled from petrous",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### What aDNA Can Reveal",
+      "confidence": "candidate",
+      "text": "POPULATION GENETICS FROM aDNA:\n  Genotype from thousands of SNPs across genome\n  → Principal Component Analysis (PCA): plot samples in genetic space\n  → ADMIXTURE analysis: estimate ancestry from reference populations\n  → D-statistics / f-statistics: test for genetic mixing events\n  → Runs of homozygosity (ROH): detect close relative matings, small population\n\nMAJOR FINDINGS (2010–2024):\n  Three-wave model of European ancestry (2015+):\n    1. Western Hunter-Gatherers (WHG): post-LGM; Mesolithic Europe\n    2. Early European Farmers (EEF): Anatolian Neolithic farmers (7000 BC)\n    3. Steppe ancestry (CWC/Yamnaya): migration from Pontic steppe (~3000 BC)\n    Modern Europeans: mixture of all three in varying proportions\n\n  Out-of-Africa dispersals:\n    Non-African genomes contain ~2% Neanderthal DNA\n    Melanesian genomes contain ~4% Denisovan DNA\n    → Modern humans interbred with archaic humans multiple times\n\n  Plague (Yersinia pestis): ancient genome tracked across Eurasian history\n    → First detection in Bronze Age steppe populations (~3000 BC)\n    → Justinianic Plague (541 AD) and Black Death (1347) same Yersinia lineage\n\n  Viking expansion: aDNA from burial sites across N. Atlantic, Russia, UK\n    → Genetic diversity: Vikings came from diverse Scandinavian backgrounds\n    → Non-Scandinavian ancestry in some burials traditionally called \"Viking\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### Kinship Analysis",
+      "confidence": "candidate",
+      "text": "RELATEDNESS FROM aDNA:\n  ROH (runs of homozygosity): long identical stretches → inbreeding\n  Identity by descent: shared haplotype segments → recent shared ancestry\n  First-degree relatives: parent-child, full siblings (high IBD sharing)\n\n  APPLICATIONS:\n    Megalithic tomb burials: who is buried together?\n    Newgrange (Ireland): passage tomb; individual with ROH suggesting\n      first-degree relative parents (incest → elite family structure)\n    Stonehenge environs: multiple first-degree relatives in same tomb\n    Elite mound burials: detect dynastic family structures",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## XRF Compositional Analysis",
+      "confidence": "candidate",
+      "text": "PROVENANCE: where was this artifact made?\n\nThe key insight: raw materials have characteristic elemental/isotopic\n\"fingerprints\" tied to their geological sources.\nMatch the artifact's composition to a known source = provenance.\n\nOBSIDIAN PROVENANCE:\n  Obsidian (volcanic glass) is geologically highly variable\n  Each volcano has a characteristic major/trace element composition\n  Portable XRF: measure at the object; compare to source database\n  → Trace archaeologically invisible exchange networks\n  → Obsidian from Lipari (Sicily) distributed across Mediterranean\n  → Obsidian from Anatolian sources (Göllü Dağ) across Near East\n\nMETAL ANALYSIS:\n  Copper alloys (bronze): Cu + Sn + Pb; trace elements (As, Sb, Ni, Co, Ag)\n  → Fingerprint specific copper ore sources\n  Lead isotopes: ²⁰⁶Pb/²⁰⁷Pb / ²⁰⁸Pb/²⁰⁴Pb ratios vary by source\n  → Identify origin of lead in bronze, silver objects, pigments\n\nCERAMIC ANALYSIS:\n  Clay chemistry varies geologically\n  NAA (Neutron Activation Analysis): 35+ elements; very high precision\n  → Match pottery to clay source or production center\n  → Track pottery distribution as trade proxy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Lipid Residue Analysis",
+      "confidence": "candidate",
+      "text": "METHOD:\n  Solvent extraction from pottery sherd (sub-gram sample)\n  → GC-MS (Gas Chromatography-Mass Spectrometry) analysis\n  → Identify lipid biomarkers\n\nWHAT IS IDENTIFIED:\n  Animal fats: fatty acid profile distinguishes:\n    Ruminant (cattle/sheep/goat): specific C18 fatty acid ratio\n    Porcine (pig): different ratio; distinctive\n    Dairy vs. carcass fat: δ¹³C of individual fatty acids\n      → Dairy lipids are ¹³C-depleted relative to carcass fat\n\n  Plant oils: olive oil, linseed, sesame distinctive profiles\n  Beeswax: characteristic triterpenoids (ursolic acid, etc.)\n  Aquatic resources: specific polyunsaturated fatty acids (DHA, EPA)\n\nAPPLICATIONS:\n  First dairying: oldest direct evidence of milk processing\n    → Neolithic Britain (6,000 BP): dairy lipids in pottery\n    → Saharan rock art cattle: dairy lipids in pottery → herding lifestyle\n  Wine/beer: tartaric acid (wine), biomarkers for fermented products\n  Medicinal/ritual substances: specific plant biomarkers\n  Cooking practices: plant vs. animal fats by vessel type",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "## Zooarchaeology (Animal Bone Analysis)",
+      "confidence": "candidate",
+      "text": "ZOOARCHAEOLOGICAL ANALYSIS:\n  NISP: Number of Identified Specimens (raw count)\n  MNI: Minimum Number of Individuals (minimum to account for all elements)\n  MNE: Minimum Number of Elements\n\n  MORTALITY PROFILE:\n    Age at death from bone fusion + tooth eruption/wear\n    Prime-adult kill: hunting wild prey\n    Neonatal/juvenile: may indicate dairying (kill male calves)\n    Old female kill: dairy herd management\n    → Distinguish hunting vs. pastoralism vs. dairying strategies\n\n  BUTCHERY MARKS:\n    Cut marks from stone/metal tools on bone\n    Identify which joints were processed; meat removal vs. skinning\n    Percussion marks: marrow extraction\n    Burnt bone: cooking, disposal\n\n  SPECIES SPECTRUM:\n    Wild vs. domestic proportions → intensification of agriculture\n    Introduction of new domestic species → colonization record\n    Fishing bones → diet, season, technology\n    Birds + small mammals → complete picture of landscape use\n\nBIOMOLECULAR:\n  Collagen stable isotopes: diet of the individual animal\n  ZooMS (Zooarchaeology by Mass Spectrometry): collagen peptide fingerprints\n    → Species ID from tiny or fragmentary bone\n    → Works on degraded material where morphology insufficient\n    → Revolutionized ID of fragmentary faunal assemblages",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## Phytoliths and Environmental Proxies",
+      "confidence": "candidate",
+      "text": "PHYTOLITHS: silica bodies formed in plant cells\n  Morphology reflects plant family/genus\n  Silica is inorganic → survives when charred organic material does not\n  Survive in otherwise poor preservation contexts\n\n  APPLICATIONS:\n    Reconstruct past vegetation when pollen absent\n    Identify crop processing activity (chaff phytoliths)\n    Detect presence of grasses in sediments → grazing or agriculture\n    Amazonian sites: phytoliths from maize in pre-contact deposits\n\nPOLLEN ANALYSIS (PALYNOLOGY):\n  Pollen grains have distinctive shapes by genus/family\n  Preserved in lake sediments, peat, waterlogged contexts\n  → Reconstruct past vegetation communities\n  → Environmental context of archaeological site\n  → Impact of human deforestation visible as pollen shift\n\nMACRO-PLANT REMAINS (ARCHAEOBOTANY):\n  Charred seeds, nuts, fruit stones → crop types, plant diet\n  Waterlogged wood → construction timber, wood fuel\n  Flotation: bulk soil samples processed with water → seeds float\n  → Dietary plants, weeds, cultivated fields, stored crops",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:overview
+kind: guide
+module: archaeology
+section: archaeology
+title: Archaeology - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: archaeology/00-OVERVIEW.md
+canonical_path: archaeology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:archaeology:00-overview, git-history:archaeology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archaeology — Landscape Overview
 
 ## The Big Picture

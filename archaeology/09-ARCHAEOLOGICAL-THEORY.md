@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:archaeological-theory
+kind: guide
+module: archaeology
+section: archaeology
+title: Archaeological Theory
+status: source-custody
+source_custody: partial
+current_path: archaeology/09-ARCHAEOLOGICAL-THEORY.md
+canonical_path: archaeology/09-ARCHAEOLOGICAL-THEORY.md
+backsource_ids: [proof-backfill:archaeology:09-archaeological-theory, git-history:archaeology:09-archaeological-theory]
+concepts: [archaeological, theory]
+root_concepts: [archaeological, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archaeological Theory
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:animal-pathogens
+kind: guide
+module: mycology
+section: mycology
+title: Fungal Animal Pathogens
+status: source-custody
+source_custody: partial
+current_path: mycology/08-ANIMAL-PATHOGENS.md
+canonical_path: mycology/08-ANIMAL-PATHOGENS.md
+backsource_ids: [proof-backfill:mycology:08-animal-pathogens, git-history:mycology:08-animal-pathogens]
+concepts: [animal, pathogens]
+root_concepts: [animal, pathogens]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fungal Animal Pathogens
 
 ## The Big Picture
@@ -328,20 +347,20 @@ ANTIFUNGAL TARGETS AND DRUGS
 +------------------------------------------------------------------+
 |  TARGET            | DRUG CLASS      | Examples                  |
 +------------------------------------------------------------------+
-|  Ergosterol        | Polyenes        | Amphotericin B, nystatin |
-|  (membrane binding)|                 |                          |
+|  Ergosterol        | Polyenes        | Amphotericin B, nystatin  |
+|  (membrane binding)|                 |                           |
 |                                                                  |
-|  Ergosterol synth  | Azoles          | Fluconazole, voriconazole|
+|  Ergosterol synth  | Azoles          | Fluconazole, voriconazole |
 |  (CYP51 inhibit)   | (triazoles)     | itraconazole, isavuconazole|
 |                                                                  |
-|  Ergosterol synth  | Allylamines     | Terbinafine, naftifine  |
-|  (squalene epoxid.)|                 |                          |
+|  Ergosterol synth  | Allylamines     | Terbinafine, naftifine    |
+|  (squalene epoxid.)|                 |                           |
 |                                                                  |
-|  β-1,3-glucan synth| Echinocandins   | Caspofungin, micafungin |
-|  (cell wall)       |                 | anidulafungin            |
+|  β-1,3-glucan synth| Echinocandins   | Caspofungin, micafungin   |
+|  (cell wall)       |                 | anidulafungin             |
 |                                                                  |
-|  DNA/RNA synth     | Pyrimidine      | Flucytosine (5-FC)       |
-|  (via 5-FU)        | analog          |                          |
+|  DNA/RNA synth     | Pyrimidine      | Flucytosine (5-FC)        |
+|  (via 5-FU)        | analog          |                           |
 +------------------------------------------------------------------+
 
 RESISTANCE MECHANISMS:

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:prehistory
+kind: guide
+module: archaeology
+section: archaeology
+title: Prehistory: From Stone Tools to the Bronze Age
+status: source-custody
+source_custody: partial
+current_path: archaeology/04-PREHISTORY.md
+canonical_path: archaeology/04-PREHISTORY.md
+backsource_ids: [proof-backfill:archaeology:04-prehistory, git-history:archaeology:04-prehistory]
+concepts: [prehistory]
+root_concepts: [prehistory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Prehistory: From Stone Tools to the Bronze Age
 
 ## The Big Picture

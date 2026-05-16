@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:material-analysis
+kind: guide
+module: archaeology
+section: archaeology
+title: Material Analysis in Archaeology
+status: source-custody
+source_custody: partial
+current_path: archaeology/03-MATERIAL-ANALYSIS.md
+canonical_path: archaeology/03-MATERIAL-ANALYSIS.md
+backsource_ids: [proof-backfill:archaeology:03-material-analysis, git-history:archaeology:03-material-analysis]
+concepts: [material, analysis]
+root_concepts: [material, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Material Analysis in Archaeology
 
 ## The Big Picture

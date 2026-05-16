@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:toxic-fungi
+kind: guide
+module: mycology
+section: mycology
+title: Toxic Fungi
+status: source-custody
+source_custody: partial
+current_path: mycology/05-TOXIC-FUNGI.md
+canonical_path: mycology/05-TOXIC-FUNGI.md
+backsource_ids: [proof-backfill:mycology:05-toxic-fungi, git-history:mycology:05-toxic-fungi]
+concepts: [toxic, fungi]
+root_concepts: [toxic, fungi]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Toxic Fungi
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:ecology
+kind: guide
+module: mycology
+section: mycology
+title: Fungal Ecology
+status: source-custody
+source_custody: partial
+current_path: mycology/03-ECOLOGY.md
+canonical_path: mycology/03-ECOLOGY.md
+backsource_ids: [proof-backfill:mycology:03-ecology, git-history:mycology:03-ecology]
+concepts: [ecology]
+root_concepts: [ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fungal Ecology
 
 ## The Big Picture

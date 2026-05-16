@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "archaeology\\02-DATING-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              DATING METHODS BY TIME RANGE                        |\n|                                                                  |\n|  Method         Useful range     Material        Precision       |\n|  ─────────────────────────────────────────────────────────────   |\n|  Radiocarbon    0–50,000 BP      Organic matter  ±20–200 yr      |\n|  Dendrochronology 0–13,000 BP   Tree rings      ±1 year          |\n|  OSL/IRSL       100–500,000 BP  Sediments       ±5–15%           |\n|  TL             100–500,000 BP  Heated minerals ±5–15%           |\n|  K-Ar / Ar-Ar   >100,000 BP     Volcanic rock   varies           |\n|  U-series       1,000–500,000 BP Carbonate/bone ±1–2%            |\n|  Archaeomagnetic 0–10,000 BP    Fired contexts  ±25–100 yr       |\n|  Dendro+C14     0–14,000 BP     Charcoal/grain  very high        |\n|  Typology/seriation Relative     Artifact form  comparative      |\n+------------------------------------------------------------------+\n\nTWO TYPES:\n  ABSOLUTE dating: gives calendar years (or range) — the actual age\n  RELATIVE dating: gives older/younger sequence — no calendar age",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### The Physics",
+      "confidence": "candidate",
+      "text": "¹⁴C PRODUCTION AND DECAY:\n  Cosmic rays → neutrons → hit ¹⁴N in upper atmosphere\n  ¹⁴N + n → ¹⁴C + p (nuclear reaction)\n  ¹⁴C + O₂ → ¹⁴CO₂ → enters photosynthesis → incorporated into all life\n\n  ¹⁴C/¹²C ratio in living organisms ≈ atmospheric ratio (~1.2 × 10⁻¹²)\n  At death: no new ¹⁴C incorporated → existing ¹⁴C decays\n\nRADIOACTIVE DECAY:\n  N(t) = N₀ · e^(−λt)\n  where:\n    N(t) = ¹⁴C atoms at time t\n    N₀   = initial ¹⁴C atoms at death\n    λ    = decay constant = ln(2) / t₁/₂\n    t₁/₂ = half-life of ¹⁴C = 5,730 ± 40 years (true half-life)\n           (5,568 ± 30 yr = Libby half-life, used historically)\n\n  Inverting: t = (1/λ) · ln(N₀/N(t))\n\n  Libby Nobel Prize 1960: invented ¹⁴C dating; brilliant insight\n  from basic nuclear physics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Calibration — The Crucial Step",
+      "confidence": "candidate",
+      "text": "CALIBRATION CURVE CONSTRUCTION:\n  Tree rings (dendrochronology): each ring = 1 year known age\n  ¹⁴C-date the ring → known calendar year → known ¹⁴C ratio\n  Build continuous curve back to ~14,000 BP (tree ring)\n  Extended by: corals, speleothems, lake varves → IntCal21 curve to 55,000 BP\n\n  IntCal21 (2020): international calibration dataset\n  Published by IntCal Working Group; used by OxCal software (Oxford)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Calibration — The Crucial Step",
+      "confidence": "candidate",
+      "text": "BAYESIAN CALIBRATION PROCEDURE:\n  Prior: the ¹⁴C measurement (normal distribution from lab)\n  Likelihood: the calibration curve (probability that true age =\n    calendar age given the ¹⁴C measurement)\n  Posterior: calendar date probability distribution\n\n  Bayes' theorem: P(age|measurement) ∝ P(measurement|age) × P(age)\n\nThis is not unusual statistics — it's the explicit application of\nBayesian inference to the calibration problem.\n\nOUTPUT:\n  A probability distribution over calendar years\n  Reported as: cal BP 3400–3250 (95.4% probability)\n            or: 1450–1300 cal BC (95.4% probability = 2σ range)\n\nMULTI-CONTEXT BAYESIAN MODELLING:\n  Combine ¹⁴C dates WITH stratigraphic constraints\n  \"This charcoal must be older than this grain above it\"\n  → Dramatically tightens the calendar age ranges\n  → Stratigraphic sequence = prior constraints in the Bayesian model\n  → Now standard for high-resolution studies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### Measurement Methods",
+      "confidence": "candidate",
+      "text": "AMS WORKFLOW:\n  Sample → graphite target → sputter → negative C ions\n  → Accelerate to MeV energies\n  → Magnetic + electric fields → separate by mass\n  → Count ¹⁴C / ¹³C / ¹²C ions\n  → Ratio → ¹⁴C age\n\nAMS advantages:\n  Tiny samples (single seed, 1 mg of charcoal)\n  Faster (hours vs. days)\n  Better precision for small samples\n  → Transformed geoarchaeology; can date individual seeds/bones",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Key Problems and Complications",
+      "confidence": "candidate",
+      "text": "RADIOCARBON COMPLICATIONS:\n  OLD WOOD EFFECT:\n    If long-lived tree is dated, ¹⁴C age = age of ring growth,\n    not when the wood was used\n    → Short-lived material preferred: single seeds, annual grain,\n      short-lived twigs, nuts, animal bone collagen\n    → Long-lived charcoal \"terminus post quem\" (TPQ) at best\n\n  MARINE RESERVOIR EFFECT:\n    Ocean ¹⁴C is depleted (old carbon cycling)\n    Marine shells appear ~400 years \"too old\" (regional variation)\n    → Correction: Marine20 calibration curve + local ΔR offset\n    → Human diet: if diet heavily marine, bone dates offset\n\n  FRESHWATER RESERVOIR EFFECT:\n    Rivers drawing on groundwater with old carbon → older apparent ages\n    → Can affect fish bone, freshwater mollusc dates significantly\n\n  HARD WATER EFFECT:\n    Plants growing in limestone-rich water absorb ¹⁴C-depleted CO₂\n    → Dates too old; important for calcareous environments\n\n  CONTAMINATION:\n    Modern roots in samples → ¹⁴C-rich contamination → dates too young\n    Sample pretreatment (acid-alkali-acid) removes most contamination\n    Human handling → skin oils (modern C) contaminate small samples\n\n  BOMB CARBON (post-AD 1950):\n    Nuclear testing spiked atmospheric ¹⁴C\n    Post-1950 samples unusable with standard calibration\n    Forensic application: ¹⁴C in teeth → birth year estimate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## Dendrochronology",
+      "confidence": "candidate",
+      "text": "PRINCIPLE:\n  Trees in seasonal climates add one ring per year\n  Ring width varies with growing conditions\n  → Characteristic pattern of wide/narrow rings\n\n  CROSSDATING:\n    Living tree → known ring sequence back 200+ years\n    Ancient beam from building → matches pattern from living tree\n    → Extends chronology back further\n    Pattern from one tree ← → pattern from another overlapping tree\n    Build continuous chronology backward",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Dendrochronology",
+      "confidence": "candidate",
+      "text": "WIGGLE MATCHING:\n  Multiple ¹⁴C dates from sequential tree rings\n  Each date has a position on the calibration curve\n  The ring sequence constrains how they fit together\n  → Extremely precise calendar date (±5–10 years)\n  Even better: date ¹⁴C + dendro together",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## Optically Stimulated Luminescence (OSL)",
+      "confidence": "candidate",
+      "text": "OSL CLOCK MECHANISM:\n  Grains exposed to light → electrons escape traps → clock reset to zero\n  Grains buried in sediment → radiation from U/Th/K in surrounding soil\n    → electrons accumulate in traps (proportional to time × dose rate)\n  Lab: stimulate with green/blue light → measure light output (luminescence)\n  Equivalent Dose (Gy) = total radiation received\n  Dose Rate (Gy/ka) = radiation per unit time (from measured radioactivity)\n  Age = Equivalent Dose / Dose Rate\n\nPRECISION: ±5–15% (much less precise than radiocarbon or dendro)\nRANGE: 100–500,000 BP (fills gap between C14 and K-Ar)\nIDEAL FOR: dating when sediments were deposited, not when artifacts were made",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Potassium-Argon (K-Ar) and Argon-Argon (⁴⁰Ar/³⁹Ar)",
+      "confidence": "candidate",
+      "text": "PRINCIPLE:\n  ⁴⁰K → ⁴⁰Ar (by electron capture) + ⁴⁰Ca (by beta decay)\n  t₁/₂ = 1.25 × 10⁹ years (partial half-life for ⁴⁰Ar branch)\n\n  At volcanic eruption: argon gas released (clock reset to zero)\n  After cooling: ⁴⁰Ar accumulates from ⁴⁰K decay\n  Measure ⁴⁰Ar/⁴⁰K → age\n\nARCHAEOLOGICAL USE:\n  Cannot date archaeology directly (no K-bearing pottery)\n  Dates volcanic tuffs and ash layers CONTAINING or BRACKETING\n  archaeological finds\n\n  Example: Olduvai Gorge, Tanzania:\n    Bed I tuff dated by K-Ar → 1.85–1.75 Ma\n    Homo habilis remains from Bed I → archaeologically bracketed\n    Same logic for all East African hominid sites\n\n⁴⁰Ar/³⁹Ar (incremental heating):\n  Neutron irradiation converts ³⁹K → ³⁹Ar (proportional to K)\n  Progressive heating releases Ar at different T\n  → Multiple measurements; detect argon loss; more robust\n  → Better for small samples, disturbed samples, very old material",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "## Uranium-Series Dating",
+      "confidence": "candidate",
+      "text": "U-SERIES PRINCIPLE:\n  ²³⁸U → ²³⁴U → ²³⁰Th ... (decay chain)\n  Fresh carbonate (speleothem, coral) incorporates U but not Th\n  (Th insoluble in water; U soluble → differential uptake)\n  → ²³⁰Th = 0 at formation; grows by ²³⁴U decay\n  Measure ²³⁰Th/²³⁴U → age\n\nPRECISION: ±1–2% (very good for its range)\nRANGE: 1,000 to ~500,000 years\nMATERIALS: speleothems (best), coral, travertine, bone (problematic — open system)\n\nARCHAEOLOGICAL APPLICATIONS:\n  Date flowstone sealing archaeological layers in caves\n  Homo sapiens cave art dated by flowstone overlying paint\n    → Sulawesi (Indonesia) cave art >45,000 BP\n    → Neanderthal art in Spain: 65,000 BP (U-series on stalagmite)\n  Date spring deposits in open-air hominin sites",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## Archaeomagnetic Dating",
+      "confidence": "candidate",
+      "text": "PRINCIPLE:\n  Earth's magnetic pole \"wanders\" (secular variation) over centuries\n  Fired features (hearths, kilns, burned floors) record the field\n  direction at time of last cooling\n  If the secular variation curve is known for a region,\n  you can match observed direction → calendar date range\n\nCONSTRUCTION OF CURVES:\n  Hearths with independent dates (¹⁴C) → known field direction\n  Build regional secular variation master curve\n  UK curve extends back 4,000+ years with good resolution\n\nPRECISION: ±25–100 years for well-studied regions\nMATERIALS: in-situ fired contexts (must not have been disturbed since firing)\nREGIONS: Europe has best-developed reference curves",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "## Seriation and Typological Dating",
+      "confidence": "candidate",
+      "text": "SERIATION:\n  Ford's frequency seriation (1950s):\n  Archaeological types appear, rise in popularity, then decline\n  → Battleship-shaped frequency curves\n  If assemblages plotted in order so shapes are battleship curves,\n  you have the correct chronological sequence (but not absolute dates)\n\n  Useful when you have many assemblages and need to order them\n  without independent dates\n\nTYPOLOGICAL DATING:\n  Well-dated artifact types (coins, pottery forms, brooches) used\n  to date the contexts they come in:\n  → Roman Samian pottery: many forms dated by known kiln sites\n  → British coins: dated to reign and sometimes specific year\n  → Terra sigillata: factory stamps datable to Dragendorff forms\n  → TERMINUS POST QUEM (TPQ): layer can't be earlier than its latest datable artifact\n  → TERMINUS ANTE QUEM (TAQ): layer must be earlier than what seals it",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "## Combining Methods — Bayesian Modelling",
+      "confidence": "candidate",
+      "text": "BAYESIAN SEQUENCE MODELLING (OxCal software):\n  Input:\n    ¹⁴C dates on specific materials from specific contexts\n    Stratigraphic sequence (from Harris Matrix)\n    Dendro dates where available\n    Coin TPQ dates\n\n  Model structure:\n    SEQUENCE { (stratigraphic order)\n      Phase { early contexts → C14 dates }\n      Phase { middle contexts → C14 dates }\n      Phase { late contexts → C14 dates + coin TPQ }\n    }\n\n  Output:\n    Posterior probability distributions for each event\n    Phase start/end dates with realistic probability ranges\n    Overall model goodness-of-fit test (A% agreement index)\n\nThis approach can reduce single-date uncertainties from ±200 years\nto ±20–50 years when stratigraphic sequence well-defined.\n\nStonehenge phasing study (Darvill/Parker Pearson 2012, Bayesian):\n  Combined 25 ¹⁴C dates with stratigraphic sequence\n  Defined phases with ±15–50 year precision\n  Far better than any individual date alone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

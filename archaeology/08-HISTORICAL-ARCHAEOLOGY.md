@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:historical-archaeology
+kind: guide
+module: archaeology
+section: archaeology
+title: Historical Archaeology
+status: source-custody
+source_custody: partial
+current_path: archaeology/08-HISTORICAL-ARCHAEOLOGY.md
+canonical_path: archaeology/08-HISTORICAL-ARCHAEOLOGY.md
+backsource_ids: [proof-backfill:archaeology:08-historical-archaeology, git-history:archaeology:08-historical-archaeology]
+concepts: [historical, archaeology]
+root_concepts: [historical, archaeology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Archaeology
 
 ## The Big Picture

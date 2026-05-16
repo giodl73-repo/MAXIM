@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:fungal-biology
+kind: guide
+module: mycology
+section: mycology
+title: Fungal Biology
+status: source-custody
+source_custody: partial
+current_path: mycology/01-FUNGAL-BIOLOGY.md
+canonical_path: mycology/01-FUNGAL-BIOLOGY.md
+backsource_ids: [proof-backfill:mycology:01-fungal-biology, git-history:mycology:01-fungal-biology]
+concepts: [fungal, biology]
+root_concepts: [fungal, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fungal Biology
 
 ## The Big Picture
@@ -8,30 +27,30 @@
 |               (cross-section, outside to inside)                 |
 |                                                                  |
 |  ┌── CELL WALL (outermost) ──────────────────────────────────┐   |
-|  │  β-1,3-glucan scaffold + chitin microfibrils              │ |
-|  │  NOT cellulose (cellulose = plant; chitin = fungus/insect) │ |
-|  │  Antifungal targets: echinocandins block glucan synthase   │ |
+|  │  β-1,3-glucan scaffold + chitin microfibrils              │   |
+|  │  NOT cellulose (cellulose = plant; chitin = fungus/insect) │  |
+|  │  Antifungal targets: echinocandins block glucan synthase   │  |
 |  │                                                             │ |
-|  │  ┌── PLASMA MEMBRANE ──────────────────────────────────┐  │ |
-|  │  │  Ergosterol (NOT cholesterol)                       │  │|
-|  │  │  Antifungal target: azoles block ergosterol synth   │  │|
-|  │  │  Amphotericin B: binds ergosterol → pore            │  │|
-|  │  │                                                       │  │ |
-|  │  │  ┌── CYTOPLASM ────────────────────────────────┐    │  │ |
-|  │  │  │  ER, Golgi, vacuoles, mitochondria          │    │  │ |
-|  │  │  │  Ribosomes (80S — same as animals/plants)   │    │  │ |
-|  │  │  │                                              │    │  │ |
-|  │  │  │  NUCLEI: can be multiple per cell           │    │  │ |
-|  │  │  │    Coenocytic hyphae: multinucleate, no      │    │  │ |
-|  │  │  │    cross-walls (aseptate)                    │    │  │ |
-|  │  │  │    Septate hyphae: cross-walls with pores    │    │  │ |
-|  │  │  └────────────────────────────────────────────┘    │  │ |
-|  │  └─────────────────────────────────────────────────────┘  │ |
-|  └────────────────────────────────────────────────────────────┘ |
+|  │  ┌── PLASMA MEMBRANE ──────────────────────────────────┐  │   |
+|  │  │  Ergosterol (NOT cholesterol)                       │  │   |
+|  │  │  Antifungal target: azoles block ergosterol synth   │  │   |
+|  │  │  Amphotericin B: binds ergosterol → pore            │  │   |
+|  │  │                                                     │  │   |
+|  │  │  ┌── CYTOPLASM ────────────────────────────────┐    │  │   |
+|  │  │  │  ER, Golgi, vacuoles, mitochondria          │    │  │   |
+|  │  │  │  Ribosomes (80S — same as animals/plants)   │    │  │   |
+|  │  │  │                                              │    │  │  |
+|  │  │  │  NUCLEI: can be multiple per cell           │    │  │   |
+|  │  │  │    Coenocytic hyphae: multinucleate, no      │    │  │  |
+|  │  │  │    cross-walls (aseptate)                    │    │  │  |
+|  │  │  │    Septate hyphae: cross-walls with pores    │    │  │  |
+|  │  │  └────────────────────────────────────────────┘    │  │    |
+|  │  └─────────────────────────────────────────────────────┘  │   |
+|  └────────────────────────────────────────────────────────────┘  |
 |                                                                  |
-|  APICAL GROWTH: wall extends only at hyphal tip                 |
-|  NUTRITION: osmotrophic — secretes enzymes externally,          |
-|             absorbs small molecules; no phagocytosis            |
+|  APICAL GROWTH: wall extends only at hyphal tip                  |
+|  NUTRITION: osmotrophic — secretes enzymes externally,           |
+|             absorbs small molecules; no phagocytosis             |
 +------------------------------------------------------------------+
 ```
 
@@ -159,10 +178,10 @@ COMPARISON TO OTHER NUTRITIONAL STRATEGIES:
 +--------------------------------------------------+
 |  Strategy      | Who         | Mechanism         |
 +--------------------------------------------------+
-|  Photosynthesis| Plants, algae| Light → carbon  |
-|  Ingestion     | Animals     | Eat whole food   |
+|  Photosynthesis| Plants, algae| Light → carbon   |
+|  Ingestion     | Animals     | Eat whole food    |
 |  Osmotrophy    | Fungi       | External digestion|
-|  Heterotrophy  | Bacteria    | Various          |
+|  Heterotrophy  | Bacteria    | Various           |
 +--------------------------------------------------+
 
 NUTRITIONAL CATEGORIES OF FUNGI:

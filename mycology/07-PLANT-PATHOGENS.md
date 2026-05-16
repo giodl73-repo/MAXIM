@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:plant-pathogens
+kind: guide
+module: mycology
+section: mycology
+title: Fungal Plant Pathogens
+status: source-custody
+source_custody: partial
+current_path: mycology/07-PLANT-PATHOGENS.md
+canonical_path: mycology/07-PLANT-PATHOGENS.md
+backsource_ids: [proof-backfill:mycology:07-plant-pathogens, git-history:mycology:07-plant-pathogens]
+concepts: [plant, pathogens]
+root_concepts: [plant, pathogens]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fungal Plant Pathogens
 
 ## The Big Picture
@@ -10,7 +29,7 @@
 |  Rust fungi (Pucciniales): obligate biotrophs; cereal crops      |
 |  Smut fungi (Ustilaginales): grain crops; corn                   |
 |  Powdery mildews (Erysiphales): wide host range                  |
-|  Necrotrophic fungi: kill tissue, then feed (Botrytis, Fusarium)|
+|  Necrotrophic fungi: kill tissue, then feed (Botrytis, Fusarium) |
 |  Vascular wilts: Fusarium, Verticillium (block water transport)  |
 |  Chestnut blight, Dutch elm: devastated North American forests   |
 |                                                                  |
