@@ -1,29 +1,48 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:modern-synthetic
+kind: guide
+module: pigments
+section: pigments
+title: Modern Synthetic Pigments - Titanium White to Quantum Dots
+status: source-custody
+source_custody: partial
+current_path: pigments/09-MODERN-SYNTHETIC.md
+canonical_path: pigments/09-MODERN-SYNTHETIC.md
+backsource_ids: [proof-backfill:pigments:09-modern-synthetic, git-history:pigments:09-modern-synthetic]
+concepts: [modern, synthetic]
+root_concepts: [modern, synthetic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Synthetic Pigments — Titanium White to Quantum Dots
 
 ## The Big Picture
 
 ```
 +------------------------------------------------------------------+
-|              MODERN PIGMENT CHEMISTRY (1916–PRESENT)             |
+|              MODERN PIGMENT CHEMISTRY (1916-PRESENT)             |
 |                                                                  |
 |  THE KEY TRANSITIONS:                                            |
-|  +----------------+  +----------------+  +------------------+    |
+|  .----------------.  .----------------.  .------------------.    |
 |  | Titanium white  |  | Phthalocyanine  |  | Quinacridone,   |   |
-|  | (TiO₂, 1916)   |  | (1928/1936)     |  | dioxazine,      |   |
+|  | (TiO₂, 1916)   |  | (1928/1936)     |  | dioxazine,      |    |
 |  | Ends 2,000 yr   |  | Most lightfast  |  | isoindolinone   |   |
-|  | lead dominance  |  | organic blue    |  | (1935–1960s)    |   |
-|  +----------------+  +----------------+  +------------------+   |
-|                                                                 |
-|  MODERN FRONTIER:                                               |
-|  +------------------+  +------------------+                     |
+|  | lead dominance  |  | organic blue    |  | (1935-1960s)    |   |
+|  .----------------.  .----------------.  .------------------.    |
+|                                                                  |
+|  MODERN FRONTIER:                                                |
+|  .------------------.  .------------------.                      |
 |  | Quantum dots      |  | Carbon nanotube  |                     |
 |  | Size-tunable      |  | Vantablack       |                     |
 |  | semiconductor     |  | 99.965% absorption|                    |
 |  | nanocrystals      |  | Near-perfect black|                    |
-|  +------------------+  +------------------+                     |
-   |                                                              |
-   |  Performance trend: better lightfastness, lower toxicity,    |
-   |  higher tinting strength, more reproducible color            |
+|  .------------------.  .------------------.                      |
+|                                                                  |
+|   Performance trend: better lightfastness, lower toxicity,       |
+|   higher tinting strength, more reproducible color               |
 +------------------------------------------------------------------+
 ```
 
@@ -39,68 +58,68 @@ HISTORY:
         ilmenite ore (FeTiO₃) in Cornwall
   1795: Martin Heinrich Klaproth independently confirmed, named "titanium"
   1916: Commercial production of TiO₂ as pigment begins
-        (A. Fabriken, Norway + National Lead Co., USA — parallel development)
+        (A. Fabriken, Norway . National Lead Co., USA - parallel development)
   1920s: Rapid replacement of lead white in commercial paints
   1940s: Dominant white globally
-  Present: ~5 million metric tons/year produced — largest volume pigment
+  Present: ~5 million metric tons/year produced - largest volume pigment
 ```
 
 ### Optical Properties
 
 ```
 TiO₂ CRYSTAL FORMS:
-  Anatase: tetragonal, Eg = 3.2 eV (UV absorber) — less used for white
-  Rutile: tetragonal, Eg = 3.0 eV — preferred for white pigment
-  Brookite: orthorhombic, unstable — not used commercially
+  Anatase: tetragonal, Eg = 3.2 eV (UV absorber) - less used for white
+  Rutile: tetragonal, Eg = 3.0 eV - preferred for white pigment
+  Brookite: orthorhombic, unstable - not used commercially
 
 WHY RUTILE TiO₂ IS THE BEST WHITE:
-  Refractive index (RI): 2.70–2.73 (rutile) — highest of any white pigment
+  Refractive index (RI): 2.70-2.73 (rutile) - highest of any white pigment
   Compare: lead white 2.0, ZnO 2.0, BaSO₄ (blanc fixe) 1.65
 
   SCATTERING POWER from Mie theory:
   For sphere of diameter d in medium of RI n₀:
-  Scattering depends on (n/n₀)² × (particle size / λ)
-  → Higher n → more scattering → more opaque
+  Scattering depends on (n/n₀)² x (particle size / λ)
+  -> Higher n -> more scattering -> more opaque
 
   TiO₂ vs ZnO scattering power at optimal particle size (~0.2 μm):
-  TiO₂ scatters ~4× more light per unit mass than ZnO
-  → Need 4× less TiO₂ to achieve equivalent whiteness
+  TiO₂ scatters ~4x more light per unit mass than ZnO
+  -> Need 4x less TiO₂ to achieve equivalent whiteness
 
 OPTIMAL PARTICLE SIZE:
-  Maximum scattering at ~0.2–0.3 μm (Mie optimum for visible light)
+  Maximum scattering at ~0.2-0.3 μm (Mie optimum for visible light)
   Commercial TiO₂ production carefully controls particle size
-  → Explains why "not all TiO₂ is equal" — processing matters
+  -> Explains why "not all TiO₂ is equal" - processing matters
 ```
 
 ### Photocatalytic Activity Problem
 
 ```
 TiO₂ PHOTOCATALYSIS:
-  Anatase especially: UV absorption → electron-hole pairs
-  → Reactive oxygen species → oxidize organic molecules
-  → Can degrade binders, pigments, plasticizers over time
+  Anatase especially: UV absorption -> electron-hole pairs
+  -> Reactive oxygen species -> oxidize organic molecules
+  -> Can degrade binders, pigments, plasticizers over time
 
   IN PRACTICE:
-  Pure anatase in outdoor paint → chalking (degradation of binder)
-  → pigment particles at surface exposed
+  Pure anatase in outdoor paint -> chalking (degradation of binder)
+  -> pigment particles at surface exposed
   Fix: coating TiO₂ particles with amorphous SiO₂ or Al₂O₃ shell
-  → Inert shell prevents photocatalysis contact with organic matrix
+  -> Inert shell prevents photocatalysis contact with organic matrix
 
   ARTIST PAINT:
   Artist-grade TiO₂: treated/coated to minimize photocatalysis
   "Titanium white" for artists = surface-treated rutile
-  Some "lemon white" = anatase — brighter but less stable
+  Some "lemon white" = anatase - brighter but less stable
 
 SUNSCREEN CONTEXT:
   Nano-TiO₂ (<100 nm) in sunscreen: physical UV blocker
   Reflects/scatters UV rather than absorbing
-  Safety concern: nanoparticles penetrating skin → ROS generation
+  Safety concern: nanoparticles penetrating skin -> ROS generation
   At nanoscale: photocatalysis concern relevant
   EU CosIng: nano-TiO₂ allowed in sunscreen if not aerosolized (skin only)
 
 FOOD COLORING (E171):
   TiO₂ used as white food colorant (confectionery, icing, gum)
-  EU: restricted E171 in 2022 (precautionary — nanoparticle gut safety uncertain)
+  EU: restricted E171 in 2022 (precautionary - nanoparticle gut safety uncertain)
   US: FDA review ongoing
   Same compound; the form (particle size) determines risk
 ```
@@ -115,7 +134,7 @@ FOOD COLORING (E171):
 ACCIDENTAL DISCOVERY (1928):
   Scottish Dyes Ltd (Grangemouth, Scotland)
   Reaction vessel: iron vessel + phthalamide + ammonia
-  → Iron phthalocyanine precipitate → unusually intense, stable blue
+  -> Iron phthalocyanine precipitate -> unusually intense, stable blue
 
   Development:
   ICI (UK) assigned R.P. Linstead + A.R. Dandridge to characterize
@@ -135,26 +154,26 @@ ACCIDENTAL DISCOVERY (1928):
 EXTENDED π SYSTEM:
   Phthalocyanine = the largest stable aromatic system commonly used
   18 π electrons delocalized across the macrocycle
-  Absorption: intense band at ~670–700 nm (red region)
-  → Reflects blue-green intensely
+  Absorption: intense band at ~670-700 nm (red region)
+  -> Reflects blue-green intensely
 
 WHY SO STABLE:
-  Size of π system → very stable against UV photodegradation
-  Small molecules absorb UV → π system cleaves (homolytic bond breaking)
-  Large conjugated systems: energy delocalized → harder to cleave
+  Size of π system -> very stable against UV photodegradation
+  Small molecules absorb UV -> π system cleaves (homolytic bond breaking)
+  Large conjugated systems: energy delocalized -> harder to cleave
   Phthalocyanine absorbs visible (low energy) not UV (high energy)
-  → photons absorbed don't have enough energy to break bonds efficiently
+  -> photons absorbed don't have enough energy to break bonds efficiently
 
   Crystal structure also contributes: CuPc crystals are chemically inert
-  Insoluble in virtually all solvents → no dissolution/migration
-  ASTM Lightfastness I — will not measurably fade in museum conditions
+  Insoluble in virtually all solvents -> no dissolution/migration
+  ASTM Lightfastness I - will not measurably fade in museum conditions
 
 POLYMORPHISM:
   α-CuPc: unstable, reddish-blue (metastable form)
   β-CuPc: stable, greener blue (PB15:3, most used)
   ε-CuPc: red-shade blue (PB15:6, premium)
   τ-CuPc: reddish-blue (specialty)
-  Same molecular structure, different crystal packing → different color
+  Same molecular structure, different crystal packing -> different color
   Commercial "phthalo blue (red shade)" and "phthalo blue (green shade)"
   = different polymorphs of the same molecule
 ```
@@ -164,13 +183,13 @@ POLYMORPHISM:
 ```
 CHLORINATED PHTHALOCYANINES:
   Substitute chlorine atoms on the benzo groups:
-  PG7: 14–16 Cl atoms → blue-green (the common "phthalo green")
-  PG36: partial Br substitution → more yellow-green
+  PG7: 14-16 Cl atoms -> blue-green (the common "phthalo green")
+  PG36: partial Br substitution -> more yellow-green
 
   HOW CHLORINATION SHIFTS COLOR:
-  Chlorine = electron-withdrawing → lowers electron density → blueshifts absorption
-  → Absorbed wavelength shifts → perceived color shifts toward yellow-green
-  More Cl → more shift → yellower green possible
+  Chlorine = electron-withdrawing -> lowers electron density -> blueshifts absorption
+  -> Absorbed wavelength shifts -> perceived color shifts toward yellow-green
+  More Cl -> more shift -> yellower green possible
 
   APPLICATIONS:
   Replaced emerald green (arsenic) and viridian in most commercial paint
@@ -185,7 +204,7 @@ CHLORINATED PHTHALOCYANINES:
 ```
 SYNTHESIS:
   First synthesized: 1935 (Liebermann, Germany)
-  Recognized as pigment: 1955–1958 (DuPont patent 1958)
+  Recognized as pigment: 1955-1958 (DuPont patent 1958)
   Commercial introduction: Monastral Red (ICI) and Quindo Red (DuPont), ~1958
 
 STRUCTURE:
@@ -196,23 +215,23 @@ STRUCTURE:
 POLYMORPHISM (critical for color):
   α-quinacridone: orange-red (unstable, not commercial)
   β-quinacridone: scarlet-red (PR192)
-  γ-quinacridone: violet-red (PV19) — most stable, most used
-  Quinacridone magenta (dimethyl-): PR122 — true magenta
+  γ-quinacridone: violet-red (PV19) - most stable, most used
+  Quinacridone magenta (dimethyl-): PR122 - true magenta
 
   THE POLYMORPH INSIGHT:
-  Same molecular formula → different crystal packing
-  → Different molecular orbital interactions between stacked molecules
-  → Different effective HOMO-LUMO gap in solid state
-  → Different absorption wavelength → different color
+  Same molecular formula -> different crystal packing
+  -> Different molecular orbital interactions between stacked molecules
+  -> Different effective HOMO-LUMO gap in solid state
+  -> Different absorption wavelength -> different color
 
   This "solid-state color shift" is a quantum mechanical effect:
-  Intermolecular π-stacking in crystal → orbital mixing between molecules
-  → Affects electronic transitions → color depends on packing geometry
+  Intermolecular π-stacking in crystal -> orbital mixing between molecules
+  -> Affects electronic transitions -> color depends on packing geometry
 
 REPLACEMENT OF PREVIOUS REDS:
-  Alizarin crimson (ASTM II) → quinacridone rose/red (ASTM I)
-  Vermilion (unstable) → cadmium red, then quinacridone red
-  Madder lake → quinacridone
+  Alizarin crimson (ASTM II) -> quinacridone rose/red (ASTM I)
+  Vermilion (unstable) -> cadmium red, then quinacridone red
+  Madder lake -> quinacridone
 
   COMMERCIAL UBIQUITY:
   Quinacridone = the red/violet in most modern automotive "sparkle" paints
@@ -230,8 +249,8 @@ DIOXAZINE VIOLET: carbazole dioxazine
   Commercial: post-WWII
 
   STRUCTURE: Large aromatic + two dioxazine rings + carbazole
-  Extremely high molar absorptivity → very high tinting strength
-  Deep, dark violet — the strongest violet available
+  Extremely high molar absorptivity -> very high tinting strength
+  Deep, dark violet - the strongest violet available
 
   WARNING IN STUDIO:
   PV23 so powerful that tiny amounts shift mixtures dramatically
@@ -239,10 +258,10 @@ DIOXAZINE VIOLET: carbazole dioxazine
   "A little goes a very long way"
 
   ASTM Lightfastness I in oil; ASTM II in watercolor/acrylic
-  (Different binder environments → different stability)
+  (Different binder environments -> different stability)
 
   MODERN USE:
-  Mixed into neutrals and grays (phthalo blue + dioxazine = blue-gray)
+  Mixed into neutrals and grays (phthalo blue . dioxazine = blue-gray)
   Sky darks and shadow violets
   Mixing complement for yellows and oranges
 ```
@@ -257,18 +276,18 @@ HISTORICAL BLACKS (see 01-PREHISTORIC-EARTH.md):
 
 MODERN INDUSTRIAL CARBON BLACK:
   Furnace black: petroleum feedstock (natural gas or petroleum oil)
-                burned in controlled atmosphere → fine carbon particles
+                burned in controlled atmosphere -> fine carbon particles
   Channel black: older process; higher purity, small particle size
   Thermal black: larger particle, used in rubber
 
   PROPERTIES:
-  Particle size: 10–500 nm depending on type
+  Particle size: 10-500 nm depending on type
   Surface area: up to 1,500 m²/g (lampblack type)
   Color: neutral to slightly bluish black
   Tinting strength: very high (absorbs across entire visible spectrum)
 
   INDUSTRIAL USES:
-  Rubber: ~70% of carbon black production → tire reinforcement
+  Rubber: ~70% of carbon black production -> tire reinforcement
   Printing ink: carbon black in offset, gravure, flexo inks
   Toner: laser printer toner = carbon black + polymer
   Plastics pigmentation
@@ -287,9 +306,9 @@ MODERN INDUSTRIAL CARBON BLACK:
 
 ```
 DAYLIGHT FLUORESCENT PIGMENTS:
-  Absorb UV AND visible light → emit in visible → appear to "glow"
+  Absorb UV AND visible light -> emit in visible -> appear to "glow"
   The glow = emission added on top of reflection
-  → Apparent brightness can exceed 100% reflectance in specific bands
+  -> Apparent brightness can exceed 100% reflectance in specific bands
 
   FLUOROPHORE MOLECULES:
   Naphthalimides: yellow-green fluorescence
@@ -298,13 +317,13 @@ DAYLIGHT FLUORESCENT PIGMENTS:
   Perylenes: orange-red fluorescence
 
   LIMITATIONS:
-  Not lightfast — fluorophores photodegrade under UV exposure
-  ASTM rating: typically III–IV (poor for permanent use)
+  Not lightfast - fluorophores photodegrade under UV exposure
+  ASTM rating: typically III-IV (poor for permanent use)
   Applications:
-  → Safety clothing/vests (visibility, not permanence)
-  → Highlighter pens
-  → Emergency/warning signs (UV + visible both common)
-  → Short-term advertising
+  -> Safety clothing/vests (visibility, not permanence)
+  -> Highlighter pens
+  -> Emergency/warning signs (UV . visible both common)
+  -> Short-term advertising
 
   FLUORESCENT IN NATURE:
   Scorpions fluoresce blue-green under UV
@@ -328,13 +347,13 @@ THIN-FILM INTERFERENCE PIGMENTS:
   Same as soap bubble or oil film on water
   Light reflects from both surfaces of thin oxide coating
   Optical path difference = 2nt (n = RI, t = thickness)
-  Constructive interference when path difference = integer × λ
-  → Specific wavelengths selectively reinforced → iridescent color
+  Constructive interference when path difference = integer x λ
+  -> Specific wavelengths selectively reinforced -> iridescent color
   Angle-dependent: color shifts with viewing/illumination angle
 
   "FLIP-FLOP" PIGMENTS:
   Show dramatically different colors at different angles
-  Automotive "flip" paints: green at 0°, purple at 45°, bronze at 90°
+  Automotive "flip" paints: green at 0 deg, purple at 45 deg, bronze at 90 deg
   Used in: automotive finishes, cosmetics, security inks (banknotes),
            luxury packaging
 
@@ -351,31 +370,31 @@ THIN-FILM INTERFERENCE PIGMENTS:
 ```
 QUANTUM CONFINEMENT:
   Semiconductor nanocrystal (CdSe, InP, perovskite CsPbX₃)
-  Diameter: 2–10 nm (comparable to exciton Bohr radius)
+  Diameter: 2-10 nm (comparable to exciton Bohr radius)
 
   QUANTUM SIZE EFFECT:
   Normal semiconductor: band gap Eg fixed by material
   Nanocrystal: Eg increases as particle diameter decreases
   Because: quantum confinement raises energy of electron/hole states
-  → Smaller crystal → wider band gap → higher energy → shorter λ → bluer
-  → Larger crystal → narrower band gap → lower energy → longer λ → redder
+  -> Smaller crystal -> wider band gap -> higher energy -> shorter λ -> bluer
+  -> Larger crystal -> narrower band gap -> lower energy -> longer λ -> redder
 
-  SIZE → COLOR:
-  CdSe 2 nm → blue (~490 nm)
-  CdSe 3 nm → green (~520 nm)
-  CdSe 4.5 nm → yellow (~570 nm)
-  CdSe 6 nm → orange (~600 nm)
-  CdSe 8 nm → red (~640 nm)
-  All CdSe — just different sizes. Same material → all colors.
+  SIZE -> COLOR:
+  CdSe 2 nm -> blue (~490 nm)
+  CdSe 3 nm -> green (~520 nm)
+  CdSe 4.5 nm -> yellow (~570 nm)
+  CdSe 6 nm -> orange (~600 nm)
+  CdSe 8 nm -> red (~640 nm)
+  All CdSe - just different sizes. Same material -> all colors.
 
 NARROW EMISSION BANDWIDTH:
-  Quantum dots emit in narrow band (~20–30 nm FWHM vs broad LED phosphors)
-  → Highly saturated, spectrally pure colors
-  → Wider color gamut for displays
+  Quantum dots emit in narrow band (~20-30 nm FWHM vs broad LED phosphors)
+  -> Highly saturated, spectrally pure colors
+  -> Wider color gamut for displays
 
   QLED TVs: LCD backlight + quantum dot color filter
   The "Q" in QLED = quantum dots replacing conventional phosphors
-  → Better green/red gamut than conventional LED LCD
+  -> Better green/red gamut than conventional LED LCD
 
 CADMIUM-FREE ALTERNATIVES:
   InP (indium phosphide): less toxic than CdSe, similar properties
@@ -400,28 +419,28 @@ YInMn BLUE (Yttrium Indium Manganese oxide):
               for electronics applications; the vivid blue appeared unexpectedly
 
   COMPOSITION: YIn₁₋ₓMnₓO₃ (hexagonal crystal structure)
-  COLOR: intense blue (~420–450 nm absorbed range, reflects strongly ~450–700)
+  COLOR: intense blue (~420-450 nm absorbed range, reflects strongly ~450-700)
 
   WHY IT IS STRUCTURALLY INTERESTING:
   Mn⁴⁺ in an unusual trigonal bipyramidal coordination (not the standard
   octahedral that makes most Mn compounds brown/black)
   The geometry is enforced by the hexagonal YInO₃ host lattice
-  → Same Mn ion, unusual coordination → completely different color
+  -> Same Mn ion, unusual coordination -> completely different color
   This is crystal field theory operating at the structural level:
   the host lattice is the "ligand environment compiler"
 
   COMMERCIAL SIGNIFICANCE:
   Most stable vivid blue pigment currently available
   Excellent UV + heat stability (outdoor/industrial coatings applications)
-  No cobalt (cobalt is toxic + supply-chain constrained)
+  No cobalt (cobalt is toxic . supply-chain constrained)
   No copper (phthalocyanine degrades at very high T)
-  Infrared reflective → "cool roof" applications (reflects solar heat)
+  Infrared reflective -> "cool roof" applications (reflects solar heat)
   Licensed: Shepherd Color Company ("Mas Blue") and others
-  First new inorganic blue since cobalt blue (1802) — 207-year gap
+  First new inorganic blue since cobalt blue (1802) - 207-year gap
 
   THE GAP EXPLAINS THE SIGNIFICANCE:
   Organic blues (phthalocyanine, indanthrone): excellent lightfastness for
-  organic pigments but degrade above ~350°C
+  organic pigments but degrade above ~350 deg C
   Inorganic blues capable of surviving high-T industrial processes were
   limited to: cobalt blue (1802), cerulean (1805), ultramarine (1826)
   YInMn fills the gap for high-T, non-cobalt, vivid blue applications
@@ -433,10 +452,10 @@ YInMn BLUE (Yttrium Indium Manganese oxide):
 
 ```
 VANTABLACK:
-  Vertically Aligned Nano Tube Array — Black
+  Vertically Aligned Nano Tube Array - Black
   Carbon nanotube (CNT) forest grown on substrate
-  Light enters the gaps between nanotubes → multiple reflections
-  → Essentially all light absorbed before escape
+  Light enters the gaps between nanotubes -> multiple reflections
+  -> Essentially all light absorbed before escape
 
   ABSORPTION: 99.965% (original Vantablack, 2014)
   Surrey NanoSystems (UK)
@@ -445,19 +464,19 @@ VANTABLACK:
   MECHANISM:
   Not chromophore absorption but geometric: light trap
   Nanotube forest ~ 1-10 μm tall
-  Spacing between tubes: ~1 nm → light cannot reflect out
-  Any wavelength, any angle → absorption
+  Spacing between tubes: ~1 nm -> light cannot reflect out
+  Any wavelength, any angle -> absorption
 
   THE ANISH KAPOOR CONTROVERSY:
   Kapoor acquired exclusive license for Vantablack in art (2016)
-  Stuart Semple (artist) response: "The World's Pinkest Pink" — available
+  Stuart Semple (artist) response: "The World's Pinkest Pink" - available
   to all artists except "Anish Kapoor and all associates"
   Cultural debate: can one artist own the "blackest black"?
   Resolution: practical Vantablack (coating application) hard to use in art anyway;
   Musou Black (Kosen Industry, Japan, ~99.4%) became available to anyone
 
   PRACTICAL LIMITATIONS:
-  Cannot be applied by brush — requires vapor deposition onto substrate
+  Cannot be applied by brush - requires vapor deposition onto substrate
   Surface must be specially prepared
   Fragile (nanotubes bend/break)
   Cannot be mixed into paint

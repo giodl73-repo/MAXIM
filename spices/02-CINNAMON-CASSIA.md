@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:cinnamon-cassia
+kind: guide
+module: spices
+section: spices
+title: Cinnamon and Cassia - The Bark Spices
+status: source-custody
+source_custody: partial
+current_path: spices/02-CINNAMON-CASSIA.md
+canonical_path: spices/02-CINNAMON-CASSIA.md
+backsource_ids: [proof-backfill:spices:02-cinnamon-cassia, git-history:spices:02-cinnamon-cassia]
+concepts: [cinnamon, cassia]
+root_concepts: [cinnamon, cassia]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cinnamon & Cassia — The Bark Spices
 
 ## The Big Picture
@@ -15,7 +34,7 @@
 |  Thin, papery, tight scroll      Thick, single curl, rough bark  |
 |  Delicate, complex flavor        Strong, sweet, simpler flavor   |
 |  Low coumarin (~250 ppm)         High coumarin (~2,100 ppm)      |
-|  Higher price                    Lower price — dominates US mkt  |
+|  Higher price                    Lower price - dominates US mkt  |
 |                                                                  |
 |  What you think "cinnamon" smells like = cassia.                 |
 |  Ceylon has a subtler, more floral profile.                      |
@@ -32,7 +51,7 @@ Both are *Cinnamomum* (Lauraceae family). The spice is the **dried inner bark** 
 BARK HARVESTING PROCESS:
   +--------------------------------------------------+
   |                                                  |
-  | 1. Cut young branches (2–3 yr old, pencil thick) |
+  | 1. Cut young branches (2-3 yr old, pencil thick) |
   | 2. Scrape outer bark (rough, discarded)          |
   | 3. Peel inner bark in long strips                |
   | 4. Strips curl as they dry                       |
@@ -40,14 +59,14 @@ BARK HARVESTING PROCESS:
   | CEYLON RESULT:          CASSIA RESULT:           |
   | Multiple thin layers    Single thick curl        |
   | stack together          from one side only       |
-  | → tight cigar scroll    → loose "U" shape        |
+  | -> tight cigar     -> loose U shape              |
   | Like layers of paper    Like a single roll       |
   +--------------------------------------------------+
 
 Visual ID test:
   Tight multiple-layer scroll + tan/light brown = Ceylon
   Single thick curl + dark reddish-brown = cassia
-  Ground powder: cannot distinguish visually → need coumarin test
+  Ground powder: cannot distinguish visually -> need coumarin test
 ```
 
 ---
@@ -72,10 +91,10 @@ Visual ID test:
 ```
 CINNAMALDEHYDE (C9H8O):
   Trans-cinnamaldehyde = primary volatile in all species
-  Phenylpropanoid pathway: phenylalanine → cinnamic acid → cinnamaldehyde
+  Phenylpropanoid pathway: phenylalanine -> cinnamic acid -> cinnamaldehyde
 
   Receptor binding:
-  - TRPA1 agonist (chemical irritant receptor) → mild burning sensation
+  - TRPA1 agonist (chemical irritant receptor) -> mild burning sensation
   - Low-level antibacterial and antifungal properties
   - Inhibits NF-κB pathway (anti-inflammatory in cell studies)
   - Active ingredient in commercial cassia-based antimicrobial coatings
@@ -90,13 +109,13 @@ CINNAMALDEHYDE (C9H8O):
 COUMARIN (C9H6O2):
   Benzopyranone structure; natural secondary metabolite
   NOT the same as warfarin (4-hydroxycoumarin anticoagulant)
-    — common confusion, different class
+    - common confusion, different class
 
   CEYLON:      ~250 ppm (parts per million by dry weight)
-  CASSIA:      ~1,000–6,000 ppm depending on species/grade
+  CASSIA:      ~1,000-6,000 ppm depending on species/grade
 
   Toxicity:
-  - Hepatotoxic in rats (CYP2A6/2A13 metabolism → hepatotoxic metabolite)
+  - Hepatotoxic in rats (CYP2A6/2A13 metabolism -> hepatotoxic metabolite)
   - Human hepatotoxicity documented in case reports at supplement doses
   - European Food Safety Authority (EFSA) TDI: 0.1 mg/kg body weight/day
   - EU food regulations limit coumarin in foods using cassia
@@ -112,7 +131,7 @@ COUMARIN (C9H6O2):
 
 ```
 EUGENOL (phenylpropanoid, also in cloves/bay):
-  ~5–10% in Ceylon essential oil vs ~trace in cassia
+  ~5-10% in Ceylon essential oil vs ~trace in cassia
   Anesthetic + TRPV1 agonist
   Higher eugenol = more of Ceylon's complexity
   Lower eugenol in cassia = simpler, cassia-specific flavor
@@ -137,22 +156,22 @@ TIMELINE OF CEYLON CINNAMON MONOPOLY:
       Against Portuguese
 
 1658: Dutch seize Portuguese Ceylon
-      → VOC establishes strict cinnamon monopoly
-      → Cinnamon gardens (kurundu) under Dutch control
-      → Punishment for unauthorized cinnamon harvesting: DEATH
-      → VOC employed Salagama caste as hereditary peelers
-      → Required to produce fixed annual quantity
+      -> VOC establishes strict cinnamon monopoly
+      -> Cinnamon gardens (kurundu) under Dutch control
+      -> Punishment for unauthorized cinnamon harvesting: DEATH
+      -> VOC employed Salagama caste as hereditary peelers
+      -> Required to produce fixed annual quantity
 
 1796: British take Ceylon from Dutch (Napoleonic Wars)
-      → British EIC — less focus on cinnamon monopoly
-      → Cassia from China/Indonesia already flooding markets
-      → Ceylon cinnamon monopoly effectively over
+      -> British EIC - less focus on cinnamon monopoly
+      -> Cassia from China/Indonesia already flooding markets
+      -> Ceylon cinnamon monopoly effectively over
 
-1833: Ceylon crown colony — cinnamon becomes one crop among many
+1833: Ceylon crown colony - cinnamon becomes one crop among many
       Subsequent replacement by tea as primary export
 
-Present: Sri Lanka still produces ~85–90% of world's Ceylon cinnamon
-         Premium PDO product, price 5–10× cassia
+Present: Sri Lanka still produces ~85-90% of world's Ceylon cinnamon
+         Premium PDO product, price 5-10x cassia
 ```
 
 ---
@@ -164,9 +183,9 @@ The ancient world had cinnamon but couldn't explain where it came from:
 ```
 HISTORICAL MYSTERY:
   Cinnamon mentioned in:
-  - Chinese writing (2700 BCE) → clearly cassia from China
-  - Egyptian embalming (1400s BCE) → which species?
-  - Hebrew Bible (Exodus, Song of Songs) → 'qinnamon'
+  - Chinese writing (2700 BCE) -> clearly cassia from China
+  - Egyptian embalming (1400s BCE) -> which species?
+  - Hebrew Bible (Exodus, Song of Songs) -> 'qinnamon'
   - Ancient Greek/Roman texts
 
   The puzzle:
@@ -178,7 +197,7 @@ HISTORICAL MYSTERY:
   "Cinnamon was carried by giant birds to build their nests.
    Collectors frightened the birds with heavy weights,
    causing nests to fall."
-  → A propaganda story invented to keep competitors away
+  -> A propaganda story invented to keep competitors away
 
   Modern scholarship:
   Ancient "cinnamon" probably = East African/Arabian cassia species
@@ -191,26 +210,26 @@ HISTORICAL MYSTERY:
 ## Culinary Geography
 
 ```
-REGION → PREFERRED "CINNAMON" TYPE:
+REGION -> PREFERRED "CINNAMON" TYPE:
 
   Mexico / Latin America:  Ceylon (C. verum)
-    → Mexican hot chocolate, churros, rice pudding
-    → Cultural connection from colonial Spanish import routes
+    -> Mexican hot chocolate, churros, rice pudding
+    -> Cultural connection from colonial Spanish import routes
 
   North America (US/Canada): Cassia (C. burmannii or loureiroi)
-    → "Cinnamon" = what you grew up with = cassia
-    → Apple pie, oatmeal, cereal marketing flavor profile
+    -> "Cinnamon" = what you grew up with = cassia
+    -> Apple pie, oatmeal, cereal marketing flavor profile
 
   United Kingdom: Ceylon traditionally preferred
-    → Commonwealth connection to Sri Lanka
+    -> Commonwealth connection to Sri Lanka
 
   Sri Lanka / India: Both, by use case
 
-  China: Cassia (C. cassia) — indigenous crop
-    → Five Spice Powder uses cassia
+  China: Cassia (C. cassia) - indigenous crop
+    -> Five Spice Powder uses cassia
 
   The irony: The "true" version is actually the regional variant
-  for most US consumers — cassia is what they know as "cinnamon"
+  for most US consumers - cassia is what they know as "cinnamon"
 ```
 
 ---

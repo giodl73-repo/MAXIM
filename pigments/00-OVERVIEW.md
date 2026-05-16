@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:overview
+kind: guide
+module: pigments
+section: pigments
+title: Pigments - Overview: Color, Chemistry, and the History of Paint
+status: source-custody
+source_custody: partial
+current_path: pigments/00-OVERVIEW.md
+canonical_path: pigments/00-OVERVIEW.md
+backsource_ids: [proof-backfill:pigments:00-overview, git-history:pigments:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pigments — Overview: Color, Chemistry, and the History of Paint
 
 ## The Big Picture
@@ -9,49 +28,49 @@ GUIDE SERIES MAP: PIGMENTS VOLUME
 PREHISTORIC / NATURAL MINERALS          SYNTHETIC ERA                  MODERN / INDUSTRIAL
 ────────────────────────────────        ────────────────────────────   ─────────────────────
 01-PREHISTORIC                          07-PRUSSIAN-BLUE-ERA           09-MODERN-SYNTHETIC
-  Ochre, charcoal, Blombos Cave           1704 accident → 18th-19th c.   Azo, phthalocyanine,
+  Ochre, charcoal, Blombos Cave           1704 accident -> 18th-19th c.   Azo, phthalocyanine,
   (physics: Fe₂O₃ d-d transitions)        synthetic revolution            quinacridone, quantum dots
 
 02-ANCIENT-SYNTHETIC                    08-IMPRESSIONIST-REVOLUTION    10-CONSERVATION
   Egyptian blue, lead white,              Tube paint (1841) + synthetic   Pigment stability,
-  malachite, azurite, verdigris           ultramarine → plein air         analytical methods,
+  malachite, azurite, verdigris           ultramarine -> plein air         analytical methods,
   (first manufactured pigments)           painting, new palette            fading case studies
 
 03-PURPLE-RED-LUXURY                    CROSS-CUTTING THEMES
   Tyrian purple, cochineal, kermes       ─────────────────────────────────────────────────────
-  (biology → chemistry → power)          04-BLUE-RARITY:  lapis, smalt, ultramarine, Prussian blue
+  (biology -> chemistry -> power)          04-BLUE-RARITY:  lapis, smalt, ultramarine, Prussian blue
                                           05-EARTH-PIGMENTS: ochres, umbers, siennas
-06-ORGANIC-DYES-MORDANTS                 (mineral color → industrial scale → synthetic replacement)
+06-ORGANIC-DYES-MORDANTS                 (mineral color -> industrial scale -> synthetic replacement)
   Indigo, madder, weld, mordant
   chemistry (textiles + lakes)
 
-PROGRESSION: natural scarcity → synthetic abundance → industrial chemistry → conservation concern
-PHYSICS THREAD: d-d transitions → charge transfer → π→π* → band gap → quantum confinement
+PROGRESSION: natural scarcity -> synthetic abundance -> industrial chemistry -> conservation concern
+PHYSICS THREAD: d-d transitions -> charge transfer -> π->π* -> band gap -> quantum confinement
 ```
 
 ```
 +------------------------------------------------------------------+
-|              THE PIGMENT WORLD: PHYSICS → HISTORY → ART          |
+|              THE PIGMENT WORLD: PHYSICS -> HISTORY -> ART        |
 |                                                                  |
 |  WHY OBJECTS HAVE COLOR                                          |
-|  +------------------+  +------------------+  +----------------+  |
-|  | Selective        |  | Charge transfer  |  | Band gap       | |
-|  | absorption       |  | (lapis lazuli,   |  | semiconductors | |
-|  | (d-d transitions)|  | Prussian blue)   |  | (CdS yellow,   | |
-|  | Chromophore      |  | Intense color,   |  | CdSe red)      | |
-|  | absorbs part of  |  | high extinction  |  | Quantum dot    | |
-|  | visible spectrum |  | coefficient      |  | size-tunable   | |
-|  +------------------+  +------------------+  +----------------+ |
-|  +------------------+  +------------------+                     |
-|  | π→π* transitions |  | Structural color |                     |
-|  | (organic dyes,   |  | (thin-film       |                     |
-|  | phthalocyanine)  |  | interference,    |                     |
-|  | Conjugated π     |  | photonic crystal)|                     |
-|  | HOMO-LUMO gap    |  | No absorption;   |                     |
-|  |                  |  | wavelength select|                     |
-|  +------------------+  +------------------+                     |
+|  .------------------.  .------------------.  .----------------.  |
+|  | Selective        |  | Charge transfer  |  | Band gap       |  |
+|  | absorption       |  | (lapis lazuli,   |  | semiconductors |  |
+|  | (d-d transitions)|  | Prussian blue)   |  | (CdS yellow,   |  |
+|  | Chromophore      |  | Intense color,   |  | CdSe red)      |  |
+|  | absorbs part of  |  | high extinction  |  | Quantum dot    |  |
+|  | visible spectrum |  | coefficient      |  | size-tunable   |  |
+|  .------------------.  .------------------.  .----------------.  |
+|  .------------------.  .------------------.                      |
+|  | π->π* transitions |  | Structural color |                     |
+|  | (organic dyes,   |  | (thin-film       |                      |
+|  | phthalocyanine)  |  | interference,    |                      |
+|  | Conjugated π     |  | photonic crystal)|                      |
+|  | HOMO-LUMO gap    |  | No absorption;   |                      |
+|  |                  |  | wavelength select|                      |
+|  .------------------.  .------------------.                      |
 |                                                                  |
-|  TIMELINE: ~100,000 BCE (ochre) → 2020s (quantum dots)          |
+|  TIMELINE: ~100,000 BCE (ochre) -> 2020s (quantum dots)          |
 +------------------------------------------------------------------+
 ```
 
@@ -61,7 +80,7 @@ PHYSICS THREAD: d-d transitions → charge transfer → π→π* → band gap �
 
 ```
 PIGMENT                          DYE
-+----------------------------+   +----------------------------+
+.----------------------------.   .----------------------------.
 | Insoluble colored particle |   | Soluble colored molecule   |
 | Dispersed in binder medium |   | Dissolved in solution      |
 | Stays as a particle        |   | Bonds to substrate         |
@@ -72,14 +91,14 @@ PIGMENT                          DYE
 | lead white                 |   | alizarin (direct)          |
 | phthalocyanine blue        |   | carminic acid (mordant)    |
 | titanium white             |   | methylene blue             |
-+----------------------------+   +----------------------------+
+.----------------------------.   .----------------------------.
 
 LAKE PIGMENT = bridge between them:
   Organic dye precipitated onto inorganic substrate (Al(OH)₃)
-  → Makes soluble dye into insoluble pigment
-  Process: dye solution + alum → co-precipitate → filter → dry
+  -> Makes soluble dye into insoluble pigment
+  Process: dye solution . alum -> co-precipitate -> filter -> dry
   Examples: carmine lake (cochineal), rose madder, alizarin crimson
-  Challenge: organic chromophore still photodegrades → fugitive
+  Challenge: organic chromophore still photodegrades -> fugitive
 ```
 
 ---
@@ -91,26 +110,26 @@ LAKE PIGMENT = bridge between them:
 ```
 CRYSTAL FIELD THEORY SUMMARY:
   Transition metal ion (Fe²⁺, Fe³⁺, Cu²⁺, Co²⁺) surrounded by ligands
-  → Ligands split d-orbital energies into two groups
-  → Electron absorption = transition between d-orbital sets
-  → Energy of transition = wavelength of absorbed light = visible
+  -> Ligands split d-orbital energies into two groups
+  -> Electron absorption = transition between d-orbital sets
+  -> Energy of transition = wavelength of absorbed light = visible
 
   EXAMPLES:
   Iron(III) oxide (hematite): Fe³⁺ in octahedral O²⁻ ligand field
-    d-d transition + charge transfer → absorbs blue/green → reflects red
-    → Red ochre
+    d-d transition . charge transfer -> absorbs blue/green -> reflects red
+    -> Red ochre
 
   Copper(II) carbonate (malachite): Cu²⁺ in distorted octahedral
-    d-d transition → absorbs red → reflects green
-    → Malachite green
+    d-d transition -> absorbs red -> reflects green
+    -> Malachite green
 
   Cobalt aluminate (cobalt blue): Co²⁺ in tetrahedral Al³⁺ spinel
-    d-d transition → absorbs red-orange → reflects blue
-    → Cobalt blue
+    d-d transition -> absorbs red-orange -> reflects blue
+    -> Cobalt blue
 
   SPECTROCHEMICAL SERIES influences color:
   Ligand field strength determines absorption energy
-  Same metal, different ligands → different color
+  Same metal, different ligands -> different color
   Cr³⁺ in oxide = dark green; Cr³⁺ in chromate = intense yellow/orange
 ```
 
@@ -119,17 +138,17 @@ CRYSTAL FIELD THEORY SUMMARY:
 ```
 CHARGE TRANSFER TRANSITIONS:
   Electron transferred between adjacent ions (not within one ion)
-  → Much higher extinction coefficients than d-d
-  → More intense colors
+  -> Much higher extinction coefficients than d-d
+  -> More intense colors
 
   PRUSSIAN BLUE:
   Fe²⁺-CN-Fe³⁺ bridged framework
-  Intervalence charge transfer: Fe²⁺ → Fe³⁺ through CN bridge
-  Absorbs: orange-red → reflects blue (high intensity)
+  Intervalence charge transfer: Fe²⁺ -> Fe³⁺ through CN bridge
+  Absorbs: orange-red -> reflects blue (high intensity)
 
   LAPIS LAZULI / ULTRAMARINE:
   S₃⁻ radical anion trapped in aluminosilicate zeolite cage
-  Charge transfer within S₃⁻ unit → absorbs orange-red → blue
+  Charge transfer within S₃⁻ unit -> absorbs orange-red -> blue
   Explains unusually high extinction coefficient for a "mineral"
 ```
 
@@ -137,21 +156,21 @@ CHARGE TRANSFER TRANSITIONS:
 
 ```
 EXTENDED π CONJUGATION:
-  Alternating single-double bonds in organic molecule → delocalized π electrons
+  Alternating single-double bonds in organic molecule -> delocalized π electrons
   HOMO-LUMO gap determines absorption wavelength:
-    More conjugation → smaller HOMO-LUMO gap → longer λ absorbed → redder
+    More conjugation -> smaller HOMO-LUMO gap -> longer λ absorbed -> redder
 
   EXAMPLES:
   Indigo (two indole units linked):
-    Absorbs ~610 nm (orange-red) → reflects blue/violet
+    Absorbs ~610 nm (orange-red) -> reflects blue/violet
 
   Phthalocyanine (18-π-electron porphyrin-like):
-    Absorbs ~700 nm (red) → reflects blue-green
-    VERY large conjugated system → exceptionally stable
+    Absorbs ~700 nm (red) -> reflects blue-green
+    VERY large conjugated system -> exceptionally stable
 
   Curcumin (turmeric, diferuloylmethane):
     Two phenyl rings linked by conjugated heptadiene
-    Absorbs ~430 nm (violet-blue) → reflects yellow
+    Absorbs ~430 nm (violet-blue) -> reflects yellow
 
   Rule: RED group of compound = absorbs violet/blue
         BLUE group = absorbs orange/red
@@ -163,21 +182,21 @@ EXTENDED π CONJUGATION:
 ```
 SEMICONDUCTOR COLOR:
   Inorganic semiconductors absorb photons with E ≥ band gap energy
-  E = hν = hc/λ; if band gap in visible range → color
+  E = hν = hc/λ; if band gap in visible range -> color
 
-  CdS: Eg = 2.42 eV → λ_edge = 513 nm → absorbs violet/blue → YELLOW
-  CdSe: Eg = 1.74 eV → λ_edge = 713 nm → absorbs visible entire range → RED
-  CdS₁₋ₓSeₓ: continuous tuning yellow→orange→red with x
+  CdS: Eg = 2.42 eV -> λ_edge = 513 nm -> absorbs violet/blue -> YELLOW
+  CdSe: Eg = 1.74 eV -> λ_edge = 713 nm -> absorbs visible entire range -> RED
+  CdS₁₋ₓSeₓ: continuous tuning yellow->orange->red with x
 
   Lead chromate (PbCrO₄):
-    Cr⁶⁺-based semiconductor band gap in visible range → yellow/orange
-    Van Gogh's chrome yellow → photoreduction changes band gap → green/brown
+    Cr⁶⁺-based semiconductor band gap in visible range -> yellow/orange
+    Van Gogh's chrome yellow -> photoreduction changes band gap -> green/brown
 
   QUANTUM DOTS (modern):
     Quantum confinement: nanocrystals smaller than Bohr radius
-    → band gap INCREASES as particle SHRINKS
-    Same material (CdSe) → all colors by size tuning
-    CdSe 2nm → blue; 4nm → green; 6nm → red
+    -> band gap INCREASES as particle SHRINKS
+    Same material (CdSe) -> all colors by size tuning
+    CdSe 2nm -> blue; 4nm -> green; 6nm -> red
 ```
 
 ---
@@ -188,7 +207,7 @@ SEMICONDUCTOR COLOR:
 ~100,000 BCE: Ochre workshop, Blombos Cave (S. Africa)
               Earliest evidence of deliberate pigment use
 
-~40,000 BCE:  Cave paintings — Chauvet, Altamira, Lascaux
+~40,000 BCE:  Cave paintings - Chauvet, Altamira, Lascaux
               Palette: ochre, manganese dioxide, charcoal
 
 ~5,000 BCE:   Lapis lazuli trade from Badakhshan, Afghanistan
@@ -204,20 +223,20 @@ SEMICONDUCTOR COLOR:
 
 ~100 CE:      Vermilion (synthetic mercury sulfide) at Pompeii
 
-~1200–1500:   Ultramarine (from lapis lazuli) peak use in Europe
-              Most expensive pigment — more valuable than gold
+~1200-1500:   Ultramarine (from lapis lazuli) peak use in Europe
+              Most expensive pigment - more valuable than gold
 
 1704:         Prussian blue (accidental discovery, Berlin)
               First modern synthetic pigment
 
 1826:         Synthetic ultramarine (Guimet + Gmelin, simultaneously)
-              Price drops 1000× — blue democratized
+              Price drops 1000x - blue democratized
 
 1841:         Tube paint (John G. Rand)
-              Enables plein air painting → Impressionism
+              Enables plein air painting -> Impressionism
 
 1856:         Mauveine (William Perkin, accidental)
-              First synthetic dye from coal tar → synthetic color industry
+              First synthetic dye from coal tar -> synthetic color industry
 
 1869:         Synthetic alizarin (Perkin + Graebe/Liebermann, simultaneous)
               Destroys natural madder agriculture
@@ -225,7 +244,7 @@ SEMICONDUCTOR COLOR:
 1897:         Industrial synthetic indigo (BASF)
               Destroys natural indigo agriculture
 
-1916:         Titanium white (TiO₂) — commercial production
+1916:         Titanium white (TiO₂) - commercial production
               Ends 2,000 years of lead white dominance
 
 1928/1936:    Phthalocyanine blue discovered/developed
@@ -244,33 +263,33 @@ SEMICONDUCTOR COLOR:
 
 ```
 BINDER               DRYING MECHANISM           PROPERTIES
-+-----------------+  +-------------------+       +------------------+
-| Linseed oil     |  | Oxidative polymer | →     | Rich, transparent|
+.-----------------.  .-------------------.       .------------------.
+| Linseed oil     |  | Oxidative polymer | ->     | Rich, transparent|
 | (flaxseed)      |  | ization           |       | film. Slow dry.  |
 |                 |  | (absorbs O₂)      |       | Yellows slightly.|
-+-----------------+  +-------------------+       +------------------+
-| Egg tempera     |  | Protein matrix    | →     | Fast dry, brittle|
+.-----------------.  .-------------------.       .------------------.
+| Egg tempera     |  | Protein matrix    | ->     | Fast dry, brittle|
 | (whole egg/yolk)|  | Bonds to surface  |       | Medieval panels  |
-+-----------------+  +-------------------+       +------------------+
-| Gum arabic      |  | Evaporation       | →     | Watercolor.      |
+.-----------------.  .-------------------.       .------------------.
+| Gum arabic      |  | Evaporation       | ->     | Watercolor.      |
 |                 |  | (no film former)  |       | Re-wettable.     |
-+-----------------+  +-------------------+       +------------------+
-| Acrylic polymer |  | Evaporation       | →     | Fast, flexible,  |
+.-----------------.  .-------------------.       .------------------.
+| Acrylic polymer |  | Evaporation       | ->     | Fast, flexible,  |
 |                 |  | coalescence       |       | water cleanup    |
-+-----------------+  +-------------------+       +------------------+
-| Lime (fresco)   |  | Carbonation       | →     | Pigment embedded |
+.-----------------.  .-------------------.       .------------------.
+| Lime (fresco)   |  | Carbonation       | ->     | Pigment embedded |
 |                 |  | Ca(OH)₂ + CO₂    |       | in stone matrix.  |
-|                 |  | → CaCO₃          |       | Extremely durable |
-+-----------------+  +-------------------+       +------------------+
-| Beeswax         |  | Cooling/          | →     | Encaustic.       |
+|                 |  | -> CaCO₃          |       | Extremely durable |
+.-----------------.  .-------------------.       .------------------.
+| Beeswax         |  | Cooling/          | ->     | Encaustic.       |
 | (encaustic)     |  | solidification    |       | Ancient Greek.   |
-+-----------------+  +-------------------+       +------------------+
+.-----------------.  .-------------------.       .------------------.
 
 WHY BINDER MATTERS:
   Oil increases saturation and transparency (refractive index match)
   Same pigment in oil vs tempera vs watercolor = different appearance
   "Linseed oil ground lead white" = standard historical preparation
-  Pigment particle spacing in binder affects scattering → opacity/transparency
+  Pigment particle spacing in binder affects scattering -> opacity/transparency
 ```
 
 ---
@@ -285,26 +304,26 @@ CFT AS COLOR COMPILER:
   PROCESS: ligand field splits d-orbital energies into two groups (eg, t2g)
            electron absorbs photon exactly equal to the splitting energy Δ
            absorbed wavelength = complement of perceived color
-  OUTPUT: predicted absorption wavelength → predicted hue
+  OUTPUT: predicted absorption wavelength -> predicted hue
 
   THE COMPILER TABLE (same metal, different ligand field):
-  Cr³⁺ in octahedral oxide field (ruby)  → absorbs blue + red  → RED
-  Cr³⁺ in chromate tetrahedral (CrO₄²⁻) → large Δ shift       → YELLOW-ORANGE
-  Co²⁺ in tetrahedral spinel (cobalt blue) → absorbs orange-red → BLUE
-  Fe³⁺ in hematite + charge transfer      → absorbs green-blue  → RED
-  Cu²⁺ in distorted octahedral (malachite) → absorbs red        → GREEN
+  Cr³⁺ in octahedral oxide field (ruby)  -> absorbs blue . red  -> RED
+  Cr³⁺ in chromate tetrahedral (CrO₄²⁻) -> large Δ shift       -> YELLOW-ORANGE
+  Co²⁺ in tetrahedral spinel (cobalt blue) -> absorbs orange-red -> BLUE
+  Fe³⁺ in hematite . charge transfer      -> absorbs green-blue  -> RED
+  Cu²⁺ in distorted octahedral (malachite) -> absorbs red        -> GREEN
 
 WHY THIS IS THE "COMPILER" ANALOGY:
   The physical mineral is the source code.
   CFT is the interpreter/compiler.
   The perceived color is the runtime output.
   Same source language (Cr³⁺), different compile target (different ligand
-  geometry) → completely different output (red vs yellow). Exactly like the
+  geometry) -> completely different output (red vs yellow). Exactly like the
   same algorithm producing different results under different execution contexts.
 
   Conservation scientists reverse-engineer this: spectroscopic measurement
-  of absorption spectrum → infer oxidation state + coordination geometry
-  → identify the pigment non-destructively. Decompiling from output.
+  of absorption spectrum -> infer oxidation state . coordination geometry
+  -> identify the pigment non-destructively. Decompiling from output.
 ```
 
 ## Decision Cheat Sheet

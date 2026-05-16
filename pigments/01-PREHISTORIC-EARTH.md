@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:prehistoric-earth
+kind: guide
+module: pigments
+section: pigments
+title: Prehistoric and Earth Pigments - Ochre to Umber
+status: source-custody
+source_custody: partial
+current_path: pigments/01-PREHISTORIC-EARTH.md
+canonical_path: pigments/01-PREHISTORIC-EARTH.md
+backsource_ids: [proof-backfill:pigments:01-prehistoric-earth, git-history:pigments:01-prehistoric-earth]
+concepts: [prehistoric, earth]
+root_concepts: [prehistoric, earth]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Prehistoric & Earth Pigments — Ochre to Umber
 
 ## The Big Picture
@@ -8,8 +27,8 @@
 |                                                                  |
 |  All major earth pigments = iron oxides / iron hydroxides        |
 |  Iron = 4th most abundant element in Earth's crust (~5%)         |
-|  → Ochre/sienna/umber available on every continent               |
-|  → Explains universal independent use in prehistoric art         |
+|  -> Ochre/sienna/umber available on every continent              |
+|  -> Explains universal independent use in prehistoric art        |
 |                                                                  |
 |  IRON OXIDE FORM -> COLOR                                        |
 |                                                                  |
@@ -31,19 +50,19 @@
 
 ```
 LOCATION: Blombos Cave, Western Cape, South Africa
-DATE: ~75,000–100,000 BCE (contested, some evidence ~160,000 BCE)
+DATE: ~75,000-100,000 BCE (contested, some evidence ~160,000 BCE)
 SIGNIFICANCE: Earliest documented deliberate pigment processing
 
 WHAT WAS FOUND:
   Ochre cakes with engraved geometric cross-hatch patterns
   Two abalone shells used as mixing containers (palettes)
   Contents of shells:
-  - Ochre (hematite + goethite)
+  - Ochre (hematite . goethite)
   - Charcoal (bone charcoal identified)
   - Bone powder
   - Animal fat (binder)
   - Seal bone used as a stirring tool
-  → A complete PAINT RECIPE, 100,000 years old
+  -> A complete PAINT RECIPE, 100,000 years old
 
 WHY THIS MATTERS:
   This is not accidental ochre use
@@ -52,7 +71,7 @@ WHY THIS MATTERS:
   Earlier finds: ochre fragments at Pinnacle Point (~164,000 BCE)
                  Ochre at Klein Kliphuis (~130,000 BCE)
   Pattern: consistent use of red ochre predates symbolic behavior by millennia
-           → ochre may be world's oldest technology
+           -> ochre may be world's oldest technology
 ```
 
 ---
@@ -63,42 +82,42 @@ WHY THIS MATTERS:
 
 ```
 DEHYDRATION REACTION:
-  2FeO(OH) → Fe₂O₃ + H₂O
+  2FeO(OH) -> Fe₂O₃ . H₂O
   Goethite     Hematite
 
-  Temperature: ~200–260°C → yellow transforms to red
+  Temperature: ~200-260 deg C -> yellow transforms to red
   Pre-human occurrence: natural bush fires convert natural deposits
   Human use: deliberate heating documented at multiple prehistoric sites
 
   PRACTICAL SIGNIFICANCE:
   This means: heat is a MANUFACTURING PROCESS
-  Prehistoric people controlled fire → controlled pigment production
-  → Yellow ochre is a raw material that BECOMES red ochre
-  → First example of chemical synthesis by humans
+  Prehistoric people controlled fire -> controlled pigment production
+  -> Yellow ochre is a raw material that BECOMES red ochre
+  -> First example of chemical synthesis by humans
 
 COLOR RANGE by particle size + mixture:
-  Pure fine hematite → bright red
-  Coarser hematite + clay → orange-red, brick-red
-  Goethite dominant → yellow-ochre
-  Goethite + limonite → golden-yellow, buff
-  Mixed iron oxides + manganese → brown
+  Pure fine hematite -> bright red
+  Coarser hematite . clay -> orange-red, brick-red
+  Goethite dominant -> yellow-ochre
+  Goethite . limonite -> golden-yellow, buff
+  Mixed iron oxides . manganese -> brown
 ```
 
 ### Raw Sienna and Burnt Sienna
 
 ```
-SIENNA (named after Siena, Italy — but found globally):
+SIENNA (named after Siena, Italy - but found globally):
   Raw sienna: limonite (amorphous iron hydroxide) + small manganese +
              clay minerals; soft yellow-brown; moderately transparent
 
-  Burnt sienna: raw sienna heated → limonite → hematite
+  Burnt sienna: raw sienna heated -> limonite -> hematite
                Deep reddish-brown; warm, transparent;
                Among the most useful pigment in oil painting:
                transparent warm brown with excellent glazing quality
 
   WHY STILL VALUED IN OIL PAINTING:
-  Transparency in oil medium → glazing potential
-  Warm undertone → flesh rendering
+  Transparency in oil medium -> glazing potential
+  Warm undertone -> flesh rendering
   Long history of documented permanence
   ASTM Lightfastness I
   Still part of every serious oil painter's palette
@@ -112,8 +131,8 @@ HISTORICAL USE:
 ### Raw Umber and Burnt Umber
 
 ```
-UMBER (from Umbria, Italy — but found in Cyprus, Turkey, globally):
-  Composition: iron oxides + 5–20% manganese dioxide + clay + silica
+UMBER (from Umbria, Italy - but found in Cyprus, Turkey, globally):
+  Composition: iron oxides . 5-20% manganese dioxide . clay . silica
   The manganese content is key to its distinctive character
 
   RAW UMBER:
@@ -121,18 +140,18 @@ UMBER (from Umbria, Italy — but found in Cyprus, Turkey, globally):
   Manganese gives: slightly greenish cast + faster drying
 
   BURNT UMBER:
-  Raw umber calcined → manganese dioxide → Mn₃O₄
-  → richer, warmer, darker brown; even faster drying
+  Raw umber calcined -> manganese dioxide -> Mn₃O₄
+  -> richer, warmer, darker brown; even faster drying
 
   MANGANESE AS SICCATIVE (drying accelerant):
   Manganese catalyzes oxidative polymerization of linseed oil
-  → umbers dry FAST in oil
-  → "dead layer" (grisaille underpainting in umber) dries in 1–2 days
-  → glazing on top can proceed quickly
-  → WHY Rembrandt's technique worked: fast umber underpaint + slow glaze layers
+  -> umbers dry FAST in oil
+  -> "dead layer" (grisaille underpainting in umber) dries in 1-2 days
+  -> glazing on top can proceed quickly
+  -> WHY Rembrandt's technique worked: fast umber underpaint . slow glaze layers
 
   Fat-over-lean rule:
-  Each layer needs MORE oil than layer below → must dry before next
+  Each layer needs MORE oil than layer below -> must dry before next
   Umber's fast-drying = useful base layer
 ```
 
@@ -167,9 +186,9 @@ CARBON BLACK FAMILY:
 
 CHARCOAL (willow, vine, lamp black):
   Incompletely burned organic material
-  Variable particle size → variable density/tone
-  Vine black: burned grape vines → bluish undertone
-  Lamp black: collected soot from oil/resin combustion → bluish-black
+  Variable particle size -> variable density/tone
+  Vine black: burned grape vines -> bluish undertone
+  Lamp black: collected soot from oil/resin combustion -> bluish-black
   Bone black / ivory black: see below
 
 BONE BLACK (ivory black):
@@ -183,7 +202,7 @@ BONE BLACK (ivory black):
 WHY NOT JUST USE CARBON FOR BLACK?
   Pure carbon (lamp black): VERY SLOW DRYING in oil
     (absorbs oil, inhibits polymerization)
-  Bone black: phosphate matrix improves oil absorption → better drying
+  Bone black: phosphate matrix improves oil absorption -> better drying
   Vine/willow charcoal: used for drawing (fragile, removable)
                         less suitable as painting pigment
 ```
@@ -194,10 +213,10 @@ WHY NOT JUST USE CARBON FOR BLACK?
 
 ```
 MAJOR SITES AND DATES:
-  Chauvet Cave (Ardèche, France): ~36,000 BCE — oldest confirmed representational art
-  El Castillo Cave (Spain): ~40,800 BCE — oldest hand stencils
-  Altamira Cave (Spain): ~36,000–14,000 BCE — polychrome bison
-  Lascaux Cave (Dordogne): ~17,000 BCE — most famous; ~2,000 images
+  Chauvet Cave (Ardèche, France): ~36,000 BCE - oldest confirmed representational art
+  El Castillo Cave (Spain): ~40,800 BCE - oldest hand stencils
+  Altamira Cave (Spain): ~36,000-14,000 BCE - polychrome bison
+  Lascaux Cave (Dordogne): ~17,000 BCE - most famous; ~2,000 images
 
 PIGMENT APPLICATION TECHNIQUES:
   +--------------------------------------------------+
@@ -212,27 +231,27 @@ PIGMENT APPLICATION TECHNIQUES:
   | Pads (moss/fur)    | Daubing patterns           |
   | Engraving + fill   | Incised lines + pigment    |
   +--------------------------------------------------+
-
-LIGHTING:
-  Animal fat lamps (stone bowls with wick) documented at most sites
-  Systematic light management required for deep cave painting
-  Implies organized work, not solitary spontaneous action
-
-SCAFFOLDING:
-  Altamira ceiling: bone tools + marks at heights requiring scaffolding
-  Organized collective effort, not individual action
-
-BINDERS:
-  Animal fat (tallow, marrow): documented at Blombos
-  Egg: egg tempera principle is pre-historical
-  Saliva: possibly; provides amylase + water
-  Plant sap: possible; not yet chemically confirmed at most sites
-
-DURABILITY:
-  Iron oxides: stable against light, temperature, humidity
-  → Survive 40,000+ years
-  Carbon (charcoal): less stable; some caves show differential preservation
-  → Ochre outlasts carbon
+  |                                                  |
+  | GHTING:                                          |
+  | Animal fat lamps (stone bowls with wick) document|
+  | Systematic light management required for deep cav|
+  | Implies organized work, not solitary spontaneous |
+  |                                                  |
+  | AFFOLDING:                                       |
+  | Altamira ceiling: bone tools + marks at heights r|
+  | Organized collective effort, not individual actio|
+  |                                                  |
+  | NDERS:                                           |
+  | Animal fat (tallow, marrow): documented at Blombo|
+  | Egg: egg tempera principle is pre-historical     |
+  | Saliva: possibly; provides amylase + water       |
+  | Plant sap: possible; not yet chemically confirmed|
+  |                                                  |
+  | RABILITY:                                        |
+  | Iron oxides: stable against light, temperature, h|
+  | -> Survive 40,000. years                         |
+  | Carbon (charcoal): less stable; some caves show d|
+  | -> Ochre outlasts carbon                         |
 ```
 
 ---
@@ -254,10 +273,10 @@ COLOR:
 BYZANTINE ICON USE:
   Green earth as FLESH UNDERPAINTING in icon tradition
   The "verdaccio" technique:
-  → Apply green earth as base layer for faces/hands
-  → Build flesh tones (warm pink/ochre) over top in semi-transparent layers
-  → Green underpainting shows through → unifies and cools flesh tones
-  → Gives slightly "otherworldly" quality appropriate for icons
+  -> Apply green earth as base layer for faces/hands
+  -> Build flesh tones (warm pink/ochre) over top in semi-transparent layers
+  -> Green underpainting shows through -> unifies and cools flesh tones
+  -> Gives slightly "otherworldly" quality appropriate for icons
   The complementary principle: warm flesh + cool green = harmonized tone
   Still practiced in traditional icon painting
 
@@ -276,17 +295,17 @@ WHY EARTH PIGMENTS SURVIVE MILLENNIA:
 
 IRON OXIDES (hematite, goethite):
   Thermodynamically stable final-state oxidation products of iron
-  Already fully oxidized → nothing further to oxidize
-  Insoluble in water → doesn't wash out
-  UV-stable → doesn't absorb UV that would cause photodegradation
-  Wide pH stability range → survives acidic/alkaline environments
-  Crystal structure locked → particles don't react with matrix
+  Already fully oxidized -> nothing further to oxidize
+  Insoluble in water -> doesn't wash out
+  UV-stable -> doesn't absorb UV that would cause photodegradation
+  Wide pH stability range -> survives acidic/alkaline environments
+  Crystal structure locked -> particles don't react with matrix
 
 MANGANESE DIOXIDE:
   Similarly stable terminal oxidation state
 
 CONTRAST WITH ORGANIC PIGMENTS:
-  Organic molecules have π electrons → absorb UV → π system breaks
+  Organic molecules have π electrons -> absorb UV -> π system breaks
   Even "stable" organics (phthalocyanine, quinacridone) degrade on scale
   of centuries vs millennia for inorganics
 
@@ -294,7 +313,7 @@ PRACTICAL IMPLICATION:
   Earth pigments = most permanent artist materials available
   Cave paintings at Chauvet survived ~36,000 years with no conservation
   Most synthetic organic pigments: ASTM I = "excellent in normal museum
-  conditions, 100 years" — a tiny fraction of earth pigment longevity
+  conditions, 100 years" - a tiny fraction of earth pigment longevity
 ```
 
 ---

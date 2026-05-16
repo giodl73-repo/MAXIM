@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:saffron-vanilla
+kind: guide
+module: spices
+section: spices
+title: Saffron and Vanilla - The World's Most Expensive Spices
+status: source-custody
+source_custody: partial
+current_path: spices/04-SAFFRON-VANILLA.md
+canonical_path: spices/04-SAFFRON-VANILLA.md
+backsource_ids: [proof-backfill:spices:04-saffron-vanilla, git-history:spices:04-saffron-vanilla]
+concepts: [saffron, vanilla]
+root_concepts: [saffron, vanilla]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Saffron & Vanilla — The World's Most Expensive Spices
 
 ## The Big Picture
@@ -6,22 +25,22 @@
 +------------------------------------------------------------------+
 |           WHY THESE TWO DOMINATE PRICE RANKINGS                  |
 |                                                                  |
-|  SAFFRON ($5,000–$10,000/kg)       VANILLA ($400–$600/kg)        |
-|  +---------------------------+     +---------------------------+ |
-|  | Crocus sativus            |     | Vanilla planifolia        |  |
-|  | STERILE TRIPLOID          |     | REQUIRES HAND-POLLINATION |  |
-|  | Cannot reproduce by seed  |     | outside Mexico            |  |
-|  | 150,000 flowers = 1 kg    |     | 9-month growth cycle      |  |
-|  | 2-week harvest window     |     | 6-month curing process    |  |
-|  | Stigmas hand-picked dawn  |     | Only edible orchid fruit  |  |
-|  +---------------------------+     +---------------------------+  |
-|                                                                   |
-|  WHAT THEY SHARE:                                                 |
-|  - Labor intensity (human hands, no mechanical substitute)        |
-|  - Biological constraints locking in high production cost         |
-|  - Extreme price volatility (weather, disease, geopolitics)       |
-|  - Massive synthetic substitute market (saffron → safflower;      |
-|    vanilla → vanillin from lignin/guaiacol)                       |
+|  SAFFRON ($5,000-$10,000/kg)       VANILLA ($400-$600/kg)        |
+|  .---------------------------.     .---------------------------. |
+|  | Crocus sativus            |     | Vanilla planifolia        | |
+|  | STERILE TRIPLOID          |     | REQUIRES HAND-POLLINATION | |
+|  | Cannot reproduce by seed  |     | outside Mexico            | |
+|  | 150,000 flowers = 1 kg    |     | 9-month growth cycle      | |
+|  | 2-week harvest window     |     | 6-month curing process    | |
+|  | Stigmas hand-picked dawn  |     | Only edible orchid fruit  | |
+|  .---------------------------.     .---------------------------. |
+|                                                                  |
+|  WHAT THEY SHARE:                                                |
+|  - Labor intensity (human hands, no mechanical substitute)       |
+|  - Biological constraints locking in high production cost        |
+|  - Extreme price volatility (weather, disease, geopolitics)      |
+|  - Massive synthetic substitute market (saffron -> safflower;    |
+|    vanilla -> vanillin from lignin/guaiacol)                     |
 +------------------------------------------------------------------+
 ```
 
@@ -38,17 +57,17 @@ CROCUS SATIVUS:
   Key fact: STERILE TRIPLOID (3n = 24 chromosomes)
 
   What sterile triploid means:
-  Diploid (2n): normal reproduction — gametes can form by meiosis
-  Triploid (3n): odd chromosome number → meiosis fails → NO VIABLE SEEDS
+  Diploid (2n): normal reproduction - gametes can form by meiosis
+  Triploid (3n): odd chromosome number -> meiosis fails -> NO VIABLE SEEDS
 
   CONSEQUENCE:
   C. sativus cannot reproduce sexually
   Propagates ONLY by vegetative corm division
-  Each corm grows → produces 1–3 daughter corms per year
-  → entire global saffron crop traces to human-managed propagation
-  → no self-spreading, no going feral, no wild populations
-  → humans must plant every corm of every plant that has ever existed
-  → 3,500 years of continuous human cultivation
+  Each corm grows -> produces 1-3 daughter corms per year
+  -> entire global saffron crop traces to human-managed propagation
+  -> no self-spreading, no going feral, no wild populations
+  -> humans must plant every corm of every plant that has ever existed
+  -> 3,500 years of continuous human cultivation
 
   Compare: Bananas (also sterile triploids). Same problem.
   Cavendish bananas = genetic clones, vulnerable to Panama disease.
@@ -60,24 +79,24 @@ CROCUS SATIVUS:
 ```
 PRODUCTION MATH:
   Each flower: exactly 3 stigmas (female parts)
-  Stigma length: ~2.5–3.5 cm
-  Flowers per kg dried saffron: ~150,000–200,000
+  Stigma length: ~2.5-3.5 cm
+  Flowers per kg dried saffron: ~150,000-200,000
 
   LABOR CALCULATION:
-  Harvest window: 2 weeks in autumn (October–November)
-  Flowers open at DAWN → must be picked before heat
-  → heat volatilizes aromatic compounds
+  Harvest window: 2 weeks in autumn (October-November)
+  Flowers open at DAWN -> must be picked before heat
+  -> heat volatilizes aromatic compounds
   Picking method: pinch each flower, extract 3 stigmas
-  Experienced picker: ~75–100 grams/day (dried weight)
-  → to produce 1 kg saffron: ~10–15 days of one worker
+  Experienced picker: ~75-100 grams/day (dried weight)
+  -> to produce 1 kg saffron: ~10-15 days of one worker
 
   YIELD PER HECTARE:
-  Typical yield: 3–8 kg dried saffron/hectare
+  Typical yield: 3-8 kg dried saffron/hectare
   For reference: wheat = 3,000 kg/hectare
-  Saffron yield ratio vs wheat: roughly 1:500–1:1000 by mass
+  Saffron yield ratio vs wheat: roughly 1:500-1:1000 by mass
 
 GEOGRAPHY:
-  Iran: ~85–90% of world saffron production
+  Iran: ~85-90% of world saffron production
   Spain (La Mancha): PDO designation, smaller volume, premium price
   Kashmir (India): highly prized, very small production
   Morocco, Greece: additional significant producers
@@ -89,15 +108,15 @@ GEOGRAPHY:
 THREE KEY COMPOUNDS (all from carotenoid precursor zeaxanthin):
 
 1. CROCINS (red color):
-   Carotenoid glycosides (water-soluble — unusual for carotenoids)
+   Carotenoid glycosides (water-soluble - unusual for carotenoids)
    Most carotenoids are fat-soluble (β-carotene, lycopene)
-   Crocins dissolve in water → explains saffron's ability to dye water yellow
+   Crocins dissolve in water -> explains saffron's ability to dye water yellow
    Measured by ISO 3632: absorbance at 440 nm = "colouring strength"
    Grade 1: ≥250 units; Grade 4: ≥80 units
 
 2. PICROCROCIN (bitter taste):
    Monoterpene glycoside
-   Degrades on drying → safranal
+   Degrades on drying -> safranal
 
 3. SAFRANAL (hay/floral aroma):
    Monoterpene aldehyde formed from picrocrocin during drying
@@ -109,14 +128,14 @@ QUALITY ASSESSMENT:
   Crocin (color): A₄₄₀nm
   Picrocrocin (taste): A₂₅₇nm
   Safranal (aroma): A₃₃₀nm
-  All can be measured independently → objective grading
+  All can be measured independently -> objective grading
 ```
 
 ### Saffron in History
 
 ```
 ~1600 BCE: Minoan civilization frescoes (Akrotiri, Thera/Santorini)
-           depict women harvesting saffron — oldest visual record
+           depict women harvesting saffron - oldest visual record
            Saffron-painted walls in Knossos (Crete)
 
 Ancient Persia/Greece:
@@ -127,13 +146,13 @@ Ancient Persia/Greece:
 
 Medieval Europe:
   Illuminated manuscript pigment (gold substitute)
-  Cooking luxury — risotto alla Milanese, paella valenciana
+  Cooking luxury - risotto alla Milanese, paella valenciana
   Prized enough to be specified in wills and dowry documents
 
 Buddhist monk robes:
   Often called "saffron-colored" but actual saffron is too expensive
   Color achieved with marigold petals (Tagetes), jackfruit bark,
-  or turmeric — not saffron. The color name stuck.
+  or turmeric - not saffron. The color name stuck.
 ```
 
 ### Adulterants and Authentication
@@ -141,7 +160,7 @@ Buddhist monk robes:
 ```
 COMMON ADULTERANTS:
   Safflower (Carthamus tinctorius) petals: same orange-red color
-    but NO safranal aroma → soaking test reveals this
+    but NO safranal aroma -> soaking test reveals this
   Calendula (pot marigold) petals: similar appearance
   Turmeric powder: yellow coloring, wrong volatile profile
   Colored threads: dyed silk or corn starch threads
@@ -157,7 +176,7 @@ DETECTION:
 
 PRICE SIGNAL:
   If "saffron" costs <$15/gram, it is almost certainly adulterated
-  Genuine Grade 1: $10–$20/gram at retail minimum
+  Genuine Grade 1: $10-$20/gram at retail minimum
 ```
 
 ---
@@ -171,21 +190,21 @@ VANILLA PLANIFOLIA:
   Family: Orchidaceae (largest flowering plant family, ~28,000 species)
   Only edible fruit-bearing genus in entire family
   Native: Totonac people, Gulf Coast Mexico (modern Veracruz)
-  Aztecs: called it tlilxochitl ("black flower") — after dried black pods
+  Aztecs: called it tlilxochitl ("black flower") - after dried black pods
 
   FLOWER BIOLOGY:
   Self-fertile: can physically self-pollinate
   BUT: anther cap and stigma separated by a fleshy membrane (rostellum)
-  → prevents accidental self-pollination in the flower structure
+  -> prevents accidental self-pollination in the flower structure
 
   Natural pollinators in Mexico:
-  Melipona bees (stingless bees) — specific to Mesoamerica
+  Melipona bees (stingless bees) - specific to Mesoamerica
   Possibly hummingbirds (supplementary)
 
   Outside Mexico: NO natural pollinators exist
-  → vanilla flowers for <12 hours each
-  → outside native range: ZERO natural fruit set
-  → 100% of non-Mexican vanilla requires hand-pollination
+  -> vanilla flowers for <12 hours each
+  -> outside native range: ZERO natural fruit set
+  -> 100% of non-Mexican vanilla requires hand-pollination
 ```
 
 ### The Edmond Albius Solution (1841)
@@ -201,7 +220,7 @@ THE PROBLEM (post-1520):
 THE SOLUTION (1841):
   Edmond Albius: 12-year-old enslaved boy on island of Réunion (then Bourbon)
   Discovered: manual transfer of pollen using a thin stick/grass blade
-  Lift rostellum → transfer pollen from anther to stigma
+  Lift rostellum -> transfer pollen from anther to stigma
   Flowers hand-pollinated while open (morning only)
   This technique is STILL the standard today, 185 years later
 
@@ -224,8 +243,8 @@ Harvest: Pods harvested when still green (tips just starting yellow)
           +
 Blanching: Killed briefly in hot water (stops development, sets enzymes)
           +
-Sweating: Wrapped in blankets, heated 35-65°C daily for ~1 week
-          (triggers enzymatic conversion: glucovanillin → vanillin)
+Sweating: Wrapped in blankets, heated 35-65 deg C daily for ~1 week
+          (triggers enzymatic conversion: glucovanillin -> vanillin)
           +
 Slow drying: 2-3 months, shaded, daily hand-rolling/inspection
           +
@@ -240,8 +259,8 @@ Conditioning: 1-2 months in closed boxes (flavor development)
 VANILLIN (4-hydroxy-3-methoxybenzaldehyde, C8H8O3):
   Phenylpropanoid aldehyde
   BIOSYNTHESIS IN PLANT:
-  Phenylalanine → ferulic acid → glucovanillin (inactive glycoside stored)
-  → during curing, β-glucosidase cleaves glucose → FREE vanillin
+  Phenylalanine -> ferulic acid -> glucovanillin (inactive glycoside stored)
+  -> during curing, β-glucosidase cleaves glucose -> FREE vanillin
 
   NATURAL VANILLA POD CONTAINS:
   Vanillin (~2% dry weight) + 250+ other compounds:
@@ -257,11 +276,11 @@ SYNTHETIC VANILLIN SOURCES:
 
   ~99% of global "vanilla flavoring" = synthetic vanillin
   Annual production: ~20,000 tons synthetic vanillin
-  vs ~40–50 tons of natural vanilla bean extract/year
+  vs ~40-50 tons of natural vanilla bean extract/year
 
   COST COMPARISON:
-  Synthetic vanillin: ~$10–15/kg
-  Natural vanilla extract equivalent: ~$1,000–2,000/kg
+  Synthetic vanillin: ~$10-15/kg
+  Natural vanilla extract equivalent: ~$1,000-2,000/kg
   Price ratio: ~100:1
 ```
 
@@ -274,8 +293,8 @@ MADAGASCAR CONCENTRATION:
   Remaining 20%: Indonesia, Tahiti, Mexico, Uganda
 
   TAHITIAN VANILLA (V. tahitensis):
-  Different species (natural hybrid: V. planifolia × V. odorata)
-  Different flavor: higher heliotropin content → floral, anise-like
+  Different species (natural hybrid: V. planifolia x V. odorata)
+  Different flavor: higher heliotropin content -> floral, anise-like
   Much smaller production volume; premium product
 
 VOLATILITY MECHANISM:
@@ -287,7 +306,7 @@ VOLATILITY MECHANISM:
   2017 CYCLONE ENAWO:
   Category 4 cyclone hit NE Madagascar (Sava region)
   Destroyed ~30% of vanilla crop
-  Global vanilla prices: $20/kg (2012) → $600/kg (2018 peak)
+  Global vanilla prices: $20/kg (2012) -> $600/kg (2018 peak)
   At peak: vanilla briefly exceeded silver by weight
 
 THEFT RESPONSE:

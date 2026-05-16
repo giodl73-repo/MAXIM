@@ -1,0 +1,2569 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-pigments-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.pigments.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-pigments-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-source-corpus.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-overview.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prehistoric-earth.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-prehistoric-earth.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/01-PREHISTORIC-EARTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-prehistoric-earth.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/01-PREHISTORIC-EARTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prehistoric-earth.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-prehistoric-earth.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prehistoric-earth.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-prehistoric-earth.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-prehistoric-earth.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/01-PREHISTORIC-EARTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prehistoric-earth.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/01-PREHISTORIC-EARTH.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prehistoric-earth.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/01-PREHISTORIC-EARTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/01-PREHISTORIC-EARTH.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/01-PREHISTORIC-EARTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prehistoric-earth.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/01-PREHISTORIC-EARTH.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prehistoric-earth.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/01-PREHISTORIC-EARTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/01-PREHISTORIC-EARTH.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/01-PREHISTORIC-EARTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prehistoric-earth.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/01-PREHISTORIC-EARTH.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prehistoric-earth.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/01-PREHISTORIC-EARTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/01-PREHISTORIC-EARTH.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/01-PREHISTORIC-EARTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.ancient-synthetic.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-ancient-synthetic.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-ancient-synthetic.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.ancient-synthetic.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-ancient-synthetic.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.ancient-synthetic.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-ancient-synthetic.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-ancient-synthetic.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.ancient-synthetic.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/02-ANCIENT-SYNTHETIC.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.ancient-synthetic.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/02-ANCIENT-SYNTHETIC.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.ancient-synthetic.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/02-ANCIENT-SYNTHETIC.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.ancient-synthetic.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/02-ANCIENT-SYNTHETIC.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.ancient-synthetic.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/02-ANCIENT-SYNTHETIC.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.ancient-synthetic.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/02-ANCIENT-SYNTHETIC.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/02-ANCIENT-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.purple-red-luxury.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-purple-red-luxury.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-purple-red-luxury.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.purple-red-luxury.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-purple-red-luxury.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.purple-red-luxury.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-purple-red-luxury.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-purple-red-luxury.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.purple-red-luxury.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/03-PURPLE-RED-LUXURY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.purple-red-luxury.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/03-PURPLE-RED-LUXURY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.purple-red-luxury.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/03-PURPLE-RED-LUXURY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.purple-red-luxury.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/03-PURPLE-RED-LUXURY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.purple-red-luxury.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/03-PURPLE-RED-LUXURY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.purple-red-luxury.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/03-PURPLE-RED-LUXURY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/03-PURPLE-RED-LUXURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.blue-rarity.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-blue-rarity.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/04-BLUE-RARITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-blue-rarity.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/04-BLUE-RARITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.blue-rarity.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-blue-rarity.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.blue-rarity.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-blue-rarity.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-blue-rarity.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/04-BLUE-RARITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.blue-rarity.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/04-BLUE-RARITY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.blue-rarity.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/04-BLUE-RARITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/04-BLUE-RARITY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/04-BLUE-RARITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.blue-rarity.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/04-BLUE-RARITY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.blue-rarity.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/04-BLUE-RARITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/04-BLUE-RARITY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/04-BLUE-RARITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.blue-rarity.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/04-BLUE-RARITY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.blue-rarity.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/04-BLUE-RARITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/04-BLUE-RARITY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/04-BLUE-RARITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.lead-pigments.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-lead-pigments.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/05-LEAD-PIGMENTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-lead-pigments.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/05-LEAD-PIGMENTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.lead-pigments.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-lead-pigments.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.lead-pigments.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-lead-pigments.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-lead-pigments.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/05-LEAD-PIGMENTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.lead-pigments.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/05-LEAD-PIGMENTS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.lead-pigments.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/05-LEAD-PIGMENTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/05-LEAD-PIGMENTS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/05-LEAD-PIGMENTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.lead-pigments.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/05-LEAD-PIGMENTS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.lead-pigments.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/05-LEAD-PIGMENTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/05-LEAD-PIGMENTS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/05-LEAD-PIGMENTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.lead-pigments.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/05-LEAD-PIGMENTS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.lead-pigments.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/05-LEAD-PIGMENTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/05-LEAD-PIGMENTS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/05-LEAD-PIGMENTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.organic-dyes-mordants.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-organic-dyes-mordants.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-organic-dyes-mordants.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.organic-dyes-mordants.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-organic-dyes-mordants.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.organic-dyes-mordants.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-organic-dyes-mordants.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-organic-dyes-mordants.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.organic-dyes-mordants.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/06-ORGANIC-DYES-MORDANTS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.organic-dyes-mordants.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/06-ORGANIC-DYES-MORDANTS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.organic-dyes-mordants.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/06-ORGANIC-DYES-MORDANTS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.organic-dyes-mordants.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/06-ORGANIC-DYES-MORDANTS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.organic-dyes-mordants.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/06-ORGANIC-DYES-MORDANTS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.organic-dyes-mordants.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/06-ORGANIC-DYES-MORDANTS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/06-ORGANIC-DYES-MORDANTS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prussian-blue-era.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-prussian-blue-era.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-prussian-blue-era.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prussian-blue-era.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-prussian-blue-era.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prussian-blue-era.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-prussian-blue-era.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-prussian-blue-era.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prussian-blue-era.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/07-PRUSSIAN-BLUE-ERA.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prussian-blue-era.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/07-PRUSSIAN-BLUE-ERA.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prussian-blue-era.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/07-PRUSSIAN-BLUE-ERA.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prussian-blue-era.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/07-PRUSSIAN-BLUE-ERA.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.prussian-blue-era.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/07-PRUSSIAN-BLUE-ERA.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.prussian-blue-era.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/07-PRUSSIAN-BLUE-ERA.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/07-PRUSSIAN-BLUE-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.impressionist-revolution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-impressionist-revolution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-impressionist-revolution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.impressionist-revolution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-impressionist-revolution.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.impressionist-revolution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-impressionist-revolution.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-impressionist-revolution.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.impressionist-revolution.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/08-IMPRESSIONIST-REVOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.impressionist-revolution.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/08-IMPRESSIONIST-REVOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.impressionist-revolution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/08-IMPRESSIONIST-REVOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.impressionist-revolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/08-IMPRESSIONIST-REVOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.impressionist-revolution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/08-IMPRESSIONIST-REVOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.impressionist-revolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/08-IMPRESSIONIST-REVOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/08-IMPRESSIONIST-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.modern-synthetic.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-modern-synthetic.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/09-MODERN-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-modern-synthetic.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/09-MODERN-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.modern-synthetic.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-modern-synthetic.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.modern-synthetic.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-modern-synthetic.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-modern-synthetic.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/09-MODERN-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.modern-synthetic.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/09-MODERN-SYNTHETIC.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.modern-synthetic.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/09-MODERN-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/09-MODERN-SYNTHETIC.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/09-MODERN-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.modern-synthetic.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/09-MODERN-SYNTHETIC.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.modern-synthetic.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/09-MODERN-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/09-MODERN-SYNTHETIC.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/09-MODERN-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.modern-synthetic.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/09-MODERN-SYNTHETIC.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.modern-synthetic.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/09-MODERN-SYNTHETIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/09-MODERN-SYNTHETIC.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/09-MODERN-SYNTHETIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.conservation.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pigments-conservation.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/10-CONSERVATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pigments-conservation.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/10-CONSERVATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.conservation.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-pigments-conservation.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.conservation.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pigments",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pigments.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pigments-conservation.json",
+            "module": "pigments",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-pigments-conservation.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/10-CONSERVATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.conservation.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/10-CONSERVATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.conservation.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/10-CONSERVATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/10-CONSERVATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/10-CONSERVATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.conservation.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/10-CONSERVATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.conservation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/10-CONSERVATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/10-CONSERVATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/10-CONSERVATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pigments.conservation.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/pigments/proof-source/10-CONSERVATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pigments.conservation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "pigments",
+            "guide": "pigments/10-CONSERVATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/pigments/proof-source/10-CONSERVATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pigments",
+        "guide": "pigments/10-CONSERVATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}
