@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:planetary-interiors
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Planetary Interiors and Magnetic Fields
+status: source-custody
+source_custody: partial
+current_path: planetary-science/09-PLANETARY-INTERIORS.md
+canonical_path: planetary-science/09-PLANETARY-INTERIORS.md
+backsource_ids: [proof-backfill:planetary-science:09-planetary-interiors, git-history:planetary-science:09-planetary-interiors]
+concepts: [planetary, interiors]
+root_concepts: [planetary, interiors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Planetary Interiors and Magnetic Fields
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:overview
+kind: guide
+module: zoology
+section: zoology
+title: Zoology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: zoology/00-OVERVIEW.md
+canonical_path: zoology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:zoology:00-overview, git-history:zoology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Zoology — Landscape and Taxonomy
 
 ## The Big Picture

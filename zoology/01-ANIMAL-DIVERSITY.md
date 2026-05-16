@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:animal-diversity
+kind: guide
+module: zoology
+section: zoology
+title: Animal Diversity and Phylogeny
+status: source-custody
+source_custody: partial
+current_path: zoology/01-ANIMAL-DIVERSITY.md
+canonical_path: zoology/01-ANIMAL-DIVERSITY.md
+backsource_ids: [proof-backfill:zoology:01-animal-diversity, git-history:zoology:01-animal-diversity]
+concepts: [animal, diversity]
+root_concepts: [animal, diversity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Animal Diversity and Phylogeny
 
 ## The Big Picture

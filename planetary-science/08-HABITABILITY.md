@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:habitability
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Planetary Habitability and the Habitable Zone
+status: source-custody
+source_custody: partial
+current_path: planetary-science/08-HABITABILITY.md
+canonical_path: planetary-science/08-HABITABILITY.md
+backsource_ids: [proof-backfill:planetary-science:08-habitability, git-history:planetary-science:08-habitability]
+concepts: [habitability]
+root_concepts: [habitability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Planetary Habitability and the Habitable Zone
 
 ## The Big Picture

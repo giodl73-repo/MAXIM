@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "planetary-science\\07-EXOPLANETS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    EXOPLANET LANDSCAPE                           |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DETECTION METHODS        POPULATION RESULTS                     |\n|  -----------------        -----------------                      |\n|  Transit (Kepler/TESS)    Super-Earths / mini-Neptunes most common\n|  Radial velocity          Radius gap at ~1.8 R⊕                  |\n|  Direct imaging           Hot Jupiters: rare but detectable       |\n|  Astrometry (Gaia)        Occurrence rates: ~1 planet/star        |\n|  Microlensing             Rocky HZ planets: relatively common     |\n|  Pulsar timing            Giant planets: metal-rich star bias     |\n|                                                                  |\n|  KEY INSTRUMENTS          DEMOGRAPHICS                           |\n|  ---------------          ------------                           |\n|  Kepler (2009-2018)       ~75% of planets are smaller than Neptune|\n|  TESS (2018-)             \"Hot Jupiters\" ~0.5% of FGK stars      |\n|  HARPS/ESPRESSO (RV)      Super-Earths ~50% of FGK stars         |\n|  JWST (2021-)             Occurrence peaks at 1-2 R⊕ and 2-4 R⊕ |\n|  ELT/GMT (2030+)                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "## Detection Methods",
+      "confidence": "candidate",
+      "text": "**Radial velocity = Kepler's laws + Doppler spectroscopy.** The star and planet orbit their common center of mass. Kepler's third law (P² ∝ a³/M_star) gives the semi-major axis from the measured period. The star's reflex velocity amplitude K = (2πG/P)^(1/3) × m_p sin(i) / (m_star + m_p)^(2/3) — so measuring K gives m_p sin(i), the minimum planetary mass. The Doppler shift in stellar absorption lines at the ~m/s precision level is the measurement; modern echelle spectrographs achieve this by recording thousands of spectral lines simultaneously and fitting the shift across all of them.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "### Radial Velocity (RV)",
+      "confidence": "candidate",
+      "text": "RADIAL VELOCITY METHOD\n======================\n\n  PRINCIPLE:\n    Planet orbits star → both orbit center of mass\n    Star wobbles toward and away from us\n    Doppler shifts the stellar spectrum (blueshift approaching, redshift receding)\n\n  MEASURED:\n    Δv = (m_p / m_star) × v_planet × sin(i)\n    where i = orbital inclination\n\n  SENSITIVITY:\n    Jupiter around Sun: Δv = 12.5 m/s (detectable)\n    Earth around Sun:   Δv = 0.09 m/s (requires next-gen instruments)\n    Modern HARPS:       ~30 cm/s precision (ESPRESSO: ~10 cm/s)\n\n  WHAT IT MEASURES:\n    Orbital period P → semi-major axis a (via Kepler's 3rd law)\n    m_p × sin(i) → minimum mass (true mass unknown without inclination)\n    Eccentricity e → orbital shape\n    NOT size (radius) — need transit for that\n\n  HISTORY:\n    1995: 51 Peg b — first hot Jupiter confirmed (Mayor & Queloz, Nobel 2019)\n    Surprised everyone: Jupiter-mass planet at 0.05 AU (4-day orbit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### Transit Method",
+      "confidence": "candidate",
+      "text": "TRANSIT METHOD\n==============\n\n  PRINCIPLE:\n    Planet crosses in front of star → blocks fraction of light\n    Periodic dips in brightness with period = orbital period\n\n    ΔF/F = (R_p/R_star)²\n    Earth transit across Sun: ΔF/F = (0.009)² = 8 × 10⁻⁵ (80 ppm)\n    Jupiter transit:          ΔF/F = (0.10)²  = 1%\n\n  WHAT IT MEASURES:\n    Radius ratio R_p/R_star\n    Orbital period\n    Inclination (transit requires nearly edge-on: i ≈ 90°)\n    Atmospheric composition (transmission spectroscopy during transit)\n\n  LIMITATIONS:\n    Geometric: only ~0.5% of randomly oriented orbits transit\n    (closer planets: higher probability)\n    False positives: eclipsing binaries, background stars\n\n  KEPLER TELESCOPE (2009-2018):\n    Monitored 150,000+ stars continuously\n    Discovered ~2,700 confirmed planets\n    Found: small planets are common; Hot Jupiters are rare; HZ planets exist\n\n  TESS (2018-):\n    All-sky survey; 26 sectors; ~85% of sky coverage\n    Focuses on bright nearby stars (better for follow-up)\n    Optimized for finding rocky planets around M dwarfs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "### Direct Imaging",
+      "confidence": "candidate",
+      "text": "DIRECT IMAGING\n==============\n\n  CHALLENGE:\n    Star-planet contrast ratio:\n    Jupiter (reflected light): ~10⁻⁹ contrast at visible wavelengths\n    Earth: ~10⁻¹⁰ contrast\n    Star is BILLIONS of times brighter than the planet\n\n  TECHNIQUES:\n    Coronagraph: blocks starlight; reveals faint companions\n    Starshade: external occulter (kilometers away from telescope)\n    Adaptive optics + coronagraphy: current state of art\n\n  WHAT'S IMAGED:\n    Young, massive planets far from their stars (self-luminous: hot from formation)\n    HR 8799 b,c,d,e: 4 planets directly imaged; 24-70 AU from star\n    Beta Pictoris b: ~10 AU; disk interaction visible\n    Fomalhaut b (controversial): dust cloud, not planet?\n\n  JWST CONTRIBUTION:\n    Mid-IR imaging of warm planet emission\n    First direct spectroscopy of exoplanet atmosphere (HR 8799 b)\n    VHS 1256 b: complex atmosphere spectrum (clouds, CO, CO₂, CH₄, H₂O)\n\n  FUTURE:\n    Roman Space Telescope: coronagraph instrument for reflected light\n    ELTs (2030s): 30-39 m aperture + AO → rocky planet direct imaging possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "### Other Methods",
+      "confidence": "candidate",
+      "text": "OTHER DETECTION METHODS\n========================\n\n  ASTROMETRY:\n    Measure star's position on sky → tiny wobble reveals planet\n    Gaia: astrometric planet search for stars within ~100 pc\n    Expected 10,000-20,000 giant planet detections from Gaia data\n\n  MICROLENSING:\n    Distant star acts as gravitational lens; planet-star system\n    lens briefly magnifies background star\n    Sensitive to: planets at 1-10 AU from any star in Galaxy\n    No follow-up possible (one-time event; too faint to re-observe)\n    Finds: cold Neptunes, cold super-Earths around solar-type stars\n\n  PULSAR TIMING:\n    First confirmed exoplanets (1992): 3 Earth-mass planets around PSR 1257+12\n    (Not considered \"real\" planets by many — formed from supernova debris)\n    Technique: measure pulse arrival time variations\n\n  TIMING VARIATIONS (TTV):\n    In multi-planet systems, planet-planet interactions shift transit times\n    Kepler used TTV to confirm non-transiting companions\n    Measures true masses (not m sin i) for transiting planets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 195,
+      "heading_context": "### Transmission Spectroscopy",
+      "confidence": "candidate",
+      "text": "TRANSMISSION SPECTROSCOPY\n==========================\n\n  During transit, starlight passes through planet's limb atmosphere\n\n  LIMB                         STELLAR DISK\n  ----                         ------------\n  +-------+                   +-------------------+\n  |       |                   |                   |\n  |  atm  |  starlight -->    |       STAR        |\n  |  layer|                   |                   |\n  |       |                   +-------------------+\n  +-------+\n\n  Molecules absorb at specific wavelengths → less light at those wavelengths\n  → absorption features in transmission spectrum\n\n  JWST HAS DETECTED IN EXOPLANET ATMOSPHERES:\n    WASP-39 b:  CO₂, CO, H₂O, SO₂, Na, K, H₂S (2022)\n    K2-18 b:    CH₄, CO₂, possible DMS (dimethyl sulfide) — debated\n    TRAPPIST-1b: likely no thick atmosphere (thermal emission flat)\n    LHS 1140 b:  potential water-rich atmosphere (2024)\n\n  EMISSION SPECTROSCOPY:\n    During secondary eclipse (planet behind star)\n    Measure planet's own thermal emission\n    Constrains temperature profile and day/night contrast",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "### The Radius Gap",
+      "confidence": "candidate",
+      "text": "THE RADIUS GAP (~1.8 R⊕)\n=========================\n\n  Kepler radius distribution shows a DIP at ~1.5-2.0 R⊕\n\n  <1.5 R⊕:  Super-Earths / rocky planets (common)\n  1.5-2.0 R⊕: GAP (underrepresented)\n  2.0-4.0 R⊕: Sub-Neptunes / mini-Neptunes (common)\n  >4.0 R⊕:  Gas giants (less common)\n\n  WHY THE GAP?\n  Two mechanisms, probably both acting:\n\n  1. PHOTOEVAPORATION (Owen & Wu 2013):\n     XUV radiation from young star strips H/He envelope\n     Small rocky cores (< ~1.5 R⊕) get stripped to bare rock\n     Larger rocky cores retain thin H/He envelope → sub-Neptune\n     Gap forms at \"valley\" between stripped and non-stripped\n\n  2. CORE-POWERED MASS LOSS (Gupta & Schlichting):\n     Internal heat from planet's own luminosity drives evaporation\n     Same qualitative effect; different timescale\n\n  Observed: gap location depends on orbital period (close-in = more stripped)\n  Gap moves to smaller radii for closer planets → consistent with evaporation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "### The Hot Jupiter Puzzle",
+      "confidence": "candidate",
+      "text": "HOT JUPITER FORMATION PUZZLE\n==============================\n\n  Hot Jupiters:\n    Orbital period: < 10 days (some < 1 day)\n    Mass: > 0.3 Jupiter masses\n    Cannot form where they orbit (too hot, too little mass)\n    → MUST have migrated from beyond the frost line\n\n  MIGRATION MECHANISMS:\n  1. Disk migration (Type II):\n     Planet opens a gap in the protoplanetary disk\n     Disk torques drag the planet inward\n     Must halt: disk dissipation, or tidal interaction with star\n\n  2. High-eccentricity migration:\n     Planet scattered to high-e orbit by planet-planet interaction\n     Tidal circularization at close approach\n     Results in low-e, close-in orbit (final state = hot Jupiter)\n\n  EVIDENCE:\n  Orbit alignment: many hot Jupiters have misaligned orbits (sky-plane tilt)\n  → Implies late-stage scattering, not smooth disk migration (which would be aligned)\n  But some hot Jupiters ARE aligned → probably both mechanisms operate\n\n  DESERT:\n  \"Hot Neptune desert\": very few Neptune-mass planets at <10 days\n  Explanation: atmospheric escape strips them to hot super-Earths\n  (Hot Jupiters survive because their gravity retains H/He)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## Biosignatures and Next Steps",
+      "confidence": "candidate",
+      "text": "BIOSIGNATURE SEARCH\n===================\n\n  CANDIDATE BIOSIGNATURES IN ATMOSPHERES:\n    O₂/O₃:       Photosynthesis product; most discussed\n    N₂O:         Produced by denitrifying bacteria; no known abiotic source\n    CH₄ + CO₂:   Disequilibrium pair; chemical reaction destroys one without\n                 biological replenishment\n    DMS:          Dimethyl sulfide; ocean biology on Earth\n    Phosphine:    PH₃; no known high-T abiotic pathway (controversial)\n\n  FALSE POSITIVES:\n    O₂ from abiotic CO₂ photolysis (dry rocky planet)\n    CH₄ from serpentinization (water + rock)\n    → Context matters: O₂ only significant with liquid water evidence\n\n  JWST LIMITATIONS:\n    Rocky planet atmospheres require ~100 transits of bright nearby star\n    TRAPPIST-1 planets: possible with hundreds of hours telescope time\n    True Earth-twin biosignature detection: requires next-generation telescope\n\n  NEXT-GENERATION:\n    Habitable Worlds Observatory (HWO, ~2040s): 6m telescope, starshade\n    Target: directly image ~25 Earth-analogs around nearby stars\n    Detect O₂, H₂O, CH₄ in reflected light spectra",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

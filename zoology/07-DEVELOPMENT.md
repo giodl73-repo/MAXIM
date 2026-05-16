@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:development
+kind: guide
+module: zoology
+section: zoology
+title: Animal Development and Evo-Devo
+status: source-custody
+source_custody: partial
+current_path: zoology/07-DEVELOPMENT.md
+canonical_path: zoology/07-DEVELOPMENT.md
+backsource_ids: [proof-backfill:zoology:07-development, git-history:zoology:07-development]
+concepts: [development]
+root_concepts: [development]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Animal Development and Evo-Devo
 
 ## The Big Picture

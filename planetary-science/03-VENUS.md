@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:venus
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Venus: Runaway Greenhouse and Cautionary Tale
+status: source-custody
+source_custody: partial
+current_path: planetary-science/03-VENUS.md
+canonical_path: planetary-science/03-VENUS.md
+backsource_ids: [proof-backfill:planetary-science:03-venus, git-history:planetary-science:03-venus]
+concepts: [venus]
+root_concepts: [venus]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Venus: Runaway Greenhouse and Cautionary Tale
 
 ## The Big Picture

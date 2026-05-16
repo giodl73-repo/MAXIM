@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:mars
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Mars: Geology, Climate, and Habitability
+status: source-custody
+source_custody: partial
+current_path: planetary-science/04-MARS.md
+canonical_path: planetary-science/04-MARS.md
+backsource_ids: [proof-backfill:planetary-science:04-mars, git-history:planetary-science:04-mars]
+concepts: [mars]
+root_concepts: [mars]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mars: Geology, Climate, and Habitability
 
 ## The Big Picture

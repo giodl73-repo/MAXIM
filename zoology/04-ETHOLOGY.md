@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:ethology
+kind: guide
+module: zoology
+section: zoology
+title: Ethology: Tinbergen's Four Questions
+status: source-custody
+source_custody: partial
+current_path: zoology/04-ETHOLOGY.md
+canonical_path: zoology/04-ETHOLOGY.md
+backsource_ids: [proof-backfill:zoology:04-ethology, git-history:zoology:04-ethology]
+concepts: [ethology]
+root_concepts: [ethology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ethology: Tinbergen's Four Questions
 
 ## The Big Picture
