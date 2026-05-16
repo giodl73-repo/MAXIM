@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:age-of-exploration
+kind: guide
+module: cartography
+section: cartography
+title: 03 - Age of Exploration
+status: source-custody
+source_custody: partial
+current_path: cartography/03-AGE-OF-EXPLORATION.md
+canonical_path: cartography/03-AGE-OF-EXPLORATION.md
+backsource_ids: [proof-backfill:cartography:03-age-of-exploration, git-history:cartography:03-age-of-exploration]
+concepts: [age, of, exploration]
+root_concepts: [age, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Age of Exploration
 
 ## Maps as State Secrets and the Naming of the World
@@ -93,10 +112,10 @@ WHAT PTOLEMY GAVE EUROPEAN SCHOLARS IN 1406
   - The known world has an EDGE that implies what lies beyond
 
   The crucial implication of a coordinate system:
-  ┌──────────────────────────────────────────────────────────┐
+   ──────────────────────────────────────────────────────────
   │  If Europe is at X° longitude and Asia is at Y° longitude│
   │  and the Earth is Z° around, then the distance westward  │
-  │  from Europe to Asia is (360 - Y + X)° × (km per degree) │
+  │  from Europe to Asia is (360 - Y : X)° × (km per degree) │
   │                                                          │
   │  Ptolemy's errors: Y too large (Asia too far east),      │
   │  Z too small (Earth too small)                           │
@@ -106,7 +125,7 @@ WHAT PTOLEMY GAVE EUROPEAN SCHOLARS IN 1406
   │                                                          │
   │  This is the calculation Columbus made. He was wrong.    │
   │  He found America where his wrong calculation put Asia.  │
-  └──────────────────────────────────────────────────────────┘
+   ──────────────────────────────────────────────────────────
 
 ══════════════════════════════════════════════════════════════════
 ```
@@ -227,7 +246,7 @@ WALDSEEMÜLLER 1507 — KEY DECISIONS AND THEIR CONSEQUENCES
   └────────────────────────────────────────────────────────────┘
 
   Decision 2: Naming it "America" after Vespucci
-  ┌────────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────────
   │  Waldseemüller and Ringmann (co-author of accompanying     │
   │  text) chose Vespucci because his letters described the    │
   │  territory in accessible, geographic terms                 │
@@ -235,7 +254,7 @@ WALDSEEMÜLLER 1507 — KEY DECISIONS AND THEIR CONSEQUENCES
   │  Once 1,000 copies circulated, the name stuck              │
   │  Waldseemüller later tried to remove it (1513 edition      │
   │  calls it "Unknown Land") — too late, name was established│
-  └────────────────────────────────────────────────────────────┘
+   ────────────────────────────────────────────────────────────
 
   Decision 3: Pacific Ocean shown (pre-Balboa by 6 years!)
   ┌────────────────────────────────────────────────────────────┐

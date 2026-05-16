@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:thematic-maps
+kind: guide
+module: cartography
+section: cartography
+title: 06 - Thematic Maps
+status: source-custody
+source_custody: partial
+current_path: cartography/06-THEMATIC-MAPS.md
+canonical_path: cartography/06-THEMATIC-MAPS.md
+backsource_ids: [proof-backfill:cartography:06-thematic-maps, git-history:cartography:06-thematic-maps]
+concepts: [thematic, maps]
+root_concepts: [thematic, maps]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Thematic Maps
 
 ## Maps as Argument
@@ -25,9 +44,9 @@ THEMATIC MAP DESIGN SPACE
   └── Continuous surface: raster, interpolated field
 
   MATCH DATA TYPE TO MAP TYPE:
-  ┌──────────────────┬────────────────────────────────────┐
+   ────────────────── ────────────────────────────────────
   │  Data type       │  Best map type(s)                  │
-  ├──────────────────┼────────────────────────────────────┤
+   ────────────────── ────────────────────────────────────
   │  Count by region │  Choropleth (normalized) or dot    │
   │  Rate by region  │  Choropleth (rate is appropriate)  │
   │  Continuous field│  Isoline / raster / heat map       │

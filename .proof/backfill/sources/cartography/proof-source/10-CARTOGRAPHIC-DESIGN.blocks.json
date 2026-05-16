@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\10-CARTOGRAPHIC-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Making Maps That Work",
+      "confidence": "candidate",
+      "text": "CARTOGRAPHIC DESIGN ELEMENTS — THE FULL SYSTEM\n═══════════════════════════════════════════════════════════════════════\n\n  CONTENT DECISIONS (what to show):\n  ├── Selection: which features to include at this scale\n  ├── Classification: how to group continuous data into categories\n  └── Generalization: how to simplify complex features\n\n  VISUAL ENCODING (how to represent it):\n  ├── Visual variables (Bertin's system): position, size, color value,\n  │   color hue, texture/pattern, shape, orientation\n  ├── Symbol design: point/line/polygon symbolization\n  └── Typography: labels, titles, legends\n\n  LAYOUT (how to organize the page):\n  ├── Visual hierarchy: figure-ground, contrast, emphasis\n  ├── Map furniture: title, legend, scale bar, north arrow, credits\n  └── Composition: balance, white space, focal point\n\n  COMMUNICATION CONTEXT:\n  ├── Audience: expert vs general public vs children\n  ├── Medium: print vs screen vs presentation\n  └── Purpose: navigation vs analysis vs argument\n\n═══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Visual Hierarchy and Figure-Ground",
+      "confidence": "candidate",
+      "text": "VISUAL HIERARCHY LEVELS\n══════════════════════════════════════════════════════════════════════\n\n  FIGURE: elements that appear to come forward visually\n  GROUND: background that recedes\n\n  Factors that make elements read as figure:\n  ├── Higher contrast (darker against lighter background)\n  ├── Saturated color against desaturated\n  ├── Enclosed (inside a polygon) vs open\n  ├── Warmer colors advance; cooler recede\n  ├── Thicker lines advance\n  └── Complex pattern advances vs plain ground\n\n  TYPICAL HIERARCHY STRUCTURE:\n  ┌────────────────────────────────────────────────────────────┐\n  │  LEVEL 1: Primary data (what the map is about)             │\n  │  Example: thematic data, highlighted route, earthquake     │\n  │  Design: highest contrast, most saturated color,           │\n  │          bold/thick symbols                                │\n  │                                                            │\n  │  LEVEL 2: Reference context (where it is)                  │\n  │  Example: coastlines, major roads, country borders         │\n  │  Design: medium weight, desaturated, no fill or light fill │\n  │                                                            │\n  │  LEVEL 3: Supporting detail (additional context)           │\n  │  Example: secondary roads, minor cities, grid lines        │\n  │  Design: light/thin, low contrast                          │\n  │                                                            │\n  │  LEVEL 4: Background (base map)                            │\n  │  Example: ocean, terrain shading, land area                │\n  │  Design: very light, desaturated, no visual noise          │\n  └────────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "## Color in Maps",
+      "confidence": "candidate",
+      "text": "COLOR DIMENSIONS AND THEIR CARTOGRAPHIC USES\n══════════════════════════════════════════════════════════════════════\n\n  HUE (which color — red, green, blue, etc.):\n  ├── Encodes CATEGORICAL differences (nominal data)\n  ├── Land use: green=forest, yellow=cropland, red=urban\n  ├── No implied order in hue alone\n  └── Best for: qualitative distinctions\n\n  VALUE/LIGHTNESS (light vs dark, same hue):\n  ├── Encodes ORDERED/QUANTITATIVE variation (ordinal, ratio)\n  ├── Light = low value; dark = high value (conventional)\n  ├── Perceived as ordered — \"dark = more\"\n  └── Best for: sequential quantitative data (one direction)\n\n  SATURATION/CHROMA (vivid vs muted):\n  ├── Often used for emphasis or data emphasis vs background\n  ├── Saturated = important; desaturated = background\n  └── Can encode data quality/confidence (vivid = certain)\n\n  COMBINED:\n  Diverging color schemes: two hues, light center, dark at both ends\n  (e.g., blue → white → red for temperature anomaly)\n  Encodes: direction AND magnitude\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### ColorBrewer — Designing for Perception",
+      "confidence": "candidate",
+      "text": "COLORBREWER SCHEME TYPES\n══════════════════════════════════════════════════════════════════════\n\n  SEQUENTIAL (one direction, quantitative):\n  ┌────────────────────────────────────────────────────────────┐\n  │  Light to dark in one hue (or hue + value)                 │\n  │  Example: pale yellow → orange → dark red                  │\n  │  Use for: quantities increasing in one direction           │\n  │  (population, income, temperature above zero)              │\n  └────────────────────────────────────────────────────────────┘\n\n  DIVERGING (two directions from midpoint):\n  ┌────────────────────────────────────────────────────────────┐\n  │  Two hues, light center, dark at both extremes             │\n  │  Example: dark blue ← white → dark red                     │\n  │  Use for: data with meaningful midpoint                    │\n  │  (temperature anomaly from mean, vote swing from baseline, │\n  │  positive/negative change, correlation -1 to +1)           │\n  └────────────────────────────────────────────────────────────┘\n\n  QUALITATIVE (categorical):\n  ┌────────────────────────────────────────────────────────────┐\n  │  Distinct hues, similar lightness/saturation               │\n  │  No implied order                                          │\n  │  Use for: land use, political parties, species, nations    │\n  │  Maximum: ~8–12 categories (cognitive limit for color IDs) │\n  └────────────────────────────────────────────────────────────┘\n\n  COLORBLIND SAFETY:\n  ColorBrewer indicates which schemes are safe for:\n  ├── Deuteranopia/protanopia (red-green colorblind): ~8% of men\n  ├── Tritanopia (blue-yellow colorblind): ~0.01%\n  └── Achromatopsia (no color): ~0.003%\n\n  8% of men have red-green color blindness.\n  If your map uses a red-to-green scale, 1 in 12 male readers\n  sees it as two shades of brown/olive. This is not rare.\n  Use orange-to-blue or use lightness variation as backup.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Typography on Maps",
+      "confidence": "candidate",
+      "text": "MAP TYPOGRAPHY HIERARCHY\n══════════════════════════════════════════════════════════════════════\n\n  LEVEL 1: Map title\n  Size: largest; placement: dominant corner; weight: bold\n  Font style: can be decorative (within taste limits)\n\n  LEVEL 2: Region/country/state names\n  Size: large; all-caps or small caps often used\n  Tracking: spaced out (especially for names spanning an area)\n  Font style: usually sans-serif for clarity\n\n  LEVEL 3: City/town names\n  Size: medium; graduated by population (large city = larger font)\n  Style: if serif base: use serif; if sans: use sans\n\n  LEVEL 4: Feature names (rivers, mountains, roads)\n  Size: small; river names often italic (by convention)\n  Placement: curved text following river line\n\n  LEVEL 5: Supplementary labels, notes\n  Size: smallest; muted color\n\n  FONT CONVENTIONS (not rules, but conventions):\n  ├── Serif fonts: traditional cartography, topographic maps\n  ├── Sans-serif fonts: modern, screen-friendly, small sizes\n  ├── Italic: water features (rivers, lakes, ocean) by convention\n  ├── ALL CAPS: administrative regions, major political units\n  └── Small Caps: secondary admin units, neighborhoods\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Label Placement Rules",
+      "confidence": "candidate",
+      "text": "LABEL PLACEMENT PRIORITIES\n══════════════════════════════════════════════════════════════════════\n\n  FOR POINT FEATURES (cities, POIs):\n   ────────────────────────────────────────────────────────────\n  │  Priority placement positions (in order):                  │\n  │  1. Upper right (default preferred)                        │\n  │  2. Upper left                                             │\n  │  3. Lower right                                            │\n  │  4. Lower left                                             │\n  │  5. Directly right                                         │\n  │  6. Directly above                                         │\n  │  7. Directly left                                          │\n  │  8. Directly below (least preferred — visually tied to dot)│\n   ────────────────────────────────────────────────────────────\n\n  NEVER:\n  ├── Label crossing the coast (if feature is coastal city)\n  ├── Label obscuring another feature it's labeling\n  ├── Ambiguous placement (label could refer to two features)\n  └── Label overlapping another label of equal or higher priority\n\n  FOR LINE FEATURES (rivers, roads):\n  ├── Curved text following the line\n  ├── Readable: text should read left-to-right\n  │   (for steep lines: acceptable to read uphill)\n  ├── Placed along straightest segment\n  └── Repeated along long features (not just once at each end)\n\n  FOR POLYGON FEATURES (countries, regions):\n  ├── Center of polygon (or centroid)\n  ├── Text spread across the polygon (increased tracking)\n  ├── Do not cross polygon boundary if possible\n  └── If polygon is too small: leader line to label outside\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 283,
+      "heading_context": "## Generalization",
+      "confidence": "candidate",
+      "text": "GENERALIZATION OPERATIONS\n══════════════════════════════════════════════════════════════════════\n\n  SIMPLIFICATION (remove vertices from lines/polygons):\n  ┌────────────────────────────────────────────────────────────┐\n  │  Ramer-Douglas-Peucker algorithm:                          │\n  │  1. Connect first and last point of line                   │\n  │  2. Find point farthest from this connecting line          │\n  │  3. If distance < threshold ε: delete all intermediate pts │\n  │  4. If distance ≥ ε: keep point; recurse on two halves     │\n  │  Result: simplified line that deviates <ε from original    │\n  │  Complexity: O(n log n) average; O(n²) worst case          │\n  │                                                            │\n  │  Visual result: coastlines look smooth at small scale      │\n  │  without the jagged appearance of over-dense vertices      │\n  └────────────────────────────────────────────────────────────┘\n\n  SMOOTHING: replace sharp angles with curves\n  AGGREGATION: merge nearby features (small islands → one polygon)\n  ELIMINATION: remove features too small to see at scale\n  DISPLACEMENT: move features apart to avoid overlap (road + rail)\n  COLLAPSE: replace building footprint with point symbol\n  TYPIFICATION: replace pattern with representative sample\n               (many trees → scattered tree symbols)\n\n  SCALE-DEPENDENT RULES:\n  ├── 1:1,000  (cadastral): every property boundary, all buildings\n  ├── 1:10,000 (local): building footprints, minor roads\n  ├── 1:100,000 (regional): major roads only, simplified coastline\n  ├── 1:1,000,000 (national): cities as points, rivers simplified\n  └── 1:50,000,000 (world): countries only, capitals\n\n  MULTI-SCALE DATABASES:\n  Modern GIS maintains multiple generalization levels.\n  Each tile zoom level uses a different generalization.\n  OSM generates different vector tile layers per zoom.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "## Map Furniture",
+      "confidence": "candidate",
+      "text": "MAP FURNITURE — ELEMENTS AND WHEN TO USE THEM\n══════════════════════════════════════════════════════════════════════\n\n  TITLE:\n  ├── Required: always\n  ├── Contents: what + where + when (\"County Population 2020\")\n  └── Placement: dominant visual position\n\n  LEGEND:\n  ├── Required: for thematic maps, specialized symbols\n  ├── NOT required: self-evident reference maps\n  │   (everyone knows roads are lines, cities are dots)\n  ├── Contents: every non-obvious symbol explained\n  └── Placement: non-competing corner; can be outside map frame\n\n  SCALE BAR:\n  ├── Required: almost always (especially for print)\n  ├── NOT needed: web maps (users can read scale from zoom)\n  ├── Type: graphic bar (survives map copying/resizing)\n  │        NOT text ratio (1:24,000 becomes wrong if map resized)\n  └── Size: appropriate to map extent (read comfortably)\n\n  NORTH ARROW:\n  ├── Required: when north is NOT up (rotated maps)\n  ├── NOT required: when north is up (which it should be by default)\n  ├── Note: north arrow is not a compass rose\n  │   (compass roses show all 16/32 wind directions — nautical charts)\n  └── Rule: if you're adding a north arrow to a north-up map\n            to look professional, you're adding chartjunk\n\n  DATA SOURCES + DATE:\n  ├── Required: always (credibility and reproducibility)\n  └── Example: \"Data: USGS National Map, 2023\"\n\n  CRS / PROJECTION NOTE:\n  ├── Required: for professional/scientific maps\n  └── Example: \"Projection: Albers Equal-Area Conic, NAD83\"\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "## Persuasion and Propaganda Maps",
+      "confidence": "candidate",
+      "text": "MAP MANIPULATION TECHNIQUES\n══════════════════════════════════════════════════════════════════════\n\n  PROJECTION CHOICE:\n  ├── Showing your country larger than it is: use projection where\n  │   your country is at the latitude of least distortion\n  ├── Cold War US government: often used projections where Russia\n  │   appeared closer to US (azimuthal, polar projections)\n  │   → made nuclear threat feel more immediate\n  └── \"The world needs a new map\" arguments: always suspect\n      because any \"correction\" replaces one lie with another\n\n  COLOR CHOICE:\n  ├── Red = danger, communism, enemy: Cold War red maps\n  │   Soviet bloc = red, free world = white/blue\n  │   → Soviets used same colors with roles reversed\n  ├── Electoral maps: \"red state/blue state\" is arbitrary\n  │   (US Republican = red, Democrat = blue since ~2000)\n  │   Other countries use opposite or different conventions\n  └── Heat maps: red typically = more/worse; depends on context\n\n  WHAT TO OMIT:\n  ├── Scale omission: a map of \"terrorist incidents\" that doesn't\n  │   normalize by population size or land area\n  │   → densely populated regions always look worse\n  ├── Context omission: a map of crime that doesn't show\n  │   poverty/unemployment as context\n  └── Temporal cherry-picking: choose start/end dates to show\n      maximum/minimum trend\n\n  GERRYMANDERING — MAUP AS POLITICS:\n  ┌────────────────────────────────────────────────────────────┐\n  │  PACKING: concentrate opponent voters in a few districts   │\n  │           → they win those districts by huge margins       │\n  │           → fewer total districts won                      │\n  │                                                            │\n  │  CRACKING: split opponent concentrations across districts  │\n  │           → they're a minority in many districts           │\n  │           → wins in none                                   │\n  │                                                            │\n  │  The same set of point data (voters + their preferences)   │\n  │  can be districted to produce dramatically different       │\n  │  outcomes. The map = the political outcome.                │\n  └────────────────────────────────────────────────────────────┘\n\n  THE GALL-PETERS VS MERCATOR CONTROVERSY (recap):\n  Both are arguments. Mercator: navigation matters. Peters: area\n  equity matters. Neither is \"objective.\" Choose based on purpose.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 435,
+      "heading_context": "## The Modern Web Map Stack — Design Considerations",
+      "confidence": "candidate",
+      "text": "WEB MAP DESIGN SYSTEM\n══════════════════════════════════════════════════════════════════════\n\n  BASE MAP STYLE:\n  ├── Dark basemap: for data with colored points/lines/areas\n  │   (data stands out against dark background)\n  ├── Light basemap: for printed maps, official documents\n  ├── Satellite basemap: when terrain context is essential\n  └── Minimal basemap: maximize data visibility, minimize context\n\n  MAPBOX GL STYLE SPECIFICATION:\n  JSON structure:\n  {\n    \"version\": 8,\n    \"sources\": { ... vector tile sources ... },\n    \"layers\": [\n      // each layer: id, type, source, filter, paint, layout\n      { \"id\": \"background\", \"type\": \"background\",\n        \"paint\": { \"background-color\": \"#f8f4f0\" } },\n      { \"id\": \"water\", \"type\": \"fill\",\n        \"paint\": { \"fill-color\": \"#aad3df\" } },\n      { \"id\": \"roads-major\", \"type\": \"line\",\n        \"paint\": { \"line-color\": \"#ffffff\",\n                   \"line-width\": [\"interpolate\", [\"linear\"],\n                     [\"zoom\"], 10, 1, 18, 8] } }\n    ]\n  }\n\n  Layer rendering order: bottom layer in array = drawn first.\n  Data layers on top; base layers below.\n\n  RESPONSIVE DESIGN:\n  ├── Touch interaction: finger-size hit targets (44px+)\n  ├── Small screen: remove less important layers at mobile zoom\n  ├── High DPI: use @2x tile variants if available\n  └── Accessibility: add screen reader description of map content\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 480,
+      "heading_context": "## Design for Accessibility",
+      "confidence": "candidate",
+      "text": "ACCESSIBLE MAP DESIGN\n══════════════════════════════════════════════════════════════════════\n\n  COLOR BLINDNESS (most common):\n  ├── Don't rely on red/green distinction alone (8% of men)\n  ├── Use ColorBrewer colorblind-safe palettes\n  ├── Supplement color with pattern texture\n  ├── Test with Coblis or similar simulator\n  └── Ensure sufficient lightness contrast (not just hue)\n\n  WCAG CONTRAST REQUIREMENTS:\n  Text on background: minimum 4.5:1 contrast ratio (AA)\n  Large text (>18pt): minimum 3:1\n  UI components: minimum 3:1\n  Maps: no formal requirement but aim for text ≥ 4.5:1\n\n  LOW VISION:\n  ├── Minimum font size for legibility: 9pt print, 12px screen\n  ├── Provide ability to increase text size\n  └── Don't encode meaning in text size alone\n\n  SCREEN READERS / COGNITIVE:\n  ├── Provide text alternative for map content\n  ├── Key findings should appear in text, not map-only\n  └── Complex maps: provide summary table of key data\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

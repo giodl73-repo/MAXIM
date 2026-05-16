@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:ancient-athletics
+kind: guide
+module: sports-history
+section: sports-history
+title: Ancient Athletics
+status: source-custody
+source_custody: partial
+current_path: sports-history/01-ANCIENT-ATHLETICS.md
+canonical_path: sports-history/01-ANCIENT-ATHLETICS.md
+backsource_ids: [proof-backfill:sports-history:01-ancient-athletics, git-history:sports-history:01-ancient-athletics]
+concepts: [ancient, athletics]
+root_concepts: [ancient, athletics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Athletics
 
 ## The Big Picture
@@ -34,26 +53,26 @@ not isolated entertainment. The separation of "sport" from
 **Location**: Olympia (Altis sanctuary) in the Peloponnese, southwestern Greece. Not a city -- a sacred precinct containing the Temple of Zeus (one of Seven Wonders, containing Pheidias's colossal gold-and-ivory statue), the Heraion, the stadium, hippodrome, and athlete/official facilities.
 
 ```
-+------------------------------------------+
+:------------------------------------------:
 |              OLYMPIA SANCTUARY           |
 |                                          |
-|  +------------------+  +--------------+  |
+|  :------------------:  :--------------:  |
 |  | Temple of Zeus   |  | Heraion      | |
 |  | (housing         |  | (Hera temple,| |
 |  |  Pheidias statue)|  |  older)      | |
-|  +------------------+  +--------------+ |
+|  :------------------:  :--------------: |
 |                                         |
-|  +------------------+  +--------------+ |
+|  :------------------:  :--------------: |
 |  | Stadium          |  | Hippodrome   | |
 |  | (192m course)    |  | (chariot     | |
 |  | ~45,000 seated   |  |  racing)     | |
 |  | on earthen banks |  |  400m+       | |
-|  +------------------+  +--------------+ |
+|  :------------------:  :--------------: |
 |                                         |
 |  Palaistra (wrestling/boxing training)  |
 |  Gymnasion (running/throwing practice)  |
 |  Altis (sacred grove, altar fires)      |
-+------------------------------------------+
+:------------------------------------------:
 ```
 
 **The Olympiad**: Four-year cycle. The games set the chronological calendar -- Greeks dated events as "in the Xth Olympiad." The Sacred Truce (ekecheiria) -- theoretical cessation of hostilities allowing athletes/spectators safe travel to and from Olympia. In practice, repeatedly violated but conceptually important as first international peace agreement for sport.
@@ -154,9 +173,9 @@ Alternatively: win any 3 of 5 (with stadion as tiebreaker).
 
 ```
 PANKRATION COMPARISON TO MODERN MMA:
-  +------------------+------------------+
+  :------------------:------------------:
   | Ancient Pankration | Modern MMA     |
-  +------------------+------------------+
+  :------------------:------------------:
   | No weight classes | Weight classes  |
   | No rounds        | Timed rounds     |
   | No ring boundary | Cage/ring        |
@@ -164,7 +183,7 @@ PANKRATION COMPARISON TO MODERN MMA:
   | Bite/gouge banned| Many rules       |
   | All else legal   | Unified rules    |
   | Won: sub/KO/death| Won: sub/KO/dec  |
-  +------------------+------------------+
+  :------------------:------------------:
   Conceptually identical. Ancient pankration IS
   ancient MMA. Rules simply fewer.
 ```
@@ -353,7 +372,7 @@ BALL COURT (juego de pelota):
   |                                          |
   |  +--------+                              |
   |  | ENDZONE|                              |
-  |  +---++---+                              |
+  |  :---::---:                              |
   |      ||                                  |
   |  ====++==== STONE RING (high on wall)    |
   |      ||                                  |
@@ -362,9 +381,9 @@ BALL COURT (juego de pelota):
   |      ||                                  |
   |  ====++==== STONE RING (opposite wall)   |
   |      ||                                  |
-  |  +---++---+                              |
+  |  :---::---:                              |
   |  | ENDZONE|                              |
-  |  +--------+                              |
+  |  :--------:                              |
   |                                          |
   |  Sloping or vertical side walls          |
   |  Stone rings: 2m+ above playing surface  |
@@ -425,7 +444,7 @@ EVIDENCE FOR SACRIFICE CONNECTION:
 ## Connections: Ancient Sport Common Themes
 
 ```
-+------------------------------------------------------+
+:------------------------------------------------------:
 |          ANCIENT SPORT COMMON STRUCTURE              |
 |                                                      |
 |  ALL THREE TRADITIONS share:                         |

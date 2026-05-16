@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:professionalism-media
+kind: guide
+module: sports-history
+section: sports-history
+title: 08 - Professionalism and Media
+status: source-custody
+source_custody: partial
+current_path: sports-history/08-PROFESSIONALISM-MEDIA.md
+canonical_path: sports-history/08-PROFESSIONALISM-MEDIA.md
+backsource_ids: [proof-backfill:sports-history:08-professionalism-media, git-history:sports-history:08-professionalism-media]
+concepts: [professionalism, media]
+root_concepts: [professionalism, media]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Professionalism and Media
 
 ## The Big Picture
@@ -742,7 +761,7 @@ SPORT GLOBALIZATION VECTORS
   │  Ronaldo/Messi → >500M combined Instagram followers │
   └──────────────────────┬──────────────────────────────┘
                          │
-  ┌──────────────────────▼──────────────────────────────┐
+   ──────────────────────▼──────────────────────────────
   │            INFRASTRUCTURE EXPORT                    │
   │  EPL clubs: academies in West Africa, Southeast Asia │
   │  NBA: Basketball Without Borders (1994-present)     │
@@ -750,7 +769,7 @@ SPORT GLOBALIZATION VECTORS
   │  NFL Germany: Frankfurt, Munich (from 2022)         │
   │  F1 calendar: Singapore (2008), Abu Dhabi (2009),   │
   │    Saudi Arabia (2021), Miami (2022), Las Vegas (2023)│
-  └──────────────────────┬──────────────────────────────┘
+   ────────────────────── ──────────────────────────────
                          │
   ┌──────────────────────▼──────────────────────────────┐
   │            FRANCHISE/LEAGUE EXPANSION               │

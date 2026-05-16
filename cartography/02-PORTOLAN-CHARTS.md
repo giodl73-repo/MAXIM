@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:portolan-charts
+kind: guide
+module: cartography
+section: cartography
+title: 02 - Portolan Charts
+status: source-custody
+source_custody: partial
+current_path: cartography/02-PORTOLAN-CHARTS.md
+canonical_path: cartography/02-PORTOLAN-CHARTS.md
+backsource_ids: [proof-backfill:cartography:02-portolan-charts, git-history:cartography:02-portolan-charts]
+concepts: [portolan, charts]
+root_concepts: [portolan, charts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Portolan Charts
 
 ## Empirical Accuracy Without Formal Theory

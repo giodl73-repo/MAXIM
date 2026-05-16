@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:cartographic-design
+kind: guide
+module: cartography
+section: cartography
+title: 10 - Cartographic Design
+status: source-custody
+source_custody: partial
+current_path: cartography/10-CARTOGRAPHIC-DESIGN.md
+canonical_path: cartography/10-CARTOGRAPHIC-DESIGN.md
+backsource_ids: [proof-backfill:cartography:10-cartographic-design, git-history:cartography:10-cartographic-design]
+concepts: [cartographic, design]
+root_concepts: [cartographic, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — Cartographic Design
 
 ## Making Maps That Work
@@ -221,7 +240,7 @@ LABEL PLACEMENT PRIORITIES
 ══════════════════════════════════════════════════════════════════════
 
   FOR POINT FEATURES (cities, POIs):
-  ┌────────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────────
   │  Priority placement positions (in order):                  │
   │  1. Upper right (default preferred)                        │
   │  2. Upper left                                             │
@@ -231,7 +250,7 @@ LABEL PLACEMENT PRIORITIES
   │  6. Directly above                                         │
   │  7. Directly left                                          │
   │  8. Directly below (least preferred — visually tied to dot)│
-  └────────────────────────────────────────────────────────────┘
+   ────────────────────────────────────────────────────────────
 
   NEVER:
   ├── Label crossing the coast (if feature is coastal city)

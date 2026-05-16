@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:combat-sports
+kind: guide
+module: sports-history
+section: sports-history
+title: Combat Sports History
+status: source-custody
+source_custody: partial
+current_path: sports-history/06-COMBAT-SPORTS.md
+canonical_path: sports-history/06-COMBAT-SPORTS.md
+backsource_ids: [proof-backfill:sports-history:06-combat-sports, git-history:sports-history:06-combat-sports]
+concepts: [combat, sports]
+root_concepts: [combat, sports]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Combat Sports History
 
 ## The Big Picture

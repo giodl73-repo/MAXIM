@@ -1,9 +1,28 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:overview
+kind: guide
+module: sports-history
+section: sports-history
+title: Sports History - Overview
+status: source-custody
+source_custody: partial
+current_path: sports-history/00-OVERVIEW.md
+canonical_path: sports-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:sports-history:00-overview, git-history:sports-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sports History — Overview
 
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 |                    SPORT AS HUMAN ACTIVITY                        |
 |                                                                  |
 |  ANCIENT RITUAL      MEDIEVAL PAGEANT     MODERN INDUSTRY        |
@@ -11,12 +30,12 @@
 |   religion/civic      martial training,    franchise valuations,  |
 |   life, Olympia)      crowd spectacle)     analytics, NIL)        |
 |       |                    |                    |                 |
-|       +--------------------+--------------------+                 |
+|       :--------------------:--------------------:                 |
 |                            |                                      |
 |               ORGANIZED PHYSICAL CONTEST                          |
 |           with rules, officials, spectators                       |
 |               and competitive outcome                             |
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 
 Classification axes:
   Physical profile:  combat | locomotion | manipulation | target | vehicle
@@ -32,27 +51,27 @@ Classification axes:
 These concepts nest and overlap. The distinctions matter for governance, funding, and identity.
 
 ```
-+-----------------------------------------------------------+
+:-----------------------------------------------------------:
 |                    PHYSICAL ACTIVITY                       |
 |                                                           |
-|  +---------------------------+  +-----------------------+ |
+|  :---------------------------:  :-----------------------: |
 |  |         EXERCISE          |  |        PLAY           | |
 |  | (fitness goal,            |  | (no rules required,   | |
 |  |  no competitive outcome)  |  |  no competitive goal) | |
-|  +---------------------------+  +-----------------------+ |
+|  :---------------------------:  :-----------------------: |
 |                                                           |
-|  +-----------------------------------------------------+ |
+|  :-----------------------------------------------------: |
 |  |                       GAME                          | |
 |  |  (rules + competitive outcome, but physical         | |
 |  |   exertion NOT required -- chess, poker)            | |
-|  +-----------------------------------------------------+ |
+|  :-----------------------------------------------------: |
 |                                                           |
-|  +-----------------------------------------------------+ |
+|  :-----------------------------------------------------: |
 |  |                       SPORT                         | |
 |  |  (game + significant physical exertion component)   | |
 |  |  -- contested definition at the margins             | |
-|  +-----------------------------------------------------+ |
-+-----------------------------------------------------------+
+|  :-----------------------------------------------------: |
+:-----------------------------------------------------------:
 ```
 
 **The definitional edge cases:**
@@ -76,7 +95,7 @@ These concepts nest and overlap. The distinctions matter for governance, funding
 ## Sport Taxonomy
 
 ```
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 |                    SPORT TAXONOMY                                 |
 |                                                                  |
 |  COMBAT              BALL/PUCK          TRACK/FIELD              |
@@ -116,7 +135,7 @@ These concepts nest and overlap. The distinctions matter for governance, funding
 |  Luge/Skeleton       Horse racing                               |
 |  Curling             Harness racing                             |
 |  Ice dancing                                                     |
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 ```
 
 ---
@@ -154,7 +173,7 @@ ELITE / OLYMPIC
 ## Governing Body Architecture
 
 ```
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 |              INTERNATIONAL OLYMPIC STRUCTURE                      |
 |                                                                  |
 |  IOC (International Olympic Committee, Lausanne)                 |
@@ -162,7 +181,7 @@ ELITE / OLYMPIC
 |  -- Recognizes IFs (International Federations)                   |
 |  -- Distributes broadcast revenue to NOCs and IFs                |
 |                |                                                 |
-|     +----------+---------+                                       |
+|     :----------:---------:                                       |
 |     v                    v                                       |
 |  NOCs (National          IFs (International                      |
 |  Olympic Committees)     Federations per sport)                  |
@@ -183,7 +202,7 @@ ELITE / OLYMPIC
 |                |                                                 |
 |                v                                                 |
 |          Clubs / Teams                                           |
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 ```
 
 **FIFA anomaly**: 211 member associations vs 195 UN member states. Football governing body has broader reach than the United Nations. Kosovo is a FIFA member before being a UN member. Palestine is a FIFA member.
@@ -193,7 +212,7 @@ ELITE / OLYMPIC
 ## Anti-Doping Infrastructure
 
 ```
-+------------------------------------------------------+
+:------------------------------------------------------:
 |              ANTI-DOPING ECOSYSTEM                    |
 |                                                      |
 |  WADA (World Anti-Doping Agency, Montreal)           |
@@ -203,7 +222,7 @@ ELITE / OLYMPIC
 |  -- Manages ADAMS (Anti-Doping Administration &      |
 |    Management System) -- athlete whereabouts         |
 |                |                                     |
-|     +----------+----------+                          |
+|     :----------:----------:                          |
 |     v                     v                          |
 |  National ADOs           IF testing programs         |
 |  USADA (USA)             (UCI, FIFA, IAAF)           |
@@ -293,7 +312,7 @@ The secular trend in athletic performance is unambiguous. Confounders: training 
 ## Psychology of Sport
 
 ```
-+------------------------------------------+
+:------------------------------------------:
 |         PSYCHOLOGICAL PERFORMANCE         |
 |                                          |
 |  FLOW STATE (Csikszentmihalyi)           |
@@ -325,7 +344,7 @@ The secular trend in athletic performance is unambiguous. Confounders: training 
 |  -- Motor cortex activates during vivid  |
 |    mental rehearsal                      |
 |  -- Elite athletes systematically use    |
-+------------------------------------------+
+:------------------------------------------:
 ```
 
 **Biles 2021 Tokyo withdrawal**: "Twisties" in gymnastics (spatial disorientation mid-air) is not a mental weakness -- it is a dangerous neurological state causing serious injury risk. The conflation of competitive pressure with genuine safety risk reflects public misunderstanding of sport psychology.
@@ -374,7 +393,7 @@ PHASE 5: STREAMING FRAGMENTATION (2015-present)
 Sport has been a proxy for national competition since the modern Olympic revival. The relationship is explicit and instrumentalized.
 
 ```
-+--------------------------------------------------+
+:--------------------------------------------------:
 |           SPORT-NATIONALISM NEXUS                 |
 |                                                  |
 |  OLYMPIC MEDAL TABLES                            |
@@ -401,7 +420,7 @@ Sport has been a proxy for national competition since the modern Olympic revival
 |  -- 1980 Moscow (US/65 nations, Afghanistan)     |
 |  -- 1984 LA (Soviet retaliatory boycott)         |
 |  -- Ongoing: Russia/Belarus exclusion post-2022  |
-+--------------------------------------------------+
+:--------------------------------------------------:
 ```
 
 ---
@@ -410,22 +429,22 @@ Sport has been a proxy for national competition since the modern Olympic revival
 
 ```
                 REVENUE STREAMS
-                +--------------+
+                :--------------:
                 |              |
-    +-----------+-----------+  +----------+
+    :-----------:-----------:  :----------:
     | Broadcast rights      |  | Matchday |
     | (largest for major    |  | tickets  |
     |  US sports, football) |  | boxes    |
-    +-----------+-----------+  +----------+
+    :-----------:-----------:  :----------:
                 |
-    +-----------+-----------+  +----------+
+    :-----------:-----------:  :----------:
     | Commercial/           |  | Transfer |
     | Sponsorship           |  | fees     |
     | (kit, stadium naming, |  | (football|
     |  player endorsements) |  |  unique) |
-    +-----------+-----------+  +----------+
+    :-----------:-----------:  :----------:
                 |
-    +-----------+
+    :-----------:
     | Player salaries: 50-60% of revenue
     |   in most major professional leagues
     | Luxury tax / salary cap mechanisms

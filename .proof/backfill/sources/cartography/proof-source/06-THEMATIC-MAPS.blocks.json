@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\06-THEMATIC-MAPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Maps as Argument",
+      "confidence": "candidate",
+      "text": "THEMATIC MAP DESIGN SPACE\n══════════════════════════════════════════════════════════════════════\n\n  DATA TYPE × GEOGRAPHIC AGGREGATION\n  ─────────────────────────────────────────────────────────────\n\n  Data type:\n  ├── Counts (absolute values): population, cases, dollars\n  ├── Rates (normalized values): per capita, per km², percentages\n  ├── Ratios: unemployment rate, infection rate\n  ├── Categorical: land use type, party affiliation, biome\n  └── Continuous field: temperature, elevation, density\n\n  Geographic aggregation:\n  ├── Points: individual locations (addresses, events)\n  ├── Lines: flows, routes, connections\n  ├── Polygons: administrative units (counties, countries)\n  └── Continuous surface: raster, interpolated field\n\n  MATCH DATA TYPE TO MAP TYPE:\n   ────────────────── ────────────────────────────────────\n  │  Data type       │  Best map type(s)                  │\n   ────────────────── ────────────────────────────────────\n  │  Count by region │  Choropleth (normalized) or dot    │\n  │  Rate by region  │  Choropleth (rate is appropriate)  │\n  │  Continuous field│  Isoline / raster / heat map       │\n  │  Point locations │  Dot map / proportional symbol     │\n  │  Flows           │  Flow map / OD matrix              │\n  │  Categorical     │  Choropleth (categorical palette)  │\n  │  Time series     │  Small multiples / animation       │\n  └──────────────────┴────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## John Snow's Cholera Map (1854)",
+      "confidence": "candidate",
+      "text": "BROAD STREET CHOLERA OUTBREAK — THE FULL PICTURE\n══════════════════════════════════════════════════════════════════════\n\n  BACKGROUND:\n  - August 31, 1854: cholera cases begin appearing in Soho\n  - Within 10 days: 500 deaths in a small geographic area\n  - Prevailing theory: miasma (disease caused by bad air)\n  - Snow's theory (since 1849): cholera spread by contaminated water\n\n  SNOW'S MAP:\n  ┌────────────────────────────────────────────────────────────┐\n  │  BASE: street map of Soho neighborhood                     │\n  │  DATA LAYER 1: black bars = cholera deaths (each bar = 1)  │\n  │  DATA LAYER 2: dots = water pump locations                 │\n  │                                                            │\n  │  Pattern visible: deaths cluster around Broad Street pump  │\n  │  Deaths thin out away from Broad Street pump               │\n  │  Deaths near OTHER pumps: few                              │\n  └────────────────────────────────────────────────────────────┘\n\n  THE PUMP HANDLE STORY (partially mythologized):\n  ┌────────────────────────────────────────────────────────────┐\n  │  September 8, 1854: Snow presents to Board of Guardians    │\n  │  Pump handle removed same day                              │\n  │  Outbreak was already declining (cases had peaked Sept 2)  │\n  │  Handle removal probably did not end the outbreak          │\n  │  Snow himself acknowledged this                            │\n  └────────────────────────────────────────────────────────────┘\n\n  THE ACTUAL EVIDENCE THAT MATTERED:\n  Snow didn't just make a map. He gathered the full evidence case:\n\n  1. The map (spatial clustering around Broad St. pump)\n  2. Interview data: traced ~73 deaths — did they use Broad St pump?\n  3. The negative cases: brewery workers (had their own water supply,\n     didn't drink from the pump) — zero deaths\n  4. The Lion Brewery workers drank from the pump — deaths occurred\n  5. The Widow Eley: lived far away, had water from Broad St. sent\n     to her because she liked the taste — died of cholera\n  6. The Workhouse: had its own water supply, few deaths despite\n     being in the epicenter\n  7. The Southwark water supply comparison (1853): households served\n     by Southwark & Vauxhall Company (contaminated Thames water)\n     had cholera rate 14× higher than those served by Lambeth\n     Company (cleaner upstream water) — Snow's quasi-experiment\n\n  The map was convincing, not conclusive. The full evidence package\n  was what built the case. The map made the pattern visible;\n  the interviews explained the exceptions.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 134,
+      "heading_context": "## Charles Minard's Napoleon Campaign Map (1869)",
+      "confidence": "candidate",
+      "text": "MINARD'S NAPOLEON MAP — SIX VARIABLES IN TWO DIMENSIONS\n══════════════════════════════════════════════════════════════════════\n\n  The map encodes:\n  1. GEOGRAPHY: campaign route across Russia\n  2. ARMY SIZE: band width = number of soldiers\n     (starts: 422,000; Moscow: 100,000; returns: 10,000)\n  3. DIRECTION: separate colors (tan = advance, black = retreat)\n  4. TEMPERATURE: bottom graph (in Réaumur scale, linked to retreat)\n  5. DATE: marked at key points during retreat\n  6. RIVER CROSSINGS: labeled (Berezina disaster shown)\n\n  Visual structure:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Left (Poland border) → Right (Moscow) → back Left           │\n  │                                                              │\n  │  Advance (tan): ████████████████████                         │\n  │                  (wide — 422,000 men)                        │\n  │                         ████████                             │\n  │                          (narrowing — attrition)             │\n  │                                    ██  ← Moscow              │\n  │                         (100,000 remain)                     │\n  │  Retreat (black):               ██                           │\n  │                           ████                               │\n  │             ██████████████ ← 10,000 survive                  │\n  │                                                              │\n  │  Below: temperature graph drops to -30°R during retreat      │\n  └──────────────────────────────────────────────────────────────┘\n\n  What makes it work (Tufte's analysis):\n  ├── The data IS the graphic — no chartjunk\n  ├── Six variables visible simultaneously without confusion\n  ├── The story is devastating — the width of the retreat band\n  │   shows the scale of human catastrophe directly\n  ├── Causal inference supported: temperature drops align with\n  │   major army losses; Berezina crossing visible as sudden\n  │   narrowing\n  └── No scales/axes needed — the band IS the quantity\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## Choropleth Maps",
+      "confidence": "candidate",
+      "text": "CHOROPLETH MAPS — MECHANICS AND PITFALLS\n══════════════════════════════════════════════════════════════════════\n\n  DEFINITION:\n  Regions shaded in proportion to a statistical variable.\n  \"Choropleth\" = Greek: khora (region/area) + plethos (multitude)\n\n  CORRECT USE:\n  ├── Normalized/rate data: income per capita, cases per 100k\n  ├── Continuous variables that make sense across a region\n  └── Where the region is the relevant geographic unit\n\n  INCORRECT USE:\n  ├── Raw counts: makes big regions look more significant\n  │   Example: plotting total COVID deaths by state →\n  │   California appears worst; plotting per-capita →\n  │   different story\n  ├── Very small/large regions not comparable\n  └── When the phenomenon doesn't fill the region uniformly\n\n  DATA CLASSIFICATION CHOICES:\n  ┌─────────────────────────────────────────────────────────────┐\n  │  Equal interval: split range into equal-width bins          │\n  │  (good when data is roughly uniform; bad with outliers)     │\n  │                                                             │\n  │  Quantile: equal number of items per bin                    │\n  │  (good for skewed data; hides the actual distribution)      │\n  │                                                             │\n  │  Natural breaks (Jenks): minimize within-class variance     │\n  │  (finds natural groupings; computationally heavy)           │\n  │                                                             │\n  │  Standard deviation: bins by SD from mean                   │\n  │  (highlights outliers; statistical audience)                │\n  │                                                             │\n  │  Manual: define breaks based on domain knowledge            │\n  │  (poverty line, legal thresholds, etc.)                     │\n  └─────────────────────────────────────────────────────────────┘\n\n  THE MODIFIABLE AREAL UNIT PROBLEM (MAUP):\n  ┌─────────────────────────────────────────────────────────────┐\n  │  Aggregating point data to regions produces different       │\n  │  results depending on HOW you draw the region boundaries.   │\n  │                                                             │\n  │  Scale problem: county-level vs state-level patterns differ │\n  │  Zone problem: gerrymandering makes this visceral           │\n  │               Drawing different district boundaries with    │\n  │               the same points produces opposite electoral   │\n  │               outcomes — this is MAUP weaponized            │\n  │                                                             │\n  │  The choropleth LOOKS objective. The boundaries are not.    │\n  └─────────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## Dot Density Maps",
+      "confidence": "candidate",
+      "text": "DOT DENSITY MAPS — MECHANICS AND APPROPRIATE USE\n══════════════════════════════════════════════════════════════════════\n\n  DEFINITION:\n  Each dot represents a fixed count of the variable.\n  Dots placed randomly within the geographic unit.\n\n  Example: US population map\n  - 1 dot = 1,000 people\n  - Each county gets N dots placed randomly within its boundary\n  - Dense clusters of dots = high population\n  - Empty areas = low population\n\n  STRENGTHS:\n  ├── Shows raw counts (not just rates) — you see scale\n  ├── The dot density visually represents the data\n  ├── Works for multiple categories (different colored dots\n  │   for Republican and Democratic voters, for example)\n  └── More honest than choropleth for sparse populations\n      (a huge, sparsely populated county doesn't \"fill in\"\n       as uniformly dark the way choropleth does)\n\n  WEAKNESSES:\n  ├── Dots don't show actual locations within the unit\n  │   (randomly placed within county — may be in a lake)\n  ├── Reading absolute values requires counting or estimating\n  ├── Overlapping dots at high density become unreadable\n  └── 1-dot-N-people ratio requires calibration per dataset\n\n  THE RACIAL DOT MAP (2010 US Census):\n  ┌──────────────────────────────────────────────────────────┐\n  │  1 dot = 1 person; color = race/ethnicity                │\n  │  308 million dots rendered at full resolution            │\n  │  Makes segregation patterns immediately visible          │\n  │  Technically challenging: rendering 300M dots at         │\n  │  interactive zoom required tile-based vector rendering   │\n  └──────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 297,
+      "heading_context": "## Proportional Symbol Maps",
+      "confidence": "candidate",
+      "text": "PROPORTIONAL SYMBOL MAPS — DESIGN AND PERCEPTION\n══════════════════════════════════════════════════════════════════════\n\n  DEFINITION:\n  Symbols (circles, squares, icons) scaled to variable value.\n  Positioned at the location the data represents.\n\n  CIRCLE AREA vs RADIUS CONFUSION:\n  ┌──────────────────────────────────────────────────────────┐\n  │  If city A has 2× the population of city B:              │\n  │                                                          │\n  │  CORRECT: scale circle AREA proportionally               │\n  │  Area = π·r²  →  r = √(value/π·k)                        │\n  │  Doubling value → circle ~1.41× bigger in radius         │\n  │                                                          │\n  │  COMMON ERROR: scale circle RADIUS proportionally        │\n  │  Doubling value → circle 4× bigger in area               │\n  │  This exaggerates differences between large values       │\n  │                                                          │\n  │  Perceptual reality: people underestimate circle area    │\n  │  Flannery correction: overscale by 0.57 exponent         │\n  │  (empirically matches perception) — rarely used          │\n  └──────────────────────────────────────────────────────────┘\n\n  GRADUATED vs PROPORTIONAL:\n  Graduated: a few discrete size classes (small/medium/large)\n  Proportional: continuously scaled to value\n  Graduated: cleaner; loses detail\n  Proportional: more precise; harder to read\n\n  OVERLAPPING SYMBOLS:\n  Major problem when many symbols exist in a small area.\n  Solutions:\n  ├── Transparency (α blending)\n  ├── Offset (move overlapping symbols slightly)\n  ├── Hollow symbols (show overlap through stacking)\n  └── Zoom/interaction (web maps: expand on click)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "## Isoline / Isopleth Maps",
+      "confidence": "candidate",
+      "text": "ISOLINE MAPS — TYPES AND CONSTRUCTION\n══════════════════════════════════════════════════════════════════════\n\n  An isoline connects all points with equal value.\n\n  Common types:\n  ├── CONTOUR LINES: equal elevation (topographic maps)\n  │   Most common; 20m or 40m or 100m intervals typical\n  ├── ISOBARS: equal atmospheric pressure (weather maps)\n  ├── ISOTHERMS: equal temperature\n  ├── ISOHYETS: equal rainfall\n  ├── ISOSEISMALS: equal earthquake intensity\n  └── ISOPLETHS: equal value of any ratio variable\n\n  CONSTRUCTION (pre-digital):\n  ┌──────────────────────────────────────────────────────────┐\n  │  1. Sample points with known values across area          │\n  │  2. Interpolate between known points                     │\n  │  3. Connect equal-value interpolated positions           │\n  │                                                          │\n  │  Interpolation method matters:                           │\n  │  - Linear: simple, discontinuous at sample points        │\n  │  - IDW (Inverse Distance Weighting): smoother            │\n  │  - Kriging: geostatistical, accounts for spatial         │\n  │    autocorrelation (assumes nearby points more similar)  │\n  └──────────────────────────────────────────────────────────┘\n\n  READING CONTOUR MAPS:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Close contour spacing → steep slope                     │\n  │  Wide spacing → gentle slope                             │\n  │  Closed concentric contours → hill (or depression)       │\n  │  V-shape pointing uphill → valley (V = Valley)           │\n  │  V-shape pointing downhill → ridge (same rule, reversed) │\n  │  Hachure marks on contours → depression (bowl)           │\n  └──────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 388,
+      "heading_context": "## Cartograms",
+      "confidence": "candidate",
+      "text": "CARTOGRAMS — DISTORTING GEOGRAPHY TO SHOW DATA\n══════════════════════════════════════════════════════════════════════\n\n  DEFINITION:\n  A cartogram replaces geographic area with a data variable.\n  Regions are enlarged/shrunk to be proportional to the variable.\n\n  TYPES:\n  ├── CONTIGUOUS: regions maintain adjacency relationships\n  │   Borders still touch; regions distorted\n  │   Dorling cartogram: replace regions with proportional circles\n  │   (maintains centers, loses adjacency)\n  │\n  ├── NON-CONTIGUOUS: regions maintain shape, scaled separately\n  │   White space between regions\n  │   Cleaner shapes; loses geographic context\n  │\n  └── TILE-GRID CARTOGRAM: each region = equal-size tile\n      Hex maps of US states: each state gets 1 hexagon\n      (Wyoming and California have equal visual weight)\n      Best for fair comparison of uniform-unit data\n\n  EXAMPLES:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Electoral map (votes):                                  │\n  │  Geographic: US looks mostly Republican (land area)      │\n  │  Vote cartogram: proportional to electoral votes         │\n  │  Population cartogram: proportional to population        │\n  │  Each shows a different truth about the same election    │\n  └──────────────────────────────────────────────────────────┘\n\n  WORLDMAPPER (www.worldmapper.org):\n  ├── 700+ cartograms of global data\n  ├── World population cartogram: Asia dominates\n  ├── World income cartogram: US/Europe dominate\n  ├── Malaria cartogram: Sub-Saharan Africa dominates\n  └── The visual contrast between maps reveals inequality\n\n  CONSTRUCTION CHALLENGE:\n  Contiguous cartograms require solving an optimization problem:\n  distort region areas to target values while maintaining\n  contiguity and minimizing shape distortion.\n  Algorithms: Dougenik/Chrisman/Niemeyer (1985), diffusion-based\n  (Gastner/Newman 2004), flow-based.\n  Computationally expensive for large datasets.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 444,
+      "heading_context": "## Flow Maps",
+      "confidence": "candidate",
+      "text": "FLOW MAPS — DESIGN PRINCIPLES\n══════════════════════════════════════════════════════════════════════\n\n  MINARD'S ORIGINAL INSIGHTS:\n  ├── Width of flow = volume/quantity\n  ├── Direction encoded in color or arrowhead\n  ├── Start/end points anchored geographically\n  └── Multiple flows can overlay (but get messy quickly)\n\n  MODERN VARIATIONS:\n  ├── OD (Origin-Destination) matrix visualization:\n  │   Lines between all origin-destination pairs\n  │   Width = volume; color = direction/type\n  │   Problem: N cities = N² lines = spaghetti\n  │   Solution: filter to significant flows only\n  │\n  ├── Radial flow: all lines from one origin\n  │   (flight map from hub city)\n  │   Shows connectivity, volume from one source\n  │\n  ├── Sankey diagram: flow as area-preserving streams\n  │   Energy flows, budget allocations, material flows\n  │   Technically a flow chart; often overlaid on map\n  │\n  └── Animated flow: particles moving along routes\n      (real-time data: ship AIS, aircraft, Twitter activity)\n\n  DESIGN CHALLENGES:\n  ├── Crossing lines obscure relationships\n  ├── Bidirectional flows overlap (use parallel offset)\n  ├── Very different magnitudes → thin flows invisible\n  └── Scale: work globally but hard to read locally\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 485,
+      "heading_context": "## Map Type Decision Framework",
+      "confidence": "candidate",
+      "text": "THEMATIC MAP TYPE SELECTION\n══════════════════════════════════════════════════════════════════════════\n\n  START HERE:\n  ↓\n  What is your data geometry?\n  ├── POINTS → proportional symbol, dot, heat map\n  ├── LINES → flow map\n  └── POLYGONS → choropleth, cartogram\n\n  If POLYGONS:\n  ↓\n  Is your variable normalized (rate/ratio) or count?\n  ├── COUNT: be very careful with choropleth\n  │   (big regions look more significant)\n  │   Consider dot map or proportional symbol instead\n  └── RATE/RATIO: choropleth appropriate\n\n  If CHOROPLETH:\n  ↓\n  What color scheme?\n  ├── Sequential (light→dark): one variable, one direction\n  │   (e.g., income: white=low, dark blue=high)\n  ├── Diverging (two colors from center): ±deviation from midpoint\n  │   (e.g., above/below average, vote swing)\n  └── Qualitative (distinct colors): categorical data\n      (e.g., land use type, party affiliation)\n\n  Do you want to compare area-proportional values?\n  └── CARTOGRAM: distort regions to be proportional to data\n\n  Are you showing movement/flow?\n  └── FLOW MAP: Minard-style proportional width flows\n\n  Are you showing a continuous field (temperature, elevation)?\n  └── ISOLINE or RASTER SURFACE (heat map)\n\n══════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

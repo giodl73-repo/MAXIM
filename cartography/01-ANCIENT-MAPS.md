@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:ancient-maps
+kind: guide
+module: cartography
+section: cartography
+title: 01 - Ancient Maps
+status: source-custody
+source_custody: partial
+current_path: cartography/01-ANCIENT-MAPS.md
+canonical_path: cartography/01-ANCIENT-MAPS.md
+backsource_ids: [proof-backfill:cartography:01-ancient-maps, git-history:cartography:01-ancient-maps]
+concepts: [ancient, maps]
+root_concepts: [ancient, maps]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Ancient Maps
 
 ## What Maps Were For Before They Had to Be Accurate
@@ -152,20 +171,20 @@ PTOLEMY'S WORLD MAP — SCHEMATIC
 ══════════════════════════════════════════════════════════════════════
 
   North (top)
-  ┌──────────────────────────────────────────────────────────┐
+   ──────────────────────────────────────────────────────────
   │  UNKNOWN NORTHERN LANDS                                  │
   │  ─────────────────────────────────────────────────────── │
   │  Britannia │ Germania │  Sarmatia  │  Scythia            │
-  │  ──────────┼──────────┼────────────┼────────────────     │
+  │  ────────── ────────── ──────────── ────────────────     │
   │  Hispania  │   Italia │   Pontus   │  India              │
   │            │          │  (Black Sea)│                    │
-  │  ──────────┼──────────┼────────────┼────────────────     │
+  │  ────────── ────────── ──────────── ────────────────     │
   │  Mauretania│ Libya    │  Arabia    │  Sinae (China)      │
   │            │          │            │                     │
   │  ─────────────────────────────────────────────────────   │
   │  UNKNOWN              INDIAN OCEAN (enclosed sea)        │
   │  SOUTHERN LAND ←——————connects here ——————————————→      │
-  └──────────────────────────────────────────────────────────┘
+   ──────────────────────────────────────────────────────────
 
   Note: Mediterranean ~25% too long; Indian Ocean enclosed (wrong);
   Asia extends too far east; Africa terminates too soon
@@ -188,7 +207,7 @@ PEUTINGER TABLE — WHAT IT IS AND ISN'T
 ══════════════════════════════════════════════════════════════════════
 
   FORMAT:
-  ┌─────────────────────────────────────────────────────────────┐
+   ─────────────────────────────────────────────────────────────
   │  Scroll: approximately 6.82m long × 0.34m tall              │
   │  Horizontal stretch: entire Roman world from Britain to India│
   │  Vertical compression: massive (north-south squashed)       │

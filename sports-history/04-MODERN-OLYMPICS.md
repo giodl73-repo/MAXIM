@@ -1,9 +1,28 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:modern-olympics
+kind: guide
+module: sports-history
+section: sports-history
+title: The Modern Olympics
+status: source-custody
+source_custody: partial
+current_path: sports-history/04-MODERN-OLYMPICS.md
+canonical_path: sports-history/04-MODERN-OLYMPICS.md
+backsource_ids: [proof-backfill:sports-history:04-modern-olympics, git-history:sports-history:04-modern-olympics]
+concepts: [modern, olympics]
+root_concepts: [modern, olympics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Modern Olympics
 
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 |              MODERN OLYMPIC HISTORY (1896-present)               |
 |                                                                  |
 |  PHASE 1: REVIVAL         PHASE 2: POLITICS      PHASE 3: MONEY  |
@@ -20,7 +39,7 @@
 |  Strychnine (1904) -> Amphetamines (1950s) -> Steroids (1960s)   |
 |  -> East German program (1970s) -> EPO (1990s) -> Biologicals    |
 |  -> WADA 1999 -> Biological Passport 2008 -> Russia 2014-2022    |
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 ```
 
 ---

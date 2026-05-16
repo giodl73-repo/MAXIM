@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:codification-era
+kind: guide
+module: sports-history
+section: sports-history
+title: The Codification Era
+status: source-custody
+source_custody: partial
+current_path: sports-history/03-CODIFICATION-ERA.md
+canonical_path: sports-history/03-CODIFICATION-ERA.md
+backsource_ids: [proof-backfill:sports-history:03-codification-era, git-history:sports-history:03-codification-era]
+concepts: [codification, era]
+root_concepts: [codification, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Codification Era
 
 ## The Big Picture
@@ -123,7 +142,7 @@ CODIFICATION MECHANISM:
 ### The Competing Traditions Before 1863
 
 ```
-+----------------------------------------------------------+
+:----------------------------------------------------------:
 |        FOOTBALL TRADITIONS (pre-1863)                    |
 |                                                          |
 |  CAMBRIDGE RULES (1848)                                  |
@@ -140,12 +159,12 @@ CODIFICATION MECHANISM:
 |  -- Sheffield FA predates national FA                    |
 |                                                          |
 |  RUGBY RULES (Rugby School tradition)                    |
-|  -- Running with the ball allowed (catching + running)   |
+|  -- Running with the ball allowed (catching : running)   |
 |  -- Hacking (kicking legs) allowed                       |
 |  -- Less restriction on use of hands                     |
 |  -- The "William Webb Ellis picked up the ball" myth     |
 |    is almost certainly apocryphal (1823 claim made 1895)|
-+----------------------------------------------------------+
+:----------------------------------------------------------:
 ```
 
 ### The Founding Meeting of the FA (October-December 1863)

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\07-AERIAL-REMOTE-SENSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Seeing Earth from Above",
+      "confidence": "candidate",
+      "text": "REMOTE SENSING — HISTORY AND TECHNOLOGY STACK\n══════════════════════════════════════════════════════════════════════\n\n  PLATFORM EVOLUTION:\n  1858  Balloon (Nadar — first aerial photo, Paris)\n  1880s Kite photography (Batut — systematic aerial surveys)\n  1906  Pigeon camera (Neubronner — attached to carrier pigeons)\n  1914+ Fixed-wing aircraft (WWI — systematic aerial survey)\n  1946  V-2 rocket — first space photographs\n  1956  U-2 spyplane — systematic denied-area photography\n  1960  Corona — first reconnaissance satellite (film return)\n  1972  Landsat 1 — first civilian multispectral satellite\n  1986  SPOT 1 — French civilian high-resolution satellite\n  1999  IKONOS — first 1m commercial satellite\n  2000  SRTM — 11-day Space Shuttle radar mission, global DEM\n  2010s Drone/UAV — accessible sub-meter mapping\n  2013  Planet Labs — constellation for daily global coverage\n  2015  Maxar (DigitalGlobe) — 31cm commercial resolution\n\n  SENSOR EVOLUTION:\n  ├── Optical (film): visible spectrum, analog\n  ├── Optical (digital): visible spectrum, digital\n  ├── Multispectral: multiple visible + near-IR bands\n  ├── Hyperspectral: 100+ narrow spectral bands\n  ├── Thermal infrared: surface temperature\n  ├── LiDAR: active laser ranging (3D point cloud)\n  └── SAR: synthetic aperture radar (microwave, all-weather)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## WWI Aerial Survey — The Industrialization of Overhead Intelligence",
+      "confidence": "candidate",
+      "text": "WWI AERIAL PHOTOGRAPHY — SYSTEMATIC INTELLIGENCE\n══════════════════════════════════════════════════════════════════════\n\n  BEFORE WWI:\n  - Aerial photos: curiosities, occasional survey use\n  - Photo interpretation: no formal discipline\n  - Coverage: sporadic, ad hoc\n\n  BY 1918:\n  - RFC (Royal Flying Corps) alone: 10,000 aerial photos/day\n  - German: similar scale\n  - Dedicated photo interpretation schools (stereoscopic methods)\n  - Systematic sortie planning to cover specific areas\n  - 4-hour turnaround: fly → develop → print → brief\n\n  TECHNICAL METHODS:\n   ──────────────────────────────────────────────────────────\n  │  STEREOSCOPIC INTERPRETATION:                            │\n  │  Two photos of same area from slightly different positions│\n  │  → 3D effect when viewed with stereo viewer              │\n  │  → height of features estimable from parallax            │\n  │  → craters, trenches, fortifications classified          │\n  │                                                          │\n  │  OVERLAP PLANNING:                                       │\n  │  Photos taken with 60% overlap (fore-aft)                │\n  │  30% sidelap between flight lines                        │\n  │  Enables stereo coverage; enables photogrammetry later   │\n  └──────────────────────────────────────────────────────────┘\n\n  INTELLIGENCE PRODUCTS:\n  - Artillery target location (gun battery positions)\n  - Trench mapping (daily updates as positions changed)\n  - Camouflage detection (shadows, shapes)\n  - Supply route identification\n  - Bomb damage assessment (BDA — did it work?)\n\n  LEGACY:\n  The photo interpretation doctrine, overlap standards, and\n  stereo analysis methods developed in WWI were used through\n  WWII, Cold War aerial reconnaissance, and form the basis\n  of modern photogrammetric survey standards.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Photogrammetry — From Stereopairs to 3D Measurement",
+      "confidence": "candidate",
+      "text": "PHOTOGRAMMETRIC MEASUREMENT PRINCIPLE\n══════════════════════════════════════════════════════════════════════\n\n  STEREO PAIR GEOMETRY:\n  ┌──────────────────────────────────────────────────────────┐\n  │    Camera 1                    Camera 2                  │\n  │      ●                            ●                      │\n  │     /|\\                          /|\\                     │\n  │    / | \\                        / | \\                    │\n  │   /  |  \\                      /  |  \\                   │\n  │  /   |   \\                    /   |   \\                  │\n  │ ─────────────────── TARGET ────────────────────────────  │\n  │         ●                        ●                       │\n  │         same feature visible in both images              │\n  └──────────────────────────────────────────────────────────┘\n\n  PARALLAX:\n  Feature appears at different position in image 1 vs image 2.\n  Parallax Δp = b·f / H (for vertical photography)\n  where b = baseline (camera separation), f = focal length, H = height\n  Height of feature = H - H·f / (f + p/2)\n\n  REQUIREMENTS:\n  ├── Known camera positions and orientations (or calculable from GCPs)\n  ├── Overlapping images (60% fore-aft for stereo)\n  ├── Ground Control Points (GCPs): surveyed points visible in photos\n  │   for absolute positioning (connecting to real-world coordinates)\n  └── Feature matching: identify same point in both images\n      (human eye through stereoviewer; now computer vision)\n\n  PRODUCTS:\n  ├── Orthophoto: aerial photo corrected for relief displacement\n  │   (flat, planimetrically correct — can measure distances)\n  ├── DEM (Digital Elevation Model): raster of height values\n  ├── DSM (Digital Surface Model): height including buildings/trees\n  ├── DTM (Digital Terrain Model): bare-earth (veg/bldg removed)\n  └── 3D point cloud: dense set of 3D measured points\n\n  MODERN: Structure from Motion (SfM)\n  ├── Many overlapping photos from any angle (drone, phone)\n  ├── Computer vision finds matching features automatically\n  ├── Bundle adjustment solves for camera positions + 3D structure\n  └── Produces: point cloud → mesh → orthophoto + DEM\n      (the iPhone LiDAR/photogrammetry apps use this)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## CORONA — First Reconnaissance Satellite (Declassified 1995)",
+      "confidence": "candidate",
+      "text": "CORONA SATELLITE PROGRAM\n══════════════════════════════════════════════════════════════════════\n\n  TECHNICAL SPECIFICATIONS:\n  ├── Orbital altitude: ~160 km\n  ├── Resolution: ~2m (KH-4B, later missions)\n  │   (Earlier KH-1: ~12m; improved progressively)\n  ├── Film: exposed in orbit, recovered by film canister\n  │   (\"bucket\" reentry capsule caught by aircraft over Pacific)\n  ├── Camera: panoramic scan across ground track\n  ├── Coverage: approximately 10M km² per mission\n  └── Missions: 145 total (1960–1972); 102 returned usable imagery\n\n  TECHNICAL CHALLENGE — FILM RETURN:\n   ──────────────────────────────────────────────────────────\n  │  No digital transmission possible in 1960                │\n  │  Film exposed in orbit → put in reentry capsule          │\n  │  Capsule separates → reenters atmosphere → parachute     │\n  │  JC-130 aircraft \"catches\" parachute before it hits water│\n  │  Film developed, duplicated, analyzed                    │\n  │  Turnaround: days to weeks                               │\n  │  Compare to: modern Maxar EarthWatch → image in hours    │\n   ──────────────────────────────────────────────────────────\n\n  INTELLIGENCE ACHIEVEMENTS:\n  ├── First mission (1960): more Soviet territory photographed\n  │   than all U-2 flights combined\n  ├── Counted Soviet bomber/missile force\n  │   (confirmed US was overestimating Soviet capability)\n  ├── Identified ICBM deployment sites\n  ├── Monitoring arms treaties verification (SALT)\n  └── Global geodetic control — calibrated Soviet maps to WGS84\n\n  SCIENTIFIC WINDFALL (post-1995 declassification):\n  ├── Archaeological sites visible in 1960s imagery, now destroyed\n  │   (Fertile Crescent site looting visible before/after)\n  ├── Glacial retreat documented over 50+ year span\n  ├── Historical land use change (deforestation, urbanization)\n  ├── Wetland loss documented\n  └── \"Time machine\" imagery for environmental baselines\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## Landsat — Multispectral Civil Monitoring",
+      "confidence": "candidate",
+      "text": "MULTISPECTRAL IMAGING — THE ELECTROMAGNETIC SPECTRUM AS TOOL\n══════════════════════════════════════════════════════════════════════\n\n  Different wavelengths reveal different surface properties:\n\n   ────────────────────────────────────────────────────────────\n  │  VISIBLE (0.4–0.7 μm): what the eye sees                   │\n  │   ── Blue (0.45–0.52 μm): atmosphere scatter, water depth  │\n  │   ── Green (0.52–0.60 μm): vegetation health (peak reflect)│\n  │   ── Red (0.63–0.69 μm): vegetation chlorophyll absorption │\n  │                                                            │\n  │  NEAR-INFRARED (0.77–0.90 μm):                             │\n  │   ── Strong reflection by healthy green vegetation         │\n  │   ── Absorption by water                                   │\n  │   ── Used for: NDVI (vegetation index), land/water boundary│\n  │                                                            │\n  │  SHORT-WAVE INFRARED (1.55–2.35 μm):                       │\n  │  ├── Soil moisture content                                 │\n  │  ├── Rock/mineral discrimination                           │\n  │  └── Cloud vs snow discrimination                          │\n  │                                                            │\n  │  THERMAL INFRARED (10.4–12.5 μm):                          │\n  │  ├── Surface temperature (not reflected — emitted)         │\n  │  ├── Urban heat island mapping                             │\n  │  ├── Volcanic activity, wildfire detection                 │\n  │  └── Ocean/lake surface temperature                        │\n  │                                                            │\n  │  MICROWAVE (1 mm – 1 m): SAR (see below)                   │\n  │  ├── Penetrates clouds (no atmospheric window needed)      │\n  │  └── Night imaging possible (active — its own energy)      │\n  └────────────────────────────────────────────────────────────┘\n\n  FALSE COLOR COMPOSITES:\n  ┌────────────────────────────────────────────────────────────┐\n  │  RGB channels mapped to non-visible bands → false color    │\n  │                                                            │\n  │  Classic Landsat false color (bands 4-3-2 = NIR-R-G):      │\n  │  - Healthy vegetation: bright RED (high NIR)               │\n  │  - Urban areas: blue-grey                                  │\n  │  - Bare soil: brownish                                     │\n  │  - Water: dark blue to black                               │\n  │                                                            │\n  │  Why: red channel carries NIR (invisible to eyes) →        │\n  │  vegetation shows as red because plants strongly reflect   │\n  │  NIR but absorb visible red                                │\n  └────────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "## LiDAR — Active Laser 3D Mapping",
+      "confidence": "candidate",
+      "text": "LIDAR OPERATION — PRINCIPLE AND PRODUCTS\n══════════════════════════════════════════════════════════════════════\n\n  AIRBORNE LIDAR (typical):\n  ├── Aircraft altitude: 600–2,000m\n  ├── Laser pulse rate: 100,000–500,000 pulses/second\n  ├── Scan angle: ±15–25° from nadir (scanning mirror)\n  ├── Point density: 1–50 points/m² depending on altitude\n  ├── Range accuracy: ~15 cm vertical, ~15 cm horizontal\n  └── Result: dense point cloud (billions of points per dataset)\n\n  MULTIPLE RETURNS:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Laser pulse hits vegetation canopy:                     │\n  │  - 1st return: top of canopy                             │\n  │  - 2nd return: mid-canopy                                │\n  │  - Last return: ground (through gaps in canopy)          │\n  │                                                          │\n  │  Multiple return recording enables:                      │\n  │  - DSM (Digital Surface Model): from 1st returns         │\n  │  - DTM (Digital Terrain Model): from last returns        │\n  │  - Canopy height model: DSM - DTM                        │\n  └──────────────────────────────────────────────────────────┘\n\n  BARE-EARTH STRIPPING:\n  Separate the last-return ground points from vegetation.\n  Filter and interpolate → bare-earth DEM under forest cover.\n\n  This is archaeology's killer application:\n  Jungle-covered ruins are invisible in optical imagery\n  but fully visible in bare-earth LiDAR DEM.\n\n  ARCHAEOLOGICAL DISCOVERIES:\n  ├── Caracol (Belize, 2010): 176 km² of Maya lowland city\n  │   revealed in 10 hours of LiDAR vs 25 years on foot\n  ├── Angkor Wat, Cambodia: extensive urban network\n  │   previously unknown around the temple complex\n  ├── Pacunam survey (Guatemala, 2018): 60,000+ Maya structures\n  │   in 2,100 km² — showing Maya population ~10× previous estimates\n  └── Medieval English field systems under forest cover\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "## SAR — Synthetic Aperture Radar",
+      "confidence": "candidate",
+      "text": "SAR — HOW IT WORKS AND WHAT IT SHOWS\n══════════════════════════════════════════════════════════════════════\n\n  PRINCIPLE — ACTIVE ILLUMINATION:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Radar transmits microwave pulse toward Earth            │\n  │  Pulse reflects off surface → returns to sensor          │\n  │  Measure: amplitude (how much returned) + phase          │\n  │  Time of return → distance → geometry                    │\n  └──────────────────────────────────────────────────────────┘\n\n  SYNTHETIC APERTURE:\n  A real aperture radar would need an antenna km long to\n  achieve high resolution. Instead:\n  SAR uses the spacecraft's motion to synthesize a long\n  aperture by combining returns from many positions along\n  the flight track. The \"aperture\" is the flight path length.\n  Result: high azimuth resolution without huge antenna.\n\n  WHAT SAR SEES:\n  ├── Surface roughness: rough surfaces backscatter more\n  ├── Dielectric constant: affects reflectivity\n  │   (water has high dielectric constant → dark in SAR)\n  ├── Geometry: corner reflectors (buildings, edges) → bright\n  ├── Urban areas: very bright (double-bounce off walls + ground)\n  └── Vegetation: moderate return (volume scattering)\n\n  KEY APPLICATIONS:\n  ├── FLOOD MAPPING: water is dark (specular reflection away)\n  │   Floods visible even under cloud cover → emergency response\n  │\n  ├── OIL SPILL DETECTION: smooth water surface → dark patches\n  │\n  ├── SHIP DETECTION: bright point targets in dark ocean\n  │   (illegal fishing, military tracking)\n  │\n  ├── BUILDING DAMAGE ASSESSMENT:\n  │   Compare pre/post earthquake/conflict SAR\n  │   Damaged buildings change SAR signature\n  │   Available within hours of event\n  │\n  ├── DEM GENERATION (InSAR):\n  │   Two SAR images from slightly different positions\n  │   Phase difference → topographic height\n  │   SRTM (2000): 11-day shuttle mission using InSAR\n  │   → first near-global 30m DEM\n  │\n  └── GROUND DEFORMATION (DInSAR):\n      Phase difference between two dates → surface movement\n      Millimeter accuracy over hundreds of km\n      Used for: volcano monitoring, earthquake displacement,\n      landslide detection, aquifer depletion subsidence\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "## The Electromagnetic Spectrum as Observational Tool",
+      "confidence": "candidate",
+      "text": "WAVELENGTH → WHAT YOU SEE — REFERENCE TABLE\n══════════════════════════════════════════════════════════════════════\n\n  Band        Wavelength   Platform      Primary use\n  ──────────────────────────────────────────────────────\n  Visible     0.4–0.7μm   Most sensors  Base imagery, RGB\n  Near-IR     0.7–1.0μm   Multispectral Vegetation, water\n  SWIR-1      1.0–1.7μm   Landsat, SPOT Soil moisture, minerals\n  SWIR-2      1.7–2.5μm   Landsat       Mineral mapping\n  Thermal IR  8–14μm      Landsat TIR   Surface temperature\n  Microwave   1mm–100cm   SAR systems   Cloud penetration, deform\n\n  Atmospheric windows (where atmosphere is transparent):\n  ├── Visible + NIR: 0.3–1.4μm (with some absorption bands)\n  ├── SWIR windows: 1.6μm, 2.2μm\n  ├── Thermal window: 8–14μm\n  └── Microwave: essentially transparent (weak water vapor abs)\n\n  What clouds block: visible, NIR, SWIR, thermal\n  What clouds don't block: microwave (SAR)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

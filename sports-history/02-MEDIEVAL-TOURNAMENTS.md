@@ -1,9 +1,28 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:medieval-tournaments
+kind: guide
+module: sports-history
+section: sports-history
+title: Medieval Tournaments
+status: source-custody
+source_custody: partial
+current_path: sports-history/02-MEDIEVAL-TOURNAMENTS.md
+canonical_path: sports-history/02-MEDIEVAL-TOURNAMENTS.md
+backsource_ids: [proof-backfill:sports-history:02-medieval-tournaments, git-history:sports-history:02-medieval-tournaments]
+concepts: [medieval, tournaments]
+root_concepts: [medieval, tournaments]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval Tournaments
 
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
+:------------------------------------------------------------------:
 |              MEDIEVAL SPORT AND PHYSICAL CULTURE                 |
 |                                                                  |
 |  ARISTOCRATIC                                    POPULAR         |

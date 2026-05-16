@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:gis
+kind: guide
+module: cartography
+section: cartography
+title: 08 - GIS: Geographic Information Systems
+status: source-custody
+source_custody: partial
+current_path: cartography/08-GIS.md
+canonical_path: cartography/08-GIS.md
+backsource_ids: [proof-backfill:cartography:08-gis, git-history:cartography:08-gis]
+concepts: [gis]
+root_concepts: [gis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — GIS: Geographic Information Systems
 
 ## Maps Become Computable
@@ -94,7 +113,7 @@ VECTOR DATA MODEL
 ══════════════════════════════════════════════════════════════════════
 
   GEOMETRY TYPES:
-  ┌──────────────────────────────────────────────────────────┐
+   ──────────────────────────────────────────────────────────
   │  POINT: single coordinate pair (x,y) or (x,y,z)          │
   │  Examples: city center, tree location, sensor station    │
   │                                                          │

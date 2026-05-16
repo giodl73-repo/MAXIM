@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:gps-digital
+kind: guide
+module: cartography
+section: cartography
+title: 09 - GPS and Digital Mapping
+status: source-custody
+source_custody: partial
+current_path: cartography/09-GPS-DIGITAL.md
+canonical_path: cartography/09-GPS-DIGITAL.md
+backsource_ids: [proof-backfill:cartography:09-gps-digital, git-history:cartography:09-gps-digital]
+concepts: [gps, digital]
+root_concepts: [gps, digital]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — GPS and Digital Mapping
 
 ## From Atomic Clocks to Slippy Maps
@@ -109,7 +128,7 @@ GPS POSITIONING — STEP BY STEP
   └────────────────────────────────────────────────────────┘
 
   STEP 4: Trilateration (NOT triangulation):
-  ┌────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────
   │  TRIANGULATION: measures angles → derives distances    │
   │  TRILATERATION: measures distances → derives position  │
   │                                                        │
@@ -155,7 +174,7 @@ SELECTIVE AVAILABILITY — INTENTIONAL DEGRADATION
   └── Effect: civilians got a degraded service
 
   WORKAROUND (DGPS):
-  ┌────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────
   │  Place a reference GPS receiver at a known location    │
   │  Measure the SA error in real time                     │
   │  Broadcast the correction to nearby receivers          │
@@ -163,7 +182,7 @@ SELECTIVE AVAILABILITY — INTENTIONAL DEGRADATION
   │                                                        │
   │  Coast Guard DGPS network: established 1990s           │
   │  WAAS (Wide Area Augmentation System): 2003 for aviation│
-  └────────────────────────────────────────────────────────┘
+   ────────────────────────────────────────────────────────
 
   THE CLINTON DECISION (May 1, 2000):
   ┌────────────────────────────────────────────────────────┐
@@ -342,7 +361,7 @@ GOOGLE MAPS UX INNOVATION (2005)
   └── Result: fluid, continuous, responsive
 
   THE TILE SCHEME:
-  ┌────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────
   │  Zoom 0:  1 tile  = whole world (very small)           │
   │  Zoom 1:  4 tiles (2×2 grid)                           │
   │  Zoom 2: 16 tiles (4×4 grid)                           │

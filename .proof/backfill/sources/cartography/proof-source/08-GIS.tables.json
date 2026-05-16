@@ -1,0 +1,158 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\08-GIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 184,
+      "heading_context": "## Data Models — Vector vs Raster",
+      "headers": [
+        "Scenario",
+        "Vector",
+        "Raster"
+      ],
+      "rows": [
+        [
+          "Road network",
+          "Yes — topology matters",
+          "Poor — diagonal roads lose precision"
+        ],
+        [
+          "Administrative boundaries",
+          "Yes — parcel accuracy matters",
+          "Poor — boundary is a line, not a zone"
+        ],
+        [
+          "Elevation model",
+          "Poor — requires TIN or contour",
+          "Yes — natural grid"
+        ],
+        [
+          "Satellite imagery",
+          "Not applicable",
+          "Yes — sensor is a grid"
+        ],
+        [
+          "Land use categories",
+          "Both work",
+          "Yes — for continuous coverage"
+        ],
+        [
+          "Population density",
+          "Poor — points, not continuous",
+          "Yes — interpolated surface"
+        ],
+        [
+          "Building footprints",
+          "Yes — precise polygons",
+          "Poor — loses precision"
+        ],
+        [
+          "Wildfire burn scar",
+          "Both work",
+          "Yes — from satellite classification"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 493,
+      "heading_context": "## Bridge to Databases and Computing",
+      "headers": [
+        "Database concept",
+        "GIS equivalent"
+      ],
+      "rows": [
+        [
+          "Table",
+          "Layer / Feature class"
+        ],
+        [
+          "Row",
+          "Feature"
+        ],
+        [
+          "Column",
+          "Attribute field"
+        ],
+        [
+          "PRIMARY KEY",
+          "Feature ID (FID/OID)"
+        ],
+        [
+          "Geometry column",
+          "geometry type (Point, LineString, Polygon)"
+        ],
+        [
+          "Spatial index (GiST)",
+          "R-tree on bounding boxes"
+        ],
+        [
+          "ST_Intersects(a,b)",
+          "Spatial predicate (like JOIN ON + WHERE)"
+        ],
+        [
+          "ST_Distance(a,b)",
+          "Spatial measure function"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 522,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Tool",
+        "Format"
+      ],
+      "rows": [
+        [
+          "Desktop analysis",
+          "QGIS or ArcGIS Pro",
+          "Any"
+        ],
+        [
+          "Spatial SQL queries",
+          "PostGIS",
+          "PostGIS native"
+        ],
+        [
+          "Web interactive map",
+          "Leaflet + GeoJSON or MVT",
+          "GeoJSON / MVT"
+        ],
+        [
+          "Python spatial analysis",
+          "GeoPandas + Rasterio",
+          "GeoJSON / GeoTIFF"
+        ],
+        [
+          "Data exchange (modern)",
+          "QGIS / ogr2ogr",
+          "GeoPackage"
+        ],
+        [
+          "Data exchange (legacy)",
+          "QGIS / ogr2ogr",
+          "Shapefile"
+        ],
+        [
+          "Raster analysis",
+          "GDAL CLI or Rasterio",
+          "GeoTIFF"
+        ],
+        [
+          "Large-scale pipeline",
+          "PostGIS + Python",
+          "PostGIS tables"
+        ],
+        [
+          "Format conversion",
+          "ogr2ogr / gdal_translate",
+          "Any → Any"
+        ]
+      ]
+    }
+  ]
+}

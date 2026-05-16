@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\05-TRIANGULATION-GEODESY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 458,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "CRS / Datum",
+        "Why"
+      ],
+      "rows": [
+        [
+          "GPS receiver coordinates",
+          "WGS84 (EPSG:4326)",
+          "GPS native datum"
+        ],
+        [
+          "US engineering survey",
+          "NAD83 + NAVD88 (vertical)",
+          "Legal US standard"
+        ],
+        [
+          "UK survey",
+          "OSGB36 / ETRS89",
+          "UK legal standard"
+        ],
+        [
+          "EU data exchange",
+          "ETRS89",
+          "Pan-European standard"
+        ],
+        [
+          "Global analysis",
+          "WGS84 or ITRF",
+          "Globally consistent"
+        ],
+        [
+          "Flood/drainage design",
+          "Orthometric height (NAVD88)",
+          "Gravity-consistent heights"
+        ],
+        [
+          "High-accuracy survey (<1cm)",
+          "ITRF + epoch",
+          "Accounts for plate motion"
+        ],
+        [
+          "Web mapping",
+          "WGS84 + Web Mercator tiles",
+          "Industry convention"
+        ]
+      ]
+    }
+  ]
+}

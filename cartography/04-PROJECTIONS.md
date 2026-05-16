@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:projections
+kind: guide
+module: cartography
+section: cartography
+title: 04 - Map Projections
+status: source-custody
+source_custody: partial
+current_path: cartography/04-PROJECTIONS.md
+canonical_path: cartography/04-PROJECTIONS.md
+backsource_ids: [proof-backfill:cartography:04-projections, git-history:cartography:04-projections]
+concepts: [projections]
+root_concepts: [projections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Map Projections
 
 ## The Unsolvable Problem
@@ -138,7 +157,7 @@ MERCATOR PROJECTION — MATHEMATICS AND PROPERTIES
 ══════════════════════════════════════════════════════════════════════
 
   The navigational requirement:
-  ┌────────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────────
   │  A rhumb line (loxodrome) = path of constant compass bearing│
   │  On a sphere: spirals toward pole (never reaches it)       │
   │  On a Mercator chart: straight line                        │
