@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "public-health\\01-EPIDEMIOLOGY-FUNDAMENTALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Epidemiological Triad and Study Design Hierarchy",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                     EPIDEMIOLOGY LANDSCAPE                                  │\n│                                                                             │\n│   EXPOSURE ──────────────→ OUTCOME                                          │\n│   (risk factor, treatment)   (disease, death, health event)                 │\n│                                                                             │\n│   The core question: Is the association causal?                             │\n│                                                                             │\n│   ┌───────────────────────────────────────────────────────────────────────┐ │\n│   │              STUDY DESIGN HIERARCHY (internal validity)               │ │\n│   │                                                                       │ │\n│   │  STRONGEST   Randomized Controlled Trial (RCT)                        │ │\n│   │      │       ├── Parallel group  ├── Crossover  ├── Cluster RCT       │ │\n│   │      │                                                                │ │\n│   │      │       Quasi-experimental                                       │ │\n│   │      │       ├── Interrupted time series  ├── Difference-in-diff      │ │\n│   │      │       ├── Regression discontinuity  ├── Instrumental variable  │ │\n│   │      │                                                                │ │\n│   │      │       Observational (analytical)                               │ │\n│   │      │       ├── Prospective cohort  ← best for incidence/RR          │ │\n│   │      │       ├── Retrospective cohort                                 │ │\n│   │      │       ├── Case-control  ← best for rare diseases               │ │\n│   │      │       └── Cross-sectional  ← prevalence, not incidence         │ │\n│   │      │                                                                │ │\n│   │  WEAKEST     Descriptive (ecological, case report, case series)       │ │\n│   │                                                                       │ │\n│   └───────────────────────────────────────────────────────────────────────┘ │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Risk Measures and Their Interpretation",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                     RISK MEASURES                                           │\n├──────────────────────────┬──────────────────────────────────────────────────┤\n│  RELATIVE MEASURES       │  ABSOLUTE MEASURES                               │\n├──────────────────────────┼──────────────────────────────────────────────────┤\n│                          │                                                  │\n│  Risk Ratio (RR)         │  Risk Difference (RD) = Attributable Risk        │\n│  = CI_exp / CI_unexp     │  = CI_exposed − CI_unexposed                     │\n│                          │  Interpretation: extra risk per person exposed   │\n│  Interpretation:         │                                                  │\n│  RR=2: 2× more likely    │  Population Attributable Risk (PAR)              │\n│  RR=1: no association    │  = p_exp × (RR − 1) / [1 + p_exp × (RR − 1)]     │\n│  RR<1: protective        │  where p_exp = prevalence of exposure            │\n│                          │  Interpretation: fraction of disease in          │\n│  Rate Ratio              │  population attributable to exposure             │\n│  = IR_exposed / IR_unexp │                                                  │\n│                          │  Number Needed to Treat (NNT)                    │\n│  Odds Ratio (OR)         │  = 1 / RD                                        │\n│  = (a/b) / (c/d)         │  Interpretation: treat N people to prevent 1     │\n│  = ad / bc (2×2 table)   │  outcome                                         │\n│  → approximates RR when  │                                                  │\n│    disease is rare       │  Number Needed to Harm (NNH) = 1 / RD_harm       │\n│                          │                                                  │\n└──────────────────────────┴──────────────────────────────────────────────────┘\n\n2×2 TABLE:\n\n                    Disease+    Disease−\n  Exposed+            a           b         → CI_exp = a/(a+b)\n  Exposed−            c           d         → CI_unexp = c/(c+d)\n\n  RR = [a/(a+b)] / [c/(c+d)]\n  OR  = (a×d) / (b×c)    ← used in case-control (cannot compute RR directly)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Confounding — The Core Threat to Causal Inference",
+      "confidence": "candidate",
+      "text": "CONFOUNDING:\n  A confounder C is associated with both the exposure E and outcome D,\n  and is not in the causal pathway from E to D.\n\n  E ────────────────────→ D\n  ↑                      ↑\n  └──────── C ────────────┘\n\n  Classic example: Coffee (E) and pancreatic cancer (D).\n  Confounders: Smoking (associated with both coffee drinking AND cancer).\n  Spurious association if smokers also drink more coffee.\n\nMETHODS TO CONTROL CONFOUNDING:\n\n  At design stage:\n  ├── Randomization (eliminates confounding by known and unknown factors)\n  ├── Restriction (study only unexposed to confounder)\n  ├── Matching (case-control: match on confounders)\n  └── Propensity score matching (observational studies)\n\n  At analysis stage:\n  ├── Stratification (Mantel-Haenszel pooling across strata)\n  ├── Multivariable regression (adjust for measured confounders)\n  ├── Instrumental variable (IV) analysis\n  └── Difference-in-differences (quasi-experimental)\n\n  Cannot control: Unmeasured/unknown confounders\n  → This is why RCTs are the gold standard for causal inference\n\nEFFECT MODIFICATION (INTERACTION):\n  Not confounding — a true biological heterogeneity.\n  The effect of E on D differs across levels of a third variable M.\n  Should be reported, not adjusted away.\n  Example: Aspirin prevents heart attacks in men more than women.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Bias Taxonomy",
+      "confidence": "candidate",
+      "text": "SELECTION BIAS: Systematic error from how participants are selected\n  ├── Healthy worker effect: employed cohorts healthier than general pop\n  ├── Berkson's bias: hospital controls differ from community (case-control)\n  ├── Loss to follow-up: dropout correlated with outcome\n  └── Volunteer bias: study participants healthier than non-participants\n\nINFORMATION (MEASUREMENT) BIAS: Systematic error in measuring exposure/outcome\n  ├── Recall bias: cases remember exposures better than controls\n  ├── Observer bias: investigator differentially classifies based on hypothesis\n  ├── Differential misclassification: bias direction predictable\n  └── Non-differential misclassification: bias toward null (underestimation)\n\nCONFOUNDING: Third variable creates spurious association (see above)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Sensitivity, Specificity, and Screening",
+      "confidence": "candidate",
+      "text": "DIAGNOSTIC TEST PERFORMANCE:\n\n                    True state:\n                    Disease+    Disease−\n  Test+       TP (true pos)    FP (false pos)    → PPV = TP/(TP+FP)\n  Test−       FN (false neg)   TN (true neg)     → NPV = TN/(TN+FN)\n                    ↓                ↓\n               Sensitivity      Specificity\n             = TP/(TP+FN)     = TN/(TN+FP)\n\nTRADEOFFS:\n  Higher threshold → higher specificity, lower sensitivity\n  Lower threshold → higher sensitivity, lower specificity\n\n  In screening programs: favor high sensitivity (don't miss cases)\n  In confirmatory tests: favor high specificity (avoid false positives)\n\nBAYES' THEOREM IN DIAGNOSIS:\n  PPV = (Sensitivity × Prevalence) /\n        (Sensitivity × Prevalence + (1−Specificity) × (1−Prevalence))\n\n  Even a 99% sensitive and 99% specific test has PPV ≈ 50% when\n  disease prevalence is 1%. This is why screening general populations\n  for rare diseases generates false positive floods.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

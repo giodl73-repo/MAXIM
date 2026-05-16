@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:epidemiology-fundamentals
+kind: guide
+module: public-health
+section: public-health
+title: Epidemiology Fundamentals
+status: source-custody
+source_custody: partial
+current_path: public-health/01-EPIDEMIOLOGY-FUNDAMENTALS.md
+canonical_path: public-health/01-EPIDEMIOLOGY-FUNDAMENTALS.md
+backsource_ids: [proof-backfill:public-health:01-epidemiology-fundamentals, git-history:public-health:01-epidemiology-fundamentals]
+concepts: [epidemiology, fundamentals]
+root_concepts: [epidemiology, fundamentals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Epidemiology Fundamentals
 
 ## The Epidemiological Triad and Study Design Hierarchy
@@ -12,24 +31,24 @@
 │   The core question: Is the association causal?                             │
 │                                                                             │
 │   ┌───────────────────────────────────────────────────────────────────────┐ │
-│   │              STUDY DESIGN HIERARCHY (internal validity)               │  │
-│   │                                                                       │  │
-│   │  STRONGEST   Randomized Controlled Trial (RCT)                        │  │
-│   │      │       ├── Parallel group  ├── Crossover  ├── Cluster RCT       │  │
-│   │      │                                                                │  │
-│   │      │       Quasi-experimental                                       │  │
-│   │      │       ├── Interrupted time series  ├── Difference-in-diff      │  │
-│   │      │       ├── Regression discontinuity  ├── Instrumental variable  │  │
-│   │      │                                                                │  │
-│   │      │       Observational (analytical)                               │  │
-│   │      │       ├── Prospective cohort  ← best for incidence/RR          │  │
-│   │      │       ├── Retrospective cohort                                 │  │
-│   │      │       ├── Case-control  ← best for rare diseases               │  │
-│   │      │       └── Cross-sectional  ← prevalence, not incidence         │  │
-│   │      │                                                                │  │
-│   │  WEAKEST     Descriptive (ecological, case report, case series)       │  │
-│   │                                                                       │  │
-│   └───────────────────────────────────────────────────────────────────────┘  │
+│   │              STUDY DESIGN HIERARCHY (internal validity)               │ │
+│   │                                                                       │ │
+│   │  STRONGEST   Randomized Controlled Trial (RCT)                        │ │
+│   │      │       ├── Parallel group  ├── Crossover  ├── Cluster RCT       │ │
+│   │      │                                                                │ │
+│   │      │       Quasi-experimental                                       │ │
+│   │      │       ├── Interrupted time series  ├── Difference-in-diff      │ │
+│   │      │       ├── Regression discontinuity  ├── Instrumental variable  │ │
+│   │      │                                                                │ │
+│   │      │       Observational (analytical)                               │ │
+│   │      │       ├── Prospective cohort  ← best for incidence/RR          │ │
+│   │      │       ├── Retrospective cohort                                 │ │
+│   │      │       ├── Case-control  ← best for rare diseases               │ │
+│   │      │       └── Cross-sectional  ← prevalence, not incidence         │ │
+│   │      │                                                                │ │
+│   │  WEAKEST     Descriptive (ecological, case report, case series)       │ │
+│   │                                                                       │ │
+│   └───────────────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -68,28 +87,28 @@ PREVALENCE
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                     RISK MEASURES                                           │
-├──────────────────────────┬─────────────────────────────────────────────────┤
+├──────────────────────────┬──────────────────────────────────────────────────┤
 │  RELATIVE MEASURES       │  ABSOLUTE MEASURES                               │
-├──────────────────────────┼─────────────────────────────────────────────────┤
-│                          │                                                 │
-│  Risk Ratio (RR)         │  Risk Difference (RD) = Attributable Risk       │
-│  = CI_exposed / CI_unexpo│  = CI_exposed − CI_unexposed                    │
-│                          │  Interpretation: extra risk per person exposed  │
-│  Interpretation:         │                                                 │
-│  RR=2: 2× more likely    │  Population Attributable Risk (PAR)             │
-│  RR=1: no association    │  = p_exp × (RR − 1) / [1 + p_exp × (RR − 1)]    │
-│  RR<1: protective        │  where p_exp = prevalence of exposure           │
-│                          │  Interpretation: fraction of disease in         │
-│  Rate Ratio              │  population attributable to exposure            │
-│  = IR_exposed / IR_unexp │                                                 │
-│                          │  Number Needed to Treat (NNT)                   │
-│  Odds Ratio (OR)         │  = 1 / RD                                       │
-│  = (a/b) / (c/d)         │  Interpretation: treat N people to prevent 1    │
-│  = ad / bc (2×2 table)   │  outcome                                        │
-│  → approximates RR when  │                                                 │
-│    disease is rare       │  Number Needed to Harm (NNH) = 1 / RD_harm      │
-│                          │                                                 │
-└──────────────────────────┴─────────────────────────────────────────────────┘
+├──────────────────────────┼──────────────────────────────────────────────────┤
+│                          │                                                  │
+│  Risk Ratio (RR)         │  Risk Difference (RD) = Attributable Risk        │
+│  = CI_exp / CI_unexp     │  = CI_exposed − CI_unexposed                     │
+│                          │  Interpretation: extra risk per person exposed   │
+│  Interpretation:         │                                                  │
+│  RR=2: 2× more likely    │  Population Attributable Risk (PAR)              │
+│  RR=1: no association    │  = p_exp × (RR − 1) / [1 + p_exp × (RR − 1)]     │
+│  RR<1: protective        │  where p_exp = prevalence of exposure            │
+│                          │  Interpretation: fraction of disease in          │
+│  Rate Ratio              │  population attributable to exposure             │
+│  = IR_exposed / IR_unexp │                                                  │
+│                          │  Number Needed to Treat (NNT)                    │
+│  Odds Ratio (OR)         │  = 1 / RD                                        │
+│  = (a/b) / (c/d)         │  Interpretation: treat N people to prevent 1     │
+│  = ad / bc (2×2 table)   │  outcome                                         │
+│  → approximates RR when  │                                                  │
+│    disease is rare       │  Number Needed to Harm (NNH) = 1 / RD_harm       │
+│                          │                                                  │
+└──────────────────────────┴──────────────────────────────────────────────────┘
 
 2×2 TABLE:
 

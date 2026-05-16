@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:health-metrics
+kind: guide
+module: public-health
+section: public-health
+title: Health Metrics
+status: source-custody
+source_custody: partial
+current_path: public-health/10-HEALTH-METRICS.md
+canonical_path: public-health/10-HEALTH-METRICS.md
+backsource_ids: [proof-backfill:public-health:10-health-metrics, git-history:public-health:10-health-metrics]
+concepts: [health, metrics]
+root_concepts: [health, metrics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Health Metrics
 
 ## The Big Picture

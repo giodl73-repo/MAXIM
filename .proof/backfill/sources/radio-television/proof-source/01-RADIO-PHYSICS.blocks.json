@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "radio-television\\01-RADIO-PHYSICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ELECTROMAGNETIC SPECTRUM (Radio Relevant Portion)\n\nFrequency    | Wavelength | Band Name  | Uses\n-------------+------------+------------+-------------------------\n3 Hz - 30 Hz | 100,000 km | ELF        | Submarine communications\n30-300 Hz    | 10,000 km  | SLF        | Submarine comms\n300-3000 Hz  | 1,000 km   | ULF        | Mines, earthquakes\n3-30 kHz     | 100 km     | VLF        | Navigation (LORAN)\n30-300 kHz   | 10 km      | LF         | AM radio (Europe/Asia), navigation\n300-3000 kHz | 1 km       | MF         | AM radio (US/world), maritime\n3-30 MHz     | 100 m      | HF         | Shortwave, amateur, aviation\n30-300 MHz   | 10 m       | VHF        | FM radio, TV (ch 2-13), aviation\n300-3000 MHz | 1 m        | UHF        | TV (ch 14+), mobile, WiFi 2.4G\n3-30 GHz     | 10 cm      | SHF        | Microwave, WiFi 5G, satellite\n30-300 GHz   | 1 cm       | EHF        | 5G mmWave, radar\n300+ GHz     | < 1 mm     | Terahertz  | Imaging, research\n\nKEY RELATIONSHIPS:\n  v = λ × f        (wave speed = wavelength × frequency)\n  c = 3×10^8 m/s   (speed of light = speed of EM waves in vacuum)\n  λ = c/f          (wavelength = speed of light / frequency)\n\n  1 MHz = 10^6 Hz; FM radio 100 MHz -> λ = 3m\n  1 GHz = 10^9 Hz; WiFi 2.4 GHz -> λ = 12.5 cm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Radio Wave Propagation Modes",
+      "confidence": "candidate",
+      "text": "THREE PROPAGATION MODES\n\n1. GROUND WAVE (surface wave)\n   Frequency: LF/MF/lower HF (<3 MHz)\n   Mechanism: wave travels along Earth's surface\n              Earth surface = conductor; wave \"guided\" along it\n   Range: hundreds to thousands of km (low frequencies)\n   Reliability: very stable; day/night variation small\n   Affected by: terrain, ground conductivity\n   Use: AM broadcast, maritime, naval\n\n   [Transmitter] ~~wave follows Earth's curve~~ [Receiver]\n   Useful: when you want coverage over horizon (ground wave bends)\n\n2. SKY WAVE (ionospheric propagation)\n   Frequency: HF (3-30 MHz), some MF at night\n   Mechanism: wave travels up, reflects off ionosphere, returns\n   Ionosphere: layers of ionized gases (D, E, F layers) 70-400 km up\n   Day vs night: ionosphere changes (F layer dominant at night)\n   Range: 1,000-15,000 km per hop; multiple hops = global\n   Reliability: variable; depends on solar activity, time of day\n\n   [Transmitter] up wave ~~reflects from ionosphere~~ down [Receiver]\n   |------- skip zone (no coverage) --------|\n\n   SKIP ZONE: area between end of ground wave coverage and where\n              sky wave returns = no signal from this transmitter\n   Use: shortwave broadcasting, amateur radio, military\n   Solar maximum: enhanced ionosphere = better/longer skip\n   Solar storms: can disrupt or eliminate sky wave (blackouts)\n\n3. LINE-OF-SIGHT (direct wave / space wave)\n   Frequency: VHF and above (>30 MHz)\n   Mechanism: travels directly from transmitter to receiver\n              No ground follow, no ionospheric reflection\n              Bends slightly with Earth's atmosphere (tropospheric refraction)\n   Range: limited to visual horizon (+ ~15-30% for refraction)\n   Height formula: range = ~4.12 * sqrt(h_meters) km\n                   TV tower at 300m: ~71 km range\n   Reliability: very stable (no ionospheric variation)\n   Use: FM radio, TV, microwave links, WiFi, mobile phones\n\n   [High Tower] straight line of sight [Receiver within horizon]\n\n   WHY TV IS VHF/UHF (not AM frequencies):\n   TV requires wide bandwidth (4-6 MHz per channel)\n   Wide bandwidth requires high frequencies (BW << carrier frequency)\n   AM frequencies can't support TV bandwidth\n   VHF/UHF: plenty of bandwidth but LOS only -> towers needed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## AM Modulation",
+      "confidence": "candidate",
+      "text": "AMPLITUDE MODULATION (AM)\n\nCARRIER WAVE:\n  Sinusoidal wave at carrier frequency (e.g., 1000 kHz)\n  Amplitude: constant A_c\n  Signal: A_c × sin(2π × f_c × t)\n\nMODULATION:\n  Audio signal (message): m(t) — varies with sound\n  AM signal: [A_c + m(t)] × sin(2π × f_c × t)\n  The audio signal varies the AMPLITUDE of the carrier\n\n  VISUAL:\n  No modulation:\n  ~~~~~~~~~~~~~~~~~~~  (constant amplitude)\n\n  With AM audio:\n  ~~~^~~~^~~~  (amplitude varies with sound)\n    \\_/ \\_/\n  Envelope of amplitude = audio waveform\n\nBANDWIDTH:\n  Message bandwidth: 0-5 kHz (AM broadcast audio quality)\n  AM signal bandwidth: 2 × message BW = 10 kHz\n  US AM channel spacing: 10 kHz\n  AM channel: 540 kHz to 1700 kHz (MW band)\n  Number of channels: 116 channels (540-1700 kHz at 10 kHz spacing)\n\nDEMODULATION:\n  Envelope detector: simple, cheap\n    Diode + capacitor + resistor\n    Charges to peak, slowly discharges -> follows envelope\n    The envelope IS the audio signal\n  Easy to implement: AM receivers are cheap\n\nNOISE SUSCEPTIBILITY:\n  Electrical noise (lightning, motors, power lines): varies amplitude\n  AM signal: also varies amplitude\n  Detector: cannot distinguish noise from signal\n  Result: AM = susceptible to amplitude noise\n  \"Static\" on AM radio = electrical noise\n  Day/night: AM range extends at night (sky wave) with more interference\n\nMODULATION INDEX m:\n  m = A_m / A_c (audio amplitude / carrier amplitude)\n  m < 1: proper modulation\n  m = 1: 100% modulation (maximum without distortion)\n  m > 1: overmodulation -> severe distortion, splatter into adjacent channels\n  Broadcast: m ≈ 0.9 typical (near maximum, avoid clipping)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 171,
+      "heading_context": "## FM Modulation",
+      "confidence": "candidate",
+      "text": "FREQUENCY MODULATION (FM)\n\nCONCEPT: Audio signal varies the FREQUENCY of the carrier,\n         not the amplitude.\n\nFM signal: A_c × sin(2π × [f_c + k_f × m(t)] × t)\n  f_c: center frequency (carrier)\n  k_f: frequency sensitivity constant\n  m(t): audio message signal\n  Instantaneous frequency: f_c + k_f × m(t)\n  Amplitude: CONSTANT (A_c unchanged)\n\nVISUAL:\n  No modulation:\n  ~~~~~~~~~~~~~~~  (uniform frequency)\n\n  With FM audio:\n  ~~~~ ~~ ~~~~~~   (frequency varies with sound)\n  (spaces vary, amplitude constant)\n\nBANDWIDTH (FM):\n  Carson's rule: BW ≈ 2(Δf + f_max)\n  Δf: max frequency deviation (FM broadcast: ±75 kHz)\n  f_max: max audio frequency (FM broadcast: 15 kHz)\n  BW = 2(75 + 15) = 180 kHz ≈ 200 kHz\n  US FM channel spacing: 200 kHz\n  FM band: 87.8 - 108.0 MHz (VHF band II)\n  Number of FM channels: ~100 channels\n\nNOISE ADVANTAGE:\n  Amplitude noise: doesn't affect frequency -> doesn't distort signal\n  FM limiter: explicitly removes amplitude variations before detection\n  Result: FM has much better SNR than AM at same signal strength\n  \"Capture effect\": stronger FM signal completely captures receiver\n                    (two signals on same frequency: stronger wins cleanly)\n  AM equivalent: both signals heard, mixed, annoying\n\nFM DEVIATION AND QUALITY:\n  More frequency deviation = more bandwidth = better audio quality\n  Narrow-band FM (NBFM): ±2.5-5 kHz deviation\n    Used: two-way radio, public safety\n    Bandwidth: ~10-12.5 kHz per channel\n    Audio: communication quality (voice, not music)\n  Wide-band FM (WBFM): ±75 kHz deviation\n    Used: FM broadcast radio\n    Bandwidth: 200 kHz per channel\n    Audio: high fidelity (20 Hz - 15 kHz)\n\nFM STEREO (1961):\n  Problem: add stereo to FM while remaining compatible with mono receivers\n  Solution: pilot tone + difference signal multiplexing\n\n  Stereo encoding:\n  L+R: sum signal (mono, 50-15,000 Hz) -> mono receivers hear this\n  L-R: difference signal at 23-53 kHz (double-sideband AM)\n  38 kHz subcarrier: L-R modulated onto this\n  19 kHz pilot tone: receiver detects, locks phase, regenerates 38 kHz\n\n  Decoding:\n  Mono: use L+R signal directly\n  Stereo: use L+R and L-R to recover L = (L+R + L-R)/2, R = (L+R - L-R)/2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "## Antenna Theory",
+      "confidence": "candidate",
+      "text": "ANTENNA FUNDAMENTALS\n\nBASIC PRINCIPLE:\n  Antenna = transducer: converts electrical signals to EM waves (TX)\n            or EM waves to electrical signals (RX)\n  Transmit/receive reciprocal: antenna gain pattern = same both ways\n\nDIPOLE ANTENNA (reference):\n  Half-wave dipole: two conductors, each λ/4 long\n  Total length: λ/2\n  FM dipole: 100 MHz -> λ = 3m -> dipole = 1.5m\n  AM dipole: 1 MHz -> λ = 300m -> dipole = 150m (impractical)\n  AM stations: use vertical monopoles (electrically equivalent to dipole)\n\n  Dipole radiation pattern (side view):\n     |\n     ↑  (feed at center)\n     |\n  Pattern: donut shape around vertical axis\n           radiates in all horizontal directions equally\n           no radiation directly up/down\n\n  Gain: 2.15 dBi (slightly above isotropic)\n  Directional reference: isotropic = equal in all directions (theoretical)\n\nAM BROADCAST TOWER:\n  AM wavelengths: hundreds of meters\n  Full-wave tower: 300m (1 MHz) — impractical but used\n  Half-wave: 150m (1 MHz) — more practical\n  Quarter-wave: 75m — minimum with ground plane\n  Ground plane: radial wires buried, reflect return path\n  Multiple towers: directional arrays (protect other stations)\n\nFM BROADCAST ANTENNA:\n  1-3m height (at 100 MHz)\n  Mounted on tower for height above terrain\n  Circular polarization: horizontally + vertically polarized combined\n  Why circular: car antennas (vertical) + portable radios (various angle)\n                circular polarization works for any receiver orientation\n\nTV BROADCAST ANTENNA:\n  UHF antennas: 30-50 cm (at 600 MHz)\n  Directional gain: needed to cover city, avoid interference\n  EIRP (Effective Isotropic Radiated Power):\n    = transmitter power × antenna gain\n    FCC limits: EIRP by station class\n    High-power TV: EIRP up to 5 MW (or more with directional gain)\n\nGAIN, DIRECTIVITY, EFFICIENCY:\n  Directional antenna: focuses power in certain directions\n  Gain (dBi) = directivity + efficiency\n  High gain: more signal in desired direction but less in others\n  Cell tower antenna: high gain in horizontal plane, minimal vertical\n                      -> serves users in city, doesn't waste power vertically\n\nPATH LOSS:\n  Free-space path loss: PL = 20 log10(4πd/λ)\n  Doubles with distance: signal power decreases as d^2\n  Doubles with frequency: higher frequency = worse free-space path loss\n  (For same transmit power, higher frequency = shorter range or lower signal)\n  This is why: 5G mmWave (30 GHz) = short range; AM (1 MHz) = long range",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

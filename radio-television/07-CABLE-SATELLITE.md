@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:cable-satellite
+kind: guide
+module: radio-television
+section: radio-television
+title: Cable and Satellite: CATV Origins, CNN 1980, HBO Premium Model, DBS, Channel Proliferation
+status: source-custody
+source_custody: partial
+current_path: radio-television/07-CABLE-SATELLITE.md
+canonical_path: radio-television/07-CABLE-SATELLITE.md
+backsource_ids: [proof-backfill:radio-television:07-cable-satellite, git-history:radio-television:07-cable-satellite]
+concepts: [cable, satellite]
+root_concepts: [cable, satellite]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cable and Satellite: CATV Origins, CNN 1980, HBO Premium Model, DBS, Channel Proliferation
 
 ## The Big Picture

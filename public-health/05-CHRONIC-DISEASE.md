@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:chronic-disease
+kind: guide
+module: public-health
+section: public-health
+title: Chronic Disease / Non-Communicable Diseases (NCDs)
+status: source-custody
+source_custody: partial
+current_path: public-health/05-CHRONIC-DISEASE.md
+canonical_path: public-health/05-CHRONIC-DISEASE.md
+backsource_ids: [proof-backfill:public-health:05-chronic-disease, git-history:public-health:05-chronic-disease]
+concepts: [chronic, disease]
+root_concepts: [chronic, disease]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chronic Disease / Non-Communicable Diseases (NCDs)
 
 ## The Big Picture

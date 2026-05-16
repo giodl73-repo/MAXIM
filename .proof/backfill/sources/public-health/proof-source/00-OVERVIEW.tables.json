@@ -1,0 +1,255 @@
+{
+  "schema_version": "1",
+  "source_markdown": "public-health\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 101,
+      "heading_context": "## Core Disciplines",
+      "headers": [
+        "Discipline",
+        "Core Question",
+        "Key Methods"
+      ],
+      "rows": [
+        [
+          "**Epidemiology**",
+          "What causes disease in populations?",
+          "Cohort, case-control, RCT, surveillance"
+        ],
+        [
+          "**Biostatistics**",
+          "How do we measure and infer?",
+          "Regression, survival analysis, meta-analysis"
+        ],
+        [
+          "**Health behavior**",
+          "Why do people do what they do?",
+          "Survey, behavioral theory, nudge design"
+        ],
+        [
+          "**Environmental health**",
+          "What exposures harm populations?",
+          "Exposure assessment, GIS, toxicology"
+        ],
+        [
+          "**Health policy / economics**",
+          "How do systems and incentives shape health?",
+          "Cost-effectiveness, comparative systems"
+        ],
+        [
+          "**Global health**",
+          "How do we reduce global health inequity?",
+          "DALY burden, program evaluation"
+        ],
+        [
+          "**Social epidemiology**",
+          "How do social structures cause disease?",
+          "SES gradients, structural racism metrics"
+        ],
+        [
+          "**Occupational health**",
+          "How does work harm workers?",
+          "Cohort studies, regulatory standards"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 150,
+      "heading_context": "## Measuring Population Health — Key Metrics",
+      "headers": [
+        "Metric",
+        "Definition",
+        "Use case"
+      ],
+      "rows": [
+        [
+          "**Incidence rate**",
+          "New cases / person-time at risk",
+          "Etiology, vaccine efficacy"
+        ],
+        [
+          "**Prevalence**",
+          "Existing cases / population at time T",
+          "Health planning, burden estimation"
+        ],
+        [
+          "**Mortality rate**",
+          "Deaths / population / year",
+          "Comparative tracking"
+        ],
+        [
+          "**Case fatality rate (CFR)**",
+          "Deaths / confirmed cases",
+          "Severity of disease"
+        ],
+        [
+          "**Years of life lost (YLL)**",
+          "Life-years lost due to premature death",
+          "Priority setting"
+        ],
+        [
+          "**DALY**",
+          "YLL + YLD (years lived with disability)",
+          "Global burden comparison"
+        ],
+        [
+          "**QALY**",
+          "Quality-adjusted life year",
+          "Cost-effectiveness analysis"
+        ],
+        [
+          "**Life expectancy**",
+          "Expected years from birth (or age x)",
+          "Overall population health"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 165,
+      "heading_context": "## Module Map",
+      "headers": [
+        "Module",
+        "Core Content"
+      ],
+      "rows": [
+        [
+          "01-EPIDEMIOLOGY-FUNDAMENTALS",
+          "RR, OR, AR, NNT; study designs; confounding; Bradford Hill"
+        ],
+        [
+          "02-DISEASE-SURVEILLANCE",
+          "Signal detection; notifiable diseases; syndromic systems; IHR"
+        ],
+        [
+          "03-INFECTIOUS-DISEASE-CONTROL",
+          "R0, Rt, herd immunity threshold; outbreak response steps"
+        ],
+        [
+          "04-VACCINES-IMMUNIZATION",
+          "Vaccine types; immunological mechanisms; cold chain; hesitancy"
+        ],
+        [
+          "05-CHRONIC-DISEASE",
+          "NCD burden; screening programs; lead time bias; risk factors"
+        ],
+        [
+          "06-ENVIRONMENTAL-HEALTH",
+          "PM2.5; dose-response; climate-health; environmental justice"
+        ],
+        [
+          "07-GLOBAL-HEALTH",
+          "DALY methodology; WHO governance; global health financing"
+        ],
+        [
+          "08-HEALTH-POLICY",
+          "Bismarck/Beveridge/out-of-pocket; UHC dimensions; financing"
+        ],
+        [
+          "09-PANDEMIC-RESPONSE",
+          "PHEIC; NPI evidence; supply chain; COVID-19 lessons"
+        ],
+        [
+          "10-HEALTH-METRICS",
+          "DALY/QALY computation; standardization; GBD"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 182,
+      "heading_context": "## Systems Thinking Bridges",
+      "headers": [
+        "Public health concept",
+        "Systems / CS analogue"
+      ],
+      "rows": [
+        [
+          "Surveillance system (sentinel + event-based)",
+          "Distributed telemetry pipeline: sentinel sites are sampling agents; syndromic surveillance is anomaly detection on aggregated signals; outbreak detection is a change-point algorithm on count time-series"
+        ],
+        [
+          "SIR/SEIR epidemic model",
+          "Compartmental dynamical system: dS/dt, dI/dt, dR/dt are coupled ODEs; R₀ = β/γ is the spectral radius of the transmission matrix; herd immunity threshold is 1 - 1/R₀, the critical fraction to vaccinate to drive the eigenvalue below 1"
+        ],
+        [
+          "Incubation period distribution",
+          "Latency distribution in a queuing system: time from exposure to symptom onset follows a right-skewed distribution (log-normal or Weibull); the tail determines quarantine duration required to contain spread"
+        ],
+        [
+          "Herd immunity threshold",
+          "Network percolation threshold: above the threshold, an infection percolates to epidemic scale; below it, the outbreak self-extinguishes; derived from the same mathematics as connectivity thresholds in random graph theory"
+        ],
+        [
+          "Population attributable risk (PAR)",
+          "Counterfactual impact analysis: PAR = (risk_exposed × prevalence) / total risk = proportion of cases that would disappear if exposure were eliminated — the same counterfactual logic as \"what fraction of failures are attributable to this dependency?\""
+        ],
+        [
+          "Contact tracing",
+          "Graph traversal with latency: enumerate the exposure graph from a seed case, prioritize by transmission potential and time-to-quarantine — BFS with exponential decay on the benefit of quarantine over time"
+        ],
+        [
+          "Health equity / social determinants",
+          "Structural confounding in observational studies: race and income are proxies for differential exposure, access, and biological mechanisms; treating disparities as confounders rather than mediators is a causal modeling choice that changes what interventions are appropriate"
+        ],
+        [
+          "Ecological study / aggregate-level inference",
+          "Multi-level modeling failure mode: ecological correlation (country-level fat intake vs. CVD) does not imply individual-level association (ecological fallacy = Simpson's paradox at the aggregation level)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 195,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to...",
+        "Use module..."
+      ],
+      "rows": [
+        [
+          "Understand cause-effect for a disease",
+          "01-EPIDEMIOLOGY-FUNDAMENTALS"
+        ],
+        [
+          "Detect outbreaks early",
+          "02-DISEASE-SURVEILLANCE"
+        ],
+        [
+          "Control a pathogen in a community",
+          "03-INFECTIOUS-DISEASE-CONTROL"
+        ],
+        [
+          "Evaluate a vaccination program",
+          "04-VACCINES-IMMUNIZATION"
+        ],
+        [
+          "Reduce CVD/diabetes/cancer burden",
+          "05-CHRONIC-DISEASE"
+        ],
+        [
+          "Address pollution or climate-health links",
+          "06-ENVIRONMENTAL-HEALTH"
+        ],
+        [
+          "Compare global disease burden",
+          "07-GLOBAL-HEALTH + 10-HEALTH-METRICS"
+        ],
+        [
+          "Compare health systems across countries",
+          "08-HEALTH-POLICY"
+        ],
+        [
+          "Prepare for or learn from a pandemic",
+          "09-PANDEMIC-RESPONSE"
+        ],
+        [
+          "Compute DALYs or QALYs",
+          "10-HEALTH-METRICS"
+        ]
+      ]
+    }
+  ]
+}

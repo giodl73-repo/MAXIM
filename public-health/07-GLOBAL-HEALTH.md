@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:global-health
+kind: guide
+module: public-health
+section: public-health
+title: Global Health
+status: source-custody
+source_custody: partial
+current_path: public-health/07-GLOBAL-HEALTH.md
+canonical_path: public-health/07-GLOBAL-HEALTH.md
+backsource_ids: [proof-backfill:public-health:07-global-health, git-history:public-health:07-global-health]
+concepts: [global, health]
+root_concepts: [global, health]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global Health
 
 ## The Big Picture

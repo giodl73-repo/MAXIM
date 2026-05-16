@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:overview
+kind: guide
+module: radio-television
+section: radio-television
+title: Radio and Television - Overview
+status: source-custody
+source_custody: partial
+current_path: radio-television/00-OVERVIEW.md
+canonical_path: radio-television/00-OVERVIEW.md
+backsource_ids: [proof-backfill:radio-television:00-overview, git-history:radio-television:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Radio and Television — Overview
 
 ## The Big Picture

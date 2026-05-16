@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "public-health\\04-VACCINES-IMMUNIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Vaccine Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                        VACCINE TECHNOLOGY SPECTRUM                          │\n│                                                                             │\n│  PLATFORM          MECHANISM              EXAMPLES        THERMAL STABILITY │\n│  ────────────────────────────────────────────────────────────────────────── │\n│  Live attenuated   Weakened pathogen,     MMR, varicella,  +2–8°C (fragile) │\n│                    replicates in host,    OPV, yellow     Freeze-sensitive  │\n│                    broad immune response  fever, BCG                        │\n│                                                                             │\n│  Inactivated/      Killed whole pathogen  IPV, Hep A,     +2–8°C            │\n│  whole pathogen    or toxoid             flu (IIV),       More stable       │\n│                                          rabies, typhoid                    │\n│                                                                             │\n│  Subunit/protein   Purified antigen       Hep B, Tdap,    +2–8°C            │\n│                    component only         HPV, pertussis, Adjuvant required │\n│                                          meningococcal                      │\n│                                                                             │\n│  Viral vector      Adenovirus carries     AstraZeneca      +2–8°C           │\n│                    antigen gene           (COVID), Ebola   (some ≤ −20°C)   │\n│                                          (rVSV), Johnson Moderate stability │\n│                                                                             │\n│  mRNA              Lipid nanoparticle     Pfizer-BioNTech  Pfizer: ≤−60°C   │\n│                    delivers mRNA →        (COVID),         Moderna: ≤−20°C  │\n│                    host cells make        Moderna (COVID)  Ultra-cold chain │\n│                    antigen                                                  │\n│                                                                             │\n│  DNA plasmid       Plasmid DNA → mRNA     inovio (trials)  +2–8°C           │\n│                    → antigen expression   ZyCoV-D (India)  Stable           │\n│                                                                             │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Immunological Mechanism",
+      "confidence": "candidate",
+      "text": "PRIMARY VACCINATION RESPONSE:\n  Antigen encountered → innate immunity activation →\n  antigen-presenting cells (APCs) process antigen →\n  present on MHC II to T-helper cells →\n  ├── B cells activated → plasma cells → antibody production (IgM, then IgG)\n  ├── CD8+ T cells activated → cytotoxic T lymphocytes (kill infected cells)\n  └── Memory B and T cells formed (persist for years-decades)\n\n  Lag: 7-21 days for primary response. Antibody peaks ~4 weeks.\n\nBOOSTER (SECONDARY) RESPONSE:\n  Memory cells activated → rapid (days), large, high-affinity antibody\n  response. Affinity maturation: B cells in germinal centers compete\n  for antigen → higher-affinity variants selected (somatic hypermutation).\n\nCORRELATES OF PROTECTION:\n  Antibody titer: most common — serum neutralizing antibody level\n  IgG threshold: varies by pathogen\n  Limitations: titer doesn't capture T-cell immunity or mucosal IgA\n  Mucosal IgA: critical for pathogens entering at mucosa (flu, COVID)\n  → Injectable vaccines may induce poor mucosal protection\n  → Nasal/oral vaccines (OPV, live flu mist) better for mucosal immunity\n\nADJUVANTS — enhance immunogenicity of subunit vaccines:\n  Alum (aluminum salts): oldest, widely used, Th2 response\n  AS01B (GSK): liposome + MPL + QS-21 (Shingrix, RTS,S/AS01)\n  MF59 (Seqirus): squalene emulsion (flu vaccines)\n  AS03 (GSK): squalene + DL-α-tocopherol + Tween 80\n  CpG 1018 (Dynavax): TLR9 agonist (Heplisav-B)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## Vaccine Efficacy vs. Effectiveness vs. Impact",
+      "confidence": "candidate",
+      "text": "VACCINE EFFICACY (VE) from RCT:\n  VE = 1 − (Attack rate vaccinated / Attack rate unvaccinated)\n  VE = 1 − RR\n  Example: COVID-19 mRNA: VE ≈ 95% against symptomatic disease (trials)\n\n  Measured under:\n  - Ideal conditions (protocol-mandated dosing)\n  - Selected population (trial inclusion criteria)\n  - Against specific endpoint (often symptomatic disease)\n  - Short follow-up window\n\nVACCINE EFFECTIVENESS from observational study:\n  Same formula, but measured in real-world conditions:\n  - All comers in target population\n  - Variable adherence, administration technique\n  - Extended follow-up\n  - Multiple variants/strains circulating\n  Usually lower than efficacy.\n  COVID-19 mRNA effectiveness vs. severe disease: ≥90% initially,\n  waned to ~70-80% by 6 months against Omicron.\n\nPOPULATION IMPACT / EFFECTIVENESS:\n  Coverage × Effectiveness × (1 + indirect protection effect)\n  Herd protection: vaccinating person A also protects unvaccinated person B\n  by reducing probability A infects B.\n  At high coverage, total protection exceeds individual effectiveness.\n\nVACCINES THAT DIFFER ON ENDPOINTS:\n  Transmission prevention → affects onward spread (herd immunity)\n  Symptomatic disease prevention → reduces burden on healthcare\n  Severe disease/hospitalization prevention → reduces mortality\n  A vaccine can score low on transmission prevention but high on\n  severe disease prevention — this matters for policy calculation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Cold Chain — Supply Chain Operations",
+      "confidence": "candidate",
+      "text": "COLD CHAIN REQUIREMENTS:\n\n  +2–8°C  (standard refrigerator)\n    └── Most inactivated, subunit, viral vector vaccines\n    └── Many live vaccines (but cannot freeze)\n\n  ≤−20°C  (deep freeze)\n    └── OPV (oral polio), varicella stock, some flu vaccines\n    └── Moderna COVID-19 mRNA\n\n  ≤−60°C to ≤−80°C  (ultra-cold)\n    └── Pfizer-BioNTech COVID-19 mRNA (original formulation)\n    └── Required ultra-cold storage equipment globally\n\nCOLD CHAIN COMPONENTS:\n  Manufacturer → National store → Regional store → District store\n  → Health post → Vaccination point\n\n  Each transfer: risk of temperature excursion\n  Monitoring: electronic data loggers, vaccine vial monitors (VVM)\n  VVM: irreversible color change indicator on vial — shows cumulative\n       heat exposure. Invented for low-resource settings.\n\nCOLD CHAIN FAILURE MODES:\n  Power outages → refrigerator failures → overheating\n  Freeze damage: many vaccines freeze-sensitive (alum precipitates\n    into clumps, reduced immunogenicity — \"Shake Test\" to detect)\n  Improper packing: ice packs placed against freeze-sensitive vaccines\n  \"Hot storage\" problem: vaccines stored in unrefrigerated homes\n\nOPTIMIZATION PROBLEM:\n  Minimize temperature excursions subject to cost, access, coverage constraints.\n  This is supply chain optimization under uncertainty — stochastic programming.\n  WHO UNICEF track: 10-20% of vaccines arrive compromised in low-income settings.\n  \"Last mile\" is hardest: remote health posts without reliable power.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## GAVI and Global Immunization",
+      "confidence": "candidate",
+      "text": "GAVI (VACCINE ALLIANCE):\n  Est. 2000. Public-private partnership: WHO, UNICEF, World Bank,\n  Bill & Melinda Gates Foundation, vaccine manufacturers, donor governments.\n\n  Mission: accelerate vaccine access in low-income countries\n  Mechanism: advance market commitments (AMCs), co-financing, pooled procurement\n  Scale: funded vaccines for 1B+ children, prevented ~17M deaths (est.)\n  COVAX: COVID-19 vaccine pooling mechanism (mixed results — dose nationalism)\n\nADVANCE MARKET COMMITMENTS (AMC):\n  Problem: Manufacturers won't invest R&D for diseases primarily of the poor\n    (no profitable market)\n  Solution: Donor pledges to subsidize purchase of vaccine if developed\n    → creates guaranteed demand → justifies R&D investment\n  Pneumococcal AMC (2009): first pilot; accelerated availability of PCV13\n    for low-income countries\n\nGLOBAL VACCINE COVERAGE (2022 WHO/UNICEF):\n  DTP3 (3-dose diphtheria-tetanus-pertussis): 84% globally\n  MCV2 (2-dose measles): 74% globally\n  Target: ≥95% for measles herd immunity\n  ~23M children under-immunized in 2022 (post-COVID setback from ~18M)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

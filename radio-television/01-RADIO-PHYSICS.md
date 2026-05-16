@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:radio-physics
+kind: guide
+module: radio-television
+section: radio-television
+title: Radio Physics: EM Spectrum, Propagation Modes, AM/FM Modulation, Antenna Theory
+status: source-custody
+source_custody: partial
+current_path: radio-television/01-RADIO-PHYSICS.md
+canonical_path: radio-television/01-RADIO-PHYSICS.md
+backsource_ids: [proof-backfill:radio-television:01-radio-physics, git-history:radio-television:01-radio-physics]
+concepts: [radio, physics]
+root_concepts: [radio, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Radio Physics: EM Spectrum, Propagation Modes, AM/FM Modulation, Antenna Theory
 
 ## The Big Picture

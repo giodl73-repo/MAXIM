@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:spectrum-management
+kind: guide
+module: radio-television
+section: radio-television
+title: Spectrum Management: FCC Auctions, DTV Transition 2009, White Space, 5G Spectrum Policy
+status: source-custody
+source_custody: partial
+current_path: radio-television/08-SPECTRUM-MANAGEMENT.md
+canonical_path: radio-television/08-SPECTRUM-MANAGEMENT.md
+backsource_ids: [proof-backfill:radio-television:08-spectrum-management, git-history:radio-television:08-spectrum-management]
+concepts: [spectrum, management]
+root_concepts: [spectrum, management]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spectrum Management: FCC Auctions, DTV Transition 2009, White Space, 5G Spectrum Policy
 
 ## The Big Picture

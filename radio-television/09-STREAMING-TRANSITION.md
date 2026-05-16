@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:streaming-transition
+kind: guide
+module: radio-television
+section: radio-television
+title: The Streaming Transition: Netflix Pivot 2007-2013, Streaming Wars, Cord Cutting, SVOD/AVOD/FAST Models
+status: source-custody
+source_custody: partial
+current_path: radio-television/09-STREAMING-TRANSITION.md
+canonical_path: radio-television/09-STREAMING-TRANSITION.md
+backsource_ids: [proof-backfill:radio-television:09-streaming-transition, git-history:radio-television:09-streaming-transition]
+concepts: [streaming, transition]
+root_concepts: [streaming, transition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Streaming Transition: Netflix Pivot 2007-2013, Streaming Wars, Cord Cutting, SVOD/AVOD/FAST Models
 
 ## The Big Picture

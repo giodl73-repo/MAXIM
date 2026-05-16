@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "public-health\\10-HEALTH-METRICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    HEALTH MEASUREMENT LANDSCAPE                             │\n│                                                                             │\n│  WHAT TO MEASURE:                                                           │\n│  ┌────────────────────────────────────────────────────────────────────────┐ │\n│  │  Mortality-based       Morbidity-based      Composite                  │  │\n│  │  ────────────────       ───────────────      ─────────                 │  │\n│  │  Crude death rate       Incidence rate        DALY                     │  │\n│  │  Age-specific MR        Prevalence            QALY                     │  │\n│  │  Cause-specific MR      Disability rate       HALE                     │  │\n│  │  Life expectancy        DALYs (YLD component) HALYs (general)          │  │\n│  │  YLL                    Quality-of-life scores                          │  │\n│  │  Infant mortality rate  Activity limitations                            │  │\n│  └────────────────────────────────────────────────────────────────────────┘  │\n│                                                                               │\n│  FUNDAMENTAL PROBLEM: Mortality tells you nothing about conditions           │\n│  people live with. 2B people have chronic pain, vision loss, depression —   │\n│  none counted in mortality statistics.                                        │\n│                                                                               │\n│  SOLUTION: composite metrics (DALY/QALY) capture both mortality              │\n│  and morbidity in a single comparable unit.                                  │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Mortality Rate Calculations",
+      "confidence": "candidate",
+      "text": "CRUDE DEATH RATE (CDR):\n  CDR = (Total deaths / Midyear population) × 1000\n  Units: deaths per 1,000 population per year\n  Problem: confounded by age structure (elderly populations have higher CDR\n  independent of health conditions)\n\nAGE-SPECIFIC DEATH RATE (ASDR):\n  ASDR_i = (Deaths in age group i / Population in age group i) × 1000\n  Age groups: typically 0, 1-4, 5-9, ..., 80-84, 85+\n\nSTANDARDIZED MORTALITY RATE:\n  Controls for age structure differences between populations.\n  Allows valid comparisons across countries/time periods.\n\n  DIRECT STANDARDIZATION:\n    Apply age-specific death rates of each study population\n    to the age distribution of a standard population.\n    SMR_direct = Σ (ASDR_i × W_i)\n    where W_i = proportion of standard population in age group i\n\n  INDIRECT STANDARDIZATION:\n    Apply age-specific death rates of a reference population\n    to the age structure of the study population.\n    Expected deaths = Σ (ASDR_ref_i × N_i)\n    SMR = Observed deaths / Expected deaths\n    SMR > 1: higher mortality than reference\n    SMR < 1: lower mortality than reference\n\n  Indirect standardization used when study population is small\n  (ASDR_i estimates unstable). Direct when age-specific data available.\n\nINFANT MORTALITY RATE (IMR):\n  IMR = (Deaths <1 year / Live births) × 1000\n  One of the most sensitive indicators of population health and development.\n  Strong correlation with: income, sanitation, healthcare access, nutrition\n  US 2022: ~5.6 per 1,000 live births (high by peer country standards: UK 3.6)\n\nNEONATAL MORTALITY RATE (NMR):\n  Deaths in first 28 days of life per 1,000 live births\n  ~47% of all under-5 deaths occur in neonatal period\n\nUNDER-5 MORTALITY RATE (U5MR):\n  Deaths before age 5 per 1,000 live births\n  SDG target: ≤25 per 1,000 by 2030\n  Global progress: 93 in 1990 → 37 in 2021 (huge achievement)\n  Sub-Saharan Africa: ~71 in 2021 (highest region)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "## Life Expectancy and Life Tables",
+      "confidence": "candidate",
+      "text": "PERIOD LIFE TABLE:\n  Hypothetical cohort constructed from current age-specific mortality rates.\n  Answers: \"If current death rates persist, how long would a newborn live?\"\n\n  Life table columns:\n  x:      Age (years)\n  lx:     Number surviving to age x (cohort starts at l0 = 100,000)\n  dx:     Deaths in interval [x, x+1] = lx − l(x+1)\n  qx:     Probability of death in interval [x, x+1] = dx/lx\n  px:     Probability of surviving interval = 1 − qx\n  Lx:     Person-years lived in interval [x, x+1]\n          = (lx + l(x+1))/2 for non-infant intervals\n  Tx:     Total person-years lived beyond age x = Σ Lj for j ≥ x\n  ex:     Life expectancy at age x = Tx / lx\n          e0 = life expectancy at birth\n\n  COHORT LIFE TABLE: follows actual birth cohort over time.\n  Used for historical analysis; not available for current populations.\n\nLIFE EXPECTANCY AT BIRTH (e0):\n  Approximate values (2023):\n  Japan: 84.3 (global leader)\n  South Korea: 83.6\n  Switzerland: 83.5\n  Australia: 83.2\n  France: 82.1\n  United Kingdom: 80.7\n  United States: 78.8 (below peer-country average; drug overdoses, CVD)\n  Brazil: 73.4\n  India: 70.2\n  Nigeria: 54.7\n  Chad: 54.0 (near-global minimum)\n\nDECOMPOSITION OF LIFE EXPECTANCY DIFFERENCES:\n  Arriaga decomposition: attribute ΔLE to contributions from each age group.\n  Example: US-Japan ΔLE ≈ 5 years → which age groups drive the gap?\n  Answer: age 50-74 cardiovascular disease + drug overdose + obesity\n  (not neonatal/infant mortality, where US-Japan gap is smaller)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## QALY — Quality-Adjusted Life Year",
+      "confidence": "candidate",
+      "text": "QALY DEFINITION:\n  One QALY = one year of life lived in perfect health.\n  QALYs = Σ [time in state i × utility of state i]\n\n  QALY vs. DALY:\n  QALY: measures GAINS from intervention (more = better)\n  DALY: measures BURDEN of disease (less = better)\n  Both express health as utility × time but in opposite directions.\n\nHEALTH UTILITIES (QALY WEIGHTS):\n  0 = death (or health equivalent to death)\n  1 = perfect health\n  Some states scored < 0: worse than death (e.g., severe dementia,\n    extreme pain, complete dependency)\n\nMETHODS TO DERIVE UTILITIES:\n  Standard Gamble (SG):\n    \"What probability p of perfect health vs. certain death would make you\n    indifferent between that gamble and your current health state?\"\n    Answer = utility (theoretically grounded in von Neumann-Morgenstern expected utility)\n\n  Time Trade-Off (TTO):\n    \"How many years of perfect health are equivalent to T years in your\n    current health state?\"\n    Utility = t/T (years willing to trade / total years)\n\n  EQ-5D: Most widely used preference-based instrument.\n    5 dimensions: mobility, self-care, usual activities, pain/discomfort,\n    anxiety/depression. Each scored 1-5 → mapped to utility via\n    country-specific population preference tariffs.\n    EQ-5D-3L: ~243 health states; EQ-5D-5L: ~3,125 states\n\n  SF-6D: Derived from SF-36 survey; wider utility range\n\nCOST-EFFECTIVENESS USING QALYS:\n  ICER = ΔCost / ΔQALYs\n  Willingness-to-pay (WTP) threshold: if ICER < threshold → adopt\n\n  Thresholds:\n  NICE (UK):     £20,000-30,000/QALY (~$25,000-38,000)\n  WHO guidance:  1× GDP per capita (definitely adopt) to 3× GDP (possible)\n  US:            No official threshold; $100,000-$150,000/QALY commonly cited\n  World Bank:    $100-$200/DALY averted in LMICs often used\n\n  ICER league table (US, illustrative):\n  Statins (high-risk primary prevention): ~$25,000-50,000/QALY\n  ACE inhibitors for hypertension:        ~$10,000-30,000/QALY\n  Mammography (biennial, age 50-74):      ~$30,000-50,000/QALY\n  Dialysis (ESRD):                        ~$50,000-100,000/QALY\n  Expensive cancer drugs (end-stage):     $200,000-$1,000,000+/QALY",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## HALE — Health-Adjusted Life Expectancy",
+      "confidence": "candidate",
+      "text": "HALE (Healthy Life Expectancy):\n  Life expectancy × quality adjustment (based on time in disability)\n  = years of life expected to be lived in full health\n\n  HALE = LE − (years lived with disability weighted by DW)\n  Or constructed from life table analogous to LE, replacing person-years\n  with health-adjusted person-years (using DW-adjusted Lx)\n\n  EXAMPLE VALUES (2019):\n  Japan:        74.1 years HALE (LE 84.3) → 10.2 years with disability\n  United States: 66.1 years HALE (LE 78.5) → 12.4 years with disability\n  India:         60.3 years HALE (LE 70.4) → 10.1 years with disability\n  Nigeria:       51.7 years HALE (LE 62.6) → 10.9 years with disability\n\n  HALE gaps between countries often larger than LE gaps.\n  High-income countries: longer life but also longer disability period\n  (\"expansion of morbidity\" vs. \"compression of morbidity\" debate).\n\nCOMPRESSION OF MORBIDITY (Fries, 1980):\n  Hypothesis: as populations live longer, the period of disability\n  will compress near end of life (healthier most of life, then rapid decline).\n  Evidence: mixed. Some countries show compression; others show expansion.\n  Depends on: NCD prevention quality, healthcare effectiveness, social conditions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:pandemic-response
+kind: guide
+module: public-health
+section: public-health
+title: Pandemic Response
+status: source-custody
+source_custody: partial
+current_path: public-health/09-PANDEMIC-RESPONSE.md
+canonical_path: public-health/09-PANDEMIC-RESPONSE.md
+backsource_ids: [proof-backfill:public-health:09-pandemic-response, git-history:public-health:09-pandemic-response]
+concepts: [pandemic, response]
+root_concepts: [pandemic, response]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pandemic Response
 
 ## Pandemic Preparedness and Response Architecture
@@ -15,7 +34,7 @@
 │                                                                             │
 │  PHASE 4: SCALE-UP           PHASE 5: SUSTAINMENT       PHASE 6: RECOVERY   │
 │  ────────────────────        ─────────────────────       ────────────────── │
-│  Surge capacity              Long-term case management   Health system rebuild│
+│  Surge capacity              Long-term case management   System rebuild     │
 │  MCM procurement             Vaccine rollout             Mental health      │
 │  Workforce deployment        Ongoing surveillance        Economic recovery  │
 │  Supply chain activation     Equity monitoring           Lessons learned    │

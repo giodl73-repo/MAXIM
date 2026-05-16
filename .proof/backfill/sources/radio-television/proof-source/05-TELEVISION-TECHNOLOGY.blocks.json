@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "radio-television\\05-TELEVISION-TECHNOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "TELEVISION TECHNOLOGY EVOLUTION\n\nMECHANICAL SCANNING ERA (1884-1937):\n  Nipkow disc (1884) -> Baird mechanical TV (1926)\n  Concept: spinning disc with holes scans image sequentially\n  Resolution: 30-240 lines, very limited\n  Fundamental limit: mechanical speed limits scan rate\n  End: electronic scanning made mechanical obsolete\n\nELECTRONIC SCANNING ERA (1927-2009):\n  Philo Farnsworth: electron beam scanning (1927, patent filed)\n  Vladimir Zworykin (RCA): iconoscope camera, kinescope display\n  RCA vs Farnsworth: patent wars\n  NTSC standard (US 1941): black and white, 525 lines, 60 fields/sec\n  Color (1953): NTSC color standard\n  PAL (1967 Europe), SECAM (1967 France): color alternatives\n  All-analog: modulated RF signal, raster scan display\n\nCRT ERA (1938-2000s):\n  Cathode Ray Tube: electron beam steered by magnetic fields\n  Phosphor screen: glows where electron beam hits\n  Color CRT: three electron guns (R/G/B), shadow mask/aperture grille\n  Best CRT: 40M+ pixels addressable, excellent color\n  CRT died: plasma/LCD flat panels better in all practical ways (size, weight)\n\nFLAT PANEL ERA (2000s-present):\n  Plasma (PDP): 2000-2015\n  LCD (TFT-LCD): 2005-present (dominant)\n  OLED: 2013-present (premium)\n  MicroLED: emerging\n\nDIGITAL BROADCAST:\n  ATSC (US, 1998 rollout): digital OTA broadcast\n  DVB-T (Europe, 1998+): digital OTA broadcast\n  ATSC 3.0 (2017+): IP-based digital broadcast\n  Analog switchoff: US 2009, UK 2012, Europe complete ~2012-2015",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Electronic Television: Farnsworth and Zworykin",
+      "confidence": "candidate",
+      "text": "ELECTRONIC SCANNING: THE KEY INSIGHT\n\nPROBLEM WITH MECHANICAL:\n  Mechanical disc: image must be reproduced at exactly the same\n  rate the disk scans (all in one plane, one point at a time)\n  Physical limits: 200+ lines too fast for disc to spin accurately\n\nELECTRONIC SOLUTION:\n  Replace spinning disc with electron beam\n  Electron beam: can be steered by magnetic fields (electromagnets)\n  Steering speed: nearly instantaneous (electrons travel at 10-30% c)\n  Resolution: limited only by beam focus, not mechanical speed\n\nPHILO FARNSWORTH (1906-1971):\n  Idaho farm boy, 14 years old (1920): first conceived CRT scanning\n  Idea: electrons could scan image like plowing a field (row by row)\n  Patent: filed January 1927 (age 20, San Francisco)\n  First working electronic image: September 7, 1927\n    First image transmitted: a straight line\n    Then: slide with dollar sign (because backers wanted to see money)\n  Key patents: image dissector camera tube (1927), electron beam scanning\n\nVLADIMIR ZWORYKIN (1888-1982):\n  Russian-American, RCA employee under Sarnoff\n  Iconoscope camera tube: patent filed 1923 (disputed dates)\n  Kinescope (picture tube): 1929 patent\n  RCA: massively funded Zworykin's work ($50M investment)\n  Farnsworth vs RCA: patent interference proceedings\n  Result (1939): RCA must pay Farnsworth royalties\n  (Unusual: RCA almost always won patent battles; Farnsworth = exception)\n\nHOW ELECTRONIC SCANNING WORKS:\n\n  CAMERA TUBE (iconoscope/orthicon/vidicon):\n  Scene light -> photosensitive mosaic target\n  Electron beam: scans target row by row\n  At each point: measures stored charge = scene brightness at that point\n  Output: time-varying signal = brightness values in scan order\n\n  PICTURE TUBE (kinescope/CRT):\n  Received signal: controls electron beam intensity\n  Electron beam: scanned row by row by deflection coils\n  Phosphor screen: glows where beam hits\n  Brightness = received signal value at that scan point\n  Human eye: perceives complete image (scan happens faster than eye integrates)\n\n  SYNCHRONIZATION:\n  Camera scan rate must exactly match display scan rate\n  Sync pulses: transmitted with video signal\n  Display: locked to sync pulses -> always in step with camera\n  Without sync: image tears, rolls, scrambles\n\nRCA vs FARNSWORTH RESOLUTION:\n  Farnsworth refused to sell: became independent broadcaster\n  RCA eventually paid licensing fee (1939)\n  WWII: Farnsworth's company diverted to military work\n  Post-WWII: Farnsworth sold company (health problems, financial pressures)\n  Farnsworth: received very little from television despite foundational patents\n  Sarnoff: claimed RCA invented television; this claim was false\n  Sarnoff-Farnsworth: one of the great injustices in technology history",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## NTSC, PAL, SECAM Standards",
+      "confidence": "candidate",
+      "text": "ANALOG TV STANDARDS COMPARISON\n\nNTSC (National Television System Committee):\n  Adopted: US 1941 (B&W), 1953 (color)\n  Also: Japan, most of Americas\n  Specs:\n    Lines: 525 total, 480-486 visible\n    Field rate: 59.94 Hz (interlaced: two fields = one frame)\n    Frame rate: 29.97 fps (29.97 ≈ 30 with color subcarrier adjustment)\n    Color: 3.58 MHz subcarrier, NTSC color encoding\n    Channel bandwidth: 6 MHz\n    Aspect ratio: 4:3\n  Reputation: \"Never The Same Color\" (informal)\n    Color accuracy: drifted; required hue control on TV sets\n    US TVs: had \"hue\" knob for manual adjustment (European TVs didn't)\n\nPAL (Phase Alternating Line):\n  Adopted: UK, Germany, most of Europe 1967\n  Also: Australia, China, most of world\n  Specs:\n    Lines: 625 total, 575-576 visible\n    Field rate: 50 Hz\n    Frame rate: 25 fps\n    Color: 4.43 MHz subcarrier, phase alternation\n  \"PAL delay line\": each line's color information averaged with previous\n    Self-correcting: phase errors canceled out by alternation\n    Result: better color stability than NTSC\n    No hue control needed\n  Higher line count: slightly better vertical resolution than NTSC\n  50 Hz field rate: matches European power line (avoids flicker from lights)\n  60 Hz NTSC: US power line; same reason\n\nSECAM (Séquentiel couleur à mémoire):\n  Adopted: France 1967, Russia/Eastern Europe\n  Fundamentally different: frequency modulation for color (vs QAM for PAL/NTSC)\n  Color: R-Y and B-Y transmitted on alternate lines (not both on same line)\n  Needs delay line: stores previous line for simultaneous R-Y + B-Y\n  Incompatible: with PAL/NTSC at video signal level\n  Political: France chose incompatible standard partly for independence\n  Consumer: French TVs can't receive German broadcasts without transcoding\n  Legacy: now effectively gone (digital replacement used DVB-T like rest of Europe)\n\nCOMPARING STANDARDS:\n\nFeature          | NTSC        | PAL         | SECAM\n-----------------+-------------+-------------+---------\nLines visible    | 480-486     | 575-576     | 575-576\nFrame rate       | 29.97 fps   | 25 fps      | 25 fps\nPower sync       | 60 Hz       | 50 Hz       | 50 Hz\nColor stability  | Poor (manual)| Good (auto)| Good (auto)\nBandwidth/channel| 6 MHz       | 8 MHz       | 8 MHz\nHue control      | Yes         | No          | No\nRegions          | Americas, JP| Europe, AU  | France, Russia",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Color Television Technology",
+      "confidence": "candidate",
+      "text": "COLOR TV: HOW IT WORKS\n\nTECHNICAL REQUIREMENT:\n  Color signal must be COMPATIBLE with existing B&W sets\n  (When color launched 1953, most TVs were B&W)\n  Color transmission: B&W sets must show B&W; color sets show color\n  Solution: color information encoded SEPARATELY from brightness\n\nLUMINANCE AND CHROMINANCE:\n  All color TV standards separate signal into:\n  Y: luminance (brightness) - this is what B&W TV uses\n  Cb (or U): blue-yellow chrominance difference\n  Cr (or V): red-cyan chrominance difference\n\n  YCbCr color space (or YUV, YIQ for NTSC):\n  Human eye: more sensitive to brightness than color detail\n  Exploit this: transmit Y at full resolution\n               Transmit Cb, Cr at lower resolution (chroma subsampling)\n  Result: perceptually equivalent quality at lower bandwidth\n\nNTSC COLOR ENCODING:\n  Color subcarrier: 3.58 MHz added to existing 4 MHz video bandwidth\n  Chosen carefully: subcarrier frequency causes no visible interference with B&W\n  QAM modulation: I and Q (in-phase and quadrature) encode Cr, Cb\n  Phase of subcarrier: encodes hue\n  Amplitude of subcarrier: encodes saturation\n  Burst signal: 8-10 cycles of 3.58 MHz at start of each line\n    Reference: receiver uses burst to lock to subcarrier phase\n    Without correct phase: colors shift (NTSC hue problem)\n    Receiver \"hue\" control: manually adjust phase reference\n\nPAL PHASE ALTERNATION:\n  PAL: alternate the phase of color subcarrier each line\n  If phase error occurs: error on line N cancels error on line N+1\n  Human eye: averages adjacent lines -> error disappears\n  Result: no manual hue control needed\n  Cost: slightly more complex encoder/decoder circuitry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "## CRT Technology",
+      "confidence": "candidate",
+      "text": "CATHODE RAY TUBE (CRT): HOW IT WORKED\n\nCOMPONENTS:\n  Electron gun: heated cathode, control grid, focusing anodes\n  Deflection system: two pairs of deflection coils (or plates)\n  Phosphor screen: coating on inside of glass face\n\nOPERATION:\n  Electron gun: emits electron beam from hot cathode\n  Control grid: voltage controls beam current (brightness)\n  Focusing anodes: electromagnetic lenses focus beam to tiny spot\n  Horizontal deflection coil: steers beam left-right\n  Vertical deflection coil: steers beam up-down\n  Sync circuits: track sync pulses, steer beam to correct position\n  Phosphor: glows when hit by electrons; decay time = persistence\n  Persistence: short enough for no ghosting, long enough for eye integration\n\nCOLOR CRT:\n  Three electron guns: R, G, B\n  Shadow mask (aperture grille): thin metal screen with tiny holes\n  Each hole: aligns with one red, one green, one blue phosphor dot/stripe\n  Each gun: aimed at slightly different angle -> hits only its color phosphor\n  From viewing distance: R, G, B dots blend -> full color\n  Dot pitch: how close dots are; finer = sharper image\n\nCRT ADVANTAGES (still relevant to understand):\n  Response time: microseconds (electrons hit phosphor instantly)\n  Color: phosphors produce pure spectral colors; excellent gamut\n  Viewing angle: perfect (emissive display)\n  Black level: turn off beam = true black (no backlight bleed)\n  Resolution: analog, variable (scan lines, not pixels)\n\nCRT WEAKNESSES:\n  Weight: 25-inch CRT = 35-40 kg\n  Depth: 50 cm+ for large screen\n  Power: 100-200W typical\n  Geometric distortion: requires correction circuits\n  Magnetic interference: can cause color purity problems\n  High voltage: internal 25,000+ V required for beam acceleration\n\nTRANSITION TO FLAT PANEL (2004-2012):\n  LCD: won on size/weight/power; inferior black level + motion response initially\n  2005-2010: LCD quality improved enough for consumer acceptance\n  2010: CRT production essentially ceased for TVs\n  Gaming/video production: some CRT use continues (legacy equipment)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

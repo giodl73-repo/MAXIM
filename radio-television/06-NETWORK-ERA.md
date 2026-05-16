@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:network-era
+kind: guide
+module: radio-television
+section: radio-television
+title: Network Television Era: Big Three, Murrow/Cronkite News, Sitcoms, Color Transition, Nielsen Ratings
+status: source-custody
+source_custody: partial
+current_path: radio-television/06-NETWORK-ERA.md
+canonical_path: radio-television/06-NETWORK-ERA.md
+backsource_ids: [proof-backfill:radio-television:06-network-era, git-history:radio-television:06-network-era]
+concepts: [network, era]
+root_concepts: [network, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Network Television Era: Big Three, Murrow/Cronkite News, Sitcoms, Color Transition, Nielsen Ratings
 
 ## The Big Picture
