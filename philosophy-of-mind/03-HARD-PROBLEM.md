@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:hard-problem
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Chalmers' Hard Problem of Consciousness
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/03-HARD-PROBLEM.md
+canonical_path: philosophy-of-mind/03-HARD-PROBLEM.md
+backsource_ids: [proof-backfill:philosophy-of-mind:03-hard-problem, git-history:philosophy-of-mind:03-hard-problem]
+concepts: [hard, problem]
+root_concepts: [hard, problem]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chalmers' Hard Problem of Consciousness
 
 ## The Big Picture
@@ -9,19 +28,19 @@
 |                                                                       |
 |  EASY PROBLEMS                    HARD PROBLEM                       |
 |  (tractable in principle)         (possibly intractable)             |
-|  +------------------------+       +---------------------------+      |
-|  | Explain the functions: |       | Why is there EXPERIENCE   |      |
-|  | - Attention            |       | accompanying function?    |      |
-|  | - Memory integration   |       |                           |      |
-|  | - Behavioral control   |       | Why does information      |      |
-|  | - Wakefulness          |       | processing feel like      |      |
-|  | - Access to own states |       | anything at all?          |      |
-|  | - Self-monitoring      |       |                           |      |
-|  +------------------------+       | THE EXPLANATORY GAP:      |      |
-|           |                       | Even complete neural       |      |
-|           v                       | explanation leaves this    |      |
-|      Neuroscience                 | question open.            |      |
-|      can solve                    +---------------------------+      |
+|  Easy-problem functions:          Hard-problem question:              |
+|  - Attention                     Why is there EXPERIENCE             |
+|  - Memory integration            accompanying function?              |
+|  - Behavioral control                                                |
+|  - Wakefulness                   Why does information                |
+|  - Access to own states          processing feel like                |
+|  - Self-monitoring               anything at all?                    |
+|                                                                       |
+|                                    THE EXPLANATORY GAP:               |
+|                                    Even complete neural               |
+|           v                        explanation leaves this            |
+|      Neuroscience                  question open.                     |
+|      can solve                                                        |
 +-----------------------------------------------------------------------+
 ```
 
@@ -132,13 +151,11 @@ ARGUMENT STRUCTURE:
               Consciousness is something OVER AND ABOVE the physical.
               Property dualism.
 
-  +------------------+          +------------------+
-  | Human brain       |          | Zombie brain    |
-  | Same atoms,       |          | Same atoms,     |
-  | same connections, |          | same connections, |
-  | same behavior     |          | same behavior   |
-  | + EXPERIENCE      |          | NO experience   |
-  +------------------+          +------------------+
+  Human brain                 Zombie brain
+  Same atoms                  Same atoms
+  Same connections            Same connections
+  Same behavior               Same behavior
+  + EXPERIENCE                NO experience
   Logically possible? Chalmers: YES.
   Therefore: experience is not entailed by physical facts.
 

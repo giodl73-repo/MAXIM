@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:global-justice
+kind: guide
+module: ethics
+section: ethics
+title: Global Justice and Cosmopolitanism
+status: source-custody
+source_custody: partial
+current_path: ethics/09-GLOBAL-JUSTICE.md
+canonical_path: ethics/09-GLOBAL-JUSTICE.md
+backsource_ids: [proof-backfill:ethics:09-global-justice, git-history:ethics:09-global-justice]
+concepts: [global, justice]
+root_concepts: [global, justice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global Justice and Cosmopolitanism
 
 ## The Big Picture
@@ -400,18 +419,18 @@ KEY INSTITUTIONS:
   |                     | Doha Round (development-friendly trade) |
   |                     | collapsed 2016.                         |
   +---------------------+------------------------------------------+
-  | IMF                 | Financial stability, loans to countries.|
+  | IMF                 | Financial stability, loans to countries. |
   |                     | Conditionality: austerity requirements.  |
-  |                     | Criticized as imposing neoliberal model.|
+  |                     | Criticized as imposing neoliberal model. |
   +---------------------+------------------------------------------+
-  | World Bank          | Development loans/grants.               |
-  |                     | Governance reform conditions.           |
-  |                     | Effectiveness contested.                |
+  | World Bank          | Development loans/grants.                |
+  |                     | Governance reform conditions.            |
+  |                     | Effectiveness contested.                 |
   +---------------------+------------------------------------------+
   | ICC                 | International Criminal Court.            |
   |                     | Prosecutes genocide, war crimes,         |
   |                     | crimes against humanity.                 |
-  |                     | Limited jurisdiction (states must join).|
+  |                     | Limited jurisdiction (states must join). |
   |                     | US, Russia, China not members.           |
   +---------------------+------------------------------------------+
 

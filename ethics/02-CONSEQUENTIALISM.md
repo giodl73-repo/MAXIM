@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:consequentialism
+kind: guide
+module: ethics
+section: ethics
+title: Consequentialism and Utilitarianism
+status: source-custody
+source_custody: partial
+current_path: ethics/02-CONSEQUENTIALISM.md
+canonical_path: ethics/02-CONSEQUENTIALISM.md
+backsource_ids: [proof-backfill:ethics:02-consequentialism, git-history:ethics:02-consequentialism]
+concepts: [consequentialism]
+root_concepts: [consequentialism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Consequentialism and Utilitarianism
 
 ## The Big Picture

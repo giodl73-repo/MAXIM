@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:rawls
+kind: guide
+module: ethics
+section: ethics
+title: Rawls: A Theory of Justice
+status: source-custody
+source_custody: partial
+current_path: ethics/05-RAWLS.md
+canonical_path: ethics/05-RAWLS.md
+backsource_ids: [proof-backfill:ethics:05-rawls, git-history:ethics:05-rawls]
+concepts: [rawls]
+root_concepts: [rawls]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rawls: A Theory of Justice
 
 ## The Big Picture

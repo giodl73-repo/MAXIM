@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:ai-ethics
+kind: guide
+module: ethics
+section: ethics
+title: AI Ethics: Alignment, Fairness, and Governance
+status: source-custody
+source_custody: partial
+current_path: ethics/08-AI-ETHICS.md
+canonical_path: ethics/08-AI-ETHICS.md
+backsource_ids: [proof-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]
+concepts: [ai, ethics]
+root_concepts: [ai, ethics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # AI Ethics: Alignment, Fairness, and Governance
 
 ## The Big Picture

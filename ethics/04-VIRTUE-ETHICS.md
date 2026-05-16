@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:virtue-ethics
+kind: guide
+module: ethics
+section: ethics
+title: Virtue Ethics: Aristotle and Neo-Aristotelianism
+status: source-custody
+source_custody: partial
+current_path: ethics/04-VIRTUE-ETHICS.md
+canonical_path: ethics/04-VIRTUE-ETHICS.md
+backsource_ids: [proof-backfill:ethics:04-virtue-ethics, git-history:ethics:04-virtue-ethics]
+concepts: [virtue, ethics]
+root_concepts: [virtue, ethics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Virtue Ethics: Aristotle and Neo-Aristotelianism
 
 ## The Big Picture

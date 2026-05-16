@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:embodied-cognition
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Embodied and Extended Cognition
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/08-EMBODIED-COGNITION.md
+canonical_path: philosophy-of-mind/08-EMBODIED-COGNITION.md
+backsource_ids: [proof-backfill:philosophy-of-mind:08-embodied-cognition, git-history:philosophy-of-mind:08-embodied-cognition]
+concepts: [embodied, cognition]
+root_concepts: [embodied, cognition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Embodied and Extended Cognition
 
 ## The Big Picture

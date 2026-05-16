@@ -1,14 +1,33 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:overview
+kind: guide
+module: ethics
+section: ethics
+title: Ethics - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: ethics/00-OVERVIEW.md
+canonical_path: ethics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:ethics:00-overview, git-history:ethics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ethics — Landscape and Taxonomy
 
 ## The Big Picture
 
 ```
 +-----------------------------------------------------------------------+
-|                    ETHICS AS A DISCIPLINE                              |
+|                    ETHICS AS A DISCIPLINE                             |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  METAETHICS              NORMATIVE ETHICS         APPLIED ETHICS     |
-|  +------------------+    +------------------+     +---------------+  |
+|  METAETHICS BOX          NORMATIVE BOX          APPLIED BOX        |
 |  | What IS morality?|    | What SHOULD we   |     | How do these  |  |
 |  | Are moral facts  |    | do? What makes   |     | theories apply|  |
 |  | real?            |    | actions right    |     | to specific   |  |
@@ -17,8 +36,8 @@
 |  | terms?           |    | Consequentialism |     | bioethics,    |  |
 |  | Realism vs.      |    | Deontology       |     | research      |  |
 |  | anti-realism     |    | Virtue ethics    |     | ethics,       |  |
-|  +------------------+    | Contractualism   |     | global justice|  |
-|                          +------------------+     +---------------+  |
+|  Contractualism row        | Contractualism   |     | global justice|  |
+|                          --------------------      -----------------  |
 +-----------------------------------------------------------------------+
 ```
 

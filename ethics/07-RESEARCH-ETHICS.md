@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:research-ethics
+kind: guide
+module: ethics
+section: ethics
+title: Research Ethics: Nuremberg, Helsinki, and IRBs
+status: source-custody
+source_custody: partial
+current_path: ethics/07-RESEARCH-ETHICS.md
+canonical_path: ethics/07-RESEARCH-ETHICS.md
+backsource_ids: [proof-backfill:ethics:07-research-ethics, git-history:ethics:07-research-ethics]
+concepts: [research, ethics]
+root_concepts: [research, ethics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Research Ethics: Nuremberg, Helsinki, and IRBs
 
 ## The Big Picture

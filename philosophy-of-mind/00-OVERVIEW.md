@@ -1,10 +1,29 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:overview
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Philosophy of Mind - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/00-OVERVIEW.md
+canonical_path: philosophy-of-mind/00-OVERVIEW.md
+backsource_ids: [proof-backfill:philosophy-of-mind:00-overview, git-history:philosophy-of-mind:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophy of Mind — Landscape and Taxonomy
 
 ## The Big Picture
 
 ```
 +-----------------------------------------------------------------------+
-|                    PHILOSOPHY OF MIND                                  |
+|                    PHILOSOPHY OF MIND                                 |
 |        What is the mind? How does it relate to the body?              |
 +-----------------------------------------------------------------------+
 |                                                                       |
@@ -42,11 +61,11 @@ MIND-BODY POSITIONS MAP
                           |         |
                          YES        NO
                           |         |
-              +-----------+         +------------------+
+              DUALISM branch             PHYSICALISM branch
               |                                        |
           DUALISM                               PHYSICALISM
               |                                        |
-    +---------+----------+             +---------------+----------+
+    Substance / Property             Type / Token / Eliminative
     |                    |             |               |          |
 Substance            Property       Type           Token        Elim.
 Dualism              Dualism        Identity       Identity     Materialism
@@ -90,7 +109,7 @@ THE EASY PROBLEMS (tractable in principle):
   | - Distinguishes sleep from wakefulness        |
   |                                               |
   | These are "easy" because they're functional:  |
-  | explaining what the brain DOES.              |
+  | explaining what the brain DOES.               |
   | Neuroscience + cognitive science can do this. |
   +-----------------------------------------------+
 
@@ -105,7 +124,7 @@ THE HARD PROBLEM (possibly intractable):
   | Even if we fully explain all the functions,   |
   | the question remains: why isn't all this      |
   | information processing happening "in the      |
-  | dark," with no inner experience?             |
+  | dark," with no inner experience?              |
   +-----------------------------------------------+
 
 CHALMERS' POINT:
