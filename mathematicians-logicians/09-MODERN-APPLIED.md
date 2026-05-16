@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:modern-applied
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: Modern Applied Mathematics - Turing, Shannon, Wiener, Nash, Mandelbrot, Tao
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/09-MODERN-APPLIED.md
+canonical_path: mathematicians-logicians/09-MODERN-APPLIED.md
+backsource_ids: [proof-backfill:mathematicians-logicians:09-modern-applied, git-history:mathematicians-logicians:09-modern-applied]
+concepts: [modern, applied]
+root_concepts: [modern, applied]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Applied Mathematics — Turing, Shannon, Wiener, Nash, Mandelbrot, Tao
 
 ## The 20th Century's Applied Mathematics Revolution

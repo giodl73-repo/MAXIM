@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:overview
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: The Architects of Physical Understanding - Landscape and Roster
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/00-OVERVIEW.md
+canonical_path: physicists-astronomers/00-OVERVIEW.md
+backsource_ids: [proof-backfill:physicists-astronomers:00-overview, git-history:physicists-astronomers:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Architects of Physical Understanding — Landscape and Roster
 
 ## The Landscape

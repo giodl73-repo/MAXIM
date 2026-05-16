@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:overview
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: Who Shaped Mathematics and Logic - Landscape and Roster
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/00-OVERVIEW.md
+canonical_path: mathematicians-logicians/00-OVERVIEW.md
+backsource_ids: [proof-backfill:mathematicians-logicians:00-overview, git-history:mathematicians-logicians:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Who Shaped Mathematics and Logic — Landscape and Roster
 
 ## The Landscape

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:electromagnetism
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Electromagnetism - Faraday, Maxwell, Hertz, Lorentz, Tesla
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/04-ELECTROMAGNETISM.md
+canonical_path: physicists-astronomers/04-ELECTROMAGNETISM.md
+backsource_ids: [proof-backfill:physicists-astronomers:04-electromagnetism, git-history:physicists-astronomers:04-electromagnetism]
+concepts: [electromagnetism]
+root_concepts: [electromagnetism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electromagnetism — Faraday, Maxwell, Hertz, Lorentz, Tesla
 
 ## The Central Achievement: Unifying Electricity, Magnetism, and Light

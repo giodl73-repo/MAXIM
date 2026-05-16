@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:ancient-medieval
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: Ancient and Medieval Mathematicians - Euclid, Archimedes, Hypatia, Al-Khwarizmi, Fibonacci
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/01-ANCIENT-MEDIEVAL.md
+canonical_path: mathematicians-logicians/01-ANCIENT-MEDIEVAL.md
+backsource_ids: [proof-backfill:mathematicians-logicians:01-ancient-medieval, git-history:mathematicians-logicians:01-ancient-medieval]
+concepts: [ancient, medieval]
+root_concepts: [ancient, medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient and Medieval Mathematicians — Euclid, Archimedes, Hypatia, Al-Khwarizmi, Fibonacci
 
 ## Timeline and Intellectual Lineage

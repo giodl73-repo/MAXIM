@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:20th-century-pure
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: 20th-Century Pure Mathematics - Hardy, Ramanujan, Von Neumann, Bourbaki, Weil, Grothendieck
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/07-20TH-CENTURY-PURE.md
+canonical_path: mathematicians-logicians/07-20TH-CENTURY-PURE.md
+backsource_ids: [proof-backfill:mathematicians-logicians:07-20th-century-pure, git-history:mathematicians-logicians:07-20th-century-pure]
+concepts: [20th, century, pure]
+root_concepts: [20th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20th-Century Pure Mathematics — Hardy, Ramanujan, Von Neumann, Bourbaki, Weil, Grothendieck
 
 ## The 20th Century: Abstraction at Full Power

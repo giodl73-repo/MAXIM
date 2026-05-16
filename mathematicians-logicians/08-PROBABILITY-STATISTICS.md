@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:probability-statistics
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: Probability and Statistics - Bayes, Gauss, Pearson, Fisher, Kolmogorov, Wald
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/08-PROBABILITY-STATISTICS.md
+canonical_path: mathematicians-logicians/08-PROBABILITY-STATISTICS.md
+backsource_ids: [proof-backfill:mathematicians-logicians:08-probability-statistics, git-history:mathematicians-logicians:08-probability-statistics]
+concepts: [probability, statistics]
+root_concepts: [probability, statistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Probability and Statistics — Bayes, Gauss, Pearson, Fisher, Kolmogorov, Wald
 
 ## The Problem: From Gambling to Inference to Decision

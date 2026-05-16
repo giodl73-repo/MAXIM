@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:nuclear-particle
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Nuclear and Particle Physics - Rutherford, Chadwick, Fermi, Lawrence, Gell-Mann, Weinberg
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/08-NUCLEAR-PARTICLE.md
+canonical_path: physicists-astronomers/08-NUCLEAR-PARTICLE.md
+backsource_ids: [proof-backfill:physicists-astronomers:08-nuclear-particle, git-history:physicists-astronomers:08-nuclear-particle]
+concepts: [nuclear, particle]
+root_concepts: [nuclear, particle]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nuclear and Particle Physics — Rutherford, Chadwick, Fermi, Lawrence, Gell-Mann, Weinberg
 
 ## The Journey Into the Nucleus

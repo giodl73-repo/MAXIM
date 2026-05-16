@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematicians-logicians\\05-19TH-CENTURY-ALGEBRA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Revolution: From Solving Equations to Studying Structure",
+      "confidence": "candidate",
+      "text": "THE ALGEBRAIC REVOLUTION\n=========================\n\nOLD PROGRAM (pre-1800): Solve equations\n  Quadratic: x = (-b ± √(b²-4ac)) / 2a  ← Babylonians, Al-Khwarizmi\n  Cubic: Cardano's formula (1545)\n  Quartic: Ferrari's formula (1545)\n  Quintic: ???  ← Open problem for 280 years\n\nNEW QUESTION (Ruffini 1799, Abel 1824): WHY can't you solve the quintic?\n\nGALOIS'S ANSWER (1832): Associate a GROUP to the equation.\n  Whether the group is \"solvable\" (in a technical sense) determines\n  whether the equation can be solved by radicals.\n\n  This shifts the question from \"find the roots\" to\n  \"understand the SYMMETRY STRUCTURE of the roots.\"\n\nCAYLEY (1854): Abstract group theory — groups without reference to equations.\nLIE (1874): Continuous groups (Lie groups) — symmetry of differential equations.\nNOETHER (1921): Abstract algebra — rings, ideals, modules as the unifying framework.\n\nThe progression: equation → group → abstract algebra → category theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "### The Contribution: Galois Theory",
+      "confidence": "candidate",
+      "text": "THE QUESTION\n=============\nQuadratic formula: x = (-b ± √D) / 2a where D = b²-4ac\nCubic formula:     exists (Cardano, 1545) — involves cube roots\nQuartic formula:   exists (Ferrari, 1545) — involves 4th roots\nQuintic:           x⁵ + ax + b = 0 — general formula? NONE EXISTS.\n\nWHY? Galois's answer:\n\nStep 1: Define the GALOIS GROUP of a polynomial.\n  Given f(x) with roots r₁, ..., rₙ, the Galois group Gal(f) consists of\n  all permutations of the roots that preserve every algebraic relation\n  between them.\n\n  Example: x² - 2 has roots ±√2.\n    The only non-trivial relation: r₁ + r₂ = 0.\n    The permutation r₁ ↔ r₂ preserves this.\n    Gal(x² - 2) = Z₂ (cyclic group of order 2).\n\nStep 2: A polynomial is solvable by radicals iff its Galois group is\n  a SOLVABLE GROUP.\n\n  A group G is solvable if there's a chain:\n    G = G₀ ⊇ G₁ ⊇ ... ⊇ Gₙ = {e}\n  where each Gᵢ/Gᵢ₊₁ is abelian.\n  (The group can be \"taken apart\" by abelian quotients.)\n\n  Quadratic Galois group ≤ S₂ (order 2): solvable → formula exists ✓\n  Cubic Galois group ≤ S₃ (order 6): solvable → formula exists ✓\n  Quartic Galois group ≤ S₄ (order 24): solvable → formula exists ✓\n  Quintic Galois group = S₅ (order 120): NOT solvable → no formula ✗\n\nS₅ is not solvable because A₅ (alternating group on 5 elements,\norder 60) is SIMPLE — no normal subgroups — and not abelian.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### The Contribution: Galois Theory",
+      "confidence": "candidate",
+      "text": "GALOIS CORRESPONDENCE\n======================\n\nGiven a polynomial f(x), let K be the splitting field (the smallest\nfield containing all roots), and F be the base field (e.g., Q).\n\nFUNDAMENTAL THEOREM OF GALOIS THEORY:\n  There is a perfect anti-isomorphism between:\n    { subgroups of Gal(K/F) }  ←→  { subfields F ⊆ L ⊆ K }\n\n  Bigger subgroup ↔ Smaller subfield\n  Smaller subgroup ↔ Larger subfield\n  Normal subgroup ↔ Galois extension (field with extra symmetry)\n\nConsequences:\n  - Why √2 + √3 is algebraic over Q: its minimal polynomial is\n    x⁴ - 10x² + 1, and the Galois group structure tells you\n    exactly which subfields exist.\n  - Impossibility of trisecting an angle with compass/straightedge:\n    trisection requires solving a cubic that doesn't split into\n    quadratic subfields — the Galois group prevents it.\n  - Squaring the circle impossible: π is transcendental (not algebraic),\n    and constructible lengths must be algebraic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "### The Contribution: Matrices and Abstract Groups",
+      "confidence": "candidate",
+      "text": "CAYLEY'S MATRIX THEORY (1858)\n==============================\n\nBefore Cayley: Arrays of numbers appeared in solving linear systems (Gauss),\n  but were not treated as algebraic objects with their own operations.\n\nCayley defined:\n  - Matrix addition: (A+B)ᵢⱼ = Aᵢⱼ + Bᵢⱼ\n  - Matrix multiplication: (AB)ᵢⱼ = Σₖ AᵢₖBₖⱼ\n  - The identity matrix I\n  - Matrix inverse: A⁻¹ where AA⁻¹ = I (when it exists)\n  - Determinant (in terms of cofactors)\n\nKey properties he proved:\n  - Matrix multiplication is NOT commutative: AB ≠ BA in general\n  - The Cayley-Hamilton theorem:\n    Every matrix satisfies its own characteristic polynomial.\n    If p(λ) = det(λI - A) = λⁿ + aₙ₋₁λⁿ⁻¹ + ... + a₀, then\n    p(A) = Aⁿ + aₙ₋₁Aⁿ⁻¹ + ... + a₀I = 0 (the zero matrix).\n\nCayley-Hamilton applications:\n  - Compute A⁻¹ from the characteristic polynomial\n  - Control theory: stability analysis of linear systems\n  - Quantum mechanics: operator algebra\n  - Machine learning: matrix powers and series",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 360,
+      "heading_context": "### The Contribution: Modern Abstract Algebra and Noether's Theorem",
+      "confidence": "candidate",
+      "text": "WHAT NOETHER UNIFIED\n=====================\n\nBefore Noether, there were:\n  - Number theory (Gauss, Dedekind)\n  - Polynomial rings (19th century algebra)\n  - Group theory (Galois, Cayley, Lie)\n  - Vector spaces (19th century)\n  - Invariant theory (Cayley, Hilbert)\n\nAll ad hoc, with different methods for each domain.\n\nNoether's contribution (especially \"Idealtheorie in Ringbereichen\", 1921):\n  Define RINGS, IDEALS, and MODULES axiomatically.\n  Prove theorems that apply to ALL of them simultaneously.\n  What's true of numbers because of their ring structure is\n  also true of polynomials, of functions, of matrices.\n\nA RING (Noether's definition, generalized):\n  A set with two operations (+ and ×), addition abelian,\n  multiplication associative, distributes over addition.\n  No assumption of commutativity, inverses, or cancellation.\n\nAn IDEAL in a ring R:\n  A subset I ⊆ R such that:\n    - Closed under addition: a,b ∈ I → a+b ∈ I\n    - Closed under multiplication by any ring element: a ∈ I, r ∈ R → ra ∈ I\n\nA NOETHERIAN RING:\n  A ring satisfying the ascending chain condition:\n  Every chain of ideals I₁ ⊆ I₂ ⊆ I₃ ⊆ ... stabilizes.\n  Equivalently: every ideal is finitely generated.\n\n  Examples: Z is Noetherian. Every PID. Polynomial rings over a field.\n  Hilbert basis theorem (which Noether reproved cleanly):\n  If R is Noetherian, so is R[x].",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 423,
+      "heading_context": "### The Contribution: Modern Abstract Algebra and Noether's Theorem",
+      "confidence": "candidate",
+      "text": "NOETHER'S THEOREM (1915, published 1918)\n=========================================\n\nFor a physical system described by a Lagrangian L[q, q̇, t]:\n  Every continuous symmetry of L corresponds to a conserved quantity.\n  Conversely, every conservation law corresponds to a symmetry.\n\nPrecise statement:\n  If the action S = ∫L dt is invariant under a one-parameter family\n  of transformations q → q + ε·η(q,t) + O(ε²), then\n  J = ∂L/∂q̇ · η is conserved: dJ/dt = 0.\n\nExamples:\n  L is invariant under time translation (L doesn't depend on t)\n    → Energy is conserved: dE/dt = 0\n\n  L is invariant under spatial translation\n    → Momentum is conserved: dp/dt = 0\n\n  L is invariant under rotation\n    → Angular momentum is conserved\n\nThis is NOT just a clever observation — it is a profound theorem stating\nthat conservation laws and symmetries are EQUIVALENT. If you discover\na conservation law, you can hunt for its symmetry. If you break a symmetry,\nyou will lose the corresponding conservation.\n\nThis theorem governs all of modern physics:\n  - Why energy is conserved: time-translation symmetry\n  - Why charge is conserved: U(1) gauge symmetry\n  - Why the proton doesn't decay (probably): baryon number conservation\n    related to a global U(1) symmetry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

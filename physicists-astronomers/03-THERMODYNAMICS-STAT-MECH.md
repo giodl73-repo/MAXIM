@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:thermodynamics-stat-mech
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Thermodynamics and Statistical Mechanics - Carnot, Clausius, Kelvin, Boltzmann, Gibbs
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/03-THERMODYNAMICS-STAT-MECH.md
+canonical_path: physicists-astronomers/03-THERMODYNAMICS-STAT-MECH.md
+backsource_ids: [proof-backfill:physicists-astronomers:03-thermodynamics-stat-mech, git-history:physicists-astronomers:03-thermodynamics-stat-mech]
+concepts: [thermodynamics, stat, mech]
+root_concepts: [thermodynamics, stat]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Thermodynamics and Statistical Mechanics — Carnot, Clausius, Kelvin, Boltzmann, Gibbs
 
 ## The Central Questions

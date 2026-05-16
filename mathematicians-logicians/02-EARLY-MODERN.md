@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:early-modern
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: Early Modern Mathematicians - Descartes, Pascal, Newton, Leibniz, Bernoulli Family
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/02-EARLY-MODERN.md
+canonical_path: mathematicians-logicians/02-EARLY-MODERN.md
+backsource_ids: [proof-backfill:mathematicians-logicians:02-early-modern, git-history:mathematicians-logicians:02-early-modern]
+concepts: [early, modern]
+root_concepts: [early, modern]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Modern Mathematicians — Descartes, Pascal, Newton, Leibniz, Bernoulli Family
 
 ## Timeline and Intellectual Lineage

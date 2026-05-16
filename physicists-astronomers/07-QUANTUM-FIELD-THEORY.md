@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:quantum-field-theory
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Quantum Field Theory - Dirac, Feynman, Schwinger, Tomonaga, Yang, Mills
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/07-QUANTUM-FIELD-THEORY.md
+canonical_path: physicists-astronomers/07-QUANTUM-FIELD-THEORY.md
+backsource_ids: [proof-backfill:physicists-astronomers:07-quantum-field-theory, git-history:physicists-astronomers:07-quantum-field-theory]
+concepts: [quantum, field, theory]
+root_concepts: [quantum, field]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Field Theory — Dirac, Feynman, Schwinger, Tomonaga, Yang, Mills
 
 ## The Synthesis: Combining QM with Special Relativity

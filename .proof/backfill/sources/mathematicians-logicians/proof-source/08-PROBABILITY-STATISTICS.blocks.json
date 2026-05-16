@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematicians-logicians\\08-PROBABILITY-STATISTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Problem: From Gambling to Inference to Decision",
+      "confidence": "candidate",
+      "text": "THE EVOLUTION OF PROBABILITY\n==============================\n\nERA 1 — GAMBLING (1650–1800)\n  Pascal + Fermat → expected value, combinatorics\n  Bernoulli (Jakob) → law of large numbers, Bernoulli trials\n  De Moivre → normal approximation to binomial\n  Bayes → inverse probability (from effects to causes)\n  Laplace → analytic probability, central limit theorem\n\nERA 2 — MEASUREMENT (1800–1900)\n  Gauss → least squares, normal distribution as error model\n  Quetelet → statistics applied to human populations\n  Galton → regression to the mean, correlation\n  Pearson → chi-square, correlation coefficient, biometrics\n\nERA 3 — MATHEMATICAL STATISTICS (1900–1950)\n  Fisher → maximum likelihood, significance testing, design of experiments\n  Student (Gosset) → t-distribution, small-sample statistics\n  Neyman + Pearson (Egon) → hypothesis testing framework\n\nERA 4 — AXIOMATIZATION (1933)\n  Kolmogorov → probability on measure spaces: the rigorous foundation\n  Khinchin → laws of large numbers in full generality\n  Cramér → mathematical statistics textbook (unified the field)\n\nERA 5 — DECISION THEORY (1940–1970)\n  Wald → sequential analysis, statistical decision theory\n  De Finetti → subjective probability, Dutch book arguments\n  Savage → subjective expected utility (foundations of Bayesianism)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "### The Contribution: The Entire Modern Statistical Method",
+      "confidence": "candidate",
+      "text": "MAXIMUM LIKELIHOOD\n==================\n\nFisher (1912, systematized 1920s):\n  Given data x₁,...,xₙ and a parametric model p(x|θ),\n  choose θ̂ to maximize the likelihood:\n\n  θ̂_MLE = argmax_θ L(θ) = argmax_θ ∏ᵢ p(xᵢ|θ)\n\n  Equivalently, maximize log-likelihood: Σᵢ log p(xᵢ|θ)\n\nWHY MLE?\n  1. It is asymptotically unbiased: E[θ̂_MLE] → θ as n → ∞\n  2. It achieves the Cramér-Rao lower bound (minimum variance asymptotically)\n  3. Invariant under reparametrization: if θ̂ is MLE, so is g(θ̂)\n  4. Consistent: θ̂ → θ in probability as n → ∞\n\nMLE in machine learning:\n  Cross-entropy loss = negative log-likelihood for classification.\n  Minimizing cross-entropy = maximizing likelihood of correct labels.\n  MSE loss = negative log-likelihood for Gaussian errors.\n  So \"training a neural network\" = MLE over parameters.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "### The Contribution: The Axiomatic Foundation of Probability",
+      "confidence": "candidate",
+      "text": "KOLMOGOROV'S PROBABILITY AXIOMS\n=================================\n\nBefore Kolmogorov: probability was computed by rules (frequency, symmetry)\n  but not founded on rigorous mathematics. Series of paradoxes and disputes.\n\nKolmogorov (1933) — \"Grundbegriffe der Wahrscheinlichkeitsrechnung\":\n  A probability space is a triple (Ω, ℱ, P) where:\n    Ω = sample space (set of all outcomes)\n    ℱ = σ-algebra of measurable events (subsets of Ω, closed under\n        complement, countable union)\n    P: ℱ → [0,1] satisfying:\n      1. P(Ω) = 1\n      2. P(A) ≥ 0 for all A ∈ ℱ\n      3. Countable additivity: if A₁, A₂, ... are disjoint,\n         P(∪ Aᵢ) = Σ P(Aᵢ)\n\nEverything in probability follows from these three axioms.\n\nWHY MEASURE THEORY:\n  Discrete probability is easy (sum over outcomes).\n  Continuous probability (probability density functions) needs integration.\n  What is the \"probability\" of a specific real number? 0.\n  But the probability of an interval is positive.\n  Lebesgue measure theory (Lebesgue, 1902) handles this properly.\n  Kolmogorov put probability on Lebesgue's foundations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
