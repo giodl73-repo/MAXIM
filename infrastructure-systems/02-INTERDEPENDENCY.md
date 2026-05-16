@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:interdependency
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Interdependency: Cascading Failures and Coupling Analysis
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/02-INTERDEPENDENCY.md
+canonical_path: infrastructure-systems/02-INTERDEPENDENCY.md
+backsource_ids: [proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]
+concepts: [interdependency]
+root_concepts: [interdependency]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Interdependency: Cascading Failures and Coupling Analysis
 
 ## The Big Picture

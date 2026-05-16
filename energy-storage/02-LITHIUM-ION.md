@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:lithium-ion
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Lithium-Ion Batteries: Cathode Chemistry, Anodes, BMS, Degradation
+status: source-custody
+source_custody: partial
+current_path: energy-storage/02-LITHIUM-ION.md
+canonical_path: energy-storage/02-LITHIUM-ION.md
+backsource_ids: [proof-backfill:energy-storage:02-lithium-ion, git-history:energy-storage:02-lithium-ion]
+concepts: [lithium, ion]
+root_concepts: [lithium, ion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lithium-Ion Batteries: Cathode Chemistry, Anodes, BMS, Degradation
 
 ## The Big Picture
@@ -217,10 +236,10 @@ BMS ARCHITECTURE
   MASTER BMS    — pack-level SOC, SOH, thermal
   SLAVE BMS     — module-level (cell voltage, balance, NTC temp sensors)
                        |        |
-               +---+---+   +---+---+
+               .---.---.   .---.---.
                | Cell  | | | Cell  |
                | stack| | | stack  |
-               +------+   +-------+
+               '------'   '-------'
 
 BMS FUNCTIONS:
   1. Cell voltage monitoring (every cell, 1-10 ms)

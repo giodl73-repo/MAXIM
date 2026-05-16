@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:classification
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Classification: CISA Sectors, Lifeline Infrastructure, and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/01-CLASSIFICATION.md
+canonical_path: infrastructure-systems/01-CLASSIFICATION.md
+backsource_ids: [proof-backfill:infrastructure-systems:01-classification, git-history:infrastructure-systems:01-classification]
+concepts: [classification]
+root_concepts: [classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Classification: CISA Sectors, Lifeline Infrastructure, and Taxonomy
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:security
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/08-SECURITY.md
+canonical_path: infrastructure-systems/08-SECURITY.md
+backsource_ids: [proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]
+concepts: [security]
+root_concepts: [security]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth
 
 ## The Big Picture

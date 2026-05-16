@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "infrastructure-systems\\03-RESILIENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## The Resilience Triangle",
+      "confidence": "candidate",
+      "text": "RESILIENCE TRIANGLE (Bruneau et al., 2003)\n==========================================\n\n                    DISRUPTION EVENT\n                           |\n   System         100%     |\n   Functionality      -----+\n   (%)            |        |\n               80 +    ....+.........\n                  |   .    |         ...........\n               60 +  .     |                   ......\n                  | .      |                         .........\n               40 +.       |  LOSS OF FUNCTIONALITY       .....\n                  |        |  (RESILIENCE TRIANGLE)            ..\n               20 +        |                                     ..\n                  |        |                                       ...\n                0 +        |                                          .\n                           t0 (event)                                   t1 (full recovery)\n                                 TIME\n\nFOUR DIMENSIONS (Bruneau):\n  ROBUSTNESS:     Ability to withstand disruption (height of trough = 1 - robustness)\n  REDUNDANCY:     Substitute resources exist during disruption (less deep trough)\n  RESOURCEFULNESS: Capacity to mobilize resources in response (recovery slope)\n  RAPIDITY:       Speed of recovery (time to full function = t1 - t0)\n\nRESILIENCE MEASURE:\n  R = integral(Q(t) dt, from t0 to t1) / (100% * (t1-t0))\n  = fraction of \"full functionality\" actually delivered during disruption period\n  Range: 0 (total loss, never recovers) to 1 (no impact)\n\n  Better resilience: smaller triangle area (less lost functionality for less time)\n\nFOUR WAYS TO IMPROVE:\n  Higher robustness: withstand more -> shallower trough\n  More redundancy: switch to backup faster -> shallower trough\n  Better resourcefulness: better response -> steeper recovery\n  Higher rapidity: faster recovery -> shorter duration (narrower triangle)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### NIST Community Resilience Planning",
+      "confidence": "candidate",
+      "text": "NIST COMMUNITY RESILIENCE PLANNING GUIDE (NIST SP 1190)\n=========================================================\n\nPERFORMANCE GOALS FRAMEWORK:\n  For each infrastructure system: define desired performance level at each hazard level\n\n  HAZARD LEVELS:\n    Routine hazard: expected several times per year\n    Design event:   significant but within design basis (1% annual probability = 100-yr return)\n    Extreme event:  beyond design basis (black swan, 0.1% annual probability)\n\n  PERFORMANCE LEVELS:\n    Continuous: no disruption (full function maintained)\n    Disrupted but functional: reduced capacity but service continues\n    Life safety: minimum function needed (no deaths from infrastructure failure)\n    Damaged but repairable: function restored within days/weeks\n\n  MATRIX EXAMPLE:\n             ROUTINE        DESIGN EVENT      EXTREME\n  HOSPITAL   Continuous     Full function     Life safety\n  ROAD       Continuous     Life safety       Disrupted\n  POWER      Continuous     Life safety       Damaged/repairable\n  WATER      Continuous     Functional        Life safety\n\nDEPENDENCY ANALYSIS:\n  Map clusters: which buildings/systems are connected\n  Critical nodes: failures that disconnect large portions\n  Sequencing: restore in priority order (power first -> enables others)\n\nRECOVERY TIME OBJECTIVES (RTO):\n  Similar to IT disaster recovery but for physical infrastructure\n  Water: restore within 72 hours for critical customers\n  Power: restore within 24 hours for critical facilities; 1 week for all\n  Communications: restore within 4 hours for emergency responders\n  Transport: critical corridors within 48 hours",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 240,
+      "heading_context": "## Infrastructure Resilience Investment ROI",
+      "confidence": "candidate",
+      "text": "RESILIENCE INVESTMENT BENEFIT-COST ANALYSIS\n=============================================\n\nFEMA BRIC (Building Resilient Infrastructure and Communities) PROGRAM:\n  Mitigation grants for pre-disaster infrastructure hardening\n  Average benefit-cost ratio: $6 benefit per $1 invested\n  (National Institute of Building Sciences analysis)\n\n  Benefit calculation includes:\n    Direct damage reduction (physical infrastructure saved)\n    Business interruption avoided (economic output maintained)\n    Lives saved (VSL: value of statistical life = $10-12M USDOT)\n    Community disruption avoided (social costs)\n    Long-term fiscal impact (tax base maintained)\n\n  Examples:\n    Elevating a water pump station: +$50k cost, avoids $300k average flood damage\n    Burying overhead power lines: +$100k/km, reduces hurricane outage 80%, 50yr life\n    Seismic retrofit of bridge: +$5M, avoids $100M+ replacement + 6 months closure\n\nDEFERRED MAINTENANCE TRAP:\n  Cost of fix NOW: $1M (current replacement)\n  Cost of failure in 10 years: $5-10M (emergency replacement + outage costs)\n  NPV of deferral \"savings\": negative at any reasonable discount rate >0%\n  Why deferral happens: annual budget pressure wins over long-term NPV\n\n  \"Fix on fail\" vs. \"preventive maintenance\" economics:\n    Predictable failure rates: preventive usually wins (same job done once vs. emergency)\n    Unpredictable failure: emergency response costs 3-5x planned maintenance\n    Soft costs: outage economic impact often 10-100x physical repair cost\n\nUTILITY EXAMPLE:\n  Transformer replacement:\n    Planned: $1.5M, 2-week planned outage\n    Reactive (failure): $1.5M transformer + $500k emergency mobilization\n                        + 4-week unplanned outage + $50M economic loss for customers\n    Ratio: reactive / planned = ~35x\n\n  SAIDI improvement economics:\n    Reducing SAIDI from 6 hr to 4 hr:\n      2 hr reduction * 1M customers = 2M customer-hours/year\n      At $10-30/customer-hour value of reliability: $20-60M/year benefit\n      Investment needed: $50-200M in distribution upgrades\n      Payback: 1-10 years depending on cost estimates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

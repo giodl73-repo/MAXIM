@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-storage\\07-HYDROGEN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "HYDROGEN VALUE CHAIN\n======================\n\nPRODUCTION          STORAGE            USE\n===========         ===========        ===========\n                    Compressed         Fuel cell\nElectrolysis        gas (350/700 bar)  electricity\n(green H2)     ->                  ->\n                    Liquid H2          Combustion\nSteam methane       (-253 C)           (turbine,\nreforming                              boiler)\n(grey H2)      ->   Metal hydride  ->\n                                       Industrial\nCoal gasification   Chemical carrier   feedstock\n+ CCS              (ammonia NH3,       (fertilizer,\n(blue H2)     ->    LOHC)         ->   steel, refinery)\n\nH2 COLOR TAXONOMY:\n  Grey: steam methane reforming (no CCS), 95% of current production\n  Blue: steam methane reforming + carbon capture and storage (CCS)\n  Green: electrolysis with renewable electricity (target for decarbonization)\n  Pink: electrolysis with nuclear electricity\n  Turquoise: methane pyrolysis (CH4 -> H2 + solid C, no CO2 gas)\n  Teal: natural gas with CCS (variant of blue)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "### Alkaline Electrolysis (AEL)",
+      "confidence": "candidate",
+      "text": "ALKALINE ELECTROLYSIS\n=======================\n\nREACTIONS:\n  Cathode (HER): 2H2O + 2e- -> H2 + 2OH-  (hydrogen evolution)\n  Anode (OER): 2OH- -> 1/2 O2 + H2O + 2e-  (oxygen evolution)\n  Overall: H2O -> H2 + 1/2 O2  (delta_G = +237 kJ/mol = 1.23 V minimum)\n\nALKALINE ELECTROLYTE: 20-30% KOH or NaOH solution\n  High pH: reduces OER overpotential (easier O2 evolution in alkaline)\n  Low-cost materials: Ni electrodes (no platinum needed)\n  Diaphragm: porous separator (Zirfon membrane or asbestos)\n    Keeps H2 and O2 separate; OH- can pass through\n\nSPECIFICATIONS:\n  Operating temperature: 60-90 C\n  Operating pressure: 1-30 bar\n  Stack efficiency: ~70-75% (LHV basis)\n  Capital cost: $500-800/kW (electrolysis stack) (2025)\n  Stack lifetime: 80,000-150,000 hours\n  Part-load range: 20-100% (cannot go below ~20% without issues)\n\nADVANTAGES:\n  Mature technology (100+ years industrial use)\n  No platinum group metals\n  Lowest CAPEX of all electrolysis types\n  Proven at MW and >100 MW scale\n  Long stack lifetime\n\nDISADVANTAGES:\n  Slow response to load changes (minutes to follow wind/solar)\n  Minimum load ~20% (can't shut down and restart quickly)\n  Produces at low pressure (requires compression for storage)\n  KOH corrosive; liquid electrolyte management",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "### PEM Electrolysis (PEMEL)",
+      "confidence": "candidate",
+      "text": "PEM ELECTROLYSIS (Proton Exchange Membrane)\n=============================================\n\nMEMBRANE: Nafion (perfluorosulfonic acid polymer)\n  Proton-conducting membrane: H+ passes, not H2 or O2\n  Operates in acid environment (low pH)\n\nREACTIONS:\n  Anode (OER): H2O -> 1/2 O2 + 2H+ + 2e-\n  Cathode (HER): 2H+ + 2e- -> H2\n  H+ transports through Nafion membrane from anode to cathode\n\nCATALYST REQUIREMENTS:\n  Anode: IrO2 (iridium oxide) for OER -- expensive (Ir: ~$5000/kg)\n    Iridium is very rare (Earth's crust: 0.001 ppm vs. platinum 0.005 ppm)\n    Ir supply constraint: major concern for PEM scale-up\n  Cathode: Pt (platinum) for HER -- also expensive but less than Ir\n  Loading: 0.1-0.5 mg/cm^2 (research trending toward <0.05 mg/cm^2)\n\nSPECIFICATIONS:\n  Operating temperature: 50-80 C\n  Operating pressure: 30-80 bar (can directly produce at high pressure)\n  Stack efficiency: ~75-80% (LHV basis) -- slightly better than AEL\n  Capital cost: $800-1500/kW (2025, decreasing with scale)\n  Stack lifetime: 50,000-100,000 hours\n  Part-load range: 5-100% (much better than AEL)\n  Response time: seconds (can follow solar/wind directly)\n\nADVANTAGES:\n  Fast response: ideal for variable renewable energy coupling\n  High current density: 2-3 A/cm^2 vs. 0.5 A/cm^2 for AEL -> compact stack\n  Direct high-pressure H2 production\n  No liquid electrolyte\n\nDISADVANTAGES:\n  Iridium constraint: limited Ir mining globally (~7 tonnes/yr)\n    At 0.5 mg Ir/cm^2 and 2 A/cm^2: 1 GW electrolyzer needs ~100 kg Ir\n    -> 1 TW of green H2 would need 100 tonnes Ir/yr (14x current mining)\n  Higher CAPEX than AEL\n  Nafion membrane cost and fluoropolymer sustainability\n  Needs ultra-pure water (deionized: <1 uS/cm)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "### Solid Oxide Electrolysis (SOEC)",
+      "confidence": "candidate",
+      "text": "SOLID OXIDE ELECTROLYSIS CELL (SOEC)\n======================================\n\nPRINCIPLE: High-temperature (700-900 C) electrolysis of steam\n  Same materials as solid oxide fuel cells (SOFC) -- reverse operation\n\nREACTIONS:\n  Cathode: H2O + 2e- -> H2 + O2-  (steam reduced to H2 at cathode)\n  Anode: 2O2- -> O2 + 4e-         (oxygen ions oxidized to O2 at anode)\n  O2- ions transport through dense ceramic oxide electrolyte (YSZ: yttria-stabilized zirconia)\n\nTHERMODYNAMIC ADVANTAGE:\n  At 800 C: electrical energy requirement DROPS\n  delta_G of water splitting decreases with temperature (delta_H approximately constant,\n    T*delta_S increases -> delta_G = delta_H - T*delta_S decreases)\n  At 800 C: ~20% of energy requirement comes from heat, not electricity\n  If heat source available (nuclear, industrial waste heat):\n    System efficiency: ~90% (electrical) because 20% is heat-input\n\nSPECIFICATIONS:\n  Operating temperature: 700-900 C\n  Electrical efficiency: ~85-90% (LHV, if heat is free or cheap)\n  Capital cost: $1000-2000/kW (2025, immature)\n  Stack lifetime: 20,000-50,000 hours (thermal cycling is the lifetime killer)\n  Can also co-electrolyze H2O + CO2 -> H2 + CO (syngas) for e-fuels\n\nADVANTAGES:\n  Highest electrical efficiency of any electrolysis method\n  Co-electrolysis of H2O + CO2 for Power-to-X applications\n  Reversible: SOEC (electrolysis) can run as SOFC (fuel cell) in same unit\n\nDISADVANTAGES:\n  High operating temperature: startup time (hours to reach 800 C)\n  Thermal cycling degradation (ceramic cracks from thermal stress)\n  Cannot follow variable renewables (temperature too sluggish)\n  Best suited for: baseload operation (nuclear + SOEC, industrial waste heat + SOEC)\n  Status: limited commercial (Haldor Topsoe, Bloom Energy have MW systems)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "### Liquid Hydrogen",
+      "confidence": "candidate",
+      "text": "LIQUID HYDROGEN\n================\n\nBoiling point: -252.8 C = 20.3 K (just above absolute zero)\n  Nitrogen boils at -196 C; liquid H2 is 57 C colder than liquid N2\n\nLiquefaction process (Linde-Hampson + expansion turbines):\n  Precooling in N2 liquid (liquid N2 at 77 K cools H2 to 80 K first)\n  Then: H2 compression + expansion (Joule-Thomson) -> liquid\n  Energy cost of liquefaction: 30-35% of H2 energy content (enormous penalty)\n\nDensity:\n  Liquid H2: 70.8 kg/m^3 (vs. liquid N2 at 808 kg/m^3 -- very light)\n  Gravimetric: ~100% H2 in pure liquid (no containment weight at point of count)\n  Volumetric: 70.8 g/L (better than 700 bar compressed at 39 g/L)\n\nBOILOFF:\n  Insulated cryogenic tank leaks heat -> H2 evaporates (boiloff)\n  Rate: 0.1-1%/day for stationary tanks; 1-5%/day for vehicle tanks (smaller)\n  Requires venting (safety) or recapture\n  Long-term storage: cumulative boiloff loss is significant\n  Best for: large-scale (ship, terminal) where insulation surface/volume ratio good\n\nAPPLICATIONS:\n  Rocket fuel: NASA, SpaceX (Falcon 9 uses LOX/kerosene; Starship: LOX/LCH4)\n    SLS (Space Launch System): liquid H2/LOX -- highest specific impulse chemical rocket\n  Aviation: Airbus zero-emission aircraft concept (H2SPEED)\n  Long-distance shipping: liquid H2 tanker (Suiso Frontier, Japan-Australia 2021)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "### Chemical Carriers",
+      "confidence": "candidate",
+      "text": "HYDROGEN CHEMICAL CARRIERS\n============================\n\nAMMONIA (NH3):\n  Reaction: N2 + 3H2 -> 2NH3 (Haber-Bosch, 450 C, 200 bar, Fe catalyst)\n  H2 content: 17.8 wt% (high gravimetric density)\n  Liquid at: -33 C (easily liquefied vs. H2 at -253 C)\n  Well-established global infrastructure: 200 Mt/yr production, pipelines, ships\n  NH3 -> H2 release: crack ammonia at 500-700 C, Ru or Ni catalyst\n    Efficiency: ~25-30% energy lost in Haber-Bosch + cracking\n  Advantages: liquid at -33 C; infrastructure exists; no CO2\n  Disadvantages: toxic (TLV 25 ppm), NOx on combustion, cracking energy loss\n  Status: green ammonia projects (Australia, Chile) for export to Japan/Germany\n\nLOHC (Liquid Organic Hydrogen Carriers):\n  Hydrogenate an aromatic compound to store H2 chemically at room temperature\n  Dehydrogenate (thermally) to release H2\n\n  Common LOHC: Dibenzyltoluene (DBT) + H2 -> perhydro-DBT (H18-DBT)\n    H2 content: 6.2 wt% of carrier (19 g H2/L)\n    Loading temp: 150-200 C (exothermic, useful heat generated)\n    Unloading temp: 310-350 C (endothermic, requires heat input)\n    Key advantage: carrier (DBT) is stable at ambient temperature and pressure\n    Transport: existing liquid fuel tankers and infrastructure\n    No special vessels needed (unlike LH2 cryogenic or NH3 toxic)\n\n  LOHC companies: Hydrogenious (Germany), ChiyodA Corporation (Japan)\n  Challenge: energy cost of dehydrogenation (heat at 310 C needed at point of use)\n\nMETAL HYDRIDES (solid-state H2):\n  H2 absorbed into metal lattice (interstitial sites)\n  Low operating pressure (1-10 bar vs. 700 bar for gas)\n  Materials: LaNi5 (1.4 wt% H2), TiFe (1.9 wt%), MgH2 (7.6 wt% but 300+ C)\n  Gravimetric density: lower than liquid H2 or LOHC (heavy metal lattice)\n  Volumetric density: excellent (better than 700 bar gas for some hydrides)\n  Use case: very safe (no high pressure, no fire risk if ruptured)\n    Submarine auxiliary power, stationary backup power\n  Status: niche; Toyota Mirai uses 700 bar compressed, not hydride",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 307,
+      "heading_context": "### PEM Fuel Cell",
+      "confidence": "candidate",
+      "text": "PEM FUEL CELL\n==============\n\nReverse of PEM electrolysis:\n  Anode: H2 -> 2H+ + 2e-  (H2 oxidized, electrons to circuit)\n  Cathode: O2 + 4H+ + 4e- -> 2H2O (O2 reduced, protons from membrane)\n  Net: H2 + 1/2 O2 -> H2O  (delta_G = -237 kJ/mol = 1.23 V theoretical)\n\nACTUAL VOLTAGE: ~0.6-0.75 V per cell under load (vs. 1.23 V theoretical)\n  Activation losses (Butler-Volmer): 0.3-0.4 V loss\n  Ohmic losses (membrane resistance): 0.05-0.1 V\n  Mass transport (O2 depletion at cathode): small at moderate current\n\nEFFICIENCY:\n  Thermodynamic efficiency limit: 83% (delta_G / delta_H = 237/286)\n  Practical efficiency (cell voltage / 1.23 V): 0.65/1.23 = 53%\n  System efficiency (including BOP): ~45-55%\n  Compare: gasoline ICE: 25-35%; natural gas turbine: 35-45%\n  Fuel cell wins on efficiency vs. combustion (but loses on round-trip vs. battery)\n\nPLATINUM LOADING:\n  Cathode: 0.2-0.4 mg Pt/cm^2 (more for ORR, less active than HOR)\n  Anode: 0.05-0.1 mg Pt/cm^2 (HOR is fast, low loading needed)\n  Target: <0.1 mg Pt/cm^2 total (current research frontier)\n  Pt supply: ~190 tonnes/yr mined; 1 GW/yr FC production needs ~10 tonnes\n    -> At current loading, 100 GW/yr would need significant Pt supply scaling\n\nAPPLICATIONS:\n  Toyota Mirai: 128 kW FC + 1.24 kWh Li-ion buffer, 5.6 kg H2 -> 650 km\n  Hyundai NEXO, Honda Clarity, GM/Honda hydrogen truck programs\n  Forklift trucks: established market (Plug Power)\n  Stationary backup power: telecom towers, data centers\n  Marine: Alstom H2-powered commuter train (Coradia iLint), German operations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 387,
+      "heading_context": "## Hydrogen Economy: Green vs. Grey vs. Blue",
+      "confidence": "candidate",
+      "text": "HYDROGEN COLOR ECONOMICS (2025)\n=================================\n\nGREY H2 (SMR, no CCS):\n  CH4 + H2O -> CO + 3H2 (steam methane reforming)\n  CO + H2O -> CO2 + H2 (water-gas shift)\n  Cost: $1-2/kg H2\n  CO2 emissions: ~10 kg CO2 per kg H2\n  Current: 95% of all H2 production\n\nGREEN H2 (electrolysis + renewable electricity):\n  Cost: $3-8/kg H2 (2025)\n  Target: $1/kg H2 (\"H2 1 1 1\": $1/kg by 2031, DOE goal)\n  CO2 emissions: ~0 (if electricity is zero-carbon)\n  Gap vs. grey: $2-6/kg H2 premium for decarbonization\n  Requires: cheap renewable electricity (<$20/MWh) + cheap electrolyzer (<$300/kW)\n  Learning rate: electrolyzer CAPEX declining ~15-20%/yr (similar to solar)\n\nBLUE H2 (SMR + CCS):\n  Cost: $1.5-3/kg H2\n  CO2 capture rate: 85-95% (not 100% -- residual methane leakage is issue)\n  Gap vs. grey: modest premium\n  Controversy: methane leakage upstream (well to pipeline) reduces climate benefit\n    If upstream leakage >2.5% methane: blue H2 worse than coal (100-year GWP)\n    Most EU regulatory sentiment: blue H2 is a transition fuel, not long-term solution\n\nCOST DRIVERS FOR GREEN H2 COST REDUCTION:\n  Electricity cost: dominates (~70-80% of LCOH)\n    At $20/MWh electricity + PEM at 75% efficiency:\n    H2 production electricity = (33.3 kWh/kg H2) / 0.75 = 44 kWh/kg H2\n    Electricity cost: 44 * $0.02 = $0.88/kg H2 (achievable in 2030s?)\n  Electrolyzer CAPEX: at $300/kW and 90% capacity factor: $0.10/kg H2\n  OPEX, balance of plant: $0.20/kg H2\n  Total: ~$1.2/kg H2 (target scenario, requires very cheap electricity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

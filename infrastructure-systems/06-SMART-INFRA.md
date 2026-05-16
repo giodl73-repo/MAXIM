@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:smart-infra
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Smart Infrastructure: Digital Twins, IoT, Predictive Maintenance, and AI
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/06-SMART-INFRA.md
+canonical_path: infrastructure-systems/06-SMART-INFRA.md
+backsource_ids: [proof-backfill:infrastructure-systems:06-smart-infra, git-history:infrastructure-systems:06-smart-infra]
+concepts: [smart, infra]
+root_concepts: [smart, infra]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Smart Infrastructure: Digital Twins, IoT, Predictive Maintenance, and AI
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:overview
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Energy Storage - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: energy-storage/00-OVERVIEW.md
+canonical_path: energy-storage/00-OVERVIEW.md
+backsource_ids: [proof-backfill:energy-storage:00-overview, git-history:energy-storage:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Energy Storage — Landscape Overview
 
 ## The Big Picture
@@ -16,14 +35,14 @@ ENERGY STORAGE TECHNOLOGY MAP
                            ^
                            |
          Supercapacitors   |   Flywheels
-                      +----|----+
+                      .----|----.
                       |         |
                       |         |   Li-ion batteries
                       |  POWER  |
    Lead-acid  --------+  GAP   +------- Li-ion NMC
                       |         |
                       |         |   Flow batteries
-                      +---------+
+                      '---------'
                       NaS battery
                            |
          Pumped hydro -----+-----  Compressed air
@@ -82,7 +101,7 @@ FIVE CATEGORIES OF GRID STORAGE
 =================================
 
 1. ELECTROCHEMICAL
-   +-------------------------------------------+
+   ---------------------------------------------
    | BATTERIES: convert chemical energy <-> electrical energy
    | via electrochemical reactions at electrodes
    |
@@ -93,40 +112,40 @@ FIVE CATEGORIES OF GRID STORAGE
    |
    | Supercapacitors (EDLC): electrostatic (no reaction)
    |   1-10 Wh/kg, 95%+ RTE, <1 min
-   +-------------------------------------------+
+   ---------------------------------------------
 
 2. MECHANICAL
-   +-------------------------------------------+
+   ---------------------------------------------
    | Pumped hydro: E = mgh, 70-85% RTE
    |   1,600 GW deployed -- 96% of all grid storage
    | CAES: compressed air, 40-70% RTE (diabatic vs. adiabatic)
    | Flywheel: kinetic energy, 85-95% RTE, short duration
    | Gravity: mass raised, potential energy
-   +-------------------------------------------+
+   ---------------------------------------------
 
 3. THERMAL
-   +-------------------------------------------+
+   ---------------------------------------------
    | Sensible heat: molten salt (CSP), water, rocks
    |   ETES (Electric Thermal Energy Storage)
    | Latent heat: phase change materials (PCM)
    |   Ice storage, paraffin wax, salt hydrates
    | Thermochemical: reversible reactions
-   +-------------------------------------------+
+   ---------------------------------------------
 
 4. CHEMICAL (Hydrogen and Derivatives)
-   +-------------------------------------------+
+   ---------------------------------------------
    | Electrolysis: electricity -> H2
    | Compression/liquefaction: store H2
    | Fuel cell: H2 -> electricity
    | Chemical carriers: ammonia, LOHC
    | Round-trip: ~25-40% (electrolysis x FC)
-   +-------------------------------------------+
+   ---------------------------------------------
 
 5. BIOLOGICAL/OTHER
-   +-------------------------------------------+
+   ---------------------------------------------
    | Batteries with bio-electrodes (research)
    | Biofuels (not storage per se, but renewable chemical energy)
-   +-------------------------------------------+
+   ---------------------------------------------
 ```
 
 ---

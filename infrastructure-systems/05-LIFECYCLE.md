@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:lifecycle
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Lifecycle Management: Asset Management, Condition Assessment, Capital Planning
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/05-LIFECYCLE.md
+canonical_path: infrastructure-systems/05-LIFECYCLE.md
+backsource_ids: [proof-backfill:infrastructure-systems:05-lifecycle, git-history:infrastructure-systems:05-lifecycle]
+concepts: [lifecycle]
+root_concepts: [lifecycle]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Lifecycle Management: Asset Management, Condition Assessment, Capital Planning
 
 ## The Big Picture

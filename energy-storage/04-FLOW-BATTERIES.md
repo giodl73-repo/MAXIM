@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:flow-batteries
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Flow Batteries: Architecture, Vanadium Redox, and Iron-Air
+status: source-custody
+source_custody: partial
+current_path: energy-storage/04-FLOW-BATTERIES.md
+canonical_path: energy-storage/04-FLOW-BATTERIES.md
+backsource_ids: [proof-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]
+concepts: [flow, batteries]
+root_concepts: [flow, batteries]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Flow Batteries: Architecture, Vanadium Redox, and Iron-Air
 
 ## The Big Picture
@@ -14,17 +33,17 @@ FLOW BATTERY ARCHITECTURE
                  POWER SUBSYSTEM              ENERGY SUBSYSTEM
                  ================             =================
 
-           +--- ELECTROCHEMICAL STACK ---+   +--- ELECTROLYTE TANKS ---+
+           .--- ELECTROCHEMICAL STACK ---.   .--- ELECTROLYTE TANKS ---.
            |                             |   |                          |
            |  NEGATIVE        POSITIVE   |   |  Negative    Positive    |
            |  ELECTRODE       ELECTRODE  |   |  electrolyte electrolyte |
            |    |                  |    |   |  (reduced)   (oxidized)  |
     e- <---|----+------------------+-----|   |   [Tank A]    [Tank B]   |
            |    |                  |    |   |                          |
-           | Ion-exchange membrane |    |   +----+-----+   +-----+----+
+           | Ion-exchange membrane |    |   .----.-----.   .-----.----.
            |    |  (H+, Cl-...) |  |    |        |     |         |    |
-           +----+---------------+--+    |       Pump       Pump       |
-                |               |       +-------+-----+---+-----+-----+
+           '----'---------------'--'    |       Pump       Pump       |
+                |               |       '-------'-----'---'-----'-----'
                 |               |               |         |
            Flow in          Flow out     Electrolyte circulates through stack
 
