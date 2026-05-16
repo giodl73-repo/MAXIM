@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:consensus
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Consensus: Paxos, Raft, Viewstamped Replication - Algorithm Internals
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/03-CONSENSUS.md
+canonical_path: distributed-systems/03-CONSENSUS.md
+backsource_ids: [proof-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]
+concepts: [consensus]
+root_concepts: [consensus]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Consensus: Paxos, Raft, Viewstamped Replication — Algorithm Internals
 
 ## The Big Picture

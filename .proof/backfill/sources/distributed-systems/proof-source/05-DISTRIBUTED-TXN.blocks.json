@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\05-DISTRIBUTED-TXN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DISTRIBUTED TRANSACTION PROBLEM SPACE\n+---------------------------------------------------------------+\n|                                                               |\n|  REQUIREMENT: Atomic update across nodes A, B, C              |\n|  CONSTRAINT: Any node can fail at any time                    |\n|  CONSTRAINT: Network can partition at any time                |\n|                                                               |\n|  APPROACH          GUARANTEE           COST                   |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | 2PC           | | Atomic, but     | | Blocking on       |  |\n|  | (coordinator) | | coordinator     | | coordinator       |  |\n|  |               | | failure blocks  | | failure           |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | 3PC           | | Reduces          | | Still not        |  |\n|  | (pre-commit)  | | blocking, not   | | partition-tolerant|  |\n|  |               | | partition-safe  | |                   |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | Sagas         | | Eventually       | | Requires           |  |\n|  | (compensating | | consistent,     | | compensating       |  |\n|  | transactions) | | not isolated    | | transaction design |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | CRDTs         | | Always mergeable | | Limited to       |  |\n|  | (conflict-free| | no coordination | | CRDT-shaped       |  |\n|  | data types)   | | needed          | | data models       |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | Spanner       | | Externally       | | Requires           |  |\n|  | TrueTime      | | consistent, full | | atomic clocks /    |  |\n|  |               | | SQL transactions | | GPS hardware       |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Protocol",
+      "confidence": "candidate",
+      "text": "PHASE 1: VOTING (Prepare)\n\nCoordinator                    Participants\n     |                         A    B    C\n     |-- PREPARE -----------> [A]  [B]  [C]\n     |\n     |   Each participant:\n     |   - Writes transaction to durable log\n     |   - Locks all resources needed\n     |   - Votes YES or NO\n     |\n     |<-- VOTE-YES/NO -------- [A]  [B]  [C]\n     |   (must receive all YES to proceed)\n\nPHASE 2: COMMIT (or Abort)\n\nCoordinator                    Participants\n     |   (if all YES)          A    B    C\n     |-- COMMIT ------------> [A]  [B]  [C]\n     |   (if any NO)\n     |-- ABORT ------------->  [A]  [B]  [C]\n     |\n     |   Each participant:\n     |   - Applies or rolls back\n     |   - Releases locks\n     |   - Sends ACK\n     |\n     |<-- ACK ---------------- [A]  [B]  [C]\n     Transaction complete",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### The Blocking Problem",
+      "confidence": "candidate",
+      "text": "COORDINATOR FAILURE SCENARIO\n\nPhase 1 complete: all participants voted YES\nCoordinator crashes BEFORE sending COMMIT/ABORT\n                |\n                v\nEach participant is now STUCK:\n  - Has locks held\n  - Cannot commit (no COMMIT received)\n  - Cannot abort (coordinator might be about to send COMMIT)\n  - Must WAIT for coordinator to recover\n  - Holds locks indefinitely → all other transactions blocked\n\nThis is the fundamental flaw of 2PC: it is not fault-tolerant.\nIn systems like MSDTC, coordinator failure required manual intervention\nto resolve in-doubt transactions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### The Blocking Problem",
+      "confidence": "candidate",
+      "text": "// This stays local (no 2PC):\nusing (var scope = new TransactionScope()) {\n    // single connection ops\n}\n\n// This escalates to MSDTC (2PC):\nusing (var scope = new TransactionScope()) {\n    using (var conn1 = new SqlConnection(cs1)) { ... }\n    using (var conn2 = new SqlConnection(cs2)) { ... }  // ← escalation\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 135,
+      "heading_context": "### The Blocking Problem",
+      "confidence": "candidate",
+      "text": "### 3PC: Reducing Blocking",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### 3PC: Reducing Blocking",
+      "confidence": "candidate",
+      "text": "PHASE 1: CanCommit (same as 2PC Prepare, but no locks yet)\nPHASE 2: PreCommit (coordinator sends tentative commit; participants prepare locks)\nPHASE 3: DoCommit (actual commit)\n\nKEY ADDITION:\n  If coordinator fails after PreCommit, participants can proceed\n  by contacting each other (they know coordinator was going to commit)\n  → no infinite blocking\n\nLIMITATION:\n  3PC assumes synchronous network (no partition)\n  Under partition, 3PC can still violate atomicity\n  → 3PC does not solve the fundamental problem, just reduces blocking\n  → Not widely adopted in production systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "SAGA: Book travel (flight + hotel + car)\n\nFORWARD PATH (all succeed):\n  T1: Book flight    → success\n  T2: Book hotel     → success\n  T3: Book car       → success\n  → DONE: Trip booked\n\nCOMPENSATING PATH (T3 fails):\n  T1: Book flight    → success\n  T2: Book hotel     → success\n  T3: Book car       → FAIL\n  C2: Cancel hotel   ← compensation for T2\n  C1: Cancel flight  ← compensation for T1\n  → DONE: Trip cancelled, all resources freed\n\nEACH Ti has a corresponding Ci (compensating transaction)\n  Ci undoes the semantic effect of Ti\n  Ti and Ci are local transactions (no 2PC needed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Orchestration vs. Choreography",
+      "confidence": "candidate",
+      "text": "ORCHESTRATION (central saga orchestrator)\n  Orchestrator\n      |\n      | call T1 → await result\n      | call T2 → await result\n      | call T3 → FAIL\n      | call C2 (compensate T2)\n      | call C1 (compensate T1)\n\n  + Clear single source of truth\n  + Easier to monitor and debug\n  - Orchestrator is a single point of coupling\n  - Risk of \"smart orchestrator\" anti-pattern (put logic in services, not orchestrator)\n  Used by: Azure Durable Functions, Camunda, Conductor\n\nCHOREOGRAPHY (event-driven, no central orchestrator)\n  Service A completes T1 → emits \"flight-booked\" event\n  Service B listens → executes T2 → emits \"hotel-booked\" event\n  Service C listens → tries T3 → FAIL → emits \"car-booking-failed\" event\n  Service B listens to failure → executes C2 → emits \"hotel-cancelled\" event\n  Service A listens → executes C1\n\n  + No central coordinator\n  + Services are more independent\n  - Saga flow is implicit in event chains → hard to understand\n  - Compensating logic is distributed across services\n  Used by: Kafka-based microservices, EventBridge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "### CRDT Types",
+      "confidence": "candidate",
+      "text": "G-COUNTER (Grow-only counter)\n  Each node has its own counter slot: [N1: 5, N2: 3, N3: 2]\n  Increment: only increment your own slot\n  Merge: take max of each slot across replicas\n  Value: sum of all slots = 10\n  GUARANTEE: Total count is eventually accurate; no coordination needed\n\nPN-COUNTER (Positive-Negative counter, supports decrement)\n  Two G-counters: P (increments) and N (decrements)\n  Value = sum(P) - sum(N)\n  Merge: merge P and N independently\n  Used by: Riak counters, shopping cart total\n\nOR-SET (Observed-Remove Set, supports add and remove)\n  Problem with naive sets: concurrent add and remove is ambiguous\n  OR-Set: each element tagged with unique ID on add\n  Remove: marks the specific unique ID as removed\n  Merge: union of all IDs, remove marked IDs\n  Add-wins: concurrent add and remove → element is present\n  Used by: collaborative document editors, shopping carts\n\nLWW-REGISTER (Last-Write-Wins Register)\n  Each write tagged with timestamp\n  Merge: higher timestamp wins\n  Problem: clock skew; tied timestamps need tiebreaker\n  Used by: Cassandra cells (with caution)\n\nSEQUENCE (for ordered lists / text)\n  RGA, LSEQ, Logoot algorithms\n  Each character assigned a globally unique position identifier\n  Concurrent insertions always resolve to same order\n  Used by: Google Docs (Operational Transform, not CRDT, but similar goal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 265,
+      "heading_context": "### CRDT Types",
+      "confidence": "candidate",
+      "text": "### CRDTs vs. 2PC",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "### TrueTime API",
+      "confidence": "candidate",
+      "text": "TrueTime provides:\n  TT.now() → interval [earliest, latest]\n  (real time is guaranteed to be within this interval)\n  Typical uncertainty: ε = 1–7ms (atomic clocks + GPS)\n\n  TT.before(t) → true if t has definitely not arrived\n  TT.after(t)  → true if t has definitely passed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "### Commit Wait",
+      "confidence": "candidate",
+      "text": "EXTERNAL CONSISTENCY GUARANTEE\n  Transaction T1 commits with timestamp s1\n  Transaction T2 starts after T1 completes\n  → s2 > s1 (guaranteed, despite clock skew)\n\nHOW: Before returning commit to client for T1 at timestamp s1:\n  WAIT until TT.after(s1) is guaranteed true\n  (wait for the uncertainty window to pass)\n\n  Commit wait ≈ 2ε ≈ 2–14ms per transaction\n  This is the price of external consistency",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

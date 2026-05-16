@@ -1,0 +1,1917 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-distributed-db",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-DISTRIBUTED-DB.md#000",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "# Distributed Databases: Spanner, CockroachDB, DynamoDB — Design Choices"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#001",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#002",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "Distributed databases make different trade-offs across the same dimensions: consistency model, availability, query model, sharding strategy, and operational complexity."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#003",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nDISTRIBUTED DATABASE LANDSCAPE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  CONSISTENCY AXIS                                                     |\n|  Strong ──────────────────────────────────────── Eventual             |\n|     |                                                 |               |\n|  Spanner        CockroachDB   CosmosDB   CosmosDB  DynamoDB           |\n|  (TrueTime)     (HLC)         (Strong)   (Eventual) (AP default)      |\n|  FoundationDB                 Azure SQL                               |\n|                                                                       |\n|  QUERY MODEL AXIS                                                     |\n|  SQL ──────────────────────────────── Document/KV/Graph               |\n|     |                                          |                      |\n|  Spanner        CockroachDB   CosmosDB(SQL)  DynamoDB   Cassandra     |\n|  FoundationDB                 CosmosDB(Mongo)            Redis        |\n|                                                                       |\n|  SCALE AXIS                                                           |\n|  Single-DC ──────────────────────────── Globally distributed          |\n|     |                                          |                      |\n|  PostgreSQL     CockroachDB   CosmosDB         Spanner                |\n|  (single node)  (multi-region) (multi-region)  (global)               |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#004",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#005",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## Google Spanner"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#006",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Origin**: Google (2012 paper, Cloud Spanner GA 2017)\n**Consistency**: External consistency (strict serializability globally)\n**Model**: Globally distributed SQL"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#007",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Architecture"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#008",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nSPANNER ARCHITECTURE\n+----------------------------------------------------------+\n|                    GLOBAL                                |\n|  +-------------------+   +-------------------+           |\n|  | Zone A (US-East)  |   | Zone B (EU-West)  |  ...     |\n|  +-------------------+   +-------------------+           |\n|  |  Tablet servers   |   |  Tablet servers   |           |\n|  |  (data shards)    |   |  (data shards)    |           |\n|  +-------------------+   +-------------------+           |\n|          |                        |                       |\n|          ---------- connection ----------                |\n|                     |                                     |\n|          Paxos groups (per shard)                         |\n|          (majority = cross-zone quorum)                   |\n|                     |                                     |\n|         TrueTime API (atomic clock + GPS)                 |\n|         provides bounded timestamp uncertainty            |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#009",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "WRITE PATH\n  Client → any zone → route to Paxos leader for that shard\n  Leader proposes → quorum acks → commit with TrueTime timestamp\n  Commit wait: 2ε (~2-14ms) before returning to client\n  → External consistency guaranteed"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#010",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "READ PATH (strong)\n  Read at current TrueTime → waits for safe time\n  → guaranteed to see all commits before read timestamp"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#011",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "READ PATH (stale)\n  Read at timestamp T (seconds ago)\n  → served from any replica (no quorum needed)\n  → lower latency for analytics\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#012",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### TrueTime Revisited"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#013",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "Spanner's TrueTime uses GPS receivers and atomic clocks in each datacenter. The uncertainty window ε is typically 1–7ms. Commit wait blocks for 2ε per transaction. This is the hardware investment that enables external consistency at global scale — no other system does this without hardware."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#014",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Cloud Spanner product**: Available as Google Cloud Spanner. External consistency is maintained. Typical write latency single-region ~5ms, multi-region ~20ms+."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#015",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### When to Use Spanner"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#016",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "- Global SQL transactions that must be serializable\n- Financial systems where stale reads are unacceptable\n- You have budget for Cloud Spanner pricing\n- You need SQL (complex queries, joins, indexes)"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#017",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#018",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## CockroachDB"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#019",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Origin**: Cockroach Labs (open source, 2015; inspired by Spanner)\n**Consistency**: Serializable (not externally consistent, but very close)\n**Model**: Distributed SQL (PostgreSQL wire-compatible)"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#020",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Architecture"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#021",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nCOCKROACHDB ARCHITECTURE\n+----------------------------------------------------------+\n| Nodes (any number, add for scale)                        |\n+----------------------------------------------------------+\n| SQL Layer   (standard PostgreSQL-compatible SQL)         |\n+----------------------------------------------------------+\n| Transaction Layer (serializable isolation, 2PC-like)     |\n+----------------------------------------------------------+\n| Distribution Layer (range-based sharding)                |\n|   Key space split into ~64MB ranges                      |\n|   Each range: Raft group (3 replicas by default)         |\n+----------------------------------------------------------+\n| Replication Layer (Raft per range)                       |\n+----------------------------------------------------------+\n| Storage Layer (RocksDB/Pebble, LSM-tree)                 |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#022",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "SHARDING: Ranges are contiguous key ranges, automatically split/merged\nCONSENSUS: Each range has its own Raft group\nCLOCK: Hybrid Logical Clocks (HLC) instead of TrueTime\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#023",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Hybrid Logical Clocks (HLC)"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#024",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "Without atomic clocks, CockroachDB uses HLC: a combination of physical wall clock time and a logical counter. HLC allows CockroachDB to achieve serializability across nodes with normal commodity hardware."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#025",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "The trade-off vs. Spanner: HLC has unbounded clock skew (mitigated by NTP, typically ~500ms in worst case). CockroachDB handles this with uncertainty intervals — any transaction is aware of the clock skew bound and reads \"around\" it. This means CockroachDB's transactions are serializable but not externally consistent in the strict Spanner sense."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#026",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### When to Use CockroachDB"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#027",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "- PostgreSQL-compatible SQL at scale\n- Self-hosted (no Google Cloud dependency)\n- Strong consistency without Spanner pricing\n- Horizontal scaling of relational workloads"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#028",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#029",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## Amazon DynamoDB"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#030",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Origin**: Amazon (2007 Dynamo paper, DynamoDB product 2012)\n**Consistency**: Eventual (AP by default), strong available with cost\n**Model**: Key-value / document"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#031",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Architecture"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#032",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nDYNAMODB ARCHITECTURE\n+----------------------------------------------------------+\n| Table = collection of items (no schema except PK)        |\n| Item = up to 400KB, JSON-like attributes                 |\n+----------------------------------------------------------+\n| PRIMARY KEY:                                             |\n|   Partition key only (hash)     → single-attribute PK   |\n|   Partition key + sort key      → composite PK          |\n+----------------------------------------------------------+\n| STORAGE:                                                 |\n|   3 AZ replicas per table region (sync replication)      |\n|   Consistent hash ring → auto-sharding                   |\n+----------------------------------------------------------+\n| CONSISTENCY OPTIONS:                                     |\n|   Eventually consistent reads (default) → read 1 replica |\n|   Strongly consistent reads (2x read units) → read quorum |\n+----------------------------------------------------------+\n| GLOBAL TABLES:                                           |\n|   Multi-region, multi-master replication                 |\n|   Conflict resolution: last-write-wins                   |\n+----------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#033",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Single-Table Design"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#034",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "DynamoDB performance depends heavily on access pattern design. The schema must be designed around access patterns upfront (unlike SQL where you normalize and add indexes later)."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#035",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nTRADITIONAL (SQL approach)       DYNAMODB SINGLE-TABLE DESIGN\nUsers table                      Single table with GSI/LSI overloading:\nOrders table                     PK           SK              type\nOrderItems table                 USER#123     PROFILE#123     user\n                                 USER#123     ORDER#456       order\nJOIN on query                    ORDER#456    ITEM#1          item\n                                 ORDER#456    ITEM#2          item"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#036",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "Query users and orders:          Query PK=USER#123, SK begins with ORDER#\n  SELECT * FROM users            → returns all orders for user in one query\n  JOIN orders ON id=user_id      → no cross-partition scan\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#037",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "Access patterns drive the schema. The Dynamo single-table model is optimal for known, high-throughput access patterns and suboptimal for ad hoc query exploration."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#038",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#039",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## Azure Cosmos DB"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#040",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Origin**: Microsoft Azure (DocumentDB 2014, CosmosDB 2017)\n**Consistency**: 5 levels, tunable per request\n**Model**: Multi-model (document, key-value, column-family, graph, table)"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#041",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Architecture"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#042",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nCOSMOSDB ARCHITECTURE\n+----------------------------------------------------------+\n| Account (globally distributed resource)                  |\n|   Regions: write region(s) + read regions                |\n|   Multi-master: optional (multiple write regions)        |\n+----------------------------------------------------------+\n| Database → Containers (collections)                      |\n|   Container = partitioned collection                     |\n|   Partition key determines shard placement               |\n+----------------------------------------------------------+\n| Physical partitions                                      |\n|   Each physical partition: ~50GB max                     |\n|   Replicated 4 times within a region (quorum)            |\n|   Replicated across regions via async log replication    |\n+----------------------------------------------------------+\n| Consistency level per request (5 options)                |\n|   Default: set at account, override per read             |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#043",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "STRONG: Linearizability. Single-write-region only.\n        Cross-region reads wait for replication.\n        Highest latency, but reads never stale."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#044",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "BOUNDED STALENESS: Reads lag by at most K operations or T seconds.\n                   Good for globally distributed apps needing order."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#045",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "SESSION: Read-your-writes within a session token.\n         Most apps use this. Balance of consistency and performance."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#046",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "CONSISTENT PREFIX: Reads see operations in order, but may lag.\n                   No isolated stale reads; causal ordering maintained."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#047",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "EVENTUAL: Fastest reads. No ordering guarantee. Reads may be stale.\n          Maximum throughput and availability.\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#048",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Azure DevOps and CosmosDB"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#049",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "Azure DevOps services use CosmosDB (and Azure SQL) internally. Work item queries typically use Session consistency — you see your own writes immediately, other team members' writes propagate within seconds. The consistency level is a product decision that affects user-visible behavior."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#050",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#051",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## Apache Cassandra"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#052",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Origin**: Facebook (2008), Apache project\n**Consistency**: AP by default, tunable toward CP\n**Model**: Wide-column store"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#053",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Architecture"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#054",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nCASSANDRA RING TOPOLOGY\n+----------------------------------------------------------+\n|                                                          |\n|        Node1 ────── Node2                                |\n|       /                    \\                             |\n|    Node5                  Node3                          |\n|       \\                    /                             |\n|        Node4 ────── (Node4)                              |\n|                                                          |\n| Consistent hashing: each node owns a token range         |\n| Replication factor: each key replicated to RF nodes      |\n| (adjacent in ring by token)                              |\n|                                                          |\n| WRITE:                                                   |\n|   Client → coordinator (any node) → W replica nodes      |\n|   Coordinator waits for W acks (W = quorum setting)      |\n|                                                          |\n| READ:                                                    |\n|   Client → coordinator → R replica nodes                 |\n|   Coordinator returns latest (by timestamp), repairs     |\n|   stale replicas (read repair)                           |\n+----------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#055",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Tunable Consistency in Cassandra"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#056",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "```\nCONSISTENCY LEVELS (per operation):\n  ONE: 1 replica must ack. Fast, AP.\n  QUORUM: majority must ack. Balanced CP/AP.\n  ALL: all replicas must ack. Slow, CP.\n  LOCAL_QUORUM: quorum in local DC only. Good for multi-DC.\n  EACH_QUORUM: quorum in each DC. Strong cross-DC."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#057",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "QUORUM MATH:\n  RF=3, W=QUORUM(2), R=QUORUM(2): W+R=4 > RF=3 → strong consistency\n  RF=3, W=ONE(1), R=ONE(1): W+R=2 <= RF=3 → eventual consistency\n```"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#058",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#059",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## FoundationDB"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#060",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Origin**: Apple acquisition 2015; previously independent\n**Consistency**: ACID, serializable\n**Model**: Ordered key-value; higher-level models as layers"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#061",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "### Why FoundationDB Is Unusual"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#062",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "FoundationDB is strictly serializable (ACID transactions) on a distributed KV store. Its design insight: keep the core simple (ordered KV with transactions), build everything else as layers (document model, table model, SQL) on top."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#063",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Simulation testing**: FoundationDB uses a deterministic discrete-event simulation for testing — the entire distributed system is run inside a simulator with controlled fault injection. This is arguably the most rigorous testing approach in distributed databases. Engineers at FoundationDB famously found bugs in this simulator that would have caused data corruption in production."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#064",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "**Used by**: Snowflake (metadata), Apple (iCloud backend), many internal Apple services."
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#065",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#066",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "## Selection Criteria Table"
+    },
+    {
+      "id": "06-DISTRIBUTED-DB.md#067",
+      "path": [
+        "06-DISTRIBUTED-DB.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]",
+        "canonical_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "concepts": "[distributed, db]",
+        "current_path": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "id": "maxim:distributed-systems:distributed-db",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, db]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices",
+        "updated": "null"
+      },
+      "text": "| Criterion | Spanner | CockroachDB | DynamoDB | CosmosDB | Cassandra | FoundationDB |\n|-----------|---------|-------------|----------|----------|-----------|-------------|\n| SQL support | Full | Full (Postgres compat) | None | SQL API (partial) | CQL (SQL-like) | None (layered) |\n| Global consistency | External | Serializable | Eventual/Strong | 5 levels | Tunable | Serializable |\n| Operational model | Fully managed (GCP) | Self-hosted or managed | Fully managed (AWS) | Fully managed (Azure) | Self-hosted or managed | Self-hosted |\n| Scale model | Horizontal (shards + Raft) | Horizontal (ranges + Raft) | Serverless/provisioned | Serverless/provisioned | Ring (manual) | Horizontal |\n| Write multi-region | Yes (Paxos across zones) | Yes | Yes (Global Tables) | Yes (multi-master) | Yes (multi-DC) | Limited |\n| Best for | Global financial SQL | Multi-region PostgreSQL | High-throughput KV/doc | Azure-native, any model | Write-heavy, time-series | Metadata, layer-based |"
+    }
+  ],
+  "refs": [
+    "06-DISTRIBUTED-DB.md"
+  ]
+}

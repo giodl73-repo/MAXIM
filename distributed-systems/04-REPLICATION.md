@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:replication
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Replication: Single-Leader, Multi-Leader, Leaderless - Trade-offs
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/04-REPLICATION.md
+canonical_path: distributed-systems/04-REPLICATION.md
+backsource_ids: [proof-backfill:distributed-systems:04-replication, git-history:distributed-systems:04-replication]
+concepts: [replication]
+root_concepts: [replication]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Replication: Single-Leader, Multi-Leader, Leaderless — Trade-offs
 
 ## The Big Picture

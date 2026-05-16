@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:consistency-models
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Consistency Models: Linearizability, Sequential, Causal, Eventual
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/02-CONSISTENCY-MODELS.md
+canonical_path: distributed-systems/02-CONSISTENCY-MODELS.md
+backsource_ids: [proof-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]
+concepts: [consistency, models]
+root_concepts: [consistency, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Consistency Models: Linearizability, Sequential, Causal, Eventual
 
 ## The Big Picture

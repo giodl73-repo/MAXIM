@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:message-queues
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/07-MESSAGE-QUEUES.md
+canonical_path: distributed-systems/07-MESSAGE-QUEUES.md
+backsource_ids: [proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]
+concepts: [message, queues]
+root_concepts: [message, queues]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering
 
 ## The Big Picture
@@ -13,16 +32,15 @@ MESSAGE SYSTEM TAXONOMY
 |  | RabbitMQ          |     | Apache Kafka     |     | Azure Event |  |
 |  | Azure Service Bus |     | Azure Event Hubs |     | Grid        |  |
 |  | Amazon SQS        |     | AWS Kinesis      |     |             |  |
-|  +-------------------+     +------------------+     +-------------+  |
-|  Message is consumed        Message stays in log    Publisher/sub    |
-|  once then deleted.         until retention ends.   reactive event   |
-|  Consumer acks/nacks.       Multiple consumer       routing          |
-|  Point-to-point or pub/sub  groups, each tracks     HTTP push        |
-|  with routing.              own offset.             to endpoints.    |
+|  TRADITIONAL QUEUE        STREAMING LOG           EVENT GRID          |
+|  Message consumed once    Message stays in log    Publisher/sub       |
+|  then deleted.            until retention ends.   reactive event      |
+|  Consumer acks/nacks.     Multiple consumer       routing             |
+|  Point-to-point/pub-sub   groups track offsets.   HTTP push.          |
 |                                                                      |
-|  USE: Task queues           USE: Event sourcing,    USE: Reactive    |
-|       work distribution          audit logs,             automation  |
-|       retry / DLQ                stream processing       triggers    |
+|  USE: task queues,        USE: event sourcing,    USE: reactive       |
+|       work distribution,       audit logs,             automation,    |
+|       retry / DLQ              stream processing       triggers       |
 +-----------------------------------------------------------------------+
 ```
 

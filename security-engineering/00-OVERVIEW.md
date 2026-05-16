@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:overview
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Security Engineering: Threat, Design, Response - Landscape
+status: source-custody
+source_custody: partial
+current_path: security-engineering/00-OVERVIEW.md
+canonical_path: security-engineering/00-OVERVIEW.md
+backsource_ids: [proof-backfill:security-engineering:00-overview, git-history:security-engineering:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Security Engineering: Threat, Design, Response — Landscape
 
 ## Sentinel Context

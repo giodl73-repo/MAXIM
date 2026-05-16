@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\08-MICROSERVICES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MICROSERVICES INFRASTRUCTURE LAYERS\n+-----------------------------------------------------------------------+\n|                    CLIENT / API CONSUMERS                             |\n+-----------------------------------------------------------------------+\n|                    API GATEWAY                                        |\n|   Rate limiting, auth, routing, SSL termination, API versioning      |\n+-----------------------------------------------------------------------+\n|                    SERVICE MESH (CONTROL PLANE)                       |\n|   Traffic policies, mTLS, circuit breaking, canary routing            |\n|   No application code change required                                 |\n+-----------------------------------------------------------------------+\n|                    DATA PLANE (SIDECAR PROXIES)                      |\n|   Envoy (Istio/Dapr) or Linkerd proxy per pod                       |\n|   Intercepts all network traffic in/out of service                   |\n+-----------------------------------------------------------------------+\n|    SVC A    |    SVC B    |    SVC C    |    SVC D    |  SVC E        |\n|  [app][proxy]  [app][proxy]  [app][proxy]  [app][proxy]  [app][proxy] |\n+-----------------------------------------------------------------------+\n|                    SERVICE REGISTRY / DISCOVERY                      |\n|   DNS (Kubernetes service DNS) or Consul / etcd                      |\n+-----------------------------------------------------------------------+\n|                    INFRASTRUCTURE                                     |\n|   Kubernetes (AKS), container runtime, CNI networking                 |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### The Sidecar Pattern",
+      "confidence": "candidate",
+      "text": "WITHOUT MESH:\n  Service A code:\n    - Manual retry logic\n    - Manual circuit breaker (Polly in .NET, Resilience4j in Java)\n    - Manual mutual TLS certificate management\n    - Manual metric emission for all calls\n    - Manual distributed tracing instrumentation\n\nWITH MESH (sidecar proxy):\n  Service A code:\n    - Just HTTP/gRPC call to \"http://service-b/\"\n    - Proxy intercepts, handles retry/circuit break/TLS/metrics\n    - Code is unaware of the mesh\n\n  [Service A] → [Envoy sidecar] → network → [Envoy sidecar] → [Service B]\n       (all traffic routed through proxies, not directly)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Canary Routing Without App Changes",
+      "confidence": "candidate",
+      "text": "ISTIO CANARY ROUTING\n  VirtualService for \"product-service\":\n    - 95% traffic → version v1\n    - 5% traffic  → version v2 (canary)\n\n  Both versions deployed in Kubernetes.\n  Envoy enforces the split — no code change in product-service.\n  Gradually shift weight: 5% → 20% → 50% → 100% as confidence grows.\n\nHEADER-BASED ROUTING:\n  - Route traffic with header \"x-user-id: 12345\" to v2 (beta testing)\n  - All other traffic to v1\n  - Useful for internal testing on production traffic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "### Circuit States",
+      "confidence": "candidate",
+      "text": "CIRCUIT BREAKER STATE MACHINE\n\n                  failure threshold\nCLOSED ──────────────────────────────────> OPEN\n(normal)    N failures in time window      (stop calling)\n    ^                                           |\n    |                                           | reset timeout\n    |                                    (e.g., 30s)\n    |                                           v\n    |              success threshold       HALF-OPEN\n    +<──────────────────────────────────── (probe request)\n                 probe succeeded                |\n                                           failure\n                                               v\n                                           back to OPEN",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Thread Pool Isolation",
+      "confidence": "candidate",
+      "text": "WITHOUT BULKHEAD:\n  Single shared thread pool (e.g., 200 threads for HTTP handling)\n  Service B starts failing → all 200 threads waiting on B timeouts\n  Service A, C, D calls queued → entire system degraded\n\nWITH BULKHEAD (per-service thread pools):\n  Service B pool: 50 threads → B failure consumes only these 50\n  Service A pool: 50 threads → A still healthy\n  Service C pool: 50 threads → C still healthy\n  System pool:    50 threads → admin/health checks still work\n\nISOLATION SCOPE:\n  Thread pool: limits concurrent calls to a dependency\n  Semaphore:   limits concurrent calls but on same threads (lighter)\n  Process:     complete isolation (microservices themselves are bulkheads)\n  Pod:         Kubernetes resource limits per pod (CPU/memory)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Backpressure",
+      "confidence": "candidate",
+      "text": "WITHOUT BACKPRESSURE:\n  Producer (fast) ──────> unbounded queue ──────> Consumer (slow)\n  Queue fills → OutOfMemoryError → crash\n\nWITH BACKPRESSURE:\n  Producer (fast) ──x── bounded queue ← \"full\" signal ── Consumer (slow)\n  Producer: slow down, retry, or apply back-off\n\nREACTIVE STREAMS SPECIFICATION (Java/JVM):\n  Publisher.subscribe(Subscriber)\n  Subscriber.onSubscribe(Subscription)\n  Subscription.request(n) ← consumer requests N items\n  Publisher emits at most n items → respects consumer capacity\n  Implemented by: RxJava, Reactor (Spring WebFlux), Akka Streams\n\nHTTP/2 FLOW CONTROL:\n  TCP backpressure: receiver advertises window size\n  HTTP/2: per-stream flow control on top of TCP\n  gRPC (on HTTP/2): inherits flow control → natural backpressure\n\nKAFKA CONSUMER BACKPRESSURE:\n  Consumer pulls at its own rate (consumer lag grows temporarily)\n  Producer continues writing to Kafka (durable buffer)\n  Consumer catches up when capacity is available\n  → Kafka log acts as a durable backpressure buffer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Saga Orchestration vs. Choreography",
+      "confidence": "candidate",
+      "text": "ORCHESTRATION PATTERN\n  Central orchestrator service drives the saga:\n\n  Orchestrator\n       |── T1: call Payment Service ─→ success\n       |── T2: call Inventory Service ─→ success\n       |── T3: call Shipping Service ─→ FAIL\n       |── C2: call Inventory to rollback\n       |── C1: call Payment to rollback\n\n  + Clear workflow visible in one place\n  + Easy to add monitoring, alerting on saga state\n  + Retry/resume logic in one service\n  - Orchestrator becomes coupled to all participating services\n  - Risk: orchestrator becomes too smart (domain logic leakage)\n\n  Tool: Azure Durable Functions (orchestrator = orchestrator function,\n        activities = activity functions)\n\nCHOREOGRAPHY PATTERN\n  No central coordinator; services react to events:\n\n  Payment Service:\n    receives \"OrderPlaced\" event\n    processes payment → emits \"PaymentCompleted\"\n\n  Inventory Service:\n    receives \"PaymentCompleted\"\n    reserves stock → emits \"StockReserved\"\n\n  Shipping Service:\n    receives \"StockReserved\"\n    fails → emits \"ShippingFailed\"\n\n  Inventory Service:\n    receives \"ShippingFailed\"\n    releases stock → emits \"StockReleased\"\n\n  Payment Service:\n    receives \"StockReleased\"\n    refunds payment\n\n  + Services are decoupled (only know about events, not each other)\n  + Easier to add new participants (subscribe to existing events)\n  - Flow is implicit in event chains → hard to visualize end-to-end\n  - Debugging cross-service failures requires tracing correlation IDs\n  - Compensating logic is distributed across services\n\nWHEN TO USE:\n  Orchestration: complex workflows with many conditions and rollbacks\n  Choreography: simple flows, high decoupling required, streaming pipelines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 301,
+      "heading_context": "## API Gateway",
+      "confidence": "candidate",
+      "text": "API GATEWAY RESPONSIBILITIES\n+----------------------------------------------------------+\n|                     API GATEWAY                          |\n+----------------------------------------------------------+\n| SSL/TLS termination  | Single HTTPS endpoint to clients  |\n| Auth/AuthZ           | JWT validation, OAuth token verify |\n| Rate limiting        | Per client, per endpoint limits   |\n| Request routing      | Route /users → user-service       |\n| Load balancing       | Distribute within a service pool  |\n| API versioning       | /v1/, /v2/ routing               |\n| Request/response     | Transform, validate, enrich       |\n| transformation                                           |\n| Response caching     | Cache GET responses               |\n| Observability        | Centralized access logging        |\n+----------------------------------------------------------+\n\nAZURE API MANAGEMENT (APIM):\n  Products: logical group of APIs (e.g., \"Partner APIs\")\n  Subscriptions: key-based access to products\n  Policies: XML pipeline applied per operation:\n    inbound → backend → outbound → on-error\n  Built-in: JWT validation, rate limiting, IP filtering,\n            OpenAPI import, developer portal, analytics\n\nALTERNATIVES:\n  Kong (open source, Nginx-based, plugin ecosystem)\n  AWS API Gateway\n  Nginx/Envoy as gateway (more raw, less managed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 336,
+      "heading_context": "## Service Discovery",
+      "confidence": "candidate",
+      "text": "DNS-BASED (Kubernetes default):\n  Service \"payment-service\" created in Kubernetes\n  kube-dns creates: payment-service.namespace.svc.cluster.local\n  Consumers call this DNS name → auto-resolved to current pods\n  Simple, no client-side library needed\n  Updates: when pods change, DNS TTL propagates (near-instant for kube-dns)\n\nREGISTRY-BASED (Consul, etcd):\n  Services register on startup with name, address, health check endpoint\n  Consumer queries registry: \"give me instances of payment-service\"\n  Registry returns list → client-side load balancing\n  More control (weighted routing, metadata filtering)\n  Used by: Consul service catalog, Netflix Eureka (legacy)\n\nCLIENT-SIDE vs. SERVER-SIDE LOAD BALANCING:\n  Client-side: client has registry, picks instance, calls directly\n    + No extra hop\n    - Every service needs registry client library (language proliferation)\n  Server-side: client calls a proxy/gateway, proxy picks instance\n    + Language-agnostic\n    - Extra network hop\n    - Service mesh uses server-side (proxy in sidecar)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

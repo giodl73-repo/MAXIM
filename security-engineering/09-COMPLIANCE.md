@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:compliance
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Security Compliance: SOC 2, ISO 27001, FedRAMP, GDPR, PCI DSS
+status: source-custody
+source_custody: partial
+current_path: security-engineering/09-COMPLIANCE.md
+canonical_path: security-engineering/09-COMPLIANCE.md
+backsource_ids: [proof-backfill:security-engineering:09-compliance, git-history:security-engineering:09-compliance]
+concepts: [compliance]
+root_concepts: [compliance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Security Compliance: SOC 2, ISO 27001, FedRAMP, GDPR, PCI DSS
 
 ## The Big Picture

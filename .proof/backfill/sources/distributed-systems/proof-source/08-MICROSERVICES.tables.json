@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\08-MICROSERVICES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 387,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A flaky dependency",
+          "Measure timeout, retry budget, idempotency, circuit-breaker threshold, fallback behavior, and user-visible error.",
+          "Retries without budgets can amplify outages."
+        ],
+        [
+          "A cascading failure",
+          "Identify shared pools, connection limits, queue depth, bulkhead boundaries, and priority traffic.",
+          "Bulkheads preserve capacity for other dependencies; they do not fix the failing dependency."
+        ],
+        [
+          "Producer/consumer overload",
+          "Check backpressure signal, queue/broker durability, consumer lag, drop policy, and replay semantics.",
+          "Buffers buy time; they do not create infinite capacity."
+        ],
+        [
+          "A cross-service workflow",
+          "Decide between saga orchestration, choreography, idempotent steps, compensation, and explicit user-visible states.",
+          "Sagas are not ACID transactions; intermediate states can be observable."
+        ],
+        [
+          "Whether a service mesh helps",
+          "Look for mTLS, traffic splitting, retries, telemetry, policy, and sidecar/ambient operational cost.",
+          "A mesh centralizes cross-cutting traffic policy but adds control-plane complexity."
+        ],
+        [
+          "API gateway vs service discovery",
+          "Separate external ingress/auth/rate limits from internal service location and load balancing.",
+          "Gateways are edge control points; registries/DNS solve internal lookup."
+        ],
+        [
+          "A canary or A/B rollout",
+          "Define traffic split, metrics, rollback threshold, sticky sessions, and data compatibility.",
+          "Routing canaries do not protect you from incompatible database/schema changes."
+        ]
+      ]
+    }
+  ]
+}

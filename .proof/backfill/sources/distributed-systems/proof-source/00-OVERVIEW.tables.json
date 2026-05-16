@@ -1,0 +1,140 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 114,
+      "heading_context": "## The 8 Fallacies of Distributed Computing (Peter Deutsch, 1994)",
+      "headers": [
+        "#",
+        "Fallacy",
+        "Reality",
+        "VSTS Analogue"
+      ],
+      "rows": [
+        [
+          "1",
+          "The network is reliable",
+          "Networks drop packets, TCP connections reset, VMs disappear",
+          "TFS agent drops mid-build; work item API times out"
+        ],
+        [
+          "2",
+          "Latency is zero",
+          "Even in one datacenter: ~0.1–1ms. Cross-region: ~100ms",
+          "P2 build queries from West US to East US"
+        ],
+        [
+          "3",
+          "Bandwidth is infinite",
+          "You cannot stream unlimited data; TCP backpressure kicks in",
+          "Git clone of a large mono-repo saturates bandwidth"
+        ],
+        [
+          "4",
+          "The network is secure",
+          "Man-in-the-middle, TLS downgrade, DNS hijack",
+          "VSTS service-to-service calls inside Azure still need mTLS"
+        ],
+        [
+          "5",
+          "Topology doesn't change",
+          "IPs change, VMs migrate, AZs fail, DNS propagates slowly",
+          "Azure maintenance events move VMs; your IP changes"
+        ],
+        [
+          "6",
+          "There is one administrator",
+          "Multiple teams own different segments; no single change window",
+          "DB team, network team, app team all operate independently"
+        ],
+        [
+          "7",
+          "Transport cost is zero",
+          "Serialization, deserialization, header parsing all cost CPU",
+          "ADO protobuf vs. REST JSON performance difference"
+        ],
+        [
+          "8",
+          "The network is homogeneous",
+          "Your clients run on wildly different OS/runtime versions",
+          "VSTS web, VS IDE client, REST API, and CLI all talk to same svc"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 166,
+      "heading_context": "## Theory Meets Practice: Key Papers → Production Systems",
+      "headers": [
+        "Paper",
+        "Year",
+        "Key Idea",
+        "Production Use"
+      ],
+      "rows": [
+        [
+          "Lamport Clocks",
+          "1978",
+          "Happens-before ordering without synchronized clocks",
+          "Causally ordered logs everywhere"
+        ],
+        [
+          "Vector Clocks",
+          "1988",
+          "Per-process logical clocks, detect causality violations",
+          "DynamoDB, Riak conflict detection"
+        ],
+        [
+          "Paxos",
+          "1989/1998",
+          "Consensus in asynchronous system with crash failures",
+          "Chubby (Google), CosmosDB internally"
+        ],
+        [
+          "FLP Impossibility",
+          "1985",
+          "Consensus impossible with 1 crash in fully async system",
+          "Motivation for Raft's design choices"
+        ],
+        [
+          "CAP Theorem",
+          "2000/2002",
+          "C + A + P not simultaneously achievable",
+          "Every distributed DB design trade-off"
+        ],
+        [
+          "Dynamo",
+          "2007",
+          "Eventual consistency, vector clocks, sloppy quorum",
+          "DynamoDB, Cassandra, Riak"
+        ],
+        [
+          "Bigtable",
+          "2006",
+          "Sorted string tables, LSM-tree, column families",
+          "HBase, Cassandra, RocksDB, LevelDB"
+        ],
+        [
+          "Spanner",
+          "2012",
+          "External consistency via TrueTime (atomic clocks)",
+          "Cloud Spanner, CockroachDB"
+        ],
+        [
+          "Raft",
+          "2014",
+          "Understandable consensus (vs. Paxos complexity)",
+          "etcd (Kubernetes), CockroachDB, TiKV"
+        ],
+        [
+          "Kafka",
+          "2011",
+          "Distributed commit log, consumer group model",
+          "Kafka everywhere; Event Hubs compatible"
+        ]
+      ]
+    }
+  ]
+}

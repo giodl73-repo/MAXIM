@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:identity-access
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts
+status: source-custody
+source_custody: partial
+current_path: security-engineering/05-IDENTITY-ACCESS.md
+canonical_path: security-engineering/05-IDENTITY-ACCESS.md
+backsource_ids: [proof-backfill:security-engineering:05-identity-access, git-history:security-engineering:05-identity-access]
+concepts: [identity, access]
+root_concepts: [identity, access]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts
 
 ## The Big Picture

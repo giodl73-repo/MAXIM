@@ -1,0 +1,1385 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-message-queues",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-MESSAGE-QUEUES.md#000",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "# Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#001",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#002",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "Message systems serve as the nervous system of distributed architectures. They decouple producers from consumers, provide durability, and enable asynchronous processing."
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#003",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nMESSAGE SYSTEM TAXONOMY\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  TRADITIONAL QUEUE          STREAMING LOG           EVENT GRID        |\n|  +-------------------+     +------------------+     +-------------+   |\n|  | RabbitMQ          |     | Apache Kafka     |     | Azure Event |  |\n|  | Azure Service Bus |     | Azure Event Hubs |     | Grid        |  |\n|  | Amazon SQS        |     | AWS Kinesis      |     |             |  |\n|  TRADITIONAL QUEUE        STREAMING LOG           EVENT GRID          |\n|  Message consumed once    Message stays in log    Publisher/sub       |\n|  then deleted.            until retention ends.   reactive event      |\n|  Consumer acks/nacks.     Multiple consumer       routing             |\n|  Point-to-point/pub-sub   groups track offsets.   HTTP push.          |\n|                                                                      |\n|  USE: task queues,        USE: event sourcing,    USE: reactive       |\n|       work distribution,       audit logs,             automation,    |\n|       retry / DLQ              stream processing       triggers       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#004",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#005",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "## Apache Kafka: Architecture Deep Dive"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#006",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "### Core Concepts"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#007",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nKAFKA COMPONENT HIERARCHY"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#008",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "Cluster\n  └── Brokers (3–N nodes, each stores data)\n        └── Topics (logical names: \"user-events\", \"orders\")\n              └── Partitions (physical shards, 0 to N-1)\n                    └── Segments (files on disk, rolling windows)\n                          └── Records (offset, key, value, headers, timestamp)"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#009",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "RECORD:\n  offset        → position in partition (monotonically increasing integer)\n  key           → optional; controls which partition record goes to\n  value         → actual payload (bytes; often Avro/JSON/Protobuf)\n  headers       → metadata key-value pairs\n  timestamp     → producer time or broker time\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#010",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "### Topic Partitioning and Ordering"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#011",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nTOPIC: \"user-events\" with 4 partitions"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#012",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "Producer(s)                            Consumers\n  |                                        |\n  | key=\"user123\" → hash(key) % 4 = P1    |\n  | key=\"user456\" → hash(key) % 4 = P2    |\n  | key=null      → round-robin           |\n  |                                        |\n  |---> Partition 0: [offset 0, 1, 2, ...]|\n  |---> Partition 1: [offset 0, 1, 2, ...]| ---> Consumer Group A\n  |---> Partition 2: [offset 0, 1, 2, ...]|       Consumer 1 reads P0, P1\n  |---> Partition 3: [offset 0, 1, 2, ...]|       Consumer 2 reads P2, P3\n                                            ---> Consumer Group B\nORDERING GUARANTEE:                               Consumer 3 reads P0\n  Within a partition: strict order by offset      Consumer 4 reads P1\n  Across partitions: NO ordering guarantee        Consumer 5 reads P2, P3"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#013",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "→ If you need all events for user123 in order:\n    use user123 as key → all go to same partition\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#014",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "### Leader, Followers, and In-Sync Replicas (ISR)"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#015",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nPARTITION REPLICATION (replication-factor=3)"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#016",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "Broker 1 (Leader P0)    Broker 2 (Follower P0)   Broker 3 (Follower P0)\n   |                          |                          |\n   | Partition 0 data         | ISR: replicating         | ISR: replicating\n   | offset 0..N              | offsets behind leader    | offsets behind leader\n   |                          |                          |\nProducer writes to LEADER only\nFollowers pull from leader (not push)\nISR (In-Sync Replicas): followers that are within replica.lag.time.max.ms of leader"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#017",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "HIGH-WATER MARK: the offset up to which all ISR members have replicated\n  Consumers can only read up to the high-water mark\n  Protects against reading uncommitted data\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#018",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "### Producer Acknowledgment Levels"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#019",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nacks=0: Producer does not wait for any acknowledgment\n        → Fire and forget\n        → Fastest, but data loss if broker crashes\n        Use: metrics, logs where occasional loss is OK"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#020",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "acks=1: Wait for leader acknowledgment only\n        → Leader writes to log, acks\n        → Data loss if leader crashes before ISR replication\n        Use: moderate throughput, tolerable rare loss"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#021",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "acks=all (acks=-1): Wait for all ISR replicas to acknowledge\n        → min.insync.replicas=2 → need 2 ISR acks minimum\n        → Highest durability, ~2x latency\n        Use: transactional, financial, audit logs\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#022",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#023",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "## Exactly-Once Semantics"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#024",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "Kafka's delivery guarantees have evolved:"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#025",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nDELIVERY GUARANTEE LEVELS"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#026",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "AT-MOST-ONCE: Producer sends, does not retry on failure\n  → Messages may be lost\n  → Fastest producer path\n  → Acceptable for: low-value events, approximated metrics"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#027",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "AT-LEAST-ONCE: Producer retries until ack received\n  → Messages may be delivered more than once (on retry)\n  → Consumer must be idempotent (handle duplicates)\n  → Most common production pattern\n  → Handle with idempotency key or deduplication"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#028",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "EXACTLY-ONCE: Kafka 0.11+ (2017)\n  → Idempotent Producer: each producer gets a PID and sequence number\n    → Broker deduplicates retries using PID + sequence\n  → Transactions: atomic read-process-write across topics\n    → Producer opens transaction\n    → Writes to multiple partitions\n    → Commits atomically (or aborts)\n    → Consumers with isolation.level=read_committed only see committed\n  → Cost: ~20% throughput reduction; transactional coordinator per group\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#029",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "### Idempotent Producer Internals"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#030",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nProducer PID (Producer ID, assigned by broker)\nSequence number (per partition, monotonically increasing)"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#031",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "ON RETRY:\n  Producer sends (PID=42, seq=5, partition=P0, msg=X)\n  Broker already received seq=5 for PID=42 on P0\n  Broker deduplicates → does NOT write again\n  Broker returns success"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#032",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "PITFALL: PID is reset on producer restart\n  → Idempotency is only within a single producer session\n  → Across restarts, use transactional.id for persistent deduplication\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#033",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#034",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "## Consumer Groups and Offset Management"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#035",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nCONSUMER GROUP: logical group of consumers sharing the work of a topic"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#036",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "PARTITION ASSIGNMENT (1 consumer per partition max):\n  Topic: 4 partitions\n  Group A: 4 consumers → each gets 1 partition\n  Group A: 2 consumers → each gets 2 partitions\n  Group A: 5 consumers → 4 active, 1 idle\n  Group A: 1 consumer  → gets all 4 partitions"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#037",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "OFFSET TRACKING:\n  Consumer tracks offset per partition\n  Commits offset to __consumer_offsets topic (internal Kafka topic)\n  Commit frequency:\n    auto-commit (default, every 5s) → at-least-once semantics\n    manual commit after processing  → at-least-once, controlled\n    commit before processing        → at-most-once"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#038",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "CONSUMER LAG:\n  lag = latest offset - consumer current offset\n  Measure: consumer group lag metric\n  Alert if lag exceeds threshold (consumer is falling behind)\n  Tool: kafka-consumer-groups.sh --describe, or Burrow (LinkedIn)\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#039",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#040",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "## Log Compaction"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#041",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "Kafka supports two retention modes:"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#042",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "```\nTIME/SIZE-BASED RETENTION:\n  Delete segments older than retention.ms (default 7 days)\n  or larger than retention.bytes\n  → Clean tombstone: old events are gone"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#043",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "LOG COMPACTION:\n  Keep only the latest value per key\n  Tombstone record: key=X, value=null → X is deleted"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#044",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "BEFORE:  offset 0: key=user1, val=profile_v1\n           offset 3: key=user1, val=profile_v2\n           offset 7: key=user2, val=profile_v1\n  AFTER:   key=user1 → profile_v2 (latest only)\n           key=user2 → profile_v1"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#045",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "USE: Changelog topics for database-like semantics\n       Kafka Streams state stores use compacted topics\n       Configuration updates (always want latest per key)\n```"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#046",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#047",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "## Kafka vs. Azure Event Hubs, Service Bus, Event Grid"
+    },
+    {
+      "id": "07-MESSAGE-QUEUES.md#048",
+      "path": [
+        "07-MESSAGE-QUEUES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]",
+        "canonical_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "concepts": "[message, queues]",
+        "current_path": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "id": "maxim:distributed-systems:message-queues",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[message, queues]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Message Queues and Streaming: Kafka Architecture, At-Least-Once, Ordering",
+        "updated": "null"
+      },
+      "text": "| Dimension | Kafka | Azure Event Hubs | Azure Service Bus | Azure Event Grid |\n|-----------|-------|-----------------|-------------------|------------------|\n| Protocol | Kafka wire protocol | Kafka-compatible + AMQP/HTTPS | AMQP, HTTP | HTTP push |\n| Model | Streaming log (partitions) | Streaming log (partitions) | Message queue/topic | Reactive event routing |\n| Message retention | Hours to days to forever | 1–7 days (std), 90 days (premium) | Until consumed + TTL | Not stored (push) |\n| Ordering | Per partition | Per partition | Per session (ordered sessions) | Not guaranteed |\n| Consumer groups | Yes (parallel reads) | Yes (consumer groups) | Competing consumers | Subscriptions |\n| Exactly-once | Yes (0.11+) | No | With deduplication | N/A |\n| Scale | Very high (millions/sec) | High (millions/sec) | Moderate | High |\n| Schema registry | Confluent Schema Registry | Azure Schema Registry | N/A | N/A |\n| Best for | Event sourcing, stream processing | Telemetry ingestion, IoT, Kafka migration | Task queues, workflows, reliable messaging | Reactive automation, Azure resource events |"
+    }
+  ],
+  "refs": [
+    "07-MESSAGE-QUEUES.md"
+  ]
+}

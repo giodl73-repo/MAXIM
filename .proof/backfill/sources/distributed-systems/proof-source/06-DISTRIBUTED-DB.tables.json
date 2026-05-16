@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\06-DISTRIBUTED-DB.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 331,
+      "heading_context": "## Selection Criteria Table",
+      "headers": [
+        "Criterion",
+        "Spanner",
+        "CockroachDB",
+        "DynamoDB",
+        "CosmosDB",
+        "Cassandra",
+        "FoundationDB"
+      ],
+      "rows": [
+        [
+          "SQL support",
+          "Full",
+          "Full (Postgres compat)",
+          "None",
+          "SQL API (partial)",
+          "CQL (SQL-like)",
+          "None (layered)"
+        ],
+        [
+          "Global consistency",
+          "External",
+          "Serializable",
+          "Eventual/Strong",
+          "5 levels",
+          "Tunable",
+          "Serializable"
+        ],
+        [
+          "Operational model",
+          "Fully managed (GCP)",
+          "Self-hosted or managed",
+          "Fully managed (AWS)",
+          "Fully managed (Azure)",
+          "Self-hosted or managed",
+          "Self-hosted"
+        ],
+        [
+          "Scale model",
+          "Horizontal (shards + Raft)",
+          "Horizontal (ranges + Raft)",
+          "Serverless/provisioned",
+          "Serverless/provisioned",
+          "Ring (manual)",
+          "Horizontal"
+        ],
+        [
+          "Write multi-region",
+          "Yes (Paxos across zones)",
+          "Yes",
+          "Yes (Global Tables)",
+          "Yes (multi-master)",
+          "Yes (multi-DC)",
+          "Limited"
+        ],
+        [
+          "Best for",
+          "Global financial SQL",
+          "Multi-region PostgreSQL",
+          "High-throughput KV/doc",
+          "Azure-native, any model",
+          "Write-heavy, time-series",
+          "Metadata, layer-based"
+        ]
+      ]
+    }
+  ]
+}

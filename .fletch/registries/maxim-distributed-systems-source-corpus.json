@@ -1,0 +1,2569 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-distributed-systems-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.distributed-systems.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-distributed-systems-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-source-corpus.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-overview.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.cap-theorem.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-cap-theorem.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/01-CAP-THEOREM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-cap-theorem.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/01-CAP-THEOREM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.cap-theorem.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-cap-theorem.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.cap-theorem.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-cap-theorem.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-cap-theorem.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/01-CAP-THEOREM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.cap-theorem.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/01-CAP-THEOREM.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.cap-theorem.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/01-CAP-THEOREM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/01-CAP-THEOREM.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/01-CAP-THEOREM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.cap-theorem.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/01-CAP-THEOREM.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.cap-theorem.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/01-CAP-THEOREM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/01-CAP-THEOREM.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/01-CAP-THEOREM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.cap-theorem.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/01-CAP-THEOREM.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.cap-theorem.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/01-CAP-THEOREM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/01-CAP-THEOREM.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/01-CAP-THEOREM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consistency-models.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-consistency-models.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-consistency-models.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consistency-models.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-consistency-models.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consistency-models.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-consistency-models.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-consistency-models.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consistency-models.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/02-CONSISTENCY-MODELS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consistency-models.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/02-CONSISTENCY-MODELS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consistency-models.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/02-CONSISTENCY-MODELS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consistency-models.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/02-CONSISTENCY-MODELS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consistency-models.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/02-CONSISTENCY-MODELS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consistency-models.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/02-CONSISTENCY-MODELS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-consensus.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/03-CONSENSUS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-consensus.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/03-CONSENSUS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-consensus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-consensus.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-consensus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/03-CONSENSUS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/03-CONSENSUS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/03-CONSENSUS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/03-CONSENSUS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/03-CONSENSUS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/03-CONSENSUS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/03-CONSENSUS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/03-CONSENSUS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/03-CONSENSUS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/03-CONSENSUS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/03-CONSENSUS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/03-CONSENSUS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/03-CONSENSUS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.replication.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-replication.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/04-REPLICATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-replication.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/04-REPLICATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.replication.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-replication.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.replication.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-replication.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-replication.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/04-REPLICATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.replication.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/04-REPLICATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.replication.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/04-REPLICATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/04-REPLICATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/04-REPLICATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.replication.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/04-REPLICATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.replication.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/04-REPLICATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/04-REPLICATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/04-REPLICATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.replication.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/04-REPLICATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.replication.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/04-REPLICATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/04-REPLICATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/04-REPLICATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-txn.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-distributed-txn.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-distributed-txn.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-txn.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-distributed-txn.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-txn.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-distributed-txn.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-distributed-txn.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-txn.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/05-DISTRIBUTED-TXN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-txn.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/05-DISTRIBUTED-TXN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-txn.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/05-DISTRIBUTED-TXN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-txn.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/05-DISTRIBUTED-TXN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-txn.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/05-DISTRIBUTED-TXN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-txn.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/05-DISTRIBUTED-TXN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-db.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-distributed-db.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-distributed-db.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-db.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-distributed-db.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-db.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-distributed-db.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-distributed-db.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-db.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/06-DISTRIBUTED-DB.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-db.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/06-DISTRIBUTED-DB.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-db.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/06-DISTRIBUTED-DB.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-db.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/06-DISTRIBUTED-DB.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.distributed-db.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/06-DISTRIBUTED-DB.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.distributed-db.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/06-DISTRIBUTED-DB.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/06-DISTRIBUTED-DB.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.message-queues.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-message-queues.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-message-queues.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.message-queues.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-message-queues.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.message-queues.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-message-queues.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-message-queues.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.message-queues.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/07-MESSAGE-QUEUES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.message-queues.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/07-MESSAGE-QUEUES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.message-queues.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/07-MESSAGE-QUEUES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.message-queues.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/07-MESSAGE-QUEUES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.message-queues.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/07-MESSAGE-QUEUES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.message-queues.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/07-MESSAGE-QUEUES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/07-MESSAGE-QUEUES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.microservices.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-microservices.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/08-MICROSERVICES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-microservices.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/08-MICROSERVICES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.microservices.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-microservices.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.microservices.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-microservices.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-microservices.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/08-MICROSERVICES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.microservices.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/08-MICROSERVICES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.microservices.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/08-MICROSERVICES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/08-MICROSERVICES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/08-MICROSERVICES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.microservices.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/08-MICROSERVICES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.microservices.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/08-MICROSERVICES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/08-MICROSERVICES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/08-MICROSERVICES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.microservices.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/08-MICROSERVICES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.microservices.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/08-MICROSERVICES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/08-MICROSERVICES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/08-MICROSERVICES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.observability.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-observability.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/09-OBSERVABILITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-observability.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/09-OBSERVABILITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.observability.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-observability.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.observability.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-observability.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-observability.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/09-OBSERVABILITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.observability.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/09-OBSERVABILITY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.observability.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/09-OBSERVABILITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/09-OBSERVABILITY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/09-OBSERVABILITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.observability.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/09-OBSERVABILITY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.observability.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/09-OBSERVABILITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/09-OBSERVABILITY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/09-OBSERVABILITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.observability.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/09-OBSERVABILITY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.observability.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/09-OBSERVABILITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/09-OBSERVABILITY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/09-OBSERVABILITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus-theory.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-distributed-systems-consensus-theory.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-distributed-systems-consensus-theory.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus-theory.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-distributed-systems-consensus-theory.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus-theory.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.distributed-systems.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-distributed-systems-consensus-theory.json",
+            "module": "distributed-systems",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-distributed-systems-consensus-theory.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus-theory.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/10-CONSENSUS-THEORY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus-theory.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/10-CONSENSUS-THEORY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus-theory.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/10-CONSENSUS-THEORY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/10-CONSENSUS-THEORY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.distributed-systems.consensus-theory.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/distributed-systems/proof-source/10-CONSENSUS-THEORY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.distributed-systems.consensus-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "distributed-systems",
+            "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/distributed-systems/proof-source/10-CONSENSUS-THEORY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "distributed-systems",
+        "guide": "distributed-systems/10-CONSENSUS-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

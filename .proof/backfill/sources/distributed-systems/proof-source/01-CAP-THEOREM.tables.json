@@ -1,0 +1,197 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\01-CAP-THEOREM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 178,
+      "heading_context": "## PACELC: The Extension That Adds Latency",
+      "headers": [
+        "System",
+        "Partition Behavior",
+        "Else Behavior",
+        "PACELC"
+      ],
+      "rows": [
+        [
+          "DynamoDB (default)",
+          "AP",
+          "EL (low latency)",
+          "PA/EL"
+        ],
+        [
+          "Cassandra",
+          "AP",
+          "EL (tunable)",
+          "PA/EL"
+        ],
+        [
+          "CosmosDB Strong",
+          "CP",
+          "EC",
+          "PC/EC"
+        ],
+        [
+          "CosmosDB Eventual",
+          "AP",
+          "EL",
+          "PA/EL"
+        ],
+        [
+          "Spanner",
+          "CP",
+          "EC (commit-wait latency)",
+          "PC/EC"
+        ],
+        [
+          "ZooKeeper",
+          "CP",
+          "EC",
+          "PC/EC"
+        ],
+        [
+          "MySQL async replication",
+          "AP",
+          "EL",
+          "PA/EL"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 192,
+      "heading_context": "## CAP Examples Table",
+      "headers": [
+        "System",
+        "CAP",
+        "During Partition",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "HBase",
+          "CP",
+          "Returns error or times out",
+          "Relies on ZooKeeper for coordination"
+        ],
+        [
+          "Cassandra",
+          "AP",
+          "Returns potentially stale data",
+          "Tunable: QUORUM pushes toward CP"
+        ],
+        [
+          "ZooKeeper",
+          "CP",
+          "Refuses service without quorum",
+          "Coordination service for Kafka, Hadoop"
+        ],
+        [
+          "etcd",
+          "CP",
+          "Refuses service without quorum",
+          "Kubernetes control plane"
+        ],
+        [
+          "DynamoDB",
+          "AP (default)",
+          "Returns stale data",
+          "Strong consistency option available"
+        ],
+        [
+          "MongoDB",
+          "CP (since v3)",
+          "Returns error if no primary",
+          "Previously was AP by default"
+        ],
+        [
+          "Redis (standalone)",
+          "CP",
+          "Single node, no partition",
+          "Sentinel is CP; cluster is AP"
+        ],
+        [
+          "CosmosDB Strong",
+          "CP",
+          "Returns errors",
+          "Cross-region strong consistency"
+        ],
+        [
+          "CosmosDB Eventual",
+          "AP",
+          "Returns stale data",
+          "Highest availability tier"
+        ],
+        [
+          "Azure SQL",
+          "CP",
+          "Failover (seconds/minutes)",
+          "Primary only handles writes"
+        ],
+        [
+          "Kafka (replication)",
+          "CP",
+          "Unclean leader election trades A",
+          "unclean.leader.election.enable=false"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 278,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Domain",
+        "Choice",
+        "Rationale"
+      ],
+      "rows": [
+        [
+          "Bank ledger",
+          "CP",
+          "Lost writes = wrong money"
+        ],
+        [
+          "Inventory management",
+          "AP",
+          "Oversell handled with refund"
+        ],
+        [
+          "Configuration service",
+          "CP",
+          "Wrong config causes outage"
+        ],
+        [
+          "Social media feed",
+          "AP",
+          "Stale feed is acceptable"
+        ],
+        [
+          "Shopping cart",
+          "AP",
+          "Dynamo's original use case"
+        ],
+        [
+          "Distributed lock",
+          "CP",
+          "Correctness requires it"
+        ],
+        [
+          "DNS (cache)",
+          "AP",
+          "TTL-bounded staleness OK"
+        ],
+        [
+          "Kubernetes control plane",
+          "CP",
+          "Wrong state causes cascading failures"
+        ],
+        [
+          "Metrics counters",
+          "AP",
+          "Approximate counts acceptable"
+        ]
+      ]
+    }
+  ]
+}

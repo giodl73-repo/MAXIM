@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\02-SECURE-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SECURE DESIGN PRINCIPLES OVERVIEW\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  SALTZER & SCHROEDER (1975)          MODERN ADDITIONS                 |\n|  +---------------------------------+ +-----------------------------+  |\n|  | Economy of Mechanism           | | Zero Trust Architecture     |  |\n|  | Fail-Safe Defaults             | | Supply Chain Security (SLSA)|  |\n|  | Complete Mediation             | | Privacy by Design           |  |\n|  | Open Design                    | | Shift Left                  |  |\n|  | Separation of Privilege        | | Immutable Infrastructure    |  |\n|  | Least Privilege                | |                             |  |\n|  | Least Common Mechanism         | |                             |  |\n|  | Psychological Acceptability    | |                             |  |\n|  | Work Factor                    | |                             |  |\n|  | Compromise Recording           | |                             |  |\n|  +---------------------------------+ +-----------------------------+  |\n|                                                                       |\n|  ARCHITECTURAL PATTERNS                                               |\n|  +----------------------------------------------------------------+   |\n|  | Defense in Depth                                               |  |\n|  | Zero Trust Network Access                                      |  |\n|  | Attack Surface Reduction                                       |  |\n|  | Secure Defaults                                                |  |\n|  +----------------------------------------------------------------+  |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 60,
+      "heading_context": "## Saltzer and Schroeder's 8 Design Principles (1975)",
+      "confidence": "candidate",
+      "text": "### 1. Economy of Mechanism (Keep It Simple)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 68,
+      "heading_context": "### 1. Economy of Mechanism (Keep It Simple)",
+      "confidence": "candidate",
+      "text": "### 2. Fail-Safe Defaults",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "### 2. Fail-Safe Defaults",
+      "confidence": "candidate",
+      "text": "WRONG:\n  if (isAdmin) { allow }\n  else if (isOwner) { allow }\n  // else: falls through, allows by default ← vulnerability\n\nCORRECT:\n  if (isAdmin || isOwner) { allow }\n  else { deny }  ← explicit default deny",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 87,
+      "heading_context": "### 2. Fail-Safe Defaults",
+      "confidence": "candidate",
+      "text": "### 3. Complete Mediation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 97,
+      "heading_context": "### 3. Complete Mediation",
+      "confidence": "candidate",
+      "text": "### 4. Open Design",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 107,
+      "heading_context": "### 4. Open Design",
+      "confidence": "candidate",
+      "text": "### 5. Separation of Privilege",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 118,
+      "heading_context": "### 5. Separation of Privilege",
+      "confidence": "candidate",
+      "text": "### 6. Least Privilege",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 144,
+      "heading_context": "### 6. Least Privilege",
+      "confidence": "candidate",
+      "text": "### 7. Least Common Mechanism",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 152,
+      "heading_context": "### 7. Least Common Mechanism",
+      "confidence": "candidate",
+      "text": "### 8. Psychological Acceptability",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 165,
+      "heading_context": "### 8. Psychological Acceptability",
+      "confidence": "candidate",
+      "text": "### 9. Work Factor (Saltzer extended)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 171,
+      "heading_context": "### 9. Work Factor (Saltzer extended)",
+      "confidence": "candidate",
+      "text": "### 10. Compromise Recording (Saltzer extended)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### The Old Model vs. Zero Trust",
+      "confidence": "candidate",
+      "text": "OLD \"CASTLE AND MOAT\" MODEL:\n  Internet  ─── Firewall ─── Internal Network\n  (untrusted)               (trusted)\n  \"If you're inside the network, you're trusted\"\n\n  FAILURE MODE: Once attacker gets inside (VPN compromise, phishing,\n  lateral movement), they have access to everything on the internal network\n\nZERO TRUST MODEL:\n  Every request authenticated (user, device, service)\n  Every request authorized (least privilege, every time)\n  Every request inspected (data exfiltration prevention)\n  No implicit trust based on network location\n  \"Assume breach\" posture\n\nZERO TRUST TENETS (NIST SP 800-207):\n  1. All data sources and services are resources\n  2. All communication is secured regardless of network location\n  3. Access is granted on a per-session basis\n  4. Access policy determined by dynamic analysis of client,\n     user identity, behavioral attributes\n  5. No enterprise-owned infrastructure is inherently trusted\n  6. Authentication and authorization are dynamic, strictly enforced",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "### Microsegmentation",
+      "confidence": "candidate",
+      "text": "OLD APPROACH (flat VNet):\n  VNet 10.0.0.0/16: all services can talk to all services\n  Compromised payment service → can reach all other services\n\nMICROSEGMENTATION:\n  Payment service subnet: 10.0.1.0/24\n  Order service subnet:   10.0.2.0/24\n  User service subnet:    10.0.3.0/24\n\n  NSG rule: Payment ← Order (explicit allow, specific port)\n  NSG rule: Payment → DB (explicit allow)\n  All other: DENY by default\n\n  Compromised payment service → cannot reach user service,\n  cannot reach order DB, cannot reach admin subnet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 269,
+      "heading_context": "## SLSA: Supply Chain Security",
+      "confidence": "candidate",
+      "text": "SLSA LEVELS\n\nLEVEL 0: No guarantees\n  Build process not documented, no audit trail\n\nLEVEL 1: Documentation of build process\n  Build scripts in version control\n  Provenance (metadata about how artifact was built) generated\n\nLEVEL 2: Tamper resistance of build service\n  Hosted build service (e.g., GitHub Actions)\n  Signed provenance from the build service\n  → Attacker would need to compromise build service to tamper\n\nLEVEL 3: Extra resistance to specific threats\n  Hardened build platform\n  Non-falsifiable provenance (build platform attests artifact)\n  Two-party review for source changes\n\nLEVEL 4: Two-person review + hermetic reproducible builds\n  Hermetic: build is fully isolated, same inputs always same outputs\n  Reproducible: anyone can verify the binary matches the source\n  → Even if build service is compromised, tampered artifact detected\n\nSUPPLY CHAIN ATTACKS IN THE WILD:\n  SolarWinds (2020): attacker injected backdoor into build pipeline\n  event-stream (npm, 2018): maintainer added malicious code to popular package\n  3CX (2023): supply chain attack via infected upstream dependency\n  → SLSA Level 3+ would have detected these via provenance verification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "## Secure Defaults vs. Opt-In Security",
+      "confidence": "candidate",
+      "text": "OPT-IN SECURITY (wrong approach):\n  API is public by default, auth is optional\n  Data is unencrypted by default, encryption is a configuration option\n  All ports open by default, security rules are added on request\n\nSECURE DEFAULTS (correct):\n  API requires auth by default; anonymous access requires explicit allowlist\n  Data is encrypted at rest by default; disabling requires override + justification\n  All ports closed by default; access rules are additive\n  Logging is on by default; disabling requires explicit opt-out\n\nAZURE DEFAULTS (improving over time):\n  Storage accounts: HTTPS-only and TLS 1.2 minimum enforced by default\n  Azure SQL: TDE (Transparent Data Encryption) on by default\n  Azure VMs: disk encryption on by default (managed disks)\n  App Service: HTTPS redirect by default\n  BUT: Many older services still default to less-secure settings for\n       backward compatibility → always check Defender for Cloud score",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

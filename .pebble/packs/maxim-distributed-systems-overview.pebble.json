@@ -1,0 +1,881 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-overview",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "# Distributed Systems — Landscape"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## Sentinel Context"
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "This directory is one of three in the Sentinel triad (K-Spade C-IV). The thesis: *no single point of truth, no single point of trust, no single point of failure.*"
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "```\nTHE SENTINEL TRIAD — Distributed Systems View\n═══════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "00-OVERVIEW.md#004",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "FLP Impossibility (1985)\n              \"No deterministic async consensus with 1 crash.\"\n                         │\n             branches to the three Sentinel modules\n        │                │                │\n        ▼                ▼                ▼\n  ╔════════════╗   ┌───────────┐   ┌──────────────┐\n  ║ DISTRIBUTED║   │ SECURITY  │   │ CLOUD        │\n  ║ SYSTEMS    ║   │ ENG.      │   │ ARCHITECTURE │\n  ║            ║   │           │   │              │\n  ║ \"Who has   ║   │ \"Who do   │   │ \"Where do    │\n  ║  the       ║   │  you      │   │  you put     │\n  ║  truth?\"   ║   │  trust?\"  │   │  the truth?\" │\n  ╚════════════╝   └───────────┘   └──────────────┘\n        │                │                │\n             consensus connects all three modules\n                         │\n              Consensus as unifying abstraction\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#005",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "Distributed systems provides the **theoretical floor** for the entire volume. FLP impossibility, CAP, and Byzantine fault tolerance are the constraints that security engineering and cloud architecture must work within. Every consistency model, every quorum, every replication strategy covered here sets the bounds on what can be achieved in the other two domains. When security engineering asks \"how do we verify trust across nodes?\" and cloud architecture asks \"how do we survive AZ failure?\", the answers begin with the consensus protocols and consistency guarantees defined here."
+    },
+    {
+      "id": "00-OVERVIEW.md#006",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "**See also:**\n- `../computing/00-SENTINEL-THESIS.md` — Volume thesis: the Sentinel principle and constraint stack\n- `../security-engineering/00-OVERVIEW.md` — Trust: the adversary model that consensus must survive\n- `../cloud-architecture/00-OVERVIEW.md` — Infrastructure: where consensus protocols run at scale"
+    },
+    {
+      "id": "00-OVERVIEW.md#007",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#008",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "00-OVERVIEW.md#009",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "A distributed system is a collection of independent computers that appears to its users as a single coherent system. The appearance of coherence is hard. The following diagram shows the fundamental landscape of problems."
+    },
+    {
+      "id": "00-OVERVIEW.md#010",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "```\n+---------------------------------------------------------------------+\n|                   DISTRIBUTED SYSTEMS PROBLEM SPACE                 |\n+---------------------------------------------------------------------+\n|                                                                      |\n|   FUNDAMENTAL IMPOSSIBILITIES        FUNDAMENTAL PROBLEMS           |\n|   +---------------------------+       +---------------------------+  |\n|   | FLP (1985): No async      |       | Consensus                 |  |\n|   | system can guarantee      |       | How do N nodes agree?     |  |\n|   | consensus with 1 failure  |       +---------------------------+  |\n|   +---------------------------+       | Consistency               |  |\n|   | CAP Theorem: You cannot   |       | What does \"read\" return?  |  |\n|   | have C + A + P together   |       +---------------------------+  |\n|   +---------------------------+       | Availability              |  |\n|   | Einstein/SR: Speed of     |       | Does every request get    |  |\n|   | light bounds coordination |       | a response?               |  |\n|   +---------------------------+       +---------------------------+  |\n|                                       Partition Tolerance            |\n|                                       Works when network splits      |\n|                                                                      |\n|                                                                      |\n+---------------------------------------------------------------------+"
+    },
+    {
+      "id": "00-OVERVIEW.md#011",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "THEORY LAYER                    ALGORITHM LAYER\n+------------------+            +------------------+\n| CAP Theorem      |            | Paxos            |\n| PACELC           |            | Raft             |\n| FLP Result       |            | Viewstamped Rep  |\n| Consistency      |            | 2PC / 3PC        |\n| Model Spectrum   |            | Sagas / CRDTs    |\n+------------------+            +------------------+\n         |                               |\n         v                               v\nSYSTEMS LAYER\n+-------------------------------------------------------------+\n| Spanner (Google)   | External consistency via TrueTime      |\n| DynamoDB (Amazon)  | Eventual consistency, tunable quorums  |\n| Kafka              | Ordered log, partition-level ordering  |\n| ZooKeeper / etcd   | CP coordination services               |\n| CosmosDB (Azure)   | 5 consistency levels, tunable          |\n| CockroachDB        | Serializable SQL, Paxos per range      |\n| Cassandra          | AP, tunable quorums, ring topology     |\n+-------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#012",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#013",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## The 8 Fallacies of Distributed Computing (Peter Deutsch, 1994)"
+    },
+    {
+      "id": "00-OVERVIEW.md#014",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "Every engineer who has built a distributed system has re-learned these. You built VSTS at scale — you've lived each one."
+    },
+    {
+      "id": "00-OVERVIEW.md#015",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "| # | Fallacy | Reality | VSTS Analogue |\n|---|---------|---------|----------------|\n| 1 | The network is reliable | Networks drop packets, TCP connections reset, VMs disappear | TFS agent drops mid-build; work item API times out |\n| 2 | Latency is zero | Even in one datacenter: ~0.1–1ms. Cross-region: ~100ms | P2 build queries from West US to East US |\n| 3 | Bandwidth is infinite | You cannot stream unlimited data; TCP backpressure kicks in | Git clone of a large mono-repo saturates bandwidth |\n| 4 | The network is secure | Man-in-the-middle, TLS downgrade, DNS hijack | VSTS service-to-service calls inside Azure still need mTLS |\n| 5 | Topology doesn't change | IPs change, VMs migrate, AZs fail, DNS propagates slowly | Azure maintenance events move VMs; your IP changes |\n| 6 | There is one administrator | Multiple teams own different segments; no single change window | DB team, network team, app team all operate independently |\n| 7 | Transport cost is zero | Serialization, deserialization, header parsing all cost CPU | ADO protobuf vs. REST JSON performance difference |\n| 8 | The network is homogeneous | Your clients run on wildly different OS/runtime versions | VSTS web, VS IDE client, REST API, and CLI all talk to same svc |"
+    },
+    {
+      "id": "00-OVERVIEW.md#016",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#017",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## The Taxonomy of Distributed System Challenges"
+    },
+    {
+      "id": "00-OVERVIEW.md#018",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "```\nDISTRIBUTED SYSTEM CHALLENGES\n│\n├── SAFETY (what must never happen)\n│   ├── Consistency violations (stale reads, lost writes)\n│   ├── Ordering violations (causality broken)\n│   └── Security violations (unauthorized access, MITM)\n│\n├── LIVENESS (what must eventually happen)\n│   ├── Availability (every request gets a response)\n│   ├── Progress (operations complete — no deadlock)\n│   └── Termination (algorithms finish — no livelock)\n│\n├── FAULT TOLERANCE\n│   ├── Crash failures (node stops, silent)\n│   ├── Omission failures (messages lost)\n│   ├── Timing failures (too slow, not crash)\n│   ├── Byzantine failures (arbitrary / malicious)\n│   └── Network partitions (split brain)\n│\n├── COORDINATION\n│   ├── Leader election\n│   ├── Distributed locking (lease-based)\n│   ├── Barrier synchronization\n│   └── Atomic broadcast\n│\n└── DATA MANAGEMENT\n    ├── Replication (durability, read scaling)\n    ├── Sharding / partitioning (write scaling)\n    ├── Distributed transactions (atomicity across nodes)\n    └── Schema evolution (rolling deploys)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#019",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#020",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## Theory Meets Practice: Key Papers → Production Systems"
+    },
+    {
+      "id": "00-OVERVIEW.md#021",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "| Paper | Year | Key Idea | Production Use |\n|-------|------|----------|----------------|\n| Lamport Clocks | 1978 | Happens-before ordering without synchronized clocks | Causally ordered logs everywhere |\n| Vector Clocks | 1988 | Per-process logical clocks, detect causality violations | DynamoDB, Riak conflict detection |\n| Paxos | 1989/1998 | Consensus in asynchronous system with crash failures | Chubby (Google), CosmosDB internally |\n| FLP Impossibility | 1985 | Consensus impossible with 1 crash in fully async system | Motivation for Raft's design choices |\n| CAP Theorem | 2000/2002 | C + A + P not simultaneously achievable | Every distributed DB design trade-off |\n| Dynamo | 2007 | Eventual consistency, vector clocks, sloppy quorum | DynamoDB, Cassandra, Riak |\n| Bigtable | 2006 | Sorted string tables, LSM-tree, column families | HBase, Cassandra, RocksDB, LevelDB |\n| Spanner | 2012 | External consistency via TrueTime (atomic clocks) | Cloud Spanner, CockroachDB |\n| Raft | 2014 | Understandable consensus (vs. Paxos complexity) | etcd (Kubernetes), CockroachDB, TiKV |\n| Kafka | 2011 | Distributed commit log, consumer group model | Kafka everywhere; Event Hubs compatible |"
+    },
+    {
+      "id": "00-OVERVIEW.md#022",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#023",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## The Fundamental Triangle: Consistency vs. Availability vs. Partition Tolerance"
+    },
+    {
+      "id": "00-OVERVIEW.md#024",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "```\n            Consistency\n               /\\\n              /  \\\n             /    \\\n            /  ?   \\\n           /        \\\n          +----------+\n   Availability    Partition\n                   Tolerance"
+    },
+    {
+      "id": "00-OVERVIEW.md#025",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "CAP says: pick 2. But partitions WILL happen.\nSo the real choice is: CP or AP during a partition.\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#026",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "Full CAP analysis in `01-CAP-THEOREM.md`. Consistency model spectrum in `02-CONSISTENCY-MODELS.md`."
+    },
+    {
+      "id": "00-OVERVIEW.md#027",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#028",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "## Where VSTS/Azure DevOps Sits in This Landscape"
+    },
+    {
+      "id": "00-OVERVIEW.md#029",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "VSTS (now Azure DevOps) is a large-scale distributed system. The problems you solved daily map directly to distributed systems theory:"
+    },
+    {
+      "id": "00-OVERVIEW.md#030",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]",
+        "canonical_path": "distributed-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "distributed-systems/00-OVERVIEW.md",
+        "id": "maxim:distributed-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Systems - Landscape",
+        "updated": "null"
+      },
+      "text": "```\nAZURE DEVOPS / VSTS                    DISTRIBUTED SYSTEMS CONCEPT\n+----------------------------------+   +----------------------------------+\n| Work item IDs are globally       |   | Sequence numbers require         |\n| unique and monotonically         | → | consensus or coordination        |\n| increasing                       |   | (Snowflake IDs, or a sequencer)  |\n+----------------------------------+   +----------------------------------+\n| Git repositories replicated     |   | Replication with strong          |\n| across datacenters for reads     | → | consistency for writes (leader), |\n| with geo-failover                |   | eventual for reads (followers)   |\n+----------------------------------+   +----------------------------------+\n| Build queue: multiple agents,   |   | Distributed job scheduling,       |\n| at-least-once delivery,         | → | idempotent execution, poison      |\n| retry with backoff               |   | message handling                 |\n+----------------------------------+   +----------------------------------+\n| Service Bus for inter-service   |   | Reliable messaging, at-least-    |\n| communication between ADO       | → | once delivery, consumer groups,  |\n| microservices                    |   | offset tracking                  |\n+----------------------------------+   +----------------------------------+\n| SQL Azure with retry logic for  |   | Network transience, partial       |\n| transient failures               | → | failure handling, idempotent     |\n|                                  |   | writes                           |\n+----------------------------------+   +----------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

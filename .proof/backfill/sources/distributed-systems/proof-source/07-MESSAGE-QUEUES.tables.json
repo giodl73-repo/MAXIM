@@ -1,0 +1,126 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\07-MESSAGE-QUEUES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 241,
+      "heading_context": "## Kafka vs. Azure Event Hubs, Service Bus, Event Grid",
+      "headers": [
+        "Dimension",
+        "Kafka",
+        "Azure Event Hubs",
+        "Azure Service Bus",
+        "Azure Event Grid"
+      ],
+      "rows": [
+        [
+          "Protocol",
+          "Kafka wire protocol",
+          "Kafka-compatible + AMQP/HTTPS",
+          "AMQP, HTTP",
+          "HTTP push"
+        ],
+        [
+          "Model",
+          "Streaming log (partitions)",
+          "Streaming log (partitions)",
+          "Message queue/topic",
+          "Reactive event routing"
+        ],
+        [
+          "Message retention",
+          "Hours to days to forever",
+          "1–7 days (std), 90 days (premium)",
+          "Until consumed + TTL",
+          "Not stored (push)"
+        ],
+        [
+          "Ordering",
+          "Per partition",
+          "Per partition",
+          "Per session (ordered sessions)",
+          "Not guaranteed"
+        ],
+        [
+          "Consumer groups",
+          "Yes (parallel reads)",
+          "Yes (consumer groups)",
+          "Competing consumers",
+          "Subscriptions"
+        ],
+        [
+          "Exactly-once",
+          "Yes (0.11+)",
+          "No",
+          "With deduplication",
+          "N/A"
+        ],
+        [
+          "Scale",
+          "Very high (millions/sec)",
+          "High (millions/sec)",
+          "Moderate",
+          "High"
+        ],
+        [
+          "Schema registry",
+          "Confluent Schema Registry",
+          "Azure Schema Registry",
+          "N/A",
+          "N/A"
+        ],
+        [
+          "Best for",
+          "Event sourcing, stream processing",
+          "Telemetry ingestion, IoT, Kafka migration",
+          "Task queues, workflows, reliable messaging",
+          "Reactive automation, Azure resource events"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 353,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use Case",
+        "Recommendation"
+      ],
+      "rows": [
+        [
+          "High-throughput event stream, replay needed",
+          "Kafka or Event Hubs"
+        ],
+        [
+          "Reliable task queue with DLQ and retry",
+          "Service Bus"
+        ],
+        [
+          "Reactive automation (Azure resource events)",
+          "Event Grid"
+        ],
+        [
+          "Event sourcing (store all events forever)",
+          "Kafka with compacted topics"
+        ],
+        [
+          "Real-time analytics ingestion",
+          "Event Hubs → Stream Analytics / Spark"
+        ],
+        [
+          "Cross-service async communication",
+          "Service Bus (queues) or Event Hubs (fan-out)"
+        ],
+        [
+          "Ordering across all events",
+          "Not possible; use partition key to order within partition"
+        ],
+        [
+          "Exactly-once across services",
+          "Saga pattern; use Kafka transactions within Kafka boundary"
+        ]
+      ]
+    }
+  ]
+}

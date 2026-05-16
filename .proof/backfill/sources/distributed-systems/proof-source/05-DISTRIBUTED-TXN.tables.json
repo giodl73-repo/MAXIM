@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\05-DISTRIBUTED-TXN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 267,
+      "heading_context": "## CRDTs: Conflict-Free Replicated Data Types",
+      "headers": [
+        "Dimension",
+        "2PC",
+        "CRDT"
+      ],
+      "rows": [
+        [
+          "Atomicity",
+          "Yes (all-or-nothing)",
+          "No (individual ops)"
+        ],
+        [
+          "Isolation",
+          "Yes (locks during txn)",
+          "No (concurrent merges)"
+        ],
+        [
+          "Coordination required",
+          "Yes (coordinator + participants)",
+          "No (commutative merge)"
+        ],
+        [
+          "Available during partition",
+          "No (blocked)",
+          "Yes (operate independently, merge later)"
+        ],
+        [
+          "Data model",
+          "Arbitrary SQL",
+          "CRDT-shaped (counters, sets, sequences)"
+        ],
+        [
+          "Use case",
+          "Financial transactions",
+          "Counters, carts, collaborative docs"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 320,
+      "heading_context": "## When to Use Which Approach",
+      "headers": [
+        "Scenario",
+        "Approach",
+        "Rationale"
+      ],
+      "rows": [
+        [
+          "All resources in one SQL DB",
+          "Local ACID transaction",
+          "No distribution needed"
+        ],
+        [
+          "Resources in one DB, multiple tables",
+          "Local ACID transaction",
+          "SQL handles this"
+        ],
+        [
+          "Resources in two different DBs or services",
+          "Saga",
+          "2PC is fragile across service boundaries"
+        ],
+        [
+          "Counters that must not block",
+          "G-Counter CRDT",
+          "Coordination-free, AP"
+        ],
+        [
+          "Shopping carts",
+          "OR-Set CRDT or Saga",
+          "Both work; CRDT is simpler"
+        ],
+        [
+          "Financial ledger (debit/credit atomicity)",
+          "Saga with careful compensation",
+          "or: co-locate in one DB"
+        ],
+        [
+          "Global SQL with external consistency",
+          "Spanner / CockroachDB",
+          "Hardware cost justified"
+        ],
+        [
+          "Cross-microservice ordering workflow",
+          "Saga (orchestration)",
+          "Durable Functions, etc."
+        ],
+        [
+          "In-process coordination",
+          "2PC (MSDTC) if you must",
+          "Avoid — migrate to Saga"
+        ]
+      ]
+    }
+  ]
+}

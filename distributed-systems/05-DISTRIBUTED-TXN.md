@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:distributed-txn
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/05-DISTRIBUTED-TXN.md
+canonical_path: distributed-systems/05-DISTRIBUTED-TXN.md
+backsource_ids: [proof-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]
+concepts: [distributed, txn]
+root_concepts: [distributed, txn]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution
 
 ## The Big Picture
@@ -18,7 +37,7 @@ DISTRIBUTED TRANSACTION PROBLEM SPACE
 |  | (coordinator) | | coordinator     | | coordinator       |  |
 |  |               | | failure blocks  | | failure           |  |
 |  +---------------+ +-----------------+ +-------------------+  |
-|  | 3PC           | | Reduces          | | Still not         | |
+|  | 3PC           | | Reduces          | | Still not        |  |
 |  | (pre-commit)  | | blocking, not   | | partition-tolerant|  |
 |  |               | | partition-safe  | |                   |  |
 |  +---------------+ +-----------------+ +-------------------+  |
@@ -26,7 +45,7 @@ DISTRIBUTED TRANSACTION PROBLEM SPACE
 |  | (compensating | | consistent,     | | compensating       |  |
 |  | transactions) | | not isolated    | | transaction design |  |
 |  +---------------+ +-----------------+ +-------------------+  |
-|  | CRDTs         | | Always mergeable | | Limited to        | |
+|  | CRDTs         | | Always mergeable | | Limited to       |  |
 |  | (conflict-free| | no coordination | | CRDT-shaped       |  |
 |  | data types)   | | needed          | | data models       |  |
 |  +---------------+ +-----------------+ +-------------------+  |

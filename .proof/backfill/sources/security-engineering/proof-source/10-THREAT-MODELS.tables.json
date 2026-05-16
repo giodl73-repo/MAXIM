@@ -1,0 +1,152 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\10-THREAT-MODELS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 1049,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Old Security Posture",
+        "New Security Posture",
+        "Key Shift"
+      ],
+      "rows": [
+        [
+          "Perimeter defense (firewall + VPN)",
+          "Zero-trust (identity + device + context)",
+          "Location no longer implies trust. Every request is verified."
+        ],
+        [
+          "Passwords + complexity rules",
+          "Passkeys / FIDO2",
+          "Shared secrets replaced by public-key crypto. Phishing becomes structurally impossible."
+        ],
+        [
+          "ACLs on individual resources",
+          "Policy engines (OPA, Cedar)",
+          "Authorization logic externalized from application code. Policies are auditable, testable, deployable artifacts."
+        ],
+        [
+          "\"We trust our build system\"",
+          "SLSA + Sigstore + SBOM",
+          "Build provenance is cryptographically attested. SolarWinds-class attacks become detectable."
+        ],
+        [
+          "Role-based access (RBAC)",
+          "Relationship-based access (ReBAC)",
+          "Scales from \"admin/editor/viewer\" to Google-Docs-style sharing with millions of resources."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 1059,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "VSTS / Azure Era",
+        "Modern Equivalent",
+        "What Changed"
+      ],
+      "rows": [
+        [
+          "VPN + Network Security Groups",
+          "Azure AD Conditional Access + Zero Trust",
+          "Network location is no longer a trust signal. Identity + device health + risk score is the decision input."
+        ],
+        [
+          "Active Directory on-prem (Kerberos + NTLM)",
+          "Azure AD / Entra ID (OAuth 2.0 + OIDC)",
+          "Protocol shift from Kerberos tickets to JWT tokens. Same concepts (authentication, authorization, token lifetime) but cloud-native."
+        ],
+        [
+          "VSTS service account with static password",
+          "Managed Identity (no credential)",
+          "Eliminated the \"service account password in config\" antipattern entirely. Token obtained from metadata service, auto-rotated."
+        ],
+        [
+          "VSTS build agent pulls from NuGet",
+          "GitHub Actions with SLSA provenance + Sigstore",
+          "Build artifacts now carry cryptographic attestation of how they were built."
+        ],
+        [
+          "SDL threat model (Microsoft TM Tool)",
+          "STRIDE + attack trees + automated SAST/DAST",
+          "Same STRIDE categories; now integrated into CI/CD pipeline rather than standalone SDL deliverable."
+        ],
+        [
+          "System Center Operations Manager (SCOM) alerts",
+          "Azure AD Identity Protection + SIEM",
+          "Risk-based authentication replaces static alerting. ML models detect impossible travel, credential spray, anomalous behavior."
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1094,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Recommended Approach",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Greenfield enterprise architecture",
+          "Zero-trust from day 1 (NIST 800-207)",
+          "Retrofitting ZTA is 10x harder than building it in"
+        ],
+        [
+          "Employee authentication",
+          "Passkeys (AAL2) + hardware keys for admins (AAL3)",
+          "Phishing resistance is the only metric that matters"
+        ],
+        [
+          "Service-to-service authentication",
+          "Managed identity / workload identity federation",
+          "No static credentials to leak or rotate"
+        ],
+        [
+          "Kubernetes admission control",
+          "OPA/Gatekeeper",
+          "CNCF standard, Rego policies are version-controlled"
+        ],
+        [
+          "Application-level authorization (simple)",
+          "RBAC (Azure RBAC, K8s RBAC)",
+          "Sufficient for infra-level and small role sets"
+        ],
+        [
+          "Application-level authorization (complex)",
+          "Cedar (AWS) or OPA for ABAC; SpiceDB/OpenFGA for ReBAC",
+          "Choose based on whether your model is attribute-driven or relationship-driven"
+        ],
+        [
+          "Protecting the build pipeline",
+          "SLSA Level 2+ with Sigstore signing",
+          "Provenance + keyless signing = minimum viable supply chain security"
+        ],
+        [
+          "Vulnerability response readiness",
+          "Generate SBOM in CI, store queryable",
+          "\"Do we use log4j?\" must be answerable in minutes, not days"
+        ],
+        [
+          "Dependency management",
+          "Scoped packages, lockfile integrity, private registry isolation",
+          "Prevents dependency confusion and typosquatting"
+        ],
+        [
+          "Conditional access policies",
+          "Start with \"require MFA everywhere\" then layer device compliance, risk-based, session limits",
+          "Progressive deployment: baseline MFA first, then sophistication"
+        ],
+        [
+          "Legacy on-prem Active Directory",
+          "Hybrid with Azure AD Connect → migrate to cloud-native Entra ID",
+          "Kerberos/NTLM → OAuth/OIDC transition is the decade-long migration"
+        ]
+      ]
+    }
+  ]
+}

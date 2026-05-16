@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\04-SECURE-SDLC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SECURE SDLC LIFECYCLE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  REQUIREMENTS   DESIGN   IMPLEMENT   VERIFY   RELEASE   RESPOND       |\n|  +-----------+ +------+ +--------+ +------+ +-------+ +--------+      |\n|  | Security  | |Threat| |Banned  | |SAST  | |FSR    | |MSRC    |   |\n|  | & privacy | |model | |API list| |DAST  | |sign-  | |process |   |\n|  | require-  | |Attack| |Crypto  | |Fuzz  | |off    | |patch   |   |\n|  | ments     | |surface|approved | |review| |       | |deploy  |   |\n|  |           | |review| |only    | |SCA   | |       | |        |   |\n|  +-----------+ +------+ +--------+ +------+ +-------+ +--------+   |\n|                                                                    |\n|  SHIFT LEFT: Problems found in requirements cost 1x                |\n|              Problems found in production cost 30-100x             |\n|                                                                    |\n|  DEVOPS INTEGRATION (DevSecOps):                                   |\n|  Every commit: SAST scan, secret scan, SCA                         |\n|  Every PR: security gate (no new high/critical issues)             |\n|  Every merge: container scan, IaC scan                             |\n|  Every release: FSR or automated equivalents                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 56,
+      "heading_context": "## Microsoft SDL: Phase by Phase",
+      "confidence": "candidate",
+      "text": "### Phase 1: Training",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 64,
+      "heading_context": "### Phase 1: Training",
+      "confidence": "candidate",
+      "text": "### Phase 2: Requirements",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 82,
+      "heading_context": "### Phase 2: Requirements",
+      "confidence": "candidate",
+      "text": "### Phase 3: Design",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 89,
+      "heading_context": "### Phase 3: Design",
+      "confidence": "candidate",
+      "text": "### Phase 4: Implementation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### Phase 4: Implementation",
+      "confidence": "candidate",
+      "text": "BANNED IN C/C++:\n  strcpy   → use strcpy_s (bounds-checking)\n  strcat   → use strcat_s\n  gets     → use gets_s\n  sprintf  → use sprintf_s\n  strlen on untrusted input → use strnlen\n  _alloca  → (stack allocation, stack overflow risk)\n  IsBadWritePtr, IsBadReadPtr → (unreliable, avoid)\n\nBANNED IN .NET (OACR / Roslyn analyzer):\n  MD5     → use SHA-256 or SHA-3\n  SHA1    → use SHA-256 or SHA-3\n  DES/3DES → use AES-256-GCM\n  RC4     → do not use\n  RNGCryptoServiceProvider (legacy) → use RandomNumberGenerator (static)\n  Marshal.Copy without bounds check → validate lengths",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "### Phase 4: Implementation",
+      "confidence": "candidate",
+      "text": "- Asymmetric: RSA-2048+ or ECC P-256+",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 119,
+      "heading_context": "### Phase 4: Implementation",
+      "confidence": "candidate",
+      "text": "### Phase 5: Verification",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### Phase 5: Verification",
+      "confidence": "candidate",
+      "text": "FUZZING APPROACHES:\n  Black-box fuzzing: generate random inputs, observe crashes\n  Grammar-based: fuzz within structure of protocol/format\n    (more efficient: knows valid envelope, mutates content)\n  Coverage-guided (libFuzzer, AFL, HonggFuzz):\n    instrument code, prefer inputs that reach new code paths\n    → most efficient: finds deep bugs, not just surface crashes\n\nFUZZING IN CI:\n  OSS-Fuzz: Google-managed continuous fuzzing for open source\n  Azure DevOps: custom fuzzing jobs in pipeline\n  LibFuzzer: runs as unit test, LLVM-based instrumentation\n  AFL (American Fuzzy Lop): popular, binary-mode capability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 143,
+      "heading_context": "### Phase 5: Verification",
+      "confidence": "candidate",
+      "text": "### Phase 6: Release — Final Security Review (FSR)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 155,
+      "heading_context": "### Phase 6: Release — Final Security Review (FSR)",
+      "confidence": "candidate",
+      "text": "### Phase 7: Response",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## DevSecOps: Integrating SDL into CI/CD",
+      "confidence": "candidate",
+      "text": "AZURE DEVOPS PIPELINE INTEGRATION\n\nPR TRIGGER (every pull request):\n  +-- SAST scan (CodeQL, Semgrep)\n  |    Block merge if new HIGH/CRITICAL findings\n  +-- Secret scanning (GitHub Advanced Security, truffleHog)\n  |    Block merge if secret detected in diff\n  +-- SCA / Dependabot\n  |    Notify on new CVEs in added dependencies\n  +-- IaC scanning (Checkov, TFSec)\n       Check Bicep/Terraform for misconfigurations\n\nBUILD TRIGGER (on merge to main):\n  +-- Container image build\n  +-- Container image scan (Trivy, Defender for Containers)\n  |    Block push to registry if CRITICAL CVEs in OS packages\n  +-- SBOM generation (attached to artifact)\n  +-- Artifact signing (sigstore/cosign or Microsoft notation)\n\nRELEASE TRIGGER (pre-deploy):\n  +-- DAST scan against staging environment\n  +-- Smoke test security controls (auth, encryption headers)\n  +-- Deploy to canary → promote on pass",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Secret Scanning",
+      "confidence": "candidate",
+      "text": "SECRET TYPES TO DETECT:\n  API keys (AWS access keys, GitHub tokens, Azure storage keys)\n  Connection strings (database passwords, Redis/service bus keys)\n  Private keys (RSA PEM blocks, SSH keys)\n  Certificate files (.pfx, .p12)\n  JWT signing secrets\n  OAuth client secrets\n  .env files with populated values\n\nSCANNING TOOLS:\n  GitHub Secret Scanning: built-in, covers 100+ providers\n    Push protection: blocks push if secret detected (configurable)\n  truffleHog: historical scan of git history, regex + entropy\n  GitGuardian: continuous monitoring with incident dashboard\n  gitleaks: fast, pattern-based, CI-friendly\n  detect-secrets (Yelp): pre-commit hook, baseline management\n\nRESPONSE WHEN SECRET FOUND IN HISTORY:\n  1. Assume compromised immediately — rotation first, history second\n  2. Rotate the credential (new API key, revoke old)\n  3. Audit access logs: was old credential used after intended scope?\n  4. Remove from git history (git filter-repo or BFG Repo Cleaner)\n     → This requires force-push, notifying all contributors\n     → NOT sufficient alone — rotation is the mandatory step\n  5. Post-mortem: how did it get committed? Add pre-commit hook to prevent recurrence\n\nPREVENTION:\n  Pre-commit hook (gitleaks, detect-secrets)\n  IDE plugins that warn before commit\n  .gitignore covering .env, *.key, *.pem, appsettings.Production.json\n  Use Azure Key Vault / AWS Secrets Manager — no secrets in config files\n  Managed identities — no secrets at all for Azure resource access",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

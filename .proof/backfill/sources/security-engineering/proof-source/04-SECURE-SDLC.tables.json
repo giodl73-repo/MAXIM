@@ -1,0 +1,79 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\04-SECURE-SDLC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 323,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Security Activity",
+        "Phase",
+        "Tool/Method",
+        "Gate"
+      ],
+      "rows": [
+        [
+          "Threat model",
+          "Design",
+          "Microsoft TM Tool",
+          "Required before design finalizes"
+        ],
+        [
+          "SAST",
+          "Implement",
+          "CodeQL, Semgrep, Roslyn",
+          "Block PR on new HIGH+"
+        ],
+        [
+          "Secret scanning",
+          "Implement",
+          "GitHub Secret Scanning",
+          "Block push on detection"
+        ],
+        [
+          "Dependency scanning",
+          "Implement",
+          "Dependabot, Snyk",
+          "Alert on new CVEs"
+        ],
+        [
+          "Fuzz testing",
+          "Verify",
+          "libFuzzer, AFL",
+          "Required for network components"
+        ],
+        [
+          "Container scanning",
+          "Build",
+          "Trivy, Defender",
+          "Block registry push on CRITICAL"
+        ],
+        [
+          "SBOM generation",
+          "Build",
+          "syft, cdxgen",
+          "Attach to every artifact"
+        ],
+        [
+          "IaC scanning",
+          "Implement",
+          "Checkov, TFSec",
+          "Block PR on misconfigurations"
+        ],
+        [
+          "DAST",
+          "Verify",
+          "OWASP ZAP, Burp",
+          "Run on staging before release"
+        ],
+        [
+          "FSR",
+          "Release",
+          "Manual review",
+          "Go/no-go gate"
+        ]
+      ]
+    }
+  ]
+}

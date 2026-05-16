@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Sentinel Context",
+      "confidence": "candidate",
+      "text": "THE SENTINEL TRIAD — Distributed Systems View\n═══════════════════════════════════════════════════════════════════\n\n              FLP Impossibility (1985)\n              \"No deterministic async consensus with 1 crash.\"\n                         │\n             branches to the three Sentinel modules\n        │                │                │\n        ▼                ▼                ▼\n  ╔════════════╗   ┌───────────┐   ┌──────────────┐\n  ║ DISTRIBUTED║   │ SECURITY  │   │ CLOUD        │\n  ║ SYSTEMS    ║   │ ENG.      │   │ ARCHITECTURE │\n  ║            ║   │           │   │              │\n  ║ \"Who has   ║   │ \"Who do   │   │ \"Where do    │\n  ║  the       ║   │  you      │   │  you put     │\n  ║  truth?\"   ║   │  trust?\"  │   │  the truth?\" │\n  ╚════════════╝   └───────────┘   └──────────────┘\n        │                │                │\n             consensus connects all three modules\n                         │\n              Consensus as unifying abstraction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|                   DISTRIBUTED SYSTEMS PROBLEM SPACE                 |\n+---------------------------------------------------------------------+\n|                                                                      |\n|   FUNDAMENTAL IMPOSSIBILITIES        FUNDAMENTAL PROBLEMS           |\n|   +---------------------------+       +---------------------------+  |\n|   | FLP (1985): No async      |       | Consensus                 |  |\n|   | system can guarantee      |       | How do N nodes agree?     |  |\n|   | consensus with 1 failure  |       +---------------------------+  |\n|   +---------------------------+       | Consistency               |  |\n|   | CAP Theorem: You cannot   |       | What does \"read\" return?  |  |\n|   | have C + A + P together   |       +---------------------------+  |\n|   +---------------------------+       | Availability              |  |\n|   | Einstein/SR: Speed of     |       | Does every request get    |  |\n|   | light bounds coordination |       | a response?               |  |\n|   +---------------------------+       +---------------------------+  |\n|                                       Partition Tolerance            |\n|                                       Works when network splits      |\n|                                                                      |\n|                                                                      |\n+---------------------------------------------------------------------+\n\nTHEORY LAYER                    ALGORITHM LAYER\n+------------------+            +------------------+\n| CAP Theorem      |            | Paxos            |\n| PACELC           |            | Raft             |\n| FLP Result       |            | Viewstamped Rep  |\n| Consistency      |            | 2PC / 3PC        |\n| Model Spectrum   |            | Sagas / CRDTs    |\n+------------------+            +------------------+\n         |                               |\n         v                               v\nSYSTEMS LAYER\n+-------------------------------------------------------------+\n| Spanner (Google)   | External consistency via TrueTime      |\n| DynamoDB (Amazon)  | Eventual consistency, tunable quorums  |\n| Kafka              | Ordered log, partition-level ordering  |\n| ZooKeeper / etcd   | CP coordination services               |\n| CosmosDB (Azure)   | 5 consistency levels, tunable          |\n| CockroachDB        | Serializable SQL, Paxos per range      |\n| Cassandra          | AP, tunable quorums, ring topology     |\n+-------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "## The Taxonomy of Distributed System Challenges",
+      "confidence": "candidate",
+      "text": "DISTRIBUTED SYSTEM CHALLENGES\n│\n├── SAFETY (what must never happen)\n│   ├── Consistency violations (stale reads, lost writes)\n│   ├── Ordering violations (causality broken)\n│   └── Security violations (unauthorized access, MITM)\n│\n├── LIVENESS (what must eventually happen)\n│   ├── Availability (every request gets a response)\n│   ├── Progress (operations complete — no deadlock)\n│   └── Termination (algorithms finish — no livelock)\n│\n├── FAULT TOLERANCE\n│   ├── Crash failures (node stops, silent)\n│   ├── Omission failures (messages lost)\n│   ├── Timing failures (too slow, not crash)\n│   ├── Byzantine failures (arbitrary / malicious)\n│   └── Network partitions (split brain)\n│\n├── COORDINATION\n│   ├── Leader election\n│   ├── Distributed locking (lease-based)\n│   ├── Barrier synchronization\n│   └── Atomic broadcast\n│\n└── DATA MANAGEMENT\n    ├── Replication (durability, read scaling)\n    ├── Sharding / partitioning (write scaling)\n    ├── Distributed transactions (atomicity across nodes)\n    └── Schema evolution (rolling deploys)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 183,
+      "heading_context": "## The Fundamental Triangle: Consistency vs. Availability vs. Partition Tolerance",
+      "confidence": "candidate",
+      "text": "            Consistency\n               /\\\n              /  \\\n             /    \\\n            /  ?   \\\n           /        \\\n          +----------+\n   Availability    Partition\n                   Tolerance\n\nCAP says: pick 2. But partitions WILL happen.\nSo the real choice is: CP or AP during a partition.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 206,
+      "heading_context": "## Where VSTS/Azure DevOps Sits in This Landscape",
+      "confidence": "candidate",
+      "text": "AZURE DEVOPS / VSTS                    DISTRIBUTED SYSTEMS CONCEPT\n+----------------------------------+   +----------------------------------+\n| Work item IDs are globally       |   | Sequence numbers require         |\n| unique and monotonically         | → | consensus or coordination        |\n| increasing                       |   | (Snowflake IDs, or a sequencer)  |\n+----------------------------------+   +----------------------------------+\n| Git repositories replicated     |   | Replication with strong          |\n| across datacenters for reads     | → | consistency for writes (leader), |\n| with geo-failover                |   | eventual for reads (followers)   |\n+----------------------------------+   +----------------------------------+\n| Build queue: multiple agents,   |   | Distributed job scheduling,       |\n| at-least-once delivery,         | → | idempotent execution, poison      |\n| retry with backoff               |   | message handling                 |\n+----------------------------------+   +----------------------------------+\n| Service Bus for inter-service   |   | Reliable messaging, at-least-    |\n| communication between ADO       | → | once delivery, consumer groups,  |\n| microservices                    |   | offset tracking                  |\n+----------------------------------+   +----------------------------------+\n| SQL Azure with retry logic for  |   | Network transience, partial       |\n| transient failures               | → | failure handling, idempotent     |\n|                                  |   | writes                           |\n+----------------------------------+   +----------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\06-NETWORK-SECURITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NETWORK SECURITY LAYERS\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  LAYER 7 (Application)                                                |\n|  WAF (Web Application Firewall): HTTP/HTTPS inspection                |\n|  API Gateway: auth, rate limiting, routing                            |\n|                                                                       |\n|  LAYER 4-7 (Transport + Application)                                  |\n|  NGFW (Next-Gen Firewall): stateful, TLS inspection, IDS/IPS          |\n|  Zero Trust Network Access (ZTNA): identity-aware access              |\n|                                                                       |\n|  LAYER 3-4 (Network + Transport)                                      |\n|  Classic Firewall: IP/port-based packet filter                        |\n|  Network Segmentation: VLANs, subnets, NSGs                           |\n|                                                                       |\n|  LAYER 2 (Data Link)                                                  |\n|  802.1X port authentication                                           |\n|  VLAN tagging                                                         |\n|                                                                       |\n|  TRANSPORT SECURITY (spans all layers)                                |\n|  TLS 1.3: encryption + authentication for all TCP                     |\n|  DNSSEC: authenticated DNS responses                                  |\n|  mTLS: mutual authentication for service-to-service                   |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "### Flat vs. Segmented vs. Microsegmented",
+      "confidence": "candidate",
+      "text": "FLAT NETWORK (avoid):\n  All hosts on 10.0.0.0/8\n  Any host can reach any other host\n  Compromised workstation → reach production DB directly\n  VSTS/TFS era internal networks often looked like this\n\nVLAN SEGMENTATION (basic):\n  10.0.1.0/24 - DMZ (public-facing)\n  10.0.2.0/24 - Application servers\n  10.0.3.0/24 - Database servers\n  10.0.4.0/24 - Management\n\n  Firewall rules at zone boundaries\n  Compromised web server → cannot directly reach DB (must go through FW)\n  But within a zone: still flat\n\nAZURE VNET SEGMENTATION:\n  VNet: 10.0.0.0/16\n  Subnet: payment-svc  10.0.1.0/24  NSG: allow inbound 443 from appsvc\n  Subnet: order-svc    10.0.2.0/24  NSG: allow inbound 443 from payment-svc\n  Subnet: db-tier      10.0.3.0/24  NSG: allow inbound 1433 from order-svc only\n  Subnet: bastion      10.0.4.0/24  NSG: allow RDP/SSH from Bastion only\n\n  Default deny: NSGs deny all unless explicitly permitted\n\nMICROSEGMENTATION (zero trust):\n  Policies at individual workload level (pod, VM, container)\n  East-west inspection: even same-subnet traffic is inspected\n  Service mesh mTLS: every service-to-service call authenticated\n  Azure Firewall Premium: FQDN-based rules, TLS inspection, IDPS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 128,
+      "heading_context": "## Next-Generation Firewall (NGFW)",
+      "confidence": "candidate",
+      "text": "NGFW CAPABILITIES VS. CLASSIC FIREWALL\n\nCLASSIC FIREWALL:\n  Rule: Allow TCP from 10.0.1.0/24 to 10.0.3.0/24 on port 443\n  ✓ IP-based\n  ✓ Port-based\n  ✗ Cannot inspect TLS payload\n  ✗ Cannot identify application (TLS on 443 could be web, gRPC, database)\n\nNGFW ADDITIONS:\n  Application identification: \"This is Zoom, not generic HTTPS\"\n  TLS inspection: decrypt, inspect, re-encrypt\n  IDS/IPS: signature-based + behavioral detection\n  URL filtering: block known-malicious domains\n  DNS sinkholing: redirect C2 domains to internal server\n  User identity: rule based on username, not just IP\n  File inspection: scan downloads for malware\n  Sandboxing: detonate suspicious files in isolated VM\n\nAZURE FIREWALL PREMIUM:\n  IDPS: intrusion detection and prevention\n  TLS inspection: certificate-based decrypt + inspect + re-encrypt\n  URL filtering + web categories\n  FQDN-based rules: allow by domain name, not just IP\n  Threat intelligence: Microsoft threat feed for known-bad IPs/domains",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### TLS Inspection Trade-offs",
+      "confidence": "candidate",
+      "text": "TLS INSPECTION:\n  Firewall terminates TLS from client\n  Firewall presents its own certificate (signed by internal CA)\n  Firewall sends traffic to server with new TLS session\n  Client must trust internal CA → install CA in trust store\n\nRISKS:\n  Breaks certificate pinning (client won't trust substituted cert)\n  Privacy: firewall sees decrypted traffic → must be handled carefully\n  Performance: TLS termination + re-encryption at scale is expensive\n  Regulatory: may violate data handling regulations for certain traffic\n\nUSE WHEN:\n  Inspecting outbound traffic from internal network to internet\n  Inspecting east-west traffic in high-security environments\n  NOT: for employee personal traffic (legal/privacy concerns)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## Zero Trust Network Access (ZTNA)",
+      "confidence": "candidate",
+      "text": "VPN MODEL:\n  Employee → VPN → Access to entire corporate network\n  Compromised VPN credential → lateral movement across all systems\n\nZTNA MODEL:\n  Employee → Identity verification + Device health check\n           → Per-application access (only app X, not the whole network)\n           → Session-limited access\n           → Continuous validation (device still compliant? anomalous behavior?)\n\nZTNA PRODUCTS:\n  Azure: Entra Private Access (Microsoft's ZTNA, replacing Azure AD App Proxy)\n  Zscaler Private Access (ZPA)\n  Cloudflare Access\n  Palo Alto Prisma Access\n  Cisco Duo / Cisco ZTNA\n\nHOW IT WORKS:\n  1. User authenticates to ZTNA control plane (identity + MFA + device check)\n  2. Control plane evaluates policy: user X on compliant device can access app Y\n  3. Access granted via encrypted tunnel directly to app, not the network\n  4. App never exposed to internet (no public IP)\n  5. Control plane logs all access, monitors for anomalies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## TLS Pinning",
+      "confidence": "candidate",
+      "text": "CERTIFICATE PINNING:\n  App hardcodes: \"Only trust this specific certificate (or its hash)\"\n  If MITM attacker presents a different valid cert: connection rejected\n\nPUBLIC KEY PINNING:\n  App hardcodes the public key hash (SPKI hash): \"Only trust this key\"\n  More flexible: key can be on different certificates (renewal OK)\n\nHTTP PUBLIC KEY PINNING (HPKP) — DEPRECATED:\n  Was a browser mechanism via response header\n  Deprecated in 2018: too many sites misconfigured and bricked their own HTTPS\n  \"HPKP pin was lost / wrong → site unreachable for all users for months\"\n  Firefox removed it; Chrome deprecated it\n\nCURRENT RECOMMENDATION:\n  Mobile apps: pin to a certificate pinset (e.g., 2 backup pins)\n    Handle rotation gracefully with app update\n    Use pin + backup pin: both certs kept in infra\n  Web browsers: do NOT use HPKP (deprecated)\n    Use CAA DNS records to restrict which CAs can issue for your domain\n    Use Certificate Transparency (CT) logs + monitoring instead\n\nCERTIFICATE TRANSPARENCY (CT):\n  All public certs must be logged in append-only CT logs\n  Any cert issued for your domain is publicly logged\n  Monitoring: alert when unexpected cert is issued for your domain\n  Tool: crt.sh (search CT logs), Google CT viewer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## DNSSEC",
+      "confidence": "candidate",
+      "text": "DNS WITHOUT DNSSEC:\n  Resolver asks: \"What is the IP of api.contoso.com?\"\n  Attacker intercepts and responds with malicious IP\n  Resolver has no way to verify the answer is authentic\n  Client connects to attacker's server (MITM)\n\nDNSSEC CHAIN OF TRUST:\n  Root zone (.) → is signed by IANA's KSK (Key Signing Key)\n  .com zone     → root zone signs .com zone's DNSKEY\n  contoso.com   → .com signs contoso.com's DNSKEY\n  api.contoso.com → contoso.com signs the A record\n\n  DS (Delegation Signer) record in parent zone proves child zone's key\n\nVALIDATION:\n  DNSSEC-validating resolver checks signatures at each step\n  Any forged or tampered response → validation fails → SERVFAIL\n  Client gets error (cannot connect) rather than connecting to attacker\n\nLIMITS OF DNSSEC:\n  Does NOT encrypt DNS traffic (responses are still in plaintext)\n  → Use DNS over HTTPS (DoH) or DNS over TLS (DoT) for privacy\n  Adoption is incomplete: not all zones are signed\n  Azure DNS supports DNSSEC for Azure DNS zones (GA 2024)\n\nRELATED:\n  DoH (DNS over HTTPS): DNS queries sent over HTTPS → encrypted + private\n    Browsers use directly (Firefox, Chrome configurable)\n  DoT (DNS over TLS): DNS over TLS port 853\n    Supported by Android, iOS, some resolvers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

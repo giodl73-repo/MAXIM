@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\09-OBSERVABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE THREE PILLARS OF OBSERVABILITY\n+-----------------------------------------------------------------------+\n|                                                                       |\n|   LOGS              METRICS              TRACES                       |\n|   Discrete events   Aggregated measures  Request journeys             |\n|   at a point in     over time: counters  across services              |\n|   time: ECS-style   gauges, histograms   with spans, timing,          |\n|   structured JSON   Prometheus model     and causality                |\n|                                        W3C TraceContext               |\n|                                        Jaeger, Zipkin                 |\n|                                        OpenTelemetry                  |\n|                                                                       |\n|                  all three feed shared correlation                    |\n|                                                                       |\n|                                                                       |\n|                                                                       |\n|                                                                       |\n|                  CORRELATION ID threads through all three             |\n|                  → single request traceable end-to-end                |\n|                                                                       |\n+-----------------------------------------------------------------------+\n\nTOOL LANDSCAPE\n+-----------------------------------------------------------------------+\n| LOGS:     ELK Stack, Splunk, Azure Monitor Logs, Loki                 |\n| METRICS:  Prometheus + Grafana, Azure Monitor Metrics, Datadog        |\n| TRACES:   Jaeger, Zipkin, Azure Monitor (App Insights), Tempo         |\n| STANDARD: OpenTelemetry (OTEL) — collector + SDKs, replacing all      |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Structured Logging",
+      "confidence": "candidate",
+      "text": "UNSTRUCTURED LOG (terrible for distributed systems):\n  2026-02-25 10:23:45 ERROR Payment failed for user 12345 amount 99.99\n\nSTRUCTURED LOG (ECS format — Elastic Common Schema):\n  {\n    \"@timestamp\": \"2026-02-25T10:23:45.123Z\",\n    \"log.level\": \"error\",\n    \"message\": \"Payment failed\",\n    \"event.category\": \"payment\",\n    \"user.id\": \"12345\",\n    \"transaction.amount\": 99.99,\n    \"trace.id\": \"abc123def456\",       ← correlation ID\n    \"span.id\": \"789xyz\",\n    \"service.name\": \"payment-service\",\n    \"service.version\": \"1.2.3\",\n    \"error.type\": \"InsufficientFunds\",\n    \"error.message\": \"Account balance below required amount\"\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Metric Types",
+      "confidence": "candidate",
+      "text": "COUNTER: Monotonically increasing value\n  http_requests_total{method=\"POST\", status=\"200\"} = 42389\n  Use: request count, error count, bytes sent\n  Query: rate(http_requests_total[5m]) → requests per second\n\nGAUGE: Current value (can go up or down)\n  active_connections = 142\n  memory_usage_bytes = 2147483648\n  Use: current state, pool sizes, queue depth\n  Query: just the current value, or min/max over time window\n\nHISTOGRAM: Distribution of values in configurable buckets\n  http_request_duration_seconds_bucket{le=\"0.1\"} = 8342   ← ≤100ms\n  http_request_duration_seconds_bucket{le=\"0.5\"} = 9981   ← ≤500ms\n  http_request_duration_seconds_bucket{le=\"1\"}   = 10000  ← ≤1s\n  http_request_duration_seconds_count = 10000\n  http_request_duration_seconds_sum = 1234.5\n  Use: latency percentiles (p50, p95, p99)\n  Query: histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))\n         → p99 latency over last 5 minutes\n\nSUMMARY: Pre-computed client-side quantiles\n  http_request_duration_seconds{quantile=\"0.99\"} = 0.943\n  Use: when you want quantiles without histogram overhead\n  Limitation: cannot aggregate across instances (already aggregated)\n  → Prefer HISTOGRAM for distributed systems (aggregate server-side)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 174,
+      "heading_context": "### Trace Anatomy",
+      "confidence": "candidate",
+      "text": "TRACE: Single request (trace-id: abc123)\n+---------------------------------------------------------------+\n| SPAN: api-gateway (duration: 250ms)                           |\n|   |                                                           |\n|   +-- SPAN: auth-service (duration: 15ms)                     |\n|   |      JWT validation                                       |\n|   |                                                           |\n|   +-- SPAN: product-service (duration: 200ms)                 |\n|          |                                                    |\n|          +-- SPAN: product-db (duration: 45ms)                |\n|          |      SELECT * FROM products WHERE id=123           |\n|          |                                                    |\n|          +-- SPAN: recommendation-service (duration: 120ms)   |\n|                 async call, parallel with db query            |\n+---------------------------------------------------------------+\n\nEach SPAN has:\n  trace-id:    same for all spans in this request (abc123)\n  span-id:     unique per span (xyz789)\n  parent-id:   id of parent span (enables tree reconstruction)\n  service:     which service emitted this span\n  operation:   what operation (HTTP GET /products/123)\n  start_time:  wall clock\n  duration:    milliseconds\n  status:      OK or ERROR\n  attributes:  key-value tags (http.method, db.statement, user.id)\n  events:      log-like annotations within the span",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 204,
+      "heading_context": "### Trace Anatomy",
+      "confidence": "candidate",
+      "text": "### W3C TraceContext Header",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 208,
+      "heading_context": "### W3C TraceContext Header",
+      "confidence": "candidate",
+      "text": "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\n             |  |                                |              |  |\n             |  trace-id (128-bit, 32 hex chars) |              |  |\n             version                          span-id           flags\n                                              (64-bit)         (sampled)\n\ntracestate: vendor-specific additional context\n  e.g., tracestate: ms=abc123 (Microsoft-specific extensions)\n\nHTTP HEADER PROPAGATION:\n  Service A calls Service B:\n    → include traceparent header with A's trace-id and A's span-id as parent\n  Service B receives:\n    → extracts trace-id (same throughout) and parent-id (A's span-id)\n    → creates new span with same trace-id, new span-id, parent=A's span-id\n    → propagates to any downstream calls",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## OpenTelemetry: The Emerging Standard",
+      "confidence": "candidate",
+      "text": "BEFORE OTEL (pre-2019):\n  Datadog agent + SDK\n  Jaeger client library\n  Zipkin client library\n  App Insights SDK\n  All vendor-specific → lock-in, multiple SDKs in same codebase\n\nAFTER OTEL:\n  One SDK (OpenTelemetry SDK) per language\n  Instruments: logs, metrics, traces\n  Exports to any backend:\n    → Azure Monitor\n    → Datadog\n    → Jaeger\n    → Prometheus\n    → Honeycomb\n    → Any OTLP-compatible backend\n\nOTEL ARCHITECTURE:\n  App (with OTEL SDK)\n       |\n       | OTLP protocol (over gRPC or HTTP/protobuf)\n       v\n  OTEL Collector (sidecar or standalone service)\n       |\n       | fan out to multiple backends\n       +── Azure Monitor\n       +── Prometheus (metrics)\n       +── Jaeger (traces)\n       +── Log sink\n\nSTATUS (2026): OTEL is the dominant standard for new instrumentation.\n  Vendor SDKs are now OTEL-compatible (App Insights uses OTEL internally).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Correlation IDs",
+      "confidence": "candidate",
+      "text": "REQUEST ENTERS SYSTEM:\n  If no correlation ID: generate UUID at gateway\n  If correlation ID exists: extract from header (X-Correlation-ID or W3C traceparent)\n\nPROPAGATE TO EVERY DOWNSTREAM CALL:\n  HTTP: add as header\n  gRPC: add as metadata\n  Message queue: add in message headers\n  Database calls: add to log context (not to DB itself)\n\nINCLUDE IN EVERY LOG ENTRY:\n  {\"trace.id\": \"abc123\", \"message\": \"Payment processed\", ...}\n\nINCLUDE IN EVERY METRIC LABEL (use sparingly):\n  High-cardinality labels (unique per request) explode metric series count\n  → Do NOT add trace-id to metric labels\n  → OK to add service, method, status code\n\nSEARCH ACROSS ALL SYSTEMS:\n  Given trace-id=abc123:\n    → Query logs: find all log entries for this request\n    → Query traces: find all spans for this trace tree\n    → Reconstruct full request journey across 15 services in 3 minutes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "## SRE Error Budgets and SLO/SLA/SLI",
+      "confidence": "candidate",
+      "text": "SLI (Service Level Indicator): what you measure\n  \"The fraction of HTTP requests that complete in < 300ms\"\n  \"The fraction of requests that return HTTP 2xx\"\n\nSLO (Service Level Objective): your internal target\n  \"99.9% of requests complete in < 300ms over 30-day rolling window\"\n  \"99.99% of requests return HTTP 2xx\"\n  SLO is the internal commitment. NOT a customer promise yet.\n\nSLA (Service Level Agreement): contractual commitment to customers\n  \"We guarantee 99.9% uptime or we credit your bill\"\n  SLA = SLO minus safety margin (you'd set SLO at 99.95% to stay above 99.9% SLA)\n\nERROR BUDGET:\n  99.9% SLO over 30 days = 0.1% budget = 43.8 minutes/month of failure\n  99.99% SLO = 4.38 minutes/month\n\n  If budget is consumed:\n    → Freeze feature work, focus on reliability\n    → Post-mortem on what consumed budget\n\n  If budget is healthy:\n    → Proceed with feature work, experiments, deployments\n    → Budget remaining = indicator that reliability investment is sufficient\n\nAZURE DEVOPS / VSTS ANALOGY:\n  You had service health metrics, on-call rotations, postmortems.\n  The SRE framework formalizes this: SLI=your health metric,\n  SLO=your internal uptime target, SLA=your published SLA to customers.\n  Error budget is the enforcement mechanism that makes the trade-off\n  between reliability and velocity explicit rather than political.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
