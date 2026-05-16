@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:futurists-early
+kind: guide
+module: visionaries
+section: visionaries
+title: Early Futurists: Wells, Verne, Bellamy, Huxley
+status: source-custody
+source_custody: partial
+current_path: visionaries/04-FUTURISTS-EARLY.md
+canonical_path: visionaries/04-FUTURISTS-EARLY.md
+backsource_ids: [proof-backfill:visionaries:04-futurists-early, git-history:visionaries:04-futurists-early]
+concepts: [futurists, early]
+root_concepts: [futurists, early]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Futurists: Wells, Verne, Bellamy, Huxley
 
 ## The Big Picture

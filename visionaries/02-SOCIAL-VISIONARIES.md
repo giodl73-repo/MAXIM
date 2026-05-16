@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:social-visionaries
+kind: guide
+module: visionaries
+section: visionaries
+title: Social Visionaries: Saint-Simon, Fourier, Owen, Marx
+status: source-custody
+source_custody: partial
+current_path: visionaries/02-SOCIAL-VISIONARIES.md
+canonical_path: visionaries/02-SOCIAL-VISIONARIES.md
+backsource_ids: [proof-backfill:visionaries:02-social-visionaries, git-history:visionaries:02-social-visionaries]
+concepts: [social, visionaries]
+root_concepts: [social, visionaries]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Visionaries: Saint-Simon, Fourier, Owen, Marx
 
 ## The Big Picture

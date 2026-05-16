@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:utopian-thinkers
+kind: guide
+module: visionaries
+section: visionaries
+title: Utopian Thinkers: Plato, More, Campanella, Bacon
+status: source-custody
+source_custody: partial
+current_path: visionaries/01-UTOPIAN-THINKERS.md
+canonical_path: visionaries/01-UTOPIAN-THINKERS.md
+backsource_ids: [proof-backfill:visionaries:01-utopian-thinkers, git-history:visionaries:01-utopian-thinkers]
+concepts: [utopian, thinkers]
+root_concepts: [utopian, thinkers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Utopian Thinkers: Plato, More, Campanella, Bacon
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:ecological-cosmic
+kind: guide
+module: visionaries
+section: visionaries
+title: Ecological and Cosmic Visionaries: Teilhard, Vernadsky, Lovelock, Dyson
+status: source-custody
+source_custody: partial
+current_path: visionaries/07-ECOLOGICAL-COSMIC.md
+canonical_path: visionaries/07-ECOLOGICAL-COSMIC.md
+backsource_ids: [proof-backfill:visionaries:07-ecological-cosmic, git-history:visionaries:07-ecological-cosmic]
+concepts: [ecological, cosmic]
+root_concepts: [ecological, cosmic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ecological and Cosmic Visionaries: Teilhard, Vernadsky, Lovelock, Dyson
 
 ## The Big Picture

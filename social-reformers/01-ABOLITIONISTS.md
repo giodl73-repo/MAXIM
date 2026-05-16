@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-reformers:abolitionists
+kind: guide
+module: social-reformers
+section: social-reformers
+title: Abolitionists: Wilberforce, Clarkson, Equiano, Tubman, Douglass, Garrison
+status: source-custody
+source_custody: partial
+current_path: social-reformers/01-ABOLITIONISTS.md
+canonical_path: social-reformers/01-ABOLITIONISTS.md
+backsource_ids: [proof-backfill:social-reformers:01-abolitionists, git-history:social-reformers:01-abolitionists]
+concepts: [abolitionists]
+root_concepts: [abolitionists]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Abolitionists: Wilberforce, Clarkson, Equiano, Tubman, Douglass, Garrison
 
 ## The Big Picture
@@ -7,16 +26,16 @@
   =========================================================
 
   BRITISH ABOLITION (1787–1833):
-  ┌──────────────────────────────────────────────────────────────┐
-  │  1787: Society for Effecting the Abolition of the Slave Trade│
-  │         Clarkson (research/organizing) + Wilberforce (Parl.) │
-  │  1792: House of Commons passes gradual abolition by 230–85   │
-  │         → House of Lords kills it                            │
-  │  1807: Slave Trade Act — trade abolished (not ownership)     │
-  │  1823: Anti-Slavery Society founded                          │
-  │  1833: Slavery Abolition Act — ownership abolished           │
-  │         Slaveowners compensated £20M; slaves NOT compensated │
-  └──────────────────────────────────────────────────────────────┘
+  ┌───────────────────────────────────────────────────────────────┐
+  │  1787: Society for Effecting the Abolition of the Slave Trade │
+  │         Clarkson (research/organizing) + Wilberforce (Parl.)  │
+  │  1792: House of Commons passes gradual abolition by 230–85    │
+  │         → House of Lords kills it                             │
+  │  1807: Slave Trade Act — trade abolished (not ownership)      │
+  │  1823: Anti-Slavery Society founded                           │
+  │  1833: Slavery Abolition Act — ownership abolished            │
+  │         Slaveowners compensated £20M; slaves NOT compensated  │
+  └───────────────────────────────────────────────────────────────┘
   Duration: 46 years from Society founding to abolition
   Method: Parliamentary lobbying + mass petition + economic argument
   Key figures: Clarkson (organizer), Wilberforce (Parliament),

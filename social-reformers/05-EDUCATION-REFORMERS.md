@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-reformers:education-reformers
+kind: guide
+module: social-reformers
+section: social-reformers
+title: Education Reformers: Pestalozzi, Froebel, Montessori, Dewey, Freire
+status: source-custody
+source_custody: partial
+current_path: social-reformers/05-EDUCATION-REFORMERS.md
+canonical_path: social-reformers/05-EDUCATION-REFORMERS.md
+backsource_ids: [proof-backfill:social-reformers:05-education-reformers, git-history:social-reformers:05-education-reformers]
+concepts: [education, reformers]
+root_concepts: [education, reformers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Education Reformers: Pestalozzi, Froebel, Montessori, Dewey, Freire
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:scientific-visionaries
+kind: guide
+module: visionaries
+section: visionaries
+title: Scientific Visionaries: Leonardo, Darwin, Faraday, Tesla
+status: source-custody
+source_custody: partial
+current_path: visionaries/03-SCIENTIFIC-VISIONARIES.md
+canonical_path: visionaries/03-SCIENTIFIC-VISIONARIES.md
+backsource_ids: [proof-backfill:visionaries:03-scientific-visionaries, git-history:visionaries:03-scientific-visionaries]
+concepts: [scientific, visionaries]
+root_concepts: [scientific, visionaries]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scientific Visionaries: Leonardo, Darwin, Faraday, Tesla
 
 ## The Big Picture

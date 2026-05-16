@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-reformers:modern-movements
+kind: guide
+module: social-reformers
+section: social-reformers
+title: Modern Movements: Harvey Milk, Malala Yousafzai, Greta Thunberg
+status: source-custody
+source_custody: partial
+current_path: social-reformers/09-MODERN-MOVEMENTS.md
+canonical_path: social-reformers/09-MODERN-MOVEMENTS.md
+backsource_ids: [proof-backfill:social-reformers:09-modern-movements, git-history:social-reformers:09-modern-movements]
+concepts: [modern, movements]
+root_concepts: [modern, movements]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Movements: Harvey Milk, Malala Yousafzai, Greta Thunberg
 
 ## The Big Picture

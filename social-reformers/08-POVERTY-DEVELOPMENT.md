@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-reformers:poverty-development
+kind: guide
+module: social-reformers
+section: social-reformers
+title: Poverty and Development: Addams, Mother Teresa, Yunus, Sachs vs. Easterly
+status: source-custody
+source_custody: partial
+current_path: social-reformers/08-POVERTY-DEVELOPMENT.md
+canonical_path: social-reformers/08-POVERTY-DEVELOPMENT.md
+backsource_ids: [proof-backfill:social-reformers:08-poverty-development, git-history:social-reformers:08-poverty-development]
+concepts: [poverty, development]
+root_concepts: [poverty, development]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Poverty and Development: Addams, Mother Teresa, Yunus, Sachs vs. Easterly
 
 ## The Big Picture
