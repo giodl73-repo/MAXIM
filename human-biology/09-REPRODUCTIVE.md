@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:reproductive
+kind: guide
+module: human-biology
+section: human-biology
+title: Reproductive System
+status: source-custody
+source_custody: partial
+current_path: human-biology/09-REPRODUCTIVE.md
+canonical_path: human-biology/09-REPRODUCTIVE.md
+backsource_ids: [proof-backfill:human-biology:09-reproductive, git-history:human-biology:09-reproductive]
+concepts: [reproductive]
+root_concepts: [reproductive]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reproductive System
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:renal
+kind: guide
+module: human-biology
+section: human-biology
+title: Renal System
+status: source-custody
+source_custody: partial
+current_path: human-biology/08-RENAL.md
+canonical_path: human-biology/08-RENAL.md
+backsource_ids: [proof-backfill:human-biology:08-renal, git-history:human-biology:08-renal]
+concepts: [renal]
+root_concepts: [renal]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Renal System
 
 ## The Big Picture

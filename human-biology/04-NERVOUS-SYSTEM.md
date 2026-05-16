@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:nervous-system
+kind: guide
+module: human-biology
+section: human-biology
+title: Nervous System
+status: source-custody
+source_custody: partial
+current_path: human-biology/04-NERVOUS-SYSTEM.md
+canonical_path: human-biology/04-NERVOUS-SYSTEM.md
+backsource_ids: [proof-backfill:human-biology:04-nervous-system, git-history:human-biology:04-nervous-system]
+concepts: [nervous, system]
+root_concepts: [nervous, system]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nervous System
 
 ## The Big Picture

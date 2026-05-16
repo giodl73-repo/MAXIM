@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:reasoning-judgment
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Reasoning and Judgment - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/03-REASONING-JUDGMENT.md
+canonical_path: cognitive-science/03-REASONING-JUDGMENT.md
+backsource_ids: [proof-backfill:cognitive-science:03-reasoning-judgment, git-history:cognitive-science:03-reasoning-judgment]
+concepts: [reasoning, judgment]
+root_concepts: [reasoning, judgment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reasoning and Judgment — Cognitive Science
 
 ## The Big Picture

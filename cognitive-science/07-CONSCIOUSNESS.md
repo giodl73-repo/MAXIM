@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:consciousness
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Consciousness - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/07-CONSCIOUSNESS.md
+canonical_path: cognitive-science/07-CONSCIOUSNESS.md
+backsource_ids: [proof-backfill:cognitive-science:07-consciousness, git-history:cognitive-science:07-consciousness]
+concepts: [consciousness]
+root_concepts: [consciousness]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Consciousness — Cognitive Science
 
 ## The Big Picture

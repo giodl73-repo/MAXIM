@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:attention-memory
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Attention and Memory - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/02-ATTENTION-MEMORY.md
+canonical_path: cognitive-science/02-ATTENTION-MEMORY.md
+backsource_ids: [proof-backfill:cognitive-science:02-attention-memory, git-history:cognitive-science:02-attention-memory]
+concepts: [attention, memory]
+root_concepts: [attention, memory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Attention and Memory — Cognitive Science
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:language-thought
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Language and Thought - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/04-LANGUAGE-THOUGHT.md
+canonical_path: cognitive-science/04-LANGUAGE-THOUGHT.md
+backsource_ids: [proof-backfill:cognitive-science:04-language-thought, git-history:cognitive-science:04-language-thought]
+concepts: [language, thought]
+root_concepts: [language, thought]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language and Thought — Cognitive Science
 
 ## The Big Picture

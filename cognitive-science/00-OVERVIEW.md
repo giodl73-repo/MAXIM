@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:overview
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Cognitive Science - Overview
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/00-OVERVIEW.md
+canonical_path: cognitive-science/00-OVERVIEW.md
+backsource_ids: [proof-backfill:cognitive-science:00-overview, git-history:cognitive-science:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cognitive Science — Overview
 
 ## The Big Picture
@@ -6,25 +25,25 @@ Cognitive science is a deliberately multi-disciplinary field. No single parent d
 
 ```
 +------------------------------------------------------------------+
-|                  COGNITIVE SCIENCE HEXAGON                        |
+|                  COGNITIVE SCIENCE HEXAGON                       |
 |                                                                  |
-|              PHILOSOPHY                                           |
-|            (mind, logic,                                          |
-|             consciousness)                                        |
-|                  /\                                               |
-|                 /  \                                              |
-|                /    \                                             |
-|   LINGUISTICS ------  PSYCHOLOGY                                  |
-|  (language,    \    /  (behavior,                                 |
-|   syntax,       \  /   cognition,                                 |
-|   semantics)     \/    development)                               |
-|                  |                                                |
-|         NEUROSCIENCE  COMPUTER SCIENCE                            |
-|        (brain mechanisms) (computation,                           |
-|              \         AI, algorithms)                            |
-|               \            /                                      |
-|         ANTHROPOLOGY (culture, evolution,                         |
-|                      cross-cultural cognition)                    |
+|              PHILOSOPHY                                          |
+|            (mind, logic,                                         |
+|             consciousness)                                       |
+|                  /\                                              |
+|                 /  \                                             |
+|                /    \                                            |
+|   LINGUISTICS ------  PSYCHOLOGY                                 |
+|  (language,    \    /  (behavior,                                |
+|   syntax,       \  /   cognition,                                |
+|   semantics)     \/    development)                              |
+|                  |                                               |
+|         NEUROSCIENCE  COMPUTER SCIENCE                           |
+|        (brain mechanisms) (computation,                          |
+|              \         AI, algorithms)                           |
+|               \            /                                     |
+|         ANTHROPOLOGY (culture, evolution,                        |
+|                      cross-cultural cognition)                   |
 +------------------------------------------------------------------+
 ```
 
@@ -42,18 +61,18 @@ David Marr (1982, "Vision") gave the field its methodological backbone. *Every* 
 +---------------------------------------------------------------+
 |  COMPUTATIONAL    What does the       Recover 3D structure    |
 |  (the "what")     system compute?     from 2D retinal input   |
-|                   What is the goal?                            |
+|                   What is the goal?                           |
 +---------------------------------------------------------------+
 |  ALGORITHMIC      How does it         Edge detection,         |
 |  (the "how")      compute it?         stereo matching,        |
 |                   What                Primal sketch           |
 |                   representations     algorithms              |
-|                   and processes?                               |
+|                   and processes?                              |
 +---------------------------------------------------------------+
 |  IMPLEMENTATIONAL How is it           Retinal ganglion        |
 |  (the "in what")  physically          cells, V1 simple        |
 |                   realized?           cells, cortical         |
-|                   What hardware?      columns                  |
+|                   What hardware?      columns                 |
 +---------------------------------------------------------------+
 ```
 
@@ -76,7 +95,7 @@ BEFORE 1956                          AFTER 1956
 | Mind = black box          |   -->  | Mind = information        |
 | Only behavior is          |        | processing system         |
 | observable/scientific     |        |                           |
-| S → R (stimulus-response) |        | S → [internal            |
+| S → R (stimulus-response) |        | S → [internal             |
 |                           |        |  representations +        |
 | 40 years of reinforcement |        |  processes] → R           |
 | schedules                 |        |                           |

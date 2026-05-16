@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:integumentary
+kind: guide
+module: human-biology
+section: human-biology
+title: Integumentary System
+status: source-custody
+source_custody: partial
+current_path: human-biology/10-INTEGUMENTARY.md
+canonical_path: human-biology/10-INTEGUMENTARY.md
+backsource_ids: [proof-backfill:human-biology:10-integumentary, git-history:human-biology:10-integumentary]
+concepts: [integumentary]
+root_concepts: [integumentary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Integumentary System
 
 ## The Big Picture

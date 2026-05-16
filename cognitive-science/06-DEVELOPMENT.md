@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:development
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Cognitive Development - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/06-DEVELOPMENT.md
+canonical_path: cognitive-science/06-DEVELOPMENT.md
+backsource_ids: [proof-backfill:cognitive-science:06-development, git-history:cognitive-science:06-development]
+concepts: [development]
+root_concepts: [development]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cognitive Development — Cognitive Science
 
 ## The Big Picture

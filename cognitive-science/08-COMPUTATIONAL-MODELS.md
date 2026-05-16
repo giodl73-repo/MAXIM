@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:computational-models
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Computational Models of Cognition - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/08-COMPUTATIONAL-MODELS.md
+canonical_path: cognitive-science/08-COMPUTATIONAL-MODELS.md
+backsource_ids: [proof-backfill:cognitive-science:08-computational-models, git-history:cognitive-science:08-computational-models]
+concepts: [computational, models]
+root_concepts: [computational, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computational Models of Cognition — Cognitive Science
 
 ## The Big Picture
@@ -7,19 +26,18 @@ Computational models of cognition attempt to specify the algorithms and represen
 ```
 +------------------------------------------------------------------+
 |  COMPUTATIONAL MODELING: FOUR GENERATIONS                        |
-+------------------------------------------------------------------+
 |                                                                  |
-|  1950s-70s: SYMBOLIC AI          →  GPS, SOAR, production systems|
-|  Mind as symbol manipulator         ACT-R, LISP programs         |
+|  1950s-70s: SYMBOLIC AI         -> GPS, SOAR, prod. systems      |
+|  Mind as symbol manipulator        ACT-R, LISP programs          |
 |                                                                  |
-|  1985-2000: CONNECTIONISM        →  PDP, backprop, distributed   |
-|  Mind as neural network             representations              |
+|  1985-2000: CONNECTIONISM       -> PDP, backprop, distributed    |
+|  Mind as neural network            representations               |
 |                                                                  |
-|  1990-2010: EMBODIED/DYNAMIC     →  Robot cognition, dynamical   |
-|  Mind as sensorimotor system        systems theory               |
+|  1990-2010: EMBODIED/DYNAMIC    -> Robot cognition, dynamical    |
+|  Mind as sensorimotor system       systems theory                |
 |                                                                  |
-|  2010-now: BAYESIAN/PREDICTIVE   →  Bayesian models, free energy,|
-|  Mind as inference engine           active inference             |
+|  2010-now: BAYESIAN/PREDICTIVE  -> Bayesian models, free energy  |
+|  Mind as inference engine          active inference              |
 +------------------------------------------------------------------+
 ```
 
@@ -92,22 +110,23 @@ The most empirically successful unified cognitive architecture. **Rational Analy
 ACT-R ARCHITECTURE:
 
   MODULES (each mapped to brain region):
-  +──────────────────────────────────────────────────+
-  | VISUAL   MANUAL   AURAL   VOCAL   IMAGINAL       |
-  | (occipital) (motor) (temporal) (speech) (parietal)|
-  +──────────────────────────────────────────────────+
-              ↕ one chunk per cycle
-  +──────────────────────────────────────────────────+
-  |              CENTRAL PROCEDURAL SYSTEM           |
-  |              (basal ganglia — production selection)|
-  |              ~50ms per production cycle          |
-  +──────────────────────────────────────────────────+
-              ↕ retrieval requests
-  +──────────────────────────────────────────────────+
+  +--------------------------------------------------+
+  |    VISUAL   MANUAL   AURAL   VOCAL   IMAGINAL    |
+  |     (occipital) (motor) (temporal) (speech)      |
+  |                    (parietal)                    |
+  +--------------------------------------------------+
+              v one chunk per cycle
+  +--------------------------------------------------+
+  |            CENTRAL PROCEDURAL SYSTEM             |
+  |      (basal ganglia - production selection)      |
+  |            ~50ms per production cycle            |
+  +--------------------------------------------------+
+              v retrieval requests
+  +--------------------------------------------------+
   |         DECLARATIVE MEMORY (hippocampus)         |
-  |         Activation = log(sum of uses × recency)  |
+  |     Activation = log(sum of uses x recency)      |
   |         Retrieval time = f(1/activation)         |
-  +──────────────────────────────────────────────────+
+  +--------------------------------------------------+
 ```
 
 **Activation equation**: A chunk's activation (probability and speed of retrieval):

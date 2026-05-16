@@ -1,0 +1,215 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cognitive-science\\08-COMPUTATIONAL-MODELS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  COMPUTATIONAL MODELING: FOUR GENERATIONS                        |\n|                                                                  |\n|  1950s-70s: SYMBOLIC AI         -> GPS, SOAR, prod. systems      |\n|  Mind as symbol manipulator        ACT-R, LISP programs          |\n|                                                                  |\n|  1985-2000: CONNECTIONISM       -> PDP, backprop, distributed    |\n|  Mind as neural network            representations               |\n|                                                                  |\n|  1990-2010: EMBODIED/DYNAMIC    -> Robot cognition, dynamical    |\n|  Mind as sensorimotor system       systems theory                |\n|                                                                  |\n|  2010-now: BAYESIAN/PREDICTIVE  -> Bayesian models, free energy  |\n|  Mind as inference engine          active inference              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 50,
+      "heading_context": "## Symbolic AI — The First Generation",
+      "confidence": "candidate",
+      "text": "### General Problem Solver (GPS) (Newell & Simon 1957)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### General Problem Solver (GPS) (Newell & Simon 1957)",
+      "confidence": "candidate",
+      "text": "ARCHITECTURE:\n  Problem Space:\n    Objects (states)\n    Operators (actions)\n    Desired state (goal)\n\n  Means-Ends Analysis:\n    1. Detect difference between current and goal state\n    2. Find operator that reduces biggest difference\n    3. Apply (recursively if preconditions not met)\n    4. Repeat until goal state reached\n\n  THINK-ALOUD PROTOCOLS:\n    Newell & Simon had humans solve problems while thinking aloud\n    Transcripts matched GPS trace closely\n    → first quantitative test of a cognitive model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 75,
+      "heading_context": "### General Problem Solver (GPS) (Newell & Simon 1957)",
+      "confidence": "candidate",
+      "text": "### SOAR (Laird, Newell, Rosenbloom 1987)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### SOAR (Laird, Newell, Rosenbloom 1987)",
+      "confidence": "candidate",
+      "text": "SOAR ARCHITECTURE:\n  Working Memory:\n    Current state + goals + operators\n\n  Long-Term Memory:\n    Procedural: production rules (IF-THEN)\n    Declarative: episodic + semantic chunks\n    Spatial: visuospatial imagery\n\n  Decision Cycle:\n    1. ELABORATE: apply all matching rules\n    2. DECIDE: select best operator (or form subgoal if impasse)\n    3. APPLY: execute selected operator\n\n  CHUNKING:\n    When a subgoal is solved, the successful path\n    is compiled into a new production rule (chunk)\n    → procedural learning\n    → explains expertise (Chase & Simon chess data)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 105,
+      "heading_context": "### SOAR (Laird, Newell, Rosenbloom 1987)",
+      "confidence": "candidate",
+      "text": "### ACT-R (Anderson 1983, 1993, 2007)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "### ACT-R (Anderson 1983, 1993, 2007)",
+      "confidence": "candidate",
+      "text": "ACT-R ARCHITECTURE:\n\n  MODULES (each mapped to brain region):\n  +--------------------------------------------------+\n  |    VISUAL   MANUAL   AURAL   VOCAL   IMAGINAL    |\n  |     (occipital) (motor) (temporal) (speech)      |\n  |                    (parietal)                    |\n  +--------------------------------------------------+\n              v one chunk per cycle\n  +--------------------------------------------------+\n  |            CENTRAL PROCEDURAL SYSTEM             |\n  |      (basal ganglia - production selection)      |\n  |            ~50ms per production cycle            |\n  +--------------------------------------------------+\n              v retrieval requests\n  +--------------------------------------------------+\n  |         DECLARATIVE MEMORY (hippocampus)         |\n  |     Activation = log(sum of uses x recency)      |\n  |         Retrieval time = f(1/activation)         |\n  +--------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### ACT-R (Anderson 1983, 1993, 2007)",
+      "confidence": "candidate",
+      "text": "  A_i = B_i + Σ W_j × S_ji + noise\n\n  B_i = base-level activation (log of practice + recency)\n  W_j = attention weight of goal element j\n  S_ji = associative strength from j to chunk i\n\n  → Explains spacing effect, fan effect, priming, expertise",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Connectionism — The Second Generation",
+      "confidence": "candidate",
+      "text": "LOCALIST vs DISTRIBUTED representation:\n\nLocalist (classical AI):\n  [APPLE] ← one node, one concept\n\nDistributed (PDP):\n  APPLE = {0.8, 0.3, 0.1, 0.9, 0.2, 0.7, ...}\n           activation pattern across 50 units\n\n  ORANGE = {0.7, 0.4, 0.2, 0.8, 0.3, 0.6, ...}\n            similar pattern to APPLE (similar concept)\n\n  Properties:\n    - Similarity = closeness in activation space\n    - Generalization comes \"for free\"\n    - Graceful degradation (partial damage, partial function)\n    - Automatic generalization to novel inputs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 261,
+      "heading_context": "### Bayesian Models of Perception",
+      "confidence": "candidate",
+      "text": "### Predictive Coding (Rao & Ballard 1999)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Engineering Bridge: Free Energy as the ELBO",
+      "confidence": "candidate",
+      "text": "FRISTON'S FREE ENERGY              ML / VARIATIONAL INFERENCE EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nFree energy F                       Negative ELBO: F = -ELBO\n  F = KL[Q(θ) || P(θ|data)]        KL divergence between approximate\n      - log P(data)                 posterior Q and true posterior P\n                                    Plus the negative log-evidence\n\nGenerative model P(data|θ)          VAE decoder\n  Brain's model of how hidden       Maps latent variables to predicted\n  causes θ produce sensory data     observations\n\nRecognition model Q(θ|data)         VAE encoder\n  Brain's approximate posterior     Maps observations to approximate\n  over hidden causes                posterior over latents\n\nMinimizing F by updating Q          Training the encoder\n  = perceptual inference            = amortized variational inference\n\nMinimizing F by updating P          Training the decoder\n  = learning (synaptic plasticity)  = improving the generative model\n\nMinimizing F by changing data       NO DIRECT ML ANALOG (this is new)\n  = active inference (action)       Agent changes the world to make\n                                    observations match predictions\n                                    — this is what distinguishes\n                                    Friston from standard VI",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 321,
+      "heading_context": "## Engineering Bridge: Free Energy as the ELBO",
+      "confidence": "candidate",
+      "text": "### Free Energy Principle (Friston 2005+)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 348,
+      "heading_context": "## Reinforcement Learning as Cognitive Model",
+      "confidence": "candidate",
+      "text": "### Rescorla-Wagner Model (1972)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 363,
+      "heading_context": "### Rescorla-Wagner Model (1972)",
+      "confidence": "candidate",
+      "text": "### TD Learning (Sutton & Barto 1988)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 366,
+      "heading_context": "### TD Learning (Sutton & Barto 1988)",
+      "confidence": "candidate",
+      "text": "δ(t) = r(t+1) + γV(t+1) - V(t)\n\n  δ = temporal difference error\n  r = reward at next time step\n  γ = discount factor\n  V(t) = value at current state\n\nThis is the PREDICTION ERROR:\n  δ > 0: better than expected → increase V\n  δ < 0: worse than expected → decrease V\n  δ = 0: exactly as expected → no change",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 380,
+      "heading_context": "### TD Learning (Sutton & Barto 1988)",
+      "confidence": "candidate",
+      "text": "### Dopamine = Prediction Error Signal (Schultz 1997)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 382,
+      "heading_context": "### Dopamine = Prediction Error Signal (Schultz 1997)",
+      "confidence": "candidate",
+      "text": "EARLY LEARNING:\n  Reward →          Dopamine burst (reward itself surprising)\n\nAFTER CONDITIONING:\n  CS (tone) →       Dopamine burst (CS now predicts reward)\n  Reward →          No dopamine burst (reward was predicted)\n  Expected reward\n  doesn't arrive →  Dopamine DIP below baseline\n\nPrediction:\n  Dopamine firing = TD prediction error δ(t)\n\n  Schultz recorded monkey dopamine neurons during\n  classical conditioning → exactly matched TD learning curve",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 411,
+      "heading_context": "## Embodied Cognition — The Challenge",
+      "confidence": "candidate",
+      "text": "CLASSIC VIEW:                 EMBODIED VIEW:\n  Brain → representation of    Sensorimotor loops\n  world → action                constitute concepts\n\n  Example: \"left\" is an        \"Left\" is anchored to\n  arbitrary symbol             body's left-hand side,\n                               grasping, spatial\n                               orientation\n\n  Color perception = cone      Color categories\n  wavelength responses         reflect body's need to\n                               discriminate actionable\n                               surfaces",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 440,
+      "heading_context": "## Embodied Cognition — The Challenge",
+      "confidence": "candidate",
+      "text": "### Extended Mind (Clark & Chalmers 1998)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

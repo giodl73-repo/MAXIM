@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:applied-bridge
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Applied Cognitive Science - Bridge to Engineering
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/09-APPLIED-BRIDGE.md
+canonical_path: cognitive-science/09-APPLIED-BRIDGE.md
+backsource_ids: [proof-backfill:cognitive-science:09-applied-bridge, git-history:cognitive-science:09-applied-bridge]
+concepts: [applied, bridge]
+root_concepts: [applied, bridge]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applied Cognitive Science — Bridge to Engineering
 
 ## The Big Picture

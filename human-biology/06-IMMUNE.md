@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:immune
+kind: guide
+module: human-biology
+section: human-biology
+title: Immune System
+status: source-custody
+source_custody: partial
+current_path: human-biology/06-IMMUNE.md
+canonical_path: human-biology/06-IMMUNE.md
+backsource_ids: [proof-backfill:human-biology:06-immune, git-history:human-biology:06-immune]
+concepts: [immune]
+root_concepts: [immune]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Immune System
 
 ## The Big Picture
