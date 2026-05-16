@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:hox-genes
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: HOX Genes and Axial Patterning
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/04-HOX-GENES.md
+canonical_path: developmental-biology/04-HOX-GENES.md
+backsource_ids: [proof-backfill:developmental-biology:04-hox-genes, git-history:developmental-biology:04-hox-genes]
+concepts: [hox, genes]
+root_concepts: [hox, genes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # HOX Genes and Axial Patterning
 
 ## The Big Picture

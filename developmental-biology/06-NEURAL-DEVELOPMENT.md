@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:neural-development
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Neural Development and Brain Formation
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/06-NEURAL-DEVELOPMENT.md
+canonical_path: developmental-biology/06-NEURAL-DEVELOPMENT.md
+backsource_ids: [proof-backfill:developmental-biology:06-neural-development, git-history:developmental-biology:06-neural-development]
+concepts: [neural, development]
+root_concepts: [neural, development]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neural Development and Brain Formation
 
 ## The Big Picture

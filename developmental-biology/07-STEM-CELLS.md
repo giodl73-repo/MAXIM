@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:stem-cells
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Stem Cells: Pluripotency and Differentiation
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/07-STEM-CELLS.md
+canonical_path: developmental-biology/07-STEM-CELLS.md
+backsource_ids: [proof-backfill:developmental-biology:07-stem-cells, git-history:developmental-biology:07-stem-cells]
+concepts: [stem, cells]
+root_concepts: [stem, cells]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stem Cells: Pluripotency and Differentiation
 
 ## The Big Picture

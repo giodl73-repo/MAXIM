@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:organogenesis
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Organogenesis: How Organs Form
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/05-ORGANOGENESIS.md
+canonical_path: developmental-biology/05-ORGANOGENESIS.md
+backsource_ids: [proof-backfill:developmental-biology:05-organogenesis, git-history:developmental-biology:05-organogenesis]
+concepts: [organogenesis]
+root_concepts: [organogenesis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organogenesis: How Organs Form
 
 ## The Big Picture

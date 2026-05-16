@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\07-STEM-CELLS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              STEM CELL POTENCY HIERARCHY                         |\n|                                                                  |\n|  TOTIPOTENT: Can make ALL cell types including trophectoderm     |\n|  Zygote, 2-cell blastomere                                       |\n|       ↓                                                          |\n|  PLURIPOTENT: Can make all embryonic cell types (3 germ layers)  |\n|  Epiblast, ESC, iPSC                                             |\n|       ↓                                                          |\n|  MULTIPOTENT: Can make all types within a tissue/lineage         |\n|  HSC (all blood), NSC (neurons + glia + oligodendrocytes)        |\n|       ↓                                                          |\n|  OLIGOPOTENT: 2-3 lineages                                       |\n|  Common myeloid progenitor (CMP): myeloid cell types             |\n|       ↓                                                          |\n|  UNIPOTENT: One cell type                                        |\n|  Spermatogonial stem cell (sperm only)                           |\n|       ↓                                                          |\n|  TERMINALLY DIFFERENTIATED: No further division in most cases    |\n|  Neurons, cardiomyocytes, erythrocytes                           |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Engineering Bridge: Stem Cells as Typed Objects with Environmental Injection",
+      "confidence": "candidate",
+      "text": "  STEM CELL BIOLOGY             CS / SYSTEMS PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Potency hierarchy             Type hierarchy with narrowing casts:\n  Totipotent → Pluripotent       Totipotent = base class (implements all\n  → Multipotent → Unipotent      interfaces). Each step down narrows the\n                                 interface. A multipotent HSC implements\n                                 {Myeloid, Lymphoid} but not {Neural}.\n                                 Differentiation = irreversible downcast.\n                                 Yamanaka iPSC = upcast back to base class\n                                 (was thought to be prohibited — it isn't).\n\n  Stem cell niche               Dependency injection / IoC:\n  (HSC niche: CXCL12, SCF, TPO) The cell's behavior is not intrinsic alone.\n                                 The niche injects the signals that maintain\n                                 stem cell identity. Remove the niche →\n                                 cell differentiates. The niche IS the\n                                 runtime environment.\n\n  Bivalent chromatin            Feature flags on developmental genes:\n  (H3K4me3 + H3K27me3 at        Genes are \"poised\": the activating mark\n  developmental genes in ESCs)   (H3K4me3) is set, but the silencing mark\n                                 (H3K27me3) keeps them off. Neither fully\n                                 on nor off — exactly a feature flag that\n                                 can be quickly toggled. EZH2 writes\n                                 H3K27me3 (set to disabled); KDM6 removes it\n                                 (remove disabled flag → gene activates).\n\n  Asymmetric stem cell division  Fork with different inheritance:\n  (one stem + one progenitor)    Self-renewal: one daughter inherits the\n                                 full stem cell identity (niche contact\n                                 maintained, Notch signal). Other daughter\n                                 drifts away → reduced niche → differentiates.\n                                 Asymmetric distribution of fate determinants\n                                 during mitosis (e.g., Numb in Drosophila).\n\n  Clonal competition and niche   Resource contention with eviction:\n  replacement                    Stem cells compete for limited niche space.\n                                 Fitter clone (higher Wnt signal, APC mutation)\n                                 → expands, evicts wild-type neighbors.\n                                 Cancer initiation: winner-takes-all niche\n                                 competition after first oncogenic mutation.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Embryonic Stem Cells (ESCs)",
+      "confidence": "candidate",
+      "text": "ESC DERIVATION AND PROPERTIES\n───────────────────────────────\n  Source: Inner cell mass (ICM) of blastocyst\n  Derivation: Isolated ICM + LIF/FGF2/BMP4 signaling → ESC lines\n  Key properties:\n    Self-renewal: Indefinite proliferation (rare among mammalian cells)\n    Pluripotency: Differentiate into any somatic cell type\n    Normal karyotype (if properly cultured)\n    Unique gene expression: Oct4, Sox2, Nanog, KLF4, Rex1...\n\nPLURIPOTENCY TRANSCRIPTION FACTOR NETWORK\n  OCT4 (Pou5f1): Homeodomain TF; essential for ICM identity.\n                 Oct4 KO → no ICM → trophectoderm only.\n  SOX2: HMG-box TF; redundant in ICM but required for epiblast.\n  NANOG: Homeobox TF; prevents primitive endoderm fate.\n         Nanog KO → only primitive endoderm from ICM (no epiblast).\n\n  The core circuit:\n    Oct4, Sox2, Nanog → activate each other (mutual reinforcement)\n    Oct4, Sox2, Nanog → repress differentiation genes\n    Oct4, Sox2, Nanog → activate themselves (auto-regulatory loops)\n    This creates a self-sustaining pluripotency state.\n\n  BISTABILITY\n  Oct4-Sox2-Nanog and Cdx2 (TE) are mutually repressive switches.\n  Inside cell: Oct4 high → Cdx2 low → ICM.\n  Outside cell: Hippo signaling → Cdx2 activates → Oct4 repressed → TE.\n  Two stable states, not a continuum.\n\nEPIGENETIC STATE OF ESCs\n  Bivalent chromatin domains: simultaneously H3K4me3 (active) + H3K27me3 (repressive).\n  Developmental genes: in bivalent state → poised but not active.\n  Upon differentiation: Lose H3K27me3 (become active) OR lose H3K4me3 (silenced).\n  This bivalency allows rapid, coherent activation or silencing upon differentiation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Pluripotency States",
+      "confidence": "candidate",
+      "text": "NAIVE vs PRIMED PLURIPOTENCY\n──────────────────────────────\n  TWO DISTINCT PLURIPOTENT STATES:\n\n  NAIVE (pre-implantation epiblast):\n    Mouse: LIF + 2i conditions (MEK inhibitor + GSK3 inhibitor)\n    Human naive: more recently established (2015+)\n    Properties:\n      Both X chromosomes active (female cells)\n      Can contribute to chimera (mouse)\n      Global DNA hypomethylation\n      Bivalent genes poised\n      Express Rex1, Dppa3, Klf4\n\n  PRIMED (post-implantation epiblast = EpiSC):\n    Human ESCs are mostly in this state\n    Properties:\n      One X inactivated (female)\n      Cannot contribute to mouse chimera\n      FGF/Activin dependent\n      Higher DNA methylation\n      Partially restricted gene expression\n\n  THE GROUND STATE\n  Naive pluripotency with 2i: \"ground state\" — remove all external lineage signals.\n  Result: Uniform, stable pluripotency; least differentiation-prone.\n  Alternative to serum/LIF: more uniform, less noisy.\n\nTRANSITION: NAIVE → PRIMED → DIFFERENTIATION\n  Naive → Primed: FGF/ERK activation, X inactivation, global methylation.\n  Primed → Differentiation: Lineage-specific signals (BMP, Wnt, Activin/Nodal, FGF)\n  → Remove Sox2, Nanog, Oct4 from lineage genes → activate germ-layer TFs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Hematopoietic Stem Cells (HSCs)",
+      "confidence": "candidate",
+      "text": "THE HEMATOPOIETIC HIERARCHY\n─────────────────────────────\n  HSC (Long-term, LT-HSC)\n     │  Self-renewal: Years\n     │  Location: Bone marrow niche\n     ↓\n  Short-term HSC (ST-HSC)\n     │  Limited self-renewal\n     ↓\n  ┌───────────────────────────────────┐\n  │ Multipotent Progenitor (MPP)      │\n  └───┬───────────────────────────────┘\n      │\n  ┌───┴──────────────────┐\n  │                      │\n  CMP                   CLP\n  (Common Myeloid)      (Common Lymphoid)\n  │                      │\n  ├── Granulocyte-         ├── B-cell progenitor → B cells/plasma cells\n  │   monocyte prog        ├── T-cell progenitor → T cells (thymus)\n  │   → neutrophils,       └── NK progenitor → NK cells\n  │   monocytes, macrophages\n  ├── MEP (megakaryocyte-erythroid)\n      → Red blood cells (erythrocytes)\n      → Platelets (from megakaryocytes)\n\nDAILY PRODUCTION\n  Humans: ~500 billion blood cells/day from HSCs.\n  Erythrocytes: 200 billion/day; each lives ~120 days.\n  Neutrophils: ~100 billion/day; each lives hours.\n  HSC quiescence: Most HSCs are dormant (G0); activated for reconstitution.\n\nHSC NICHE (BONE MARROW)\n  Endosteal niche: Osteoblasts secrete CXCL12 → CXCR4 on HSC → retention.\n  Perivascular niche: Sinusoidal endothelial cells + Leptin receptor+ MSCs.\n  Signals maintaining HSC:\n    CXCL12 (CXCR4): retention + quiescence\n    SCF/KitL (Kit): survival/proliferation\n    Thrombopoietin/Mpl: self-renewal\n    Angiopoietin-1 (Tie2): quiescence\n  Exiting niche: G-CSF → CXCL12 downregulation → HSC mobilization to blood.\n  Clinical: Plerixafor (CXCR4 antagonist) + G-CSF → HSC mobilization for transplant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## Neural Stem Cells (NSCs)",
+      "confidence": "candidate",
+      "text": "ADULT NEUROGENESIS\n───────────────────\n  Historically believed: No new neurons in adult brain.\n  Now established (in rodents): Two neurogenic niches in adult brain.\n\n  1. SUBVENTRICULAR ZONE (SVZ)\n     Radial glia-like NSC → transit amplifying progenitors → neuroblasts\n     → Migrate along rostral migratory stream → olfactory bulb\n     → Granule cells + periglomerular interneurons\n\n  2. SUBGRANULAR ZONE (SGZ) in Hippocampus\n     Radial glia-like NSC → IPC → newborn dentate granule neurons\n     → Integrate into existing hippocampal circuits\n     → Function: Memory formation, pattern separation\n\n  HUMAN NEUROGENESIS DEBATE\n  Rodent: well established.\n  Human: controversial.\n  Spalding et al. (2013, ¹⁴C dating): ~700 new neurons/day in human hippocampus.\n  Sorrells et al. (2018): No newborn neurons in adult human hippocampus.\n  Boldrini et al. (2018): Neurogenesis persists into 8th decade.\n  Status: Debated; methodological issues in detecting rare newborn neurons.\n\nNSC REGULATION\n  Quiescence maintained by: Notch, BMP4 (from SVZ astrocytes)\n  Activation: FGF2, EGF, VEGF, Shh\n  Differentiation: BDNF, NT-3 (neurotrophin) → neuronal fate\n  Oligodendrocyte: PDGF, T3 (thyroid hormone)\n  Astrocyte: CNTF, LIF (JAK-STAT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## Intestinal Stem Cells: The Prototypical Adult Tissue Stem Cell",
+      "confidence": "candidate",
+      "text": "INTESTINAL CRYPT STEM CELL NICHE\n──────────────────────────────────\n  Columnar basal crypt cells (CBCs): Lgr5+ cells at crypt base.\n  Rapidly cycling (~daily). Self-renewing + multipotent.\n  Lgr5: R-spondin receptor. Marks active stem cells.\n  Turn over every 3-5 days (entire intestinal epithelium).\n\n  NICHE SIGNALS\n  Wnt:  Paneth cells at crypt base secrete Wnt3, Wnt11\n        + R-spondin (RSPO1/3) from stromal cells → ↑Frizzled\n        → β-catenin → stem cell maintenance\n  Notch: Paneth cells express Dll4 → Notch on CBC → HES1 → absorptive fate\n  EGF:  Mesenchyme + Paneth → EGFR → proliferation\n  BMP:  From villus mesenchyme → inhibit Wnt → differentiation toward villus\n\n  LGAIN HIERARCHY\n  LGR5+ CBC → TA cells (transit amplifying, rapid cycling) →\n  Mature cells: enterocytes, goblet cells, enteroendocrine, Paneth (±tuft cells)\n  Paneth cells: at crypt base, provide niche signals BACK to LGR5+ cells\n  (amazing feedback: the differentiated Paneth cell maintains its own progenitor)\n\nORGANOIDS (mini-guts)\n  Sato et al. (2009): Isolated LGR5+ cells + Wnt/Rspondin/EGF/Noggin → 3D crypt organoids.\n  Self-organizing intestinal epithelium in Matrigel.\n  Applications:\n    Disease modeling: IBD, colorectal cancer\n    Drug screening: personalized (patient-derived organoids)\n    Regenerative medicine: transplant organoid-derived epithelium (clinical trials)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "## Stem Cell Fate Control: Key Concepts",
+      "confidence": "candidate",
+      "text": "SYMMETRIC vs ASYMMETRIC DIVISION\n──────────────────────────────────\n  SYMMETRIC: Daughter cells both same fate.\n    → Expansion: 1 stem cell → 2 stem cells (amplify pool)\n    → Depletion: 1 stem cell → 2 differentiated (exhaust pool)\n\n  ASYMMETRIC: Daughters have different fates.\n    → Stem cell homeostasis: 1 stem cell → 1 SC + 1 progenitor\n    Mechanism: Unequal segregation of cell-fate determinants.\n    Drosophila neuroblast: Numb + Prospero segregate basally → daughter differentiates.\n\nTHE NICHE CONCEPT\n  Schofield (1978) coined \"niche\": microenvironment that maintains stem cell identity.\n  Remove cell from niche → differentiation.\n  Transplant into a niche → stem cell renewal.\n  The niche is as important as the cell.\n\nCOMPETITION AMONG STEM CELLS\n  Stem cells compete for niche space.\n  \"Supercompetitors\": higher fitness → displace weaker stem cells.\n  Relevant to cancer initiation: oncogenic mutation in one stem cell → competitive advantage → clonal expansion.\n  Colon cancer: APC mutation in one LGR5+ cell → Wnt gain → outcompetes normal cells → clone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 334,
+      "heading_context": "## Cancer Stem Cells (CSC Hypothesis)",
+      "confidence": "candidate",
+      "text": "CANCER STEM CELL HYPOTHESIS\n─────────────────────────────\nHypothesis: Tumors are maintained by a small subpopulation of cells with\nstem-like properties (self-renewal, differentiation capacity). These CSCs\nare responsible for therapy resistance, metastasis, and relapse.\n\nEVIDENCE FOR THE CSC MODEL\n  Bonnet & Dick (1997): Only CD34+CD38- AML cells could engraft immunodeficient\n  mice → only a subset had \"leukemia-initiating\" capacity.\n  Clarke et al. (2003): Breast cancer CD44+CD24-low cells had >100× higher\n  tumor-initiating capacity vs. CD44-CD24+ cells.\n  Glioblastoma (Singh et al. 2004): CD133+ cells initiated tumors at 100 cells;\n  CD133- cells failed at 100,000 cells.\n\nCSC MARKERS (by cancer type, approximate)\n  Breast cancer:     CD44+, CD24-/low, ALDH1+ (ALDH1A1 activity)\n  Leukemia (AML):    CD34+, CD38-, CD123+\n  Glioblastoma:      CD133+ (Prominin-1), SOX2, nestin\n  Colorectal cancer: LGR5+ (intestinal stem cell marker)\n  Pancreatic cancer: CD44+, CD24+, ESA+\n\nTHERAPY RESISTANCE MECHANISMS\n  1. Quiescence: many CSCs are slow-cycling → spared by chemotherapy\n     (which targets rapidly dividing cells)\n  2. ABC transporters: CSCs overexpress MDR1 (P-gp), BCRP → drug efflux\n  3. Anti-apoptotic upregulation: BCL-2, BCL-XL high in CSCs\n  4. DNA damage repair: CSCs have enhanced DDR capacity (Rad51, ATM)\n  5. Reactive oxygen species: CSCs maintain low ROS via enhanced antioxidant\n     → resist oxidative-stress-mediated killing\n\nCLINICAL IMPLICATIONS\n  Traditional therapy kills the bulk tumor (non-CSC, highly proliferative)\n  → rapid initial response → relapse from surviving CSCs.\n  CSC-targeted approaches:\n    Differentiation therapy: ATRA in APL (forces CSC differentiation → gone)\n    CSC surface markers: anti-CD44, anti-CD133 antibodies + ADCs\n    Notch/Hedgehog/Wnt inhibitors: target CSC maintenance pathways\n    BET bromodomain inhibitors: disrupt MYC → CSC self-renewal suppressed\n\nCAVEATS AND CONTROVERSY\n  Plasticity: Non-CSC cells can acquire CSC traits (especially after chemo)\n  → the hierarchy is not fixed. Markers are imperfect. The degree to which\n  the CSC model applies varies by tumor type. In some tumors, all cells may\n  be tumorigenic in permissive conditions (stochastic model vs. hierarchical model).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

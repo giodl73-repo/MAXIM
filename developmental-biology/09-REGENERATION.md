@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:regeneration
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Regeneration: From Planaria to Mammals
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/09-REGENERATION.md
+canonical_path: developmental-biology/09-REGENERATION.md
+backsource_ids: [proof-backfill:developmental-biology:09-regeneration, git-history:developmental-biology:09-regeneration]
+concepts: [regeneration]
+root_concepts: [regeneration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Regeneration: From Planaria to Mammals
 
 ## The Big Picture

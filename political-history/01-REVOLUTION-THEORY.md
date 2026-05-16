@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:revolution-theory
+kind: guide
+module: political-history
+section: political-history
+title: Revolution Theory: Skocpol, Goldstone, Tilly, Arendt
+status: source-custody
+source_custody: partial
+current_path: political-history/01-REVOLUTION-THEORY.md
+canonical_path: political-history/01-REVOLUTION-THEORY.md
+backsource_ids: [proof-backfill:political-history:01-revolution-theory, git-history:political-history:01-revolution-theory]
+concepts: [revolution, theory]
+root_concepts: [revolution, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Revolution Theory: Skocpol, Goldstone, Tilly, Arendt
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:democratic-backsliding
+kind: guide
+module: political-history
+section: political-history
+title: Democratic Backsliding: Causes and Patterns
+status: source-custody
+source_custody: partial
+current_path: political-history/07-DEMOCRATIC-BACKSLIDING.md
+canonical_path: political-history/07-DEMOCRATIC-BACKSLIDING.md
+backsource_ids: [proof-backfill:political-history:07-democratic-backsliding, git-history:political-history:07-democratic-backsliding]
+concepts: [democratic, backsliding]
+root_concepts: [democratic, backsliding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Democratic Backsliding: Causes and Patterns
 
 ## The Big Picture

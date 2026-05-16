@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              DEVELOPMENTAL BIOLOGY LANDSCAPE                     |\n|                                                                  |\n|  STARTING POINT          PROCESS              ENDPOINT           |\n|  Fertilized egg (1 cell) → Patterning         → ~37 trillion     |\n|  ~50 μm diameter           Signaling           cells, ~200 types |\n|  Complete genome           Differentiation     organized into    |\n|  (2n, ~3B bp)             Morphogenesis       tissues and organs |\n|                                                                  |\n|  DEVELOPMENTAL PROGRAMS (vertebrate embryo)                      |\n|                                                                  |\n|  FERTILIZATION → CLEAVAGE → BLASTULATION → GASTRULATION          |\n|  Day 0            0-3 days   3-5 days         5-14 days          |\n|       ↓                                           ↓              |\n|  NEURULATION   ← ORGANOGENESIS ← THREE GERM LAYERS FORM          |\n|  Week 3-4         Week 4-8        Ectoderm/Mesoderm/Endoderm     |\n|                                                                  |\n|  CONTROLLING MECHANISMS                                          |\n|  Signaling pathways (Wnt, Notch, Hh, BMP, FGF, Retinoic acid)    |\n|  Transcription factor networks (HOX genes, master regulators)    |\n|  Cell-cell communication, morphogen gradients, mechanical forces |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Computing and Dynamical Systems Bridges",
+      "confidence": "candidate",
+      "text": "  DEVELOPMENTAL BIOLOGY         CS / DYNAMICAL SYSTEMS PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Same genome, different fates  Polymorphism / runtime dispatch:\n                                Same codebase, different behavior based on\n                                runtime context (position, neighbor signals,\n                                chromatin state). Cell identity is not\n                                determined by genotype alone — it's\n                                determined by (genotype × context).\n\n  Morphogen gradients           Spatial configuration gradients:\n  (BMP, RA, Wnt as position codes)  Concentration encodes position. Reading\n                                the concentration at your location → look\n                                up in a response table → execute the correct\n                                developmental program. Equivalent to a\n                                spatial key-value lookup where the key is\n                                your position in a continuous gradient.\n\n  Gene regulatory networks      Boolean / continuous circuit:\n  (TF networks controlling fate) A network of transcription factors with\n                                mutual activation and repression is a\n                                logical circuit. Boolean models (Kauffman\n                                NK networks) reproduce much of fate\n                                choice behavior. Fixed points of the\n                                Boolean dynamics = cell identities.\n\n  Waddington landscape          Energy landscape / attractor dynamics:\n  (fate valleys = attractors)   Cell states are attractors in the TF\n                                expression state space. Differentiation\n                                is a trajectory toward lower attractors.\n                                Yamanaka reprogramming rolls a ball uphill\n                                by temporarily changing the landscape\n                                (forcing TF expression).\n\n  Lateral inhibition (Notch)    Leader election protocol:\n  (one cell wins, neighbors lose) One cell stochastically activates Notch\n                                ligand → neighbor suppressed → reinforced\n                                by feedback. Distributed consensus:\n                                one winner per local neighborhood,\n                                no central coordinator.\n\n  Cell fate bifurcation         Pitchfork bifurcation in dynamical systems:\n  (HSC → myeloid vs lymphoid)   Two co-expressed TFs (GATA1, PU.1) mutually\n                                repress each other. At the bifurcation point,\n                                either can win → stochastic. Below the\n                                bifurcation (high noise): bimodal distribution.\n                                Above (strong signal): deterministic channel.\n\n  Pattern formation (Turing)    Reaction-diffusion instability:\n  (spots, stripes, periodic)    Short-range activator + long-range inhibitor →\n                                spatial periodicity from uniform initial state.\n                                Formally: Laplacian eigenfunction decomposition;\n                                the wave number with largest linear growth rate\n                                determines pattern wavelength.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## The Central Paradox",
+      "confidence": "candidate",
+      "text": "SAME GENOME, DIFFERENT FATES\n──────────────────────────────\n  Zygote (1 cell)\n     │  All cells have identical DNA\n     v  But...\n  Cell 1 in blastocyst interior → inner cell mass → embryo proper\n  Cell 1 in blastocyst exterior → trophectoderm → placenta\n  ↕ Same DNA. Different chromatin states. Different signals received.\n\n  HOW FATE DIFFERENCES ARISE\n  (1) Cytoplasmic asymmetry: maternal proteins/mRNAs distributed unequally\n  (2) Signal from neighbor: inductive cell-cell signaling\n  (3) Position in gradient: morphogen gradient → read-out of position\n  (4) Cell history: once a fate decision is made → chromatin modification\n      → cell \"remembers\" its fate (epigenetic memory)\n\n  WADDINGTON'S EPIGENETIC LANDSCAPE (1957)\n  Marble rolling downhill:\n    Ridge peaks = fate decision points\n    Valleys = committed fates (attractors)\n    Marble always rolls DOWN (fate decisions are typically irreversible)\n    But iPSCs (Module 08) are rolling the marble UPHILL (reprogramming)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Axes of Developmental Patterning",
+      "confidence": "candidate",
+      "text": "THREE BODY AXES IN VERTEBRATES\n────────────────────────────────\n  ANTERIOR-POSTERIOR (head-tail):\n    Established by HOX gene expression domains (Module 04)\n    Gradients: retinoic acid (posterior), FGF8 (posterior), Wnt (posterior)\n    Counteracting gradient: RA degradation anteriorly\n\n  DORSAL-VENTRAL (back-belly):\n    BMP signals: ventral\n    BMP antagonists (Chordin, Noggin, Follistatin): dorsal (organizer)\n    \"Spemann Organizer\" (frog/fish) / Node (mouse) secretes BMP antagonists\n\n  LEFT-RIGHT:\n    Nodal (TGF-β family): expressed on LEFT side of embryo\n    → Activates Lefty (feedback inhibitor) + Pitx2 (transcription factor)\n    Ciliary motion in node: leftward fluid flow → breaks symmetry\n    Kartagener syndrome: immotile cilia → 50% situs inversus (organ reversal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## Cell Signaling Hierarchy in Development",
+      "confidence": "candidate",
+      "text": "DEVELOPMENTAL SIGNALING PATHWAYS\n──────────────────────────────────\n  Pathway        Ligand(s)           Receptor         Key downstream TF\n  ─────────────────────────────────────────────────────────────────────\n  Wnt/β-catenin  Wnt ligands         Frizzled/LRP     β-catenin → TCF/LEF\n  Notch          Delta, Jagged       Notch (NICD)     RBPj/CSL\n  Hedgehog       Shh, Dhh, Ihh       Patched/Smo      Gli TFs\n  BMP (TGF-β)    BMPs, Activin, Nodal TGF-βR → BMPR   Smad1/5/8, Smad2/3\n  FGF            FGF1-23             FGFR1-4           Erk/MAPK, PI3K\n  Retinoic acid  Vitamin A derivative Nuclear receptor RARα/β/γ\n  Notch (lateral\n   inhibition)   Delta               Notch             Hairy/Enhancer of split\n\n  THESE SAME PATHWAYS REUSED REPEATEDLY\n  Not one pathway per organ.\n  Context determines interpretation:\n    Wnt in colon stem cell → proliferation\n    Wnt in limb development → posterior fate\n    Wnt in hair follicle → cycling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## Germ Layers: The Trilaminar Body Plan",
+      "confidence": "candidate",
+      "text": "THREE GERM LAYERS (formed during gastrulation)\n────────────────────────────────────────────────\n  ECTODERM (outer)\n    Epidermis, hair, nails, lens, cornea\n    Nervous system (neural ectoderm → neural plate → brain/spinal cord)\n    Neural crest (migratory; forms: PNS, craniofacial bone/cartilage,\n                  melanocytes, adrenal medulla)\n\n  MESODERM (middle)\n    Heart and vasculature (lateral plate mesoderm)\n    Skeleton (paraxial mesoderm → somites → vertebrae, ribs)\n    Skeletal and smooth muscle (somites, lateral plate)\n    Kidneys (intermediate mesoderm → pronephros/mesonephros/metanephros)\n    Spleen, adrenal cortex, connective tissue\n\n  ENDODERM (inner)\n    Lining of digestive tract\n    Liver (hepatocytes)\n    Pancreas (acinar + islet cells)\n    Lungs (respiratory epithelium)\n    Thyroid, parathyroid, thymus (pharyngeal endoderm)\n    Bladder\n\nGERM LAYER DERIVATION: A DIAGNOSTIC TOOL\n  If tissue is from neural crest (ectoderm-derived but migrates):\n    → Neural crest disorders (neurocristopathies): Waardenburg, DiGeorge, CHARGE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "## Key Experimental Approaches",
+      "confidence": "candidate",
+      "text": "APPROACHES THAT TRANSFORMED THE FIELD\n────────────────────────────────────────\n\n  APPROACH               KEY TOOL                   WHAT IT ENABLES\n  ─────────────────────  ─────────────────────────  ─────────────────────────────\n  Genetic loss/gain      CRISPR-Cas9                 Knock out any gene in any\n  of function            Cas9 + guide RNA → cut +    organism; knock in mutations\n                         HDR or NHEJ                 or reporters; conditional\n                                                     alleles; screens at scale\n                                                     (genome-wide in zebrafish,\n                                                     mouse, human organoids)\n\n  Conditional lineage    Cre-lox system              Recombinase expressed only\n  deletion               Cre recombinase +            in a specific cell type →\n                         loxP-flanked allele          delete gene only there.\n                         (floxed) →                  \"Did this gene matter\n                         inducible with tamoxifen     specifically in cardiomyocytes?\"\n                         (Cre-ERT2)                  Essential to avoid embryonic\n                                                     lethality in knockouts.\n\n  Cell fate tracing      Lineage tracing             Which cells give rise to\n                         (Cre + Rosa26-reporter)      which other cells?\n                         scRNA-seq trajectory        Retrospective: CRISPR\n                         analysis; CRISPR            barcoding (GESTALT, CellTagging)\n                         barcoding                   ← scars accumulate over time\n\n  Single-cell            scRNA-seq (10x Genomics,    Gene expression in individual\n  transcriptomics        Drop-seq, SMART-seq2)       cells → identify all cell\n  + spatial              Spatial transcriptomics      types; infer trajectories\n                         (10x Visium, Slide-seq,      (pseudotime); reconstruct\n                         MERFISH)                     cell state landscapes.\n                                                     Spatial: gene expression\n                                                     with positional coordinates.\n\n  Optogenetics           ChR2, halorhodopsin         Light-activate or silence\n                         (C. elegans, zebrafish,      specific neurons or cells.\n                         Drosophila, mouse)           Millisecond control of\n                                                     signaling in intact tissue.\n\n  Organoids              3D self-organizing cultures  Human-specific development\n                         from iPSC or adult stem      in a dish: intestinal crypts,\n                         cells                        cerebral cortex, kidney\n                                                     tubules, liver ductal cells.\n                                                     Test drugs; model disease;\n                                                     bridge mouse → human.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "## Key Model Organisms",
+      "confidence": "candidate",
+      "text": "MODEL ORGANISMS IN DEVELOPMENTAL BIOLOGY\n──────────────────────────────────────────\n  ORGANISM        STRENGTHS                        KEY DISCOVERIES\n  ─────────────── ─────────────────────────────    ─────────────────────────\n  Drosophila       Genetics, rapid generation       HOX genes (Lewis/McGinnis)\n                   UAS-Gal4 system; screens         Gap/pair-rule genes\n                                                    Cell polarity (Nüsslein-Volhard)\n  C. elegans       Complete cell lineage map        Cell death (apoptosis)\n                   607 cells at hatching            microRNA discovery\n                   Transparent; optogenetics        RNAi (Fire & Mello)\n  Xenopus          Large eggs; biochemistry          Spemann organizer\n  (frog)           in vitro fertilization           BMP/Chordin dorsal-ventral\n                   Injection experiments             Wnt β-catenin pathway\n  Zebrafish        Optical clarity; forward genetics Haematopoiesis, organogenesis\n                   CRISPR easy; drug screens         Heart regeneration\n  Mouse            Mammalian genome; knockouts      Most organ development\n                   Conditional alleles (Cre-lox)    Imprinting, stem cells\n  Chick            Microsurgery; grafting           HOX, neural crest migration\n                   Accessible embryo (egg)          Limb bud experiments",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:gastrulation
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Gastrulation and Germ Layer Formation
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/02-GASTRULATION.md
+canonical_path: developmental-biology/02-GASTRULATION.md
+backsource_ids: [proof-backfill:developmental-biology:02-gastrulation, git-history:developmental-biology:02-gastrulation]
+concepts: [gastrulation]
+root_concepts: [gastrulation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gastrulation and Germ Layer Formation
 
 ## The Big Picture

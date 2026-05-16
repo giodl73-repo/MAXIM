@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:overview
+kind: guide
+module: political-history
+section: political-history
+title: Political History - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: political-history/00-OVERVIEW.md
+canonical_path: political-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:political-history:00-overview, git-history:political-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Political History — Landscape and Taxonomy
 
 ## The Big Picture

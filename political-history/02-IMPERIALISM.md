@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:imperialism
+kind: guide
+module: political-history
+section: political-history
+title: Imperialism: Theories and Case Studies
+status: source-custody
+source_custody: partial
+current_path: political-history/02-IMPERIALISM.md
+canonical_path: political-history/02-IMPERIALISM.md
+backsource_ids: [proof-backfill:political-history:02-imperialism, git-history:political-history:02-imperialism]
+concepts: [imperialism]
+root_concepts: [imperialism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Imperialism: Theories and Case Studies
 
 ## The Big Picture

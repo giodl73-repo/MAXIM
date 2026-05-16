@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\02-GASTRULATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              GASTRULATION OVERVIEW                               |\n|                                                                  |\n|  BEFORE                     DURING              AFTER            |\n|  Blastocyst (3 layers)  →  Cell migration   →  Trilaminar        |\n|  Epiblast (pluripotent)     through PS          gastrula         |\n|  Trophectoderm              Ingression          3 germ layers    |\n|  Primitive endoderm         Epithelial-         Body axes set    |\n|                             mesenchymal         Organizer active |\n|                             transition (EMT)                     |\n|                                                                  |\n|  Human: Week 2-3            Primitive streak forms (Day 14-15)   |\n|  \"Two week rule\": UK embryo research ethics cutoff at 14 days    |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Engineering Bridge: Gastrulation as Routing Protocol",
+      "confidence": "candidate",
+      "text": "  GASTRULATION                  CS / SYSTEMS PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Primitive streak as           Single ingress point / message queue:\n  migration chokepoint          All future mesoderm and endoderm cells\n                                must transit through the PS in order.\n                                Timing of entry → layer assignment:\n                                early PS cells → endoderm and axial mesoderm;\n                                late PS cells → lateral plate mesoderm.\n                                Exactly a time-division multiplexed queue.\n\n  EMT (epithelial → mesenchymal Active process migration:\n  transition)                   Cells dissolve junctions, acquire\n                                motility, migrate to destinations.\n                                Analogous to a packet leaving a structured\n                                network (epithelium with fixed addressing)\n                                and entering a routed WAN (mesenchyme\n                                with chemotactic guidance cues).\n\n  Organizer secreting BMP       Default-allow with selective deny:\n  antagonists (Chordin, Noggin) The default state of ectoderm is\n                                \"become epidermis\" (BMP-on = skin).\n                                The organizer inhibits BMP in the dorsal\n                                midline → neural fate emerges by DEFAULT\n                                (inhibition of the inhibitor of neural).\n                                Firewall model: deny list applied to a\n                                specific region; everywhere else: allow.\n\n  Nodal gradient (mesoderm)     Signal-strength-dependent cell-type\n                                assignment: high Nodal → endoderm;\n                                low Nodal → mesoderm; none → ectoderm.\n                                A three-level threshold comparator on\n                                a single morphogen.\n\n  Left-right asymmetry via      Physical random noise + amplification\n  nodal ciliary flow            → deterministic asymmetry:\n                                Monocilia rotate → net leftward fluid flow\n                                → Nodal on left → activates Lefty (feedback\n                                inhibitor) + Pitx2 (TF) on left only.\n                                Broken symmetry from a physical random\n                                fluctuation amplified into a stable, heritable\n                                asymmetric state. Same math as symmetry\n                                breaking in Turing systems.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## The Primitive Streak",
+      "confidence": "candidate",
+      "text": "PRIMITIVE STREAK FORMATION (Human Day 14-15)\n──────────────────────────────────────────────\n  Appears at posterior end of epiblast disk.\n  Midline structure that extends anteriorly from Day 14-17.\n  At anterior tip: Hensen's node (= organizer).\n\n  Anterior end of primitive streak →  Hensen's node\n         │\n  posterior ←──────────────────────── anterior\n                  epiblast disk\n\n  MOLECULAR SIGNALS DRIVING PS FORMATION\n  Nodal (TGF-β family): expressed in posterior visceral endoderm\n  → diffuses into epiblast → activates T/Brachyury (master PS gene)\n  FGF8: secreted from PS → maintains mesoderm specification\n  Wnt3a: initiates PS formation (Wnt3a KO mouse = no PS, no mesoderm)\n\nWHAT THE PRIMITIVE STREAK DOES\n  Epiblast cells undergo EMT (epithelial-to-mesenchymal transition):\n  → Downregulate E-cadherin, upregulate N-cadherin, vimentin, fibronectin\n  → Lose epithelial polarity → become mesenchymal, migratory\n  → Ingress through PS into space beneath epiblast\n  → Form mesoderm (between epiblast/ectoderm and endoderm)\n  → Some cells displace primitive endoderm → become definitive endoderm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Fates Through the Primitive Streak",
+      "confidence": "candidate",
+      "text": "POSITION IN PS → FATE OF INGRESSING CELLS\n───────────────────────────────────────────\n  Anterior PS / Hensen's node:\n    → Notochord (midline; induces neural tube)\n    → Prechordal plate mesoderm (head structures)\n\n  Anterior-mid PS:\n    → Cardiac mesoderm (heart)\n    → Head mesoderm\n\n  Mid PS:\n    → Paraxial mesoderm (somites → vertebrae, ribs, back muscle, dermis)\n    → Lateral plate mesoderm (limbs, cardiovascular mesoderm)\n\n  Posterior PS:\n    → Extraembryonic mesoderm\n    → Primordial germ cells (these must migrate later to gonads!)\n\n  Extreme posterior / node-adjacent:\n    → Definitive endoderm (replaces primitive endoderm)\n    → Will form gut, liver, pancreas, lungs\n\n  EPIBLAST CELLS THAT DON'T INGRESS\n    → Ectoderm (surface skin, nervous system)\n    Staying above = ectodermal fate\n    Ingressing = mesodermal or endodermal fate\n\n  The decision to ingress = determined by level of Nodal signaling\n  High Nodal → anterior PS / endoderm fate\n  Low Nodal → posterior PS / mesoderm fate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Hensen's Node: The Organizer",
+      "confidence": "candidate",
+      "text": "SPEMANN ORGANIZER (frog) / HENSEN'S NODE (birds/mammals)\n──────────────────────────────────────────────────────────\nSPEMANN AND MANGOLD EXPERIMENT (1924)\n  Transplant dorsal lip of blastopore (organizer) from one frog embryo\n  to ventral side of another.\n  Result: SECONDARY AXIS forms on host — complete ectopic head and trunk.\n  The organizer induces a new body plan.\n  Nobel Prize 1935 (Spemann; Mangold died young).\n\nWHAT THE ORGANIZER SECRETES\n  BMP ANTAGONISTS:\n    Chordin: binds BMP2/4/7 → blocks BMP signaling\n    Noggin: binds BMP → blocks receptor binding\n    Follistatin: BMP + Activin antagonist\n    → Net effect: LOW BMP dorsally → NEURAL tissue (default state)\n    HIGH BMP ventrally → EPIDERMIS and ventral tissues\n\n  Wnt ANTAGONISTS:\n    Dkk1, Cerberus, sFRPs\n    → Low Wnt anteriorly → HEAD formation\n    → High Wnt posteriorly → TAIL formation\n\n  NODAL ANTAGONISTS:\n    Lefty, Cerberus\n    → Define the organizing domain\n\n  DEFAULT STATE MODEL\n  \"Without signals, ectoderm becomes neural tissue.\"\n  BMP suppresses this default neural fate → epidermis.\n  Organizer releases BMP antagonists → allows neural default → brain/SC.\n  This explains why the dorsal side (organizer) becomes the nervous system.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Mesoderm Patterning: Somitogenesis",
+      "confidence": "candidate",
+      "text": "MESODERM SUBDIVISIONS\n──────────────────────\n  After ingression, paraxial mesoderm organizes into:\n\n  AXIAL MESODERM:\n    Notochord (midline rod)\n    Precursor of nucleus pulposus (intervertebral discs)\n    Pattern-inducing: induces floor plate; signals to neural tube\n\n  PARAXIAL MESODERM (flanking notochord):\n    Somites: paired, segmented blocks of mesoderm\n    Fate: dermomyotome (muscle + dermis) + sclerotome (vertebrae + ribs)\n\n  INTERMEDIATE MESODERM:\n    Kidney, ureter, gonad development\n\n  LATERAL PLATE MESODERM:\n    Splits into somatic (body wall + limbs) and splanchnic (gut wall + heart)\n    Heart precursors migrate from splanchnic LPM\n\nSOMITOGENESIS: THE SEGMENTATION CLOCK\n  Somites form in pairs, anterior to posterior, one pair every ~90 minutes (mouse).\n  CLOCK MECHANISM:\n    Oscillating Notch/Wnt/FGF gene expression in presomitic mesoderm (PSM)\n    Wavefront: threshold of FGF8 (posterior) / RA (anterior) → determines\n               where oscillation is \"read out\" as a new somite\n\n  MATURATION OF SOMITES\n  Immature somite → dermomyotome (dorsal) + sclerotome (ventral)\n  Dermomyotome → epaxial (back) muscle + hypaxial (limb, trunk) muscle + dermis\n  Sclerotome → vertebral bodies + ribs\n  Signals:\n    Shh from notochord → sclerotome specification\n    Wnt from dorsal neural tube → dermomyotome specification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## Endoderm Specification and Gut Tube",
+      "confidence": "candidate",
+      "text": "DEFINITIVE ENDODERM FORMATION\n──────────────────────────────\n  Most anterior PS ingression → definitive endoderm.\n  Replaces primitive (visceral) endoderm throughout the embryo.\n  Key transcription factors: Sox17, Foxa2, Gata4/6.\n  Signal required: HIGH Nodal (Nodal-long range / high intensity).\n\nFOREGUT, MIDGUT, HINDGUT PATTERNING\n  Lateral plate mesoderm folds around gut tube.\n  AP patterning by retinoic acid (RA):\n    RA gradient: high posteriorly, low anteriorly\n    → Posterior: intestinal identity (CDX2)\n    → Anterior: foregut identity (SOX2)\n\n  ORGAN BUDDING FROM GUT TUBE\n  Position along AP axis determines organ identity:\n\n  FOREGUT:     Pharynx → thyroid, parathyroid, thymus (pharyngeal pouches)\n               Esophagus → trachea (respiratory diverticulum, Week 4)\n               Stomach, liver, gallbladder, pancreas (ventral + dorsal buds, Week 4-5)\n  MIDGUT:      Small intestine, cecum, proximal colon → herniation and rotation\n  HINDGUT:     Distal colon, rectum → cloacal membrane separation\n\n  LIVER INDUCTION\n  Cardiac mesoderm signals (FGF1/2) + septum transversum (BMP4) →\n  → Activates hepatic transcription factors in foregut endoderm →\n  → Liver diverticulum grows into septum transversum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## Primordial Germ Cell Specification and Migration",
+      "confidence": "candidate",
+      "text": "PRIMORDIAL GERM CELLS (PGCs)\n──────────────────────────────\nSignificance: PGCs are the cells that will become eggs and sperm — the\npermanent germline. PGC specification and epigenetic reprogramming are\namong the most dramatic events in development.\n\nSPECIFICATION (Human: Week 2-3; Mouse: E6.25-7.25)\n  In mice: BMP4 from extraembryonic ectoderm → induces BLIMP1 + PRDM14\n  in posterior epiblast cells → PGC fate\n  Key TFs: BLIMP1 (PRDM1), PRDM14, TFAP2C — the PGC \"master regulator\" triad\n  In humans: BMP4/7/8b from trophoblast → SOX17 + BLIMP1 → PGC fate\n  (note: SOX17 is a key human PGC specifier but is NOT required in mouse PGCs)\n\nMIGRATION ROUTE (Mouse E7.5 to E10.5; Human Week 4-6)\n  PGCs originate in posterior primitive streak / extraembryonic mesoderm\n  → Migrate via hindgut endoderm\n  → Through mesentery\n  → Into genital ridge (gonadal anlage)\n  Chemoattractant: SCF (KIT ligand) gradient expressed along migration path\n  Receptor: KIT on PGCs\n  ~150 PGCs at specification → ~2,500 at gonadal colonization\n\nEPIGENETIC REPROGRAMMING (the most dramatic chromatin reset in the organism)\n  On arrival at gonads (Mouse E10.5-E13.5):\n  Phase 1: Global DNA demethylation\n    5mC → passive loss during division + active TET1/TET2-mediated\n    Genome goes from ~70% → <5% methylation globally\n    Imprints ERASED (both maternal and paternal imprints removed)\n  Phase 2: Re-imprinting (sex-specific)\n    Female (oocyte): maternal imprints re-established during oocyte growth\n    Male (sperm): paternal imprints established during spermatogenesis\n  Result: germ cells are reset to a totipotent-compatible epigenomic state\n\nCLINICAL RELEVANCE\n  Germ cell tumors (GCTs):\n    Seminomas / dysgerminomas: retained PGC-like state → pluripotent markers\n    Teratomas: poorly suppressed pluripotency → differentiate into multiple tissues\n    Embryonal carcinoma: fully pluripotent GCT (most aggressive)\n    Teratoma + yolk sac tumor: mixed germ cell tumor\n  PGC migration errors → streak gonads (Turner syndrome-like), gonadal dysgenesis\n  Epigenetic reprogramming errors → improper imprinting → Beckwith-Wiedemann,\n    Angelman, Prader-Willi syndromes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "## Ectoderm: The Remaining Layer",
+      "confidence": "candidate",
+      "text": "ECTODERM FATE MAP\n──────────────────\n  Surface ectoderm: skin, hair, nails, lens, cornea, oral/anal epithelium\n  Neural ectoderm: entire nervous system (neural plate → neural tube)\n  Neural crest: migratory population (Module 06)\n\n  KEY DECISION: SURFACE vs NEURAL ECTODERM\n  After gastrulation, ectoderm covers the dorsal surface.\n  Neural induction (notochord + organizer) induces posterior ectoderm to\n  form neural plate.\n\n  BMP MODEL\n  High BMP → surface ectoderm (epidermis, Dlx, GATA3)\n  Low BMP (blocked by organizer) → neural ectoderm (Sox2, Sox1, Pax3/7)\n  Intermediate BMP → neural crest border zone → Snail, Tfap2a\n\n  NOTE: Neural induction is more complex than just BMP inhibition.\n  FGF, Wnt, and other signals coordinate with BMP gradient.\n  The \"default neural\" model is a simplification, though a useful one.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "## Gastrulation Defects: Clinical Correlations",
+      "confidence": "candidate",
+      "text": "DEFECTS IN GASTRULATION → BODY PLAN ABNORMALITIES\n────────────────────────────────────────────────────\n  CAUDAL REGRESSION SYNDROME\n    Incomplete posterior mesoderm formation.\n    Associated with maternal diabetes mellitus.\n    Spectrum: absent sacrum/coccyx → absent lower spine + lower limbs.\n    Mechanism: high glucose → apoptosis of posterior epiblast/PS mesoderm.\n    Wnt signaling impaired by hyperglycemia.\n\n  SITUS INVERSUS (complete reversal of body organs)\n    Left-right signaling reversal or random assignment.\n    40-50% of cases of Primary Ciliary Dyskinesia (Kartagener syndrome).\n    Cilia on node cells normally beat LEFT → creates left-ward nodal flow.\n    Immotile cilia → no directional flow → 50% chance L or R assignment.\n    If complete: situs inversus totalis — mirror image organs — actually HEALTHY!\n    If incomplete: situs ambiguus/heterotaxy — dangerous (heart defects).\n\n  HOLOPROSENCEPHALY\n    Failure of anterior neural tube to divide → single-lobed forebrain.\n    Linked to: Shh signaling mutations (most common), Nodal pathway.\n    Maternal risk factor: alcohol, diabetes.\n    Spectrum: cyclopia (severe) → partial brain midline fusion (mild).\n\n  HETEROTAXY\n    Random assignment of organ laterality.\n    Multiple complex congenital heart defects.\n    Polysplenia or asplenia.\n    Associated with mutations in Nodal, Lefty, CFC1 (EGF-CFC family).\n\nTERATOGEN WINDOW\n  Gastrulation (Weeks 2-4): MOST SENSITIVE to teratogens.\n  Neural tube closure (Week 3-4): Folate deficiency → neural tube defects.\n  Thalidomide: limb bud (Weeks 4-8): disrupts FGF/Wnt in limb bud mesoderm.\n  Alcohol: disrupts Shh signaling → craniofacial and neural tube effects.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 396,
+      "heading_context": "## Comparative Gastrulation",
+      "confidence": "candidate",
+      "text": "GASTRULATION IN DIFFERENT ORGANISMS\n──────────────────────────────────────\n  ORGANISM    MECHANISM           ORGANIZER          NOTES\n  ──────────  ──────────────────  ─────────────────  ─────────────────────\n  Xenopus     Involution at       Dorsal lip of       Spemann organizer;\n  (frog)      blastopore         blastopore          animal cap experiments\n  Zebrafish   Epiboly + ingress   Shield               Transparent; imaging\n              at embryonic shield                     accessible in vivo\n  Chick       Primitive streak    Hensen's node       2D disk; microsurgery\n                                                      accessible\n  Mouse       Primitive streak    Anterior visceral    Obligate implantation;\n              (inverted cup)      endoderm + node      harder to manipulate\n  Human       Primitive streak    Hensen's node        Similar to mouse/chick\n              Day 14-15           Day 14-16            14-day rule applies\n\n  CONSERVATION\n  Nodal signaling: conserved from fish to humans (Nodal = same pathway)\n  T/Brachyury gene: conserved PS marker, frog to human\n  Organizer function: can transplant chicken organizer into frog → secondary axis!\n  (Cross-species organizer transplantation demonstrates deep conservation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

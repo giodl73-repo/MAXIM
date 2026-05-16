@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:cold-war
+kind: guide
+module: political-history
+section: political-history
+title: Cold War Historiography
+status: source-custody
+source_custody: partial
+current_path: political-history/05-COLD-WAR.md
+canonical_path: political-history/05-COLD-WAR.md
+backsource_ids: [proof-backfill:political-history:05-cold-war, git-history:political-history:05-cold-war]
+concepts: [cold, war]
+root_concepts: [cold, war]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cold War Historiography
 
 ## The Big Picture
@@ -8,8 +27,8 @@ COLD WAR HISTORIOGRAPHY — SCHOOLS OVER TIME
 
   1945-1960      1960s-70s     1970s-80s      1990s-present
   ┌──────────┐   ┌──────────┐  ┌──────────┐   ┌──────────────────┐
-  │ORTHODOX  │   │REVISIONIST│  │POST-     │   │POST-SOVIET      │
-  │          │ → │          │→ │REVISIONIST│ → │ARCHIVAL         │
+  │ ORTHODOX │   │ REVISION │  │ POST-    │   │ POST-SOVIET     │
+  │          │ → │          │→ │ REVISION │ → │ ARCHIVAL        │
   │USSR aggr │   │US aggr   │  │Shared    │   │New evidence from │
   │caused CW │   │caused CW │  │responsib-│   │Soviet, Chinese,  │
   │          │   │          │  │ility;    │   │Eastern Bloc      │

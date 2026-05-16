@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-political-history-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.political-history.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-political-history-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-source-corpus.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-overview.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.revolution-theory.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-revolution-theory.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/01-REVOLUTION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-revolution-theory.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/01-REVOLUTION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.revolution-theory.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-revolution-theory.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.revolution-theory.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-revolution-theory.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-revolution-theory.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/01-REVOLUTION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.revolution-theory.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/01-REVOLUTION-THEORY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.revolution-theory.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/01-REVOLUTION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/01-REVOLUTION-THEORY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/01-REVOLUTION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.revolution-theory.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/01-REVOLUTION-THEORY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.revolution-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/01-REVOLUTION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/01-REVOLUTION-THEORY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/01-REVOLUTION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.revolution-theory.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/01-REVOLUTION-THEORY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.revolution-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/01-REVOLUTION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/01-REVOLUTION-THEORY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/01-REVOLUTION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.imperialism.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-imperialism.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/02-IMPERIALISM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-imperialism.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/02-IMPERIALISM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.imperialism.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-imperialism.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.imperialism.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-imperialism.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-imperialism.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/02-IMPERIALISM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.imperialism.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/02-IMPERIALISM.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.imperialism.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/02-IMPERIALISM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/02-IMPERIALISM.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/02-IMPERIALISM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.imperialism.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/02-IMPERIALISM.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.imperialism.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/02-IMPERIALISM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/02-IMPERIALISM.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/02-IMPERIALISM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.imperialism.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/02-IMPERIALISM.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.imperialism.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/02-IMPERIALISM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/02-IMPERIALISM.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/02-IMPERIALISM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.world-wars.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-world-wars.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/03-WORLD-WARS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-world-wars.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/03-WORLD-WARS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.world-wars.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-world-wars.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.world-wars.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-world-wars.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-world-wars.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/03-WORLD-WARS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.world-wars.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/03-WORLD-WARS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.world-wars.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/03-WORLD-WARS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/03-WORLD-WARS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/03-WORLD-WARS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.world-wars.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/03-WORLD-WARS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.world-wars.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/03-WORLD-WARS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/03-WORLD-WARS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/03-WORLD-WARS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.world-wars.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/03-WORLD-WARS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.world-wars.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/03-WORLD-WARS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/03-WORLD-WARS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/03-WORLD-WARS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.decolonization.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-decolonization.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/04-DECOLONIZATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-decolonization.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/04-DECOLONIZATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.decolonization.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-decolonization.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.decolonization.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-decolonization.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-decolonization.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/04-DECOLONIZATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.decolonization.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/04-DECOLONIZATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.decolonization.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/04-DECOLONIZATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/04-DECOLONIZATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/04-DECOLONIZATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.decolonization.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/04-DECOLONIZATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.decolonization.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/04-DECOLONIZATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/04-DECOLONIZATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/04-DECOLONIZATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.decolonization.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/04-DECOLONIZATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.decolonization.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/04-DECOLONIZATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/04-DECOLONIZATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/04-DECOLONIZATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.cold-war.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-cold-war.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/05-COLD-WAR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-cold-war.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/05-COLD-WAR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.cold-war.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-cold-war.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.cold-war.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-cold-war.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-cold-war.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/05-COLD-WAR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.cold-war.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/05-COLD-WAR.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.cold-war.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/05-COLD-WAR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/05-COLD-WAR.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/05-COLD-WAR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.cold-war.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/05-COLD-WAR.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.cold-war.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/05-COLD-WAR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/05-COLD-WAR.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/05-COLD-WAR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.cold-war.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/05-COLD-WAR.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.cold-war.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/05-COLD-WAR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/05-COLD-WAR.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/05-COLD-WAR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.postwar-order.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-postwar-order.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/06-POSTWAR-ORDER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-postwar-order.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/06-POSTWAR-ORDER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.postwar-order.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-postwar-order.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.postwar-order.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-postwar-order.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-postwar-order.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/06-POSTWAR-ORDER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.postwar-order.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/06-POSTWAR-ORDER.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.postwar-order.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/06-POSTWAR-ORDER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/06-POSTWAR-ORDER.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/06-POSTWAR-ORDER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.postwar-order.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/06-POSTWAR-ORDER.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.postwar-order.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/06-POSTWAR-ORDER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/06-POSTWAR-ORDER.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/06-POSTWAR-ORDER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.postwar-order.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/06-POSTWAR-ORDER.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.postwar-order.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/06-POSTWAR-ORDER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/06-POSTWAR-ORDER.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/06-POSTWAR-ORDER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.democratic-backsliding.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-democratic-backsliding.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-democratic-backsliding.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.democratic-backsliding.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-democratic-backsliding.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.democratic-backsliding.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-democratic-backsliding.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-democratic-backsliding.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.democratic-backsliding.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/07-DEMOCRATIC-BACKSLIDING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.democratic-backsliding.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/07-DEMOCRATIC-BACKSLIDING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.democratic-backsliding.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/07-DEMOCRATIC-BACKSLIDING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.democratic-backsliding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/07-DEMOCRATIC-BACKSLIDING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.democratic-backsliding.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/07-DEMOCRATIC-BACKSLIDING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.democratic-backsliding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/07-DEMOCRATIC-BACKSLIDING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/07-DEMOCRATIC-BACKSLIDING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.authoritarian-resurgence.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-authoritarian-resurgence.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-authoritarian-resurgence.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.authoritarian-resurgence.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-authoritarian-resurgence.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.authoritarian-resurgence.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-authoritarian-resurgence.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-authoritarian-resurgence.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.authoritarian-resurgence.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/08-AUTHORITARIAN-RESURGENCE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.authoritarian-resurgence.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/08-AUTHORITARIAN-RESURGENCE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.authoritarian-resurgence.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/08-AUTHORITARIAN-RESURGENCE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.authoritarian-resurgence.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/08-AUTHORITARIAN-RESURGENCE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.authoritarian-resurgence.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/08-AUTHORITARIAN-RESURGENCE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.authoritarian-resurgence.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/08-AUTHORITARIAN-RESURGENCE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/08-AUTHORITARIAN-RESURGENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.historiography.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-political-history-historiography.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/09-HISTORIOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-political-history-historiography.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/09-HISTORIOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.historiography.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-political-history-historiography.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.historiography.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "political-history",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.political-history.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-political-history-historiography.json",
+            "module": "political-history",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-political-history-historiography.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/09-HISTORIOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.historiography.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/09-HISTORIOGRAPHY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.historiography.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/09-HISTORIOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/09-HISTORIOGRAPHY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/09-HISTORIOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.historiography.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/09-HISTORIOGRAPHY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.historiography.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/09-HISTORIOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/09-HISTORIOGRAPHY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/09-HISTORIOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.political-history.historiography.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/political-history/proof-source/09-HISTORIOGRAPHY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.political-history.historiography.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "political-history",
+            "guide": "political-history/09-HISTORIOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/political-history/proof-source/09-HISTORIOGRAPHY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "political-history",
+        "guide": "political-history/09-HISTORIOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

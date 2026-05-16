@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:postwar-order
+kind: guide
+module: political-history
+section: political-history
+title: The Postwar Liberal Order
+status: source-custody
+source_custody: partial
+current_path: political-history/06-POSTWAR-ORDER.md
+canonical_path: political-history/06-POSTWAR-ORDER.md
+backsource_ids: [proof-backfill:political-history:06-postwar-order, git-history:political-history:06-postwar-order]
+concepts: [postwar, order]
+root_concepts: [postwar, order]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Postwar Liberal Order
 
 ## The Big Picture

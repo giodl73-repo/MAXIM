@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\03-SIGNALING-PATHWAYS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|          THREE CORE DEVELOPMENTAL SIGNALING PATHWAYS             |\n|                                                                  |\n|  Wnt/β-catenin    Notch              Hedgehog                    |\n|  ─────────────    ──────────         ──────────                  |\n|  Diffusible       Juxtacrine         Diffusible (lipid-modified) |\n|  ligand           (cell contact)     ligand                      |\n|  GPCR-like        Ligand AND         GPCR-like receptor          |\n|  response         receptor on same   signaling                   |\n|  cell             or neighboring     via Gli TFs                 |\n|                   cell               through primary cilium      |\n|                                                                  |\n|  Used in:         Used in:           Used in:                    |\n|  Stem cells       Cell fate choice   Neural tube (floor plate)   |\n|  Axis patterning  Lateral inhibition Limb patterning (ZPA)       |\n|  Colon epithelium Angiogenesis       Cerebellum development      |\n|  Colorectal CA    T-ALL              Basal cell carcinoma        |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Engineering Bridges: Circuit Analogies for Three Core Pathways",
+      "confidence": "candidate",
+      "text": "  PATHWAY                       CS / SYSTEMS PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Wnt destruction complex       Garbage collector with a kill switch:\n  (APC/Axin/GSK3β/CK1)         β-catenin is constitutively tagged for\n                                ubiquitin-mediated degradation (mark → sweep).\n                                Wnt signal inhibits the destruction complex\n                                → β-catenin accumulates. The default state\n                                is \"degrade\"; signal is \"pause GC.\" Exactly\n                                a GC pause triggered by an external event.\n                                APC tumor suppressor loss = GC permanently off\n                                → β-catenin accumulates → colorectal cancer.\n\n  Notch lateral inhibition      Distributed leader election protocol:\n  (Delta → suppress neighbors)  One cell stochastically upregulates Delta\n                                → signals to Notch on neighbors →\n                                suppresses their Delta → reinforces original\n                                cell's lead. Positive feedback locally,\n                                negative feedback to neighbors. No central\n                                coordinator; winner emerges from initial noise.\n                                Final state: one Delta-high cell surrounded\n                                by Notch-high cells — stable consensus.\n\n  Hedgehog via primary cilium   Hardware-gated signal transduction:\n  (signal requires cilia)       Smoothened (SMO) is sequestered in vesicles\n                                until Patched (PTCH) is disabled by Shh.\n                                The entire signaling cascade requires the\n                                primary cilium as a physical platform —\n                                no cilia → no Hh signaling, regardless of\n                                ligand. This is hardware-enforced access\n                                control: signal only processed if physical\n                                substrate present.\n\n  BMP \"default allow\"           Permit-unless-inhibited:\n  (neural induction)            Default ectoderm state = epidermis (BMP on).\n                                Organizer secretes Chordin → blocks BMP →\n                                neural fate by default. The neural pathway\n                                is enabled by inhibiting an inhibitor —\n                                double-negative logic. Most developmental\n                                \"inductions\" are really de-repressions.\n\n  Pathway reuse / context-      Multi-tenant execution environment:\n  dependence (Wnt in gut vs.    Same pathway; different cell type →\n  limb vs. hair follicle)       different transcription factor partners →\n                                different target genes → different outcomes.\n                                The pathway is the signal transduction\n                                machinery; the output depends on the\n                                receiving cell's \"installed software.\"\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Wnt/β-Catenin Pathway",
+      "confidence": "candidate",
+      "text": "CANONICAL WNT PATHWAY MECHANICS\n─────────────────────────────────\n\n  WNT OFF STATE:\n  ┌─────────────────────────────────────────────────────┐\n  │  β-catenin is continuously phosphorylated by        │\n  │  DESTRUCTION COMPLEX:                               │\n  │    APC + Axin + GSK3β + CK1                         │\n  │    ↓                                                │\n  │    P-β-catenin → ubiquitination → proteasomal       │\n  │    degradation                                      │\n  │    ↓                                                │\n  │    β-catenin levels in cytoplasm: LOW               │\n  │    TCF/LEF transcription factors: REPRESSED         │\n  └─────────────────────────────────────────────────────┘\n\n  WNT ON STATE:\n  ┌─────────────────────────────────────────────────────┐\n  │  Wnt ligand binds Frizzled (GPCR-like) + LRP5/6     │\n  │    ↓                                                │\n  │  Dishevelled (Dvl) activated                        │\n  │    ↓                                                │\n  │  Destruction complex INHIBITED:                     │\n  │    Axin sequestered at LRP → complex disrupted      │\n  │    ↓                                                │\n  │  β-catenin accumulates (not phosphorylated)         │\n  │    ↓                                                │\n  │  β-catenin → nucleus → binds TCF/LEF                │\n  │    ↓                                                │\n  │  Transcription of target genes: c-Myc, Cyclin D1,   │\n  │    Axin2, LGR5 (stem cell marker), etc.             │\n  └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Wnt/β-Catenin Pathway",
+      "confidence": "candidate",
+      "text": "Wnt SIGNAL MODULATORS\n──────────────────────\n  Secreted inhibitors (block Wnt):\n    Dkk1/2/3/4: bind LRP5/6 coreceptor → prevent Frizzled-LRP complex\n    sFRP (secreted Frizzled-related proteins): decoy Frizzled receptors\n    Sclerostin/SOST: binds LRP5/6; expressed in bone; anti-osteogenic\n\n  Agonists (enhance Wnt):\n    RSPO (R-spondin) proteins: bind LGR4/5/6 → prevent Frizzleds from\n    being degraded → more receptors available → amplified Wnt signaling\n    RSPO + Wnt combinations define intestinal stem cell niche\n\nCANCER MUTATIONS (Wnt pathway)\n  APC mutations: ~80% of colorectal cancer.\n    APC normally promotes β-catenin phosphorylation.\n    Loss-of-function APC → destruction complex fails → constitutive β-catenin activation.\n    This is the \"gatekeeper\" mutation for colorectal cancer.\n  β-catenin gain-of-function: Cannot be phosphorylated → constitutive activation.\n    Hepatocellular carcinoma, endometrial cancer, desmoid tumors.\n  WNT pathway drugs:\n    Porcupine inhibitors: Block Wnt secretion (all Wnts palmitoylated by Porcupine).\n    Tankyrase inhibitors: Stabilize Axin → destroy more β-catenin.\n    Under clinical investigation; toxicity to GI stem cells is dose-limiting.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## Non-Canonical Wnt Pathways",
+      "confidence": "candidate",
+      "text": "PLANAR CELL POLARITY (PCP) PATHWAY\n────────────────────────────────────\n  Wnt signals through Frizzled but NOT through β-catenin.\n  Downstream: Rho/Rac GTPases → cytoskeleton organization.\n  Function: Orient cells within a tissue plane.\n    Aligns hair cells in cochlea (inner ear orientation)\n    Convergent extension: cells intercalate to elongate tissue\n    Neural tube closure (critical!)\n\n  PCP DEFECTS\n    Neural tube defects (NTDs): Wnt/PCP required for neural tube closure.\n    Inner ear hair cell misorientation → balance/hearing defects.\n    Situs inversus (Node cilia orientation).\n\nWNT-Ca²+ PATHWAY\n  Another non-canonical branch.\n  Frizzled → Gq → PLC → IP3 → Ca²+ release.\n  Downstream: CaMKII, calcineurin, NFAT.\n  Less characterized developmentally; immune cell signaling.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## Notch Pathway",
+      "confidence": "candidate",
+      "text": "NOTCH PATHWAY MECHANICS\n─────────────────────────\n  Juxtacrine: Ligand and receptor must be on adjacent cells.\n  No diffusion. Creates sharp boundaries, not gradients.\n\n  LIGANDS (on signaling cell): Delta-like (DLL1, DLL3, DLL4), Jagged (JAG1, JAG2)\n  RECEPTOR (on receiving cell): Notch 1-4\n\n  MECHANISM\n  ┌──────────────────────────────────────────────────────────┐\n  │  1. Ligand (Delta) on Cell A binds Notch on Cell B       │\n  │  2. Notch ectodomain pulled off by ADAM metalloprotease  │\n  │     (trans-endocytosis: ligand cell pulls on Notch)      │\n  │  3. Remaining Notch stub cleaved by γ-secretase          │\n  │     (same protease that cleaves APP in Alzheimer's)      │\n  │  4. NICD (Notch Intracellular Domain) released           │\n  │  5. NICD → nucleus → binds CSL/RBPjk                     │\n  │  6. Activates target genes: HES1, HES5, HEY1             │\n  │     (basic helix-loop-helix repressors)                  │\n  │  7. HES genes repress Atonal, Neurogenin, Ascl1          │\n  │     → Cell B does NOT become a neuron (or whatever fate) │\n  └──────────────────────────────────────────────────────────┘\n\n  LATERAL INHIBITION (the key Notch function)\n  ─────────────────────────────────────────────\n  When one cell begins to differentiate (say, a neuron precursor):\n    → It upregulates Delta on its surface.\n    → Delta activates Notch in neighbors.\n    → Neighbors: ↑HES1 → represses neural fate TFs.\n    → Neighbors CANNOT become neurons.\n  Net result: Only ONE cell out of a group differentiates.\n  Pattern: spaced neurons amid a sea of non-neurons.\n  This is how the nervous system avoids making too many neurons.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Notch in Development and Disease",
+      "confidence": "candidate",
+      "text": "NOTCH FUNCTIONS ACROSS CONTEXTS\n──────────────────────────────────\n  Context              Notch Function\n  ──────────────────── ──────────────────────────────────────────────\n  Nervous system       Lateral inhibition → neuron spacing\n                       Maintains neural stem cell pool\n  Inner ear            Hair cell specification (1 per 6 supporting cells)\n  Intestinal crypt     Absorptive vs secretory fate (Notch→absorptive)\n  Vasculature          Arterial vs venous fate; VEGF tip vs stalk cell\n  T-cell development   Multiple checkpoints; thymic selection\n  Pancreas             Acinar vs islet fate\n\nNOTCH IN CANCER\n  Gain-of-function:\n    T-ALL (T-cell acute lymphoblastic leukemia): NOTCH1 mutations > 60%\n    → Activating mutations in NRR (prevents proteolysis without ligand)\n    → Constitutive NICD release → immortalization of T-cell progenitors\n    Treatment: γ-secretase inhibitors (GSIs) — clinical trials\n    Problem: GSIs cause GI toxicity (intestinal secretory cells require Notch OFF)\n\n  Loss-of-function:\n    Alagille syndrome: JAG1 mutations → liver, heart, vertebral defects\n    CADASIL: NOTCH3 mutations → vascular dementia, stroke\n    Squamous cell carcinoma: NOTCH1/2 tumor suppressors in skin\n\nFRINGE PROTEINS: Modulate Notch-Ligand Selectivity\n  Lunatic/Manic/Radical Fringe: GlcNAc-transferases; modify Notch EGF repeats\n  → Preferential activation by Delta vs Jagged\n  Critical for somitogenesis (boundary precision depends on Fringe modulation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Hedgehog Pathway",
+      "confidence": "candidate",
+      "text": "HEDGEHOG PATHWAY MECHANICS\n────────────────────────────\n  Ligands: Sonic Hedgehog (Shh), Desert Hedgehog (Dhh), Indian Hedgehog (Ihh)\n  Requires: Lipid modification (cholesterol at C-terminus, palmitate at N-terminus)\n           Dispatched (DISP): releases Shh from producing cell\n           Heparan sulfate proteoglycans: facilitate diffusion\n\n  HEDGEHOG OFF STATE:\n  ┌────────────────────────────────────────────────────────────┐\n  │  PATCHED (PTCH1): 12-transmembrane receptor                │\n  │  Normally INHIBITS Smoothened (SMO)                        │\n  │  SMO is inactive → CI/Gli processed into repressor form    │\n  │  Gli3-R: repressor → target genes OFF                      │\n  │  (via Suppressor of Fused, kinase phosphorylation)         │\n  └────────────────────────────────────────────────────────────┘\n\n  HEDGEHOG ON STATE:\n  ┌────────────────────────────────────────────────────────────┐\n  │  Shh binds PTCH1 → PTCH1 moves away from cilium            │\n  │    ↓                                                       │\n  │  SMO accumulates in primary cilium → activated             │\n  │    ↓                                                       │\n  │  Full-length Gli2/Gli1 → activator form (Gli-A)            │\n  │  Gli2-A → nucleus → activates target genes:                │\n  │    Ptch1 (feedback), Gli1, Cyclin D/E, Bcl-2               │\n  └────────────────────────────────────────────────────────────┘\n\n  PRIMARY CILIUM REQUIREMENT\n  The Hedgehog pathway in vertebrates runs THROUGH the primary cilium.\n  All components (PTCH1, SMO, Gli proteins) traffic in/out of cilia.\n  Mutations in ciliary genes → Hedgehog signaling defects.\n  Ciliopathies (Bardet-Biedl, Joubert, Meckel syndromes): Hh defects.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "## Hedgehog in Development",
+      "confidence": "candidate",
+      "text": "SHH FUNCTIONS BY ORGAN\n────────────────────────\n  NEURAL TUBE\n    Shh from notochord and floor plate → ventral-to-dorsal gradient.\n    High Shh (ventral): motor neuron specification (Nkx2.2, Olig2 TFs)\n    Low Shh (dorsal): interneuron types (Pax7, Dbx TFs)\n    Very precise: 5 different motor neuron subtypes from Shh concentration.\n\n  LIMB BUD (Zone of Polarizing Activity, ZPA)\n    ZPA (posterior limb mesenchyme) secretes Shh.\n    Shh gradient anterior-to-posterior:\n    Posterior (high Shh) → little finger identity (5th digit, HOXD13 high)\n    Anterior (low Shh) → thumb identity (1st digit)\n    Classic ZPA transplant experiment:\n      Graft ZPA to anterior of a second limb bud → mirror image digits\n      (6 digits: 2345-5432 instead of 12345)\n\n  CEREBELLUM\n    Shh from Purkinje cells → drives granule cell precursor proliferation.\n    Medulloblastoma: 25-30% have activating Hh mutations (→ granule cells over-proliferate)\n\n  BRAIN MIDLINE (forebrain)\n    Prechordal plate Shh → ventral forebrain specification.\n    Shh mutations → holoprosencephaly (failure to separate brain hemispheres).\n    Alcohol → depletes cholesterol → reduces Shh modification → holoprosencephaly risk.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "## Hedgehog in Cancer and Therapy",
+      "confidence": "candidate",
+      "text": "HEDGEHOG PATHWAY CANCERS\n──────────────────────────\n  BASAL CELL CARCINOMA (BCC)\n    Most common cancer in humans.\n    90%+ have PTCH1 loss-of-function (tumor suppressor).\n    PTCH1 LOF → SMO constitutively active → Gli target genes → proliferation.\n    Treatment: Vismodegib (SMO inhibitor) — first FDA-approved Hh pathway drug.\n    Sonic Hedgehog subgroup medulloblastoma: similar mechanism; used in children.\n\n  MEDULLOBLASTOMA (SHH subtype)\n    ~30% of medulloblastomas.\n    PTCH1 or SUFU loss, SMO gain-of-function, or pathway amplification.\n    Vismodegib/sonidegib in clinical use.\n\n  RESISTANCE TO SMO INHIBITORS\n    SMO mutations that prevent vismodegib binding (analogous to imatinib T315I).\n    Gli2 amplification: bypass SMO entirely.\n    Research: Gli inhibitors as second-line therapy.\n\nHEDGEHOG IN NORMAL ADULT TISSUE MAINTENANCE\n  Inactive in most adult tissues.\n  Active in:\n    Hair follicle cycling (Shh drives anagen/growth phase)\n    Intestinal stem cell niche (Hh from stromal cells)\n    Bone remodeling: Ihh in growth plate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 380,
+      "heading_context": "## Pathway Interactions (Crosstalk)",
+      "confidence": "candidate",
+      "text": "WNT-NOTCH-HEDGEHOG INTERACTIONS\n─────────────────────────────────\n  In intestinal crypt:\n    WNT HIGH (bottom of crypt) → LGR5+ stem cells → proliferation\n    NOTCH HIGH (stem cells, adjacent transit amplifying) → absorptive fate\n    NOTCH LOW (secretory lineage) → Atoh1 → goblet/Paneth/enteroendocrine\n    HEDGEHOG from villi → BMP → inhibit Wnt in villus → differentiation\n\n  In neural stem cells:\n    NOTCH → Hes1 → maintains stem state (represses proneural genes)\n    WNT → Cyclin D → promotes G1 progression → proliferation\n    HEDGEHOG → Gli2 → granule precursor proliferation\n\n  IN GENERAL:\n    Wnt: often promotes proliferation/stemness\n    Notch: often maintains progenitor state via lateral inhibition\n    Hedgehog: often specifies ventral/positional identity; also proliferative in certain contexts\n    BMP: often promotes differentiation / inhibits stemness\n    These are rough tendencies — context is everything.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
