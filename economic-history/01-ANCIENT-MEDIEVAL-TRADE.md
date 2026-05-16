@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:ancient-medieval-trade
+kind: guide
+module: economic-history
+section: economic-history
+title: Ancient and Medieval Trade - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/01-ANCIENT-MEDIEVAL-TRADE.md
+canonical_path: economic-history/01-ANCIENT-MEDIEVAL-TRADE.md
+backsource_ids: [proof-backfill:economic-history:01-ancient-medieval-trade, git-history:economic-history:01-ancient-medieval-trade]
+concepts: [ancient, medieval, trade]
+root_concepts: [ancient, medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient and Medieval Trade — Economic History
 
 ## The Big Picture
@@ -355,9 +374,9 @@ ISLAMIC COMMERCIAL INSTRUMENTS
    | Investor (rabb al-mal)                     |
    |   Provides: capital (100 dinars)           |
    |   Provides: nothing else -- no labor       |
-   |   Receives: agreed share of PROFIT (e.g. 40%)|
+   |   Receives: profit share (e.g. 40%)        |
    |   Liability: loss of capital only          |
-   +------------------+--------------------------+
+   +------------------+-------------------------+
                       |
    +------------------v--------------------------+
    | Working Partner (mudarib)                   |
@@ -365,7 +384,7 @@ ISLAMIC COMMERCIAL INSTRUMENTS
    |   Provides: nothing financial               |
    |   Receives: agreed share of PROFIT (60%)    |
    |   Liability: loss of time and effort only   |
-   +--------------------------------------------+
+   +---------------------------------------------+
 
    KEY: Return to investor is SHARE OF PROFIT, not interest
    Losses: investor loses capital; working partner loses effort

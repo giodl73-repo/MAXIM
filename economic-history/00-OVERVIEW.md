@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:overview
+kind: guide
+module: economic-history
+section: economic-history
+title: Economic History - Discipline Overview
+status: source-custody
+source_custody: partial
+current_path: economic-history/00-OVERVIEW.md
+canonical_path: economic-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:economic-history:00-overview, git-history:economic-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economic History — Discipline Overview
 
 ## The Big Picture

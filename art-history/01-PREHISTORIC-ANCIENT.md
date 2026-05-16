@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:prehistoric-ancient
+kind: guide
+module: art-history
+section: art-history
+title: 01 - Prehistoric and Ancient Art
+status: source-custody
+source_custody: partial
+current_path: art-history/01-PREHISTORIC-ANCIENT.md
+canonical_path: art-history/01-PREHISTORIC-ANCIENT.md
+backsource_ids: [proof-backfill:art-history:01-prehistoric-ancient, git-history:art-history:01-prehistoric-ancient]
+concepts: [prehistoric, ancient]
+root_concepts: [prehistoric, ancient]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Prehistoric and Ancient Art
 
 ## The Big Picture
@@ -153,19 +172,19 @@ STONEHENGE SPATIAL LOGIC
 ==========================
 
   AXIS: aligned to midsummer sunrise / midwinter sunset
-  ┌─────────────────────────────────────────────────────┐
-  │        [Heel Stone]                                 │
-  │             |  <- midsummer sunrise axis            │
-  │        [Avenue]                                     │
-  │             |                                       │
-  │      +──────+──────+  <- Sarsen circle (30 uprights)│
-  │      |  +────────+ |  <- Bluestone circle           │
-  │      |  | +────+ | |  <- Trilithon horseshoe        │
-  │      |  | | [A]| | |  <- Altar stone                │
-  │      |  | +────+ | |                                │
-  │      |  +────────+ |                                │
-  │      +─────────────+                                │
-  └─────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────┐
+  │        [Heel Stone]                                  │
+  │             |  <- midsummer sunrise axis             │
+  │        [Avenue]                                      │
+  │             |                                        │
+  │      +──────+──────+  <- Sarsen circle (30 uprights) │
+  │      |  +────────+ |  <- Bluestone circle            │
+  │      |  | +────+ | |  <- Trilithon horseshoe         │
+  │      |  | | [A]| | |  <- Altar stone                 │
+  │      |  | +────+ | |                                 │
+  │      |  +────────+ |                                 │
+  │      +─────────────+                                 │
+  └──────────────────────────────────────────────────────┘
 
   Sarsen stones: from Marlborough Downs, ~30km north
   Bluestones: from Preseli Hills, Wales, ~240km
@@ -305,55 +324,55 @@ GREEK SCULPTURAL DEVELOPMENT
   └─────────────────────────────────────────────────────┘
                           |
   ARCHAIC (c. 700–480 BCE)
-  ┌─────────────────────────────────────────────────────┐
-  │ KOUROS (pl. kouroi): standing male youth            │
-  │   - Both feet planted, left foot slightly forward   │
-  │   - Arms at sides, fists clenched                   │
-  │   - "Archaic smile" -- formulaic, not expressive    │
-  │   - Hair in elaborate formal patterns               │
-  │   - Nude -- the Greek male ideal, not modesty       │
-  │   - Increasingly anatomically observed over time:   │
-  │     early kouroi smooth and schematic; late kouroi  │
-  │     show specific muscle groups                     │
-  │                                                     │
-  │ KORE (pl. korai): standing draped female            │
-  │   - Always clothed (unlike male nudity)             │
-  │   - Elaborate drapery patterns -- technical display │
-  │   - Archaic smile, formal hair                      │
-  │                                                     │
-  │ FUNCTION: votive offerings (at temples) and grave   │
-  │   markers -- NOT portraits of specific individuals  │
-  └─────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────┐
+  │ KOUROS (pl. kouroi): standing male youth             │
+  │   - Both feet planted, left foot slightly forward    │
+  │   - Arms at sides, fists clenched                    │
+  │   - "Archaic smile" -- formulaic, not expressive     │
+  │   - Hair in elaborate formal patterns                │
+  │   - Nude -- the Greek male ideal, not modesty        │
+  │   - Increasingly anatomically observed over time:    │
+  │     early kouroi smooth and schematic; late kouroi   │
+  │     show specific muscle groups                      │
+  │                                                      │
+  │ KORE (pl. korai): standing draped female             │
+  │   - Always clothed (unlike male nudity)              │
+  │   - Elaborate drapery patterns -- technical display  │
+  │   - Archaic smile, formal hair                       │
+  │                                                      │
+  │ FUNCTION: votive offerings (at temples) and grave    │
+  │   markers -- NOT portraits of specific individuals   │
+  └──────────────────────────────────────────────────────┘
                           |
   CLASSICAL (c. 480–323 BCE)
-  ┌─────────────────────────────────────────────────────┐
-  │ CONTRAPPOSTO: the formal breakthrough               │
-  │                                                     │
-  │   Weight shifts to one leg (stance leg)             │
-  │   Hip on weight-bearing side rises                  │
-  │   Shoulder on weight-bearing side drops             │
-  │   Spine follows S-curve to compensate               │
-  │   Figure is ALIVE -- caught in a moment of          │
-  │   potential motion, not static bilateral symmetry   │
-  │                                                     │
-  │ POLYKLEITOS (c. 450 BCE):                           │
-  │   - Doryphoros (Spear-Bearer) = canon made flesh    │
-  │   - Proportional system: head = 1/7 body height     │
-  │   - Chiasmus: left arm raised / right arm lowered,  │
-  │     left leg relaxed / right leg supporting         │
-  │   - Opposing tensions create dynamic harmony        │
-  │   - Original bronze lost; we know it from marble    │
-  │     Roman copies (copying tradition = evidence loss)│
-  │                                                     │
-  │ PARTHENON (447-438 BCE, Phidias supervising):       │
-  │   - Entasis (column has slight convex bulge)        │
-  │   - Columns lean slightly inward                    │
-  │   - Stylobate platform curves upward at center      │
-  │   - No perfectly straight line on the building      │
-  │   - Optical corrections for visual perfection       │
-  │   - Chryselephantine cult statue of Athena (gold    │
-  │     on ivory armature, ~12m tall) now lost          │
-  └─────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────┐
+  │ CONTRAPPOSTO: the formal breakthrough                │
+  │                                                      │
+  │   Weight shifts to one leg (stance leg)              │
+  │   Hip on weight-bearing side rises                   │
+  │   Shoulder on weight-bearing side drops              │
+  │   Spine follows S-curve to compensate                │
+  │   Figure is ALIVE -- caught in a moment of           │
+  │   potential motion, not static bilateral symmetry    │
+  │                                                      │
+  │ POLYKLEITOS (c. 450 BCE):                            │
+  │   - Doryphoros (Spear-Bearer) = canon made flesh     │
+  │   - Proportional system: head = 1/7 body height      │
+  │   - Chiasmus: left arm raised / right arm lowered,   │
+  │     left leg relaxed / right leg supporting          │
+  │   - Opposing tensions create dynamic harmony         │
+  │   - Original bronze lost; we know it from marble     │
+  │     Roman copies (copying tradition = evidence loss) │
+  │                                                      │
+  │ PARTHENON (447-438 BCE, Phidias supervising):        │
+  │   - Entasis (column has slight convex bulge)         │
+  │   - Columns lean slightly inward                     │
+  │   - Stylobate platform curves upward at center       │
+  │   - No perfectly straight line on the building       │
+  │   - Optical corrections for visual perfection        │
+  │   - Chryselephantine cult statue of Athena (gold     │
+  │     on ivory armature, ~12m tall) now lost           │
+  └──────────────────────────────────────────────────────┘
                           |
   HELLENISTIC (c. 323–31 BCE)
   ┌─────────────────────────────────────────────────────┐
@@ -402,17 +421,18 @@ GREEK IDEAL vs ROMAN VERISM
 ==============================
 
   Greek Classical ideal:          Roman Republican verism:
-  ┌──────────────────────┐        ┌──────────────────────────────┐
-  │ Idealized youth      │        │ Specific aged individual     │
-  │ No distinguishing    │        │ All identifying features     │
-  │   marks              │        │   retained: baldness, scars, │
-  │ Beauty = ideal form  │        │   wrinkles, jowls            │
-  │ Could not function   │        │ Virtue lies in experience, not│
-  │   as a portrait      │        │   beauty; gravitas over kalos │
-  │                      │        │ Portraits for ancestor cult: │
-  │                      │        │   wax masks of the dead worn │
-  │                      │        │   at funerals by living men  │
-  └──────────────────────┘        └──────────────────────────────┘
+  ┌──────────────────────┐        ┌────────────────────────────────┐
+  │ Idealized youth      │        │ Specific aged individual       │
+  │ No distinguishing    │        │ All identifying features       │
+  │   marks              │        │   retained: baldness, scars,   │
+  │ Beauty = ideal form  │        │   wrinkles, jowls              │
+  │ Could not function   │        │ Virtue lies in experience, not │
+  │   as a portrait      │        │   beauty; gravitas over kalos  │
+  │                      │        │ Portraits for ancestor cult:   │
+  │                      │        │   wax masks of the dead worn   │
+  │                      │        │   at funerals by living men    │
+  │                      │        │                                │
+  └──────────────────────┘        └────────────────────────────────┘
 
   Imperial period synthesis:
   Idealized body (heroic pose, athletic) + somewhat realistic head

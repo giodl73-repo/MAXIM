@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:financial-capitalism
+kind: guide
+module: economic-history
+section: economic-history
+title: Financial Capitalism - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/05-FINANCIAL-CAPITALISM.md
+canonical_path: economic-history/05-FINANCIAL-CAPITALISM.md
+backsource_ids: [proof-backfill:economic-history:05-financial-capitalism, git-history:economic-history:05-financial-capitalism]
+concepts: [financial, capitalism]
+root_concepts: [financial, capitalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Financial Capitalism — Economic History
 
 ## The Big Picture
@@ -18,7 +37,7 @@ LAYER 2: CAPITAL MARKETS
   │  (Rothschilds,    │  (dominant      │  (US: post-Civil   │
   │  Barings: core    │  1840s–1890s)   │  War; trusts)      │
   │  business)        │                 │                    │
-  └──────────────────┴─────────────────┴───────────────────┘
+  └───────────────────┴─────────────────┴────────────────────┘
   London (dominant) ← Paris ← Frankfurt ← New York (rising)
 
 LAYER 3: BANKING ARCHITECTURE

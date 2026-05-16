@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:impressionism-post
+kind: guide
+module: art-history
+section: art-history
+title: 06 - Impressionism and Post-Impressionism
+status: source-custody
+source_custody: partial
+current_path: art-history/06-IMPRESSIONISM-POST.md
+canonical_path: art-history/06-IMPRESSIONISM-POST.md
+backsource_ids: [proof-backfill:art-history:06-impressionism-post, git-history:art-history:06-impressionism-post]
+concepts: [impressionism, post]
+root_concepts: [impressionism, post]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Impressionism and Post-Impressionism
 
 ## The Big Picture
@@ -53,7 +72,7 @@ ACADEMIC PAINTING vs IMPRESSIONIST APPROACH
 
   ACADEMIC:                         IMPRESSIONIST:
   ┌───────────────────────────────┐  ┌───────────────────────────────┐
-  │ Object has a LOCAL COLOR       │  │ Light modifies every surface │
+  │ Object has a LOCAL COLOR      │  │ Light modifies every surface  │
   │ (grass is green, sky is blue) │  │ Local color + light quality   │
   │                               │  │ + reflections from other      │
   │ Blend smooth transitions      │  │ surfaces + atmospheric haze   │
@@ -151,7 +170,7 @@ DEGAS'S PHOTOGRAPHIC BORROWINGS
   │ complete within the frame.                             │
   │                                                        │
   │ In Degas: figures cut at the edge of the canvas by     │
-  │ the frame, as in a snapshot. The framing is arbitrary.│
+  │ the frame, as in a snapshot. The framing is arbitrary. │
   │ This implies the scene continues beyond the canvas.    │
   └────────────────────────────────────────────────────────┘
 

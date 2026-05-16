@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:postwar-globalization
+kind: guide
+module: economic-history
+section: economic-history
+title: Postwar Globalization - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/08-POSTWAR-GLOBALIZATION.md
+canonical_path: economic-history/08-POSTWAR-GLOBALIZATION.md
+backsource_ids: [proof-backfill:economic-history:08-postwar-globalization, git-history:economic-history:08-postwar-globalization]
+concepts: [postwar, globalization]
+root_concepts: [postwar, globalization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Postwar Globalization — Economic History
 
 ## The Big Picture
@@ -28,15 +47,16 @@ PHASE 2: SHOCK AND ADJUSTMENT (1973–1982)
                               │ New policy consensus emerges
                               ▼
 PHASE 3: MONETARIST TURN + DEVELOPMENTAL STATES (1980s)
-  ┌───────────────────────────┐  ┌────────────────────────────┐
-  │ WEST:                     │  │ EAST ASIA:                 │
-  │ Reagan-Thatcher monetarism│  │ Japan → Korea → Taiwan     │
-  │ Deregulation · Privatiz.  │  │ → Singapore → Malaysia     │
-  │ Union weakness · Shareholder│ │ → China                   │
-  │ value · Deindustrialization│  │ State-directed industrial │
-  │ Financial sector grows    │  │ policy; export-led;        │
-  └───────────────────────────┘  │ developmental state model  │
-                                 └────────────────────────────┘
+  ┌──────────────────────────────┐  ┌──────────────────────────────┐
+  │ WEST:                        │  │ EAST ASIA:                   │
+  │ Reagan-Thatcher monetarism   │  │ Japan → Korea → Taiwan       │
+  │ Deregulation · Privatiz.     │  │ → Singapore → Malaysia       │
+  │ Union weakness · Shareholder │  │ → China                      │
+  │ value · Deindustrialization  │  │ State-directed industrial    │
+  │ Financial sector grows       │  │ policy; export-led;          │
+  └──────────────────────────────┘  └──────────────────────────────┘
+                                    │ developmental state model    │
+                                    └──────────────────────────────┘
                               │
                               │ Integration accelerates
                               ▼

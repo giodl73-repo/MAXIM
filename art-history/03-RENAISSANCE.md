@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:renaissance
+kind: guide
+module: art-history
+section: art-history
+title: 03 - The Renaissance
+status: source-custody
+source_custody: partial
+current_path: art-history/03-RENAISSANCE.md
+canonical_path: art-history/03-RENAISSANCE.md
+backsource_ids: [proof-backfill:art-history:03-renaissance, git-history:art-history:03-renaissance]
+concepts: [renaissance]
+root_concepts: [renaissance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — The Renaissance
 
 ## The Big Picture

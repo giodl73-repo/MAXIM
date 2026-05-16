@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:commercial-revolution
+kind: guide
+module: economic-history
+section: economic-history
+title: The Commercial Revolution - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/02-COMMERCIAL-REVOLUTION.md
+canonical_path: economic-history/02-COMMERCIAL-REVOLUTION.md
+backsource_ids: [proof-backfill:economic-history:02-commercial-revolution, git-history:economic-history:02-commercial-revolution]
+concepts: [commercial, revolution]
+root_concepts: [commercial, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Commercial Revolution — Economic History
 
 ## The Big Picture
@@ -86,10 +105,10 @@ THE TRANSACTION:
           or via return bills, or in coin)
 
 +----------+    gives coin    +----------+
-| Remitter |---------------->| Drawer    |
+| Remitter | ---------------> | Drawer   |
 | (Bruges  |                  | (Bruges  |
-|  merchant|  issues bill     | banker)  |
-+----------+  to Remitter    +-----+----+
+| merchant |  issues bill     | banker)  |
++----------+  to Remitter     +-----+----+
      |                             |
      | carries bill                | bill sent to
      | to Florence                 | correspondent

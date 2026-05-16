@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:colonial-extraction
+kind: guide
+module: economic-history
+section: economic-history
+title: Colonial Extraction - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/03-COLONIAL-EXTRACTION.md
+canonical_path: economic-history/03-COLONIAL-EXTRACTION.md
+backsource_ids: [proof-backfill:economic-history:03-colonial-extraction, git-history:economic-history:03-colonial-extraction]
+concepts: [colonial, extraction]
+root_concepts: [colonial, extraction]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Colonial Extraction — Economic History
 
 ## The Big Picture

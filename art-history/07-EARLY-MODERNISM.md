@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:early-modernism
+kind: guide
+module: art-history
+section: art-history
+title: 07 - Early Modernism
+status: source-custody
+source_custody: partial
+current_path: art-history/07-EARLY-MODERNISM.md
+canonical_path: art-history/07-EARLY-MODERNISM.md
+backsource_ids: [proof-backfill:art-history:07-early-modernism, git-history:art-history:07-early-modernism]
+concepts: [early, modernism]
+root_concepts: [early, modernism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — Early Modernism
 
 ## The Big Picture
@@ -250,20 +269,20 @@ SYNTHETIC CUBISM: THE COLLAGE TURN
   - Cigarette packages
 
   WHAT COLLAGE DOES:
-  ┌──────────────────────────────────────────────────────────┐
-  │ 1. REAL vs DEPICTED: the newspaper is real; the drawing  │
-  │    around it is depicted. What is the boundary?          │
-  │                                                          │
-  │ 2. SIGN vs OBJECT: the newspaper's text signifies news,  │
-  │    date, text. It is also a visual texture. Both at once.│
-  │                                                          │
-  │ 3. TROMPE L'OEIL REVERSED: Classical trompe l'oeil       │
-  │    painted things to look real. Collage inserts real     │
-  │    things into painting. The hierarchy inverts.          │
-  │                                                          │
-  │ 4. COLOR RETURNS: collage materials bring color and      │
-  │    texture that Analytic Cubism eliminated               │
-  └──────────────────────────────────────────────────────────┘
+  ┌───────────────────────────────────────────────────────────┐
+  │ 1. REAL vs DEPICTED: the newspaper is real; the drawing   │
+  │    around it is depicted. What is the boundary?           │
+  │                                                           │
+  │ 2. SIGN vs OBJECT: the newspaper's text signifies news,   │
+  │    date, text. It is also a visual texture. Both at once. │
+  │                                                           │
+  │ 3. TROMPE L'OEIL REVERSED: Classical trompe l'oeil        │
+  │    painted things to look real. Collage inserts real      │
+  │    things into painting. The hierarchy inverts.           │
+  │                                                           │
+  │ 4. COLOR RETURNS: collage materials bring color and       │
+  │    texture that Analytic Cubism eliminated                │
+  └───────────────────────────────────────────────────────────┘
 ```
 
 ---

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:world-wars-depression
+kind: guide
+module: economic-history
+section: economic-history
+title: World Wars and the Great Depression - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/06-WORLD-WARS-DEPRESSION.md
+canonical_path: economic-history/06-WORLD-WARS-DEPRESSION.md
+backsource_ids: [proof-backfill:economic-history:06-world-wars-depression, git-history:economic-history:06-world-wars-depression]
+concepts: [world, wars, depression]
+root_concepts: [world, wars]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Wars and the Great Depression — Economic History
 
 ## The Big Picture
@@ -31,13 +50,13 @@ RECYCLED CAPITAL FLOW:
        ↓ US stock market boom → credit tightens (1928–29)
 
 GOLD STANDARD TRANSMISSION MECHANISM:
-  ┌──────────────────────────────────────────────────────────┐
-  │  Country loses gold → must contract money supply         │
-  │  → higher interest rates → reduced investment → recession│
-  │  → imports fall → gold outflows stop                     │
-  │  → BUT: all countries doing this simultaneously          │
-  │  → deflationary spiral amplified globally                │
-  └──────────────────────────────────────────────────────────┘
+  ┌───────────────────────────────────────────────────────────┐
+  │  Country loses gold → must contract money supply          │
+  │  → higher interest rates → reduced investment → recession │
+  │  → imports fall → gold outflows stop                      │
+  │  → BUT: all countries doing this simultaneously           │
+  │  → deflationary spiral amplified globally                 │
+  └───────────────────────────────────────────────────────────┘
 
   1929 crash → credit contraction → gold outflows from US
   → Fed raises rates to protect gold peg
