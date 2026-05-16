@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:deep-sea
+kind: guide
+module: oceanography
+section: oceanography
+title: Deep Sea - Hadal Zones, Hydrothermal Vents, Cold Seeps, Chemosynthesis, Pressure Adaptations
+status: source-custody
+source_custody: partial
+current_path: oceanography/06-DEEP-SEA.md
+canonical_path: oceanography/06-DEEP-SEA.md
+backsource_ids: [proof-backfill:oceanography:06-deep-sea, git-history:oceanography:06-deep-sea]
+concepts: [deep, sea]
+root_concepts: [deep, sea]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deep Sea — Hadal Zones, Hydrothermal Vents, Cold Seeps, Chemosynthesis, Pressure Adaptations
 
 ## The Big Picture

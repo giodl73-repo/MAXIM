@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:watershed-analysis
+kind: guide
+module: hydrology
+section: hydrology
+title: Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density
+status: source-custody
+source_custody: partial
+current_path: hydrology/02-WATERSHED-ANALYSIS.md
+canonical_path: hydrology/02-WATERSHED-ANALYSIS.md
+backsource_ids: [proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]
+concepts: [watershed, analysis]
+root_concepts: [watershed, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watershed Analysis — Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density
 
 ## The Big Picture

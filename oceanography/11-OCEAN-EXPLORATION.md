@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:ocean-exploration
+kind: guide
+module: oceanography
+section: oceanography
+title: Ocean Exploration - Bathymetry Methods, Submersibles, ROVs, Argo Floats, Ocean Observing Systems
+status: source-custody
+source_custody: partial
+current_path: oceanography/11-OCEAN-EXPLORATION.md
+canonical_path: oceanography/11-OCEAN-EXPLORATION.md
+backsource_ids: [proof-backfill:oceanography:11-ocean-exploration, git-history:oceanography:11-ocean-exploration]
+concepts: [ocean, exploration]
+root_concepts: [ocean, exploration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean Exploration — Bathymetry Methods, Submersibles, ROVs, Argo Floats, Ocean Observing Systems
 
 ## The Big Picture
@@ -419,7 +438,7 @@ PHYSICAL SETUP:
   │                                                      │
   │  DATA LINK: Electromechanical coax cable to ship     │
   │    Real-time data display in ship control room       │
-  │    Technician "fires" (closes) bottles at target depths│
+  │    Technician closes bottles at target depths        │
   └──────────────────────────────────────────────────────┘
 
 CAST WORKFLOW:

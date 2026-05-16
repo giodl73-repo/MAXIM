@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:water-engineering
+kind: guide
+module: hydrology
+section: hydrology
+title: Water Engineering - Dams and Reservoirs, Levees, Stormwater Management, Water Supply Design
+status: source-custody
+source_custody: partial
+current_path: hydrology/06-WATER-ENGINEERING.md
+canonical_path: hydrology/06-WATER-ENGINEERING.md
+backsource_ids: [proof-backfill:hydrology:06-water-engineering, git-history:hydrology:06-water-engineering]
+concepts: [water, engineering]
+root_concepts: [water, engineering]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Water Engineering — Dams and Reservoirs, Levees, Stormwater Management, Water Supply Design
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:coastal-systems
+kind: guide
+module: oceanography
+section: oceanography
+title: Coastal Systems - Estuaries, Deltas, Barrier Islands, Mangroves, Salt Marshes, Coastal Erosion
+status: source-custody
+source_custody: partial
+current_path: oceanography/09-COASTAL-SYSTEMS.md
+canonical_path: oceanography/09-COASTAL-SYSTEMS.md
+backsource_ids: [proof-backfill:oceanography:09-coastal-systems, git-history:oceanography:09-coastal-systems]
+concepts: [coastal, systems]
+root_concepts: [coastal, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Coastal Systems — Estuaries, Deltas, Barrier Islands, Mangroves, Salt Marshes, Coastal Erosion
 
 ## The Big Picture

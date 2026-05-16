@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hydrology\\02-WATERSHED-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 407,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What algorithm delineates watersheds from a DEM?",
+          "D8 flow direction → flow accumulation → upslope trace from outlet"
+        ],
+        [
+          "What is Strahler order?",
+          "Hierarchical stream ordering; two same-order streams join → increment; headwaters = 1"
+        ],
+        [
+          "What does TWI indicate?",
+          "Topographic Wetness Index: high = likely saturated/wetland; low = well-drained upland"
+        ],
+        [
+          "What is bifurcation ratio?",
+          "Count(order n) / Count(order n+1); typically 3–5; controls flood peak timing"
+        ],
+        [
+          "What DEM resolution is needed for accurate watershed delineation?",
+          "Depends on catchment size; LiDAR (1 m) for urban/floodplain; 10–30 m for regional"
+        ],
+        [
+          "What is a deranged drainage pattern?",
+          "No organized pattern; many lakes; recently glaciated terrain"
+        ],
+        [
+          "Why burn streams into a DEM?",
+          "Force hydrological flow direction to match known channel locations; prevent routing errors"
+        ],
+        [
+          "What controls Tc?",
+          "Channel slope, channel length, roughness; smaller/steeper catchment → shorter Tc"
+        ]
+      ]
+    }
+  ]
+}

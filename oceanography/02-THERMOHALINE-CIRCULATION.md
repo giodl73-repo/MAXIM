@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:thermohaline-circulation
+kind: guide
+module: oceanography
+section: oceanography
+title: Thermohaline Circulation - Deep Water Formation, AMOC/NADW/AABW, Conveyor Belt Timescales
+status: source-custody
+source_custody: partial
+current_path: oceanography/02-THERMOHALINE-CIRCULATION.md
+canonical_path: oceanography/02-THERMOHALINE-CIRCULATION.md
+backsource_ids: [proof-backfill:oceanography:02-thermohaline-circulation, git-history:oceanography:02-thermohaline-circulation]
+concepts: [thermohaline, circulation]
+root_concepts: [thermohaline, circulation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Thermohaline Circulation — Deep Water Formation, AMOC/NADW/AABW, Conveyor Belt Timescales
 
 ## The Big Picture

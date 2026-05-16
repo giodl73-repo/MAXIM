@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hydrology\\02-WATERSHED-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                  WATERSHED ANALYSIS AS GRAPH THEORY                       |\n|         A drainage network is a directed acyclic graph on a DEM           |\n+===========================================================================+\n|                                                                           |\n|  DIGITAL ELEVATION MODEL (DEM) — raster grid of elevation values          |\n|      │                                                                    |\n|      ▼ Flow direction algorithm (D8, D-inf, MFD)                         |\n|  FLOW DIRECTION GRID — each cell points to lowest neighbor                |\n|      │                                                                    |\n|      ▼ Flow accumulation (upstream cell count)                           |\n|  FLOW ACCUMULATION GRID — each cell: # of upstream cells                 |\n|      │                                                                    |\n|      ├──► STREAM NETWORK — cells with accumulation > threshold            |\n|      │         Graph topology: tributary confluence = node merge          |\n|      │                                                                    |\n|      └──► WATERSHED BOUNDARY — all cells draining to a given outlet      |\n|               = divide (ridgeline) connecting highest surrounding cells   |\n|               = catchment area contributing to outlet                    |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Digital Elevation Models (DEMs)",
+      "confidence": "candidate",
+      "text": "DEM DATA SOURCES:\n\n  SRTM (Shuttle Radar Topography Mission, 2000):\n    1 arc-second (~30 m) resolution globally\n    Radar interferometry (C-band + X-band)\n    Vertical accuracy: ~5–10 m RMSE (varies by terrain)\n    Gap-filled in some problematic areas\n    Free globally via USGS EarthExplorer\n\n  ALOS PALSAR (Japan):\n    12.5 m resolution globally\n    Good forest penetration (L-band radar sees through canopy)\n    Best available global DEM for forested terrain\n\n  ASTER GDEM (Terra satellite):\n    30 m resolution, photogrammetric stereo method\n    Noisier than SRTM in flat terrain; better over high-relief areas\n\n  USGS 3DEP (US only):\n    1 m (urban, high-priority), 3 m, 10 m resolution\n    LiDAR-derived in many areas — most accurate available\n    BareSurface vs. Surface (includes vegetation) — critical distinction for hydrology\n\n  LIDAR DEMs:\n    Airborne LiDAR: 0.5–1 m resolution, ±5–15 cm vertical accuracy\n    Ground point filtering removes buildings and vegetation → bare-earth DEM\n    Required for accurate floodplain mapping\n\nDEM PREPROCESSING:\n  Hydrological conditioning: essential before flow routing\n    Pit filling: sink cells (depressions) filled to ensure continuous drainage\n    (Natural depressions in landscape: wetlands, lakes → problem for flow routing)\n    Burning streams: carve stream channel into DEM where known location\n    (Prevents \"leaking\" of streams across ridges due to DEM error)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## Flow Direction Algorithms",
+      "confidence": "candidate",
+      "text": "D8 ALGORITHM (most common):\n  Each cell drains to ONE of 8 neighbors (N, NE, E, SE, S, SW, W, NW)\n  Choice: steepest descent neighbor\n  Slope to each neighbor: Δz / distance (diagonal = √2 × cell size)\n\n  LIMITATION: all flow concentrated to single path\n  → artificial flow concentration, poor lateral dispersion\n  → problematic for divergent hillslopes (ridges)\n\nD-INFINITY (Tarboton, 1997):\n  Flow direction = continuous angle (0–2π)\n  Flow split between two adjacent cells based on angle\n  Better represents divergent hillslope flow\n  Computational cost: higher\n\nMFD (Multiple Flow Direction):\n  Flow distributed to all downslope neighbors, weighted by slope\n  Best for representing broad wetland flow and diffuse hillslope drainage\n  Poor for defined channel networks (too diffuse)\n\nPRACTICAL CHOICE:\n  D8: stream networks, watershed delineation (sharp drainage divides) ✓\n  D-infinity: hillslope flow paths, shallow groundwater\n  MFD: broad floodplain inundation, wetland flow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "## Flow Accumulation and Stream Network Extraction",
+      "confidence": "candidate",
+      "text": "FLOW ACCUMULATION ALGORITHM:\n  For each cell: count all cells upstream (including self) = 1 + sum of upstream cells\n  Terminal cells: value = 1 (no one drains to them)\n  Outlet cell: value = total cells in watershed\n\n  This is a topological sort on the flow-direction DAG (directed acyclic graph)\n  Computationally: O(n log n) or better with spatial partitioning\n\nSTREAM NETWORK EXTRACTION:\n  Threshold T: cells with accumulation > T are \"stream cells\"\n  T too high → few long streams (misses small tributaries)\n  T too low → every cell is a stream (unrealistic)\n\n  CALIBRATION:\n    Match extracted channel heads to field verification or high-resolution imagery\n    Often: T equivalent to 0.1–1 km² contributing area for humid region streams\n    Arid: larger threshold (channels only form with larger contributing area)\n\n  STREAM NETWORK STATISTICS:\n    Channel density = total stream length / watershed area (km/km²)\n    Stream frequency = number of streams / watershed area (streams/km²)\n    Bifurcation ratio (Rb): count(order-n streams) / count(order-(n+1) streams)\n      Typical Rb = 3–5",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## Strahler Stream Order",
+      "confidence": "candidate",
+      "text": "STRAHLER ORDERING SYSTEM (1952):\n  Fingertip tributaries (headwaters): order 1\n  Two order-1 streams join → order 2\n  Two order-2 streams join → order 3\n  Two streams of SAME order join → increment by 1\n  Lower order meets higher order → higher order continues (no change)\n\n  EXAMPLE:\n       1──┐\n       1──┘ → 2──┐\n       1──┐      │ → 3──┐\n       1──┘ → 2──┘      │ → 4\n       1──┐              │\n       1──┘ → 2──┐      │\n              2──┘ → 3──┘\n\n  The MAIN STEM is the highest-order stream through the basin.\n  Mississippi River: ~9th order (drainage basin: 3.2 million km²)\n  Typical small catchment stream: 1st–3rd order\n  Amazon: ~12th order\n\nHORTON'S LAWS (derived from Strahler order):\n  Law of stream numbers:  N(w) = R_b^(Ω-w)\n    N(w) = number of streams of order w\n    R_b = bifurcation ratio (~3–5)\n    Ω = basin order (highest order)\n\n  Law of stream lengths:  L(w) = L_1 × R_L^(w-1)\n    R_L = length ratio (~1.5–3.5)\n\n  Law of drainage areas:  A(w) = A_1 × R_A^(w-1)\n    R_A = area ratio (~3–6)\n\n  These self-similar scaling laws = fractal structure of river networks\n  The drainage network is a self-similar branching fractal\n  (same geometric structure at multiple scales → Hack's law, Tokunaga trees)\n\nTOPOLOGICAL NETWORK PROPERTIES:\n  Bifurcation ratio R_b controls flood peak timing:\n    High R_b (less branching) → more synchronized tributary peaks → flashier floods\n    Low R_b → more staggered arrivals → attenuated peak",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Watershed Delineation",
+      "confidence": "candidate",
+      "text": "DELINEATION ALGORITHM:\n  Given outlet point (pour point) on DEM:\n  1. Start at outlet cell\n  2. Identify all cells that drain to outlet (trace upstream through flow-direction grid)\n  3. Boundary = all cells at the edge of contributing area\n\n  IMPLEMENTATION: simple BFS/DFS on flow-direction grid\n    Similar to connected components algorithm on a graph\n    Efficient O(n) once flow-direction grid is computed\n\nTOPOGRAPHIC INDICES:\n\n  TOPOGRAPHIC WETNESS INDEX (TWI):\n    TWI = ln(a / tan(β))\n    a = specific upslope contributing area (m²/m) = flow accumulation × cell width\n    β = local slope angle\n\n    High TWI → large upslope area + gentle slope → saturated, wetland areas\n    Low TWI → small upslope area + steep → well-drained, upland areas\n    Used to: identify soil moisture patterns, probable saturation zones,\n             prime locations for wetlands, saturated excess runoff generation\n\n  STREAM POWER INDEX (SPI):\n    SPI = a × tan(β)\n    Proxy for erosive power of water at a point\n    High SPI → high-energy gully and channel formation potential\n\n  SLOPE POSITION CLASSIFICATION:\n    Combine TWI, curvature, elevation within catchment\n    → ridgetop, shoulder, backslope, footslope, toeslope, channel\n    Widely used in soil mapping, terrain analysis\n\nWATERSHED BOUNDARY PRECISION:\n  DEM resolution limits accuracy:\n    30 m DEM → watershed boundary uncertainty ±30 m\n    1 m LiDAR → boundary uncertainty ±1 m\n  Flat terrain (< 0.1% slope): major errors in flow routing\n    (Small elevation errors redirect drainage over large areas)\n  Coastal and tidal areas: dynamic boundary that changes with tide",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 248,
+      "heading_context": "## Drainage Network Patterns",
+      "confidence": "candidate",
+      "text": "PLAN-VIEW DRAINAGE PATTERNS (visible on maps, reflect underlying geology):\n\n  DENDRITIC:\n    Tree-like, random branching\n    Uniform substrate (isotropic geology)\n    Most common pattern in nature\n\n  PARALLEL:\n    Tributaries nearly parallel\n    Uniform regional slope or parallel structural fabric (dikes, faults)\n\n  TRELLIS:\n    Main streams perpendicular to tributaries\n    Folded sedimentary rock (ridges and valleys)\n    Example: Valley and Ridge province, Appalachians\n\n  RECTANGULAR:\n    Right-angle bends in streams\n    Jointed or faulted bedrock (fractures at 90°)\n\n  RADIAL:\n    Streams radiate outward from a central high point\n    Volcanic cone, dome uplift\n    Example: Mt. Rainier, Black Hills\n\n  ANNULAR:\n    Streams follow concentric arcs around a dome\n    Eroded structural dome with alternating hard/soft rock rings\n\n  DERANGED:\n    No clear pattern, many lakes, poorly integrated\n    Recently glaciated terrain (Laurentian Shield, Scandinavia)\n    Glaciers destroy pre-existing drainage → new drainage slowly developing\n\nDRAINAGE PATTERN → QUICK GEOLOGICAL DIAGNOSIS:\n  Trellis → folded Appalachian-type geology\n  Radial → volcanic or dome structure\n  Deranged → glaciated terrain\n  Dendritic → homogeneous geology, mature drainage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "## GIS and Computational Tools",
+      "confidence": "candidate",
+      "text": "STANDARD HYDROLOGICAL GIS WORKFLOW:\n\n  DATA → DEM preparation → Pit filling → Flow direction → Flow accumulation\n       → Stream network → Watershed delineation → Morphometric analysis\n\nTOOLS:\n  ArcGIS Hydrology toolbox (Arc Hydro): industry standard, expensive\n  QGIS + SAGA GIS: open source, capable, free\n  TauDEM (Terrain Analysis Using Digital Elevation Models):\n    Utah State University, command-line, parallel processing\n    Best for large DEMs (national-scale analysis)\n  GRASS GIS r.watershed: classic, robust, open source\n  Whitebox GAT: free academic tool, excellent teaching/research\n  SWAT (Soil and Water Assessment Tool): full watershed simulation model\n    Uses DEM + soil + land use + weather → continuous water balance simulation\n    Widely used for NPS pollution, climate change impact studies\n\nLARGE-SCALE PRODUCTS:\n  HydroBASINS: Pfafstetter watershed coding system, global drainage basins\n    Pfafstetter code: 0–9 at each level, encodes topology\n    10-level hierarchy → each drainage basin has unique 10-digit code\n  HydroSHEDS: global hydrological data derived from SRTM\n  NHDPlus (US National Hydrography Dataset): national stream network + attributes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "## CS Bridges — Watershed Analysis as Graph Algorithms",
+      "confidence": "candidate",
+      "text": "WATERSHED CONCEPT             CS / GRAPH EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nDEM raster                    Weighted grid graph (implicit adjacency)\n  Each cell = node              → 8-connected grid (D8) or continuous (D-inf)\n  Elevation difference = weight → directed edge to steepest downslope neighbor\n\nFlow direction grid (D8)      Functional graph (each node has exactly 1 out-edge)\n  Cycles impossible             → DAG (gravity guarantees no cycles after pit-fill)\n  Flat areas ambiguous          → tie-breaking heuristics (same as DFS on tie)\n\nFlow accumulation             Topological sort + prefix sums upstream\n  Process nodes in topo order   → add 1 + upstream contributions\n  Result at outlet              → total node count in reachable subgraph\n  Complexity: O(n)              → linear pass after O(n log n) sort\n\nWatershed delineation         Reverse-graph BFS/DFS from outlet\n  Reverse all edge directions   → compute nodes reachable from outlet\n  Result = connected component  → exactly the \"upslope contributing area\"\n\nPit filling                   Making DAG property hold globally\n  Fill sinks to overflow point  → repair a broken topological ordering\n  Essential preprocessing step  → same role as cycle-breaking in DAG analysis\n\nStrahler stream order         Binary tree node labeling\n  Two order-k nodes join → k+1  → exactly the \"Strahler number\" of a binary tree\n  Headwaters (leaves) = 1       → leaf label = 1; propagate up by merge rule\n  Horton's scaling laws         → tree-wide self-similar (fractal) branching stats\n\nTWI = ln(a / tan β)           Log-odds of saturation probability\n  Large upslope area a          → high \"upstream supply\" (like in-degree)\n  Steep slope β                 → fast drainage (low residence time)\n  High TWI → probable saturation → inverse of drainage capacity / supply\n\nPfafstetter coding system     Hierarchical spatial index (trie over basins)\n  10-level hierarchy            → prefix tree; basin = path from root to leaf\n  Digit encodes topology        → branching structure recoverable from code alone\n\nBifurcation ratio Rb          Branching factor of drainage tree\n  Rb = count(order n)/count(n+1) → average branching factor across tree levels\n  High Rb → more tributaries    → wider, shallower tree → synchronized peaks\n  Low Rb → fewer, larger joins  → deeper, balanced tree → staggered peaks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:ocean-chemistry
+kind: guide
+module: oceanography
+section: oceanography
+title: Ocean Chemistry - Seawater Composition, Carbonate System, Ocean Acidification, Oxygen Minimum Zones
+status: source-custody
+source_custody: partial
+current_path: oceanography/07-OCEAN-CHEMISTRY.md
+canonical_path: oceanography/07-OCEAN-CHEMISTRY.md
+backsource_ids: [proof-backfill:oceanography:07-ocean-chemistry, git-history:oceanography:07-ocean-chemistry]
+concepts: [ocean, chemistry]
+root_concepts: [ocean, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean Chemistry — Seawater Composition, Carbonate System, Ocean Acidification, Oxygen Minimum Zones
 
 ## The Big Picture

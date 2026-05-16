@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:groundwater
+kind: guide
+module: hydrology
+section: hydrology
+title: Groundwater - Aquifer Types, Darcy's Law, Hydraulic Conductivity, Well Hydraulics
+status: source-custody
+source_custody: partial
+current_path: hydrology/03-GROUNDWATER.md
+canonical_path: hydrology/03-GROUNDWATER.md
+backsource_ids: [proof-backfill:hydrology:03-groundwater, git-history:hydrology:03-groundwater]
+concepts: [groundwater]
+root_concepts: [groundwater]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Groundwater — Aquifer Types, Darcy's Law, Hydraulic Conductivity, Well Hydraulics
 
 ## The Big Picture

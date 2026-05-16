@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:marine-biology
+kind: guide
+module: oceanography
+section: oceanography
+title: Marine Biology - Planktonic Food Web, Marine Trophic Levels, Coral Reef Ecology, Deep Scattering Layers
+status: source-custody
+source_custody: partial
+current_path: oceanography/08-MARINE-BIOLOGY.md
+canonical_path: oceanography/08-MARINE-BIOLOGY.md
+backsource_ids: [proof-backfill:oceanography:08-marine-biology, git-history:oceanography:08-marine-biology]
+concepts: [marine, biology]
+root_concepts: [marine, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Marine Biology — Planktonic Food Web, Marine Trophic Levels, Coral Reef Ecology, Deep Scattering Layers
 
 ## The Big Picture

@@ -1,0 +1,2449 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-hydrology-rivers-floodplains",
+  "source": "../../hydrology",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#000",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "# Rivers and Floodplains — Channel Morphology, Manning Equation, Meandering, Sediment Transport"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#001",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#002",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                   RIVER SYSTEM STRUCTURE                                  |\n|         From headwater to delta — energy, sediment, and form              |\n+===========================================================================+\n|                                                                           |\n|  HEADWATER REACHES                                                        |\n|  Steep gradient, bedrock channels, waterfalls, gorges                    |\n|  Energy: high; Sediment: supply-limited (export > supply)                 |\n|  Erosion dominant; V-shaped valleys                                       |\n|          │                                                                |\n|          ▼ Increasing discharge, decreasing slope                        |\n|  TRANSPORT REACHES                                                        |\n|  Gravel-bed channels, alternating pool-riffle                            |\n|  Energy: moderate; Sediment: transport-limited (in equilibrium)           |\n|          │                                                                |\n|          ▼                                                                |\n|  LOWLAND REACHES                                                          |\n|  Sand-bed channels, meanders, floodplains                                |\n|  Energy: low; Sediment: deposition-dominant                               |\n|  Wide flat floodplains, oxbow lakes, wetlands                            |\n|          │                                                                |\n|          ▼                                                                |\n|  COASTAL/DELTA                                                            |\n|  Distributary network, tidal influence, sediment deposition              |\n+===========================================================================+\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#003",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#004",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Channel Geometry and Cross-Section"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#005",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nBASIC CHANNEL DIMENSIONS:\n  Width W = channel top width (m) at bankfull stage\n  Depth D = mean depth = Area/W (m) at bankfull stage\n  Hydraulic radius R = A/P (m) ← P = wetted perimeter\n  For wide channels: R ≈ D"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#006",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "HYDRAULIC GEOMETRY RELATIONSHIPS (Leopold & Maddock, 1953):\n  As discharge Q increases downstream:\n    Width:    W = aQ^b     (b ≈ 0.5)\n    Depth:    D = cQ^f     (f ≈ 0.4)\n    Velocity: V = kQ^m     (m ≈ 0.1)\n    Where b + f + m = 1.0 (continuity: Q = WDV)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#007",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "These power-law relationships hold with remarkable consistency worldwide.\n  Local variability reflects geology (bedrock control), vegetation, discharge history."
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#008",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "BANKFULL DISCHARGE:\n  Q_bf = discharge that fills channel to the top without spilling onto floodplain\n  Approximately equal to: 1.5-year recurrence interval (on average)\n  The \"channel-forming discharge\" — shapes the channel geometry over time\n  Channel geometry ADJUSTS to bankfull Q through:\n    Erosion of banks (widening) or deposition (narrowing)\n    Scour of bed (deepening) or fill (raising)\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#009",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#010",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Manning Equation"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#011",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nMANNING'S EQUATION (1889) — steady uniform flow:\n  Q = (1/n) × A × R^(2/3) × S^(1/2)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#012",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Or in terms of velocity:\n  V = (1/n) × R^(2/3) × S^(1/2)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#013",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Q = discharge (m³/s)\n  A = cross-sectional area (m²)\n  R = hydraulic radius = A/P (m)\n  S = channel slope (m/m) = energy grade line slope\n  n = Manning's roughness coefficient (dimensionless)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#014",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "US customary units: V = (1.486/n) × R^(2/3) × S^(1/2)  [V in ft/s, R in ft]"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#015",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "ROUGHNESS COEFFICIENT n — representative values:\n    Smooth concrete/pipe:        n = 0.010–0.013\n    Earth channel (good):        n = 0.020–0.025\n    Natural stream (clean):      n = 0.025–0.035\n    Natural stream (minor weeds): n = 0.030–0.040\n    Natural stream (heavy weeds): n = 0.040–0.070\n    Mountain stream (boulders):  n = 0.040–0.070\n    Flood plain (heavy brush):   n = 0.070–0.160"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#016",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Manning's n INCREASES with:\n    Larger grain size / rougher bed\n    Vegetation (submerged or emergent)\n    Channel irregularity, cross-section variability\n    Obstructions"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#017",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "COMPOUND SECTION (floodplain):\n  Main channel + floodplain carry flow separately at flood stage\n  Calculate Q_main and Q_overbank separately (different n, geometry)\n  Total Q = Q_main + Q_overbank\n  Treating as single cross-section gives wrong answer (different velocities, n values)\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#018",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#019",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Regime Theory and Channel Classification"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#020",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nCHANNEL CLASSIFICATION (Rosgen, 1996 — commonly used in US):"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#021",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "STREAM TYPE:   A    B    C    D    DA   E    F    G\n  Pattern:       steep gorge → moderately entrenched → alluvial meandering\n  Entrenchment:  deeply entrenched (confined) → slightly entrenched (floodplain access)\n  Width/Depth:   low (A,G) → high (D,C,E)\n  Sinuosity:     1.0–1.2 (A,B) → 1.2–1.5 (C) → >1.5 (E)\n  Gradient:      steep (A,G) → very gentle (E,DA)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#022",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "SINGLE-THREAD STABLE: B, C, E — channel in regime with floodplain\n  BRAIDED (D): multiple channels, highly unstable, high bedload transport\n  ANASTOMOSING (DA): multiple stable channels in low-energy wetland\n  INCISING (G): vertical/lateral instability, deeply cut"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#023",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "LANE'S BALANCE (1955):\n  Q_s × D_50 ∝ Q × S"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#024",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Q_s = sediment supply (load)\n  D_50 = median grain size\n  Q = water discharge\n  S = channel slope"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#025",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "If any factor changes, channel adjusts the others to restore balance.\n  EXAMPLE:\n    Dam upstream (↓Q_s, ↓Q): channel ERODES downstream (↓D_50 + ↓S) → incision\n    Land use change (↑Q, same Q_s): channel erodes → ↑S, ↑D_50 → \"channel evolution\""
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#026",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "CHANNEL EVOLUTION MODEL (CEM):\n  Stage I:  Pre-disturbance stable channel\n  Stage II: Incision (degradation) — triggered by base-level lowering or discharge increase\n  Stage III: Widening — bank failures, channel widening\n  Stage IV: Aggradation (sediment refill) — wider but shallower\n  Stage V:  Quasi-equilibrium — new stable state (different W, D than Stage I)\n  Often takes 50–100 years to complete cycle\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#027",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#028",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## River Meandering"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#029",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nMEANDER MECHANICS:"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#030",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "SINUOSITY: S_i = channel length / valley length\n  Straight: S_i = 1.0; Meandering: S_i > 1.5; Braided: multiple channels"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#031",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "WHY RIVERS MEANDER:\n    Not fully solved theoretically. Key contributions:\n    1. Helical secondary flow in bends: centrifugal force pushes surface water\n       to outer bank, bed material transported to inner bank (point bar)\n    2. Perturbation amplification: slight irregularity → helical flow → erosion\n       at outer bank → more pronounced bend → more helical flow → positive feedback\n    3. Threshold: only rivers below a critical stream power meander\n       (high energy → braiding, very low energy → straight or anastomosing)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#032",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "MEANDER WAVELENGTH:\n    λ ≈ 10–14 × W (channel wavelength ≈ 10× channel width)\n    This relationship is remarkably consistent across rivers spanning 5 orders of magnitude in size\n    Same ratio holds for meanders in glaciers (subglacial channels) and tidal channels\n    Suggests universal fluid-boundary interaction physics"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#033",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "MEANDER MIGRATION:\n    Outer bank: erosion (bank undercutting, mass failure)\n    Inner bank: deposition (point bar — spiral flow moves sediment)\n    Net: downstream migration + lateral expansion\n    Rate: 1–100 m/yr depending on bank composition and discharge"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#034",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "OXBOW LAKE FORMATION:\n  Meander amplifies → neck narrows → flood event cuts through neck → new straight channel\n  Old meander loop isolated → oxbow lake (crescent-shaped)\n  Oxbow eventually fills with sediment → marsh → dry land"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#035",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "BRAIDED RIVERS:\n  High bedload transport, non-cohesive banks\n  Multiple channels separated by bars\n  Instability: channels shift continuously\n  Typical: glacial outwash plains (Canterbury Plains, NZ), semi-arid rivers,\n           rivers with high seasonal discharge variation\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#036",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#037",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Sediment Transport"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#038",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "### Sediment Characterization"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#039",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nGRAIN SIZE CLASSIFICATION:\n  Boulders: > 256 mm\n  Cobbles:  64–256 mm\n  Gravel:   2–64 mm (pebbles, coarse gravel)\n  Sand:     0.0625–2 mm (fine, medium, coarse)\n  Silt:     0.004–0.0625 mm\n  Clay:     < 0.004 mm"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#040",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "D_50 = median grain size\n  D_84, D_90 = coarser percentiles (used for roughness, critical shear stress)\n  Gradation coefficient σ_g = (D_84/D_16)^0.5 → 1.0 = uniform, >3 = poorly sorted"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#041",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "MODES OF TRANSPORT:\n  Bedload: grains rolling/sliding/saltating along bed\n    Dominant for gravel, coarse sand\n    Difficult to measure (sampler intrudes on flow)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#042",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Suspended load: fine sediment (silt, clay, fine sand) carried in water column\n    Easier to measure (water samples, turbidity sensors)\n    Typically 90%+ of total transport by mass in lowland rivers"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#043",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Wash load: very fine clay/silt that stays in suspension indefinitely\n    Not related to bed composition\n    Set by supply (erosion rate in watershed), not transport capacity\n    Doesn't deposit except in low-velocity zones (reservoirs, floodplains)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#044",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "RATING CURVE:\n  Q_s = a Q^b  (sediment discharge vs. water discharge)\n  b typically 1.5–2.5 (sediment transport is highly nonlinear in Q)\n  → 10× flow increase → 30–300× sediment transport\n  This is why floods do most of the geomorphic work\n  (1% of time, 50% of total sediment transport in many rivers)\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#045",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "### Bedload Transport — Shields Criterion"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#046",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nSHIELDS CRITERION (critical shear stress for bedload initiation):"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#047",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "τ* = τ / [(ρ_s - ρ_w) g D]    (dimensionless shear stress)\n  τ = ρ_w g R S                 (bed shear stress)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#048",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Motion begins when τ* > τ*_c ≈ 0.03–0.06 (varies with grain Reynolds number)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#049",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "PHYSICAL INTERPRETATION:\n    τ = drag force per unit bed area (fluid pushing grains)\n    (ρ_s - ρ_w) g D = submerged weight of grain per unit area\n    Critical ratio: drag/weight exceeds threshold → grain moves"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#050",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "PRACTICAL: critical flow depth for bedload motion\n    D_c = τ*_c × (ρ_s - ρ_w) × D / (ρ_w × S)\n    For D_50 = 50 mm gravel, S = 0.002:\n    D_c ≈ 0.05 × 1.65 × 0.05 / (1000 × 0.002) ≈ 0.21 m\n    → Need depth > 21 cm to move this gravel"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#051",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "BEDLOAD TRANSPORT EQUATIONS:\n  Meyer-Peter Müller (1948):\n    q_s = 8(τ* - 0.047)^1.5 × [(ρ_s - ρ_w)/ρ_w]^0.5 × D^1.5"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#052",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Engelund-Hansen:\n    q_s = 0.05 V^2 × V / (g × (ρ_s/ρ_w - 1)² × D_50)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#053",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "All bedload formulas have ±100–200% uncertainty — field conditions dominate.\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#054",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#055",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Floodplains"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#056",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nFLOODPLAIN FORMATION:\n  TWO MECHANISMS work together:\n  1. Lateral accretion: point bar deposition as meander migrates\n     → Epsilon cross-bedding: inclined layers recording lateral bar growth\n  2. Vertical accretion: overbank deposition during flood events\n     → Fine silt and clay layers settling from floodwater\n     → Rates: 0.5–5 mm/yr in actively aggrading floodplains"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#057",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "FLOODPLAIN STRATIGRAPHY (top to bottom):"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#058",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Flood levee zone:\n  ┌───────────────────────────────────┐\n  │  Vertical accretion (fine)        │\n  └───────────────────────────────────┘\n    Coarsest overbank above; finer overbank silt/clay below."
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#059",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "┌───────────────────────────────────┐\n  │  Point bar (fining-upward)        │\n  └───────────────────────────────────┘\n    Lateral accretion (coarse at base, fining toward top)."
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#060",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "┌───────────────────────────────────┐\n  │  Basal gravel lag                 │\n  └───────────────────────────────────┘\n    Scour lag (coarsest).\n  This \"fining-upward sequence\" is a diagnostic signature of meandering river deposits\n  Preserved in rock record → paleofluvial facies analysis"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#061",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "FLOODPLAIN INUNDATION:\n  1% AEP (100-year) flood extent mapped by:\n    FEMA NFIP (National Flood Insurance Program): regulatory standard\n    Hydraulic model: HEC-RAS 1D or 2D (river flow + floodplain routing)\n    Input: bathymetry/LiDAR DEM + Manning's n + flow boundary condition"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#062",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "HEC-RAS 2D:\n    Shallow water equations (St. Venant): full 2D momentum + continuity\n    Grid cells 1–100 m resolution\n    Solves ∂h/∂t + ∇·(hV) = 0 (continuity) + momentum (gravity + friction + inertia)\n    Can incorporate buildings, levees, culverts as boundary conditions\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#063",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#064",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Bridges from CS and Engineering"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#065",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nRIVER/FLOODPLAIN CONCEPT      CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nManning equation              Empirical transport law (Ohm's law for open channels)\n  Q = (1/n) A R^{2/3} S^{1/2}  → Q ∝ conductance × driving force\n  n (roughness)                 → resistance in a conduit; 1/n = conductance\n  Hydraulic radius R            → \"effective diameter\" for non-circular pipes\n  Manning ↔ Darcy-Weisbach      → same structure; different parameterization"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#066",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Muskingum flood routing       Discrete-time IIR filter\n  Q(t) = C0·I(t) + C1·I(t-1) + C2·Q(t-1)\n  C0 + C1 + C2 = 1             → coefficients sum to 1 (bounded-input stable)\n  K parameter (travel time)    → group delay through reach\n  x parameter (0 to 0.5)       → damping: x=0 is maximally attenuating (level\n                                   pool); x=0.5 is pure translation (wave passes\n                                   through undistorted)\n  Saint-Venant ↔ PDE routing   → moving from discrete filter to continuous PDE\n                                   (Muskingum is the linearized finite-difference\n                                   approximation)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#067",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Lane's balance                Constraint equilibrium / invariant\n  Q_s × D₅₀ ∝ Q_w × S         → sediment supply × grain size ∝ water power × slope\n  Disturb one term              → system adjusts others to restore balance\n  Channelization doubles slope  → shear stress doubles → incision → re-meandering\n  Equivalent to: coupled ODEs  → stability analysis around equilibrium point"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#068",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Hydraulic geometry scaling    Power-law self-similarity\n  W ~ Q^b, D ~ Q^f, V ~ Q^m   → log-log linear (same as Zipf, Moore's law)\n  b + f + m = 1                → conservation constraint on exponents"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#069",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "River meandering              Emergent pattern from convective instability\n  Secondary helical flow       → positive feedback loop: bend → erosion → deeper\n                                   bend → stronger secondary flow → more erosion\n  Meander cutoff               → cycle reset: abrupt discontinuity in channel path\n  Chaos analogy                → sensitive to initial perturbation of channel"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#070",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "HEC-RAS 1D/2D routing        PDE solver (Saint-Venant equations)\n  Continuity + momentum PDEs   → conservation laws discretized on channel mesh\n  1D: centerline cross-sections → one spatial dimension, lateral homogeneity assumed\n  2D: full 2D shallow water    → finite volume / finite element on triangulated mesh\n  Timestep stability (CFL)     → Courant number constraint (same as any wave solver)\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#071",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Flood Routing"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#072",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nMUSKINGUM METHOD (hydrological routing):\n  Route flood wave downstream through channel reach\n  Q(t) = C_0 I(t) + C_1 I(t-1) + C_2 Q(t-1)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#073",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "I = inflow, Q = outflow\n  C_0, C_1, C_2 = routing coefficients (function of K, x parameters)\n  K = travel time through reach, x = weighting factor (0 = level pool, 0.5 = translating wave)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#074",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Simple, efficient — widely used for ungauged reaches\n  Limitation: doesn't account for backwater effects, cannot represent 2D flow"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#075",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "HYDRAULIC ROUTING (HEC-RAS):\n  1D: solves Saint-Venant equations along channel centerline\n    ∂A/∂t + ∂Q/∂x = 0                           (continuity)\n    ∂Q/∂t + ∂(Q²/A)/∂x + gA(∂h/∂x + S_f) = 0  (momentum)\n    where S_f = friction slope = n²Q²/(A²R^4/3) (Manning friction)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#076",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "Dynamic wave: full equation — includes inertia terms\n  Diffusion wave: drop inertia — good for slowly varying flows\n  Kinematic wave: drop both inertia and pressure — good for upland routing"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#077",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "2D: HEC-RAS 2D, MIKE FLOOD, TUFLOW — full 2D shallow water equations\n    Required for floodplains with complex flow paths, bridges, culverts\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#078",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#079",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## River Restoration Principles"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#080",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "```\nNATURAL CHANNEL DESIGN:\n  Goal: restore channel to stable reference condition\n  Method: match dimensions to regional hydraulic geometry curves\n    → W, D, S, meander wavelength, radius of curvature\n    → From reference reaches (similar Q, geology, vegetation)"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#081",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "COMMON FAILURES:\n    Over-engineered: hard revetments prevent natural adjustment\n    Under-designed: channel too small → instant incision\n    Ignoring sediment supply: restored channel will fill or incise\n    Short reach fix: upstream/downstream problems propagate in"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#082",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "WOOD IN RIVERS:\n  Large wood (logs) in streams:\n    Creates pools (scour), stores sediment, provides habitat complexity\n    Historical clearing of rivers → lost habitat structure\n    Reintroduction: controversial (debris concerns downstream) but effective\n  Beaver dams: similar hydraulics to wood jams\n    Raise water table, store water, create wetlands\n    \"Beaver dam analogs\" (BDAs) used in restoration"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#083",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "FLOODPLAIN RECONNECTION:\n  Entrenched (incised) channels: water doesn't reach floodplain\n  Fix: grade control structures (riffles) to arrest incision\n       or strategic overbank spillways to reconnect flow\n  Benefit: groundwater recharge, floodplain deposition, ecological function\n```"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#084",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#085",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-RIVERS-FLOODPLAINS.md#086",
+      "path": [
+        "04-RIVERS-FLOODPLAINS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]",
+        "canonical_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "concepts": "[rivers, floodplains]",
+        "current_path": "hydrology/04-RIVERS-FLOODPLAINS.md",
+        "id": "maxim:hydrology:rivers-floodplains",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rivers, floodplains]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|----------|--------|\n| Manning equation purpose | Calculate steady uniform discharge given channel geometry, slope, roughness |\n| What is bankfull discharge? | Discharge filling channel to top without overflowing; ~1.5-yr return interval; channel-forming Q |\n| Why do rivers meander? | Secondary helical flow in bends → outer bank erosion + inner bar accretion → amplifying perturbation |\n| What is Lane's balance? | Q_s × D ∝ Q × S; disturbing any factor causes channel adjustment to restore balance |\n| What is bedload vs. suspended load? | Bedload: grains rolling on bed; suspended load: fine sediment carried in water column |\n| Shields criterion? | Critical dimensionless shear stress τ* ≈ 0.047 for grain motion; drag/weight threshold |\n| What is fluvial fining-upward sequence? | Point bar deposit: coarse gravel base → fining sand toward top; diagnostic meandering river deposit |\n| What is Muskingum routing? | Simple hydrological method to route flood hydrograph downstream; weighted inflow-outflow formula |"
+    }
+  ],
+  "refs": [
+    "04-RIVERS-FLOODPLAINS.md"
+  ]
+}

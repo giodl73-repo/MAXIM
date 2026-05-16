@@ -1,0 +1,2393 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-hydrology-precipitation-runoff",
+  "source": "../../hydrology",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#000",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "# Precipitation and Runoff — Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#001",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#002",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                   RAINFALL-RUNOFF PROCESS                                 |\n|       From precipitation to stream hydrograph                             |\n+===========================================================================+\n|                                                                           |\n|  RAINFALL                                                                 |\n|     │ Interception (forest canopy: 10–40%)                               |\n|     │ Evaporation from wet surfaces                                       |\n|     ▼                                                                     |\n|  NET PRECIPITATION (throughfall + stemflow + direct on bare soil)         |\n|     │                                                                     |\n|     ├──► INFILTRATION into soil surface                                   |\n|     │        │                                                            |\n|     │        ├──► SOIL WATER (storage, ET by plants)                     |\n|     │        │                                                            |\n|     │        └──► PERCOLATION to groundwater (recharge)                  |\n|     │                    │                                                |\n|     │                    └──► BASEFLOW to streams (slow, days–months)    |\n|     │                                                                     |\n|     └──► EXCESS RAINFALL when rainfall > infiltration rate               |\n|              │ (Hortonian overland flow)                                  |\n|              OR when soil is saturated                                    |\n|              │ (saturation excess overland flow — Dunne mechanism)        |\n|              ▼                                                            |\n|         DIRECT RUNOFF → storm hydrograph → channel flow                  |\n+===========================================================================+\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#003",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#004",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Precipitation Types and Measurement"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#005",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nPRECIPITATION FORMATION:\n  Orographic: air forced upward by terrain → cools → condenses\n    → windward side wet, leeward side \"rain shadow\" (dry)\n  Convective: surface heating → unstable air rises → thunderstorms\n    → intense, localized, short duration\n  Frontal/cyclonic: warm/cold front boundary lifting\n    → widespread, moderate intensity, longer duration"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#006",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "MEASUREMENT:\n  Rain gauge: direct measurement, 0.2–0.25 mm tipping bucket resolution\n  Radar (WSR-88D, Doppler): reflectivity → rainfall rate (Z-R relationship)\n    Coverage: 200–300 km radius, 5-min updates\n    Error sources: bright band, terrain blocking, partial beam blockage\n  Satellite: TRMM (1998–2015), GPM (2014–): passive microwave + radar\n    Global 0.1° resolution; 3-hourly data (IMERG product)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#007",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "SPATIAL AVERAGING METHODS:\n  Thiessen polygons: weight each gauge by its area of influence\n  Inverse distance weighting: IDW, simple, widely used\n  Kriging: geostatistical interpolation, optimal linear unbiased estimator\n  (Kriging is standard optimal spatial interpolation — same math as Gaussian process regression)\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#008",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#009",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Infiltration Theory"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#010",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "### Horton's Infiltration Capacity Model"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#011",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nHORTON (1933):\n  Infiltration capacity f_c decreases exponentially from initial rate f_0 to\n  final rate f_c (saturated hydraulic conductivity K_s):"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#012",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "f(t) = f_c + (f_0 - f_c) exp(-kt)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#013",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "f_0 = initial infiltration rate (dry soil): 25–250 mm/hr (varies widely)\n  f_c = final saturated rate: 0.5–50 mm/hr (depends on soil type)\n  k   = decay constant (typically 2–5 hr⁻¹)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#014",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Hortonian overland flow: rainfall rate i > f_c → ponding → overland flow\n  Common in: urban areas, crusted agricultural soils, arid systems"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#015",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "GREEN-AMPT MODEL (1911, physically-based):\n  Piston-flow assumption: sharp wetting front advances into dry soil"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#016",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "f(t) = K_s [1 + (ψ_f ΔΘ)/F(t)]"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#017",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "where K_s = saturated K, ψ_f = capillary suction at wetting front,\n        ΔΘ = soil moisture deficit, F(t) = cumulative infiltration"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#018",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "More physically meaningful — relates to measurable soil properties\n  Used in Green-Ampt model for design storms\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#019",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "### Soil Water and Soil Moisture States"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#020",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nSOIL WATER STATES:\n  Saturation:        all pores filled, ψ = 0\n  Field capacity:    after gravity drainage (1–3 days), ψ ≈ -33 kPa (clay) to -10 kPa (sand)\n  Wilting point:     plant-unavailable water, ψ ≈ -1500 kPa\n  Plant available:   field capacity − wilting point → \"available water capacity\""
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#021",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Typical values (volumetric water content θ, m³/m³):\n    Sand:    saturation 0.45, field capacity 0.10, wilting 0.04\n    Clay:    saturation 0.55, field capacity 0.40, wilting 0.25\n    Loam:    saturation 0.50, field capacity 0.30, wilting 0.15"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#022",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "HYDRAULIC CONDUCTIVITY K:\n  Saturated K (K_s): depends strongly on soil texture and structure\n    Gravel: 10,000 mm/hr\n    Sand:   100–1000 mm/hr\n    Loam:   10–50 mm/hr\n    Clay:   0.5–5 mm/hr"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#023",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Unsaturated K(ψ): decreases dramatically as soil dries\n    At wilting point: K ≈ 10⁻⁶ of K_s → essentially impermeable\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#024",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#025",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## SCS (NRCS) Curve Number Method"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#026",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nCURVE NUMBER (CN) METHOD — Soil Conservation Service 1954, now NRCS"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#027",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "PURPOSE: Estimate direct runoff from a storm rainfall event\nUBIQUITY: Used for virtually all stormwater and design applications in US"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#028",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "CORE EQUATION:\n  Q = (P - Ia)² / (P - Ia + S)     for P > Ia\n  Q = 0                              for P ≤ Ia"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#029",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Q = direct runoff (mm or inches)\n  P = rainfall (mm or inches)\n  Ia = initial abstraction = 0.2S (standard assumption)\n  S = maximum potential retention = 25400/CN - 254  (mm, for SI)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#030",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "CN ranges from 0 (perfect absorption) to 100 (total runoff = rainfall)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#031",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "CN DETERMINATION:\n  Depends on: HSG (Hydrologic Soil Group) + land cover/use + antecedent moisture"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#032",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "HYDROLOGIC SOIL GROUP:\n    A: Low runoff potential (sand, gravel, deep soils, high infiltration)\n       CN ~ 30–40 for natural areas\n    B: Moderately low runoff potential\n       CN ~ 40–55 for natural areas\n    C: Moderately high runoff potential\n       CN ~ 55–70 for natural areas\n    D: High runoff potential (clay, shallow soils, high water table)\n       CN ~ 70–80 for natural areas"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#033",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "LAND USE EFFECT ON CN (for HSG C):\n    Open water:          CN = 100\n    Impervious surface:  CN = 98\n    Commercial/industrial: CN = 94\n    Residential (1/4 acre lots): CN = 83\n    Agricultural cropland: CN = 72\n    Meadow/grass:          CN = 71\n    Forest (good):         CN = 70\n    Undisturbed woodland:  CN = 55"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#034",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "ANTECEDENT MOISTURE CONDITION:\n  AMC I (dry):   subtract ~15–20 from table CN\n  AMC II (normal): use table CN\n  AMC III (wet):  add ~15–20 to table CN"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#035",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n  P = 100 mm, CN = 80 (medium-density residential, HSG C)\n  S = 25400/80 - 254 = 63.5 mm\n  Ia = 0.2 × 63.5 = 12.7 mm\n  Q = (100 - 12.7)² / (100 - 12.7 + 63.5) = 87.3² / 150.8 = 50.6 mm\n  Runoff ratio: 50.6/100 = 50.6%\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#036",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#037",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Unit Hydrograph Theory"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#038",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nUNIT HYDROGRAPH (UH) — Sherman (1932)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#039",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "CONCEPT:\n  Standardized direct runoff hydrograph from 1 unit of direct runoff depth\n  (typically 1 mm or 1 inch over the catchment) produced by a rainfall\n  of unit duration."
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#040",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "THREE ASSUMPTIONS:\n  1. PROPORTIONALITY: Q ∝ rainfall excess (2× rainfall → 2× hydrograph at each time)\n  2. TIME INVARIANCE: same storm, same season → same hydrograph shape\n  3. LINEAR SUPERPOSITION: direct runoffs from separate time periods add linearly"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#041",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "DERIVATION:\n  Observed stream hydrograph from known rainfall → subtract baseflow →\n  direct runoff hydrograph → divide by observed rainfall excess depth →\n  unit hydrograph"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#042",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "CONVOLUTION (apply UH to design storm):\n  Divide design storm into incremental periods\n  For each period: U(t) × Qi = contribution to hydrograph\n  Sum all contributions at each time step (linear convolution)\n  Add baseflow → design storm hydrograph"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#043",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "THIS IS DIGITAL SIGNAL PROCESSING:\n  Direct runoff Q = UH ⊛ rainfall excess P (discrete convolution)\n  Same math as impulse response in linear systems theory\n  UH is the unit impulse response of the catchment"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#044",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "SCS DIMENSIONLESS UNIT HYDROGRAPH:\n  Synthetic UH (no observed data needed)\n  Based on empirical data from many catchments\n  Tp = (D/2) + Tlag\n    D = storm duration, Tlag = lag time = 0.6 × Tc\n    Tc = time of concentration (travel time through catchment)\n  Peak: Qp = 0.208 × A / Tp  (m³/s per mm, A in km², Tp in hr)\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#045",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#046",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Hydrograph Components"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#047",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nSTORM HYDROGRAPH ANATOMY:"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#048",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Q\n       │                    PEAK DISCHARGE\n       │                  ╱────────────────────\n       │                ╱     RECESSION LIMB\n       │              ╱\n       │     RISING  ╱\n       │      LIMB  ╱\n       │           ╱\n       │──────────╱────────────────────────────── baseflow\n       │         ↑ BASEFLOW                        ↘\n       └────────────────────────────────────────────── t\n                  ↑                    ↑\n               storm                 end of direct\n               start                 runoff (baseflow only)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#049",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "BASEFLOW SEPARATION:\n    Straight line method: draw line from start of rise to end of direct runoff\n    Recession curve method: fit exponential decay to recession limb Q(t) = Q₀ exp(-t/k)\n    Master recession curve: composite recession from many events"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#050",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "HYDROGRAPH CHARACTERISTICS:\n    Tc (time of concentration): time for water from furthest point to reach outlet\n    Tp (time to peak): time from centroid of rainfall to peak flow\n    T_r (recession time): time from peak to baseflow return\n    Volume under hydrograph = total direct runoff volume (verify against CN estimate)\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#051",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#052",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Rational Method (Peak Flow)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#053",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nRATIONAL METHOD (Mulvaney, 1850):\n  Q = C × i × A / 360    (m³/s, with A in ha, i in mm/hr)\n  Q = C × i × A          (for traditional US units: ft³/s, A in acres, i in in/hr)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#054",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "C = runoff coefficient (0.1–0.95)\n  i = rainfall intensity (mm/hr) for duration = Tc (time of concentration)\n  A = drainage area"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#055",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "i from IDF (Intensity-Duration-Frequency) curves:\n    IDF: intensity vs. duration for various return periods (10-yr, 25-yr, 100-yr)\n    Each location has a unique IDF curve (NOAA Atlas 14 in US)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#056",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "ASSUMPTIONS:\n    Steady-state: rainfall duration ≥ Tc (whole catchment contributing simultaneously)\n    Uniform distribution of rainfall\n    Constant C (fixed land use)\n    Linear response"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#057",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "VALIDITY: Small catchments (< 200 ha), urban drainage design\n  LIMITATIONS: Doesn't capture storage, not valid for long-duration events\n  ALTERNATIVE: SCS method for larger catchments and volume calculations"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#058",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "RUNOFF COEFFICIENTS C:\n  Rooftops, pavement:   0.70–0.95\n  Lawns (flat, clay):   0.25–0.35\n  Business districts:   0.70–0.95\n  Parks, cemeteries:    0.10–0.25\n  Natural meadow:       0.10–0.20\n  Forest:               0.10–0.20\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#059",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#060",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Snowmelt Hydrology"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#061",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nSNOW HYDROLOGY RELEVANCE:\n  ~35% of global freshwater runoff comes from snowmelt\n  Spring snowmelt dominates: western US, Alps, Himalayas, Scandinavia\n  Warmer winters → earlier snowmelt → shifted timing → summer water deficit"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#062",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "DEGREE-DAY METHOD:\n  Snowmelt rate M = Mf × (T_a - T_base)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#063",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "M  = melt rate (mm/day water equivalent)\n  Mf = degree-day factor (mm/°C/day, typically 3–6 mm/°C/day)\n       (varies: shaded forest 3, open clear sky 6)\n  T_a = air temperature (°C)\n  T_base = base temperature (0°C)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#064",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "ENERGY BALANCE METHOD (more accurate):\n  M = (Q_n + Q_h + Q_e + Q_g + Q_r) / (ρ_w × L_f)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#065",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Q_n = net radiation, Q_h = sensible heat flux, Q_e = latent heat flux\n  Q_g = ground heat flux, Q_r = rain heat flux\n  L_f = latent heat of fusion (334 kJ/kg)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#066",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Net radiation drives ~80% of snowmelt in most conditions.\n  Rain on snow events: can rapidly melt large volumes → extreme floods\n    (1950 \"Rain on Snow\" Pacific Northwest floods, European Alpine floods)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#067",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "SWE (SNOW WATER EQUIVALENT):\n  Mass of water in snowpack = depth × density / 1000\n  Fresh snow: ρ ≈ 50–100 kg/m³ → 1 m snow = 50–100 mm SWE\n  Settled old snow: ρ ≈ 400–600 kg/m³\n  Measured by: snow courses (manual), automated snow pillows, airborne gamma\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#068",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#069",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Design Storm and IDF Curves"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#070",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nINTENSITY-DURATION-FREQUENCY (IDF) RELATIONSHIPS:\n  For a given return period T (years) and duration D (minutes or hours):\n    i = a / (D + b)^n     (empirical formula, region-specific coefficients)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#071",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "READING AN IDF CURVE:\n    Horizontal axis: storm duration (5 min to 24 hr)\n    Vertical axis: rainfall intensity (mm/hr or in/hr)\n    Lines: return period (2-yr, 5-yr, 10-yr, 25-yr, 100-yr)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#072",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "For drainage design: choose return period = design standard (e.g., 10-yr for minor,\n    100-yr for major system)\n    Read intensity at duration = Tc of catchment → rational method Q peak"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#073",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "DESIGN STORM TEMPORAL DISTRIBUTION:\n    Chicago Design Storm: peaks near the middle of event (most common in US)\n    Huff quartile distributions: peak in 1st, 2nd, 3rd, 4th quartile\n    SCS 24-hr distributions: Type I (Pacific coast), Type II (most of US),\n                              Type III (Gulf Coast, East Coast heavy rain)\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#074",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#075",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Bridges from CS and Engineering"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#076",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "```\nRAINFALL-RUNOFF CONCEPT       CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nUnit Hydrograph (UH)          LTI system impulse response\n  Q(t) = UH ⊛ P_excess(t)      → discrete convolution (same as FIR filter)\n  UH shape = catchment TF       → characterizes gain + timing at each frequency\n  Superposition of periods      → linearity allows addition of responses\n  Limitation (large storms)     → nonlinear regime; LTI breaks down\n                                  (same as small-signal approximation in EE)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#077",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Kriging (spatial rainfall)    Gaussian process (GP) regression\n  Variogram γ(h)                → covariance kernel as function of separation h\n  Kriging system (linear eq.)   → GP posterior mean; same closed-form solution\n  Kriging variance              → GP posterior variance (uncertainty estimate)\n  \"Optimal unbiased estimator\"  → minimum MSE under stationarity assumption"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#078",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Horton infiltration f(t)      First-order exponential decay\n  f(t) = fc + (f0-fc)e^{-kt}   → RC discharge curve; k = 1/time constant\n  \"Saturated K\" floor           → steady-state; equivalent to DC gain in a filter"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#079",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Green-Ampt model              Moving boundary problem\n  Sharp wetting front           → Stefan problem in heat conduction\n  Capillary suction ψ_f         → surface tension as a driving potential"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#080",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "SCS Curve Number Q(P)         Nonlinear sigmoid mapping\n  Q = (P - Ia)² / (P - Ia + S) → threshold + nonlinear amplification\n  CN = 98 (impervious)          → near-unity gain; CN = 30 → heavy attenuation\n  Antecedent moisture           → state-dependent gain (system with memory)"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#081",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "IDF Curves                    Extreme value statistics at fixed durations\n  i = a/(D+b)^n                 → power-law tail; same form as Pareto-type EVT\n  Return period T               → 1/P(exceedance) per year — not a fixed cycle\n  Design storm selection        → threshold for acceptable tail risk"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#082",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "Snowmelt degree-day model     Linear threshold model\n  M = Mf × max(T_a - 0, 0)     → ReLU activation; accumulates as integral\n  SWE as state variable         → integrator (running sum of melt increments)\n```"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#083",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-PRECIPITATION-RUNOFF.md#084",
+      "path": [
+        "01-PRECIPITATION-RUNOFF.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]",
+        "canonical_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "concepts": "[precipitation, runoff]",
+        "current_path": "hydrology/01-PRECIPITATION-RUNOFF.md",
+        "id": "maxim:hydrology:precipitation-runoff",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[precipitation, runoff]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|----------|--------|\n| What is Hortonian vs. Dunne overland flow? | Hortonian: rain > infiltration rate; Dunne: saturation excess (soil full) |\n| What CN means? | Higher CN → more runoff; CN=100 → all rain runs off; CN=30 → little runoff |\n| How does forest affect runoff? | Lower CN (interception, high infiltration) → less runoff vs. cropland or urban |\n| What is a unit hydrograph? | Linear impulse response of a catchment to 1 mm of direct runoff — it's a transfer function |\n| What is Tc? | Time of concentration — longest travel time from catchment edge to outlet |\n| What is baseflow? | Groundwater discharge sustaining river between storms; slow recession curve |\n| What are IDF curves? | Intensity-Duration-Frequency: rainfall intensity vs. storm duration for various return periods |\n| What is SWE? | Snow Water Equivalent: water content of snowpack (depth × density) |"
+    }
+  ],
+  "refs": [
+    "01-PRECIPITATION-RUNOFF.md"
+  ]
+}
