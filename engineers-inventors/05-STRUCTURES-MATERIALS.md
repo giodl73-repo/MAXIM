@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:structures-materials
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Structures and Materials - Eiffel, Roebling, Bessemer, Goodyear
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/05-STRUCTURES-MATERIALS.md
+canonical_path: engineers-inventors/05-STRUCTURES-MATERIALS.md
+backsource_ids: [proof-backfill:engineers-inventors:05-structures-materials, git-history:engineers-inventors:05-structures-materials]
+concepts: [structures, materials]
+root_concepts: [structures, materials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structures and Materials — Eiffel, Roebling, Bessemer, Goodyear
 
 ## Era Overview

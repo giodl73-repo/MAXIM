@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:early-naturalists
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Early Naturalists - Aristotle, Linnaeus, Buffon, John Ray
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/01-EARLY-NATURALISTS.md
+canonical_path: chemists-naturalists/01-EARLY-NATURALISTS.md
+backsource_ids: [proof-backfill:chemists-naturalists:01-early-naturalists, git-history:chemists-naturalists:01-early-naturalists]
+concepts: [early, naturalists]
+root_concepts: [early, naturalists]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Naturalists — Aristotle, Linnaeus, Buffon, John Ray
 
 ## The Program: Ordering the Living World

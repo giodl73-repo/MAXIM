@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:electrical-pioneers
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Electrical Pioneers - Faraday, Edison, Tesla, Westinghouse, Marconi
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/03-ELECTRICAL-PIONEERS.md
+canonical_path: engineers-inventors/03-ELECTRICAL-PIONEERS.md
+backsource_ids: [proof-backfill:engineers-inventors:03-electrical-pioneers, git-history:engineers-inventors:03-electrical-pioneers]
+concepts: [electrical, pioneers]
+root_concepts: [electrical, pioneers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Pioneers — Faraday, Edison, Tesla, Westinghouse, Marconi
 
 ## Era Overview

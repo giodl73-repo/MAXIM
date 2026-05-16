@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:20th-century-chemistry
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: 20th Century Chemistry - Haber, Bosch, Curie, Hodgkin, Crick+Watson+Franklin
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/09-20TH-CENTURY-CHEMISTRY.md
+canonical_path: chemists-naturalists/09-20TH-CENTURY-CHEMISTRY.md
+backsource_ids: [proof-backfill:chemists-naturalists:09-20th-century-chemistry, git-history:chemists-naturalists:09-20th-century-chemistry]
+concepts: [20th, century, chemistry]
+root_concepts: [20th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20th Century Chemistry — Haber, Bosch, Curie, Hodgkin, Crick+Watson+Franklin
 
 ## The Transformation: Chemistry Enters Technology at Scale

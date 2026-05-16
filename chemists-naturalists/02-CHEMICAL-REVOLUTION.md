@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:chemical-revolution
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: The Chemical Revolution - Lavoisier, Priestley, Scheele, Cavendish
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/02-CHEMICAL-REVOLUTION.md
+canonical_path: chemists-naturalists/02-CHEMICAL-REVOLUTION.md
+backsource_ids: [proof-backfill:chemists-naturalists:02-chemical-revolution, git-history:chemists-naturalists:02-chemical-revolution]
+concepts: [chemical, revolution]
+root_concepts: [chemical, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Chemical Revolution — Lavoisier, Priestley, Scheele, Cavendish
 
 ## The Revolution: Overthrowing Phlogiston

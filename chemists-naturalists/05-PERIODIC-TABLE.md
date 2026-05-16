@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:periodic-table
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: The Periodic Table - Mendeleev, Meyer, Moseley, Seaborg
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/05-PERIODIC-TABLE.md
+canonical_path: chemists-naturalists/05-PERIODIC-TABLE.md
+backsource_ids: [proof-backfill:chemists-naturalists:05-periodic-table, git-history:chemists-naturalists:05-periodic-table]
+concepts: [periodic, table]
+root_concepts: [periodic, table]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Periodic Table — Mendeleev, Meyer, Moseley, Seaborg
 
 ## The Problem: Organizing 60+ Elements

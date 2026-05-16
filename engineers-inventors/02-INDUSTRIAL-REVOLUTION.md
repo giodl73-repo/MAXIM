@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:industrial-revolution-engineers
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Industrial Revolution Engineers - Newcomen, Watt, Trevithick, Stephenson, Brunel
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/02-INDUSTRIAL-REVOLUTION.md
+canonical_path: engineers-inventors/02-INDUSTRIAL-REVOLUTION.md
+backsource_ids: [proof-backfill:engineers-inventors:02-industrial-revolution-engineers, git-history:engineers-inventors:02-industrial-revolution-engineers]
+concepts: [industrial, revolution]
+root_concepts: [industrial, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Revolution Engineers — Newcomen, Watt, Trevithick, Stephenson, Brunel
 
 ## Era Overview

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:computing-hardware
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Computing Hardware Engineers - Babbage, Hollerith, Atanasoff, Von Neumann, Kilby, Noyce
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/06-COMPUTING-HARDWARE.md
+canonical_path: engineers-inventors/06-COMPUTING-HARDWARE.md
+backsource_ids: [proof-backfill:engineers-inventors:06-computing-hardware, git-history:engineers-inventors:06-computing-hardware]
+concepts: [computing, hardware]
+root_concepts: [computing, hardware]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computing Hardware Engineers — Babbage, Hollerith, Atanasoff, Von Neumann, Kilby, Noyce
 
 ## Cross-Reference Note
