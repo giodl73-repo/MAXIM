@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:critical-theory
+kind: guide
+module: literature
+section: literature
+title: Critical Theory
+status: source-custody
+source_custody: partial
+current_path: literature/07-CRITICAL-THEORY.md
+canonical_path: literature/07-CRITICAL-THEORY.md
+backsource_ids: [proof-backfill:literature:07-critical-theory, git-history:literature:07-critical-theory]
+concepts: [critical, theory]
+root_concepts: [critical, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Critical Theory
 
 ## The Big Picture

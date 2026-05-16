@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:stagecraft
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Stagecraft and Production Design
+status: source-custody
+source_custody: partial
+current_path: theater-performance/06-STAGECRAFT.md
+canonical_path: theater-performance/06-STAGECRAFT.md
+backsource_ids: [proof-backfill:theater-performance:06-stagecraft, git-history:theater-performance:06-stagecraft]
+concepts: [stagecraft]
+root_concepts: [stagecraft]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stagecraft and Production Design
 
 ## The Big Picture
@@ -77,13 +96,13 @@ THRUST:
            Theatre) thrust version; many regional theaters
 
 IN-THE-ROUND (arena):
-  +--+--AUDIENCE--+--+
+  ==== AUDIENCE ====
   |                   |
   A                   A
   U   [PERFORMANCE]   U
   D                   D
   |                   |
-  +--+--AUDIENCE--+--+
+  ==== AUDIENCE ====
   Audience: ALL FOUR sides
   Strengths: maximum intimacy; pure actor-audience focus
   Weaknesses: cannot have scenic walls; no flying;

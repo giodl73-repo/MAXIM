@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:translation
+kind: guide
+module: literature
+section: literature
+title: Translation Theory and Practice
+status: source-custody
+source_custody: partial
+current_path: literature/08-TRANSLATION.md
+canonical_path: literature/08-TRANSLATION.md
+backsource_ids: [proof-backfill:literature:08-translation, git-history:literature:08-translation]
+concepts: [translation]
+root_concepts: [translation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Translation Theory and Practice
 
 ## The Big Picture

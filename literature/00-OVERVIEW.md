@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:overview
+kind: guide
+module: literature
+section: literature
+title: Literature - Overview and Landscape
+status: source-custody
+source_custody: partial
+current_path: literature/00-OVERVIEW.md
+canonical_path: literature/00-OVERVIEW.md
+backsource_ids: [proof-backfill:literature:00-overview, git-history:literature:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Literature — Overview and Landscape
 
 ## The Big Picture
@@ -22,8 +41,8 @@
 |                                                                  |
 |  CRITICAL APPROACHES                                             |
 |  ------------------                                              |
-|  Formalist      New Criticism → Russian Formalism → Structuralism|
-|  Contextual     Historical → Marxist → Postcolonial → Ecocritical|
+|  Formalist      New Criticism → Russian Formalism → Structuralism |
+|  Contextual     Historical → Marxist → Postcolonial → Ecocritical |
 |  Psychoanalytic Freud → Lacan → Kristeva                         |
 |  Deconstructive Derrida → de Man                                 |
 |  Reader-focused Phenomenology → Reception theory → Affect theory |
@@ -94,9 +113,9 @@ Note: Aristotle's categories have been complicated by every century since. The l
 ```
 +----------------------------------------------------------+
 |  NARRATIVE FORMS                                         |
-|  Novel (long fiction) → Novella → Short story → Flash   |
+|  Novel (long fiction) → Novella → Short story → Flash    |
 |  Frame narrative (Canterbury Tales, Decameron)           |
-|  Epistolary novel → Stream of consciousness → Hypertext |
+|  Epistolary novel → Stream of consciousness → Hypertext  |
 +----------------------------------------------------------+
 |  LYRIC FORMS                                             |
 |  Fixed form: sonnet, villanelle, sestina, rondeau        |
@@ -105,9 +124,9 @@ Note: Aristotle's categories have been complicated by every century since. The l
 |  Open form: free verse, Language poetry, prose poem      |
 +----------------------------------------------------------+
 |  DRAMATIC FORMS                                          |
-|  Tragedy → Satyr play → Comedy → Tragicomedy            |
+|  Tragedy → Satyr play → Comedy → Tragicomedy             |
 |  Medieval: mystery, morality, miracle                    |
-|  Modern: naturalist, expressionist, absurdist, postmod  |
+|  Modern: naturalist, expressionist, absurdist, postmod   |
 +----------------------------------------------------------+
 |  HYBRID / UNSTABLE FORMS                                 |
 |  Verse novel (Eugene Onegin, The Golden Gate)            |

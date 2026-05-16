@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:renaissance-baroque
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Renaissance and Baroque Theater
+status: source-custody
+source_custody: partial
+current_path: theater-performance/03-RENAISSANCE-BAROQUE.md
+canonical_path: theater-performance/03-RENAISSANCE-BAROQUE.md
+backsource_ids: [proof-backfill:theater-performance:03-renaissance-baroque, git-history:theater-performance:03-renaissance-baroque]
+concepts: [renaissance, baroque]
+root_concepts: [renaissance, baroque]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Renaissance and Baroque Theater
 
 ## The Big Picture
@@ -11,7 +30,7 @@ The Renaissance (roughly 1450–1600) and Baroque (1600–1750) periods produced
 |                                                                  |
 |  ENGLAND 1576–1642        SPAIN 1580–1680       ITALY 1545+     |
 |  ------------------       ---------------       ---------        |
-|  Public playhouse era     Spanish Golden Age    Perspective stage|
+|  Public playhouse era     Spanish Golden Age    Perspective stage |
 |  (Globe, Rose, Swan)      (Lope de Vega,        design (Serlio)  |
 |  Shakespeare, Marlowe,    Calderon, Tirso)      Court entertainm |
 |  Jonson, Webster          Auto sacramental      Intermezzi        |
@@ -77,10 +96,9 @@ THE THRUST STAGE GEOMETRY
 --------------------------
                      [TIRING HOUSE]
                       (backstage)
-           +----------+-----+----------+
-           |     backstage rooms       |
-           | (costume, props, exits)   |
-           +----------+-----+----------+
+           [ backstage rooms and exits ]
+           [ costume and prop storage  ]
+           [ tiring-house wall         ]
            |      STAGE DOORS          |
            |   Left         Right      |
            |                           |
@@ -92,9 +110,9 @@ THE THRUST STAGE GEOMETRY
                   |  YARD   |          |
     GALLERIES     | (stand) |          |  GALLERIES
     (three tiers) |  1d     |          |  (seated)
-                  +----+----+          |
+                  [ yard opening ]     |
                        |               |
-                       +--------  -----+
+                       [ audience edge ]
                            AUDIENCE
                         (surrounding 3 sides)
 

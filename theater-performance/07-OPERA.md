@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:opera
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Opera
+status: source-custody
+source_custody: partial
+current_path: theater-performance/07-OPERA.md
+canonical_path: theater-performance/07-OPERA.md
+backsource_ids: [proof-backfill:theater-performance:07-opera, git-history:theater-performance:07-opera]
+concepts: [opera]
+root_concepts: [opera]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Opera
 
 ## The Big Picture
@@ -18,7 +37,7 @@ Opera is the union of music and drama in which the text is (usually entirely) su
 |                     Opera buffa      and buffa        drama-      |
 |                     (comic)          (Le Nozze)       turgist    |
 |                                                                  |
-|  WAGNER             VERISMO          20th CENTURY    CONTEMPORARY|
+|  WAGNER             VERISMO          20th CENTURY    CONTEMPORARY |
 |  -------            -------          --------        -----------  |
 |  Gesamtkunstwerk    (Puccini,        Britten, Berg   Glass,      |
 |  Leitmotif system   Mascagni)        Strauss R.      Adams,      |
