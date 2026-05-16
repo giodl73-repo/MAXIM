@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:compilers-interpreters
+kind: guide
+module: computing-software
+section: computing-software
+title: Compilers and Interpreters in Modern Systems
+status: source-custody
+source_custody: partial
+current_path: computing/22-COMPILERS.md
+canonical_path: computing/22-COMPILERS.md
+backsource_ids: [proof-backfill:computing-software:22-compilers-interpreters, git-history:computing-software:22-compilers-interpreters]
+concepts: [compilers, interpreters, parsing, bytecode, jit]
+root_concepts: [compilers, language tooling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 22 — Compilers & Interpreters in Modern Systems
 
 ## The Frame

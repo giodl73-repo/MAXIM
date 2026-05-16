@@ -1,0 +1,1490 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\24-NETWORKING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 90,
+      "heading_context": "## 1. IP & Subnetting",
+      "headers": [
+        "CIDR",
+        "Subnet Mask",
+        "Hosts (usable)",
+        "Use Case"
+      ],
+      "rows": [
+        [
+          "/8",
+          "255.0.0.0",
+          "16,777,214",
+          "Large private networks (Class A)"
+        ],
+        [
+          "/16",
+          "255.255.0.0",
+          "65,534",
+          "Corporate networks, Azure VNets"
+        ],
+        [
+          "/24",
+          "255.255.255.0",
+          "254",
+          "Typical subnet, home networks"
+        ],
+        [
+          "/25",
+          "255.255.255.128",
+          "126",
+          "Split a /24 in half"
+        ],
+        [
+          "/26",
+          "255.255.255.192",
+          "62",
+          "Medium-sized subnet"
+        ],
+        [
+          "/27",
+          "255.255.255.224",
+          "30",
+          "Small subnet"
+        ],
+        [
+          "/28",
+          "255.255.255.240",
+          "14",
+          "Azure delegated subnets (min size)"
+        ],
+        [
+          "/29",
+          "255.255.255.248",
+          "6",
+          "Point-to-point links with spares"
+        ],
+        [
+          "/30",
+          "255.255.255.252",
+          "2",
+          "Point-to-point links (exactly 2 ends)"
+        ],
+        [
+          "/31",
+          "255.255.255.254",
+          "2 (no bcast)",
+          "RFC 3021 P2P — no network/bcast addr"
+        ],
+        [
+          "/32",
+          "255.255.255.255",
+          "1",
+          "Host route, loopback, specific rule"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## 1. IP & Subnetting",
+      "headers": [
+        "Range",
+        "CIDR",
+        "Size",
+        "Common Use"
+      ],
+      "rows": [
+        [
+          "10.0.0.0 – 10.255.255.255",
+          "10.0.0.0/8",
+          "16M IPs",
+          "Large enterprises, Azure VNets"
+        ],
+        [
+          "172.16.0.0 – 172.31.255.255",
+          "172.16.0.0/12",
+          "1M IPs",
+          "Docker default bridge (172.17.x)"
+        ],
+        [
+          "192.168.0.0 – 192.168.255.255",
+          "192.168.0.0/16",
+          "65K IPs",
+          "Home/SOHO networks"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 150,
+      "heading_context": "## 1. IP & Subnetting",
+      "headers": [
+        "Address Type",
+        "Prefix",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Global unicast",
+          "2000::/3",
+          "Publicly routable (2001:db8::/32 = docs)"
+        ],
+        [
+          "Link-local",
+          "fe80::/10",
+          "Non-routable, auto-configured per NIC"
+        ],
+        [
+          "Unique local",
+          "fc00::/7",
+          "RFC 4193, private (like RFC 1918)"
+        ],
+        [
+          "Multicast",
+          "ff00::/8",
+          "No broadcast in IPv6 — multicast instead"
+        ],
+        [
+          "Loopback",
+          "::1/128",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 210,
+      "heading_context": "## 2. TCP Deep Dive",
+      "headers": [
+        "Option",
+        "Effect"
+      ],
+      "rows": [
+        [
+          "`TCP_NODELAY`",
+          "Disable Nagle — send immediately, don't buffer small writes"
+        ],
+        [
+          "`SO_KEEPALIVE`",
+          "Enable TCP keepalive probes for idle connections"
+        ],
+        [
+          "`TCP_KEEPIDLE`",
+          "Seconds of idle before first keepalive probe (Linux, default 7200)"
+        ],
+        [
+          "`TCP_KEEPINTVL`",
+          "Interval between keepalive probes"
+        ],
+        [
+          "`TCP_KEEPCNT`",
+          "Number of probes before declaring connection dead"
+        ],
+        [
+          "`SO_REUSEADDR`",
+          "Allow binding to an address in TIME_WAIT"
+        ],
+        [
+          "`SO_REUSEPORT`",
+          "Multiple sockets can bind to the same port (Linux load distribution)"
+        ],
+        [
+          "`TCP_FASTOPEN`",
+          "Send data in the SYN packet on reconnect (saves 1 RTT on reconnection)"
+        ],
+        [
+          "`SO_LINGER`",
+          "Control behavior on close() — whether to wait for data to flush"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 242,
+      "heading_context": "## 2. TCP Deep Dive",
+      "headers": [
+        "Dimension",
+        "TCP",
+        "UDP"
+      ],
+      "rows": [
+        [
+          "Reliability",
+          "Guaranteed delivery, retransmission",
+          "Best-effort, no retransmission"
+        ],
+        [
+          "Ordering",
+          "In-order delivery",
+          "Out-of-order possible"
+        ],
+        [
+          "Connection",
+          "Stateful (3-way handshake)",
+          "Stateless"
+        ],
+        [
+          "Flow control",
+          "Yes (rwnd)",
+          "No"
+        ],
+        [
+          "Congestion control",
+          "Yes (cwnd, CUBIC/BBR)",
+          "No"
+        ],
+        [
+          "Head-of-line block",
+          "Yes — lost packet blocks stream",
+          "No — each packet independent"
+        ],
+        [
+          "Overhead",
+          "20-byte header + state",
+          "8-byte header, no state"
+        ],
+        [
+          "Use cases",
+          "HTTP, databases, SSH, email",
+          "DNS, gaming, video streams, QUIC"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 263,
+      "heading_context": "## 3. DNS",
+      "headers": [
+        "Type",
+        "Purpose",
+        "Example"
+      ],
+      "rows": [
+        [
+          "A",
+          "Hostname → IPv4 address",
+          "`example.com. → 93.184.216.34`"
+        ],
+        [
+          "AAAA",
+          "Hostname → IPv6 address",
+          "`example.com. → 2606:2800:220:1:248:1893:25c8:1946`"
+        ],
+        [
+          "CNAME",
+          "Hostname → another hostname (alias)",
+          "`www.example.com. → example.com.`"
+        ],
+        [
+          "MX",
+          "Mail exchange server for domain",
+          "`example.com. 10 mail.example.com.`"
+        ],
+        [
+          "TXT",
+          "Arbitrary text — SPF, DKIM, DMARC, domain verify",
+          "`\"v=spf1 include:_spf.google.com ~all\"`"
+        ],
+        [
+          "NS",
+          "Authoritative nameservers for zone",
+          "`example.com. NS ns1.example.com.`"
+        ],
+        [
+          "SOA",
+          "Start of Authority — zone metadata",
+          "serial, refresh, retry, expire, minimum TTL"
+        ],
+        [
+          "SRV",
+          "Service location (host + port)",
+          "`_grpc._tcp.example.com. 0 5 50051 api.example.com.`"
+        ],
+        [
+          "PTR",
+          "Reverse DNS — IP → hostname",
+          "`34.216.184.93.in-addr.arpa. → example.com.`"
+        ],
+        [
+          "CAA",
+          "Authorized certificate authorities for domain",
+          "`example.com. CAA 0 issue \"letsencrypt.org\"`"
+        ],
+        [
+          "TLSA",
+          "DANE — cert pinning in DNS (requires DNSSEC)",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 304,
+      "heading_context": "## 3. DNS",
+      "headers": [
+        "Protocol",
+        "Port",
+        "Transport",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "DNS",
+          "53",
+          "UDP/TCP plaintext",
+          "Default, observable by network"
+        ],
+        [
+          "DoT",
+          "853",
+          "TCP + TLS",
+          "RFC 7858, easy to block (single port)"
+        ],
+        [
+          "DoH",
+          "443",
+          "HTTP/2 + TLS",
+          "RFC 8484, looks like HTTPS, hard to block"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 345,
+      "heading_context": "## HTTP Version Evolution",
+      "headers": [
+        "Version",
+        "Problem it solves",
+        "Key mechanism",
+        "Still use?"
+      ],
+      "rows": [
+        [
+          "HTTP/1.1",
+          "Persistent connections vs HTTP/1.0",
+          "Keep-Alive, pipelining (broken in practice)",
+          "Yes — universal fallback"
+        ],
+        [
+          "HTTP/2",
+          "Application-layer head-of-line blocking",
+          "Multiplexed streams, binary framing, HPACK compression — all over a single TLS connection",
+          "Yes — current default"
+        ],
+        [
+          "HTTP/3 / QUIC",
+          "TCP-layer HOL blocking + 0-RTT reconnection",
+          "UDP-based QUIC with per-stream loss recovery, TLS 1.3 built in",
+          "Growing — ~30% of web traffic (2024)"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 392,
+      "heading_context": "## 4. HTTP/1.1 → HTTP/2 → HTTP/3",
+      "headers": [
+        "Header",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "`Cache-Control: max-age=3600`",
+          "Cache for 3600 seconds"
+        ],
+        [
+          "`Cache-Control: no-cache`",
+          "Must revalidate before using (NOT \"don't cache\")"
+        ],
+        [
+          "`Cache-Control: no-store`",
+          "Do not store anywhere (truly don't cache — e.g., auth pages)"
+        ],
+        [
+          "`Cache-Control: private`",
+          "Browser can cache; CDN/shared cache cannot"
+        ],
+        [
+          "`Cache-Control: s-maxage=3600`",
+          "Shared cache (CDN) TTL, overrides max-age for CDN"
+        ],
+        [
+          "`Cache-Control: stale-while-revalidate=60`",
+          "Serve stale while revalidating in background"
+        ],
+        [
+          "`ETag: \"abc123\"`",
+          "Entity tag — opaque version identifier"
+        ],
+        [
+          "`If-None-Match: \"abc123\"`",
+          "Conditional GET — 304 if unchanged"
+        ],
+        [
+          "`Last-Modified: Tue, 01 Jan 2025 00:00:00 GMT`",
+          "Last modification time"
+        ],
+        [
+          "`If-Modified-Since: ...`",
+          "Conditional GET by time — 304 if unchanged"
+        ],
+        [
+          "`Vary: Accept-Encoding`",
+          "Cache key includes Accept-Encoding — separate cache entries per value"
+        ],
+        [
+          "`Content-Encoding: gzip`",
+          "Response body is gzip-compressed"
+        ],
+        [
+          "`Transfer-Encoding: chunked`",
+          "Body sent as chunks, length unknown upfront (streaming)"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 538,
+      "heading_context": "## 5. TLS 1.3 Deep Dive",
+      "headers": [
+        "Feature",
+        "TLS 1.2",
+        "TLS 1.3"
+      ],
+      "rows": [
+        [
+          "Handshake RTTs",
+          "2 RTT (1 RTT with session resumption)",
+          "1 RTT (0-RTT on resumption)"
+        ],
+        [
+          "RSA key exchange",
+          "Supported (no forward secrecy)",
+          "**Removed**"
+        ],
+        [
+          "Key exchange",
+          "RSA, DHE, ECDHE",
+          "**Only (EC)DHE** — always PFS"
+        ],
+        [
+          "Cipher suites",
+          "300+ (many weak)",
+          "**5 only** (all AEAD)"
+        ],
+        [
+          "Compression",
+          "Supported (CRIME attack)",
+          "Removed"
+        ],
+        [
+          "Renegotiation",
+          "Supported (attack surface)",
+          "Removed"
+        ],
+        [
+          "Session tickets",
+          "Supported",
+          "Supported (PSK)"
+        ],
+        [
+          "Certificate in handshake",
+          "Plaintext",
+          "**Encrypted** (after key exchange)"
+        ],
+        [
+          "Downgrade protection",
+          "SCSV extension",
+          "Built-in (random sentinel values)"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 619,
+      "heading_context": "## 5. TLS 1.3 Deep Dive",
+      "headers": [
+        "Approach",
+        "Pin What",
+        "Rotation Difficulty",
+        "Use Case"
+      ],
+      "rows": [
+        [
+          "Cert pinning",
+          "Full cert",
+          "Hard (90-day cycle)",
+          "Generally avoid"
+        ],
+        [
+          "SPKI pinning",
+          "Subject Public Key Info",
+          "Medium (new key = new pin)",
+          "Mobile apps with long-lived installs"
+        ],
+        [
+          "CA pinning",
+          "Specific CA cert",
+          "Low",
+          "Better than cert pinning"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 669,
+      "heading_context": "## 6. WebSockets",
+      "headers": [
+        "Opcode",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "0x0",
+          "Continuation frame"
+        ],
+        [
+          "0x1",
+          "Text frame (UTF-8)"
+        ],
+        [
+          "0x2",
+          "Binary frame"
+        ],
+        [
+          "0x8",
+          "Close frame"
+        ],
+        [
+          "0x9",
+          "Ping"
+        ],
+        [
+          "0xA",
+          "Pong"
+        ]
+      ]
+    },
+    {
+      "id": "table-13",
+      "line": 682,
+      "heading_context": "## 6. WebSockets",
+      "headers": [
+        "Feature",
+        "WebSocket",
+        "SSE (Server-Sent Events)",
+        "HTTP/2 Push (deprecated)"
+      ],
+      "rows": [
+        [
+          "Direction",
+          "Bidirectional",
+          "Server → Client only",
+          "Server → Client only"
+        ],
+        [
+          "Protocol",
+          "Custom framing",
+          "HTTP/1.1 chunked / HTTP/2",
+          "HTTP/2"
+        ],
+        [
+          "API (browser)",
+          "`WebSocket`",
+          "`EventSource`",
+          "Preload hint (passive)"
+        ],
+        [
+          "Auto-reconnect",
+          "Manual",
+          "Built-in",
+          "N/A"
+        ],
+        [
+          "Proxy-friendly",
+          "Often not (port 80/443)",
+          "Yes (pure HTTP)",
+          "Yes (pure HTTP/2)"
+        ],
+        [
+          "Use case",
+          "Chat, games, collab",
+          "Live feeds, notifications",
+          "Asset push (mostly removed)"
+        ],
+        [
+          "Firewall issues",
+          "Sometimes",
+          "Rarely",
+          "Rarely"
+        ]
+      ]
+    },
+    {
+      "id": "table-14",
+      "line": 742,
+      "heading_context": "## 7. gRPC",
+      "headers": [
+        "Mode",
+        "Direction",
+        "Use Case"
+      ],
+      "rows": [
+        [
+          "Unary",
+          "1 request → 1 response",
+          "Standard RPC (like REST)"
+        ],
+        [
+          "Server streaming",
+          "1 request → N responses",
+          "Live feed, large result set pagination"
+        ],
+        [
+          "Client streaming",
+          "N requests → 1 response",
+          "Chunked upload, sensor batching"
+        ],
+        [
+          "Bidirectional streaming",
+          "N requests ↔ N responses",
+          "Chat, collaborative editing, game state"
+        ]
+      ]
+    },
+    {
+      "id": "table-15",
+      "line": 753,
+      "heading_context": "## 7. gRPC",
+      "headers": [
+        "Wire Type",
+        "Meaning",
+        "Used For"
+      ],
+      "rows": [
+        [
+          "0",
+          "Varint",
+          "int32, int64, bool, enum"
+        ],
+        [
+          "1",
+          "64-bit",
+          "fixed64, double"
+        ],
+        [
+          "2",
+          "Length-delimited",
+          "string, bytes, embedded message"
+        ],
+        [
+          "5",
+          "32-bit",
+          "fixed32, float"
+        ]
+      ]
+    },
+    {
+      "id": "table-16",
+      "line": 767,
+      "heading_context": "## 7. gRPC",
+      "headers": [
+        "Code",
+        "Name",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "0",
+          "OK",
+          "Success"
+        ],
+        [
+          "1",
+          "CANCELLED",
+          "Client cancelled the call"
+        ],
+        [
+          "2",
+          "UNKNOWN",
+          "Unknown server error"
+        ],
+        [
+          "3",
+          "INVALID_ARGUMENT",
+          "Bad request data"
+        ],
+        [
+          "4",
+          "DEADLINE_EXCEEDED",
+          "Timeout expired"
+        ],
+        [
+          "5",
+          "NOT_FOUND",
+          "Resource not found"
+        ],
+        [
+          "6",
+          "ALREADY_EXISTS",
+          "Resource already exists"
+        ],
+        [
+          "7",
+          "PERMISSION_DENIED",
+          "Auth OK but no permission"
+        ],
+        [
+          "8",
+          "RESOURCE_EXHAUSTED",
+          "Quota exceeded, rate limited"
+        ],
+        [
+          "9",
+          "FAILED_PRECONDITION",
+          "System not in state to execute (e.g., not empty)"
+        ],
+        [
+          "10",
+          "ABORTED",
+          "Concurrency conflict (compare-and-set failed)"
+        ],
+        [
+          "11",
+          "OUT_OF_RANGE",
+          "Beyond valid range"
+        ],
+        [
+          "12",
+          "UNIMPLEMENTED",
+          "Method not implemented"
+        ],
+        [
+          "13",
+          "INTERNAL",
+          "Internal invariant violated"
+        ],
+        [
+          "14",
+          "UNAVAILABLE",
+          "Server not available (retry-able)"
+        ],
+        [
+          "15",
+          "DATA_LOSS",
+          "Unrecoverable data loss"
+        ],
+        [
+          "16",
+          "UNAUTHENTICATED",
+          "No valid auth credentials"
+        ]
+      ]
+    },
+    {
+      "id": "table-17",
+      "line": 789,
+      "heading_context": "## 7. gRPC",
+      "headers": [
+        "Dimension",
+        "gRPC",
+        "REST/JSON"
+      ],
+      "rows": [
+        [
+          "Transport",
+          "HTTP/2 only",
+          "HTTP/1.1, HTTP/2, HTTP/3"
+        ],
+        [
+          "Encoding",
+          "Protobuf (binary)",
+          "JSON (text)"
+        ],
+        [
+          "Schema",
+          "Required (.proto)",
+          "Optional (OpenAPI)"
+        ],
+        [
+          "Code gen",
+          "First-class, multi-language",
+          "Optional (openapi-generator)"
+        ],
+        [
+          "Streaming",
+          "Built-in, 4 modes",
+          "SSE, WebSocket (different protocol)"
+        ],
+        [
+          "Browser support",
+          "Needs gRPC-Web proxy",
+          "Native"
+        ],
+        [
+          "Observability",
+          "Status in trailers (non-standard)",
+          "HTTP status codes (universal)"
+        ],
+        [
+          "Versioning",
+          "Proto field numbers (append-only)",
+          "URL versioning / Accept header"
+        ],
+        [
+          "Human-readable",
+          "No (binary)",
+          "Yes (JSON)"
+        ],
+        [
+          "Performance",
+          "~5–10× smaller payload, lower CPU",
+          "Larger payload, higher CPU (JSON)"
+        ]
+      ]
+    },
+    {
+      "id": "table-18",
+      "line": 885,
+      "heading_context": "## 8. CDN & Caching",
+      "headers": [
+        "Strategy",
+        "How",
+        "Latency",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "TTL expiry",
+          "Wait for max-age/s-maxage to expire",
+          "Up to TTL",
+          "Simple, delayed"
+        ],
+        [
+          "URL versioning",
+          "`/app.abc123.js` — hash in filename",
+          "Instant",
+          "Forces new URL = new cache entry"
+        ],
+        [
+          "Surrogate keys / Cache tags",
+          "Tag resources, purge by tag",
+          "Instant (API)",
+          "Cloudflare Cache-Tag, Fastly surrogates"
+        ],
+        [
+          "CDN purge API",
+          "Explicit API call to invalidate URL/path",
+          "Seconds",
+          "After deploy, purge affected paths"
+        ],
+        [
+          "Vary-based",
+          "`Vary: Accept-Encoding` creates per-variant entries",
+          "N/A",
+          "Can fragment cache badly if overused"
+        ]
+      ]
+    },
+    {
+      "id": "table-19",
+      "line": 897,
+      "heading_context": "## 8. CDN & Caching",
+      "headers": [
+        "Feature",
+        "Azure Front Door",
+        "AWS CloudFront",
+        "Cloudflare CDN"
+      ],
+      "rows": [
+        [
+          "Network",
+          "Anycast (Azure backbone)",
+          "Anycast",
+          "Anycast (world's largest)"
+        ],
+        [
+          "WAF",
+          "Built-in",
+          "AWS WAF (add-on)",
+          "Built-in"
+        ],
+        [
+          "DDoS",
+          "Standard included",
+          "Standard included",
+          "Built-in (Unmetered)"
+        ],
+        [
+          "Cache purge",
+          "Yes (path + tag)",
+          "Yes (path)",
+          "Yes (path + tag)"
+        ],
+        [
+          "Routing rules",
+          "Rules engine",
+          "CloudFront Functions",
+          "Workers"
+        ],
+        [
+          "HTTP/3",
+          "Yes",
+          "Yes",
+          "Yes (early support)"
+        ],
+        [
+          "Origin protocol",
+          "HTTP/1.1, HTTP/2",
+          "HTTP/1.1, HTTP/2",
+          "HTTP/1.1, HTTP/2, HTTP/3"
+        ],
+        [
+          "Azure integration",
+          "Native",
+          "Via Direct Connect",
+          "Via CNAME"
+        ]
+      ]
+    },
+    {
+      "id": "table-20",
+      "line": 937,
+      "heading_context": "## 9. Load Balancers",
+      "headers": [
+        "Dimension",
+        "L4 (Transport)",
+        "L7 (Application)"
+      ],
+      "rows": [
+        [
+          "OSI layer",
+          "4 — TCP/UDP",
+          "7 — HTTP, gRPC, WebSocket"
+        ],
+        [
+          "Visibility",
+          "IP addresses, ports",
+          "Headers, URLs, cookies, body"
+        ],
+        [
+          "TLS",
+          "Pass-through only",
+          "Can terminate TLS, inspect plaintext"
+        ],
+        [
+          "Routing",
+          "IP/port hash, round-robin",
+          "Path, host, header, content-type"
+        ],
+        [
+          "Performance",
+          "Very fast (kernel bypass possible)",
+          "Slower (parse HTTP, stateful)"
+        ],
+        [
+          "Azure product",
+          "Azure Load Balancer",
+          "Azure Application Gateway, Front Door"
+        ],
+        [
+          "AWS product",
+          "NLB (Network Load Balancer)",
+          "ALB (Application Load Balancer)"
+        ],
+        [
+          "Use case",
+          "Database clusters, raw TCP, UDP",
+          "HTTP/HTTPS APIs, WebSockets, gRPC"
+        ]
+      ]
+    },
+    {
+      "id": "table-21",
+      "line": 950,
+      "heading_context": "## 9. Load Balancers",
+      "headers": [
+        "Algorithm",
+        "How",
+        "Best For"
+      ],
+      "rows": [
+        [
+          "Round-robin",
+          "Each request to next backend in order",
+          "Homogeneous backends, equal request cost"
+        ],
+        [
+          "Weighted round-robin",
+          "More requests to higher-weight backends",
+          "Mixed capacity backends"
+        ],
+        [
+          "Least connections",
+          "Route to backend with fewest active connections",
+          "Variable request duration"
+        ],
+        [
+          "IP hash",
+          "hash(client_ip) % backends = backend index",
+          "Soft session affinity"
+        ],
+        [
+          "Consistent hashing",
+          "Ring topology, hash both backends and requests",
+          "Cache sharding, minimize redistribution"
+        ],
+        [
+          "Random",
+          "Random backend selection",
+          "Simple, stateless, works well at scale"
+        ],
+        [
+          "Resource-based",
+          "Route based on backend CPU/memory (L7 only)",
+          "Heterogeneous load"
+        ]
+      ]
+    },
+    {
+      "id": "table-22",
+      "line": 983,
+      "heading_context": "## 9. Load Balancers",
+      "headers": [
+        "Type",
+        "What It Checks",
+        "Overhead"
+      ],
+      "rows": [
+        [
+          "TCP probe",
+          "Port accepts connection",
+          "Low"
+        ],
+        [
+          "HTTP probe",
+          "GET /health returns 200",
+          "Medium"
+        ],
+        [
+          "HTTP probe (body)",
+          "GET /health returns 200 + specific body",
+          "Medium"
+        ],
+        [
+          "Custom script",
+          "Shell script returns 0",
+          "Higher"
+        ],
+        [
+          "gRPC health",
+          "Calls `grpc.health.v1.Health/Check` returns SERVING",
+          "Medium"
+        ]
+      ]
+    },
+    {
+      "id": "table-23",
+      "line": 995,
+      "heading_context": "## 9. Load Balancers",
+      "headers": [
+        "Method",
+        "How",
+        "Limitation"
+      ],
+      "rows": [
+        [
+          "Cookie-based",
+          "LB sets cookie (AWSALB, ApplicationGatewayAffinity)",
+          "Requires L7 LB; cookie can be cleared"
+        ],
+        [
+          "IP hash",
+          "hash(src_ip) → same backend",
+          "CGNAT: many clients look like same IP"
+        ],
+        [
+          "Application-level",
+          "App generates session token, LB reads it",
+          "Requires app cooperation"
+        ]
+      ]
+    },
+    {
+      "id": "table-24",
+      "line": 1152,
+      "heading_context": "## 11. Network Security",
+      "headers": [
+        "Type",
+        "Protocol",
+        "Use Case"
+      ],
+      "rows": [
+        [
+          "Site-to-site",
+          "IPsec/IKEv2",
+          "On-prem datacenter ↔ Azure VNet"
+        ],
+        [
+          "Point-to-site",
+          "SSTP, OpenVPN, IKEv2",
+          "Individual developer → Azure VNet"
+        ],
+        [
+          "WireGuard",
+          "WireGuard (UDP)",
+          "Modern, fast, simple config, 4096-byte codebase"
+        ],
+        [
+          "Azure ExpressRoute",
+          "MPLS/BGP",
+          "Private, dedicated circuit, not over internet"
+        ]
+      ]
+    },
+    {
+      "id": "table-25",
+      "line": 1184,
+      "heading_context": "## 12. Ports & Protocols Reference",
+      "headers": [
+        "Port",
+        "Protocol",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "20/21",
+          "FTP",
+          "21=control, 20=data. Plain text. Avoid — use SFTP (SSH)"
+        ],
+        [
+          "22",
+          "SSH / SFTP",
+          "Secure shell, secure file transfer"
+        ],
+        [
+          "25",
+          "SMTP",
+          "Server-to-server email. Often blocked by ISPs"
+        ],
+        [
+          "53",
+          "DNS",
+          "UDP (queries), TCP (zone transfers, responses >512B)"
+        ],
+        [
+          "67/68",
+          "DHCP",
+          "67=server, 68=client. UDP broadcast"
+        ],
+        [
+          "80",
+          "HTTP",
+          "Typically redirects to 443"
+        ],
+        [
+          "110",
+          "POP3",
+          "Email retrieval (legacy). Prefer IMAP/993"
+        ],
+        [
+          "123",
+          "NTP",
+          "Network Time Protocol. UDP"
+        ],
+        [
+          "143/993",
+          "IMAP",
+          "143=plaintext, 993=IMAPS (TLS)"
+        ],
+        [
+          "443",
+          "HTTPS",
+          "HTTP over TLS 1.3. Also HTTP/2, HTTP/3 via ALPN"
+        ],
+        [
+          "465/587",
+          "SMTP (TLS)",
+          "465=SMTPS, 587=Submission (STARTTLS). For sending email"
+        ],
+        [
+          "853",
+          "DNS over TLS",
+          "DoT. RFC 7858"
+        ],
+        [
+          "3306",
+          "MySQL",
+          "MySQL / MariaDB"
+        ],
+        [
+          "3389",
+          "RDP",
+          "Windows Remote Desktop Protocol"
+        ],
+        [
+          "5432",
+          "PostgreSQL",
+          "PostgreSQL wire protocol"
+        ],
+        [
+          "5671/5672",
+          "AMQP",
+          "RabbitMQ. 5671=TLS, 5672=plain"
+        ],
+        [
+          "6379",
+          "Redis",
+          "Redis. No TLS by default — use TLS or TLS proxy"
+        ],
+        [
+          "6443",
+          "Kubernetes",
+          "Kubernetes API server"
+        ],
+        [
+          "8080",
+          "HTTP alt",
+          "Dev convention, HTTP without TLS"
+        ],
+        [
+          "8443",
+          "HTTPS alt",
+          "Dev convention, HTTPS on non-standard port"
+        ],
+        [
+          "9090",
+          "Prometheus",
+          "Prometheus HTTP API"
+        ],
+        [
+          "9092",
+          "Kafka",
+          "Kafka broker plaintext"
+        ],
+        [
+          "9200",
+          "Elasticsearch",
+          "REST API"
+        ],
+        [
+          "10250",
+          "kubelet",
+          "Kubernetes kubelet API (node agent)"
+        ],
+        [
+          "27017",
+          "MongoDB",
+          "MongoDB wire protocol"
+        ],
+        [
+          "50051",
+          "gRPC",
+          "gRPC convention (not standard, just common)"
+        ]
+      ]
+    },
+    {
+      "id": "table-26",
+      "line": 1217,
+      "heading_context": "## 13. Old World → New World Bridge",
+      "headers": [
+        "Old World",
+        "New World",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "WCF BasicHttpBinding",
+          "REST over HTTPS/1.1 or HTTP/2",
+          "Text/XML → JSON, similar request/response model"
+        ],
+        [
+          "WCF NetTcpBinding",
+          "gRPC over HTTP/2",
+          "Binary, multiplexed, TLS, Protobuf ≈ WCF BinEnc"
+        ],
+        [
+          "WCF WSHttpBinding",
+          "OpenID Connect / OAuth2 + REST",
+          "WS-Security → JWT Bearer tokens"
+        ],
+        [
+          "ISAPI filters / HTTP Modules",
+          "ASP.NET Core Middleware pipeline",
+          "IMiddleware with RequestDelegate chain"
+        ],
+        [
+          "WCF service reference + proxy gen",
+          "`grpc_tools` / openapi-generator",
+          "Same concept: schema → generated client"
+        ],
+        [
+          "Hardware LB (F5 BIG-IP, NetScaler)",
+          "Azure Application Gateway / Azure Front Door",
+          "F5 iRules → AG routing rules; same L7 concepts"
+        ],
+        [
+          "Windows Server NLB",
+          "Azure Load Balancer (L4)",
+          "L4 hash-based; Azure LB uses 5-tuple hash"
+        ],
+        [
+          "On-prem DNS / Active Directory DNS",
+          "Azure Private DNS + Azure DNS",
+          "Private zones linked to VNets = split-horizon"
+        ],
+        [
+          "HOSTS file",
+          "CoreDNS in Kubernetes",
+          "ConfigMap-based DNS overrides per namespace"
+        ],
+        [
+          "VPN Concentrator",
+          "Azure VPN Gateway / ExpressRoute",
+          "ExpressRoute = dedicated circuit (no internet)"
+        ],
+        [
+          "SSL cert from Verisign (expensive, annual)",
+          "Let's Encrypt (free, 90-day auto-renew)",
+          "ACME protocol, Caddy/Certbot automates renewal"
+        ],
+        [
+          "IIS SSL termination",
+          "Azure Application Gateway / nginx",
+          "Same concept: offload TLS, forward HTTP to backend"
+        ],
+        [
+          "HTTPS via IIS + ARR",
+          "nginx/Caddy/Envoy reverse proxy",
+          "ARR = Application Request Routing, same pattern"
+        ],
+        [
+          "Windows Firewall rules",
+          "Azure NSG rules (inbound/outbound)",
+          "Priority-ordered allow/deny with stateful tracking"
+        ],
+        [
+          "IPsec tunnel to branch office",
+          "Azure VPN Gateway (site-to-site IPsec/IKEv2)",
+          "Same IPsec/IKEv2 under the hood"
+        ],
+        [
+          "SCOM network monitoring",
+          "Azure Monitor + Network Watcher",
+          "Packet capture, connection monitor, NSG flow logs"
+        ],
+        [
+          "WCF client-cert auth",
+          "mTLS (mutual TLS)",
+          "X.509 client certs, same concept"
+        ]
+      ]
+    },
+    {
+      "id": "table-27",
+      "line": 1241,
+      "heading_context": "## 14. Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Solution"
+      ],
+      "rows": [
+        [
+          "Browser ↔ server realtime bidirectional",
+          "WebSocket"
+        ],
+        [
+          "Browser ↔ server server-push only (notifications)",
+          "SSE (EventSource) — simpler, auto-reconnect"
+        ],
+        [
+          "Internal service ↔ service (typed RPC, high perf)",
+          "gRPC + Protobuf over HTTP/2"
+        ],
+        [
+          "Public REST API, browser clients",
+          "HTTPS/2 (TLS + ALPN negotiates HTTP/2)"
+        ],
+        [
+          "Maximum performance, mobile clients",
+          "HTTP/3 / QUIC (CDN support required)"
+        ],
+        [
+          "Large file download/upload",
+          "HTTP/1.1 with Range requests or chunked encoding"
+        ],
+        [
+          "High-frequency IoT telemetry",
+          "MQTT (pub/sub, tiny overhead) or UDP + custom"
+        ],
+        [
+          "Microservice traffic encryption + identity",
+          "mTLS via service mesh (Istio/Linkerd)"
+        ],
+        [
+          "Client auth without shared secrets",
+          "Client certificates (mTLS)"
+        ],
+        [
+          "Cache static assets at edge globally",
+          "CDN with `immutable` + content-hash URLs"
+        ],
+        [
+          "Global L7 routing + WAF + DDoS protection",
+          "Azure Front Door / AWS CloudFront with WAF"
+        ],
+        [
+          "Session-aware load balancing",
+          "L7 LB with cookie-based session affinity"
+        ],
+        [
+          "Stateless microservice load balancing",
+          "L4 LB or L7 round-robin; design statelessness in"
+        ],
+        [
+          "Internal service not publicly exposed",
+          "Private Endpoint (Azure Private Link)"
+        ],
+        [
+          "Connect on-prem to Azure (internet-based)",
+          "Azure VPN Gateway (IPsec/IKEv2)"
+        ],
+        [
+          "Connect on-prem to Azure (dedicated private circuit)",
+          "Azure ExpressRoute"
+        ],
+        [
+          "Automatic TLS for internal services",
+          "cert-manager (Kubernetes) + Let's Encrypt"
+        ],
+        [
+          "DNS for internal Kubernetes services",
+          "CoreDNS (built-in to Kubernetes)"
+        ],
+        [
+          "Debugging why a request is slow",
+          "`curl -w \"@curl-format.txt\"` timing breakdown; Wireshark"
+        ],
+        [
+          "Rate limiting at edge",
+          "CDN/Front Door rate limiting rules; token bucket"
+        ],
+        [
+          "Service-to-service auth without passwords",
+          "Workload identity (Managed Identity in Azure)"
+        ],
+        [
+          "NSG microsegmentation by role",
+          "Azure Application Security Groups (ASGs)"
+        ],
+        [
+          "Lock management ports, open on demand",
+          "JIT VM access (Azure Defender for Cloud)"
+        ],
+        [
+          "Outbound internet egress policy + IDPS",
+          "Azure Firewall Premium in hub VNet"
+        ]
+      ]
+    }
+  ]
+}

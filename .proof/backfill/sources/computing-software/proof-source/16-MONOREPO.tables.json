@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\16-MONOREPO.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 496,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "Source Depot / VSTS / .NET Ecosystem",
+        "Monorepo Equivalent"
+      ],
+      "rows": [
+        [
+          "One large Source Depot enlistment",
+          "Monorepo (same idea — one checkout, many projects)"
+        ],
+        [
+          "Solution file (.sln) containing multiple projects",
+          "Workspace root with `apps/*` and `packages/*`"
+        ],
+        [
+          "Project references in .csproj",
+          "`dependencies` in package.json pointing to sibling packages"
+        ],
+        [
+          "NuGet package for internal shared code",
+          "Workspace package (no publish needed)"
+        ],
+        [
+          "VSTS build with multiple build definitions",
+          "Turbo/Nx pipeline running affected tasks"
+        ],
+        [
+          "Global Assembly Cache (GAC)",
+          "Hoisted `node_modules` at workspace root"
+        ],
+        [
+          "MSBuild dependency ordering (`<ProjectReference>`)",
+          "`\"dependsOn\": [\"^build\"]` in turbo.json — the `^` = topological order, same as MSBuild's project reference walk"
+        ],
+        [
+          "MSBuild incremental build (local, timestamp-based, per-machine)",
+          "Turbo/Nx **remote** cache — content-addressed, shared across all machines and CI runs. Not an evolution of MSBuild incremental; it's architecturally different. A clean CI agent that has never seen a package still gets a cache hit if any other machine built the same input hash."
+        ],
+        [
+          "Shared .editorconfig, .ruleset across projects",
+          "`packages/config` with shared ESLint/TSConfig"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 518,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether shared code needs a repo boundary or package boundary",
+          "Workspaces in one monorepo",
+          "A monorepo removes publishing friction; it does not remove API ownership."
+        ],
+        [
+          "Why CI rebuilds too much",
+          "Turborepo or Nx affected task graph",
+          "Affected builds depend on accurate dependency metadata and deterministic inputs."
+        ],
+        [
+          "Why builds are slow across machines",
+          "Remote cache for Turbo or Nx",
+          "Cache hits are only safe when tasks are hermetic; hidden environment inputs poison trust."
+        ],
+        [
+          "Whether the repo needs lean orchestration",
+          "Turborepo",
+          "Turbo is simpler but intentionally narrower than a full project system."
+        ],
+        [
+          "Whether the repo needs generators, plugins, and IDE graph policy",
+          "Nx",
+          "Nx adds governance power; it also adds platform conventions teams must accept."
+        ],
+        [
+          "Why installs differ between developers and CI",
+          "pnpm workspaces",
+          "pnpm exposes phantom dependencies that npm hoisting may have hidden."
+        ],
+        [
+          "Why apps accidentally depend on other apps",
+          "Nx module boundaries",
+          "Boundaries require a domain model; rules without architecture just become lint noise."
+        ],
+        [
+          "How internal and public packages should version",
+          "Changesets plus Turbo/Nx build orchestration",
+          "Internal packages can float together; published packages still need compatibility contracts."
+        ],
+        [
+          "Where dependency coupling lives",
+          "`nx graph` or `turbo build --graph`",
+          "Graph visualization shows edges, not whether the edges are conceptually healthy."
+        ],
+        [
+          "How to run only tests affected by a PR",
+          "`nx affected --target=test` or `turbo --filter=...[HEAD^1]`",
+          "Filtered tests are safe only if the graph includes generated code, config, and runtime dependencies."
+        ]
+      ]
+    }
+  ]
+}

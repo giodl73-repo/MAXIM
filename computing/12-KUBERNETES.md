@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:kubernetes
+kind: guide
+module: computing-software
+section: computing-software
+title: Kubernetes
+status: source-custody
+source_custody: partial
+current_path: computing/12-KUBERNETES.md
+canonical_path: computing/12-KUBERNETES.md
+backsource_ids: [proof-backfill:computing-software:12-kubernetes, git-history:computing-software:12-kubernetes]
+concepts: [kubernetes, pods, deployments, services, ingress, clusters]
+root_concepts: [kubernetes, orchestration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 12 — Kubernetes
 
 ## The Big Picture

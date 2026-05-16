@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:concurrency
+kind: guide
+module: computing-software
+section: computing-software
+title: Concurrency - Engineering Reference
+status: source-custody
+source_custody: partial
+current_path: computing/28-CONCURRENCY.md
+canonical_path: computing/28-CONCURRENCY.md
+backsource_ids: [proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]
+concepts: [concurrency, parallelism, threads, async, locks]
+root_concepts: [concurrency, parallelism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Concurrency — Engineering Reference
 
 ## The Big Picture

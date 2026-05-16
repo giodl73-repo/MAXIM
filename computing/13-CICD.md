@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:ci-cd-modern
+kind: guide
+module: computing-software
+section: computing-software
+title: CI/CD Modern
+status: source-custody
+source_custody: partial
+current_path: computing/13-CICD.md
+canonical_path: computing/13-CICD.md
+backsource_ids: [proof-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]
+concepts: [ci cd, pipelines, build automation, deployment, github actions]
+root_concepts: [ci cd, delivery]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 13 — CI/CD Modern
 
 ## The Big Picture

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\10-AUTH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    AUTH LANDSCAPE                                |\n|                                                                  |\n|  AUTHN (Authentication)          AUTHZ (Authorization)           |\n|  \"Who are you?\"                  \"What can you do?\"              |\n|  ------------------              -------------------------       |\n|  Verify identity                 Enforce permissions             |\n|  Login / credential check        Role checks, scopes             |\n|  Sessions, tokens, certs         RBAC, ABAC, policies            |\n|                                                                  |\n|  PROTOCOLS / STANDARDS                                           |\n|  ----------------------                                          |\n|  OAuth 2.0     Authorization framework (not AuthN!)              |\n|  OIDC          Identity layer on top of OAuth2 (adds AuthN)      |\n|  SAML          Enterprise SSO (XML-based, older, still alive)    |\n|  JWT           Token format (used by OAuth2/OIDC)                |\n|                                                                  |\n|  STORAGE MODELS                                                  |\n|  --------------                                                  |\n|  Sessions      Server stores state. Client holds session ID.     |\n|  Tokens (JWT)  Server stateless. Client holds signed token.      |\n|                                                                  |\n|  PROVIDERS (managed auth services)                               |\n|  ----------------------------------                              |\n|  Auth0    Clerk    NextAuth.js    Supabase    Azure Entra ID     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 57,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "### Kerberos / NTLM → OAuth2 / OIDC Bridge",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### Session-Based Auth (Stateful)",
+      "confidence": "candidate",
+      "text": "  LOGIN:\n  Browser                          Server\n  -------                          ------\n  POST /login { email, password }\n                              -->  Verify credentials\n                                   Create session in DB/Redis:\n                                   sessions[\"abc123\"] = { userId: 1, role: \"admin\" }\n                              <--  Set-Cookie: sessionId=abc123; HttpOnly; Secure\n\n  SUBSEQUENT REQUESTS:\n  Cookie: sessionId=abc123    -->  Look up sessions[\"abc123\"]\n                                   Found: { userId: 1, role: \"admin\" }\n                                   Authorize request\n                              <--  Response\n\n  LOGOUT:\n  POST /logout                -->  DELETE sessions[\"abc123\"]\n                              <--  Clear-Cookie\n\n  CHARACTERISTICS:\n  + Instant revocation (delete the session)\n  + Small cookie payload (just an opaque ID)\n  + Server controls session lifetime\n  - Server must store sessions (memory/Redis/DB)\n  - Horizontal scaling requires shared session store\n  - Doesn't work well for APIs consumed by non-browsers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "### Token-Based Auth (Stateless)",
+      "confidence": "candidate",
+      "text": "  LOGIN:\n  Browser                          Server\n  -------                          ------\n  POST /login { email, password }\n                              -->  Verify credentials\n                                   Sign JWT: { userId: 1, role: \"admin\", exp: ... }\n                              <--  { accessToken: \"eyJ...\", refreshToken: \"...\" }\n\n  SUBSEQUENT REQUESTS:\n  Authorization: Bearer eyJ...-->  Verify JWT signature (no DB lookup!)\n                                   Decode claims: { userId: 1, role: \"admin\" }\n                                   Authorize request\n                              <--  Response\n\n  LOGOUT:\n  Client deletes token             Server does nothing\n  (stateless — server has no record to delete)\n\n  CHARACTERISTICS:\n  + Server stateless — no session store needed\n  + Scales horizontally (any server can verify any token)\n  + Works for APIs, mobile, microservices\n  - Can't revoke tokens before expiry (without a blocklist)\n  - If stolen: valid until expiry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Access Tokens + Refresh Tokens",
+      "confidence": "candidate",
+      "text": "  ACCESS TOKEN          SHORT-LIVED (15min - 1hr)\n  Sent with every API request.\n  Stateless verification.\n  If stolen: expires soon.\n\n  REFRESH TOKEN         LONG-LIVED (days - weeks)\n  Stored in HttpOnly cookie.\n  Used ONLY to get new access tokens.\n  Rotated on use (old refresh token invalidated on server).\n  CAN be revoked because it's tracked server-side.\n\n  FLOW:\n  1. Login → access token (1hr) + refresh token (30 days, HttpOnly cookie)\n  2. Use access token for API calls\n  3. Access token expires → POST /auth/refresh with refresh cookie\n  4. Server validates refresh token, issues new access + refresh tokens\n  5. Logout → server invalidates refresh token\n  6. Access token still technically valid for up to 1hr after logout\n     (acceptable trade-off for stateless scaling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### Authorization Code Flow + PKCE",
+      "confidence": "candidate",
+      "text": "  YOUR APP           BROWSER           AUTH SERVER\n  --------           -------           -----------\n\n  1. Generate code_verifier (random)\n     code_challenge = SHA256(code_verifier)\n\n  2. Redirect browser:\n     https://accounts.google.com/o/oauth2/auth\n       ?client_id=YOUR_ID\n       &redirect_uri=https://yourapp.com/callback\n       &response_type=code\n       &scope=openid email profile\n       &code_challenge=abc123\n       &code_challenge_method=S256\n\n                      3. User logs in, consents to scopes\n\n                      4. Auth server redirects to callback:\n                         /callback?code=AUTH_CODE\n\n  5. Exchange code for tokens (server-to-server):\n     POST /token\n       code=AUTH_CODE\n       code_verifier=ORIGINAL_VERIFIER  ← proves you started flow\n       client_secret=YOUR_SECRET\n\n                      6. Returns: { access_token, refresh_token, id_token }\n\n  7. Store tokens. User is authenticated.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "### Authorization Code Flow + PKCE",
+      "confidence": "candidate",
+      "text": "  WITHOUT PKCE:\n  Attacker registers a malicious app with the same redirect_uri,\n  or intercepts the redirect at the OS level (mobile deep link hijack).\n\n  Auth server sends:  /callback?code=AUTH_CODE\n  Attacker intercepts: gets AUTH_CODE\n  Attacker POSTs:      /token { code: AUTH_CODE, client_id: ... }\n  Auth server:         ✓ valid code → issues access_token to attacker\n\n  The auth code alone is enough to get tokens.\n\n  WITH PKCE:\n  1. Legitimate client generates code_verifier (random, ≥43 chars)\n     and sends code_challenge = SHA256(code_verifier) at step 1.\n\n  2. Attacker intercepts AUTH_CODE at step 4 — same as before.\n\n  3. Attacker POSTs: /token { code: AUTH_CODE, client_id: ... }\n     Auth server:    \"Where's the code_verifier?\"\n     Attacker:       doesn't have it (was never transmitted)\n     Auth server:    ✗ rejects the exchange\n\n  The code_verifier was never sent over the wire — only its hash\n  (code_challenge) was. Intercepting the auth code is useless\n  without the original verifier that only the legitimate client holds.\n\n  Auth server checks: SHA256(verifier_submitted) == challenge_stored\n  This check is unforgeable without the original verifier.\n\n  PKCE is now required for all public clients (SPAs, mobile apps)\n  and recommended for confidential clients (server-side apps) too.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "### Client Credentials Flow",
+      "confidence": "candidate",
+      "text": "  SERVICE A                           AUTH SERVER\n  ---------                           -----------\n  POST /token\n    grant_type=client_credentials\n    client_id=service-a\n    client_secret=secret\n    scope=read:orders\n                                  --> Verify credentials\n                                  <-- { access_token, expires_in }\n\n  SERVICE A → SERVICE B:\n  GET /orders\n  Authorization: Bearer eyJ...\n\n  SERVICE B verifies JWT. No browser. No user.\n  This is how Azure service principals work.\n  Same concept, now standardized as OAuth2.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 394,
+      "heading_context": "### Device Authorization Flow",
+      "confidence": "candidate",
+      "text": "  THE PROBLEM:\n  A CLI tool or IoT device can't do a browser redirect.\n  The user can't type a URL and password into a terminal easily.\n\n  DEVICE FLOW (RFC 8628):\n\n  CLI / DEVICE              AUTH SERVER          USER'S BROWSER\n  -----------               -----------          --------------\n\n  1. POST /device/code\n     client_id=CLI_APP\n     scope=read:repos\n                        --> Returns:\n                            device_code = \"GmRh...long opaque...\"\n                            user_code   = \"WDJB-MJHT\"  ← short, human-readable\n                            verification_uri = \"https://github.com/login/device\"\n                            expires_in  = 900 (15 min)\n                            interval    = 5   (poll every 5s)\n\n  2. Show user:\n     \"Open https://github.com/login/device\n      and enter code: WDJB-MJHT\"\n\n  3. Start polling:                4. User opens browser,\n     POST /token                      enters WDJB-MJHT,\n       grant_type=device_code         logs in, approves.\n       device_code=GmRh...\n       client_id=CLI_APP\n                        <-- \"authorization_pending\"  (keep polling)\n                        <-- \"authorization_pending\"  (keep polling)\n                        <-- { access_token, refresh_token }  ← user approved!\n\n  5. CLI has tokens. Proceed.\n\n  SECURITY NOTES:\n  - user_code is intentionally short (8 chars) so users can verify\n    they're approving the right session — helps against phishing\n  - device_code is long and opaque — never shown to user\n  - polling interval (5s) enforced by server to prevent brute force\n  - expires_in bounds the attack window if user_code is intercepted\n\n  REAL EXAMPLES:\n  GitHub CLI:    gh auth login  → opens github.com/login/device\n  Azure CLI:     az login       → opens microsoft.com/devicelogin\n  Google:        gcloud auth login --no-launch-browser",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 450,
+      "heading_context": "## OpenID Connect (OIDC)",
+      "confidence": "candidate",
+      "text": "  OAuth2 gives you: access_token (permission to access resources)\n  OIDC adds:        id_token (JWT with user identity claims)\n\n  id_token payload:\n  {\n    \"sub\": \"10769150350006150715113082367\",  ← stable unique user ID\n    \"email\": \"alice@gmail.com\",\n    \"name\": \"Alice Smith\",\n    \"picture\": \"https://...\",\n    \"iss\": \"https://accounts.google.com\",\n    \"aud\": \"YOUR_CLIENT_ID\",\n    \"exp\": 1708598400\n  }\n\n  OIDC SCOPES:\n  openid          Required. Signals OIDC. Returns id_token.\n  email           Include email.\n  profile         Include name, picture, locale.\n  offline_access  Request refresh token.\n\n  PROVIDERS YOU KNOW:\n  Azure Entra ID  → OIDC provider. Full OIDC compliance.\n  ADFS            → Older. WS-Fed + SAML + OIDC (newer versions).\n  Azure AD B2C    → Consumer identity. OIDC + custom user flows.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 481,
+      "heading_context": "## Token Storage — The Security Trade-Off",
+      "confidence": "candidate",
+      "text": "  OPTION 1: localStorage\n  ----------------------\n  Easy JS access: localStorage.getItem('token')\n\n  RISK: XSS. Any compromised JS on your page can steal the token.\n  npm package with malicious code, CDN injection, your own XSS bug.\n  Token silently exfiltrated to attacker's server.\n\n  OPTION 2: HttpOnly Cookie\n  -------------------------\n  Set-Cookie: token=eyJ...; HttpOnly; Secure; SameSite=Strict\n\n  HttpOnly = JavaScript CANNOT read this cookie. Period.\n  XSS is neutralized for token theft.\n\n  RISK: CSRF. But SameSite=Strict blocks cross-site requests.\n  Modern browsers (2020+): SameSite=Lax is the default.\n\n  RECOMMENDATION:\n  Access token  → in-memory JS variable (lost on refresh, that's OK)\n  Refresh token → HttpOnly; Secure; SameSite=Strict cookie\n  Let your auth library (NextAuth, Clerk) make this decision.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 512,
+      "heading_context": "## Auth Providers",
+      "confidence": "candidate",
+      "text": "  +------------+--------------------------------------------------+\n  | Provider   | Notes                                            |\n  +------------+--------------------------------------------------+\n  | Auth0      | Mature, full-featured, enterprise-grade.         |\n  |            | Free tier. Okta-owned. OIDC compliant.           |\n  +------------+--------------------------------------------------+\n  | Clerk      | Best DX. Prebuilt React components.              |\n  |            | Next.js integration excellent. Organizations.    |\n  +------------+--------------------------------------------------+\n  | NextAuth.js| Open source. Runs in your app. Own your data.   |\n  | (Auth.js)  | 50+ OAuth providers. JWT or DB sessions.         |\n  +------------+--------------------------------------------------+\n  | Supabase   | Postgres + auth bundle. JWT + RLS integration.   |\n  +------------+--------------------------------------------------+\n  | Azure      | Enterprise SSO. M365 integration. You know it.  |\n  | Entra ID   | Use for internal tools and corporate identity.   |\n  +------------+--------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 623,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"OAuth2 is an authentication protocol\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 664,
+      "heading_context": "### \"JWT vs sessions — which do I use?\"",
+      "confidence": "candidate",
+      "text": "### \"401 vs 403 — which one?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

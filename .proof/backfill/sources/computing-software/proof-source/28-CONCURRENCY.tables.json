@@ -1,0 +1,432 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\28-CONCURRENCY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 159,
+      "heading_context": "## 2. Hardware Memory Models",
+      "headers": [
+        "Architecture",
+        "Model",
+        "Store-Store reorder",
+        "Load-Load reorder",
+        "Store-Load reorder",
+        "Load-Store reorder"
+      ],
+      "rows": [
+        [
+          "x86/x86-64",
+          "TSO (Total Store Order)",
+          "No",
+          "No",
+          "Yes",
+          "No"
+        ],
+        [
+          "ARM64",
+          "Relaxed",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "POWER",
+          "Relaxed",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "RISC-V",
+          "RVWMO (relaxed)",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Intel Itanium",
+          "IA-64",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 210,
+      "heading_context": "## 3. Lock-Based Concurrency",
+      "headers": [
+        "Algorithm / Primitive",
+        "What it demonstrates",
+        "Production use"
+      ],
+      "rows": [
+        [
+          "Dekker's algorithm",
+          "First software mutex without hardware support; uses shared memory + turn variable",
+          "Never — requires memory barriers; hardware atomics are available"
+        ],
+        [
+          "Peterson's algorithm",
+          "Two-thread mutex with acquire/release semantics; clean correctness proof",
+          "Never — two-thread only; use OS mutex"
+        ],
+        [
+          "TAS (Test-and-Set)",
+          "Simplest spinlock; CAS on a single byte",
+          "Rarely — causes cache line invalidation storm under contention"
+        ],
+        [
+          "TTAS (Test-and-Test-and-Set)",
+          "Spin on regular read (MESI S state); attempt TAS only when lock looks free",
+          "Low-contention spinlocks; reduces coherence traffic vs TAS"
+        ],
+        [
+          "CLH / MCS queue lock",
+          "Fair queuing; each waiter spins on its own cache line",
+          "Linux kernel rwlock, Java AbstractQueuedSynchronizer (AQS)"
+        ],
+        [
+          "OS blocking mutex",
+          "Kernel-assisted sleep/wake; ~1–5 μs context switch",
+          "Standard choice for long critical sections"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 295,
+      "heading_context": "## 3. Lock-Based Concurrency",
+      "headers": [
+        "Condition",
+        "Break it by"
+      ],
+      "rows": [
+        [
+          "Mutual exclusion",
+          "Use lock-free data structures (atomics, MPSC queues)"
+        ],
+        [
+          "Hold and wait",
+          "Acquire all locks atomically (std::lock, Monitor.TryEnter with timeout)"
+        ],
+        [
+          "No preemption",
+          "Lock timeouts; tryLock patterns"
+        ],
+        [
+          "Circular wait",
+          "Global lock ordering — always acquire in consistent order"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 430,
+      "heading_context": "## 4. Lock-Free and Wait-Free Algorithms",
+      "headers": [
+        "Object",
+        "Consensus number",
+        "What it can implement"
+      ],
+      "rows": [
+        [
+          "Read/Write registers",
+          "1",
+          "Single-thread coordination only"
+        ],
+        [
+          "Test-and-Set",
+          "2",
+          "2-thread wait-free"
+        ],
+        [
+          "Fetch-and-Add",
+          "2",
+          "2-thread wait-free"
+        ],
+        [
+          "Compare-and-Swap",
+          "∞",
+          "n-thread wait-free"
+        ],
+        [
+          "LL/SC",
+          "∞",
+          "n-thread wait-free"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 582,
+      "heading_context": "## 6. Message Passing Models",
+      "headers": [
+        "Feature",
+        "Go channel",
+        ".NET Channel<T>"
+      ],
+      "rows": [
+        [
+          "Buffered",
+          "`make(chan T, n)`",
+          "`Channel.CreateBounded<T>(n)`"
+        ],
+        [
+          "Unbuffered",
+          "`make(chan T)`",
+          "`Channel.CreateUnbounded<T>()` with `SingleProducerSingleConsumer` option"
+        ],
+        [
+          "Select / multiplex",
+          "`select { case v := <-ch: }`",
+          "No direct equivalent; use `Task.WhenAny`"
+        ],
+        [
+          "Close / completion",
+          "`close(ch)`",
+          "`writer.Complete()`"
+        ],
+        [
+          "Async consumer",
+          "Range over channel in goroutine",
+          "`await foreach` + `ReadAllAsync()`"
+        ],
+        [
+          "Back-pressure",
+          "Goroutine blocks on send",
+          "`await WriteAsync()` suspends producer"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 758,
+      "heading_context": "## 7. Async/Await — Cooperative Concurrency",
+      "headers": [
+        "Model",
+        "Language",
+        "What's enforced",
+        "C# equivalent"
+      ],
+      "rows": [
+        [
+          "`Task.Run()` unstructured",
+          "C#",
+          "Nothing — fire-and-forget is possible; exceptions can be lost",
+          "—"
+        ],
+        [
+          "`async Task` method",
+          "C#",
+          "Caller must `await` to observe result; exceptions propagate on await",
+          "—"
+        ],
+        [
+          "`coroutineScope { }`",
+          "Kotlin",
+          "All child coroutines complete before scope exits; cancellation propagates",
+          "No direct equivalent (`TaskGroup` is closest)"
+        ],
+        [
+          "`async let` + `withTaskGroup`",
+          "Swift",
+          "Child tasks scoped to enclosing async block; cancellation propagates on throw",
+          "—"
+        ],
+        [
+          "`TaskGroup` (Python 3.11+, PEP 654)",
+          "Python",
+          "All tasks complete before `async with` block exits; first exception cancels rest",
+          "—"
+        ],
+        [
+          "Nursery (Trio)",
+          "Python",
+          "Child tasks cannot outlive nursery; exception from any child cancels all",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 895,
+      "heading_context": "## 10. Concurrency in Production Systems",
+      "headers": [
+        "System",
+        "Concurrency model",
+        "Key detail"
+      ],
+      "rows": [
+        [
+          "Linux kernel",
+          "Locks + RCU + lock-free",
+          "RCU dominant for read-heavy shared data"
+        ],
+        [
+          "Java concurrent collections",
+          "Lock-free (CAS)",
+          "ConcurrentHashMap: lock-striped then tree per bucket"
+        ],
+        [
+          ".NET concurrent collections",
+          "Lock-free + lock-based",
+          "ConcurrentDictionary: lock striping by key hash"
+        ],
+        [
+          ".NET Channel<T>",
+          "Lock-free MPSC/SPSC queue",
+          "Async producer/consumer; replaces BlockingCollection"
+        ],
+        [
+          "Node.js",
+          "Single-thread event loop",
+          "No data races; long sync blocks event loop"
+        ],
+        [
+          "Go runtime",
+          "CSP channels + goroutines",
+          "M:N scheduler, work-stealing"
+        ],
+        [
+          "Erlang/Elixir",
+          "Actor model",
+          "Lightweight processes, OTP supervision"
+        ],
+        [
+          "Rust async (tokio)",
+          "Green threads + async/await",
+          "Zero-cost futures, work-stealing thread pool"
+        ],
+        [
+          "C# async/await",
+          "Task-based (TPL)",
+          "Thread pool + SynchronizationContext"
+        ],
+        [
+          "Python asyncio",
+          "Single-thread event loop",
+          "GIL prevents true parallelism for CPU-bound"
+        ],
+        [
+          "Kafka consumer groups",
+          "Partition-based parallelism",
+          "One partition → one consumer; no shared state"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 919,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a short critical section needs a heavy primitive",
+          "TTAS spinlock or `std::mutex`",
+          "Spin only when hold time is tiny and cores are not oversubscribed."
+        ],
+        [
+          "Why many waiters waste CPU",
+          "Blocking mutex plus condition variable",
+          "Blocking avoids burn but can introduce wakeup ordering and convoy behavior."
+        ],
+        [
+          "Whether high contention needs fairness",
+          "CLH/MCS queue lock or Java `ReentrantLock`/AQS",
+          "Fairness reduces starvation but may reduce throughput."
+        ],
+        [
+          "Whether reads dominate writes",
+          "`RwLock` / `shared_mutex`",
+          "Reader locks can starve writers and are slower than mutexes for write-heavy paths."
+        ],
+        [
+          "Whether multiple objects need composable atomic updates",
+          "STM in Clojure refs or Haskell STM",
+          "STM requires a runtime model; side effects inside transactions are dangerous."
+        ],
+        [
+          "Whether locks are the bottleneck",
+          "Lock-free data structure such as skip list or LCRQ",
+          "Lock-free is hard to verify and may still livelock under contention."
+        ],
+        [
+          "Whether work is mostly waiting on I/O",
+          "Async/await in tokio, asyncio, or .NET Tasks",
+          "Async improves concurrency, not CPU parallelism."
+        ],
+        [
+          "Whether work is CPU-bound",
+          "Thread pool such as rayon, .NET ThreadPool, or Java ForkJoin",
+          "CPU parallelism needs bounded workers or it oversubscribes the machine."
+        ],
+        [
+          "Whether tasks are independent but cheap to spawn",
+          "Goroutines or async tasks",
+          "Cheap tasks still need cancellation, backpressure, and lifecycle ownership."
+        ],
+        [
+          "Whether components should isolate mutable state",
+          "Actor model such as Akka or Erlang",
+          "Actors serialize local state but distributed actor systems still face ordering and failure."
+        ],
+        [
+          "Whether a producer/consumer pipeline is the real shape",
+          "`System.Threading.Channels` / `Channel<T>`",
+          "Channels need bounded capacity or producers can outrun consumers."
+        ],
+        [
+          "Whether distributed shared state can avoid coordination",
+          "CRDTs or consensus-backed log",
+          "CRDTs need mergeable semantics; consensus trades availability for ordering."
+        ],
+        [
+          "Whether fine-grained traversal must avoid global locks",
+          "RCU, hazard pointers, or epoch-based reclamation",
+          "Memory reclamation correctness is the hard part, not just pointer reads."
+        ],
+        [
+          "Whether data races must be ruled out at compile time",
+          "Rust ownership plus `Arc<Mutex<T>>`",
+          "The type system prevents races, not deadlocks or bad lock granularity."
+        ],
+        [
+          "Whether child tasks can outlive their parent",
+          "Structured concurrency (`coroutineScope`, `TaskGroup`)",
+          "Scope discipline simplifies cancellation but requires APIs to expose task lifetime."
+        ],
+        [
+          "Whether one object needs atomic mutation",
+          "CAS or `fetch_add`",
+          "Atomicity alone does not establish visibility ordering."
+        ],
+        [
+          "Whether multiple objects need atomic consistency",
+          "STM or ordered fine-grained locks",
+          "Lock ordering must be global or deadlocks reappear."
+        ],
+        [
+          "Whether one thread must safely publish data to another",
+          "`std::atomic` with release/acquire",
+          "Pairing matters: release without matching acquire is not a handoff."
+        ],
+        [
+          "Whether only corruption must be prevented",
+          "Relaxed atomics for counters or flags",
+          "Relaxed ordering is for non-causal statistics, not synchronization protocols."
+        ]
+      ]
+    }
+  ]
+}

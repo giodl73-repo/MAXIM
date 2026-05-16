@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:algorithms-data-structures
+kind: guide
+module: computing-software
+section: computing-software
+title: Algorithms and Data Structures - Engineering Reference
+status: source-custody
+source_custody: partial
+current_path: computing/26-ALGORITHMS.md
+canonical_path: computing/26-ALGORITHMS.md
+backsource_ids: [proof-backfill:computing-software:26-algorithms-data-structures, git-history:computing-software:26-algorithms-data-structures]
+concepts: [algorithms, data structures, complexity, graphs, sorting]
+root_concepts: [algorithms, data structures]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Algorithms & Data Structures — Engineering Reference
 
 ## The Big Picture
@@ -431,7 +450,7 @@ Bottom-up avoids recursion overhead and enables space optimization (often only n
 | Edit distance | dp[i][j] = edit(A[:i], B[:j]) | insert/delete/replace | O(nm) |
 | LIS | dp[i] = LIS ending at i | O(n²) DP; O(n log n) with patience sorting | O(n log n) |
 | 0/1 Knapsack | dp[i][w] | take item i or skip | O(nW) pseudo-poly |
-| Coin change | dp[amount] | min coins for amount | O(amount· | coins | ) |
+| Coin change | dp[amount] | min coins for amount | O(amount * coins) |
 | Matrix chain | dp[i][j] = cost for M_i..M_j | split at k | O(n³) |
 | Optimal BST | dp[i][j] | root selection (Knuth speedup) | O(n²) |
 | Egg drop | dp[k][n] | binary search on floor | O(k log n) |

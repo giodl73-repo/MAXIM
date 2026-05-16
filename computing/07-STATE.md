@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:state-management
+kind: guide
+module: computing-software
+section: computing-software
+title: State Management - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: computing/07-STATE.md
+canonical_path: computing/07-STATE.md
+backsource_ids: [proof-backfill:computing-software:07-state-management, git-history:computing-software:07-state-management]
+concepts: [state management, redux, zustand, signals, server state, client state]
+root_concepts: [state management, server state]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # State Management — A Layered Guide
 
 ## The Big Picture

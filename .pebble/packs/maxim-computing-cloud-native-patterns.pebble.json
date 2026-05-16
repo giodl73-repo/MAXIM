@@ -1,0 +1,2953 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-cloud-native-patterns",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "17-CLOUD-NATIVE.md#000",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "# 17 — Cloud-Native Patterns"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#001",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#002",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nCloud-Native: What It Actually Means\r\n======================================"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#003",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Not: \"runs in a cloud\"\r\nYes: \"designed for the properties of cloud infrastructure\""
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#004",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Cloud properties:              Cloud-native design response:\r\n  ─────────────────              ─────────────────────────────\r\n  Instances fail                 Design for failure (expect crashes)\r\n  Scale horizontally             Stateless services\r\n  Elastic capacity               Auto-scaling + load shedding\r\n  Network is unreliable          Retry with backoff, circuit breakers\r\n  Deployments are frequent       Zero-downtime deploys, feature flags\r\n  Many services                  Service discovery, async messaging\r\n  Teams are autonomous           Loose coupling, independent deploys\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#005",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nThe Architecture Spectrum\r\n=========================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#006",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Monolith               Modular Monolith          Microservices\r\n  ────────               ────────────────          ─────────────\r\n  One deployable         One deployable            Many independent\r\n  unit                   unit, internal            deployable units\r\n                         modules/domains"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#007",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Simple to deploy       Good middle ground        Maximum autonomy\r\n  Easy to debug          Easier than micro         Operational complexity\r\n  Hard to scale parts    Can extract later         Complex distributed sys\r\n  Team coupling          Reduced coupling          Team independence"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#008",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Start here             Often the right answer    When you need it\r\n  (most apps)            (medium/large teams)      (large orgs, FAANG scale)\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#009",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#010",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## Microservices"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#011",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### What Makes a Good Service Boundary"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#012",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nBad boundary (technical layer)    Good boundary (business capability)\r\n================================  ==================================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#013",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "UserController                    OrderService\r\n  UserRepository                    InventoryService\r\n  UserService                       PaymentService\r\n  ProductController                 NotificationService\r\n  ProductRepository                 UserService\r\n  ..."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#014",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Same team touches all of them     Each owned by one team\r\n  Every feature touches all layers  Deploy independently\r\n  Shared database = tight coupling  Own their data store\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#015",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nConway's Law (still true):\r\n  System architecture ≡ communication structure of the org that builds it.\r\n  If 4 teams work on one monolith → 4 modules that don't integrate cleanly.\r\n  If each team owns a service → services are well-bounded.\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#016",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### The Distributed Systems Tax"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#017",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Microservices trade one set of problems for another. Know what you're buying:"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#018",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nMonolith gives you free:           Microservices require you to build:\r\n════════════════════════           ══════════════════════════════════\r\n  In-process function call           Network call (latency + failures)\r\n  ACID transaction across tables     Distributed transaction / saga\r\n  Single log stream                  Distributed tracing (15-OBSERVABILITY)\r\n  One deploy artifact                Many CI/CD pipelines (13-CICD)\r\n  Simple local dev                   docker compose / service mesh / local K8s\r\n  One database schema                Data ownership across services\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#019",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Only pay this tax when the organizational benefits outweigh the operational costs."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#020",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#021",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## Event-Driven Architecture"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#022",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Synchronous vs Asynchronous"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#023",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nSynchronous (request/response)     Asynchronous (event-driven)\r\n==============================     ==========================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#024",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "A calls B, waits for response      A publishes event, continues\r\n                                     B consumes event later"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#025",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "A ──────────► B                    A ──► Queue/Topic ──► B\r\n     ◄──────────                                           C\r\n                                                           D"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#026",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Tight temporal coupling            Temporal decoupling\r\n  A fails if B is down               A succeeds even if B is down\r\n  A slows if B is slow               B processes at its own pace\r\n  Simple to reason about             Harder to trace / debug\r\n  Good for: reads, queries           Good for: writes, fan-out, spikes\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#027",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Message Patterns"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#028",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nQueue (point-to-point)             Topic / Pub-Sub (fan-out)\r\n======================             ========================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#029",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Producer → Queue → Consumer        Publisher → Topic → Consumer A\r\n                                                        → Consumer B\r\n  Each message consumed once                             → Consumer C"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#030",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Good for: work distribution,       Good for: event broadcast,\r\n  background jobs, rate limiting     audit log, multiple reactions\r\n                                     to one business event"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#031",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Azure Service Bus (Queue)          Azure Service Bus (Topic)\r\n  AWS SQS                            Azure Event Grid\r\n  RabbitMQ                           AWS SNS + SQS\r\n                                     Kafka (both, at scale)\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#032",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Kafka"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#033",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "> **Azure Service Bus → Kafka mental model**\r\n>\r\n> This is the most important conceptual shift in this section. Getting it wrong leads to subtle consumer group bugs.\r\n>\r\n> **Azure Service Bus** is a message broker / task queue. Each message is delivered to one consumer, then deleted. It is a delivery mechanism: messages have a lifecycle, a lock, a dead-letter queue. Two competing consumers on the same queue split the messages — that's by design for scale-out.\r\n>\r\n> **Kafka** is an append-only distributed log. Messages are retained for a configurable duration (hours, days, weeks). Consumer groups each maintain their own offset pointer and read the full stream independently. Adding a new consumer group does not affect other consumer groups — each reads from the beginning (or wherever it left off) completely independently.\r\n>\r\n> ```\r\n> Azure Service Bus             Kafka\r\n> ─────────────────             ─────\r\n> Message → consumed → deleted  Message written → retained → never deleted (until TTL)\r\n> One consumer gets the message Each consumer group reads ALL messages\r\n> Competing consumers = scale   Multiple consumer groups = fan-out\r\n> No replay                     Replay from any offset (re-process old events)\r\n> Push to consumer              Consumer pulls at own pace\r\n> ```\r\n>\r\n> The mental model inversion: **Service Bus = task queue** (each message is a unit of work, delivered once). **Kafka = event log** (each message is a fact that happened, readable by any number of independent observers).\r\n>\r\n> If you apply Service Bus thinking to Kafka — treating consumer groups as competing workers — you'll end up with each consumer group consuming only a fraction of messages. That's the opposite of the intended design. In Kafka, consumer groups cooperate by partitioning: instances within one group split partitions. Groups across the system each get the full stream."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#034",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Apache Kafka is the dominant event streaming platform for high-throughput, durable event logs."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#035",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nKafka vs Traditional Message Queues\r\n====================================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#036",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Traditional Queue              Kafka\r\n  ═════════════════              ═════\r\n  Message deleted on consume     Message retained (days/weeks)\r\n  One consumer per message       Multiple consumer groups, each reads all\r\n  No replay                      Replay from any offset\r\n  Push to consumer               Consumer pulls at own pace\r\n  Good for: tasks                Good for: event log, stream processing,\r\n                                  audit trail, multiple downstream systems"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#037",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Order\r\n  ┌──────────────────────────────────────────────────────────┐\r\n  │  Topic: orders                                           │\r\n  │                                                          │\r\n  │  Partition 0: [order:1] [order:4] [order:7] →            │\r\n  │  Partition 1: [order:2] [order:5] [order:8] →            │\r\n  │  Partition 2: [order:3] [order:6] [order:9] →            │\r\n  │                                                          │\r\n  │  Consumer group A (analytics):  reads all partitions     │\r\n  │  Consumer group B (fulfillment): reads all partitions    │\r\n  │  Consumer group C (audit):      reads all partitions     │\r\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#038",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Ordered within a partition (by key: e.g., customerId)\r\n  Parallelism = partition count\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#039",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```javascript\r\n// Kafka producer (kafkajs)\r\nimport { Kafka } from \"kafkajs\";"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#040",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "const kafka = new Kafka({ brokers: [\"kafka:9092\"] });\r\nconst producer = kafka.producer();"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#041",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "await producer.connect();\r\nawait producer.send({\r\n  topic: \"orders\",\r\n  messages: [\r\n    {\r\n      key: order.customerId,           // same customer → same partition → ordered\r\n      value: JSON.stringify(order),\r\n      headers: { \"event-type\": \"order.created\" },\r\n    },\r\n  ],\r\n});"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#042",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "// Kafka consumer\r\nconst consumer = kafka.consumer({ groupId: \"fulfillment-service\" });\r\nawait consumer.connect();\r\nawait consumer.subscribe({ topic: \"orders\", fromBeginning: false });"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#043",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "await consumer.run({\r\n  eachMessage: async ({ topic, partition, message }) => {\r\n    const order = JSON.parse(message.value.toString());\r\n    await fulfillOrder(order);\r\n    // Offset committed automatically after eachMessage returns\r\n  },\r\n});\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#044",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#045",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## gRPC"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#046",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "> **WCF → gRPC bridge**\r\n>\r\n> WCF had contract-first typed service definitions: `[ServiceContract]` / `[OperationContract]` attributes, WSDL schema, proxy generation, and SOAP/XML wire format. The programming model was strong — you coded against an interface, the framework handled serialization and transport.\r\n>\r\n> gRPC is the modern equivalent for high-performance inter-service RPC. Same contract-first philosophy; different everything else.\r\n>\r\n> ```\r\n> WCF                              gRPC\r\n> ───                              ────\r\n> [ServiceContract]                service OrderService { ... }  (.proto)\r\n> [OperationContract]              rpc PlaceOrder(OrderRequest) returns (OrderResponse)\r\n> WSDL                             .proto file (Protocol Buffers schema)\r\n> SOAP/XML (text, verbose)         Protobuf (binary, ~10x smaller than XML)\r\n> HTTP/1.1 or net.tcp              HTTP/2 (multiplexed streams, bidirectional)\r\n> svcutil.exe generates proxy      protoc generates client + server stubs\r\n> Requires SOAP envelope           Binary frame — no envelope overhead\r\n> ```\r\n>\r\n> Sample `.proto` alongside WCF equivalent:\r\n>\r\n> ```protobuf\r\n> // orders.proto\r\n> syntax = \"proto3\";\r\n>\r\n> service OrderService {\r\n>   rpc PlaceOrder (PlaceOrderRequest) returns (PlaceOrderResponse);\r\n>   rpc StreamOrderUpdates (OrderId) returns (stream OrderUpdate);  // server streaming\r\n> }\r\n>\r\n> message PlaceOrderRequest {\r\n>   string customer_id = 1;\r\n>   repeated OrderItem items = 2;\r\n> }\r\n>\r\n> message PlaceOrderResponse {\r\n>   string order_id = 1;\r\n>   OrderStatus status = 2;\r\n> }\r\n> ```\r\n>\r\n> ```csharp\r\n> // WCF equivalent\r\n> [ServiceContract]\r\n> public interface IOrderService\r\n> {\r\n>     [OperationContract]\r\n>     PlaceOrderResponse PlaceOrder(PlaceOrderRequest request);\r\n> }\r\n> ```\r\n>\r\n> Key advantages of gRPC over WCF for microservices: binary encoding (bandwidth and CPU), HTTP/2 multiplexing (no head-of-line blocking), bidirectional streaming (neither WCF net.tcp nor REST supports this cleanly), and language-neutral `.proto` contracts (generate clients in Go, TypeScript, Python, C# from the same schema).\r\n>\r\n> In .NET, `Grpc.AspNetCore` brings gRPC server hosting into Kestrel. The API Gateway pattern commonly uses protocol translation: external clients send REST → API Gateway translates to gRPC → internal services."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#047",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#048",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## Resilience Patterns"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#049",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Circuit Breaker"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#050",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nWithout circuit breaker            With circuit breaker\r\n════════════════════               ════════════════════"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#051",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Every request to failing           Closed → Open → Half-open\r\n  service hangs for timeout\r\n                                     CLOSED: requests pass through\r\n  100 concurrent requests              (normal operation)\r\n  × 10s timeout                      OPEN: requests fail fast\r\n  = 1000s of blocked threads           (service is known-bad)\r\n                                     HALF-OPEN: probe request\r\n  Cascading failure →                  (is it recovered?)\r\n  whole system slow\r\n                                     Prevents cascade, fast failure\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#052",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```javascript\r\n// Opossum — circuit breaker for Node.js\r\nimport CircuitBreaker from \"opossum\";"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#053",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "const breaker = new CircuitBreaker(callPaymentService, {\r\n  timeout: 3000,              // fail if > 3s\r\n  errorThresholdPercentage: 50, // open if >50% fail\r\n  resetTimeout: 30000,        // try again after 30s\r\n});"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#054",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "breaker.on(\"open\", () => logger.warn(\"Payment service circuit open\"));\r\nbreaker.on(\"halfOpen\", () => logger.info(\"Payment service probing\"));\r\nbreaker.on(\"close\", () => logger.info(\"Payment service recovered\"));"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#055",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "// Use it\r\nconst result = await breaker.fire(paymentData);\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#056",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Retry with Exponential Backoff"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#057",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nNaive retry (bad)                  Exponential backoff + jitter (good)\r\n═════════════════                  ══════════════════════════════════"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#058",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "retry immediately                  attempt 1: wait 1s ± jitter\r\n  retry immediately                  attempt 2: wait 2s ± jitter\r\n  retry immediately                  attempt 3: wait 4s ± jitter\r\n  ...                                attempt 4: wait 8s ± jitter\r\n                                     max attempts: give up + dead letter"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#059",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Thundering herd:                   Jitter spreads the load:\r\n  1000 clients all retry             not all clients retry at t=1.0s\r\n  simultaneously → DDoS              spread across 0.8–1.2s window\r\n  your own service\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#060",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```javascript\r\nasync function withRetry(fn, { maxAttempts = 4, baseDelayMs = 1000 } = {}) {\r\n  for (let attempt = 1; attempt <= maxAttempts; attempt++) {\r\n    try {\r\n      return await fn();\r\n    } catch (err) {\r\n      if (attempt === maxAttempts) throw err;\r\n      const delay = baseDelayMs * 2 ** (attempt - 1) * (0.5 + Math.random() * 0.5);\r\n      await new Promise(r => setTimeout(r, delay));\r\n    }\r\n  }\r\n}\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#061",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Bulkhead"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#062",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Isolate failures so one slow dependency can't consume all resources."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#063",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nWithout bulkhead                   With bulkhead\r\n════════════════                   ══════════════"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#064",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Shared thread pool                 Separate thread pool per downstream\r\n  ┌──────────────────┐               ┌──────────────┐  ┌──────────────┐\r\n  │ 100 threads      │               │ 30 threads   │  │ 30 threads   │\r\n  │                  │               │ payment-svc  │  │ inventory    │\r\n  │ payment-svc slow │               └──────────────┘  └──────────────┘\r\n  │ → fills all 100  │               ┌──────────────┐\r\n  │ → auth blocked   │               │ 40 threads   │\r\n  └──────────────────┘               │ auth/other   │\r\n                                     └──────────────┘\r\n  One slow dep = system down         payment pool fills → auth still works\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#065",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Saga Pattern (Distributed Transactions)"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#066",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "No distributed ACID transactions in microservices. Sagas coordinate multi-service operations using compensating actions on failure."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#067",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nOrder Saga (Choreography)\r\n=========================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#068",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "OrderService                InventoryService           PaymentService\r\n  ════════════                ════════════════           ══════════════\r\n  order.created ──────────►\r\n                              inventory.reserved ──────►\r\n                                                         payment.captured\r\n                                                                │\r\n                                    ◄─────────────────── order.fulfilled\r\n  ◄────────────────────────── order.completed"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#069",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "On failure at any step → compensating events published:\r\n    payment.failed → inventory.released → order.cancelled\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#070",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#071",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## Service Mesh"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#072",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "When you have many services, cross-cutting concerns (retries, mTLS, observability) get duplicated in every service. A service mesh moves them to the infrastructure layer."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#073",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nWithout service mesh               With service mesh (Istio / Linkerd)\r\n════════════════════               ═══════════════════════════════════"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#074",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Each service implements:           Sidecar proxy injected alongside\r\n    - retry logic                    each pod (Envoy / linkerd-proxy)\r\n    - circuit breaker\r\n    - mTLS                           Proxy handles:\r\n    - distributed tracing              - retry + circuit breaker\r\n    - rate limiting                    - mTLS (zero-trust between services)\r\n                                       - distributed tracing\r\n  100 services = 100 copies          - rate limiting\r\n  of the same plumbing               - traffic splitting (canary)"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#075",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Your service just makes plain HTTP calls\r\n                                     Mesh handles the rest transparently\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#076",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nService Mesh Architecture\r\n=========================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#077",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Pod A                              Pod B\r\n  ┌─────────────────────┐            ┌─────────────────────┐\r\n  │  App container      │            │  App container      │\r\n  │  ┌───────────────┐  │            │  ┌───────────────┐  │\r\n  │  │  your service │  │            │  │  your service │  │\r\n  │  └───────┬───────┘  │            │  └───────┬───────┘  │\r\n  │          │          │            │          │          │\r\n  │  ┌───────▼───────┐  │  mTLS     │  ┌───────▼───────┐  │\r\n  │  │  Envoy sidecar│◄─┼───────────┼─►│  Envoy sidecar│  │\r\n  │  └───────────────┘  │           │  └───────────────┘  │\r\n  └─────────────────────┘            └─────────────────────┘\r\n            │                                  │\r\n            └──────────── Control Plane ───────┘\r\n                          (Istiod / linkerd)\r\n                          configures all proxies\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#078",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#079",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## API Gateway"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#080",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Entry point for all external traffic. Centralizes auth, rate limiting, routing, and protocol translation."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#081",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nAPI Gateway Pattern\r\n===================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#082",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Clients                        Internal Services\r\n  ───────                        ─────────────────"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#083",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Mobile App ─────┐              ┌──► OrderService\r\n                  │              │\r\n  Web App ────────┼─► API        ├──► UserService\r\n                  │   Gateway    │\r\n  Third-party ────┘   │          ├──► InventoryService\r\n                      │          │\r\n                       └─────────┴──► PaymentService"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#084",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Gateway handles:\r\n    Authentication (validate JWT)\r\n    Rate limiting (100 req/min per client)\r\n    Request routing (path → service)\r\n    Protocol translation (REST → gRPC)\r\n    Response aggregation (BFF pattern)\r\n    SSL termination\r\n    Logging + tracing injection\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#085",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Azure API Management, AWS API Gateway, Kong, Traefik, nginx — all play this role."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#086",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#087",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## Deployment Patterns"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#088",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Blue/Green"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#089",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nBlue/Green Deployment\r\n======================"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#090",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Before:                            After cutover:\r\n  ┌─────────────────┐                ┌─────────────────┐\r\n  │ Load Balancer   │                │ Load Balancer   │\r\n  │ -> Blue (v1) OK │                │ -> Green (v2) OK│\r\n  │ -> Green idle   │                │ -> Blue idle    │\r\n  └─────────────────┘                └─────────────────┘"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#091",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Green tested while Blue serves     Switch is instant (LB route change)\r\n  traffic                            Rollback = switch back to Blue\r\n  Zero downtime                      Requires 2× resource capacity\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#092",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Canary Release"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#093",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nCanary Deployment\r\n=================="
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#094",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Stage 1:   1% → v2,  99% → v1    (watch error rates, latency)\r\n  Stage 2:  10% → v2,  90% → v1    (if healthy, continue)\r\n  Stage 3:  50% → v2,  50% → v1\r\n  Stage 4: 100% → v2                (full rollout)"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#095",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "At any stage: metrics cross threshold → automatic rollback to 0%"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#096",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Kubernetes: Argo Rollouts or Flagger automate this\r\n  Feature flags: route % of users to new code path (LaunchDarkly, etc.)\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#097",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "### Feature Flags"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#098",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```javascript\r\n// LaunchDarkly / Unleash / custom\r\nconst enabled = await featureFlags.isEnabled(\"new-checkout-flow\", {\r\n  userId: user.id,\r\n  attributes: { plan: user.plan, country: user.country },\r\n});"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#099",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "if (enabled) {\r\n  return newCheckoutFlow(cart);\r\n} else {\r\n  return legacyCheckoutFlow(cart);\r\n}\r\n```"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#100",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "Decouple deployment from release. Ship code to prod dark; enable for 1% of users; ramp up; kill the flag. No redeploy needed to roll back."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#101",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#102",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "## The 12-Factor App"
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#103",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "The foundational checklist for cloud-native services. Originally from Heroku (2011), still the canonical reference."
+    },
+    {
+      "id": "17-CLOUD-NATIVE.md#104",
+      "path": [
+        "17-CLOUD-NATIVE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]",
+        "canonical_path": "computing/17-CLOUD-NATIVE.md",
+        "concepts": "[cloud native, microservices, resilience, scaling, managed services]",
+        "current_path": "computing/17-CLOUD-NATIVE.md",
+        "id": "maxim:computing-software:cloud-native-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cloud native, resilience]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud-Native Patterns",
+        "updated": "null"
+      },
+      "text": "```\r\nFactor          What It Means\r\n──────────────────────────────────────────────────────────────────\r\nI.   Codebase   One repo, many deploys. Not one repo per env.\r\nII.  Deps       Explicitly declare deps (package.json). No implicit system deps.\r\nIII. Config     Config in env vars. Not in code, not in files checked into git.\r\nIV.  Backing    Treat backing services (DB, cache) as attached resources.\r\n     Services   Swap Postgres URL → point at different DB. No code change.\r\nV.   Build/Run  Strictly separate build → release → run stages.\r\nVI.  Processes  Stateless. Shared state in backing services (DB/Redis), not memory.\r\nVII. Port       Export via port binding. Service IS the server (no app server needed).\r\n     Binding\r\nVIII.Concurrency Scale out via processes, not threads. Add pods, not heap.\r\nIX.  Disposable Fast startup. Graceful shutdown. Crash-only design.\r\nX.   Dev/Prod   Keep dev, staging, prod as similar as possible. Docker helps.\r\n     Parity\r\nXI.  Logs       Treat logs as event streams. Write to stdout. Platform aggregates.\r\nXII. Admin      Run admin tasks as one-off processes. Not cron in app. Not manual.\r\n     Processes\r\n```"
+    }
+  ],
+  "refs": [
+    "17-CLOUD-NATIVE.md"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\21-AUTOMATA.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 577,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Use / Know"
+      ],
+      "rows": [
+        [
+          "Tokenize source code fast",
+          "DFA-based lexer (re2c, logos, hand-rolled)"
+        ],
+        [
+          "Match patterns in user input (server-side)",
+          "RE2 / linear-time engine — no PCRE"
+        ],
+        [
+          "Parse a programming language",
+          "Recursive descent (LL) or LR parser generator"
+        ],
+        [
+          "Parse ambiguous or hard grammars",
+          "Earley (nearley) or PEG (pest)"
+        ],
+        [
+          "Model complex stateful logic",
+          "XState statechart (not ad-hoc switch)"
+        ],
+        [
+          "Understand why a SAST tool misses things",
+          "Decidability — it's approximating the halting problem"
+        ],
+        [
+          "Know if a regex is safe against user input",
+          "Test for catastrophic backtracking; consider RE2"
+        ],
+        [
+          "Explain why balanced parens can't be regex",
+          "Pumping lemma — regular languages can't count"
+        ],
+        [
+          "Parse HTML correctly",
+          "Don't write one — use a spec-compliant parser (parse5, WHATWG)"
+        ],
+        [
+          "Understand TypeScript type checking limits",
+          "Turing completeness of the type system (23-PL-THEORY)"
+        ],
+        [
+          "Need incremental parsing for an editor/LSP",
+          "tree-sitter — maintains LR stack across edits"
+        ],
+        [
+          "Need batch parsing for a compiler frontend",
+          "ANTLR4 — richer grammar class, full parse tree API"
+        ]
+      ]
+    }
+  ]
+}

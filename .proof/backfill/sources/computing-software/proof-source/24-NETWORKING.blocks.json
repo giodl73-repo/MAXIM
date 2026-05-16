@@ -1,0 +1,391 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\24-NETWORKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 23,
+      "heading_context": "# Networking — The Modern Stack",
+      "confidence": "candidate",
+      "text": "> Jump to: [HTTP version evolution](#4-http11--http2--http3) · [TLS 1.3](#5-tls-13-deep-dive) · [QUIC/HTTP3](#http3--quic) · [gRPC](#7-grpc) · [WebSockets](#6-websockets) · [Network Security / Zero Trust](#11-network-security)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------+\n|  APPLICATION LAYER                                                             |\n|  DNS   HTTP/1.1   HTTP/2   HTTP/3(QUIC)   WebSocket   gRPC   TLS               |\n+--------------------------------------------------------------------------------+\n              |                |                 |               |\n+--------------------------------------------------------------------------------+\n|  TRANSPORT LAYER                                                               |\n|  TCP (reliable, ordered, flow-controlled)                                      |\n|  UDP (unreliable, unordered, low-overhead)                                     |\n|  QUIC (UDP-based, streams, built-in TLS 1.3)                                   |\n+--------------------------------------------------------------------------------+\n              |                |                 |\n+--------------------------------------------------------------------------------+\n|  NETWORK LAYER                                                                 |\n|  IPv4 / IPv6   ICMP   BGP / OSPF (routing)   NAT   IPsec                       |\n+--------------------------------------------------------------------------------+\n              |\n+--------------------------------------------------------------------------------+\n|  DATA LINK LAYER                                                               |\n|  Ethernet   MAC addresses   ARP   VLANs (802.1Q)   Spanning Tree (802.1D)      |\n+--------------------------------------------------------------------------------+\n              |\n+--------------------------------------------------------------------------------+\n|  PHYSICAL LAYER                                                                |\n|  Copper, fiber, radio — not covered here                                       |\n+--------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "### Real-World: What Happens on a Single HTTPS API Call",
+      "confidence": "candidate",
+      "text": "You call: GET https://api.example.com/users/42\n                              |\n    1. DNS RESOLUTION (Application layer)\n       Stub resolver → OS cache → Recursive resolver (8.8.8.8)\n       → Root NS → .com TLD NS → example.com authoritative NS\n       Result: 104.18.22.119\n                              |\n    2. TCP 3-WAY HANDSHAKE (Transport layer)\n       SYN → SYN-ACK → ACK  [~1 RTT]\n                              |\n    3. TLS 1.3 HANDSHAKE (Application layer over TCP)\n       ClientHello + key_share → ServerHello + Certificate + Finished\n       Client Finished  [~1 RTT, 0-RTT possible on resume]\n                              |\n    4. HTTP/2 REQUEST (Application layer, binary)\n       HEADERS frame: method=GET, path=/users/42, authority=api.example.com\n       Server responds: HEADERS (200) + DATA (JSON body)\n                              |\n    5. TCP TEARDOWN\n       FIN → FIN-ACK → FIN → ACK  [or connection reused via keep-alive]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 107,
+      "heading_context": "### Subnetting Reference Table",
+      "confidence": "candidate",
+      "text": "### Private Address Ranges (RFC 1918)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### NAT — Network Address Translation",
+      "confidence": "candidate",
+      "text": "PRIVATE NETWORK                         PUBLIC INTERNET\n192.168.1.10:54321  ─────────────────►  203.0.113.5:80\n                      NAT DEVICE\n                   src: 192.168.1.10:54321\n                   translated to: 1.2.3.4:49152\n                       Connection table:\n                       1.2.3.4:49152 ↔ 192.168.1.10:54321",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 136,
+      "heading_context": "### NAT — Network Address Translation",
+      "confidence": "candidate",
+      "text": "### IPv6 Transition Mechanisms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 162,
+      "heading_context": "## 2. TCP Deep Dive",
+      "confidence": "candidate",
+      "text": "### 3-Way Handshake + 4-Way Teardown",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### 3-Way Handshake + 4-Way Teardown",
+      "confidence": "candidate",
+      "text": "CONNECT:                       CLOSE:\nClient      Server             Client      Server\n  │── SYN ─────►│               │── FIN ─────►│  \"done sending\"\n  │◄── SYN-ACK ─│               │◄── ACK ─────│  (half-close)\n  │── ACK ─────►│               │◄── FIN ─────│  \"I'm done too\"\n  [ESTABLISHED]                 │── ACK ─────►│\n                                [TIME_WAIT on client: 2×MSL]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "### BBR vs CUBIC Congestion Control",
+      "confidence": "candidate",
+      "text": "CUBIC behavior on high-BDP link:\n  cwnd grows → buffer fills → packet dropped → cwnd halved → repeat\n  [shallow buffer + high RTT = terrible utilization]\n\nBBR behavior:\n  Probes bandwidth (short bursts), measures RTT baseline\n  Keeps inflight ≈ BDP (bandwidth × RTT) — avoids filling buffers\n  [better throughput + lower latency on high-BDP links]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 357,
+      "heading_context": "## 4. HTTP/1.1 → HTTP/2 → HTTP/3",
+      "confidence": "candidate",
+      "text": "### HTTP/1.1",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 408,
+      "heading_context": "### Key HTTP Headers",
+      "confidence": "candidate",
+      "text": "### HTTP/2",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "### HTTP/2",
+      "confidence": "candidate",
+      "text": "HTTP/1.1 (text, one request per connection slot):\n──────────────────────────────────────────────────\nGET /a    response-a    GET /b    response-b    GET /c    response-c\n[blocking each other on single connection]\n\nHTTP/2 (binary, multiplexed streams on single TCP connection):\n──────────────────────────────────────────────────────────────────\nStream 1: GET /a ────────────────────────────────► response-a\nStream 3: GET /b ──────────────────────────────────────► response-b\nStream 5: GET /c ─────────────────────────────────────────────► response-c\n          [all in-flight simultaneously, no domain sharding needed]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 448,
+      "heading_context": "### HTTP/2",
+      "confidence": "candidate",
+      "text": "### HTTP/3 / QUIC",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 452,
+      "heading_context": "### HTTP/3 / QUIC",
+      "confidence": "candidate",
+      "text": "HTTP/2 over TCP:\n┌────────────────────────────────────────────┐\n│  HTTP/2 Streams                            │\n│  Stream 1  Stream 3  Stream 5  Stream 7    │\n├────────────────────────────────────────────┤\n│  TLS 1.3 Record Layer                      │\n├────────────────────────────────────────────┤\n│  TCP (ordered, reliable byte stream)       │\n└────────────────────────────────────────────┘\n\nHTTP/3 over QUIC:\n┌──────────────────────────────────────────────────────────┐\n│  HTTP/3 Streams                                          │\n│  Stream 1  Stream 3  Stream 5  Stream 7                  │\n├──────────────────────────────────────────────────────────┤\n│  QUIC (stream multiplexing, per-stream loss recovery)    │  ← lost packet only blocks its stream\n├──────────────────────────────────────────────────────────┤\n│  TLS 1.3 (built into QUIC handshake)                     │\n├──────────────────────────────────────────────────────────┤\n│  UDP                                                     │\n└──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 487,
+      "heading_context": "### HTTP/3 / QUIC",
+      "confidence": "candidate",
+      "text": "0-RTT flow:\nClient ──── QUIC Initial + Early Data (0-RTT) ────► Server\n            [app data piggybacks on the handshake packet]\nServer ──── QUIC Handshake + Response ─────────────► Client",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 504,
+      "heading_context": "## 5. TLS 1.3 Deep Dive",
+      "confidence": "candidate",
+      "text": "### TLS 1.3 Handshake (1-RTT)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 506,
+      "heading_context": "### TLS 1.3 Handshake (1-RTT)",
+      "confidence": "candidate",
+      "text": "Client                                          Server\n  │                                               │\n  │── ClientHello ───────────────────────────────►│\n  │   supported_versions: [TLS 1.3, TLS 1.2]      │\n  │   key_share: ECDH public key (x25519)          │\n  │   cipher_suites: [AES-256-GCM, ChaCha20, ...]  │\n  │   supported_groups: [x25519, P-256, P-384]     │\n  │   server_name: api.example.com (SNI)           │\n  │                                               │\n  │◄─ ServerHello ────────────────────────────────│\n  │   selected_version: TLS 1.3                   │\n  │   key_share: ECDH public key (x25519)         │\n  │   selected_cipher: TLS_AES_256_GCM_SHA384     │\n  │                                               │\n  │   [Both sides derive session keys via HKDF    │\n  │    from ECDH shared secret + nonces]           │\n  │                                               │\n  │◄─ {EncryptedExtensions} ──────────────────────│  encrypted from here\n  │◄─ {Certificate} ──────────────────────────────│  server's X.509 cert\n  │◄─ {CertificateVerify} ────────────────────────│  signature over transcript\n  │◄─ {Finished} ─────────────────────────────────│  MAC over transcript\n  │                                               │\n  │── {Finished} ────────────────────────────────►│\n  │                                               │\n  │          [Application Data]                   │",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 536,
+      "heading_context": "### TLS 1.3 Handshake (1-RTT)",
+      "confidence": "candidate",
+      "text": "### TLS 1.2 vs TLS 1.3",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 550,
+      "heading_context": "### TLS 1.2 vs TLS 1.3",
+      "confidence": "candidate",
+      "text": "### Cipher Suites in TLS 1.3",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 576,
+      "heading_context": "### Key Exchange: ECDHE",
+      "confidence": "candidate",
+      "text": "### X.509 Certificate Chain",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 578,
+      "heading_context": "### X.509 Certificate Chain",
+      "confidence": "candidate",
+      "text": "Root CA (self-signed, baked into OS/browser trust stores)\n    └── Intermediate CA (signed by Root CA)\n            └── Leaf Certificate (signed by Intermediate CA)\n                    subject: CN=api.example.com\n                    subjectAltName: DNS:api.example.com, DNS:*.example.com\n                    publicKey: [server's public key]\n                    validity: 2025-01-01 to 2025-04-01 (Let's Encrypt: 90 days)\n                    issuer: [Intermediate CA]\n                    signature: [Intermediate CA's signature over above]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 603,
+      "heading_context": "### mTLS (Mutual TLS)",
+      "confidence": "candidate",
+      "text": "Client                          Server\n  │── ClientHello ─────────────►│\n  │◄─ ServerHello + Cert ────────│\n  │◄─ CertificateRequest ────────│  ← server demands client cert\n  │── Certificate (client cert) ►│\n  │── CertificateVerify ─────────►│\n  │── Finished ──────────────────►│",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 638,
+      "heading_context": "### Upgrade Handshake",
+      "confidence": "candidate",
+      "text": "Client → Server:\nGET /chat HTTP/1.1\nHost: example.com\nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==   ← random base64 nonce\nSec-WebSocket-Version: 13\n\nServer → Client:\nHTTP/1.1 101 Switching Protocols\nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=\n                      ← SHA-1(key + magic GUID), base64",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "ascii_table_candidate",
+      "line": 659,
+      "heading_context": "### Frame Format",
+      "confidence": "candidate",
+      "text": "  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1\n +-+-+-+-+-------+-+-------------+-------------------------------+\n |F|R|R|R| opcode|M| Payload len |    Extended payload length    |\n |I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |\n |N|V|V|V|       |S|             |  (if payload len==126/127)    |\n | |1|2|3|       |K|             |                               |\n +-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 680,
+      "heading_context": "### Frame Format",
+      "confidence": "candidate",
+      "text": "### WebSocket vs SSE vs HTTP/2 Push",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 707,
+      "heading_context": "### Wire Format",
+      "confidence": "candidate",
+      "text": "gRPC Call Flow:\n─────────────────────────────────────────────────────────────────────\nClient Stub                              Server Stub\n  │                                          │\n  │  Method: UserService.GetUser(userId=42)  │\n  │  Serialized as Protobuf binary:          │\n  │  field 1 (user_id, varint): 42           │\n  │  → byte sequence: 0x08 0x2A              │\n  │                                          │\n  │── HTTP/2 HEADERS frame ─────────────────►│\n  │   :method = POST                         │\n  │   :path = /UserService/GetUser           │\n  │   :scheme = https                        │\n  │   :authority = api.example.com           │\n  │   content-type = application/grpc        │\n  │   grpc-timeout = 5S                      │\n  │                                          │\n  │── HTTP/2 DATA frame ────────────────────►│\n  │   [0x00]        ← compression flag       │\n  │   [0x00 0x00 0x00 0x02]  ← message length│\n  │   [0x08 0x2A]   ← protobuf-encoded body  │\n  │                                          │\n  │◄─ HTTP/2 DATA frame (response) ──────────│\n  │   [0x00][length][protobuf response]      │\n  │                                          │\n  │◄─ HTTP/2 HEADERS frame (trailers) ───────│\n  │   grpc-status = 0                        │\n  │   grpc-message = \"\"                      │",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 810,
+      "heading_context": "### Interceptors",
+      "confidence": "candidate",
+      "text": "Client interceptor chain:\n  AuthInterceptor(add token) → LoggingInterceptor(log request/response) → actual call\n\nServer interceptor chain:\n  LoggingInterceptor(log req) → AuthInterceptor(verify token) → RateLimitInterceptor → handler",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 824,
+      "heading_context": "### How a CDN Works",
+      "confidence": "candidate",
+      "text": "  Client (Paris)\n    │\n    │──► DNS query\n    │◄── 104.18.5.1 (Anycast)\n    │\n    │──► HTTPS ──► Edge cache at Paris PoP\n    │\n                ┌──────────────────────────────────────────────┐\n                │  CDN                                         │\n                │  PoP Paris ──────────── PoP NYC              │\n                │  PoP London             PoP Tokyo            │\n                │                                              │\n                │  Origin Shield (optional, one per region)    │\n                │  HIT: serve from cache                       │\n                │  MISS: forward to origin shield → origin     │\n                └──────────────────────────────────────────────┘\n\nAnycast: multiple PoPs share the same IP. BGP routes client to nearest PoP.\nGeoDNS: different CNAME/A records returned based on client's geographic location.\nAnycast is more resilient (routing adapts to failures); GeoDNS is simpler.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 865,
+      "heading_context": "### Conditional Requests (Revalidation)",
+      "confidence": "candidate",
+      "text": "First request:\n  GET /api/users → 200 OK\n                   ETag: \"v3\"\n                   Last-Modified: Mon, 01 Jan 2025 00:00:00 GMT\n                   Cache-Control: max-age=60\n\nAfter 60s, cache asks origin:\n  GET /api/users\n  If-None-Match: \"v3\"\n  If-Modified-Since: Mon, 01 Jan 2025 00:00:00 GMT\n\nOrigin: unchanged → 304 Not Modified (no body, save bandwidth)\nOrigin: changed   → 200 OK with new body + new ETag",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 912,
+      "heading_context": "## 9. Load Balancers",
+      "confidence": "candidate",
+      "text": "  Client ──►\n            ┌──────────────────────────────────────────────────┐\n            │                                                  │\n            │  L4 Load Balancer                                │\n            │  Sees: TCP/UDP (IP, port)                        │\n            │  Cannot: inspect HTTP path/headers               │\n            │  Algorithms: hash(src_ip+dst_ip+ports)           │\n            │                                                  │\n            │  L7 Load Balancer (Application Gateway, ALB)     │\n            │  Sees: HTTP headers, URL, cookies, TLS SNI       │\n            │  Can: path routing, host routing, rewrite URL    │\n            │       header insert, WAF, auth, rate limit       │\n            └──────────────────────────────────────────────────┘\n                                ↓\n              L4 backends: Backend 1: 10.0.1.4:8080\n                           Backend 2: 10.0.1.5:8080\n                           Backend 3: 10.0.1.6:8080\n              L7 routing:  /api/*    → API backends\n                           /static/* → CDN\n                           gRPC      → gRPC backends",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "chart_like",
+      "line": 935,
+      "heading_context": "## 9. Load Balancers",
+      "confidence": "candidate",
+      "text": "### L4 vs L7",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 1044,
+      "heading_context": "### Envoy",
+      "confidence": "candidate",
+      "text": "xDS Control Plane (Istio Pilot / Consul / custom)\n      │\n      │  xDS APIs (gRPC streaming)\n      ▼\nEnvoy sidecar (each pod)\n  ├── Listener: :15001 (outbound), :15006 (inbound)\n  ├── Routes: /api/users → cluster:user-service\n  ├── Clusters: user-service → [10.0.1.4:8080, 10.0.1.5:8080]\n  └── Endpoints: health-checked, weighted",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 1095,
+      "heading_context": "### Zero Trust — Network Layer",
+      "confidence": "candidate",
+      "text": "Traditional perimeter model (1990s–2010s):\n  ┌──────────────────────────────────┐\n  │  VNet / Corporate Network        │\n  │  All traffic inside = trusted    │\n  │  One firewall at the edge        │\n  └──────────────────────────────────┘\n  Breach the perimeter → lateral movement free\n\nZero trust network model:\n  Every workload is its own security boundary\n  Traffic between workloads is authenticated + encrypted\n  No implicit trust based on network location",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "diagram_like",
+      "line": 1120,
+      "heading_context": "### Zero Trust — Network Layer",
+      "confidence": "candidate",
+      "text": "Without Private Endpoint:\n  VM (10.0.1.10) → public IP → storage.blob.core.windows.net\n  [traverses internet or at minimum Microsoft's public network edge]\n\nWith Private Endpoint:\n  VM (10.0.1.10) → 10.0.1.50 (private NIC in VNet) → Azure Storage\n  [stays on Azure backbone; public access disabled]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "ascii_table_candidate",
+      "line": 1140,
+      "heading_context": "### Zero Trust — Network Layer",
+      "confidence": "candidate",
+      "text": "**Just-in-Time (JIT) VM access (PIM for network)**: Azure Defender for Cloud's JIT access locks down management ports (SSH/22, RDP/3389) by default — NSG rules deny all inbound. When access is needed, engineer requests JIT activation for specific port + source IP + time window. Defender for Cloud creates a temporary NSG rule, records the approval, auto-expires after the window.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

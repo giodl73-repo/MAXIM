@@ -1,0 +1,148 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\17-CLOUD-NATIVE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 605,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "WCF / SOA / .NET Enterprise Patterns",
+        "Cloud-Native Equivalent"
+      ],
+      "rows": [
+        [
+          "WCF ServiceContract / OperationContract / WSDL",
+          "gRPC + Protocol Buffers (`.proto` schema) — contract-first typed RPC, binary encoding, HTTP/2, bidirectional streaming"
+        ],
+        [
+          "WCF service host",
+          "Containerized HTTP service (Kestrel / Express)"
+        ],
+        [
+          "ESB (Enterprise Service Bus)",
+          "Event broker (Kafka, Azure Service Bus) + choreography"
+        ],
+        [
+          "MSMQ",
+          "Azure Service Bus Queue / AWS SQS"
+        ],
+        [
+          "WCF reliable sessions",
+          "Retry + idempotent consumers"
+        ],
+        [
+          "Distributed Transaction Coordinator (DTC)",
+          "Saga pattern with compensating actions"
+        ],
+        [
+          "IIS Application Pool recycling",
+          "K8s pod restart on liveness probe failure"
+        ],
+        [
+          "Web farm (manual scaling)",
+          "HPA on AKS (auto-scale pods)"
+        ],
+        [
+          "Azure Traffic Manager (weighted routing)",
+          "Canary deployments via Istio / Argo Rollouts"
+        ],
+        [
+          "Azure APIM",
+          "API Gateway pattern (same tool, same concept)"
+        ],
+        [
+          "Deployment slots (App Service)",
+          "Blue/green deployments on K8s"
+        ],
+        [
+          "App.config / web.config `<appSettings>`",
+          "Environment variables (Factor III) — injected by platform, not baked into artifact"
+        ],
+        [
+          "In-process `HttpSessionState` (ASP.NET)",
+          "External Redis / Cosmos session store — stateless processes (Factor VI)"
+        ],
+        [
+          "Windows Service (background worker)",
+          "K8s Deployment with no ingress / CronJob"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 626,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Build a new product with a small team",
+          "Modular monolith first"
+        ],
+        [
+          "Split a monolith into services",
+          "Extract by business capability, not tech layer"
+        ],
+        [
+          "Decouple services so they don't need to be up simultaneously",
+          "Async messaging (Service Bus / SQS / Kafka)"
+        ],
+        [
+          "Fan out one event to many consumers",
+          "Pub-Sub topic (Event Grid / SNS / Kafka topic)"
+        ],
+        [
+          "High-throughput durable event log with replay",
+          "Kafka"
+        ],
+        [
+          "Multiple independent consumers reading the same events",
+          "Kafka consumer groups (not Service Bus — messages would be split)"
+        ],
+        [
+          "Typed contract-first inter-service RPC, binary, HTTP/2",
+          "gRPC + Protocol Buffers"
+        ],
+        [
+          "Prevent cascading failures",
+          "Circuit breaker (Opossum) + timeouts"
+        ],
+        [
+          "Handle transient network errors",
+          "Retry with exponential backoff + jitter"
+        ],
+        [
+          "Coordinate a multi-service write without 2PC",
+          "Saga pattern"
+        ],
+        [
+          "Handle cross-cutting concerns (mTLS, retry, tracing) centrally",
+          "Service mesh (Linkerd for simplicity, Istio for power)"
+        ],
+        [
+          "Route external traffic, enforce auth + rate limits",
+          "API Gateway (Azure APIM, Kong, Traefik)"
+        ],
+        [
+          "Deploy with zero downtime and instant rollback",
+          "Blue/green"
+        ],
+        [
+          "Gradually roll out to real users, auto-rollback on errors",
+          "Canary (Argo Rollouts / Flagger)"
+        ],
+        [
+          "Ship code dark, release when ready",
+          "Feature flags (LaunchDarkly, Unleash)"
+        ],
+        [
+          "Know if my service is cloud-native",
+          "12-Factor checklist"
+        ]
+      ]
+    }
+  ]
+}

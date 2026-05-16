@@ -1,0 +1,210 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\13-CICD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 457,
+      "heading_context": "## Environments & Approvals",
+      "headers": [
+        "Concept",
+        "ADO",
+        "GitHub Actions"
+      ],
+      "rows": [
+        [
+          "Environment definition",
+          "Pipelines → Environments",
+          "Settings → Environments"
+        ],
+        [
+          "Required reviewers",
+          "Approvals and checks",
+          "Required reviewers"
+        ],
+        [
+          "Approval timeout",
+          "Configurable",
+          "Configurable"
+        ],
+        [
+          "Deployment history",
+          "Per-environment timeline",
+          "Per-environment timeline"
+        ],
+        [
+          "Exclusive lock",
+          "Yes (one deploy at a time)",
+          "Concurrency groups (less granular)"
+        ],
+        [
+          "Wait timer",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Azure Monitor gate",
+          "Yes (built-in)",
+          "No native equivalent"
+        ],
+        [
+          "ServiceNow gate",
+          "Yes (extension)",
+          "No native equivalent"
+        ],
+        [
+          "Jira gate",
+          "Yes (extension)",
+          "No native equivalent"
+        ],
+        [
+          "Required pipeline template",
+          "Yes",
+          "No native equivalent"
+        ],
+        [
+          "Deployment branches filter",
+          "Yes",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 611,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "VSTS / Azure DevOps (Classic)",
+        "Modern CI/CD Equivalent"
+      ],
+      "rows": [
+        [
+          "Build Definition (GUI)",
+          "Workflow YAML / azure-pipelines.yml"
+        ],
+        [
+          "Build Agent Queue",
+          "`runs-on:` / `pool:`"
+        ],
+        [
+          "Hosted Agent",
+          "GitHub-hosted runner / Microsoft-hosted agent"
+        ],
+        [
+          "Private Agent",
+          "Self-hosted runner / self-hosted agent"
+        ],
+        [
+          "Release Pipeline",
+          "CD stage in same YAML / `deploy` job"
+        ],
+        [
+          "Release Environment",
+          "`environment:` keyword with approval gates"
+        ],
+        [
+          "Artifact drop",
+          "`upload-artifact` / `PublishPipelineArtifact`"
+        ],
+        [
+          "Variable Group",
+          "`secrets` context / variable group + Key Vault link"
+        ],
+        [
+          "Variable Group linked to Key Vault",
+          "ADO: native. GHA: OIDC + az keyvault secret show"
+        ],
+        [
+          "Service Connection",
+          "ADO: service connection. GHA: OIDC federated identity"
+        ],
+        [
+          "Gated check-in",
+          "Branch protection + required status checks"
+        ],
+        [
+          "Test Results tab",
+          "`PublishTestResults` / Codecov integration"
+        ],
+        [
+          "Deployment slots swap",
+          "Rolling deploy to K8s or App Service slot action"
+        ],
+        [
+          "Build number",
+          "`github.run_number` / `Build.BuildId`"
+        ],
+        [
+          "Azure Monitor release gate",
+          "ADO only — no GHA equivalent"
+        ],
+        [
+          "ServiceNow approval gate",
+          "ADO extension — no GHA equivalent"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 640,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "PR validation",
+          "Trigger on pull request, run deterministic tests, cache safely, and publish actionable failure output.",
+          "CI that is flaky trains teams to ignore it."
+        ],
+        [
+          "Merge blocking",
+          "Use branch protection, required checks, review rules, and bypass governance.",
+          "A required check is only as meaningful as what it actually tests."
+        ],
+        [
+          "Image build and publish",
+          "Chain test, build, scan, tag, push by digest, and record provenance.",
+          "Building on merge without test dependency can publish bad artifacts."
+        ],
+        [
+          "Kubernetes deploy",
+          "Compare manifest apply, Helm, GitOps, image update, rollout status, and migration order.",
+          "Deploy success is not app health unless readiness and smoke checks exist."
+        ],
+        [
+          "Production approval",
+          "Use environment protection, approvers, change windows, and audit trail.",
+          "Manual approval is not a substitute for automated quality gates."
+        ],
+        [
+          "Cross-job artifacts",
+          "Use upload/download artifacts with retention, integrity, and version naming.",
+          "Artifacts are release inputs; treat them as immutable."
+        ],
+        [
+          "Slow pipeline",
+          "Profile install, cache keys, dependency lockfiles, matrix shape, and parallelism.",
+          "Bad cache keys can serve stale dependencies."
+        ],
+        [
+          "Matrix testing",
+          "Choose runtime versions, OS, dependency versions, and allowed failures deliberately.",
+          "More matrix axes can explode cost without improving confidence."
+        ],
+        [
+          "Cloud credentials",
+          "Prefer OIDC federation, least privilege, environment scoping, and audit logs.",
+          "Stored long-lived secrets in CI are high-value targets."
+        ],
+        [
+          "Private-network deployment",
+          "Use self-hosted runners, network placement, patching, isolation, and runner trust.",
+          "Self-hosted runners become infrastructure you operate."
+        ]
+      ]
+    }
+  ]
+}

@@ -4,13 +4,13 @@ id: proof-backfill:computing-software:02-git
 kind: source-record
 module: computing-software
 section: computing-software
-title: Git workflows source record
+title: Git - Modern Version Control Workflows source record
 status: source-custody
 source_custody: partial
 current_path: .proof/backfill/sources/computing-software/02-git.source-record.md
 canonical_path: .proof/backfill/sources/computing-software/02-git.source-record.md
 backsource_ids: [git-history:computing-software:02-git]
-concepts: [git, version control, branching, merging]
+concepts: [git, version control, distributed version control, branching, merging, source depot migration]
 root_concepts: [git, version control]
 index_roles: [source-map]
 remap_from: []
@@ -18,7 +18,7 @@ remap_to: []
 updated: null
 ---
 
-# Git workflows source record
+# Git - Modern Version Control Workflows source record
 
 | Field | Value |
 |---|---|
@@ -31,7 +31,7 @@ updated: null
 | PROOF confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `3` markdown tables, `10` visual/block candidates |
-| Git provenance | `578235d`, `29204ca`, `c3d7a74`, `3579f43`, `79bf178`, `e704f0b`, `1b27cd0` |
+| Git provenance | `ecd3d17`, `578235d`, `29204ca`, `c3d7a74`, `3579f43`, `79bf178`, `e704f0b`, `1b27cd0` |
 
 ## Custody note
 

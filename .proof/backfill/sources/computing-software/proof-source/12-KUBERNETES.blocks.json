@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\12-KUBERNETES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 42,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Kubernetes — Full Architecture\n================================\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Cluster                                                            │\n  │                                                                     │\n  │  ┌──────────────────────────────┐                                   │\n  │  │  Control Plane               │    kubectl  ──►  API Server       │\n  │  │                              │                                   │\n  │  │  API Server                  │    You talk to the API Server.    │\n  │  │  etcd (state store)          │    Everything else is internal.   │\n  │  │  Scheduler                   │                                   │\n  │  │  Controller Manager          │                                   │\n  │  └──────────────────────────────┘                                   │\n  │                                                                     │\n  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐              │\n  │  │  Node (VM)   │  │  Node (VM)   │  │  Node (VM)   │              │\n  │  │              │  │              │  │              │              │\n  │  │  kubelet     │  │  kubelet     │  │  kubelet     │              │\n  │  │  kube-proxy  │  │  kube-proxy  │  │  kube-proxy  │              │\n  │  │              │  │              │  │              │              │\n  │  │  [Pod]       │  │  [Pod][Pod]  │  │  [Pod]       │              │\n  │  └──────────────┘  └──────────────┘  └──────────────┘              │\n  │                                                                     │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Control Plane = the brain (managed by cloud provider in AKS/EKS/GKE)\n  Node = a VM that runs your containers\n  Pod = smallest deployable unit (one or more containers)\n  kubelet = agent on each node that talks to control plane",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 77,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "### K8s Object Relationship Landscape",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### K8s Object Relationship Landscape",
+      "confidence": "candidate",
+      "text": "Kubernetes Object Hierarchy\n============================\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Namespace  (scopes everything below — like a folder in a cluster)  │\n  │                                                                     │\n  │  ┌──────────────────────────────────────────────────────────────┐   │\n  │  │  Deployment  ──manages──►  ReplicaSet  ──manages──►  Pod(s)  │   │\n  │  │      │                                              │        │   │\n  │  │      │ declares desired state                       │        │   │\n  │  │      │ (image, replicas, update strategy)           │        │   │\n  │  │                                                     │        │   │\n  │  │  Service  ──────────────────selects──────────────►  Pod(s)   │   │\n  │  │      │       (via label selector: app=api)          │        │   │\n  │  │      │                                              │        │   │\n  │  │  Ingress  ──────────routes to──────────►  Service(s)         │   │\n  │  │      │       (URL path / host rules)                │        │   │\n  │  │                                                     │        │   │\n  │  │  ConfigMap  ──────────────mounted into──────────►  Pod(s)    │   │\n  │  │  Secret     ──────────────mounted into──────────►  Pod(s)    │   │\n  │  │      │       (as env vars or volume files)          │        │   │\n  │  │                                                     │        │   │\n  │  │  PersistentVolumeClaim  ──────────attached to────►  Pod(s)   │   │\n  │  │  HorizontalPodAutoscaler  ──scales──►  Deployment             │   │\n  │  └──────────────────────────────────────────────────────────────┘   │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Deployment   = \"keep N replicas of this container running\"\n  ReplicaSet   = implementation detail; Deployment manages it for you\n  Pod          = one running container instance (the actual process)\n  Service      = stable DNS name + load balancer across matching pods\n  Ingress      = HTTP router in front of services (like ARR / App Gateway)\n  ConfigMap    = non-secret configuration injected into pods\n  Secret       = sensitive config (base64-encoded; use Key Vault in prod)\n  Namespace    = logical isolation boundary within a cluster",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Pod",
+      "confidence": "candidate",
+      "text": "Pod\n───\n┌──────────────────────────────────┐\n│  ip: 10.244.1.5                  │\n│  ┌────────────────┐              │\n│  │  Container     │              │\n│  │  image: myapp  │              │\n│  │  port: 3000    │              │\n│  └────────────────┘              │\n│  Volumes (shared by containers)  │\n└──────────────────────────────────┘\n\nPods are ephemeral. When a pod dies, it's gone.\nIts IP is gone. Any state written to the container layer is gone.\nNever rely on a pod's identity or IP directly — use Services.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "### Deployment",
+      "confidence": "candidate",
+      "text": "Deployment → manages → ReplicaSet → manages → Pods\n\n  Deployment\n  ├── replicas: 3\n  └── ReplicaSet\n      ├── Pod (api-7d8f9b-abc)\n      ├── Pod (api-7d8f9b-def)\n      └── Pod (api-7d8f9b-xyz)\n\n  If a pod dies → ReplicaSet creates a replacement\n  If you update the image → Deployment creates new ReplicaSet, drains old one",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Service",
+      "confidence": "candidate",
+      "text": "Service types:\n\n  ClusterIP    Internal to cluster only. Default. Use for service-to-service.\n               http://api  (other pods reach it by service name)\n\n  NodePort     Exposes on a port on every node. Used for testing.\n               External → NodeIP:30080 → Service → Pods\n\n  LoadBalancer Creates a cloud load balancer (Azure LB, AWS ELB).\n               External → public IP → Service → Pods\n               This is how you expose a public API.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Ingress",
+      "confidence": "candidate",
+      "text": "                        Ingress Controller (nginx / Traefik / AGIC)\n                        ┌──────────────────────────────────────────┐\n  internet              │                                          │\n  ──────────►  :443     │  /api/*     →  api-service:80            │\n                        │  /auth/*    →  auth-service:80           │\n                        │  /static/*  →  cdn or static-service     │\n                        └──────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Ingress",
+      "confidence": "candidate",
+      "text": "IIS ARR (Application Request Routing)    K8s Ingress\n======================================   ===========\n\nARR sits in front of IIS sites.         Ingress controller sits in front\nRouting rules: URL path, host header.   of Services. Same concept.\nSSL termination at ARR.                 SSL termination at Ingress.\n\nARR routing rule:                       Ingress path rule:\n  /api/* → backend pool A                 path: /api → service: api:80\n  /auth/* → backend pool B                path: /auth → service: auth:80\n\nSSL cert on ARR                         TLS cert in K8s Secret,\n                                        referenced in Ingress spec\n\nAzure Application Gateway               AGIC (Application Gateway Ingress\n(IIS-tier reverse proxy)                Controller) = use Azure App Gateway\n                                        AS your K8s ingress controller.\n                                        Literal bridge: same Azure resource,\n                                        controlled by K8s Ingress manifests.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 418,
+      "heading_context": "## Rolling Updates & Rollbacks",
+      "confidence": "candidate",
+      "text": "Rolling Update (default strategy)\n==================================\n\n  Before:  [v1] [v1] [v1]\n\n  Step 1:  [v2] [v1] [v1]   ← one new pod, one old removed\n  Step 2:  [v2] [v2] [v1]\n  Step 3:  [v2] [v2] [v2]   ← zero downtime\n\n  Each new pod must pass readinessProbe before traffic shifts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 621,
+      "heading_context": "## Helm — Package Manager for K8s",
+      "confidence": "candidate",
+      "text": "Helm Chart\n==========\nA packaged set of K8s manifests with templating.\n\nchart/\n├── Chart.yaml          name, version, description\n├── values.yaml         default values\n└── templates/\n    ├── deployment.yaml\n    ├── service.yaml\n    └── ingress.yaml\n\nThe templates use Go templating:\n  replicas: {{ .Values.replicaCount }}\n  image: {{ .Values.image.repository }}:{{ .Values.image.tag }}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

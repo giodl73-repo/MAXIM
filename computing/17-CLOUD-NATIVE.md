@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:cloud-native-patterns
+kind: guide
+module: computing-software
+section: computing-software
+title: Cloud-Native Patterns
+status: source-custody
+source_custody: partial
+current_path: computing/17-CLOUD-NATIVE.md
+canonical_path: computing/17-CLOUD-NATIVE.md
+backsource_ids: [proof-backfill:computing-software:17-cloud-native-patterns, git-history:computing-software:17-cloud-native-patterns]
+concepts: [cloud native, microservices, resilience, scaling, managed services]
+root_concepts: [cloud native, resilience]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 17 — Cloud-Native Patterns
 
 ## The Big Picture
@@ -480,8 +499,8 @@ Blue/Green Deployment
   Before:                            After cutover:
   ┌─────────────────┐                ┌─────────────────┐
   │ Load Balancer   │                │ Load Balancer   │
-  │ → Blue (v1) ✅  │                │ → Green (v2) ✅ │
-  │ → Green (v2) 💤 │                │ → Blue (v1) 💤  │
+  │ -> Blue (v1) OK │                │ -> Green (v2) OK│
+  │ -> Green idle   │                │ -> Blue idle    │
   └─────────────────┘                └─────────────────┘
 
   Green tested while Blue serves     Switch is instant (LB route change)

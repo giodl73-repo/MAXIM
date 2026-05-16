@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\16-MONOREPO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Core Problems a Monorepo Tool Solves\n=========================================\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  Problem 1: Only rebuild what changed                           │\n  │                                                                 │\n  │  You changed packages/utils.                                    │\n  │  Don't rebuild apps/web, apps/admin if they don't use utils.    │\n  │  Do rebuild apps/api because it imports utils.                  │\n  │                                                                 │\n  │  Problem 2: Run tasks in correct order                          │\n  │                                                                 │\n  │  apps/api depends on packages/utils.                            │\n  │  Build utils before building api — not after, not in parallel.  │\n  │                                                                 │\n  │  Problem 3: Cache results                                       │\n  │                                                                 │\n  │  utils hasn't changed since last build.                         │\n  │  Don't rebuild it — replay the cached output.                   │\n  │  Remote cache: share across machines and CI.                    │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "# Or create new",
+      "confidence": "candidate",
+      "text": "repo/\n├── apps/\n│   ├── web/            package.json { \"name\": \"@myapp/web\" }\n│   └── api/            package.json { \"name\": \"@myapp/api\" }\n├── packages/\n│   ├── ui/             package.json { \"name\": \"@myapp/ui\" }\n│   └── config/         package.json { \"name\": \"@myapp/config\" }\n├── turbo.json\n└── package.json        (workspaces: [\"apps/*\", \"packages/*\"])",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "### Caching",
+      "confidence": "candidate",
+      "text": "How Turbo cache works\n======================\n\n  Hash inputs:\n    - Source files in the package\n    - package.json + lockfile\n    - turbo.json pipeline config\n    - Environment variables (if listed in env)\n\n  If hash matches a previous run → replay cached output\n  If hash differs → run the task, cache the result\n\n  Cache hit:  >>> FULL TURBO  (replays in milliseconds)\n  Cache miss: normal run, then cached for next time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "# Visualize the dependency graph in browser",
+      "confidence": "candidate",
+      "text": "@myapp/web ──────────────► @myapp/ui\n     │                          │\n     └──────► @myapp/utils ◄────┘\n                   │\n              @myapp/api",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "## Package Structure — Shared Code",
+      "confidence": "candidate",
+      "text": "packages/\n├── ui/                    Shared React components\n│   ├── src/\n│   │   ├── Button.tsx\n│   │   └── index.ts       // export * from './Button'\n│   ├── package.json       { \"name\": \"@myapp/ui\", \"main\": \"dist/index.js\" }\n│   └── tsconfig.json\n│\n├── utils/                 Shared utilities (date formatting, validation, etc.)\n│   ├── src/\n│   └── package.json       { \"name\": \"@myapp/utils\" }\n│\n├── types/                 Shared TypeScript types (API contracts, DTOs)\n│   ├── src/\n│   └── package.json       { \"name\": \"@myapp/types\" }\n│\n└── config/                Shared tooling config (eslint, tsconfig, vitest)\n    ├── eslint-base.js\n    ├── tsconfig.base.json\n    └── package.json       { \"name\": \"@myapp/config\" }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

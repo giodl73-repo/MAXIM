@@ -1,0 +1,204 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\22-COMPILERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Frame",
+      "confidence": "candidate",
+      "text": "The Classical Pipeline\n=======================\n\n  Source\n    ↓  Lexer (DFA)              — characters → tokens\n    ↓  Parser (PDA/LL/LR)       — tokens → AST\n    ↓  Semantic Analysis        — type checking, name resolution, scoping\n    ↓  IR Generation            — AST → intermediate representation\n    ↓  Optimization Passes      — on IR (machine-independent)\n    ↓  Code Generation          — IR → target (machine code, bytecode, JS)\n    ↓  Target Optimization      — machine-dependent (peephole, scheduling)\n  Output",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 43,
+      "heading_context": "## The Frame",
+      "confidence": "candidate",
+      "text": "THE COMPILER ECOSYSTEM — WHO SHARES WHAT\n==========================================\n\n  LLVM-based (shared backend)\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  clang   → Clang AST → LLVM IR                                  │\n  │  rustc   → HIR → THIR → MIR → LLVM IR                           │\n  │  swiftc  → Swift AST → SIL → LLVM IR                            │\n  │  kotlin/native → Kotlin IR → LLVM IR                            │\n  │  zig     → Zig IR → LLVM IR                                     │\n  │  clangd  (language server uses clang frontend)                  │\n  └─────────────────────────────────────────────────────────────────┘\n                ↓\n            LLVM backend → x86 / ARM / WASM / RISC-V\n\n  Standalone JIT (own backend, no LLVM)\n  ┌────────────────────────────────────────────────────────────────┐\n  │  V8 (JS):    Ignition (bytecode) → Maglev → Turbofan           │\n  │  SpiderMonkey: Warp JIT (replaces IonMonkey)                   │\n  │  JavaScriptCore: LLInt → Baseline → DFG → FTL (LLVM-based!)    │\n  └────────────────────────────────────────────────────────────────┘\n\n  Transpilers (no native backend — source → source)\n  ┌────────────────────────────────────────────────────────────────┐\n  │  tsc   (TypeScript → JS)  own AST + type checker, no backend   │\n  │  esbuild (TS/JS → JS bundle)  Go-native, no LLVM, no typecheck │\n  │  SWC   (TS/JS → JS)  Rust-based, strips types only             │\n  └────────────────────────────────────────────────────────────────┘\n\n  Multi-IR pipelines (notable for IR depth)\n  ┌────────────────────────────────────────────────────────────────┐\n  │  rustc:  .rs → HIR → THIR → MIR → LLVM IR                      │\n  │          Each IR serves a distinct purpose:                    │\n  │          HIR: desugaring + name resolution                     │\n  │          THIR: type-checked, pattern exhaustiveness            │\n  │          MIR: borrow checker + const eval (CFG-based)          │\n  │          LLVM IR: machine-independent optimization             │\n  │                                                                │\n  │  clang:  C++ → Clang AST → LLVM IR  (2-stage, simpler)         │\n  └────────────────────────────────────────────────────────────────┘\n\n  Incremental compilation (semantic caching)\n  ┌────────────────────────────────────────────────────────────────┐\n  │  Roslyn: SyntaxTree (immutable) + SemanticModel (lazy)         │\n  │          Incremental: syntax + semantic caches per compilation │\n  │          Full compiler-as-a-service API                        │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Three-Address Code / Linearized IR",
+      "confidence": "candidate",
+      "text": "Source:  z = (a + b) * (a + b)\n\nTAC:\n  t1 = a + b\n  t2 = a + b\n  z  = t1 * t2\n\n  Redundancy obvious → common subexpression elimination (CSE):\n  t1 = a + b\n  z  = t1 * t1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### SSA — Static Single Assignment",
+      "confidence": "candidate",
+      "text": "Use-def chains are trivial:\n  Each use of x₂ has exactly one definition (the φ or assignment that created x₂).\n  In non-SSA, finding all definitions of \"x\" requires global analysis.\n  In SSA, it's a single pointer.\n\nConstant propagation becomes local:\n  x₁ = 5\n  y = x₁ + 3    → y = 5 + 3 → y = 8   (follow the single definition)\n\nDead code elimination is a graph reachability problem:\n  Compute the use-def graph. Nodes with no uses (and no side effects) are dead.\n  Remove them. Repeat until fixed point.\n\nGlobal value numbering (GVN):\n  Assign a number to each unique computed value.\n  Two instructions with the same value number compute the same thing → deduplicate.\n  More powerful than local CSE — works across basic blocks.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "### LLVM IR",
+      "confidence": "candidate",
+      "text": "LLVM IR properties:\n  Typed (i8, i32, i64, float, ptr, <4 x i32> vectors)\n  SSA with explicit φ functions\n  Infinite virtual registers (lowered to physical regs in backend)\n  Three forms: in-memory (bitcode), text (.ll), bitcode (.bc)\n  Platform-independent — same IR → x86, ARM, WASM, RISC-V",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "### Scalar Optimizations",
+      "confidence": "candidate",
+      "text": "Constant folding / propagation\n  2 + 3 → 5 at compile time\n  Propagate known constants through SSA def-use chains\n\nDead code elimination (DCE)\n  Remove instructions whose results are never used\n  Intra-procedural: remove unused temporaries\n  Inter-procedural: whole-program DCE (link-time optimization)\n\nInlining\n  Replace call site with callee body\n  Enables further optimization (constant propagation through call boundary)\n  Trade-off: reduces call overhead, increases code size, may hurt i-cache\n\nLoop optimizations\n  Loop-invariant code motion (LICM): move invariant computations out of loop\n  Loop unrolling: replicate loop body k times, reduce branch overhead\n  Vectorization (auto-vectorization): scalar loop → SIMD instructions\n  Loop fusion / fission: combine or split loops for cache locality\n\nAlias analysis\n  Can pointers p and q point to the same memory?\n  Conservative: assume yes (safe, misses optimization)\n  Interprocedural: track provenance (enables more aggressive opt)\n  TBAA (type-based alias analysis): in C/C++, objects of different types\n    can't alias → enables load/store reordering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 308,
+      "heading_context": "### Whole-Program Optimizations (LTO)",
+      "confidence": "candidate",
+      "text": "Link-Time Optimization (LTO)\n  Classical compiler: optimize each translation unit separately\n  LTO: emit LLVM IR bitcode, optimize the whole program at link time\n  Enables: cross-module inlining, whole-program DCE, devirtualization\n\n  Rust uses LTO by default for release builds\n  Swift uses LTO\n  C/C++ with clang: -flto flag\n\n  Thin LTO: parallel LTO with summary-based analysis (faster, nearly as good)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## The JIT Spectrum",
+      "confidence": "candidate",
+      "text": "The JIT Insight\n================\n\n  Static compiler:  must generate code that works for all possible inputs\n  JIT compiler:     has seen actual inputs — can speculate\n\n  Speculation example (V8):\n    function add(a, b) { return a + b; }\n    Called 10,000 times with integers → speculate it's always integers\n    Generate optimized integer add (no type checks)\n    If called with a string: deoptimize → fall back to interpreter\n\n  Speculation enables optimizations provably impossible for static compilers:\n    Inline virtual dispatch (if the target is always the same concrete type)\n    Eliminate type checks (if the type has never varied)\n    Specialize for observed shapes (object layouts)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 346,
+      "heading_context": "## The JIT Spectrum",
+      "confidence": "candidate",
+      "text": "### V8's Multi-Tier Pipeline",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "### V8's Multi-Tier Pipeline",
+      "confidence": "candidate",
+      "text": "JavaScript source\n      ↓\n  Parser → AST\n      ↓\n  Ignition (bytecode interpreter)\n  ┌─────────────────────────────────────┐\n  │  Generates compact bytecode         │\n  │  Collects type feedback:            │\n  │    \"add() always sees Smi + Smi\"    │\n  │  Fast to start — no compilation     │\n  └─────────────────┬───────────────────┘\n                    │ hot function threshold\n                    ↓\n  Maglev (mid-tier JIT — new in V8 2023)\n  ┌─────────────────────────────────────┐\n  │  Fast compilation (< 1ms)           │\n  │  Basic type specialization          │\n  │  Good for: startup-sensitive code   │\n  └─────────────────┬───────────────────┘\n                    │ very hot + stable types\n                    ↓\n  Turbofan (optimizing JIT)\n  ┌─────────────────────────────────────┐\n  │  Sea-of-nodes IR (not CFG-based)    │\n  │  Full SSA + aggressive opts         │\n  │  Speculative type narrowing         │\n  │  Escape analysis + stack allocation │\n  │  Produces near-native performance   │\n  └─────────────────┬───────────────────┘\n                    │ type assumption violated\n                    ↓\n  Deoptimization → back to Ignition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 435,
+      "heading_context": "## The TypeScript Compiler",
+      "confidence": "candidate",
+      "text": "tsc Pipeline\n=============\n\n  .ts source\n      ↓\n  Scanner (lexer) — produces tokens\n      ↓\n  Parser — recursive descent LL, produces AST (called \"nodes\" in tsc)\n      ↓\n  Binder — builds symbol table, assigns symbol IDs, computes flow analysis\n           (this is where \"narrowing\" gets computed — the control flow graph)\n      ↓\n  Type Checker — structural type checking, inference, error reporting\n                 The biggest and most complex phase (~40% of codebase)\n      ↓\n  Emitter — AST → JavaScript (or declaration files)\n            No optimization — output structure mirrors input structure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 471,
+      "heading_context": "### TypeScript's Incremental Compilation",
+      "confidence": "candidate",
+      "text": "tsc --build (project references) + --incremental\n\n  Each file has a signature: hash of the public types it exports\n  If a file's signature hasn't changed → dependents don't re-typecheck\n  Stored in .tsbuildinfo\n\n  This is whole-program incremental compilation via a dependency graph.\n  The insight: you don't need to re-check B if A's public API didn't change,\n  even if A's implementation changed.\n\n  ts-server (language server):\n    Keeps the compiler pipeline in memory\n    Re-runs only affected phases on file save\n    Produces diagnostics in ~50ms instead of the full tsc cold time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 490,
+      "heading_context": "### Why tsc Is Slow on Large Projects",
+      "confidence": "candidate",
+      "text": "Type checking is not linear in source size:\n  Structural subtyping requires potentially deep comparison\n  Conditional types can trigger recursive evaluation\n  The type system is Turing complete (see 23-PL-THEORY)\n    → some type expressions take exponential time to evaluate\n    → tsc adds depth limits to avoid infinite loops\n\n  Large codebases (>500k LOC): tsc can take 30–120 seconds cold\n  Mitigations:\n    Project references: split into independently type-checked units\n    ts-go (2025): Golang port of tsc — ~10× faster (parallelism + GC)\n    Isolating type-checking from transpilation (SWC/esbuild do only transpile)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 551,
+      "heading_context": "## The Rust Compiler (rustc)",
+      "confidence": "candidate",
+      "text": "rustc Pipeline\n===============\n\n  .rs source\n      ↓\n  Lexer + Parser → AST\n      ↓\n  HIR (High-level IR) — desugaring (match, for loops, closures → primitives)\n                         Name resolution, macro expansion\n      ↓\n  THIR (Typed HIR) — type-checked HIR; used for pattern exhaustiveness checking\n      ↓\n  MIR (Mid-level IR) — ← THE INTERESTING PART\n    Control flow graph with explicit borrows\n    Borrow checker runs here (NLL — Non-Lexical Lifetimes)\n    Const evaluation runs here\n    Monomorphization preparation\n      ↓\n  LLVM IR — MIR lowered to LLVM IR\n      ↓\n  LLVM optimization passes → machine code",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 577,
+      "heading_context": "### MIR and the Borrow Checker",
+      "confidence": "candidate",
+      "text": "MIR is explicitly designed to make the borrow checker tractable.\n\nHIR borrows have complex lifetimes tied to syntactic scope.\nMIR borrows have explicit start/end points on the CFG.\nNLL (Non-Lexical Lifetimes) computes liveness on the MIR CFG.\n\n  fn first_or_default(v: &Vec<i32>, default: i32) -> i32 {\n    if v.is_empty() {           // borrow of v starts\n      default\n    } else {\n      v[0]                      // borrow of v ends here (NLL)\n    }\n  }\n\n  Lexical lifetimes (pre-NLL): borrow of v extends to end of function body\n  NLL: borrow of v extends only to last use — allows more programs\n  The NLL paper (Matsakis 2018) defines this as a dataflow problem on MIR.\n\nPolonius (next-gen borrow checker):\n  Reformulates NLL as a Datalog computation\n  More precise — accepts more valid programs\n  Currently behind a feature flag (--Zpolonius)\n  The Datalog formulation makes correctness proofs tractable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 609,
+      "heading_context": "## WASM — A Compiler Target and a VM",
+      "confidence": "candidate",
+      "text": "WASM Design Choices\n====================\n\n  Stack machine bytecode (not register-based like LLVM IR)\n  Structured control flow (no arbitrary jumps — loop/block/if primitives)\n  Linear memory (a big byte array — no GC by default)\n  Type-safe (validated before execution)\n  Sandboxed (no direct system calls — capability-based imports)\n\n  These constraints enable:\n    Fast validation (linear time — structured control flow)\n    Easy JIT compilation (stack machine → register allocation is straightforward)\n    Security (sandbox + capability model)\n\nWASM compilation pipeline (e.g., Rust → WASM):\n  Rust → MIR → LLVM IR → wasm32 backend → .wasm binary\n  Then in browser: .wasm → Liftoff (fast baseline JIT) → Turbofan (optimizing JIT)\n  V8 has two WASM compilers just like it has two JS compilers.\n\nWASI (WebAssembly System Interface):\n  Brings WASM outside the browser (server-side, edge functions)\n  Standardizes system call interface (file I/O, networking, clocks)\n  Fastly's Compute@Edge, Cloudflare Workers use WASM + WASI",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 669,
+      "heading_context": "## Compiler Correctness and Testing",
+      "confidence": "candidate",
+      "text": "How compilers are tested\n=========================\n\n  Unit tests on passes:\n    Feed known IR → apply one pass → check output IR\n\n  End-to-end correctness tests:\n    Compile program → run → check output matches expected\n\n  Randomized testing (fuzzing):\n    AFL, libFuzzer: generate random inputs → find crashes/hangs\n    Compiler fuzzing: generate random (but syntactically valid) programs\n    CSmith: random C programs for GCC/Clang correctness testing\n\n  Differential testing:\n    Compile same program with GCC and Clang → outputs must match\n    (This caught hundreds of GCC/Clang miscompilation bugs)\n\n  Translation validation:\n    Formally verify that optimization pass preserves semantics\n    Alive2: SMT-based validator for LLVM peephole optimizations\n    Checks that output IR is equivalent to input IR for all inputs\n\n  CompCert (Xavier Leroy):\n    Formally verified C compiler (in Coq)\n    Every compilation step proved correct\n    Used in safety-critical systems (aviation, nuclear)\n    Slower than GCC/Clang but produces no miscompilations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "ascii_table_candidate",
+      "line": 723,
+      "heading_context": "## Compiler Landscape Map",
+      "confidence": "candidate",
+      "text": "Compiler          Source    Target          IR / Key Tech\n════════          ══════    ══════          ════════════════════════\nrustc             Rust      native/WASM     HIR → MIR (borrow check) → LLVM IR\nclang             C/C++     native/WASM     Clang AST → LLVM IR\nGCC               C/C++     native          GIMPLE + RTL (pre-LLVM era IR)\ntsc               TS        JS              Own AST + flow graph, no opt\nSWC               TS/JS     JS              Rust-based, strips types only\nesbuild           TS/JS     JS bundle       Go, single pass, no type check\nTurbofan          JS        native          Sea of nodes, speculative JIT\nGraalVM           JVM+      native          Partial evaluation, Truffle\nCranelift         Rust cfg  native/WASM     Simple IR, used in Wasmtime/Firefox\nBinaryen          WASM      WASM (opt)      Optimizes .wasm binaries (wasm-opt)\nMLIR              any       any             Meta-IR framework (Google, multi-level)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

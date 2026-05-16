@@ -1,0 +1,200 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\10-AUTH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 681,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        ".NET / Azure / Microsoft concept",
+        "Modern web auth equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Windows Authentication",
+          "OIDC with Entra ID",
+          "Same protocol underneath"
+        ],
+        [
+          "Kerberos TGT (ticket-granting ticket)",
+          "OAuth2 authorization code",
+          "Both: redirect to trusted authority, receive short-lived ticket/token, present to resource server"
+        ],
+        [
+          "Kerberos Service Ticket",
+          "OAuth2 access_token",
+          "Short-lived credential for one specific resource"
+        ],
+        [
+          "NTLM challenge-response",
+          "No modern web equivalent",
+          "NTLM is connection-based; OAuth2/OIDC is redirect-based (Kerberos lineage)"
+        ],
+        [
+          "ADFS",
+          "Azure Entra ID / Auth0",
+          "ADFS is the on-prem predecessor"
+        ],
+        [
+          "Azure AD / Entra ID",
+          "OIDC provider",
+          "It IS an OIDC provider"
+        ],
+        [
+          "WS-Federation / WS-Trust",
+          "OAuth2 / OIDC",
+          "Replaced by open standards"
+        ],
+        [
+          "WCF WS-Security",
+          "JWT Bearer tokens",
+          "`Authorization: Bearer eyJ...`"
+        ],
+        [
+          "SAML assertions",
+          "OIDC id_token",
+          "Both carry identity claims; SAML=XML, OIDC=JWT"
+        ],
+        [
+          "`ClaimsIdentity` / `ClaimsPrincipal`",
+          "JWT payload claims",
+          "Same concept"
+        ],
+        [
+          "`ClaimTypes.Role`",
+          "`role` claim in JWT",
+          "`{ \"role\": \"admin\" }`"
+        ],
+        [
+          "`[Authorize(Roles = \"Admin\")]`",
+          "`requireRole('admin')` middleware",
+          "Same gate, different syntax"
+        ],
+        [
+          "`FormsAuthentication` cookie",
+          "HttpOnly session cookie",
+          "Same model"
+        ],
+        [
+          "ASP.NET Identity / Membership",
+          "Auth0 / Clerk / NextAuth",
+          "Managed identity system"
+        ],
+        [
+          "`Microsoft.Identity.Web`",
+          "NextAuth MicrosoftEntraID provider",
+          "MSAL for Next.js"
+        ],
+        [
+          "Service Principal + secret",
+          "Client Credentials OAuth2 flow",
+          "M2M auth"
+        ],
+        [
+          "Managed Identity (Azure)",
+          "Workload identity federation",
+          "Secretless M2M"
+        ],
+        [
+          "`HttpContext.User`",
+          "`req.user` / `session.user`",
+          "Current authenticated user"
+        ],
+        [
+          "App registration (Entra)",
+          "OAuth2 client_id + client_secret",
+          "Register app to get credentials"
+        ],
+        [
+          "Tenant ID",
+          "`issuer` / `tenantId` in OIDC config",
+          "Identifies the IdP"
+        ],
+        [
+          "Azure AD B2C",
+          "Auth0 / Clerk (consumer identity)",
+          "External user sign-up/sign-in"
+        ],
+        [
+          "`System.IdentityModel.Tokens.Jwt`",
+          "`jsonwebtoken` npm package",
+          "JWT library"
+        ],
+        [
+          "Azure CLI `az login`",
+          "OAuth2 Device Authorization Flow",
+          "Same flow — browse to devicelogin, enter code"
+        ],
+        [
+          "GitHub CLI `gh auth login`",
+          "OAuth2 Device Authorization Flow",
+          "Same flow"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 718,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "App auth provider",
+          "Compare Auth.js, Clerk, Auth0, org support, UI needs, data ownership, and lock-in.",
+          "DX and control usually trade off."
+        ],
+        [
+          "Enterprise or Entra integration",
+          "Check SSO protocol, tenant model, groups/claims, lifecycle, provisioning, and support burden.",
+          "Login is only one part of enterprise identity."
+        ],
+        [
+          "Service-to-service auth",
+          "Use OAuth2 client credentials, audience-scoped tokens, rotation, mTLS where needed, and least privilege.",
+          "Machine identity still needs revocation and audit."
+        ],
+        [
+          "CLI/device auth",
+          "Use device authorization flow, short codes, polling limits, and phishing-resistant UX.",
+          "A browserless client must not collect user passwords."
+        ],
+        [
+          "Token storage",
+          "Prefer HttpOnly secure cookies, CSRF strategy, same-site policy, and refresh rotation.",
+          "LocalStorage turns XSS into token theft."
+        ],
+        [
+          "Revocation requirement",
+          "Use server-side sessions or reference tokens with central invalidation.",
+          "Stateless JWTs are hard to revoke instantly."
+        ],
+        [
+          "Access/refresh lifetime",
+          "Balance threat model, UX, rotation, reuse detection, and session store.",
+          "Longer refresh windows raise account-takeover blast radius."
+        ],
+        [
+          "Authorization model",
+          "Start with claims, roles, permissions, resource ownership, middleware, and policy checks.",
+          "Authentication says who; authorization says what action is allowed."
+        ],
+        [
+          "Route protection",
+          "Enforce checks on server/page/API boundary and return 401 vs 403 correctly.",
+          "Client-side hiding is not security."
+        ],
+        [
+          "Public-client OAuth safety",
+          "Require PKCE, exact redirect URI, state/nonce, and secure callback handling.",
+          "OAuth code interception is a flow-design bug, not a crypto failure."
+        ]
+      ]
+    }
+  ]
+}

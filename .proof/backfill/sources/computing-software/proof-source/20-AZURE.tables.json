@@ -1,0 +1,153 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\20-AZURE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 1024,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a web app/API needs containers",
+          "App Service",
+          "App Service is fastest for managed web hosting; container control is intentionally limited."
+        ],
+        [
+          "Whether containers need serverless operations",
+          "Azure Container Apps",
+          "Scale-to-zero works best for stateless or carefully idempotent workloads."
+        ],
+        [
+          "Whether Kubernetes control is worth owning",
+          "AKS",
+          "AKS gives cluster power; platform operations become your responsibility."
+        ],
+        [
+          "Whether an event handler should be code-first",
+          "Azure Functions",
+          "Functions optimize triggers and burst; long-running services usually need another host."
+        ],
+        [
+          "Whether a legacy app should move unchanged",
+          "Azure Virtual Machines",
+          "VMs preserve control and compatibility but keep OS patching and capacity work."
+        ],
+        [
+          "How unstructured files should be stored",
+          "Blob Storage",
+          "Blob is object storage, not a shared POSIX file system."
+        ],
+        [
+          "Whether VMs need shared file semantics",
+          "Azure Files",
+          "File shares trade simplicity for latency, protocol, and locking constraints."
+        ],
+        [
+          "Where SQL Server workloads fit",
+          "Azure SQL Database or SQL Managed Instance",
+          "Choose Managed Instance for compatibility; choose database for lighter managed operations."
+        ],
+        [
+          "Where managed Postgres fits",
+          "Azure Database for PostgreSQL Flexible Server",
+          "Managed Postgres still requires schema, index, and connection-pool discipline."
+        ],
+        [
+          "Whether global NoSQL is justified",
+          "Cosmos DB",
+          "Cosmos buys distribution and latency at the cost of partition-key and RU design."
+        ],
+        [
+          "Whether ephemeral state belongs outside the app",
+          "Azure Cache for Redis",
+          "Cache failures must be survivable; do not turn cache into primary storage accidentally."
+        ],
+        [
+          "Whether commands/events need reliable broker semantics",
+          "Azure Service Bus",
+          "Service Bus optimizes durable enterprise messaging, not raw telemetry firehose throughput."
+        ],
+        [
+          "Whether event streams need high throughput",
+          "Azure Event Hubs",
+          "Event Hubs is a stream ingestion service; consumers own interpretation and replay logic."
+        ],
+        [
+          "Whether Azure resource changes should trigger reactions",
+          "Azure Event Grid",
+          "Event Grid delivers notifications; handlers still need idempotency."
+        ],
+        [
+          "Where secrets, keys, and certificates belong",
+          "Azure Key Vault",
+          "Key Vault centralizes secrets but adds latency, identity, and rotation design."
+        ],
+        [
+          "How Azure services authenticate without app secrets",
+          "Managed Identity",
+          "Managed identity removes stored credentials but still needs explicit RBAC scoping."
+        ],
+        [
+          "Where workforce/B2B identity belongs",
+          "Entra ID corporate tenant",
+          "Tenant governance matters as much as protocol choice."
+        ],
+        [
+          "Where customer identity belongs",
+          "Entra External ID",
+          "Customer identity has product, consent, and lifecycle semantics beyond login."
+        ],
+        [
+          "Where private container images belong",
+          "Azure Container Registry",
+          "Registry security depends on image scanning, provenance, and pull identity."
+        ],
+        [
+          "How global HTTP entry should be fronted",
+          "Azure Front Door",
+          "Global routing is edge-first; regional private routing may need Application Gateway."
+        ],
+        [
+          "How regional HTTP ingress and WAF should work",
+          "Application Gateway",
+          "Application Gateway is regional and network-integrated, not a CDN replacement."
+        ],
+        [
+          "Whether Azure-hosted frontier models are required",
+          "Azure OpenAI Service",
+          "Private networking and enterprise controls help, but model behavior still needs evaluation."
+        ],
+        [
+          "Whether RAG needs managed hybrid retrieval",
+          "Azure AI Search",
+          "Search quality depends on chunking, metadata, ranking, and evaluation loops."
+        ],
+        [
+          "How steady compute spend should be reduced",
+          "Reserved Instances or Savings Plans",
+          "Commitments save money only when utilization is predictable."
+        ],
+        [
+          "Whether existing SQL Server licensing changes cost",
+          "Azure Hybrid Benefit",
+          "License benefit is commercial optimization, not an architecture pattern."
+        ],
+        [
+          "Whether hybrid/multi-cloud inventory needs one control plane",
+          "Azure Arc",
+          "Arc extends management; it does not make non-Azure platforms operationally identical."
+        ],
+        [
+          "How Azure resources should be described as code",
+          "Bicep",
+          "Bicep is excellent for Azure-native IaC; multi-cloud abstractions need Terraform/Pulumi tradeoffs."
+        ]
+      ]
+    }
+  ]
+}

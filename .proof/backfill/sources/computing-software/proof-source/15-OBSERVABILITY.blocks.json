@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\15-OBSERVABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Three Pillars\n==================\n\n  LOGS                    METRICS                  TRACES\n  ====                    =======                  ======\n\n  What happened           How much / how fast      Where did time go\n\n  Discrete events         Numeric measurements     Request journey\n  Text (structured JSON)  aggregated over time     across services\n  High cardinality        Low cardinality           Distributed context\n\n  \"Error: order 4821     \"p99 latency = 340ms\"    \"POST /checkout\n   not found at 14:32\"   \"error rate = 0.3%\"        → order-svc: 12ms\n                         \"DB connections: 47\"        → inventory-svc: 8ms\n                                                      → payment-svc: 280ms\n  ELK / Loki             Prometheus / Datadog          → Stripe API: 261ms\"\n  CloudWatch Logs        Grafana / CloudWatch       Jaeger / Tempo / Zipkin\n  Azure Monitor Logs     Azure Monitor Metrics      Azure Monitor + App Insights",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Full Observability Stack\n=========================\n\n  Your services\n  ┌──────────────────────────────────────────────────────────┐\n  │  API   Worker   Auth   DB Proxy   ...                    │\n  │  │       │       │        │                              │\n  │  └───────┴───────┴────────┘                              │\n  │          OpenTelemetry SDK (instrument once)             │\n  │          emits: logs + metrics + traces                  │\n  └────────────────────────┬─────────────────────────────────┘\n                           │\n           OpenTelemetry Collector (optional gateway)\n                           │\n         ┌─────────────────┼─────────────────┐\n         ▼                 ▼                 ▼\n    Loki (logs)     Prometheus (metrics)  Tempo (traces)\n         │                 │                 │\n         └─────────────────┼─────────────────┘\n                           ▼\n                    Grafana (unified UI)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### Structured vs Unstructured",
+      "confidence": "candidate",
+      "text": "> ───────                          ──────────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### Log Aggregation — Loki",
+      "confidence": "candidate",
+      "text": "Loki Architecture\n==================\n\n  Pods → Promtail (agent, reads log files) → Loki → Grafana\n\n  Labels (indexed, low cardinality):\n    {service=\"order-svc\", env=\"production\", pod=\"order-6d8b-abc\"}\n\n  Log content (not indexed — full text search via grep-like LogQL):\n    {\"level\":\"error\",\"orderId\":4821,...}\n\nLogQL query examples:\n  {service=\"order-svc\"} |= \"error\"              -- filter by label + content\n  {env=\"production\"} | json | level=\"error\"     -- parse JSON, filter field\n  rate({service=\"api\"}[5m])                     -- log rate metric",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### Log Aggregation — Loki",
+      "confidence": "candidate",
+      "text": "> ───                                     ────────────────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Prometheus Data Model",
+      "confidence": "candidate",
+      "text": "Metric types:\n  Counter     — ever-increasing number (requests, errors)\n                http_requests_total{method=\"POST\", status=\"200\"} 1247\n\n  Gauge       — can go up or down (current connections, queue depth)\n                db_connections_active 47\n\n  Histogram   — bucketed observations (request duration)\n                http_request_duration_seconds_bucket{le=\"0.1\"} 9823\n                http_request_duration_seconds_bucket{le=\"0.5\"} 14201\n                http_request_duration_seconds_bucket{le=\"1.0\"} 14687\n                → used to calculate percentiles (p50, p95, p99)\n\n  Summary     — pre-calculated percentiles (less flexible than histogram)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "### Exposing Metrics in Node.js",
+      "confidence": "candidate",
+      "text": "import { collectDefaultMetrics, Counter, Histogram, register } from \"prom-client\";\n\n// Auto-collect Node.js process metrics (heap, event loop lag, etc.)\ncollectDefaultMetrics();\n\n// Custom metrics\nconst httpRequests = new Counter({\n  name: \"http_requests_total\",\n  help: \"Total HTTP requests\",\n  labelNames: [\"method\", \"route\", \"status\"],\n});\n\nconst httpDuration = new Histogram({\n  name: \"http_request_duration_seconds\",\n  help: \"HTTP request latency\",\n  labelNames: [\"method\", \"route\"],\n  buckets: [0.01, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5],\n});\n\n// Middleware\napp.use((req, res, next) => {\n  const end = httpDuration.startTimer({ method: req.method, route: req.path });\n  res.on(\"finish\", () => {\n    httpRequests.inc({ method: req.method, route: req.path, status: res.statusCode });\n    end();\n  });\n  next();\n});\n\n// Scrape endpoint — Prometheus hits this\napp.get(\"/metrics\", async (req, res) => {\n  res.set(\"Content-Type\", register.contentType);\n  res.send(await register.metrics());\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "### The Problem Traces Solve",
+      "confidence": "candidate",
+      "text": "Monolith (easy to debug)           Microservices (where did the time go?)\n========================           =======================================\n\n  Single process                     POST /checkout → 4.2 seconds total\n  Stack trace shows everything         Where was it?\n  One log stream                       api-gateway?  order-svc?\n                                       inventory-svc?  payment-svc?\n                                       Stripe?  DB?\n\n  → Traces answer this question",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "### OpenTelemetry Tracing",
+      "confidence": "candidate",
+      "text": "Trace anatomy\n==============\n\n  Trace ID: 7a3f8b2c...          (one per request, propagated across services)\n\n  Spans:\n  ├── POST /checkout              [api-gateway]  0ms → 4200ms\n  │   ├── validate session        [api-gateway]  2ms → 15ms\n  │   ├── HTTP POST /orders       [order-svc]    15ms → 310ms\n  │   │   ├── DB SELECT products  [order-svc]    16ms → 89ms\n  │   │   └── DB INSERT order     [order-svc]    90ms → 308ms\n  │   └── HTTP POST /payment      [payment-svc]  310ms → 4198ms\n  │       └── Stripe API call     [payment-svc]  312ms → 4195ms ← SLOW",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 349,
+      "heading_context": "### OpenTelemetry Tracing",
+      "confidence": "candidate",
+      "text": "// Instrument with OpenTelemetry (auto + manual)\nimport { NodeSDK } from \"@opentelemetry/sdk-node\";\nimport { OTLPTraceExporter } from \"@opentelemetry/exporter-trace-otlp-http\";\nimport { getNodeAutoInstrumentations } from \"@opentelemetry/auto-instrumentations-node\";\n\n// SDK setup (usually in a separate tracing.ts, loaded first)\nconst sdk = new NodeSDK({\n  traceExporter: new OTLPTraceExporter({\n    url: \"http://otel-collector:4318/v1/traces\",\n  }),\n  instrumentations: [\n    getNodeAutoInstrumentations(),   // auto: HTTP, Express, pg, redis, etc.\n  ],\n});\nsdk.start();\n\n// Manual spans for business logic\nimport { trace } from \"@opentelemetry/api\";\nconst tracer = trace.getTracer(\"order-service\");\n\nasync function processOrder(orderId: string) {\n  return tracer.startActiveSpan(\"processOrder\", async (span) => {\n    span.setAttribute(\"order.id\", orderId);\n    try {\n      const result = await doWork();\n      span.setStatus({ code: SpanStatusCode.OK });\n      return result;\n    } catch (err) {\n      span.recordException(err);\n      span.setStatus({ code: SpanStatusCode.ERROR });\n      throw err;\n    } finally {\n      span.end();\n    }\n  });\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 426,
+      "heading_context": "### Context Propagation",
+      "confidence": "candidate",
+      "text": "Service A                          Service B\n─────────                          ─────────\nfetch(\"http://order-svc/...\")\n  Headers:\n    traceparent: 00-7a3f8b2c...-abc123-01\n                                   Auto-extracted by OTel middleware\n                                   Span created as child of abc123",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "## OpenTelemetry",
+      "confidence": "candidate",
+      "text": "OpenTelemetry Architecture\n===========================\n\n  Your app\n  ┌────────────────────────────────────────────┐\n  │  OTel SDK                                  │\n  │  - Auto-instrumentation (HTTP, DB, etc.)   │\n  │  - Manual spans + attributes               │\n  │  - Metrics API                             │\n  │  - Logs bridge                             │\n  └────────────────────┬───────────────────────┘\n                       │  OTLP protocol\n                       ▼\n          OTel Collector (optional but recommended)\n          ┌────────────────────────────────────────┐\n          │  Receivers: OTLP, Jaeger, Zipkin, ...  │\n          │  Processors: batch, filter, enrich     │\n          │  Exporters: Tempo, Jaeger, Datadog,    │\n          │             Azure Monitor, Honeycomb   │\n          └────────────────────────────────────────┘\n                       │\n            ┌──────────┼──────────┐\n            ▼          ▼          ▼\n          Tempo      Jaeger    Datadog    (or any OTLP-compatible backend)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 477,
+      "heading_context": "## Grafana Stack",
+      "confidence": "candidate",
+      "text": "Grafana Data Sources\n=====================\n\n  Loki      → logs      (LogQL)\n  Prometheus → metrics  (PromQL)\n  Tempo      → traces   (TraceQL)\n\n  Grafana correlates them:\n  → Click a spike in a metrics graph\n  → Jump to logs at that timestamp\n  → Jump to trace that caused the spike",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 531,
+      "heading_context": "## Azure Monitor + Application Insights",
+      "confidence": "candidate",
+      "text": "Azure Monitor\n=============\n\n  Application Insights    ← APM: requests, dependencies, exceptions, traces\n  Log Analytics           ← centralized logs (KQL query language)\n  Azure Monitor Metrics   ← platform metrics (VM CPU, App Service requests)\n  Alerts                  ← threshold/smart detection alerts → Action Groups\n  Workbooks               ← Grafana-equivalent dashboards\n  Container Insights      ← AKS pod/node metrics + logs\n\n  All data → Log Analytics Workspace (unified store)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 602,
+      "heading_context": "## SLIs, SLOs, SLAs",
+      "confidence": "candidate",
+      "text": "SLI  Service Level Indicator   — the metric you're measuring\n     \"availability\" = successful_requests / total_requests\n\nSLO  Service Level Objective   — the target you set internally\n     \"99.9% of requests return 2xx over 30-day rolling window\"\n     \"p99 latency < 500ms\"\n\nSLA  Service Level Agreement   — contractual commitment to customers\n     \"99.9% uptime per month, or credits issued\"\n\nError Budget\n     SLO = 99.9% → allowed failure = 0.1% = 43.2 min/month\n     Budget governs how much risk you can take with deployments\n     Budget exhausted → freeze risky changes until next period",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

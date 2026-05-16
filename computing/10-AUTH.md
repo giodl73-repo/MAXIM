@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:auth-security
+kind: guide
+module: computing-software
+section: computing-software
+title: Auth and Security - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: computing/10-AUTH.md
+canonical_path: computing/10-AUTH.md
+backsource_ids: [proof-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]
+concepts: [authentication, authorization, oauth, jwt, sessions, security]
+root_concepts: [auth, security]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Auth & Security — A Layered Guide
 
 ## The Big Picture

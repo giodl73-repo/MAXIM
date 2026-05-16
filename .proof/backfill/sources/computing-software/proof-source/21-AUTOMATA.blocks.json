@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\21-AUTOMATA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Frame",
+      "confidence": "candidate",
+      "text": "THE CHOMSKY HIERARCHY — THEORY TO PRODUCTION MAP\n==================================================\n\n  Type 0    Recursively Enumerable\n  ┌─────────────────────────────────────────────────────────┐\n  │  Turing Machine                                         │\n  │  ▸ General computation, general-purpose languages       │\n  │  ▸ C++/TypeScript templates (accidentally TC)           │\n  │                                                         │\n  │  Type 1   Context-Sensitive                             │\n  │  ┌──────────────────────────────────────────────┐       │\n  │  │  Linear-Bounded Automaton (LBA)              │       │\n  │  │  ▸ Rarely used in practice                  │       │\n  │  │  ▸ Natural language parsing (approx)        │       │\n  │  │  ▸ Some template languages                  │       │\n  │  │                                              │       │\n  │  │  Type 2   Context-Free                       │       │\n  │  │  ┌───────────────────────────────────┐       │       │\n  │  │  │  PDA / CFG                        │       │       │\n  │  │  │  ▸ LL/LR parsers                  │       │       │\n  │  │  │  ▸ ANTLR4 (LL(*), batch parse)    │       │       │\n  │  │  │  ▸ tree-sitter (LR(1), incr.)     │       │       │\n  │  │  │  ▸ Programming languages, JSON    │       │       │\n  │  │  │                                   │       │       │\n  │  │  │  Type 3   Regular                 │       │       │\n  │  │  │  ┌──────────────────────┐         │       │       │\n  │  │  │  │  DFA / NFA / Regex   │         │       │       │\n  │  │  │  │  ▸ RE2, Hyperscan    │         │       │       │\n  │  │  │  │  ▸ PCRE, .NET Regex  │         │       │       │\n  │  │  │  │  ▸ grep, lexers      │         │       │       │\n  │  │  │  └──────────────────────┘         │       │       │\n  │  │  └───────────────────────────────────┘       │       │\n  │  └──────────────────────────────────────────────┘       │\n  └─────────────────────────────────────────────────────────┘\n\n  Containment is strict: Regular ⊂ CFL ⊂ CSL ⊂ RE\n  Each boundary is a hard limit on what the recognizer can express.\n  \"Can a regex do this?\" = \"Is this language regular?\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 90,
+      "heading_context": "## The Chomsky Hierarchy as a Practical Guide",
+      "confidence": "candidate",
+      "text": "### Why the Boundary Between Type 3 and Type 2 Matters",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Why the Boundary Between Type 3 and Type 2 Matters",
+      "confidence": "candidate",
+      "text": "Regular (DFA can recognize):\n  Identifiers:    [a-zA-Z_][a-zA-Z0-9_]*\n  Integer literals: [0-9]+\n  Whitespace:     \\s+\n  Keywords:       if|else|while|...\n  CSS selectors:  div > .class + span[attr]   ← regular grammar\n\nContext-free (DFA cannot, PDA can):\n  Balanced parens:  { ... { ... } ... }\n  Nested tags:      <tag><tag></tag></tag>\n  Expression trees: a + (b * (c - d))\n  Block structure:  begin ... begin ... end ... end\n\nHTML: the abstract balanced-tag grammar is CFL, but HTML5 parsing rules\nare not even CFL — error recovery and context-dependent behavior\n(script/style element content unparsed as HTML) require a state machine\nparser, not a CFG parser. This is why browsers are complex.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "### The Two Engine Architectures",
+      "confidence": "candidate",
+      "text": "DFA-based regex (RE2, Hyperscan, grep default)\n═══════════════════════════════════════════════\n\n  Precompile: NFA → DFA (subset construction)\n  Runtime: linear in input length O(n), always\n  No backtracking\n  No backreferences (they require memory beyond DFA)\n  No lookahead/lookbehind in some implementations\n\n  Guarantee: /r/.test(s) is O(|s|) regardless of |r| or s content\n\nNFA-based with backtracking (PCRE, .NET Regex, Java, JS, Python)\n══════════════════════════════════════════════════════════════════\n\n  Compile: pattern → NFA representation\n  Runtime: simulate NFA with backtracking\n  Worst case: O(2^n) for adversarial inputs\n  Supports: backreferences (\\1, \\2), lookahead, lookbehind, possessive\n  Most expressive — can match things no DFA can\n\n  The expressiveness comes from features that require backtracking.\n  Those features break the linear time guarantee.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 185,
+      "heading_context": "### ReDoS — Regex Denial of Service",
+      "confidence": "candidate",
+      "text": "### How V8's Irregexp Works",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### How V8's Irregexp Works",
+      "confidence": "candidate",
+      "text": "V8 Regex Compilation Pipeline\n================================\n\n  Pattern string\n       ↓\n  Parse → AST\n       ↓\n  Optimization passes:\n    - Simplify alternations\n    - Eliminate redundant groups\n    - Detect linear patterns → emit specialized bytecode\n       ↓\n  Is it a \"simple\" pattern? (no backrefs, limited lookahead)\n       ↓ yes                              ↓ no\n  Compile to machine code         Interpreter (NFA simulation)\n  (JIT, very fast)                (slower, handles full PCRE-ish)\n       ↓\n  Execute against string",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "### Where You'll Find Them",
+      "confidence": "candidate",
+      "text": "Parsing/Protocols:\n  HTTP/1.1 parser     — tracks request line → headers → body state\n  WebSocket framing   — tracks frame header → payload → masking state\n  TLS handshake       — negotiation state machine (well-specified)\n  JSON streaming      — state per character class (XState's JSON parser demo)\n\nApplication Logic:\n  Order lifecycle     — pending → paid → fulfilling → shipped → delivered\n  Auth flow           — unauthenticated → challenge → authenticated → expired\n  Connection pool     — idle → acquiring → in-use → releasing → idle\n  Upload progress     — idle → uploading → processing → complete / error\n  UI component        — loading → success / error (same structure as above)\n\nNetworking:\n  TCP state machine   — CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT → ...\n  OAuth2 flow         — initial → redirect → callback → token exchange → done",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### XState — Formal FSM/Statechart Library",
+      "confidence": "candidate",
+      "text": "import { createMachine, assign } from \"xstate\";\n\nconst orderMachine = createMachine({\n  id: \"order\",\n  initial: \"pending\",\n  context: { retries: 0 },\n\n  states: {\n    pending: {\n      on: {\n        PAY: \"paying\",\n        CANCEL: \"cancelled\",\n      },\n    },\n    paying: {\n      invoke: {\n        src: \"processPayment\",\n        onDone: \"fulfilling\",\n        onError: [\n          {\n            guard: ({ context }) => context.retries < 3,\n            target: \"paying\",\n            actions: assign({ retries: ({ context }) => context.retries + 1 }),\n          },\n          { target: \"failed\" },\n        ],\n      },\n    },\n    fulfilling: {\n      on: { SHIP: \"shipped\" },\n    },\n    shipped: {\n      on: { DELIVER: \"delivered\" },\n    },\n    delivered: { type: \"final\" },\n    cancelled: { type: \"final\" },\n    failed: { type: \"final\" },\n  },\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 360,
+      "heading_context": "### Recursive Descent = PDA",
+      "confidence": "candidate",
+      "text": "- **Left recursion**: `E → E + T | T` causes infinite recursion in a top-down parser. LL grammars must eliminate left recursion by rewriting (`E → T E'`, `E' → + T E' | ε`), which obscures the natural grammar structure.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 364,
+      "heading_context": "### Recursive Descent = PDA",
+      "confidence": "candidate",
+      "text": "LL(k) — top-down, leftmost derivation\n══════════════════════════════════════\n  Read k tokens of lookahead\n  Decide which production to apply\n  Expand top of derivation tree\n  Recursive descent naturally implements LL(1)\n\n  Limitation: no left-recursive grammars\n    E → E + T | T   ← left recursive, LL can't handle directly\n    Must rewrite:  E → T E'   E' → + T E' | ε\n\nLR(k) — bottom-up, rightmost derivation (reversed)\n═════════════════════════════════════════════════════\n  Shift tokens onto stack\n  When top of stack matches a production RHS → reduce\n  More powerful than LL: handles left recursion, more ambiguous grammars\n  Generated by tools (yacc, bison, LALR table generation)\n\n  LR(0) ⊂ SLR(1) ⊂ LALR(1) ⊂ LR(1)    (strictly more powerful left to right)\n  Most languages: LALR(1) suffices\n  C++: needs LR(1) or context-sensitive hacks (the \"most vexing parse\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "### Earley Parsing — Handling Ambiguous Grammars",
+      "confidence": "candidate",
+      "text": "Earley algorithm (1970):\n  Parses any CFG in O(n³) worst case, O(n²) unambiguous, O(n) for most PLs\n  No grammar transformation required\n  Handles left recursion, ambiguity (returns all parse trees)\n  Used in: nearley (JS), some NLP systems\n\n  The cost: more overhead than LL/LR for unambiguous grammars.\n  The benefit: no grammar rewriting, handles what LL/LR can't.\n\nPEG (Parsing Expression Grammars):\n  Ordered choice: A / B tries A first, uses B only if A fails — no ambiguity\n  Unlimited lookahead (technically not CFG — PEG ≠ CFL in general)\n  Natural backtracking → packrat parsing (memoized) gives O(n)\n  Popular in modern parser generators: pest (Rust), peg.js",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 447,
+      "heading_context": "## Decidability in Practice",
+      "confidence": "candidate",
+      "text": "Decidable (tools can compute exactly):\n  Does this regex match this string?           DFA simulation\n  Is this JSON valid?                          CFL parsing\n  Does this TypeScript type check?             Decidable (with caveats — see 23-PL-THEORY)\n  Does this program terminate in ≤ N steps?    Bounded execution\n\nUndecidable (Rice's theorem — tools approximate):\n  Does this program halt?                      Halting problem\n  Does this program ever reach line X?         Reachability (in general)\n  Are these two programs equivalent?           Program equivalence\n  Is this value always non-null?               Alias analysis (in general)\n\nWhat static analysis tools actually do:\n  Sound approximation:  over-approximate possible behaviors\n    → may report false positives (flag safe code as unsafe)\n    → never misses a real bug\n    → TypeScript in strict mode, Rust borrow checker\n\n  Unsound approximation: under-approximate\n    → may miss real bugs\n    → no false positives\n    → most linters, quick code analysis\n\n  The borrow checker is a sound approximation of memory safety.\n  It rejects some safe programs (false positives) to guarantee\n  it never accepts an unsafe one. That's the trade.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 478,
+      "heading_context": "### The Chomsky Hierarchy in Security Tools",
+      "confidence": "candidate",
+      "text": "SAST tool design is constrained by the hierarchy:\n\n  Regex-based SAST (grep patterns):\n    Finds: known bad strings (\"eval(\", \"innerHTML =\")\n    Misses: any context-dependent vulnerability\n    Fast: O(n) per pattern\n    Many false positives, many false negatives\n\n  AST-based SAST (Semgrep, CodeQL pattern matching):\n    Parses to AST → matches structural patterns\n    Can track: taint flow within a function\n    Cannot: track flow across function boundaries (undecidable in general)\n\n  Dataflow / taint analysis (CodeQL, Coverity):\n    Approximates reachability within bounded call depth\n    Finds: SQL injection, XSS via taint propagation\n    Approximation: unsound (misses some) or sound (false positives)\n\n  Full program verification (Dafny, F*, Coq proofs):\n    Proves properties about all executions\n    Requires: programmer-supplied invariants / specs\n    Cost: 10-100× development overhead",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 509,
+      "heading_context": "## Turing Completeness as a Hazard",
+      "confidence": "candidate",
+      "text": "Accidentally Turing Complete Systems\n======================================\n\n  Sendmail config (1980s)    Turing complete, nobody intended this\n  CSS (with counter tricks)  Rule 110 can be simulated — debated\n  C++ templates              Turing complete (compile-time computation)\n  TypeScript type system     Turing complete (see 23-PL-THEORY)\n  Terraform HCL              Not TC — deliberately limited\n  Kubernetes YAML + Helm     Helm templates approach TC\n  Docker multistage builds   Limited, not TC\n\nWhy it's a hazard:\n  TC configuration = undecidable whether config terminates\n  TC templates = you've invented a new programming language\n                 with no debugger, no types, no error messages\n  Intentional limits (Terraform not-TC) = guaranteed termination,\n  better tooling, easier analysis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4297 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-azure-services-map",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "20-AZURE.md#000",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "# 20 — Azure Services Map"
+    },
+    {
+      "id": "20-AZURE.md#001",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "20-AZURE.md#002",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nAzure at a Glance — Service Categories\r\n========================================"
+    },
+    {
+      "id": "20-AZURE.md#003",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\r\n  │  COMPUTE          CONTAINERS        SERVERLESS                       │\r\n  │  Virtual Machines AKS               Functions                        │\r\n  │  VM Scale Sets    Container Apps    Logic Apps                       │\r\n  │  App Service      Container Inst.   Event Grid                       │\r\n  ├──────────────────────────────────────────────────────────────────────┤\r\n  │  STORAGE          DATABASES         MESSAGING                        │\r\n  │  Blob Storage     Azure SQL         Service Bus                      │\r\n  │  Files            Cosmos DB         Event Hubs                       │\r\n  │  Disks            PostgreSQL        Storage Queues                   │\r\n  │  Data Lake        Redis Cache       Event Grid                       │\r\n  ├──────────────────────────────────────────────────────────────────────┤\r\n  │  NETWORKING       SECURITY          IDENTITY                         │\r\n  │  VNet             Key Vault         Entra ID (AAD)                   │\r\n  │  Load Balancer    Defender          Managed Identity                 │\r\n  │  App Gateway      DDoS Protection   RBAC                             │\r\n  │  Front Door       Firewall          Conditional Access               │\r\n  │  DNS              Sentinel                                           │\r\n  ├──────────────────────────────────────────────────────────────────────┤\r\n  │  DEVOPS           MONITORING        AI & ML                          │\r\n  │  Azure DevOps     Monitor           OpenAI Service                   │\r\n  │  Container Reg.   App Insights      AI Search                        │\r\n  │  Bicep / ARM      Log Analytics     ML Studio                        │\r\n  │  Chaos Studio     Workbooks         AI Foundry                       │\r\n  └──────────────────────────────────────────────────────────────────────┘\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#004",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nHow Services Nest in Practice\r\n================================"
+    },
+    {
+      "id": "20-AZURE.md#005",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Internet → Front Door (global CDN + WAF)\r\n               ↓\r\n           App Gateway (regional LB + WAF)\r\n               ↓\r\n           AKS / App Service / Container Apps\r\n               ↓\r\n       ┌───────┴────────┐\r\n   Azure SQL          Cosmos DB\r\n   PostgreSQL         Redis Cache\r\n       └────────────────┘\r\n               ↓\r\n           Key Vault   (secrets, certs)\r\n           Entra ID    (auth/authz)\r\n           Service Bus (async messaging)\r\n               ↓\r\n           Monitor + App Insights + Log Analytics\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#006",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "20-AZURE.md#007",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## The Delta: What Changed Since ~2014"
+    },
+    {
+      "id": "20-AZURE.md#008",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "You know the foundational services from the inside. What follows is a structured briefing on what's new, what was renamed, and what patterns flipped — the delta from ~2014 to 2026."
+    },
+    {
+      "id": "20-AZURE.md#009",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### New Services (didn't exist when you were hands-on)"
+    },
+    {
+      "id": "20-AZURE.md#010",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nService                  GA      What It Is\r\n══════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "20-AZURE.md#011",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure Container Apps     2022    Serverless K8s abstraction. Scale to zero,\r\n                                 built-in Dapr and KEDA. The sweet spot\r\n                                 between App Service and AKS. Microsoft's\r\n                                 preferred target for new microservices."
+    },
+    {
+      "id": "20-AZURE.md#012",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure OpenAI Service     2023    GPT-4o, o1, o3, DALL-E, Whisper — same\r\n                                 models as OpenAI API, through Azure's\r\n                                 infrastructure with private endpoints,\r\n                                 Entra auth, and data residency."
+    },
+    {
+      "id": "20-AZURE.md#013",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure AI Foundry         2024    Unified platform for building AI apps:\r\n(was AI Studio)                  model catalog, prompt flow, evaluations,\r\n                                 fine-tuning, deployment. Superset of\r\n                                 Azure ML for GenAI workloads."
+    },
+    {
+      "id": "20-AZURE.md#014",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure Arc                2020    Hybrid/multi-cloud control plane. Project\r\n                                 Azure management (RBAC, Policy, Monitor)\r\n                                 onto on-prem VMs, K8s clusters, and\r\n                                 non-Azure clouds. Single pane of glass."
+    },
+    {
+      "id": "20-AZURE.md#015",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Flexible Server          2020    Managed Postgres and MySQL that replaced\r\n(Postgres/MySQL)                 Single Server (now deprecated). Zone-\r\n                                 redundant HA, built-in PgBouncer, VNet\r\n                                 integration, pgvector extension support."
+    },
+    {
+      "id": "20-AZURE.md#016",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure AI Search          2023    Formerly Cognitive Search. Vector + hybrid\r\n(formerly Cognitive)             search with integrated vectorization.\r\n                                 The standard RAG retrieval layer on Azure."
+    },
+    {
+      "id": "20-AZURE.md#017",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure Chaos Studio       2021    First-party chaos engineering. Inject\r\n                                 faults into VMs, AKS, SQL, networking.\r\n                                 Game day tooling built into the portal.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#018",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Rebrands and Renames"
+    },
+    {
+      "id": "20-AZURE.md#019",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nOld Name                        New Name                    When\r\n══════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "20-AZURE.md#020",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure Active Directory (AAD)    Microsoft Entra ID          2023\r\nVSTS                            Azure DevOps                2018\r\nAzure Cognitive Search          Azure AI Search             2023\r\nAzure ML Studio (classic)       Azure Machine Learning      2019\r\nAzure Container Registry        Matured significantly —     ongoing\r\n                                geo-replication, Tasks,\r\n                                vulnerability scanning added\r\nAzure Monitor                   Absorbed: Log Analytics,    2019–2022\r\n                                App Insights, Metrics,\r\n                                Alerts, Workbooks\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#021",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Pattern Changes (the stuff that matters most)"
+    },
+    {
+      "id": "20-AZURE.md#022",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nOld Pattern (pre-2019)                 New Default (2024)\r\n══════════════════════                 ══════════════════"
+    },
+    {
+      "id": "20-AZURE.md#023",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Auth: Service Principal +              Managed Identity\r\n      client secret in KeyVault        No credentials to manage.\r\n      Rotate every 90 days.            System-assigned (tied to resource\r\n      Leak risk on every rotation.     lifecycle) or User-assigned\r\n                                       (shared, persists independently)."
+    },
+    {
+      "id": "20-AZURE.md#024",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "IaC: ARM JSON templates                Bicep\r\n     Verbose, painful to read.         Same ARM model underneath.\r\n     Error messages reference          First-class VS Code support.\r\n     internal resource IDs.            Modules, loops, conditions.\r\n                                       Compiles to ARM."
+    },
+    {
+      "id": "20-AZURE.md#025",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "App Environment:                       App Service Environment v3\r\nASEv1 / ASEv2                          (ASEv3). Zone redundancy,\r\n                                       better scaling, lower base cost."
+    },
+    {
+      "id": "20-AZURE.md#026",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Compute default:                       Container Apps for new\r\nVMs or App Service                     microservices; AKS for complex\r\n                                       K8s workloads."
+    },
+    {
+      "id": "20-AZURE.md#027",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Network access to PaaS:                Private Endpoint\r\nService Endpoint (traffic on           Service gets a private IP inside\r\nMS backbone but service                your VNet. Truly private.\r\nretains public IP)                     Use Private Endpoint by default\r\n                                       for SQL, Blob, Key Vault, etc."
+    },
+    {
+      "id": "20-AZURE.md#028",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Cost commitment:                       Azure Savings Plans (2022)\r\nReserved Instances only                Flexible across compute types,\r\n(VM-specific commitment)               not tied to a specific VM SKU.\r\n                                       Reserved Instances still valid\r\n                                       for predictable VM workloads.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#029",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "20-AZURE.md#030",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## Compute"
+    },
+    {
+      "id": "20-AZURE.md#031",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Virtual Machines"
+    },
+    {
+      "id": "20-AZURE.md#032",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "The VM series naming table is useful reference — generations have evolved. Current-gen is v5/v6 depending on series. For new workloads, evaluate Container Apps or AKS first; VMs are now primarily for legacy lift-and-shift, specialized hardware requirements, or workloads that need full OS control."
+    },
+    {
+      "id": "20-AZURE.md#033",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nVM Series (the naming makes sense once you know it)\r\n===================================================="
+    },
+    {
+      "id": "20-AZURE.md#034",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "B-series     Burstable — cheap, for dev/test, not sustained load\r\n  D-series     General purpose — balanced CPU/memory (most apps)\r\n  E-series     Memory optimized — databases, in-memory analytics\r\n  F-series     Compute optimized — CPU-heavy workloads\r\n  N-series     GPU — ML training, rendering, HPC\r\n  M-series     Massive memory — SAP HANA, very large DBs"
+    },
+    {
+      "id": "20-AZURE.md#035",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "v3, v4, v5 suffix = hardware generation (newer = faster/cheaper)\r\n  s suffix = Premium SSD support (e.g. D4s_v5)\r\n  a suffix = AMD CPU (cheaper, similar perf)"
+    },
+    {
+      "id": "20-AZURE.md#036",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Standard_D4s_v5 = General purpose, 4 vCPUs, 16 GB RAM, v5 gen, Premium SSD\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#037",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nVM vs App Service vs AKS\r\n========================="
+    },
+    {
+      "id": "20-AZURE.md#038",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "VM                     App Service              AKS\r\n  ══                     ═══════════              ═══\r\n  You manage OS          Microsoft manages OS     You manage workloads\r\n  You patch              Auto-patching            Microsoft manages control plane\r\n  Full control           Limited control          Full K8s control\r\n  Any workload           Web apps / APIs          Containerized workloads\r\n  Expensive at scale     Simple scaling           Complex but powerful\r\n  Good for: legacy       Good for: web apps       Good for: microservices\r\n  lift-and-shift         without containers       at scale\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#039",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### App Service"
+    },
+    {
+      "id": "20-AZURE.md#040",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "The deployment slots model and the tier hierarchy are still current. Premium v3 (P0v3–P3v3) is the recommended production tier — Ev3-based hardware, better VNet integration, zone redundancy support. Isolated v2 (I1v2–I3v2) replaced ASEv2."
+    },
+    {
+      "id": "20-AZURE.md#041",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nApp Service Hierarchy\r\n======================"
+    },
+    {
+      "id": "20-AZURE.md#042",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "App Service Plan (the VM underneath)\r\n  ├── Web App 1 (your Node.js API)\r\n  ├── Web App 2 (your React SSR app)\r\n  └── Function App (shares the plan)"
+    },
+    {
+      "id": "20-AZURE.md#043",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Plan SKUs:\r\n    F1 / B1    Free / Basic — dev/test only\r\n    S1-S3      Standard — production, autoscale, slots\r\n    P1v3-P3v3  Premium v3 — better perf, VNet integration\r\n    I1v2-I3v2  Isolated — dedicated infra (compliance)"
+    },
+    {
+      "id": "20-AZURE.md#044",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Deployment Slots:\r\n    Production slot  (live traffic)\r\n    Staging slot     (deploy here, test, then swap)\r\n    Swap = instant traffic cut-over + rollback capability\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#045",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```bash\r\n# Deploy to App Service\r\naz webapp up --name myapp --resource-group myRG --runtime \"NODE:20-lts\""
+    },
+    {
+      "id": "20-AZURE.md#046",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "# Deploy container\r\naz webapp config container set \\\r\n  --name myapp \\\r\n  --resource-group myRG \\\r\n  --container-image-name myregistry.azurecr.io/myapp:v1.2"
+    },
+    {
+      "id": "20-AZURE.md#047",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "# Slot swap\r\naz webapp deployment slot swap \\\r\n  --name myapp --resource-group myRG \\\r\n  --slot staging --target-slot production\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#048",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Kubernetes Service (AKS)"
+    },
+    {
+      "id": "20-AZURE.md#049",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Managed Kubernetes. Control plane is free; you pay for nodes. Covered deeply in 12-KUBERNETES.md — key Azure specifics here."
+    },
+    {
+      "id": "20-AZURE.md#050",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nAKS Key Integrations\r\n====================="
+    },
+    {
+      "id": "20-AZURE.md#051",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "ACR pull          Attach registry → nodes pull private images automatically\r\n  Managed Identity  Workload Identity → pods get Azure RBAC, no stored secrets\r\n  Azure Monitor     Container Insights → node/pod metrics + logs auto-collected\r\n  AGIC              Application Gateway as K8s Ingress Controller\r\n  Azure CNI         VNet-native pod IPs (pods are first-class VNet citizens)\r\n  AAD integration   K8s RBAC tied to Entra ID groups\r\n  Node pools        Mix CPU/GPU/spot VMs in one cluster\r\n  Virtual Nodes     Serverless burst capacity via ACI\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#052",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Container Apps (ACA)"
+    },
+    {
+      "id": "20-AZURE.md#053",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "The sweet spot between App Service (too simple) and AKS (too complex). Serverless containers with built-in Dapr, KEDA scaling, and service discovery."
+    },
+    {
+      "id": "20-AZURE.md#054",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nACA vs AKS\r\n==========="
+    },
+    {
+      "id": "20-AZURE.md#055",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "ACA                              AKS\r\n  ═══                              ═══\r\n  Serverless (scale to zero)       Always-on nodes\r\n  No cluster management            Full K8s control\r\n  Built-in Dapr, KEDA              DIY everything\r\n  HTTP + event-driven scaling      Any scaling\r\n  Good for: APIs, workers,         Good for: complex workloads,\r\n  microservices, scale-to-zero     specialized requirements,\r\n                                   existing K8s expertise\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#056",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```bash\r\naz containerapp create \\\r\n  --name myapi \\\r\n  --resource-group myRG \\\r\n  --environment myEnv \\\r\n  --image myregistry.azurecr.io/myapi:latest \\\r\n  --target-port 3000 \\\r\n  --ingress external \\\r\n  --min-replicas 0 \\\r\n  --max-replicas 10 \\\r\n  --scale-rule-name http-rule \\\r\n  --scale-rule-type http \\\r\n  --scale-rule-http-concurrency 100\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#057",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Functions"
+    },
+    {
+      "id": "20-AZURE.md#058",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Event-driven serverless compute. Pay per execution. Scale to zero."
+    },
+    {
+      "id": "20-AZURE.md#059",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nTrigger Types\r\n=============="
+    },
+    {
+      "id": "20-AZURE.md#060",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "HTTP trigger         → REST API endpoint\r\n  Timer trigger        → cron job (0 */5 * * * * = every 5 min)\r\n  Queue trigger        → process Service Bus / Storage Queue messages\r\n  Event Hub trigger    → process Kafka-compatible stream\r\n  Blob trigger         → react to file upload\r\n  Cosmos DB trigger    → react to DB change feed\r\n  SignalR              → push real-time to browser clients\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#061",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// HTTP trigger (Node.js)\r\nimport { app, HttpRequest, HttpResponseInit, InvocationContext } from \"@azure/functions\";"
+    },
+    {
+      "id": "20-AZURE.md#062",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "app.http(\"getOrder\", {\r\n  methods: [\"GET\"],\r\n  authLevel: \"anonymous\",\r\n  route: \"orders/{id}\",\r\n  handler: async (req: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> => {\r\n    const id = req.params.id;\r\n    const order = await db.orders.findById(id);\r\n    if (!order) return { status: 404, jsonBody: { error: \"not found\" } };\r\n    return { jsonBody: order };\r\n  },\r\n});\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#063",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nHosting Plans\r\n=============="
+    },
+    {
+      "id": "20-AZURE.md#064",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Consumption   Scale to zero. Pay per execution. 5-min timeout limit.\r\n                Cold start latency. Good for: infrequent/bursty workloads."
+    },
+    {
+      "id": "20-AZURE.md#065",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Premium       Pre-warmed instances (no cold start). VNet integration.\r\n                Good for: latency-sensitive, private network access."
+    },
+    {
+      "id": "20-AZURE.md#066",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Dedicated     Runs on App Service Plan. Predictable cost.\r\n                Good for: always-on with existing App Service."
+    },
+    {
+      "id": "20-AZURE.md#067",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Container     Functions in a custom container. Full control.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#068",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "20-AZURE.md#069",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## Storage"
+    },
+    {
+      "id": "20-AZURE.md#070",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Blob Storage"
+    },
+    {
+      "id": "20-AZURE.md#071",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "The tier structure, lifecycle policies, and ADLS Gen2 are the post-2014 additions worth knowing."
+    },
+    {
+      "id": "20-AZURE.md#072",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nBlob Storage Tiers\r\n==================="
+    },
+    {
+      "id": "20-AZURE.md#073",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Hot     Frequently accessed. Higher storage cost, low access cost.\r\n  Cool    Infrequently accessed (30+ days). Lower storage cost.\r\n  Cold    Rarely accessed (90+ days). Very low storage cost.    ← added ~2023\r\n  Archive Rarely accessed (180+ days). Lowest cost. Hours to rehydrate."
+    },
+    {
+      "id": "20-AZURE.md#074",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Lifecycle policies: auto-tier blobs as they age\r\n  → uploaded as Hot, auto-moves to Cool after 30 days, Archive after 180"
+    },
+    {
+      "id": "20-AZURE.md#075",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Storage Account → Container → Blob"
+    },
+    {
+      "id": "20-AZURE.md#076",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Container = folder (flat, no real hierarchy — / in name is cosmetic)\r\n  Blob types:\r\n    Block blob   — files (most common: images, videos, documents)\r\n    Append blob  — log files (append-only, efficient)\r\n    Page blob    — VHD files (VM disks)\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#077",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "**Data Lake Storage Gen2.** Enable hierarchical namespace on a standard Blob Storage account and it becomes ADLS Gen2 — real directory semantics, atomic rename, POSIX-style ACLs. This is the current storage layer for ADF pipelines and Synapse Analytics; the Gen1 → Gen2 migration is complete for most teams. The convergence means you're not choosing between object storage and a data lake anymore — one account serves both patterns depending on whether HNS is enabled. ADF connectors treat ADLS Gen2 as a first-class source/sink with partition discovery and format inference."
+    },
+    {
+      "id": "20-AZURE.md#078",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "**Immutability policies.** WORM (Write Once Read Many) support via time-based retention or legal hold. Required for SEC 17a-4 compliance scenarios."
+    },
+    {
+      "id": "20-AZURE.md#079",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```bash\r\n# Upload\r\naz storage blob upload \\\r\n  --account-name mystorage \\\r\n  --container-name images \\\r\n  --name profile/user123.jpg \\\r\n  --file ./local-image.jpg \\\r\n  --auth-mode login"
+    },
+    {
+      "id": "20-AZURE.md#080",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "# Generate SAS URL (time-limited access)\r\naz storage blob generate-sas \\\r\n  --account-name mystorage \\\r\n  --container-name images \\\r\n  --name profile/user123.jpg \\\r\n  --permissions r \\\r\n  --expiry 2026-03-01T00:00:00Z\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#081",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Files"
+    },
+    {
+      "id": "20-AZURE.md#082",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Managed SMB / NFS file shares. Mount as a network drive on VMs or containers."
+    },
+    {
+      "id": "20-AZURE.md#083",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nWhen to use Azure Files vs Blob\r\n================================="
+    },
+    {
+      "id": "20-AZURE.md#084",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure Files                        Blob Storage\r\n  ═══════════                        ════════════\r\n  SMB/NFS mount (like a share)       REST API / SDK access\r\n  Lift-and-shift shared drives       New apps, web assets\r\n  Legacy apps expecting file path    CDN-servable content\r\n  Container persistent volumes       Object storage at scale\r\n  \\\\server\\share equivalent          s3-compatible workflows\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#085",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Disk Storage"
+    },
+    {
+      "id": "20-AZURE.md#086",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Block storage for VM OS and data disks."
+    },
+    {
+      "id": "20-AZURE.md#087",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nDisk Types\r\n==========="
+    },
+    {
+      "id": "20-AZURE.md#088",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Standard HDD    Dev/test, backup. Cheapest.\r\n  Standard SSD    Web servers, light production.\r\n  Premium SSD     Production databases, I/O intensive.\r\n  Ultra Disk      Highest IOPS/throughput. SAP, SQL Server.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#089",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "20-AZURE.md#090",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## Databases"
+    },
+    {
+      "id": "20-AZURE.md#091",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure SQL Database"
+    },
+    {
+      "id": "20-AZURE.md#092",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "The post-2014 additions are the interesting parts: Hyperscale, Serverless tier, and Ledger."
+    },
+    {
+      "id": "20-AZURE.md#093",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nAzure SQL Family\r\n================="
+    },
+    {
+      "id": "20-AZURE.md#094",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Azure SQL Database        Single database. Serverless or provisioned.\r\n  Azure SQL Managed Inst.   Near 100% SQL Server compat. Lift-and-shift.\r\n  SQL Server on VM          Full SQL Server on a VM. Complete control."
+    },
+    {
+      "id": "20-AZURE.md#095",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "DTU vs vCore pricing:\r\n    DTU    — bundled CPU/memory/IO unit. Simpler. Less control.\r\n    vCore  — choose CPU + memory separately. Easier to size.\r\n             Can use Azure Hybrid Benefit (existing SQL Server license).\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#096",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nPost-2014 Additions\r\n===================="
+    },
+    {
+      "id": "20-AZURE.md#097",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Hyperscale tier:\r\n    Log-based architecture with distributed storage layer.\r\n    Scales to 100 TB. Compute and storage scale independently.\r\n    Near-instant backup (log snapshot, not full copy).\r\n    Near-instant restore — reads from the distributed log, not a backup file.\r\n    Read replicas spin up in minutes. Named replica feature for workload isolation."
+    },
+    {
+      "id": "20-AZURE.md#098",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Serverless tier:\r\n    Auto-pauses after inactivity (dev/test use case)\r\n    Scales compute automatically 0.5–40 vCores\r\n    Pay only when active — per-second billing during active periods\r\n    Resume latency: ~15s on first connection after auto-pause"
+    },
+    {
+      "id": "20-AZURE.md#099",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Elastic Pools:\r\n    Share compute across multiple databases.\r\n    Right-size when databases have non-overlapping peak times.\r\n    Per-pool pricing, not per-database."
+    },
+    {
+      "id": "20-AZURE.md#100",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Ledger tables (2021):\r\n    Tamper-evident audit trail built into the table.\r\n    Cryptographically verifiable history — SHA-256 hash chain.\r\n    No separate audit log to trust. The table itself is the evidence.\r\n    Append-only ledger tables vs updatable ledger tables.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#101",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Database for PostgreSQL"
+    },
+    {
+      "id": "20-AZURE.md#102",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Managed Postgres. Flexible Server is the current option (Single Server is deprecated)."
+    },
+    {
+      "id": "20-AZURE.md#103",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nFlexible Server\r\n================"
+    },
+    {
+      "id": "20-AZURE.md#104",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Fully managed Postgres 11–16\r\n  Zone-redundant HA (primary + standby in different zones)\r\n  Read replicas for scale-out reads\r\n  Point-in-time restore (up to 35 days)\r\n  VNet integration (private endpoint)\r\n  Burstable / General Purpose / Memory Optimized compute tiers"
+    },
+    {
+      "id": "20-AZURE.md#105",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Connection pooling: built-in PgBouncer (enable in portal)\r\n  Extensions: pgvector, PostGIS, uuid-ossp all available\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#106",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Cosmos DB"
+    },
+    {
+      "id": "20-AZURE.md#107",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Microsoft's globally distributed, multi-model NoSQL database. The key pitch: single-digit millisecond reads anywhere in the world, multiple consistency levels."
+    },
+    {
+      "id": "20-AZURE.md#108",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nCosmos DB APIs (one engine, multiple interfaces)\r\n================================================="
+    },
+    {
+      "id": "20-AZURE.md#109",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "NoSQL (Core)   JSON documents. Native. Most features.\r\n  MongoDB        Wire-compatible with MongoDB drivers\r\n  Cassandra      Wide-column. Cassandra CQL compatible.\r\n  Gremlin        Graph database\r\n  Table          Key-value. Azure Table Storage compatible.\r\n  PostgreSQL     Distributed Postgres (Citus)"
+    },
+    {
+      "id": "20-AZURE.md#110",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Pick NoSQL API for new projects unless you're migrating.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#111",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nConsistency Levels (the spectrum)\r\n==================================="
+    },
+    {
+      "id": "20-AZURE.md#112",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Strong          Linearizable. Reads always see latest write.\r\n                  Highest latency. Lowest availability."
+    },
+    {
+      "id": "20-AZURE.md#113",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Bounded Staleness  Reads lag behind writes by K versions or T time."
+    },
+    {
+      "id": "20-AZURE.md#114",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Session         Default. Within a session: read your own writes.\r\n                  Across sessions: eventual."
+    },
+    {
+      "id": "20-AZURE.md#115",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Consistent Prefix  Reads never see out-of-order writes."
+    },
+    {
+      "id": "20-AZURE.md#116",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Eventual        Lowest latency. Highest availability.\r\n                  Reads might return stale data."
+    },
+    {
+      "id": "20-AZURE.md#117",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Most apps: Session consistency is the right default.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#118",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nPartitioning\r\n============="
+    },
+    {
+      "id": "20-AZURE.md#119",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Every container has a partition key (e.g., /customerId)\r\n  All items with the same partition key → same logical partition\r\n  Logical partitions → physical partitions (transparent)"
+    },
+    {
+      "id": "20-AZURE.md#120",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Hot partition = one customer generates 90% of traffic\r\n                = performance cliff, hard to fix after design\r\n  Good partition key: high cardinality, even distribution\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#121",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Cache for Redis"
+    },
+    {
+      "id": "20-AZURE.md#122",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Managed Redis. Sub-millisecond in-memory data store."
+    },
+    {
+      "id": "20-AZURE.md#123",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nUse Cases\r\n=========="
+    },
+    {
+      "id": "20-AZURE.md#124",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Session store         Store JWT sessions, user state\r\n  Cache-aside           Cache DB query results, API responses\r\n  Rate limiting         Sliding window counters per user/IP\r\n  Pub/Sub               Lightweight messaging between services\r\n  Leaderboards          Sorted sets for rankings\r\n  Distributed locks     SETNX pattern for concurrency"
+    },
+    {
+      "id": "20-AZURE.md#125",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Tiers:\r\n    Basic   — single node, dev/test\r\n    Standard — primary + replica, 99.9% SLA\r\n    Premium — clustering, persistence, VNet, geo-replication\r\n    Enterprise — Redis Stack (search, JSON, time series)\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#126",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "20-AZURE.md#127",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## Messaging"
+    },
+    {
+      "id": "20-AZURE.md#128",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Service Bus"
+    },
+    {
+      "id": "20-AZURE.md#129",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Enterprise messaging: queues and topics. Guaranteed delivery, ordering, dead-lettering, transactions."
+    },
+    {
+      "id": "20-AZURE.md#130",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nQueue vs Topic\r\n==============="
+    },
+    {
+      "id": "20-AZURE.md#131",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Queue                              Topic + Subscriptions\r\n  ═════                              ════════════════════\r\n  One sender → one receiver          One sender → many receivers\r\n  Competing consumers                Each subscription gets all messages\r\n  Work distribution                  Fan-out / pub-sub"
+    },
+    {
+      "id": "20-AZURE.md#132",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Service Bus Queue    →   Dead-letter queue (failed messages)\r\n                       →   Scheduled messages (deliver at time)\r\n                       →   Message sessions (ordered processing)\r\n                       →   Transactions (atomic send/receive)"
+    },
+    {
+      "id": "20-AZURE.md#133",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "vs Azure Storage Queue:\r\n    Storage Queue: simple, cheap, 64KB msg limit, 7-day TTL\r\n    Service Bus:   enterprise, 256KB-100MB, long TTL, ordering, DLQ\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#134",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Event Hubs"
+    },
+    {
+      "id": "20-AZURE.md#135",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "High-throughput event streaming. Kafka-compatible. The Azure equivalent of Kafka."
+    },
+    {
+      "id": "20-AZURE.md#136",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nEvent Hubs vs Service Bus\r\n=========================="
+    },
+    {
+      "id": "20-AZURE.md#137",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Event Hubs                         Service Bus\r\n  ══════════                         ═══════════\r\n  Streaming (telemetry, logs)        Messaging (commands, events)\r\n  Millions of events/sec             Thousands/sec\r\n  Retention: 1–90 days               Retention: until consumed\r\n  Consumer groups (like Kafka)       Competing consumers (queues)\r\n  Kafka protocol compatible          AMQP / HTTP\r\n  Good for: IoT, clickstreams,       Good for: order processing,\r\n  analytics, audit logs              reliable workflows"
+    },
+    {
+      "id": "20-AZURE.md#138",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Event Hubs is Kafka.\r\n  If your code uses Kafka client libraries, point at Event Hubs endpoint.\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#139",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Azure Event Grid"
+    },
+    {
+      "id": "20-AZURE.md#140",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Reactive eventing. React to Azure resource changes or publish custom events."
+    },
+    {
+      "id": "20-AZURE.md#141",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nEvent Grid\r\n==========="
+    },
+    {
+      "id": "20-AZURE.md#142",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Sources:                           Handlers:\r\n  ════════                           ════════\r\n  Azure Blob (file uploaded)    →    Azure Functions\r\n  Azure SQL (record changed)    →    Logic Apps\r\n  Container Registry (image)    →    Event Hubs\r\n  Custom topics (your events)   →    Service Bus\r\n  Azure subscription events     →    Webhooks"
+    },
+    {
+      "id": "20-AZURE.md#143",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "Push model (not pull like Service Bus/Event Hubs)\r\n  Near real-time (<1s latency)\r\n  Good for: triggering reactions to events across Azure services\r\n  Not for: high-throughput streams or guaranteed-once processing\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#144",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "20-AZURE.md#145",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "## Networking"
+    },
+    {
+      "id": "20-AZURE.md#146",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "### Virtual Network (VNet)"
+    },
+    {
+      "id": "20-AZURE.md#147",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "The core VNet model (subnets, NSGs, peering, VPN Gateway, ExpressRoute) is unchanged from the architecture you know. The material delta: Private Endpoint, Virtual WAN, and Azure Firewall Premium."
+    },
+    {
+      "id": "20-AZURE.md#148",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "```\r\nVNet Concepts\r\n=============="
+    },
+    {
+      "id": "20-AZURE.md#149",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "VNet: 10.0.0.0/16 (your CIDR block)\r\n  ├── Subnet: 10.0.1.0/24  (web tier)\r\n  ├── Subnet: 10.0.2.0/24  (app tier)\r\n  └── Subnet: 10.0.3.0/24  (data tier)"
+    },
+    {
+      "id": "20-AZURE.md#150",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "NSG (Network Security Group): firewall rules on subnet/NIC\r\n    Inbound: allow port 443 from internet, deny everything else\r\n    Outbound: allow port 5432 to DB subnet only"
+    },
+    {
+      "id": "20-AZURE.md#151",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "VNet Peering: connect two VNets (same or different regions)\r\n  VPN Gateway: connect on-premises network to Azure VNet\r\n  ExpressRoute: dedicated private circuit to Azure (not over internet)\r\n  Private Endpoint: bring an Azure service (Blob, SQL) into your VNet\r\n                    → service gets a private IP in your subnet\r\n                    → traffic never leaves Microsoft network\r\n```"
+    },
+    {
+      "id": "20-AZURE.md#152",
+      "path": [
+        "20-AZURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]",
+        "canonical_path": "computing/20-AZURE.md",
+        "concepts": "[azure, cloud services, compute, storage, identity, networking]",
+        "current_path": "computing/20-AZURE.md",
+        "id": "maxim:computing-software:azure-services-map",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[azure, cloud services]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Azure Services Map",
+        "updated": "null"
+      },
+      "text": "**Private Endpoint vs Service Endpoint.**\r\nService Endpoint was the first attempt: traffic to the PaaS service is routed on the Microsoft backbone (not the public internet) but the service retains its public IP. You're restricting traffic source, not eliminating the public surface. Private Endpoint (2019) is qualitatively different: the PaaS service gets a private NIC with a private IP inside your VNet. The public endpoint can be disabled entirely. Traffic is fully private; DNS resolves to the private IP via Private DNS Zone. For SQL, Key Vault, Blob, and similar services, Private Endpoint is now the default recommendation in regulated or security-sensitive environments."
+    }
+  ],
+  "refs": [
+    "20-AZURE.md"
+  ]
+}

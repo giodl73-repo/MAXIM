@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:containers-docker
+kind: guide
+module: computing-software
+section: computing-software
+title: Containers and Docker
+status: source-custody
+source_custody: partial
+current_path: computing/11-DOCKER.md
+canonical_path: computing/11-DOCKER.md
+backsource_ids: [proof-backfill:computing-software:11-containers-docker, git-history:computing-software:11-containers-docker]
+concepts: [containers, docker, images, volumes, compose]
+root_concepts: [containers, docker]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 11 — Containers & Docker
 
 ## The Big Picture

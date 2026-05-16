@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\28-CONCURRENCY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  CONCURRENCY LANDSCAPE                                                      │\n│                                                                             │\n│  Correctness Properties          Progress Properties                        │\n│  ───────────────────────────     ─────────────────────────────              │\n│  Safety: nothing bad happens     Deadlock-freedom: some thread progresses   │\n│  Linearizability: atomic ops     Starvation-freedom: every thread progresses│\n│  Sequential consistency          Lock-freedom: some op completes in O(steps)│\n│  Serializability (transactions)  Wait-freedom: every op completes O(steps)  │\n│                                                                             │\n│  Synchronization Models         Hardware Concerns                           │\n│  ───────────────────────────     ──────────────────────────────             │\n│  Mutex / monitors                Memory ordering (TSO, PSO, SC)             │\n│  Reader-writer locks             Cache coherence (MESI protocol)            │\n│  Lock-free (CAS, LL/SC)          False sharing, cache line contention       │\n│  Wait-free (universal construction) Memory barriers / fences                │\n│  STM (transactional memory)      ABA problem                                │\n│  Message passing (CSP, Actors)                                              │\n│  Async/await (cooperative)                                                  │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Linearizability",
+      "confidence": "candidate",
+      "text": "Intuition: Each operation appears to take effect instantaneously at some point\n           between its invocation and response (the linearization point).\n\nNon-linearizable example:\n  Thread 1: enqueue(1)  ─────────────────────────────\n  Thread 2: enqueue(2)       ────────────────────────\n  Thread 3: dequeue() returns 2, then dequeue() returns 1\n\n  If the queue is FIFO, and enqueue(1) starts before enqueue(2),\n  a linearizable queue cannot return 2 before 1.\n  This execution is NOT linearizable for a FIFO queue.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### The Cache Coherence Problem",
+      "confidence": "candidate",
+      "text": "Multi-core CPU:\n\n  Core 0              Core 1              Core 2\n  ┌──────────┐        ┌──────────┐        ┌──────────┐\n  │ L1 cache │        │ L1 cache │        │ L1 cache │\n  └────┬─────┘        └────┬─────┘        └────┬─────┘\n       │                   │                   │\n  ┌──────────────────────────────────────────────────┐\n  │                  L3 cache (shared)               │\n  └──────────────────────────────────────────────────┘\n                             │\n                           DRAM\n\nProblem: Core 0 writes to x. Core 1 has x in L1 cache.\n  Without coherence: Core 1 reads stale value.\n  With coherence: Core 1's copy is invalidated or updated.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "### The Cache Coherence Problem",
+      "confidence": "candidate",
+      "text": "States per cache line:\n  M (Modified):  Only this cache has it; memory is stale; must write back.\n  E (Exclusive): Only this cache has it; clean (matches memory).\n  S (Shared):    Multiple caches have clean copies.\n  I (Invalid):   Cache line not valid.\n\nTransitions:\n  Core 0 reads x (not in cache) → fetches from memory → state E\n  Core 1 reads x (not in cache) → both Core 0 and Core 1 → state S for both\n  Core 0 writes x → broadcasts RFO (Request For Ownership) → Core 1 line → I\n                  → Core 0 line → M",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 329,
+      "heading_context": "### Deadlock",
+      "confidence": "candidate",
+      "text": "**C++ std::lock**: Acquires multiple mutexes without deadlock using a deadlock-avoidance algorithm (tries, backs off, retries in different order). `std::scoped_lock(m1, m2)` in C++17.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 355,
+      "heading_context": "### Compare-And-Swap (CAS)",
+      "confidence": "candidate",
+      "text": "### Lock-Free Stack (Treiber Stack 1986)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "### Lock-Free Stack (Treiber Stack 1986)",
+      "confidence": "candidate",
+      "text": "struct Node { T value; Node* next; };\natomic<Node*> top;\n\npush(x):\n  Node* node = new Node(x);\n  do {\n    node->next = top.load(relaxed);\n  } while (!top.compare_exchange_weak(node->next, node));\n\npop():\n  Node* old;\n  do {\n    old = top.load(relaxed);\n    if (old == null) return EMPTY;\n  } while (!top.compare_exchange_weak(old, old->next));\n  return old->value;  // NOTE: memory reclamation problem here (see below)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 402,
+      "heading_context": "### ABA Problem",
+      "confidence": "candidate",
+      "text": "### Lock-Free Queue (Michael-Scott Queue 1996)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 517,
+      "heading_context": "## 6. Message Passing Models",
+      "confidence": "candidate",
+      "text": "### CSP (Communicating Sequential Processes — Hoare 1978)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 519,
+      "heading_context": "### CSP (Communicating Sequential Processes — Hoare 1978)",
+      "confidence": "candidate",
+      "text": "Processes communicate via synchronous channels (rendezvous).\nNo shared state. Communication IS synchronization.\n\nProcess algebra with operators:\n  P ∥ Q:  parallel composition\n  P ; Q:  sequential composition\n  a → P:  prefix action (perform a, then P)\n  P ⊓ Q:  internal choice (process chooses)\n  P □ Q:  external choice (environment chooses)\n\nChannel c!v: send v on c.\nChannel c?x: receive from c into x.\n\nCSP models: Go channels, Erlang processes (actor variant), Unix pipes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 593,
+      "heading_context": "### System.Threading.Channels (.NET)",
+      "confidence": "candidate",
+      "text": "### Actor Model (Hewitt-Bishop-Steiger 1973)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 609,
+      "heading_context": "### Actor Model (Hewitt-Bishop-Steiger 1973)",
+      "confidence": "candidate",
+      "text": "% Actor = process\nPid = spawn(fun() -> loop(State) end),\n\n% Message passing\nPid ! {request, self(), Data},\n\n% Receive (pattern matching on mailbox)\nreceive\n  {response, Result} -> handle(Result);\n  {'EXIT', Pid, Reason} -> recover(Reason)\n  after 5000 -> timeout\nend\n\n% Supervision trees: supervisors restart failed children.\n% OTP: standardized patterns (gen_server, gen_statem, supervisor).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

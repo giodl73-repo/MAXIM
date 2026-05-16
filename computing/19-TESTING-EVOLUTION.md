@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:testing-evolution
+kind: guide
+module: computing-software
+section: computing-software
+title: The Evolution of Testing
+status: source-custody
+source_custody: partial
+current_path: computing/19-TESTING-EVOLUTION.md
+canonical_path: computing/19-TESTING-EVOLUTION.md
+backsource_ids: [proof-backfill:computing-software:19-testing-evolution, git-history:computing-software:19-testing-evolution]
+concepts: [testing evolution, test strategy, automation, quality engineering]
+root_concepts: [testing evolution, quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19 — The Evolution of Testing
 
 ## The Arc
@@ -57,18 +76,18 @@ You know TDD. The Red/Green/Refactor loop, "tests as design tool," testable code
 
 ```
 What TDD got right:
-  ✅ Regression safety — change anything, run tests, know immediately
-  ✅ Documentation — tests describe intended behavior in code
-  ✅ Design pressure — testable code = decoupled code
-  ✅ Fast feedback — unit tests run in milliseconds
-  ✅ Confidence to refactor
+  OK Regression safety — change anything, run tests, know immediately
+  OK Documentation — tests describe intended behavior in code
+  OK Design pressure — testable code = decoupled code
+  OK Fast feedback — unit tests run in milliseconds
+  OK Confidence to refactor
 
 What TDD got wrong (or what people got wrong about TDD):
-  ❌ 100% unit test coverage became a religious target
-  ❌ Heavy mocking produced tests that passed while the system broke
-  ❌ Testing implementation details, not behavior
-  ❌ "Test-driven" ≠ "test-first" for all contexts
-  ❌ Unit tests alone can't catch integration failures
+  NO 100% unit test coverage became a religious target
+  NO Heavy mocking produced tests that passed while the system broke
+  NO Testing implementation details, not behavior
+  NO "Test-driven" != "test-first" for all contexts
+  NO Unit tests alone can't catch integration failures
 ```
 
 ### The Mock Trap
@@ -80,7 +99,7 @@ Heavily mocked unit test (false confidence)
   Test: OrderService.createOrder()
   Mocks: PaymentService, InventoryService, EmailService, DB
 
-  Test passes ✅
+  Test passes OK
 
   Reality: PaymentService changed its interface last week.
            The mock still uses the old signature.
@@ -119,17 +138,17 @@ The Testing Pyramid (Martin Fowler / Mike Cohn, ~2009)
 
 ```
 What this era got right:
-  ✅ E2E tests catch what unit tests can't — full-stack failures
-  ✅ Integration tests catch mock divergence
-  ✅ The "portfolio" framing — you need all three types
-  ✅ Selenium / WebDriver made browser automation real
+  OK E2E tests catch what unit tests can't — full-stack failures
+  OK Integration tests catch mock divergence
+  OK The "portfolio" framing — you need all three types
+  OK Selenium / WebDriver made browser automation real
 
 What this era got wrong:
-  ❌ E2E tests are slow (minutes per suite)
-  ❌ Selenium tests are brittle — minor DOM changes break dozens of tests
-  ❌ "Flaky tests" became a major engineering problem
-  ❌ Test suites grew to 45-minute CI runs — feedback loop destroyed
-  ❌ The pyramid ratio was often inverted in practice
+  NO E2E tests are slow (minutes per suite)
+  NO Selenium tests are brittle — minor DOM changes break dozens of tests
+  NO "Flaky tests" became a major engineering problem
+  NO Test suites grew to 45-minute CI runs — feedback loop destroyed
+  NO The pyramid ratio was often inverted in practice
 ```
 
 ### The Flakiness Problem
@@ -219,11 +238,11 @@ Chaos Engineering Principles
 
 ```
 What chaos tests that unit/integration/E2E can't:
-  ✅ Does the circuit breaker actually open?
-  ✅ Does the retry logic work under real network conditions?
-  ✅ Does the system degrade gracefully or catastrophically?
-  ✅ Can the team detect, diagnose, and recover from failures?
-  ✅ Are runbooks accurate?
+  OK Does the circuit breaker actually open?
+  OK Does the retry logic work under real network conditions?
+  OK Does the system degrade gracefully or catastrophically?
+  OK Can the team detect, diagnose, and recover from failures?
+  OK Are runbooks accurate?
 ```
 
 ### Contract Testing

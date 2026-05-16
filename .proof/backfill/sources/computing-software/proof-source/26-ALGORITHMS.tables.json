@@ -1,0 +1,678 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\26-ALGORITHMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 146,
+      "heading_context": "## 2. Data Structures — Cache Reality",
+      "headers": [
+        "Structure",
+        "Insert",
+        "Extract-min",
+        "Decrease-key",
+        "Merge",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Binary heap",
+          "O(log n)",
+          "O(log n)",
+          "O(log n)",
+          "O(n)",
+          "Best cache perf"
+        ],
+        [
+          "d-ary heap",
+          "O(log_d n)",
+          "O(d log_d n)",
+          "O(log_d n)",
+          "O(n)",
+          "d=4 good in practice"
+        ],
+        [
+          "Binomial heap",
+          "O(log n)",
+          "O(log n)",
+          "O(log n)",
+          "O(log n)",
+          "Mergeable"
+        ],
+        [
+          "Fibonacci heap",
+          "O(1) amort",
+          "O(log n) amort",
+          "O(1) amort",
+          "O(1)",
+          "Theory: Dijkstra O(E+V log V)"
+        ],
+        [
+          "Pairing heap",
+          "O(1) amort",
+          "O(log n) amort",
+          "O(log n) amort",
+          "O(1)",
+          "Fibonacci killer in practice"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 201,
+      "heading_context": "## 3. Sorting",
+      "headers": [
+        "Algorithm",
+        "Best",
+        "Average",
+        "Worst",
+        "Space",
+        "Stable",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "Insertion sort",
+          "O(n)",
+          "O(n²)",
+          "O(n²)",
+          "O(1)",
+          "✅",
+          "n < 16, nearly-sorted"
+        ],
+        [
+          "Merge sort",
+          "O(n log n)",
+          "O(n log n)",
+          "O(n log n)",
+          "O(n)",
+          "✅",
+          "External sort, linked lists"
+        ],
+        [
+          "Quicksort",
+          "O(n log n)",
+          "O(n log n)",
+          "O(n²)",
+          "O(log n)",
+          "❌",
+          "General in-memory"
+        ],
+        [
+          "Heapsort",
+          "O(n log n)",
+          "O(n log n)",
+          "O(n log n)",
+          "O(1)",
+          "❌",
+          "Worst-case O(n log n) needed"
+        ],
+        [
+          "Introsort",
+          "O(n log n)",
+          "O(n log n)",
+          "O(n log n)",
+          "O(log n)",
+          "❌",
+          "std::sort (GCC/MSVC/Clang)"
+        ],
+        [
+          "pdqsort",
+          "O(n)",
+          "O(n log n)",
+          "O(n log n)",
+          "O(log n)",
+          "❌",
+          "Rust std::sort, C++ Boost.Sort"
+        ],
+        [
+          "TimSort",
+          "O(n)",
+          "O(n log n)",
+          "O(n log n)",
+          "O(n)",
+          "✅",
+          "Real-world data"
+        ],
+        [
+          "Radix sort",
+          "O(d·n)",
+          "O(d·n)",
+          "O(d·n)",
+          "O(n+k)",
+          "✅",
+          "Integer keys, fixed width"
+        ],
+        [
+          "Counting sort",
+          "O(n+k)",
+          "O(n+k)",
+          "O(n+k)",
+          "O(k)",
+          "✅",
+          "Small integer range k"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 250,
+      "heading_context": "## 4. Graph Algorithms",
+      "headers": [
+        "Structure",
+        "Space",
+        "Edge check",
+        "Neighbor iterate",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "Adjacency matrix",
+          "O(n²)",
+          "O(1)",
+          "O(n)",
+          "Dense graphs, Floyd-Warshall"
+        ],
+        [
+          "Adjacency list",
+          "O(n+m)",
+          "O(deg)",
+          "O(deg)",
+          "Sparse graphs (standard)"
+        ],
+        [
+          "CSR (Compressed Sparse Row)",
+          "O(n+m)",
+          "O(log deg)",
+          "O(deg)",
+          "Graph processing systems, cache-friendly"
+        ],
+        [
+          "Edge list",
+          "O(m)",
+          "O(m)",
+          "O(m)",
+          "Kruskal's, sparse problem setup"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 277,
+      "heading_context": "## 4. Graph Algorithms",
+      "headers": [
+        "Algorithm",
+        "Complexity",
+        "Negative edges",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "BFS",
+          "O(V+E)",
+          "No (unweighted)",
+          "Unweighted shortest path"
+        ],
+        [
+          "Dijkstra (binary heap)",
+          "O((V+E) log V)",
+          "No",
+          "Standard SSSP, non-negative weights"
+        ],
+        [
+          "Dijkstra (Fibonacci heap)",
+          "O(E + V log V)",
+          "No",
+          "Dense graphs, theory"
+        ],
+        [
+          "Bellman-Ford",
+          "O(VE)",
+          "Yes",
+          "Negative edges, cycle detection"
+        ],
+        [
+          "SPFA",
+          "O(V+E) avg / O(VE) worst",
+          "Yes",
+          "Avoid — adversarial inputs kill it"
+        ],
+        [
+          "A*",
+          "O(E log V)",
+          "No",
+          "Point-to-point with good heuristic"
+        ],
+        [
+          "Floyd-Warshall",
+          "O(V³)",
+          "Yes (no neg cycles)",
+          "All-pairs, dense graph"
+        ],
+        [
+          "Johnson's",
+          "O(V² log V + VE)",
+          "Yes (reweighted)",
+          "All-pairs, sparse graph"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 447,
+      "heading_context": "## 5. Dynamic Programming",
+      "headers": [
+        "Problem",
+        "State",
+        "Recurrence",
+        "Complexity"
+      ],
+      "rows": [
+        [
+          "LCS",
+          "dp[i][j] = LCS(A[:i], B[:j])",
+          "A[i]==B[j]: dp[i-1][j-1]+1; else max(dp[i-1][j], dp[i][j-1])",
+          "O(nm)"
+        ],
+        [
+          "Edit distance",
+          "dp[i][j] = edit(A[:i], B[:j])",
+          "insert/delete/replace",
+          "O(nm)"
+        ],
+        [
+          "LIS",
+          "dp[i] = LIS ending at i",
+          "O(n²) DP; O(n log n) with patience sorting",
+          "O(n log n)"
+        ],
+        [
+          "0/1 Knapsack",
+          "dp[i][w]",
+          "take item i or skip",
+          "O(nW) pseudo-poly"
+        ],
+        [
+          "Coin change",
+          "dp[amount]",
+          "min coins for amount",
+          "O(amount * coins)"
+        ],
+        [
+          "Matrix chain",
+          "dp[i][j] = cost for M_i..M_j",
+          "split at k",
+          "O(n³)"
+        ],
+        [
+          "Optimal BST",
+          "dp[i][j]",
+          "root selection (Knuth speedup)",
+          "O(n²)"
+        ],
+        [
+          "Egg drop",
+          "dp[k][n]",
+          "binary search on floor",
+          "O(k log n)"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 574,
+      "heading_context": "## 8. Randomized Algorithms",
+      "headers": [
+        "Type",
+        "Correctness",
+        "Time",
+        "Examples"
+      ],
+      "rows": [
+        [
+          "Las Vegas",
+          "Always correct",
+          "Expected poly",
+          "Randomized quicksort, hash tables"
+        ],
+        [
+          "Monte Carlo",
+          "Correct w/ high prob",
+          "Always poly",
+          "Miller-Rabin, Freivalds, randomized rounding"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 590,
+      "heading_context": "## 8. Randomized Algorithms",
+      "headers": [
+        "Problem",
+        "Algorithm",
+        "Space",
+        "Error"
+      ],
+      "rows": [
+        [
+          "Distinct element count",
+          "HyperLogLog",
+          "O(1/ε² + log log n)",
+          "±ε relative"
+        ],
+        [
+          "Frequency estimation",
+          "Count-Min Sketch",
+          "O((1/ε) log(1/δ))",
+          "ε·‖a‖₁ additive"
+        ],
+        [
+          "Heavy hitters (> εn)",
+          "Misra-Gries",
+          "O(1/ε)",
+          "Exact"
+        ],
+        [
+          "ε-quantiles",
+          "Greenwald-Khanna",
+          "O((1/ε) log(εn))",
+          "ε-additive rank"
+        ],
+        [
+          "Set membership (lookup only)",
+          "Bloom filter",
+          "O(n log(1/ε)) bits",
+          "ε false positive rate"
+        ],
+        [
+          "Set membership + delete",
+          "Cuckoo filter",
+          "O(n log(1/ε)) bits",
+          "ε false positive rate"
+        ],
+        [
+          "Set membership, static",
+          "XOR filter",
+          "O(n log(1/ε)) bits",
+          "ε false positive rate, best space"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 632,
+      "heading_context": "## 9. NP-Completeness and Beyond",
+      "headers": [
+        "Problem",
+        "Decision version",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "SAT / 3-SAT",
+          "∃ assignment satisfying formula?",
+          "Cook-Levin first NP-complete"
+        ],
+        [
+          "Independent Set",
+          "∃ IS of size ≥ k?",
+          "Vertex cover complement"
+        ],
+        [
+          "Vertex Cover",
+          "∃ VC of size ≤ k?",
+          "FPT: O(2^k · n)"
+        ],
+        [
+          "Clique",
+          "∃ clique of size ≥ k?",
+          "W[1]-hard parameterized"
+        ],
+        [
+          "Hamiltonian Cycle",
+          "∃ HC in graph?",
+          "TSP version adds weights"
+        ],
+        [
+          "Graph 3-Coloring",
+          "Colorable with 3 colors?",
+          "NPC even for planar graphs"
+        ],
+        [
+          "Subset Sum",
+          "∃ subset with sum = T?",
+          "FPT via meet-in-middle"
+        ],
+        [
+          "Partition",
+          "Split set into two equal halves?",
+          "Special case of subset sum"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 645,
+      "heading_context": "## 9. NP-Completeness and Beyond",
+      "headers": [
+        "Problem",
+        "Best approximation",
+        "Inapproximability"
+      ],
+      "rows": [
+        [
+          "Vertex Cover",
+          "2-approx (maximal matching)",
+          "> 1.36 unless UGC"
+        ],
+        [
+          "TSP (metric)",
+          "1.5 (Christofides), 1.499... (Karlin-Klein-Oveis Gharan 2021)",
+          "> 220/219 unless P=NP"
+        ],
+        [
+          "TSP (general)",
+          "No constant factor",
+          "Unless P=NP"
+        ],
+        [
+          "Set Cover",
+          "Hₙ ≈ ln n (greedy)",
+          "Optimal up to constant (PCP)"
+        ],
+        [
+          "MAX-3SAT",
+          "7/8 (random assignment achieves this)",
+          "Optimal (PCP theorem)"
+        ],
+        [
+          "k-Center",
+          "2-approx (greedy)",
+          "> 2 unless P=NP"
+        ],
+        [
+          "Knapsack",
+          "FPTAS: (1+ε) in O(n²/ε)",
+          "Admits FPTAS"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 659,
+      "heading_context": "## 9. NP-Completeness and Beyond",
+      "headers": [
+        "Problem",
+        "Parameter",
+        "Complexity",
+        "Algorithm"
+      ],
+      "rows": [
+        [
+          "Vertex Cover",
+          "k (solution size)",
+          "FPT: O(2^k · n)",
+          "Bounded search tree"
+        ],
+        [
+          "Feedback Vertex Set",
+          "k",
+          "FPT: O(4^k · n²)",
+          "Iterative compression"
+        ],
+        [
+          "k-Clique",
+          "k",
+          "W[1]-hard",
+          "No f(k)·n^O(1) expected"
+        ],
+        [
+          "Dominating Set",
+          "k",
+          "W[2]-hard",
+          "Even harder than W[1]"
+        ],
+        [
+          "Treewidth (computation)",
+          "w (treewidth)",
+          "FPT: O(2^w · n)",
+          "Many NP-hard problems FPT on bounded treewidth"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 677,
+      "heading_context": "## 10. Theory Wins vs Cache Reality",
+      "headers": [
+        "Algorithm",
+        "Theory",
+        "Practice",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Fibonacci heap",
+          "O(log n) decrease-key, O(E + V log V) Dijkstra",
+          "Slow",
+          "Cache-hostile pointer chasing; each node is a separately allocated object; working set thrashes L1/L2"
+        ],
+        [
+          "van Emde Boas tree",
+          "O(log log U) per op",
+          "Slow",
+          "Huge constant factors; recursive structure blows the cache; practical only for very large U (≥10⁸)"
+        ],
+        [
+          "Suffix automaton",
+          "O(n) construction, O(n) space",
+          "Complex to implement",
+          "Suffix array + LCP array handles almost all the same problems, is simpler, and has better cache behavior"
+        ],
+        [
+          "Treap / skip list",
+          "O(log n) balanced BST",
+          "Use `std::map` (red-black tree)",
+          "Mature RB-tree implementations are heavily tuned; treaps/skip lists have more pointer indirection"
+        ],
+        [
+          "SPFA",
+          "O(V+E) average",
+          "Avoid in production",
+          "O(VE) worst case is easily triggered; Dijkstra + Johnson's reweighting is strictly better"
+        ],
+        [
+          "Lazy segment tree",
+          "O(log n) range update + query",
+          "Good, but watch constants",
+          "Standard segment tree often faster in practice for simple range sums due to simpler inner loop"
+        ],
+        [
+          "4-Russian method",
+          "O(n²/log n) for boolean matrix multiply",
+          "Not used",
+          "Huge constant; BLAS-optimized O(n³) with SIMD beats it for all practical n"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 695,
+      "heading_context": "## Where These Algorithms Live in Production",
+      "headers": [
+        "Algorithm",
+        "Codebase"
+      ],
+      "rows": [
+        [
+          "B+ trees",
+          "Every RDBMS index (PostgreSQL, MySQL, SQL Server, SQLite)"
+        ],
+        [
+          "Hash tables (open addressing)",
+          "Python dict, Java HashMap, V8 object properties, Redis internals"
+        ],
+        [
+          "Dijkstra",
+          "Google Maps, OSPF routing daemon, GPS navigation"
+        ],
+        [
+          "Bidirectional Dijkstra",
+          "Road network routing (OSRM, Valhalla, HERE)"
+        ],
+        [
+          "Union-Find",
+          "Kruskal's in network topology tools, Git merge-base, image segmentation"
+        ],
+        [
+          "Aho-Corasick",
+          "clamav, Snort IDS, multiple-string grep"
+        ],
+        [
+          "Suffix arrays",
+          "Full-text search (Elasticsearch uses inverted index with suffix-array ideas)"
+        ],
+        [
+          "Bipartite matching",
+          "Kubernetes pod scheduling, resource allocation"
+        ],
+        [
+          "HyperLogLog",
+          "Redis PFCOUNT, BigQuery/Presto COUNT DISTINCT, Spark cardinality"
+        ],
+        [
+          "Count-Min Sketch",
+          "Network flow analysis (Cisco), database cardinality estimation"
+        ],
+        [
+          "Bloom filters",
+          "Cassandra SSTable, Bitcoin SPV, Chrome safe browsing"
+        ],
+        [
+          "Cuckoo filters",
+          "Redis modules, network packet filtering (deletion required)"
+        ],
+        [
+          "TimSort",
+          "Python list.sort(), Java Arrays.sort() (objects), Android SDK"
+        ],
+        [
+          "pdqsort",
+          "Rust std::sort, C++ Boost.Sort, Go (partially inspired)"
+        ],
+        [
+          "Segment tree",
+          "PostgreSQL range types, game engines, competitive programming"
+        ],
+        [
+          "KMP/Boyer-Moore",
+          "grep, vim `/`, database LIKE with trailing wildcard"
+        ],
+        [
+          "Floyd-Warshall",
+          "Small routing tables, all-pairs in small graphs"
+        ]
+      ]
+    }
+  ]
+}

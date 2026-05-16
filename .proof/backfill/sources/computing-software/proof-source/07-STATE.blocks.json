@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\07-STATE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    STATE CATEGORIES                              |\n|                                                                  |\n|  LOCAL UI STATE        SHARED CLIENT STATE    SERVER STATE       |\n|  (this component)      (multiple components)  (from APIs/DB)     |\n|  ---------------       -------------------    ------------       |\n|  useState              Zustand                TanStack Query     |\n|  useReducer            Jotai                  SWR                |\n|                        Redux Toolkit          Apollo (GraphQL)   |\n|                        Context (small apps)                      |\n|                                                                  |\n|  URL / ROUTER STATE    FORM STATE             PERSISTENT STATE   |\n|  --------------------  ----------             ----------------   |\n|  React Router          React Hook Form        Zustand + persist  |\n|  Next.js router        Formik                 localStorage       |\n|  useSearchParams       Zod (validation)       IndexedDB          |\n|                                                                  |\n|  SIGNALS (alternative reactivity model — see Signals section)    |\n|  SolidJS (signals-first) · Vue 3 (signals under the hood)        |\n|  Angular 16+ (adopted signals) · TC39 proposal (stage 1)         |\n+------------------------------------------------------------------+\n\n  KEY INSIGHT: Server state (API data) is NOT the same problem\n  as client state. TanStack Query handles server state so well\n  that most apps need almost NO client state library at all.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## Categories of State — The Foundation",
+      "confidence": "candidate",
+      "text": "  \"Where does this data live and who needs it?\"\n\n  +---------------------------+--------------------------------+\n  | Category                  | Right tool                     |\n  +---------------------------+--------------------------------+\n  | One component's UI state  | useState / useReducer          |\n  | (open/closed, selected,   |                                |\n  |  form field values)       |                                |\n  +---------------------------+--------------------------------+\n  | Shared across a subtree   | Context (if infrequent change) |\n  | (theme, locale, auth)     | Zustand (if frequent change)   |\n  +---------------------------+--------------------------------+\n  | Global app state          | Zustand, Redux Toolkit         |\n  | (cart, user prefs, wizard |                                |\n  |  steps)                   |                                |\n  +---------------------------+--------------------------------+\n  | Data from server / API    | TanStack Query, SWR            |\n  | (users, products, posts)  |                                |\n  +---------------------------+--------------------------------+\n  | Current URL / route       | Router (Next.js, React Router) |\n  +---------------------------+--------------------------------+\n  | Form field state          | React Hook Form                |\n  +---------------------------+--------------------------------+\n  | Persisted across sessions | Zustand persist, localStorage  |\n  +---------------------------+--------------------------------+\n\n  RULE: Reach for the simplest tool that covers the need.\n  Don't put server data in Redux. Don't use Redux for a toggle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### useReducer — Complex Local State",
+      "confidence": "candidate",
+      "text": "  type State = {\n    count: number\n    step: number\n    history: number[]\n  }\n\n  type Action =\n    | { type: 'increment' }\n    | { type: 'decrement' }\n    | { type: 'setStep'; payload: number }\n    | { type: 'reset' }\n\n  function reducer(state: State, action: Action): State {\n    switch (action.type) {\n      case 'increment':\n        return {\n          ...state,\n          count: state.count + state.step,\n          history: [...state.history, state.count + state.step]\n        }\n      case 'decrement':\n        return { ...state, count: state.count - state.step }\n      case 'setStep':\n        return { ...state, step: action.payload }\n      case 'reset':\n        return { count: 0, step: 1, history: [] }\n    }\n  }\n\n  function Counter() {\n    const [state, dispatch] = useReducer(reducer, { count: 0, step: 1, history: [] })\n\n    return (\n      <div>\n        <span>{state.count}</span>\n        <button onClick={() => dispatch({ type: 'increment' })}>+</button>\n        <button onClick={() => dispatch({ type: 'decrement' })}>-</button>\n      </div>\n    )\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## Zustand — The Modern Lightweight Store",
+      "confidence": "candidate",
+      "text": "  import { create } from 'zustand'\n\n  // Define the store\n  interface CartStore {\n    items: CartItem[]\n    total: number\n    addItem: (item: CartItem) => void\n    removeItem: (id: string) => void\n    clear: () => void\n  }\n\n  const useCartStore = create<CartStore>((set, get) => ({\n    items: [],\n    total: 0,\n\n    addItem: (item) => set((state) => ({\n      items: [...state.items, item],\n      total: state.total + item.price\n    })),\n\n    removeItem: (id) => set((state) => {\n      const items = state.items.filter(i => i.id !== id)\n      return {\n        items,\n        total: items.reduce((sum, i) => sum + i.price, 0)\n      }\n    }),\n\n    clear: () => set({ items: [], total: 0 })\n  }))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "## Zustand — The Modern Lightweight Store",
+      "confidence": "candidate",
+      "text": "  // Consume anywhere — no Provider needed\n  function CartIcon() {\n    const count = useCartStore(state => state.items.length)\n    //                          ^-- selector: only re-renders when\n    //                              items.length changes, not on total change\n    return <span>{count}</span>\n  }\n\n  function CartTotal() {\n    const total = useCartStore(state => state.total)\n    return <span>${total.toFixed(2)}</span>\n  }\n\n  function AddToCartButton({ item }: { item: CartItem }) {\n    const addItem = useCartStore(state => state.addItem)\n    return <button onClick={() => addItem(item)}>Add to Cart</button>\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### Zustand with Persistence",
+      "confidence": "candidate",
+      "text": "  import { persist } from 'zustand/middleware'\n\n  const useSettingsStore = create<SettingsStore>()(\n    persist(\n      (set) => ({\n        theme: 'light',\n        language: 'en',\n        setTheme: (theme) => set({ theme }),\n      }),\n      { name: 'app-settings' }  // localStorage key\n    )\n  )\n  // State survives page refresh. Automatically serialized to localStorage.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "## Redux Toolkit — The Mature Enterprise Option",
+      "confidence": "candidate",
+      "text": "  import { createSlice, configureStore } from '@reduxjs/toolkit'\n\n  // A \"slice\" = one piece of state + its reducers/actions\n  const cartSlice = createSlice({\n    name: 'cart',\n    initialState: { items: [] as CartItem[], total: 0 },\n    reducers: {\n      addItem(state, action: PayloadAction<CartItem>) {\n        state.items.push(action.payload)        // Immer allows mutation syntax\n        state.total += action.payload.price     // looks like mutation, creates new state\n      },\n      removeItem(state, action: PayloadAction<string>) {\n        state.items = state.items.filter(i => i.id !== action.payload)\n        state.total = state.items.reduce((s, i) => s + i.price, 0)\n      },\n      clear(state) {\n        state.items = []\n        state.total = 0\n      }\n    }\n  })\n\n  // createSlice auto-generates action creators\n  export const { addItem, removeItem, clear } = cartSlice.actions\n\n  // Configure the root store\n  export const store = configureStore({\n    reducer: { cart: cartSlice.reducer }\n  })\n\n  export type RootState = ReturnType<typeof store.getState>\n  export type AppDispatch = typeof store.dispatch",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "## Redux Toolkit — The Mature Enterprise Option",
+      "confidence": "candidate",
+      "text": "  // Wrap app in Provider (unlike Zustand, Redux requires this)\n  function App() {\n    return (\n      <Provider store={store}>\n        <Router />\n      </Provider>\n    )\n  }\n\n  // Consume with typed hooks\n  function CartIcon() {\n    const count = useSelector((state: RootState) => state.cart.items.length)\n    const dispatch = useDispatch<AppDispatch>()\n    return (\n      <button onClick={() => dispatch(clear())}>\n        Cart ({count})\n      </button>\n    )\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "## Jotai — Atomic State",
+      "confidence": "candidate",
+      "text": "  import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai'\n\n  // Define atoms\n  const countAtom = atom(0)\n  const doubledAtom = atom((get) => get(countAtom) * 2)  // derived atom\n\n  // Use in components\n  function Counter() {\n    const [count, setCount] = useAtom(countAtom)\n    const doubled = useAtomValue(doubledAtom)   // read-only\n\n    return (\n      <div>\n        <span>{count} (doubled: {doubled})</span>\n        <button onClick={() => setCount(c => c + 1)}>+</button>\n      </div>\n    )\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 477,
+      "heading_context": "### What Is a Signal?",
+      "confidence": "candidate",
+      "text": "  REACT MODEL (pull / re-render):\n  State changes → React re-runs the entire component function\n  → produces a new virtual DOM tree → diffs against previous\n  → patches the real DOM\n\n  Component is the unit of re-execution.\n  Even if only one value changes, the whole function reruns.\n\n  SIGNALS MODEL (push / fine-grained):\n  Signal changes → only the specific DOM nodes (or computations)\n  that subscribed to this signal are updated\n  → no virtual DOM diff, no component re-run\n\n  The individual reactive value is the unit of update.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 498,
+      "heading_context": "### Signal Mechanics",
+      "confidence": "candidate",
+      "text": "  // SolidJS — the reference signal implementation\n  import { createSignal, createEffect, createMemo } from 'solid-js'\n\n  const [count, setCount] = createSignal(0)\n  const doubled = createMemo(() => count() * 2)  // derived signal — auto-tracked\n\n  createEffect(() => {\n    console.log('count changed:', count())   // runs when count changes, nothing else\n  })\n\n  // Note: reading a signal requires calling it as a function: count()\n  // This is what enables automatic dependency tracking —\n  // the signal knows who's reading it at this moment.\n\n  setCount(5)  // → triggers only the effect above and DOM nodes bound to count()\n               //    no component re-render, no virtual DOM diff",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 517,
+      "heading_context": "### Signal Mechanics",
+      "confidence": "candidate",
+      "text": "  REACTIVE PRIMITIVES IN SIGNALS:\n\n  Signal       Writable reactive value.    createSignal(0)\n  Memo         Derived computed value.     createMemo(() => count() * 2)\n               Cached, only recomputes\n               when dependencies change.\n  Effect       Side-effectful subscriber.  createEffect(() => log(count()))\n               Runs when any read signal\n               in its body changes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 529,
+      "heading_context": "### Signal Mechanics",
+      "confidence": "candidate",
+      "text": "### Where Signals Are Today (2026)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 562,
+      "heading_context": "### Push vs Pull — The Architectural Distinction",
+      "confidence": "candidate",
+      "text": "  PULL (React):\n  +-----------+       re-render        +-----------+\n  | Component |  <------ triggered --- | setState  |\n  |  function |                        |  called   |\n  +-----------+                        +-----------+\n        |\n        v  runs entire function, builds vDOM, diffs\n        |\n  +----------+\n  | DOM patch|\n  +----------+\n\n  PUSH (Signals):\n  +--------+         +------------+         +----------+\n  | Signal |  value  | Subscriber | direct  | DOM node |\n  |  count | ~~~~~~> |  (effect)  | ~~~~~~> |  update  |\n  +--------+         +------------+         +----------+\n   setCount(5)        only runs if           only this\n                      it read count          node updates\n\n  For high-frequency updates or large component trees,\n  signals' surgical updates outperform React's batch re-render.\n  For typical CRUD UIs, the difference is imperceptible.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 607,
+      "heading_context": "### The Key Insight",
+      "confidence": "candidate",
+      "text": "  Most of what developers put in Redux is SERVER STATE:\n  - Users fetched from /api/users\n  - Products fetched from /api/products\n  - Current user fetched from /api/me\n\n  Server state has fundamentally different properties:\n  +-------------------------+---------------------------+\n  | CLIENT STATE            | SERVER STATE              |\n  +-------------------------+---------------------------+\n  | You own it              | Server owns it            |\n  | Always synchronous      | Asynchronous (fetch)      |\n  | Always up to date       | Can go stale              |\n  | Simple to update        | Update requires API call  |\n  | No loading/error state  | Loading and error states  |\n  | No caching needed       | Caching is critical       |\n  +-------------------------+---------------------------+\n\n  Trying to manage server state with Redux means you're manually\n  writing: loading flags, error handling, cache invalidation,\n  background refresh, deduplication of identical requests,\n  stale-while-revalidate logic...\n\n  TanStack Query does all of this for you.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 635,
+      "heading_context": "### useQuery — Fetching Data",
+      "confidence": "candidate",
+      "text": "  import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'\n\n  // Simple fetch\n  function UserList() {\n    const { data, isLoading, isError, error } = useQuery({\n      queryKey: ['users'],           // cache key — unique identifier\n      queryFn: () => fetchUsers(),   // the async function\n    })\n\n    if (isLoading) return <Spinner />\n    if (isError) return <Error message={error.message} />\n\n    return <ul>{data.map(u => <li key={u.id}>{u.name}</li>)}</ul>\n  }\n\n  // With parameters — refetches automatically when userId changes\n  function UserProfile({ userId }: { userId: number }) {\n    const { data: user } = useQuery({\n      queryKey: ['users', userId],   // include params in key\n      queryFn: () => fetchUser(userId),\n      staleTime: 5 * 60 * 1000,     // consider fresh for 5 minutes\n      gcTime: 10 * 60 * 1000,       // garbage collect after 10 min\n    })\n\n    return <div>{user?.name}</div>\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 696,
+      "heading_context": "### useMutation — Updating Data",
+      "confidence": "candidate",
+      "text": "  function DeleteUserButton({ userId }: { userId: number }) {\n    const queryClient = useQueryClient()\n\n    const deleteMutation = useMutation({\n      mutationFn: (id: number) => deleteUser(id),\n\n      onSuccess: () => {\n        // Invalidate cache → triggers refetch → UI updates\n        queryClient.invalidateQueries({ queryKey: ['users'] })\n      },\n\n      onError: (error) => {\n        toast.error(`Delete failed: ${error.message}`)\n      }\n    })\n\n    return (\n      <button\n        onClick={() => deleteMutation.mutate(userId)}\n        disabled={deleteMutation.isPending}\n      >\n        {deleteMutation.isPending ? 'Deleting...' : 'Delete'}\n      </button>\n    )\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 726,
+      "heading_context": "### Optimistic Updates",
+      "confidence": "candidate",
+      "text": "  const updateMutation = useMutation({\n    mutationFn: updateUser,\n\n    onMutate: async (newUser) => {\n      // Cancel any in-flight refetches\n      await queryClient.cancelQueries({ queryKey: ['users', newUser.id] })\n\n      // Snapshot the current value\n      const previousUser = queryClient.getQueryData(['users', newUser.id])\n\n      // Optimistically update the cache\n      queryClient.setQueryData(['users', newUser.id], newUser)\n\n      // Return snapshot for rollback\n      return { previousUser }\n    },\n\n    onError: (err, newUser, context) => {\n      // Roll back on error\n      queryClient.setQueryData(['users', newUser.id], context?.previousUser)\n    },\n\n    onSettled: () => {\n      // Always refetch to sync with server\n      queryClient.invalidateQueries({ queryKey: ['users'] })\n    }\n  })\n\n  // User sees the update immediately. If the server fails, it rolls back.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 852,
+      "heading_context": "### \"Why doesn't my component update when I mutate state?\"",
+      "confidence": "candidate",
+      "text": "  // WRONG: mutating in place\n  const [items, setItems] = useState(['a', 'b'])\n  items.push('c')       // mutates array, same reference\n  setItems(items)       // React sees same reference — no re-render\n\n  // RIGHT: create new reference\n  setItems([...items, 'c'])          // new array\n  setItems(prev => [...prev, 'c'])   // functional update form\n\n  // Objects:\n  // WRONG\n  user.name = 'New'\n  setUser(user)\n\n  // RIGHT\n  setUser({ ...user, name: 'New' })",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 902,
+      "heading_context": "### \"What's the difference between staleTime and gcTime in TanStack Query?\"",
+      "confidence": "candidate",
+      "text": "  staleTime    How long data is considered \"fresh.\"\n               During this window: no background refetch on mount.\n               After: refetch in background on next mount.\n               Default: 0 (always stale — always refetches)\n\n  gcTime       How long unused cached data is kept in memory.\n  (formerly    After no component subscribes for this long, data is removed.\n  cacheTime)   Default: 5 minutes.\n\n  Example:\n  staleTime: 5min, gcTime: 10min\n\n  0:00  Fetch users → cached, considered fresh\n  3:00  Navigate away → data in cache but no subscribers\n  5:01  Data is now \"stale\" (but still in cache)\n  7:00  Navigate back → show stale data instantly, refetch in bg\n  10:01 Cache garbage collected → next visit shows loading spinner",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\15-OBSERVABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 642,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "App Insights / Azure Monitor",
+        "Modern Observability"
+      ],
+      "rows": [
+        [
+          "App Insights requests table",
+          "Distributed trace root spans (Tempo / Jaeger)"
+        ],
+        [
+          "App Insights dependencies table",
+          "Child spans — external HTTP/DB/Redis calls"
+        ],
+        [
+          "App Insights exceptions table",
+          "Span error events (`span.recordException()`)"
+        ],
+        [
+          "App Insights customMetrics table",
+          "Prometheus Counter / Gauge / Histogram"
+        ],
+        [
+          "App Insights traces table (KQL)",
+          "Loki logs (LogQL label filter)"
+        ],
+        [
+          "Application Map (distributed view)",
+          "Jaeger / Tempo trace waterfall"
+        ],
+        [
+          "App Insights SDK auto-collect",
+          "OTel `getNodeAutoInstrumentations()`"
+        ],
+        [
+          "`client.trackDependency()`",
+          "Manual OTel span with `span.setAttribute()`"
+        ],
+        [
+          "App Insights connection string → Azure",
+          "OTel exporter URL → any OTLP backend"
+        ],
+        [
+          "Log Analytics Workbooks",
+          "Grafana dashboards"
+        ],
+        [
+          "KQL (Log Analytics)",
+          "LogQL (Loki) — not a direct equivalent; KQL is more expressive"
+        ],
+        [
+          "Azure Monitor Metrics (push)",
+          "Prometheus (pull — scrapes `/metrics` endpoint)"
+        ],
+        [
+          "SCOM agent on every server",
+          "OTel SDK in every service"
+        ],
+        [
+          "SCOM Management Pack per app",
+          "Auto-instrumentation for HTTP/DB/etc."
+        ],
+        [
+          "Custom perf counters (Windows)",
+          "Prometheus metrics / OTel metrics"
+        ],
+        [
+          "Event log (Windows)",
+          "Structured JSON logs → Loki / Log Analytics"
+        ],
+        [
+          "SCOM correlation rules",
+          "Distributed traces (spans, trace IDs)"
+        ],
+        [
+          "SCOM dashboards",
+          "Grafana dashboards"
+        ],
+        [
+          "SCOM alert → pager",
+          "Grafana alert → PagerDuty / Slack"
+        ],
+        [
+          "Azure Data Factory pipeline monitoring",
+          "OTel spans on each pipeline step"
+        ],
+        [
+          "Availability tests (App Insights)",
+          "Synthetic monitors / uptime checks"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 676,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "What happened during an incident",
+          "Structured logs in Loki or Log Analytics",
+          "Logs explain events; they do not prove latency distribution or causal path."
+        ],
+        [
+          "How much, how fast, or how saturated the system is",
+          "Metrics in Prometheus or Azure Monitor Metrics",
+          "Metrics aggregate away detail; preserve labels carefully or cardinality will explode."
+        ],
+        [
+          "Where one slow request spent its time",
+          "Distributed traces in Tempo, Jaeger, or App Insights",
+          "Traces are only useful when service boundaries propagate context consistently."
+        ],
+        [
+          "How to instrument once before choosing a backend",
+          "OpenTelemetry SDK plus collector",
+          "OTel standardizes telemetry shape; backend query models still differ."
+        ],
+        [
+          "Whether operators need one pane or specialized tools",
+          "Grafana or Azure Monitor Workbooks",
+          "A unified UI is not a unified data model; source-of-truth ownership still matters."
+        ],
+        [
+          "When an error spike should page someone",
+          "SLO-based alerts via Alertmanager, Grafana, or Azure Alerts",
+          "Alert on user-impacting symptoms first; raw error counts create noisy pages."
+        ],
+        [
+          "How to inspect Azure logs interactively",
+          "Log Analytics with KQL",
+          "KQL is powerful but Azure-specific; keep portable fields at ingestion time."
+        ],
+        [
+          "How to inspect OSS log streams",
+          "Loki with LogQL",
+          "Loki indexes labels, not full text; choose labels deliberately."
+        ],
+        [
+          "Whether p99 latency is real or bucket artifact",
+          "Prometheus histograms plus `histogram_quantile()`",
+          "Bucket boundaries determine resolution; bad buckets produce false precision."
+        ],
+        [
+          "Whether user journeys map to business outcomes",
+          "App Insights custom events or OTel spans",
+          "Business events need product semantics, not just HTTP endpoint names."
+        ],
+        [
+          "What \"healthy\" means for the service",
+          "SLIs, SLOs, and error budgets",
+          "SLOs must align with user-visible reliability, not component vanity metrics."
+        ],
+        [
+          "How to reduce vendor lock-in",
+          "OTel SDK -> OTel Collector -> backend exporter",
+          "Vendor neutrality is strongest at instrumentation time, weakest in dashboards and alerts."
+        ],
+        [
+          "How to keep App Insights while adopting OTel",
+          "Azure Monitor OpenTelemetry Distro or `azuremonitor` exporter",
+          "This preserves Azure operations fit but does not make queries portable."
+        ],
+        [
+          "How a short-lived job reports Prometheus metrics",
+          "Pushgateway",
+          "Pushgateway is for service-level job outcomes, not per-instance liveness."
+        ]
+      ]
+    }
+  ]
+}

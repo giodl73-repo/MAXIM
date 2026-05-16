@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\14-IAC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 613,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "Azure Portal / Manual Process",
+        "IaC Equivalent"
+      ],
+      "rows": [
+        [
+          "Click \"Create resource group\"",
+          "`resource \"azurerm_resource_group\"` / `resource rg`"
+        ],
+        [
+          "Azure Portal ARM Export",
+          "Starting point for Bicep (decompile ARM JSON → Bicep)"
+        ],
+        [
+          "ARM JSON templates",
+          "Bicep (ARM is the compiled output)"
+        ],
+        [
+          "ARM JSON templates",
+          "Terraform HCL — `\"type\": \"Microsoft.Storage/storageAccounts\"` → `resource \"azurerm_storage_account\"`. ARM resource type strings map consistently to `azurerm_*` names; lookup at registry.terraform.io/providers/hashicorp/azurerm"
+        ],
+        [
+          "PowerShell provisioning scripts",
+          "Terraform / Bicep / Pulumi"
+        ],
+        [
+          "Deployment environments (dev/staging/prod)",
+          "Workspaces / stacks / parameter files"
+        ],
+        [
+          "Azure Blueprints (deprecated)",
+          "Bicep modules + Policy-as-code"
+        ],
+        [
+          "Manual VSTS environment setup",
+          "IaC in CI/CD pipeline (13-CICD)"
+        ],
+        [
+          "\"I know what's in prod\"",
+          "`terraform state list` / Pulumi stack output"
+        ],
+        [
+          "Azure Resource Manager",
+          "What Bicep compiles to; what Terraform's azurerm provider calls"
+        ],
+        [
+          "ARM as authoritative state store",
+          "Terraform remote state in Azure Blob — restores the \"Azure is source of truth\" property that local `.tfstate` breaks"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 637,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Azure-only provisioning",
+          "Compare Bicep, ARM parity, modules, what-if, policy, and team Azure skill.",
+          "Bicep is Azure-native; multi-cloud portability is not its goal."
+        ],
+        [
+          "Multi-cloud provisioning",
+          "Use Terraform with provider maturity, state backend, module discipline, and drift detection.",
+          "Provider abstraction does not make clouds equivalent."
+        ],
+        [
+          "Programming-language IaC",
+          "Evaluate Pulumi language fit, typed APIs, secrets, state, previews, and team reviewability.",
+          "General-purpose languages can hide infrastructure intent in code flow."
+        ],
+        [
+          "Server configuration",
+          "Use Ansible for OS/package/config tasks and separate it from cloud resource provisioning.",
+          "Configuration management and IaC overlap but solve different lifecycle layers."
+        ],
+        [
+          "Change preview",
+          "Run plan/what-if/preview, inspect destructive changes, and require review before apply.",
+          "A plan is only as accurate as provider state and drift knowledge."
+        ],
+        [
+          "Team state storage",
+          "Use remote backend, locking, encryption, access control, and backup.",
+          "Local state is a production risk."
+        ],
+        [
+          "Reusable patterns",
+          "Use modules with versioning, inputs/outputs, examples, and policy guardrails.",
+          "Bad modules standardize bad architecture."
+        ],
+        [
+          "CI/CD for infra",
+          "Use PR plan, approval, apply, drift checks, and environment promotion.",
+          "Infra pipelines can destroy production faster than app pipelines."
+        ],
+        [
+          "Existing-resource import",
+          "Map real resource, import state, reconcile config, and run no-op plan.",
+          "Import records state; it does not generate correct desired configuration."
+        ],
+        [
+          "Environment separation",
+          "Compare workspaces, stacks, parameter files, subscriptions/accounts, and blast radius.",
+          "Environments need isolation, not just variable names."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\11-DOCKER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Packaging Problem\n=====================\n\nOld World                          New World\n=========                          =========\n\n  Dev machine                        Container Image\n  ┌──────────────────┐               ┌──────────────────┐\n  │ Windows 10       │               │ App code         │\n  │ IIS 10           │               │ Runtime (Node 20)│\n  │ .NET 6 (GAC)     │   ────────►   │ OS libs          │\n  │ App code         │               │ Config           │\n  │ web.config       │               └──────────────────┘\n  │ Manual installs  │                        │\n  └──────────────────┘               runs identically on:\n                                     Dev → CI → Staging → Prod\n  \"Works on my machine\"              \"Ship the environment, not just the code\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### Image Layer Model — Overlay Filesystem",
+      "confidence": "candidate",
+      "text": "How Docker Image Layers Work (Union FS / OverlayFS)\n====================================================\n\n  Content-addressable by SHA256 — each layer is a directory diff\n  Layers are shared across images on the same host\n\n  ┌─────────────────────────────────────────────────────────┐\n  │  Writable Container Layer                               │\n  │  (created per running container — gone on stop)         │\n  ├─────────────────────────────────────────────────────────┤\n  │  Layer 4: COPY . .                                      │\n  │  SHA256: a3f2c1...   changes every code edit            │\n  ├─────────────────────────────────────────────────────────┤\n  │  Layer 3: RUN npm install                               │\n  │  SHA256: 9d8b47...   cached until package*.json changes │\n  ├─────────────────────────────────────────────────────────┤\n  │  Layer 2: RUN apt-get install ...                       │\n  │  SHA256: 4e1a88...   rarely changes                     │\n  ├─────────────────────────────────────────────────────────┤\n  │  Layer 1: FROM node:20-alpine                           │\n  │  SHA256: 7c3f09...   pulled once, shared by many images │\n  └─────────────────────────────────────────────────────────┘\n  Writable layer: ephemeral (unless volume)\n  Layer 4: your app code\n  Layer 3: deps\n  Layer 2: OS libs\n  Layer 1: base image\n\n  At runtime, OverlayFS merges all layers into one coherent filesystem view.\n  The NTFS/filesystem analogy: like a read-only base volume with a\n  diff disk on top — except stacked N layers deep.\n\n  Layer cache invalidation:\n    Any change to a layer invalidates that layer AND ALL LAYERS ABOVE IT.\n    This is why layer order matters.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Image Layer Model — Overlay Filesystem",
+      "confidence": "candidate",
+      "text": "BAD: COPY first, then install        GOOD: Split the COPY\n================================     ====================\n\nCOPY . .                 ← changes   COPY package*.json ./   ← changes only\nRUN npm install          ← always      on dep changes\n                           reruns    RUN npm install         ← cached until\n                                       package*.json changes\n                                     COPY . .                ← just the diff\n\nEvery code edit:                     Code edit:\n  invalidates COPY layer               hits COPY . . only\n  → reruns npm install                 npm install served from cache\n  → 60–90s rebuild                     → 5–10s rebuild",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Image Layer Model — Overlay Filesystem",
+      "confidence": "candidate",
+      "text": "Docker Architecture — Three Pieces\n===================================\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  Your machine                                                   │\n  │                                                                 │\n  │   CLI                  Docker Daemon              Registry      │\n  │  ┌─────────┐           ┌───────────────┐         ┌───────────┐  │\n  │  │ docker  │──────────►│               │◄────────│Docker Hub │ │\n  │  │  build  │   API     │  Manages:     │  push/  │  GHCR     │ │\n  │  │  run    │           │  - Images     │  pull   │  ACR      │ │\n  │  │  push   │           │  - Containers │         │  ECR      │ │\n  │  │  pull   │           │  - Networks   │         └───────────┘ │\n  │  │  compose│           │  - Volumes    │                       │\n  │  └─────────┘           └───────────────┘                       │\n  │                                                                 │\n  └─────────────────────────────────────────────────────────────────┘\n\n  CLI = what you type\n  Daemon = background service that does the work (dockerd)\n  Registry = remote image storage (like NuGet for images)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Containers vs VMs",
+      "confidence": "candidate",
+      "text": "Virtual Machines                   Containers\n================                   ==========\n\n  ┌────────────────────┐            ┌────────────────────┐\n  │  App A             │            │  App A             │\n  ├────────────────────┤            ├────────────────────┤\n  │  Guest OS (full)   │            │  App libs/deps     │\n  │  (2-4 GB)          │            │  (MBs)             │\n  ├────────────────────┤            ├────────────────────┤\n  │  Hypervisor        │            │  Container Runtime │\n  │  (VMware/Hyper-V)  │            │  (containerd)      │\n  ├────────────────────┤            ├────────────────────┤\n  │  Host OS           │            │  Host OS (shared)  │\n  ├────────────────────┤            ├────────────────────┤\n  │  Hardware          │            │  Hardware          │\n  └────────────────────┘            └────────────────────┘\n\n  Each VM = full OS copy              All containers share host kernel\n  Boot time: minutes                  Start time: milliseconds\n  Size: GBs                           Size: MBs\n  Strong isolation                    Process isolation\n  Good for: different OSes            Good for: many instances of same app",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## Images vs Containers",
+      "confidence": "candidate",
+      "text": "Image                              Container\n=====                              =========\n\nRead-only template                 Running instance of an image\nLike a class                       Like an object (instantiation)\nStored on disk / registry          Lives in memory + ephemeral layer\nCan have multiple versions/tags    Has its own writable layer on top\nBuilt by: docker build             Created by: docker run\n\n  Image layers (read-only, cached)\n  ┌──────────────────────────┐\n  │  Your app code (COPY)    │\n  ├──────────────────────────┤\n  │  npm install (RUN)       │\n  ├──────────────────────────┤\n  │  OS libs (RUN apt-get)   │\n  ├──────────────────────────┤\n  │  Base: node:20-alpine    │\n  └──────────────────────────┘\n            +\n  ┌──────────────────────────┐\n  │  Writable container layer│\n  └──────────────────────────┘\n  Layer 4: your app code\n  Layer 3: npm install (cached if package.json unchanged)\n  Layer 2: OS libs (rarely changes)\n  Layer 1: base image (pulled once, shared by many images)\n  Writable: ephemeral — gone when container stops (unless you mount a volume)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "# Default command to run when container starts",
+      "confidence": "candidate",
+      "text": "IIS binding model                  Container port model\n=================                  ====================\n\nIIS binds to port 80/443           App binds inside its isolated\ndirectly on the host NIC.          network namespace (not the host).\nAll apps share the host's\nnetwork stack, differentiated      EXPOSE 3000 = documentation only.\nby port or host header.            It does NOT publish the port.\n\n                                   -p 8080:3000 does the mapping:\n                                   host port 8080 → container port 3000\n\n  browser → host:80                browser → host:8080\n  IIS routes by host header          Docker maps to container port 3000\n                                       app responds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 466,
+      "heading_context": "### Compose vs Kubernetes — Scope Boundary",
+      "confidence": "candidate",
+      "text": "Docker Compose                     Kubernetes\n==============                     ==========\n\n┌──────────────────────────┐       ┌──────────────────────────────────────┐\n│  SINGLE HOST             │       │  CLUSTER (many hosts)                │\n│                          │       │                                      │\n│  What Compose handles:   │       │  What K8s handles:                   │\n│  - Multi-container apps  │       │  - Scheduling across nodes           │\n│  - Bridge networking     │       │  - Cross-host networking             │\n│  - Named volumes         │       │  - Health checks + auto-restart      │\n│  - Environment variables │       │  - Rolling deploys                   │\n│  - Service dependencies  │       │  - Horizontal autoscaling            │\n│  - Port publishing       │       │  - Persistent volume provisioning    │\n│                          │       │  - Secrets management                │\n│  Who uses it:            │       │  - Resource quotas per container     │\n│  Developer, locally      │       │                                      │\n│  CI for integration tests│       │  Who uses it:                        │\n│                          │       │  Production, staging                 │\n│  restart: unless-stopped │       │  Multi-replica, multi-service        │\n│  = manual restart policy │       │                                      │\n│  No rolling updates      │       │  readinessProbe + rolling update     │\n│  No health-based routing │       │  = zero-downtime deploys             │\n└──────────────────────────┘       └──────────────────────────────────────┘\n\n  Compose is not a stepping stone to K8s — it's a different tool for\n  a different scope. Use Compose to run your full local stack.\n  Use K8s (or ACA) for production.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 630,
+      "heading_context": "## Registries",
+      "confidence": "candidate",
+      "text": "Registry           Hosted By       Use Case\n────────────────────────────────────────────────────────\nDocker Hub         Docker          Public images, official base images\nGHCR               GitHub          Private images tied to GitHub repos\nACR                Azure           Azure-native, integrates with AKS/ACA\nECR                AWS             AWS-native, integrates with ECS/EKS\nGAR                GCP             GCP-native\nSelf-hosted        You             Air-gapped, on-prem (Harbor, Nexus)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 642,
+      "heading_context": "## Registries",
+      "confidence": "candidate",
+      "text": "registry/organization/image:tag\n────────────────────────────────────────────────────────\nnginx                              → Docker Hub official image\nusername/myapp:1.2.3               → Docker Hub user image\nghcr.io/org/myapp:latest           → GHCR\nmyregistry.azurecr.io/myapp:v1.0   → ACR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 668,
+      "heading_context": "#                       service name, not localhost",
+      "confidence": "candidate",
+      "text": "External request                   Internal traffic\n================                   ================\n\n  Browser → localhost:3000           api → postgres:5432\n                 ↓                   (resolved by Docker's internal DNS)\n  Host port 3000\n                 ↓\n  Container port 3000 (api service)\n\nports: [\"3000:3000\"] exposes        No ports: needed for internal-only",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 683,
+      "heading_context": "#                       service name, not localhost",
+      "confidence": "candidate",
+      "text": "IIS model                          Docker model\n=========                          ============\n\nAll apps share the host's          Each container has an isolated\nnetwork stack. Differentiated      network namespace (virtual NIC).\nby port or host header.\n                                   Inter-container traffic goes through\nARR (App Request Routing)          a virtual bridge network. Docker's\nterminates at the host NIC         embedded DNS resolves service names\nand routes by URL/host.            to container IPs automatically.\n\n  internet → host NIC               internet → host NIC\n  → IIS (port 80/443)               → host port (via -p mapping)\n  → ARR routes by host header       → container's virtual NIC\n  → App Pool A or B                 → app process inside container",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

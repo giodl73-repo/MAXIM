@@ -1,0 +1,215 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\20-AZURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Azure at a Glance — Service Categories\n========================================\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  COMPUTE          CONTAINERS        SERVERLESS                       │\n  │  Virtual Machines AKS               Functions                        │\n  │  VM Scale Sets    Container Apps    Logic Apps                       │\n  │  App Service      Container Inst.   Event Grid                       │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  STORAGE          DATABASES         MESSAGING                        │\n  │  Blob Storage     Azure SQL         Service Bus                      │\n  │  Files            Cosmos DB         Event Hubs                       │\n  │  Disks            PostgreSQL        Storage Queues                   │\n  │  Data Lake        Redis Cache       Event Grid                       │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  NETWORKING       SECURITY          IDENTITY                         │\n  │  VNet             Key Vault         Entra ID (AAD)                   │\n  │  Load Balancer    Defender          Managed Identity                 │\n  │  App Gateway      DDoS Protection   RBAC                             │\n  │  Front Door       Firewall          Conditional Access               │\n  │  DNS              Sentinel                                           │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  DEVOPS           MONITORING        AI & ML                          │\n  │  Azure DevOps     Monitor           OpenAI Service                   │\n  │  Container Reg.   App Insights      AI Search                        │\n  │  Bicep / ARM      Log Analytics     ML Studio                        │\n  │  Chaos Studio     Workbooks         AI Foundry                       │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "How Services Nest in Practice\n================================\n\n  Internet → Front Door (global CDN + WAF)\n               ↓\n           App Gateway (regional LB + WAF)\n               ↓\n           AKS / App Service / Container Apps\n               ↓\n       ┌───────┴────────┐\n   Azure SQL          Cosmos DB\n   PostgreSQL         Redis Cache\n       └────────────────┘\n               ↓\n           Key Vault   (secrets, certs)\n           Entra ID    (auth/authz)\n           Service Bus (async messaging)\n               ↓\n           Monitor + App Insights + Log Analytics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### App Service",
+      "confidence": "candidate",
+      "text": "App Service Hierarchy\n======================\n\n  App Service Plan (the VM underneath)\n  ├── Web App 1 (your Node.js API)\n  ├── Web App 2 (your React SSR app)\n  └── Function App (shares the plan)\n\n  Plan SKUs:\n    F1 / B1    Free / Basic — dev/test only\n    S1-S3      Standard — production, autoscale, slots\n    P1v3-P3v3  Premium v3 — better perf, VNet integration\n    I1v2-I3v2  Isolated — dedicated infra (compliance)\n\n  Deployment Slots:\n    Production slot  (live traffic)\n    Staging slot     (deploy here, test, then swap)\n    Swap = instant traffic cut-over + rollback capability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "### Azure Kubernetes Service (AKS)",
+      "confidence": "candidate",
+      "text": "AKS Key Integrations\n=====================\n\n  ACR pull          Attach registry → nodes pull private images automatically\n  Managed Identity  Workload Identity → pods get Azure RBAC, no stored secrets\n  Azure Monitor     Container Insights → node/pod metrics + logs auto-collected\n  AGIC              Application Gateway as K8s Ingress Controller\n  Azure CNI         VNet-native pod IPs (pods are first-class VNet citizens)\n  AAD integration   K8s RBAC tied to Entra ID groups\n  Node pools        Mix CPU/GPU/spot VMs in one cluster\n  Virtual Nodes     Serverless burst capacity via ACI",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "### Azure Functions",
+      "confidence": "candidate",
+      "text": "Trigger Types\n==============\n\n  HTTP trigger         → REST API endpoint\n  Timer trigger        → cron job (0 */5 * * * * = every 5 min)\n  Queue trigger        → process Service Bus / Storage Queue messages\n  Event Hub trigger    → process Kafka-compatible stream\n  Blob trigger         → react to file upload\n  Cosmos DB trigger    → react to DB change feed\n  SignalR              → push real-time to browser clients",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "### Azure Functions",
+      "confidence": "candidate",
+      "text": "// HTTP trigger (Node.js)\nimport { app, HttpRequest, HttpResponseInit, InvocationContext } from \"@azure/functions\";\n\napp.http(\"getOrder\", {\n  methods: [\"GET\"],\n  authLevel: \"anonymous\",\n  route: \"orders/{id}\",\n  handler: async (req: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> => {\n    const id = req.params.id;\n    const order = await db.orders.findById(id);\n    if (!order) return { status: 404, jsonBody: { error: \"not found\" } };\n    return { jsonBody: order };\n  },\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 372,
+      "heading_context": "### Blob Storage",
+      "confidence": "candidate",
+      "text": "Blob Storage Tiers\n===================\n\n  Hot     Frequently accessed. Higher storage cost, low access cost.\n  Cool    Infrequently accessed (30+ days). Lower storage cost.\n  Cold    Rarely accessed (90+ days). Very low storage cost.    ← added ~2023\n  Archive Rarely accessed (180+ days). Lowest cost. Hours to rehydrate.\n\n  Lifecycle policies: auto-tier blobs as they age\n  → uploaded as Hot, auto-moves to Cool after 30 days, Archive after 180\n\nStorage Account → Container → Blob\n\n  Container = folder (flat, no real hierarchy — / in name is cosmetic)\n  Blob types:\n    Block blob   — files (most common: images, videos, documents)\n    Append blob  — log files (append-only, efficient)\n    Page blob    — VHD files (VM disks)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 554,
+      "heading_context": "### Cosmos DB",
+      "confidence": "candidate",
+      "text": "Partitioning\n=============\n\n  Every container has a partition key (e.g., /customerId)\n  All items with the same partition key → same logical partition\n  Logical partitions → physical partitions (transparent)\n\n  Hot partition = one customer generates 90% of traffic\n                = performance cliff, hard to fix after design\n  Good partition key: high cardinality, even distribution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 597,
+      "heading_context": "### Azure Service Bus",
+      "confidence": "candidate",
+      "text": "Queue vs Topic\n===============\n\n  Queue                              Topic + Subscriptions\n  ═════                              ════════════════════\n  One sender → one receiver          One sender → many receivers\n  Competing consumers                Each subscription gets all messages\n  Work distribution                  Fan-out / pub-sub\n\n  Service Bus Queue    →   Dead-letter queue (failed messages)\n                       →   Scheduled messages (deliver at time)\n                       →   Message sessions (ordered processing)\n                       →   Transactions (atomic send/receive)\n\n  vs Azure Storage Queue:\n    Storage Queue: simple, cheap, 64KB msg limit, 7-day TTL\n    Service Bus:   enterprise, 256KB-100MB, long TTL, ordering, DLQ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 643,
+      "heading_context": "### Azure Event Grid",
+      "confidence": "candidate",
+      "text": "Event Grid\n===========\n\n  Sources:                           Handlers:\n  ════════                           ════════\n  Azure Blob (file uploaded)    →    Azure Functions\n  Azure SQL (record changed)    →    Logic Apps\n  Container Registry (image)    →    Event Hubs\n  Custom topics (your events)   →    Service Bus\n  Azure subscription events     →    Webhooks\n\n  Push model (not pull like Service Bus/Event Hubs)\n  Near real-time (<1s latency)\n  Good for: triggering reactions to events across Azure services\n  Not for: high-throughput streams or guaranteed-once processing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 669,
+      "heading_context": "### Virtual Network (VNet)",
+      "confidence": "candidate",
+      "text": "VNet Concepts\n==============\n\n  VNet: 10.0.0.0/16 (your CIDR block)\n  ├── Subnet: 10.0.1.0/24  (web tier)\n  ├── Subnet: 10.0.2.0/24  (app tier)\n  └── Subnet: 10.0.3.0/24  (data tier)\n\n  NSG (Network Security Group): firewall rules on subnet/NIC\n    Inbound: allow port 443 from internet, deny everything else\n    Outbound: allow port 5432 to DB subnet only\n\n  VNet Peering: connect two VNets (same or different regions)\n  VPN Gateway: connect on-premises network to Azure VNet\n  ExpressRoute: dedicated private circuit to Azure (not over internet)\n  Private Endpoint: bring an Azure service (Blob, SQL) into your VNet\n                    → service gets a private IP in your subnet\n                    → traffic never leaves Microsoft network",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 706,
+      "heading_context": "### Key Vault",
+      "confidence": "candidate",
+      "text": "Key Vault stores:\n  Secrets      → connection strings, API keys, passwords\n  Keys         → RSA/EC keys for encryption (HSM-backed option)\n  Certificates → TLS certs, auto-renewal via DigiCert/Let's Encrypt\n\nAccess pattern (the right way):\n  App has Managed Identity\n    → assigned Key Vault Secrets User role\n    → fetches secret at startup\n    → no secret in code, config, or environment variable\n\n  az keyvault secret show --vault-name myVault --name DatabaseUrl",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 779,
+      "heading_context": "### Entra ID (formerly Azure Active Directory)",
+      "confidence": "candidate",
+      "text": "Key Concepts\n=============\n\n  Tenant         Your organization's Entra directory\n  App Reg.       Register an app to get client_id + configure permissions\n  Service Princ. The identity a registered app gets in a tenant\n  Managed Id.    Auto-managed service principal for Azure resources\n  RBAC           Role assignments: who can do what on which resource\n  Conditional    MFA, location, device compliance requirements on sign-in\n  Access\n\n  OAuth2 / OIDC flows (see 10-AUTH.md):\n    Auth Code + PKCE → SPA / mobile\n    Client Credentials → service-to-service (no user)\n    On-Behalf-Of → API calling downstream API on user's behalf",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 819,
+      "heading_context": "# Builds in the cloud, no Docker daemon needed locally",
+      "confidence": "candidate",
+      "text": "### Azure Monitor (recap from 15-OBSERVABILITY.md)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 821,
+      "heading_context": "### Azure Monitor (recap from 15-OBSERVABILITY.md)",
+      "confidence": "candidate",
+      "text": "Monitor Stack\n==============\n\n  Data sources → Log Analytics Workspace → Grafana / Workbooks / Alerts\n\n  Application Insights   APM: requests, dependencies, exceptions, traces\n  Container Insights     AKS pod/node metrics + stdout logs\n  VM Insights            VM performance + dependencies map\n  Azure Monitor Metrics  Platform metrics (built-in, 93-day retention)\n  Azure Monitor Logs     Log Analytics: KQL query against all log sources\n  Alerts                 Metric/log/activity alerts → Action Groups\n  Action Groups          Email, SMS, webhook, ITSM, PagerDuty, Logic App",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 863,
+      "heading_context": "### Azure DevOps",
+      "confidence": "candidate",
+      "text": "GitHub vs ADO — when to use which\n====================================\n\n  GitHub Actions                     Azure Pipelines (YAML)\n  ══════════════                     ══════════════════════\n  Simpler syntax                     More mature enterprise features\n  Marketplace: 20k+ actions          Templates + task library\n  Free for public repos              Better compliance audit trails\n  Copilot integration                Test Plans integration\n  Better for: OSS, greenfield,       Better for: regulated industries,\n  developer-centric teams            large enterprises, ADO Boards users\n\n  Both → GitHub for code + ADO Boards for work tracking is a common\n  and well-supported hybrid pattern.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 888,
+      "heading_context": "### Azure OpenAI Service",
+      "confidence": "candidate",
+      "text": "Azure OpenAI vs OpenAI API\n===========================\n\n  Azure OpenAI                       OpenAI API\n  ════════════                       ══════════\n  Data stays in your Azure region    Data processed by OpenAI\n  Private endpoint (no public net)   Public API\n  Azure RBAC + Entra auth            API key auth only\n  Content filtering configurable     Content filtering configurable\n  Enterprise SLA + support           Consumer SLA\n  Same models (GPT-4o, etc.)         Same models\n\n  For enterprise / regulated → Azure OpenAI\n  For prototyping / personal → OpenAI API directly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 931,
+      "heading_context": "### Azure AI Search",
+      "confidence": "candidate",
+      "text": "AI Search Capabilities\n=======================\n\n  Full-text search    BM25 ranking, linguistic analysis, faceting\n  Vector search       Embed + search by semantic similarity\n  Hybrid search       Combine keyword + vector (RRF fusion) — best accuracy\n  Semantic ranking    LLM reranking of top results\n  Integrated vectorization  Auto-embed on document ingestion (AOAI embeddings)\n  Skillsets           Cognitive enrichment pipeline: OCR, entity extraction, etc.\n\n  Typical RAG pattern on Azure:\n    Documents → Blob Storage\n             → AI Search indexer (chunking + embedding)\n             → Index (vectors + text)\n    Query → Embed query → Hybrid search → Top K chunks\n          → AOAI GPT-4o → Grounded response",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 954,
+      "heading_context": "## Pricing Mental Models",
+      "confidence": "candidate",
+      "text": "Key concepts that affect every bill\n=====================================\n\n  Reserved Instances    Commit 1 or 3 years → up to 72% off vs pay-as-you-go\n                        Worth it for steady-state production workloads.\n                        VM-SKU specific commitment.\n\n  Azure Savings Plans   Commit to $/hour spend (not a specific SKU).\n  (2022)                Applies across compute types (VMs, ACI, Functions).\n                        More flexible than Reserved Instances.\n                        Lower discount ceiling (~65%) vs RIs (~72%) for VMs.\n                        Right tool when your compute mix varies.\n\n  Spot VMs              Unused capacity at 60–90% discount.\n                        Can be evicted with 30s notice.\n                        Good for: batch jobs, dev/test, stateless workers.\n\n  Azure Hybrid Benefit  Bring existing Windows Server / SQL Server licenses.\n                        Can halve the compute cost of SQL databases.\n\n  Dev/Test pricing      MSDN / Visual Studio subscribers get significantly\n                        discounted rates on most compute.\n                        Not for production — check the terms.\n\n  Egress costs          Data leaving Azure costs money.\n                        Data between regions: costs money.\n                        Data between VNet resources same region: free.\n                        CDN (Front Door) reduces egress by caching at edge.\n\n  Cost Management       Always set a budget alert.\n                        Tag resources with environment/team/project.\n                        Azure Advisor gives cost recommendations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

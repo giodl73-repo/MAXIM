@@ -1,0 +1,235 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\09-DATABASE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 841,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        "ADO.NET / Entity Framework / SQL Server",
+        "Node.js / Prisma / PostgreSQL",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`SqlConnection` / `SqlCommand`",
+          "`pg` client / Prisma `$queryRaw`",
+          "Raw DB access"
+        ],
+        [
+          "`DbContext`",
+          "`PrismaClient`",
+          "The connection + query entry point"
+        ],
+        [
+          "`DbSet<User>`",
+          "`prisma.user`",
+          "Table access object"
+        ],
+        [
+          "`.Add()` / `SaveChanges()`",
+          "`prisma.user.create()`",
+          "Insert"
+        ],
+        [
+          "`.Where()`",
+          "`where: { ... }`",
+          "Filter"
+        ],
+        [
+          "`.Include()`",
+          "`include: { ... }`",
+          "Eager load related data"
+        ],
+        [
+          "`.Select()`",
+          "`select: { ... }`",
+          "Project fields"
+        ],
+        [
+          "`.FirstOrDefault()`",
+          "`findFirst()`",
+          "Single record or null"
+        ],
+        [
+          "`.FindAsync(id)`",
+          "`findUnique({ where: { id } })`",
+          "By PK"
+        ],
+        [
+          "`.AsNoTracking()`",
+          "Default in Prisma (no tracking)",
+          "Prisma has no change tracking"
+        ],
+        [
+          "Code-first migrations",
+          "`prisma migrate dev`",
+          "Schema → SQL migration"
+        ],
+        [
+          "`dotnet ef migrations add`",
+          "`prisma migrate dev --name`",
+          "Create migration"
+        ],
+        [
+          "`dotnet ef database update`",
+          "`prisma migrate deploy`",
+          "Apply migrations"
+        ],
+        [
+          "Scaffold from existing DB",
+          "`prisma db pull`",
+          "Generates schema from DB"
+        ],
+        [
+          "LINQ aggregate `.Sum()`",
+          "`prisma.x.aggregate({ _sum: {...} })`",
+          ""
+        ],
+        [
+          "`GROUP BY` / `.GroupBy()`",
+          "`prisma.x.groupBy({ by: [...] })`",
+          ""
+        ],
+        [
+          "SQL Server IDENTITY",
+          "`@id @default(autoincrement())`",
+          ""
+        ],
+        [
+          "`NEWID()` (SQL Server UUID)",
+          "`@default(uuid())` or `gen_random_uuid()`",
+          ""
+        ],
+        [
+          "`GETUTCDATE()`",
+          "`@default(now())`",
+          ""
+        ],
+        [
+          "Connection string in config",
+          "`DATABASE_URL` env var",
+          ""
+        ],
+        [
+          "SSMS",
+          "TablePlus, pgAdmin, Prisma Studio",
+          "GUI clients"
+        ],
+        [
+          "`NVARCHAR(MAX)`",
+          "`TEXT`",
+          "PG TEXT is unlimited, always UTF-8"
+        ],
+        [
+          "`BIT`",
+          "`BOOLEAN`",
+          ""
+        ],
+        [
+          "`MONEY` / `DECIMAL`",
+          "`NUMERIC(p,s)` / Prisma `Decimal`",
+          "Never use FLOAT for currency"
+        ],
+        [
+          "Stored procedures",
+          "Mostly avoided; raw SQL if needed",
+          "ORMs prefer application-side logic"
+        ],
+        [
+          "SQL Server Agent jobs",
+          "pg_cron / BullMQ / cron jobs",
+          "Scheduled tasks"
+        ],
+        [
+          "Always On / replication",
+          "Managed service handles this",
+          "Supabase/Neon/RDS manage HA"
+        ],
+        [
+          "`IMemoryCache`",
+          "Redis (in-process → distributed)",
+          "`IMemoryCache` is single-server only"
+        ],
+        [
+          "`IDistributedCache` + `StackExchange.Redis`",
+          "`redis` npm package (`createClient`)",
+          "The .NET Redis client; same concept"
+        ],
+        [
+          "Azure Cache for Redis",
+          "Upstash / Redis Cloud",
+          "Managed Redis; same product, different cloud"
+        ],
+        [
+          "`SqlConnection` pool (auto, transparent)",
+          "PrismaClient pool (auto for servers, footgun in serverless)",
+          "See Connection Pooling section"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 885,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "New relational database",
+          "Choose PostgreSQL after checking relational shape, transactions, hosting, extensions, and team skill.",
+          "Postgres is a strong default, not proof every problem is relational."
+        ],
+        [
+          "ORM fit",
+          "Compare Prisma, Drizzle, SQL control, migrations, type generation, edge runtime, and query complexity.",
+          "ORMs simplify common paths and obscure some performance paths."
+        ],
+        [
+          "Complex SQL need",
+          "Inspect joins, indexes, execution plan, raw SQL escape hatch, and maintainability.",
+          "Raw SQL is power; it also bypasses some ORM safety rails."
+        ],
+        [
+          "Schema evolution",
+          "Use migrations, review generated SQL, data backfills, rollback plan, and deploy ordering.",
+          "Schema versioning is production choreography."
+        ],
+        [
+          "Managed Postgres choice",
+          "Compare Azure, Neon, Supabase, backups, pooling, extensions, region, and operational responsibility.",
+          "Serverless-friendly does not mean connection-free or latency-free."
+        ],
+        [
+          "Cache or session store",
+          "Use Redis with explicit TTLs, invalidation, persistence choice, and failure behavior.",
+          "Cache correctness is an application invariant."
+        ],
+        [
+          "Jobs and rate limiting",
+          "Check queue durability, retries, idempotency, Redis commands, and abuse model.",
+          "Queues and counters need operational monitoring."
+        ],
+        [
+          "Flexible document fields",
+          "Use Postgres JSONB with constraints, indexes, and query patterns.",
+          "JSONB can become an ungoverned schema hidden inside a relational table."
+        ],
+        [
+          "Search, graph, or time-series",
+          "Compare specialized stores/extensions, source of truth, sync path, and query complexity.",
+          "Extra databases add consistency and operations cost."
+        ],
+        [
+          "Local/dev database",
+          "Use SQLite only when concurrency, SQL dialect, and production parity are acceptable.",
+          "Zero setup can hide production differences."
+        ]
+      ]
+    }
+  ]
+}

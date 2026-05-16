@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:backend-apis
+kind: guide
+module: computing-software
+section: computing-software
+title: Backend APIs - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: computing/08-BACKEND.md
+canonical_path: computing/08-BACKEND.md
+backsource_ids: [proof-backfill:computing-software:08-backend-apis, git-history:computing-software:08-backend-apis]
+concepts: [backend APIs, REST, GraphQL, RPC, controllers, services]
+root_concepts: [backend APIs, API design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Backend APIs — A Layered Guide
 
 ## The Big Picture

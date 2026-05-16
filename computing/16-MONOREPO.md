@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:monorepos
+kind: guide
+module: computing-software
+section: computing-software
+title: Monorepos
+status: source-custody
+source_custody: partial
+current_path: computing/16-MONOREPO.md
+canonical_path: computing/16-MONOREPO.md
+backsource_ids: [proof-backfill:computing-software:16-monorepos, git-history:computing-software:16-monorepos]
+concepts: [monorepos, workspaces, build graph, nx, turborepo]
+root_concepts: [monorepos, workspace architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 16 — Monorepos
 
 ## The Big Picture

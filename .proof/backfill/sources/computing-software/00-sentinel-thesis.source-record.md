@@ -4,21 +4,21 @@ id: proof-backfill:computing-software:00-sentinel-thesis
 kind: source-record
 module: computing-software
 section: computing-software
-title: The Sentinel source record
+title: The Sentinel - Volume Thesis source record
 status: source-custody
 source_custody: partial
 current_path: .proof/backfill/sources/computing-software/00-sentinel-thesis.source-record.md
 canonical_path: .proof/backfill/sources/computing-software/00-sentinel-thesis.source-record.md
 backsource_ids: [git-history:computing-software:00-sentinel-thesis]
-concepts: [distributed systems, security engineering, cloud architecture]
-root_concepts: []
+concepts: [distributed systems, security engineering, cloud architecture, consensus, zero trust]
+root_concepts: [sentinel principle]
 index_roles: [source-map]
 remap_from: []
 remap_to: []
 updated: null
 ---
 
-# The Sentinel source record
+# The Sentinel - Volume Thesis source record
 
 | Field | Value |
 |---|---|
@@ -31,7 +31,7 @@ updated: null
 | PROOF confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `7` markdown tables, `17` visual/block candidates |
-| Git provenance | `3ccf5718ad0562cf672efab9bdca1dcf2dac7c6f`, `3579f4388e0c67bc59351235c76c526ee9b9e9eb`, `13a1513a44fb7bfa945004302cb8d6cfc2b41ca8`, `c3d7a74025eae5406a14e49427c35359eb9a5341`, `ab7e7c6b3ae150c2b0b17bc73ced4ad4550f604c`, `29204ca00c85d5f3c428bf59d150376b9c6b04af` |
+| Git provenance | `5644a5a`, `29204ca`, `ab7e7c6`, `c3d7a74`, `13a1513`, `3579f43`, `3ccf571` |
 
 ## Custody note
 

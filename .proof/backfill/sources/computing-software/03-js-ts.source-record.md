@@ -4,13 +4,13 @@ id: proof-backfill:computing-software:03-js-ts
 kind: source-record
 module: computing-software
 section: computing-software
-title: JavaScript and TypeScript source record
+title: JavaScript & TypeScript - A Layered Guide source record
 status: source-custody
 source_custody: partial
 current_path: .proof/backfill/sources/computing-software/03-js-ts.source-record.md
 canonical_path: .proof/backfill/sources/computing-software/03-js-ts.source-record.md
 backsource_ids: [git-history:computing-software:03-js-ts]
-concepts: [javascript, typescript, module systems, commonjs, esm, tsconfig]
+concepts: [javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]
 root_concepts: [javascript, typescript]
 index_roles: [source-map]
 remap_from: []
@@ -18,7 +18,7 @@ remap_to: []
 updated: null
 ---
 
-# JavaScript and TypeScript source record
+# JavaScript & TypeScript - A Layered Guide source record
 
 | Field | Value |
 |---|---|
@@ -31,7 +31,7 @@ updated: null
 | PROOF confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `3` markdown tables, `12` visual/block candidates |
-| Git provenance | `578235d`, `29204ca`, `a03b8dc`, `e15c615`, `c3d7a74`, `3579f43`, `79bf178`, `e704f0b` |
+| Git provenance | `d88031c`, `578235d`, `29204ca`, `a03b8dc`, `e15c615`, `c3d7a74`, `3579f43`, `79bf178`, `e704f0b`, `1b27cd0` |
 
 ## Custody note
 

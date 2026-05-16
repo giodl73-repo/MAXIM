@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:distributed-systems
+kind: guide
+module: computing-software
+section: computing-software
+title: Distributed Systems - Engineering Reference
+status: source-custody
+source_custody: partial
+current_path: computing/27-DISTRIBUTED-SYSTEMS.md
+canonical_path: computing/27-DISTRIBUTED-SYSTEMS.md
+backsource_ids: [proof-backfill:computing-software:27-distributed-systems, git-history:computing-software:27-distributed-systems]
+concepts: [distributed systems, consensus, replication, partitioning, availability]
+root_concepts: [distributed systems, consensus]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Distributed Systems — Engineering Reference
 
 ## The Big Picture

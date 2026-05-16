@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:azure-services-map
+kind: guide
+module: computing-software
+section: computing-software
+title: Azure Services Map
+status: source-custody
+source_custody: partial
+current_path: computing/20-AZURE.md
+canonical_path: computing/20-AZURE.md
+backsource_ids: [proof-backfill:computing-software:20-azure-services-map, git-history:computing-software:20-azure-services-map]
+concepts: [azure, cloud services, compute, storage, identity, networking]
+root_concepts: [azure, cloud services]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20 — Azure Services Map
 
 ## The Big Picture

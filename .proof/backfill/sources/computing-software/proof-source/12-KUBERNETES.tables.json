@@ -1,0 +1,287 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\12-KUBERNETES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 130,
+      "heading_context": "## The Big Picture",
+      "headers": [
+        "Azure Service Fabric Concept",
+        "Kubernetes Equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "SF Cluster",
+          "K8s Cluster",
+          "SF cluster = VMs + SF runtime; K8s cluster = nodes + control plane"
+        ],
+        [
+          "SF Application",
+          "K8s Namespace",
+          "Scoping/isolation boundary for a set of services"
+        ],
+        [
+          "SF Service (stateless)",
+          "K8s Deployment + Service",
+          "Deployment manages replicas; Service provides stable endpoint"
+        ],
+        [
+          "SF Service (stateful, partitioned)",
+          "K8s StatefulSet",
+          "StatefulSet gives pods stable identity + ordered startup/shutdown"
+        ],
+        [
+          "SF Partition (named/ranged)",
+          "K8s StatefulSet replica index",
+          "No native partition routing in K8s — app-layer concern"
+        ],
+        [
+          "SF Reliable Collections",
+          "K8s PersistentVolumeClaim + StatefulSet",
+          "K8s externalizes state to volumes; no in-process distributed state store"
+        ],
+        [
+          "SF Health Model (primary/secondary)",
+          "readinessProbe + livenessProbe",
+          "readiness = traffic gate; liveness = restart trigger"
+        ],
+        [
+          "SF Upgrade Domain",
+          "rolling update `maxUnavailable` / `maxSurge`",
+          "Same concept — limit blast radius of a rolling deploy"
+        ],
+        [
+          "SF Service Manifest (replicas, resources)",
+          "Deployment spec (replicas, resources)",
+          "Direct structural equivalent"
+        ],
+        [
+          "SF Application Manifest",
+          "Namespace + Helm chart",
+          "Helm packages the set of K8s manifests for an application"
+        ],
+        [
+          "SF named endpoints",
+          "K8s Service (ClusterIP + DNS)",
+          "`api.production.svc.cluster.local` vs SF naming service"
+        ],
+        [
+          "SF placement constraints",
+          "K8s node affinity / taints+tolerations",
+          "Control which nodes a workload lands on"
+        ],
+        [
+          "SF reverse proxy (built-in)",
+          "Ingress controller (nginx, AGIC)",
+          "K8s has no built-in reverse proxy — you install one"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 603,
+      "heading_context": "## Managed Kubernetes (AKS, EKS, GKE)",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Full K8s control, custom ingress, existing K8s manifests",
+          "AKS"
+        ],
+        [
+          "Container hosting with minimal ops, App Service simplicity",
+          "Azure Container Apps"
+        ],
+        [
+          "Scale to zero (no traffic = no cost)",
+          "Azure Container Apps (KEDA built-in)"
+        ],
+        [
+          "Migrate from Azure App Service to containers",
+          "Azure Container Apps (closest model)"
+        ],
+        [
+          "Keep using SF reliable services / reliable collections",
+          "SF Managed Cluster (migration to K8s is a bigger lift)"
+        ],
+        [
+          "Multi-region, blue/green at cluster level",
+          "AKS with Traffic Manager"
+        ],
+        [
+          "HTTP API, event-driven, microservices with Dapr",
+          "Azure Container Apps"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 692,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "Azure / Windows / VSTS Concept",
+        "Kubernetes Equivalent"
+      ],
+      "rows": [
+        [
+          "Azure Service Fabric Cluster",
+          "K8s Cluster"
+        ],
+        [
+          "SF Application",
+          "K8s Namespace"
+        ],
+        [
+          "SF Stateless Service",
+          "K8s Deployment + Service"
+        ],
+        [
+          "SF Stateful Service (partitioned)",
+          "K8s StatefulSet"
+        ],
+        [
+          "SF Reliable Collections",
+          "External state: PVC + database (no in-process equivalent)"
+        ],
+        [
+          "SF Health Model (primary/secondary replicas)",
+          "readinessProbe + livenessProbe"
+        ],
+        [
+          "SF Upgrade Domains",
+          "Rolling update `maxUnavailable` / `maxSurge`"
+        ],
+        [
+          "SF Named Endpoints / naming service",
+          "K8s Service (ClusterIP + DNS)"
+        ],
+        [
+          "SF Placement Constraints",
+          "Node affinity / taints + tolerations"
+        ],
+        [
+          "Azure App Service Plan (scale units)",
+          "Node Pool"
+        ],
+        [
+          "Azure App Service (web app)",
+          "Deployment + Service"
+        ],
+        [
+          "Deployment slot (staging)",
+          "Separate namespace or separate Deployment"
+        ],
+        [
+          "App Service autoscale rules",
+          "HorizontalPodAutoscaler (HPA)"
+        ],
+        [
+          "Azure Load Balancer",
+          "Service (type: LoadBalancer)"
+        ],
+        [
+          "Application Gateway + URL routing",
+          "Ingress + Ingress Controller"
+        ],
+        [
+          "IIS ARR routing rules",
+          "Ingress path rules"
+        ],
+        [
+          "SSL termination at ARR/App Gateway",
+          "TLS termination at Ingress"
+        ],
+        [
+          "web.config / App Settings",
+          "ConfigMap + Secret + envFrom"
+        ],
+        [
+          "Azure Key Vault",
+          "K8s Secret + CSI driver → Azure Key Vault"
+        ],
+        [
+          "Azure Container Registry",
+          "Image registry (pull in pod spec)"
+        ],
+        [
+          "Azure Monitor / App Insights",
+          "Prometheus + Grafana + OpenTelemetry (15-OBSERVABILITY)"
+        ],
+        [
+          "VSTS Release Pipeline stages",
+          "kubectl apply in CI/CD pipeline (13-CICD)"
+        ],
+        [
+          "Blue/green deployment",
+          "Two Deployments + Service selector switch"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 728,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Scaled stateless workload",
+          "Use Deployment, replica count, readiness/liveness probes, resource requests, and rollout strategy.",
+          "Kubernetes restarts containers; it does not fix broken app semantics."
+        ],
+        [
+          "Internal or external exposure",
+          "Compare ClusterIP, LoadBalancer, Ingress, DNS, TLS, and network policy.",
+          "Service discovery and internet ingress are different concerns."
+        ],
+        [
+          "URL/path routing",
+          "Use Ingress/controller choice, host/path rules, TLS termination, and backend health.",
+          "Ingress behavior depends heavily on the controller."
+        ],
+        [
+          "Config and secrets",
+          "Separate ConfigMap, Secret, external secret store, rotation, and RBAC.",
+          "Kubernetes Secret is base64 by default; use Key Vault or encryption in production."
+        ],
+        [
+          "Stateful workload",
+          "Use PVC, StatefulSet, storage class, backup, identity, and failure recovery.",
+          "Running databases on Kubernetes adds operational burden."
+        ],
+        [
+          "Autoscaling",
+          "Check HPA metric, resource requests, startup time, queue depth, and scale limits.",
+          "CPU autoscaling can miss IO-bound or queue-backed services."
+        ],
+        [
+          "Safe rollout or rollback",
+          "Inspect Deployment strategy, readiness gates, image tags, rollout history, and migration compatibility.",
+          "Rollback cannot undo incompatible database migrations."
+        ],
+        [
+          "Manifest packaging",
+          "Use Helm/Kustomize/GitOps based on templating, environment overlays, and release ownership.",
+          "Packaging tools can obscure the actual Kubernetes objects."
+        ],
+        [
+          "Cluster tenancy",
+          "Use namespaces, RBAC, quotas, network policy, and cost labels.",
+          "Namespaces are isolation boundaries, not security sandboxes by themselves."
+        ],
+        [
+          "Platform choice",
+          "Compare AKS/EKS/GKE, ACA, Fargate/virtual nodes, operational team, and stateful-service needs.",
+          "If you want App Service simplicity, Kubernetes may be the wrong layer."
+        ]
+      ]
+    }
+  ]
+}

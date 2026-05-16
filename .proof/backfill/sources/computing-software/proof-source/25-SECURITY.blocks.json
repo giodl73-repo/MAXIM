@@ -1,0 +1,479 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\25-SECURITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 23,
+      "heading_context": "# Security & Cryptography — A Layered Reference",
+      "confidence": "candidate",
+      "text": "> **High-value sections**: [AES-GCM vs ChaCha20 decision](#aesgcm-vs-chacha20-poly1305-decision) · [Post-Quantum Cryptography](#15-post-quantum-cryptography) · [RSA padding attacks](#asymmetric-cryptography-rsa) · [Modern injection vectors](#a03-injection) · [Zero Trust architecture](#6-zero-trust-architecture) · [Supply chain security](#7-supply-chain-security)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────┐\n│  SECURITY DOMAINS                                                       │\n│                                                                         │\n│  Cryptography          Identity & Access        Network Security        │\n│  ──────────────────    ──────────────────────   ──────────────────      │\n│  Symmetric enc         AuthN / AuthZ            TLS 1.3 / mTLS          │\n│  Asymmetric (EC/RSA)   OAuth2 / OIDC            Firewalls / NSG         │\n│  Hashing / MAC         Zero-trust model         VPN / Private Link      │\n│  KDFs (Argon2id)       Secrets management       DDoS mitigation         │\n│  Key management        PIM / JIT access                                 │\n│                                                                         │\n│  Application Security  Supply Chain             Threat Modeling         │\n│  ──────────────────    ─────────────────────    ──────────────────      │\n│  OWASP Top 10          SBOM (CycloneDX/SPDX)   STRIDE                   │\n│  Input validation      SLSA provenance levels   Attack trees            │\n│  Injection → SQLi      Sigstore / Cosign        Data flow diagrams      │\n│  SSRF / XXE / SSTI     Dependency scanning      PASTA model             │\n│  Security headers      Secret scanning                                  │\n│                                                                         │\n│  Container & Cloud Security                                             │\n│  ─────────────────────────────────────────────────────────────────      │\n│  Image scanning        IAM least privilege      Managed Identity        │\n│  Non-root containers   RBAC scoping             Seccomp / AppArmor      │\n│  Distroless images     Conditional Access       PIM / JIT elevation     │\n└─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "### The Taxonomy",
+      "confidence": "candidate",
+      "text": "Cryptographic primitives:\n\n  Symmetric encryption          Asymmetric encryption         Hash functions\n  ─────────────────────         ─────────────────────         ──────────────\n  One key, encrypt+decrypt      Key pair: public/private       One-way\n  Fast (hardware AES-NI)        Slow (math-intensive)          No key needed\n  Can't exchange over open ch.  Can exchange publicly           Output fixed length\n  AES-256-GCM ← use this        ECDH for key exchange          SHA-256, BLAKE3\n                                RSA/ECDSA for signatures\n\n  MAC / HMAC                    Key derivation functions\n  ──────────────                ────────────────────────\n  Authenticate message           Stretch weak key → strong key\n  Requires shared key            Password → key (Argon2id)\n  HMAC-SHA256, Poly1305          Shared secret → session keys (HKDF)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### Symmetric Encryption: AES",
+      "confidence": "candidate",
+      "text": "Modes of operation:\n\n  ECB (Electronic Codebook)       ← NEVER USE\n  ┌──────┐ ┌──────┐ ┌──────┐\n  │block1│ │block2│ │block3│\n  └──┬───┘ └──┬───┘ └──┬───┘\n     │E(K)    │E(K)    │E(K)   Same plaintext → same ciphertext\n     ▼        ▼        ▼       ECB of Linux Tux image reveals the penguin\n  ┌──────┐ ┌──────┐ ┌──────┐   (the \"ECB penguin\" — demonstrates the flaw)\n  │ciphr1│ │ciphr2│ │ciphr3│\n\n  CBC (Cipher Block Chaining)     ← vulnerable to padding oracle attacks\n  IV ──► XOR ──► E(K) ──► XOR ──► E(K) ──► ...\n          ▲               ▲\n        block1           block2\n  IV must be random; if IV is predictable → BEAST attack\n\n  CTR (Counter Mode)              ← stream cipher semantics, parallelizable\n  Nonce+Counter ──► E(K) ──► XOR plaintext = ciphertext\n  No padding needed; bit-flip attack possible (no authentication)\n\n  GCM (Galois/Counter Mode)       ← USE THIS (AEAD)\n  CTR encryption  +  GHASH authentication tag\n  ┌─────────────────────────────────────────┐\n  │ Ciphertext │  Auth Tag (128-bit GHASH)  │\n  └─────────────────────────────────────────┘\n  AEAD = Authenticated Encryption with Associated Data\n  Encrypts + produces authentication tag in one pass\n  Nonce: 96 bits, MUST be unique (never reuse nonce with same key)\n  If nonce reused → both confidentiality and integrity collapse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 128,
+      "heading_context": "### Symmetric Encryption: AES",
+      "confidence": "candidate",
+      "text": "### AES-GCM vs ChaCha20-Poly1305 Decision",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### AES-GCM vs ChaCha20-Poly1305 Decision",
+      "confidence": "candidate",
+      "text": "Decision tree:\n\n  Does the target hardware have AES-NI?\n  │\n  ├─ YES (modern x86/x64, Apple Silicon M1+, AWS Graviton 3+)\n  │     → AES-256-GCM\n  │     Hardware acceleration: ~1 byte/cycle overhead vs software\n  │     AES-GCM is the faster choice on AES-NI hardware\n  │\n  └─ NO (older ARM, MIPS, IoT microcontrollers, some mobile SoCs)\n        → ChaCha20-Poly1305\n        Software AES is 3-5× slower than ChaCha20 without hardware assist\n        ChaCha20 is designed for fast software implementation\n\nRuntime detection pattern (what TLS 1.3 negotiation does):\n  if (cpuid indicates AES-NI) → prefer AES-256-GCM\n  else                        → prefer ChaCha20-Poly1305",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "### Asymmetric Cryptography: RSA",
+      "confidence": "candidate",
+      "text": "RSA padding attack history:\n\n  Textbook RSA (no padding)       ← completely broken\n  c = m^e mod n\n  Homomorphic: c1*c2 = (m1*m2)^e mod n\n  Attacker can multiply ciphertexts to manipulate plaintexts without key\n\n  PKCS#1 v1.5 (encryption)       ← DANGEROUS for encryption\n  Format: 00 02 [non-zero random padding] 00 [message]\n  Bleichenbacher 1998: adaptive chosen ciphertext attack\n    → send modified ciphertexts, observe if server returns \"padding error\"\n    → oracle leaks 1 bit per query; ~1M queries decrypts any RSA message\n  Still appears in TLS 1.2 RSA key exchange — primary reason TLS 1.3 drops RSA key exchange\n\n  PKCS#1 v1.5 (signatures)       ← still used; Bleichenbacher does not apply to signatures\n  Declining; use RSA-PSS for new signature code\n\n  OAEP (Optimal Asymmetric Encryption Padding)  ← USE for RSA encryption\n  MGF1 mask + hash of label; provably secure under OAEP-ROM assumption\n  Bleichenbacher-resistant (no format oracle)\n\n  RSA-PSS (Probabilistic Signature Scheme)      ← USE for RSA signatures\n  Randomized padding; tighter security proof than PKCS#1 v1.5 signatures",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 202,
+      "heading_context": "### Asymmetric Cryptography: Elliptic Curves",
+      "confidence": "candidate",
+      "text": "EC cryptography operates over an abelian group whose elements are points on a curve y² = x³ + ax + b (mod p). The group operation is point addition with a specific geometric definition. The group is finite and cyclic (generated by a base point G). The **elliptic curve discrete logarithm problem (ECDLP)**: given P = kG, find k. No subexponential algorithm is known for general EC groups — this is why 256-bit EC keys match ~3072-bit RSA keys in security.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "### Asymmetric Cryptography: Elliptic Curves",
+      "confidence": "candidate",
+      "text": "Common curves:\n\n  Curve       Size    Use              Notes\n  ─────────   ─────   ──────────────   ──────────────────────────────────\n  P-256       256-bit ECDSA/ECDH       NIST curve; widely supported\n  P-384       384-bit ECDSA/ECDH       Higher security margin; slower\n  P-521       521-bit ECDSA/ECDH       Overkill for most uses\n  X25519      255-bit ECDH only        Bernstein; faster; no patents; TLS 1.3\n  Ed25519     255-bit Signing only     EdDSA; deterministic; preferred for new\n  secp256k1   256-bit Bitcoin/Ethereum Bitcoin's curve; not in TLS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "### Cryptographically Secure Random Numbers",
+      "confidence": "candidate",
+      "text": "Entropy collection (hardware events, timing jitter, /dev/random)\n         │\n         ▼\n   OS CSPRNG pool (Linux: /dev/urandom / getrandom(); Windows: BCryptGenRandom)\n         │\n         ▼\n   Application CSPRNG API:\n     .NET:   RandomNumberGenerator.GetBytes(n)\n     Node:   crypto.randomBytes(n)  ← NOT Math.random()\n     Python: secrets.token_bytes(n) ← NOT random.random()\n     Rust:   rand::thread_rng().fill_bytes()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 356,
+      "heading_context": "## 2. PKI — Public Key Infrastructure",
+      "confidence": "candidate",
+      "text": "Root CA (self-signed, offline in HSM, revocation is catastrophic)\n  │\n  └─► Intermediate CA (online, regularly rotated, signs end-entity certs)\n            │\n            └─► Leaf Certificate (your server cert)\n                  │\n                  ├── Subject: CN=api.example.com\n                  ├── Subject Alternative Names (SAN):\n                  │     DNS:api.example.com\n                  │     DNS:www.example.com\n                  ├── Public key: ECDSA P-256 or RSA 2048+\n                  ├── Validity period: NotBefore / NotAfter\n                  │     Let's Encrypt: 90 days\n                  │     Traditional CAs: 398 days max (CA/Browser Forum)\n                  ├── Key Usage: Digital Signature, Key Encipherment\n                  ├── Extended Key Usage: TLS Web Server Authentication\n                  ├── Authority Key Identifier (links to Intermediate)\n                  ├── Subject Key Identifier\n                  ├── CRL Distribution Points\n                  ├── OCSP access location\n                  ├── Certificate Transparency: SCT extension\n                  └── Issuer signature (ECDSA/RSA, signed by Intermediate CA private key)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 381,
+      "heading_context": "## 2. PKI — Public Key Infrastructure",
+      "confidence": "candidate",
+      "text": "### X.509 Verification Chain",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 450,
+      "heading_context": "## 3. Secrets Management",
+      "confidence": "candidate",
+      "text": "Secret lifecycle:\n\n  Generation → Storage → Distribution → Rotation → Revocation\n\n  ANTI-PATTERN — hardcoded:\n  ┌─────────────────────────────────────────────────┐\n  │ const apiKey = \"sk-prod-abc123...\";             │\n  │ // pushed to GitHub                             │\n  │ // GitHub secret scanning alerts within seconds │\n  │ // key is now in git history forever            │\n  └─────────────────────────────────────────────────┘\n\n  ANTI-PATTERN — .env in container:\n  ┌─────────────────────────────────────────────────┐\n  │ COPY .env /app/.env                             │\n  │ // .env is now in an image layer                │\n  │ // docker inspect reveals ENV vars              │\n  │ // \"docker history\" reveals COPY layers         │\n  └─────────────────────────────────────────────────┘\n\n  CORRECT — runtime injection from vault:\n  ┌────────────────┐   at startup   ┌──────────────┐\n  │  Application   │ ─────────────► │  Key Vault / │\n  │  (Managed ID)  │ ◄───────────── │    Vault     │\n  └────────────────┘  short-lived   └──────────────┘\n                       secret\n  Secret never in code, image, or config file.\n  Rotated by vault. Audited access.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 493,
+      "heading_context": "### HashiCorp Vault",
+      "confidence": "candidate",
+      "text": "Vault architecture:\n\n  ┌───────────────────────────────────────────────────────┐\n  │  Vault Server                                         │\n  │  ┌─────────────┐  ┌──────────────┐  ┌─────────────┐   │\n  │  │  Auth       │  │  Secret      │  │  Audit      │ │\n  │  │  Backends   │  │  Engines     │  │  Log        │ │\n  │  │  ─────────  │  │  ──────────  │  │             │ │\n  │  │  AppRole    │  │  KV v2       │  │  every req  │ │\n  │  │  AWS IAM    │  │  Database    │  │  recorded   │ │\n  │  │  Kubernetes │  │  AWS creds   │  │             │ │\n  │  │  JWT/OIDC   │  │  Transit enc │  └─────────────┘ │\n  │  └─────────────┘  └──────────────┘                   │\n  │  Sealed at rest (Shamir secret sharing for unseal)   │\n  └───────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 526,
+      "heading_context": "### Azure Key Vault",
+      "confidence": "candidate",
+      "text": "Azure VM / App Service / AKS Pod\n         │\n         │ (no credentials needed — just identity)\n         ▼\n  Azure IMDS → Managed Identity token  ─────►  Azure AD\n                                                     │\n                                        validates token\n                                                     │\n                                                     ▼\n                                         Azure Key Vault\n                                         (RBAC: Key Vault Secrets User role)\n                                                     │\n                                              returns secret",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 586,
+      "heading_context": "## 4. TLS in Depth",
+      "confidence": "candidate",
+      "text": "TLS 1.3 handshake (1-RTT):\n\nClient                                          Server\n──────                                          ──────\nClientHello:\n  - supported cipher suites\n  - key_share: ECDHE public key (X25519)\n  - supported_groups, signature_algorithms\n                        ─────────────────►\n\n                                        ServerHello:\n                                          - chosen cipher suite\n                                          - key_share: ECDHE public key\n                                          {EncryptedExtensions}\n                                          {Certificate}\n                                          {CertificateVerify}\n                                          {Finished}\n                        ◄─────────────────\n\n{Finished}\n─────────────────────────────────────────►\n\n[Application Data]  ◄──────────────────►  [Application Data]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 625,
+      "heading_context": "## 5. OWASP Top 10 (2021) — Deep Dive",
+      "confidence": "candidate",
+      "text": "### A01: Broken Access Control",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 648,
+      "heading_context": "### A01: Broken Access Control",
+      "confidence": "candidate",
+      "text": "### A02: Cryptographic Failures",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 668,
+      "heading_context": "### A02: Cryptographic Failures",
+      "confidence": "candidate",
+      "text": "### A03: Injection",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 731,
+      "heading_context": "# Fix: disable suggestion messages in production",
+      "confidence": "candidate",
+      "text": "### A04: Insecure Design",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 743,
+      "heading_context": "### A04: Insecure Design",
+      "confidence": "candidate",
+      "text": "### A05: Security Misconfiguration",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 777,
+      "heading_context": "### A05: Security Misconfiguration",
+      "confidence": "candidate",
+      "text": "### A06: Vulnerable and Outdated Components",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 793,
+      "heading_context": "### A06: Vulnerable and Outdated Components",
+      "confidence": "candidate",
+      "text": "### A07: Identification and Authentication Failures",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 800,
+      "heading_context": "### A07: Identification and Authentication Failures",
+      "confidence": "candidate",
+      "text": "alg:none attack:\n  Original JWT: header.payload.signature\n  Modified:     {\"alg\":\"none\"}.payload.  (empty signature)\n  Vulnerable libraries accept this if they don't enforce alg whitelist\n\n  Prevention: server-side explicit algorithm allowlist\n    // Wrong: jwt.verify(token, secret) -- trusts header's alg field\n    // Right: jwt.verify(token, secret, { algorithms: ['RS256'] })\n\nAlgorithm confusion attack:\n  Server uses RS256 (asymmetric). Public key is known.\n  Attacker: \"what if I use HS256 with the public key as the HMAC secret?\"\n  Vulnerable library: verifies HS256 HMAC using \"secret\" = public key text\n  Attacker knows public key → can forge tokens\n\n  Prevention: strict algorithm whitelist on verification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 821,
+      "heading_context": "### A07: Identification and Authentication Failures",
+      "confidence": "candidate",
+      "text": "### A08: Software and Data Integrity Failures",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 842,
+      "heading_context": "### A08: Software and Data Integrity Failures",
+      "confidence": "candidate",
+      "text": "### A09: Security Logging and Monitoring Failures",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 853,
+      "heading_context": "### A09: Security Logging and Monitoring Failures",
+      "confidence": "candidate",
+      "text": "Input: \"username\\nINFO 2024-01-01 ADMIN_LOGIN success user=root\"\nLog:\n  INFO 2024-01-01 FAILED_LOGIN user=attacker_name\n  INFO 2024-01-01 ADMIN_LOGIN success user=root   ← injected",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 863,
+      "heading_context": "### A09: Security Logging and Monitoring Failures",
+      "confidence": "candidate",
+      "text": "### A10: SSRF (Server-Side Request Forgery)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 865,
+      "heading_context": "### A10: SSRF (Server-Side Request Forgery)",
+      "confidence": "candidate",
+      "text": "SSRF flow:\n\n  Attacker                Application Server               Internal Network\n  ────────                ──────────────────               ────────────────\n  POST /fetch-url\n  {\"url\": \"http://\n   169.254.169.254/\n   metadata/v1/...\"}\n          │\n          ▼\n          App fetches URL ──────────────────────────────►  AWS/Azure IMDS\n                                                           (metadata service)\n                          ◄─────────────────────────────  returns credentials!\n          │\n          ▼\n  Attacker receives\n  cloud credentials → can impersonate the server identity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 903,
+      "heading_context": "## 6. Zero-Trust Architecture",
+      "confidence": "candidate",
+      "text": "Traditional perimeter model (1990s–2010s):\n  ┌─────────────────────────────────────────────┐\n  │  Corporate Network                          │\n  │                                             │\n  │  ┌──────────────────────────────────────┐   │\n  │  │  Trusted Zone                         │   │\n  │  │                                      │   │\n  │  │  servers  databases  internal apps   │   │\n  │  │  ← → freely communicate ← →         │   │\n  │  └──────────────────────────────────────┘   │\n  └─────────────────────────────────────────────┘\n  Perimeter firewall = trust boundary\n  Once inside: implicit trust, lateral movement free\n  Problem: VPN → inside → game over\n           Insider threat → no detection\n           Perimeter breach → full access to everything\n\nZero-trust model (NIST SP 800-207):\n  Every request, every time:\n  ┌──────────────────────────────────────────────────────┐\n  │  1. Authenticate  → Who are you? (identity assertion)│\n  │  2. Authorize     → Can you do this? (policy check)  │\n  │  3. Inspect       → Is this request valid/clean?     │\n  │  4. Log           → Record this event                │\n  │  5. Assume breach → Limit blast radius if wrong      │\n  └──────────────────────────────────────────────────────┘\n  Identity is the new perimeter.\n  Network location implies nothing.\n  Trust is dynamic, verified, minimized.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 947,
+      "heading_context": "### Azure Zero-Trust Implementation",
+      "confidence": "candidate",
+      "text": "User/Device                  Control Plane               Data Plane\n───────────                  ─────────────               ──────────\nUser login\n    │\n    ▼\nEntra ID:\n  MFA required?              ◄── Conditional Access ──►  Signals:\n  Compliant device?               Policy Engine           device compliance\n  Known location?                                         IP reputation\n  Risk score?                                             sign-in risk\n    │\n    ▼ (access granted)\n  Access token (JWT)\n    │\n    ▼\n  Azure resource:\n    API Management / App Service\n    verifies token + calls RBAC\n    │\n    ▼\n  Managed Identity:\n    accesses downstream (SQL, Key Vault)\n    no credentials — just token exchange",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 996,
+      "heading_context": "## 7. Supply Chain Security",
+      "confidence": "candidate",
+      "text": "Attack vectors in the supply chain:\n\n  Source repo:        Compromised developer account\n                      Malicious PR merged\n                          │\n  Build pipeline:     Build script injection\n                      Compromised build environment\n                          │\n  Package registry:   Typosquatting (reqeusts vs requests)\n                      Dependency confusion\n                      Compromised maintainer account\n                          │\n  Distribution:       Tampered artifact in CDN\n                      MITM if no signature verification\n                          │\n  Runtime:            Malicious package behavior on install\n                      (npm postinstall scripts)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 1131,
+      "heading_context": "### Data Flow Diagrams",
+      "confidence": "candidate",
+      "text": "DFD example — login flow:\n\n  [User] ──── HTTPS ────► (Login API) ──── SQL ────► [Users DB]\n    │                         │\n  external                  trust boundary: internet → internal\n  entity\n\n  Threats on [User] → (Login API) flow:\n    S: spoofed user identity → MFA\n    T: tampered credentials → TLS\n    I: credential sniffing → TLS\n    D: brute force → rate limiting, account lockout",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "diagram_like",
+      "line": 1150,
+      "heading_context": "### Attack Trees",
+      "confidence": "candidate",
+      "text": "Goal: Steal customer PII from database\n│\n├── SQL Injection\n│   ├── Find injectable endpoint (fuzzing, manual testing)\n│   └── Exfiltrate via UNION SELECT\n│\n├── Compromised credentials\n│   ├── Phish a DBA\n│   │   ├── Spear phishing email\n│   │   └── Fake internal portal\n│   └── Credential stuffing against VPN\n│\n├── Vulnerable dependency (e.g., Log4Shell in app server)\n│   └── RCE → internal access → DB\n│\n└── Misconfigured cloud storage\n    └── Backup files in public S3 bucket",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "diagram_like",
+      "line": 1186,
+      "heading_context": "### Container Security",
+      "confidence": "candidate",
+      "text": "Container threat model:\n\n  ┌─────────────────────────────────────────────────────────┐\n  │  Host OS / Kernel                                       │\n  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │\n  │  │  Container  │  │  Container  │  │  Container      │ │\n  │  │  (root)     │  │  (UID 1001) │  │  (privileged)   │ │\n  │  │             │  │             │  │  ← full host    │ │\n  │  │ process as  │  │ process as  │  │    access!      │ │\n  │  │ root in     │  │ non-root    │  │                 │ │\n  │  │ container   │  │ in container│  └─────────────────┘ │\n  │  └─────────────┘  └─────────────┘                      │\n  │  Breakout from root container → root on host           │\n  │  Non-root container: breakout → unprivileged on host   │\n  └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "diagram_like",
+      "line": 1267,
+      "heading_context": "### Cloud IAM Security",
+      "confidence": "candidate",
+      "text": "IAM principal types in Azure:\n\n  User          → human, authenticated by Entra ID\n  Group         → collection of users, assign roles to group not individuals\n  Service Principal → application identity with credentials (client secret or cert)\n  Managed Identity → application identity with NO credentials (Azure manages token rotation)\n    System-assigned: tied to resource lifecycle, deleted with resource\n    User-assigned:   independent lifecycle, can be assigned to multiple resources",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "diagram_like",
+      "line": 1279,
+      "heading_context": "### Cloud IAM Security",
+      "confidence": "candidate",
+      "text": "  # Wrong: service principal with secret\n  AZURE_CLIENT_SECRET=supersecretvalue  ← in config / env var\n\n  # Right: system-assigned managed identity\n  az webapp identity assign --name myapp --resource-group myrg\n  # Grant RBAC role:\n  az role assignment create \\\n    --assignee <managed-identity-object-id> \\\n    --role \"Key Vault Secrets User\" \\\n    --scope /subscriptions/.../resourceGroups/.../providers/Microsoft.KeyVault/vaults/myvault\n  # In app code:\n  DefaultAzureCredential()  # automatically uses managed identity in Azure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "diagram_like",
+      "line": 1307,
+      "heading_context": "# In app code:",
+      "confidence": "candidate",
+      "text": "Without PIM:                     With PIM:\nUser has Owner role              User has no standing privileged role\n  permanently                      └─ requests activation\n                                   └─ approver review (or auto-approve with justification)\nInsider threat: immediate          └─ time-limited elevation (e.g., 4 hours)\naccess to everything               └─ full audit trail\n                                   └─ automatic expiration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "diagram_like",
+      "line": 1361,
+      "heading_context": "## 10. Security Testing",
+      "confidence": "candidate",
+      "text": "Security testing in the development lifecycle:\n\n  Design          │  Threat modeling (STRIDE)\n                  │\n  Development     │  SAST (Semgrep, CodeQL) — runs in IDE + PR\n                  │  Secret scanning (gitleaks pre-commit)\n                  │\n  Build           │  SCA (Dependabot, Snyk) — vulnerable deps\n                  │  Container scanning (Trivy) — image CVEs\n                  │\n  Test env        │  DAST (OWASP ZAP) — runtime vulnerability scanning\n                  │  Fuzzing (API fuzzing)\n                  │\n  Production      │  Penetration testing (periodic)\n                  │  Bug bounty program (continuous)\n                  │  Runtime detection (Defender, Falco)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "diagram_like",
+      "line": 1510,
+      "heading_context": "### The Threat: Harvest Now, Decrypt Later",
+      "confidence": "candidate",
+      "text": "Timeline:\n\n  Today                    ~2030               ~2030-2035\n  ─────                    ─────               ──────────\n  Adversary captures        NIST deadline:      Cryptographically\n  TLS sessions             migrate away from    relevant quantum\n  (harvest phase)          RSA-2048/ECDH-256    computer possible?\n                                                [uncertain but planned for]\n  ← encrypted with ECDH →  ← PQC migration →   ← quantum decryption\n  [safe from classical]    [required]           [breaks classical DH]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "chart_like",
+      "line": 1530,
+      "heading_context": "### The Threat: Harvest Now, Decrypt Later",
+      "confidence": "candidate",
+      "text": "### NIST Post-Quantum Finalization (August 2024)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "chart_like",
+      "line": 1551,
+      "heading_context": "### NIST Post-Quantum Finalization (August 2024)",
+      "confidence": "candidate",
+      "text": "### TLS 1.3 Hybrid Key Exchange",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "diagram_like",
+      "line": 1555,
+      "heading_context": "### TLS 1.3 Hybrid Key Exchange",
+      "confidence": "candidate",
+      "text": "Hybrid X25519 + ML-KEM-768 key exchange:\n\nClient                                          Server\n  │                                               │\n  │── ClientHello ───────────────────────────────►│\n  │   key_share: X25519 public key (32 bytes)     │\n  │              + ML-KEM-768 public key (1184 B) │\n  │   (combined in key_share extension)           │\n  │                                               │\n  │◄─ ServerHello ────────────────────────────────│\n  │   key_share: X25519 public key (32 bytes)     │\n  │              + ML-KEM-768 ciphertext (1088 B) │\n  │                                               │\n  Both sides compute:\n  ┌─────────────────────────────────────────────┐\n  │  X25519 shared secret (32 bytes)            │\n  │       XOR / HKDF combine                    │\n  │  ML-KEM-768 shared secret (32 bytes)        │\n  │       =                                     │\n  │  Combined session key material              │\n  └─────────────────────────────────────────────┘\n  Session key = HKDF(X25519_secret || Kyber_secret)\n  Breaking the session requires breaking BOTH algorithms",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

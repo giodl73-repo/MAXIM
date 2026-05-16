@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\19-TESTING-EVOLUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Era 1 — Manual QA",
+      "confidence": "candidate",
+      "text": "The World Before Automated Testing\n====================================\n\n  Software shipped on discs. Patch cycles were months.\n\n  QA was a department. Test plans were Word documents.\n  Sign-off was a human with a checklist and a deadline.\n\n  Test cycle: \"Code freeze → QA → 2 weeks → ship\"\n\n  Problems:\n    Humans are slow, expensive, inconsistent\n    \"Works on my machine\" → \"Doesn't work on customer's machine\"\n    Coverage is whatever humans thought to check\n    Regression = re-run everything manually\n    Scale is impossible: 10x more features → 10x more testers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## Era 3 — Integration, E2E & the Testing Pyramid",
+      "confidence": "candidate",
+      "text": "The Testing Pyramid (Martin Fowler / Mike Cohn, ~2009)\n=======================================================\n\n          ┌───────────┐\n          │    E2E    │\n          ├───────────┤\n          │Integration│\n          ├───────────┤\n          │   Unit    │\n          └───────────┘\n          E2E: few (slow, expensive)\n          Integration: some\n          Unit: many (fast, cheap)\n\n  The insight: different test types have different\n  cost/value tradeoffs. Optimize the portfolio.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "### Property-Based Testing",
+      "confidence": "candidate",
+      "text": "Example-based test             Property-based test\n══════════════════             ═══════════════════\n\nit(\"sorts [3,1,2]\", () => {    it(\"sorted array has same length\", () => {\n  expect(sort([3,1,2]))          fc.assert(fc.property(\n    .toEqual([1,2,3]);             fc.array(fc.integer()),\n});                                arr => sort(arr).length === arr.length\n                               ));\n  Tests one specific case      });\n\n                               it(\"sorted array is ordered\", () => {\n                                 fc.assert(fc.property(\n                                   fc.array(fc.integer()),\n                                   arr => {\n                                     const s = sort(arr);\n                                     for (let i = 1; i < s.length; i++)\n                                       if (s[i] < s[i-1]) return false;\n                                     return true;\n                                   }\n                                 ));\n                               });\n\n                               Runs with 100+ random inputs\n                               Finds edge cases you didn't think of\n                               Shrinks failures to minimal example",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "### Contract Testing",
+      "confidence": "candidate",
+      "text": "Consumer-Driven Contract Testing (Pact)\n=========================================\n\n  Consumer (frontend/service A)      Provider (backend/service B)\n  ══════════════════════════════     ════════════════════════════\n\n  Test: \"I expect POST /orders        Test: \"Given a valid order body,\n         to return {id, status}\"            I return {id, status}\"\n\n  Pact captures the consumer's       Provider verifies it can satisfy\n  expectations as a \"contract\"       the contract\n\n  ┌──────────────┐                   ┌──────────────┐\n  │ Consumer     │──── contract ────►│ Provider     │\n  │ tests        │   (JSON file)     │ verification │\n  └──────────────┘                   └──────────────┘\n\n  The contract lives in a Pact Broker (shared registry)\n  Provider CI fails if it breaks any consumer contract\n  No more \"the mock was wrong\" surprises",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "### LLM-as-Judge",
+      "confidence": "candidate",
+      "text": "LLM-as-Judge Pattern\n=====================\n\n  Input prompt + model output\n           ↓\n  Grader LLM prompt:\n    \"Rate the following response on a scale of 1-5 for:\n     - Accuracy (does it correctly answer the question?)\n     - Completeness (does it cover all key points?)\n     - Safety (does it avoid harmful content?)\n     Respond in JSON: {accuracy: N, completeness: N, safety: N, reason: '...'}\"\n           ↓\n  Score: {accuracy: 4, completeness: 3, safety: 5}\n           ↓\n  Aggregate across dataset → pass/fail threshold\n\n  Limitations:\n    Grader LLM has its own biases\n    \"Self-grading\" (same model as judge) is unreliable\n    Use a stronger model as judge than the model being tested\n    Calibrate with human ratings — does the LLM judge agree?",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "### The Regression Problem in AI",
+      "confidence": "candidate",
+      "text": "Software regression:               AI regression:\n════════════════════               ════════════════\n\n  You changed function X.            You changed the prompt.\n  Run tests → immediate binary       Run evals → did the scores change?\n  pass/fail                          Did fixing bug A introduce bug B?\n\n  Deterministic → git diff           Stochastic → distribution shift\n  shows exactly what changed         \"It feels worse on edge cases\"\n\n  Fix: test suite in CI              Fix: eval suite in CI\n  Red = broke something              Regression = score dropped > threshold",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

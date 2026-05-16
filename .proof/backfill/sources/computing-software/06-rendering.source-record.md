@@ -4,7 +4,7 @@ id: proof-backfill:computing-software:06-rendering
 kind: source-record
 module: computing-software
 section: computing-software
-title: Rendering patterns source record
+title: Rendering Patterns - A Layered Guide source record
 status: source-custody
 source_custody: partial
 current_path: .proof/backfill/sources/computing-software/06-rendering.source-record.md
@@ -18,7 +18,7 @@ remap_to: []
 updated: null
 ---
 
-# Rendering patterns source record
+# Rendering Patterns - A Layered Guide source record
 
 | Field | Value |
 |---|---|
@@ -31,7 +31,7 @@ updated: null
 | PROOF confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `2` markdown tables, `15` visual/block candidates |
-| Git provenance | `29204ca`, `ab7e7c6`, `c3d7a74`, `13a1513`, `3579f43`, `79bf178`, `e704f0b`, `1b27cd0` |
+| Git provenance | `e208cc2`, `29204ca`, `ab7e7c6`, `c3d7a74`, `13a1513`, `3579f43`, `79bf178`, `e704f0b`, `1b27cd0` |
 
 ## Custody note
 

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\18-TESTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 40,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Testing Trophy (modern take on the pyramid)\n================================================\n\n          ┌─────────────┐\n          │   E2E       │\n          │  Playwright │\n          ├─────────────┤\n          │ Integration │\n          │  + API      │\n          ├─────────────┤\n          │    Unit     │\n          │   Vitest    │\n          ├─────────────┤\n          │   Static    │\n          │  Analysis   │\n          └─────────────┘\n  E2E (Playwright):       few — slow, brittle, expensive; catches full-stack issues\n  Integration + API:      most — modules working together; realistic, catches contracts\n  Unit (Vitest):          many — fast, isolated; don't test integration assumptions\n  Static Analysis:        always — TypeScript + ESLint; catches bugs before tests run\n\n  Classic pyramid inverted the ratio.\n  Trophy: lean on integration tests more than pure unit tests.\n  (Kent C. Dodds framing — widely adopted in JS ecosystem)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "### Unit Tests",
+      "confidence": "candidate",
+      "text": "// src/utils/format.test.ts\nimport { describe, it, expect } from \"vitest\";\nimport { formatCurrency, truncate } from \"./format\";\n\ndescribe(\"formatCurrency\", () => {\n  it(\"formats USD by default\", () => {\n    expect(formatCurrency(1234.5)).toBe(\"$1,234.50\");\n  });\n\n  it(\"formats other currencies\", () => {\n    expect(formatCurrency(1000, \"EUR\")).toBe(\"€1,000.00\");\n  });\n});\n\ndescribe(\"truncate\", () => {\n  it(\"returns string unchanged if within limit\", () => {\n    expect(truncate(\"hello\", 10)).toBe(\"hello\");\n  });\n\n  it(\"truncates and adds ellipsis\", () => {\n    expect(truncate(\"hello world\", 8)).toBe(\"hello...\");\n  });\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "### Mocking",
+      "confidence": "candidate",
+      "text": "import { vi, describe, it, expect, beforeEach } from \"vitest\";\nimport { sendWelcomeEmail } from \"./notifications\";\nimport * as emailClient from \"./emailClient\";\n\n// Mock an entire module\nvi.mock(\"./emailClient\");\n\ndescribe(\"sendWelcomeEmail\", () => {\n  beforeEach(() => {\n    vi.clearAllMocks();\n  });\n\n  it(\"sends email with correct subject\", async () => {\n    // Arrange\n    const mockSend = vi.spyOn(emailClient, \"sendEmail\").mockResolvedValue({ id: \"msg_123\" });\n\n    // Act\n    await sendWelcomeEmail({ email: \"user@example.com\", name: \"Alice\" });\n\n    // Assert\n    expect(mockSend).toHaveBeenCalledWith(\n      expect.objectContaining({\n        to: \"user@example.com\",\n        subject: expect.stringContaining(\"Welcome\"),\n      })\n    );\n  });\n\n  it(\"throws if email client fails\", async () => {\n    vi.spyOn(emailClient, \"sendEmail\").mockRejectedValue(new Error(\"SMTP error\"));\n    await expect(sendWelcomeEmail({ email: \"bad@example.com\", name: \"Bob\" }))\n      .rejects.toThrow(\"SMTP error\");\n  });\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "### Integration Test — API Route",
+      "confidence": "candidate",
+      "text": "// Test the full Express route handler with a real (in-memory) DB\nimport { describe, it, expect, beforeAll, afterAll } from \"vitest\";\nimport request from \"supertest\";\nimport { app } from \"../app\";\nimport { db } from \"../db\";\n\nbeforeAll(async () => {\n  await db.migrate.latest();   // run migrations on test DB\n});\n\nafterAll(async () => {\n  await db.destroy();\n});\n\ndescribe(\"POST /api/orders\", () => {\n  it(\"creates order and returns 201\", async () => {\n    const res = await request(app)\n      .post(\"/api/orders\")\n      .set(\"Authorization\", \"Bearer test-token\")\n      .send({ productId: \"prod_123\", quantity: 2 });\n\n    expect(res.status).toBe(201);\n    expect(res.body).toMatchObject({\n      id: expect.any(String),\n      status: \"pending\",\n      quantity: 2,\n    });\n  });\n\n  it(\"rejects missing productId with 400\", async () => {\n    const res = await request(app)\n      .post(\"/api/orders\")\n      .set(\"Authorization\", \"Bearer test-token\")\n      .send({ quantity: 2 });\n\n    expect(res.status).toBe(400);\n    expect(res.body.error).toMatch(/productId/);\n  });\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "### React Component Test",
+      "confidence": "candidate",
+      "text": "// src/components/LoginForm.test.tsx\nimport { render, screen, waitFor } from \"@testing-library/react\";\nimport userEvent from \"@testing-library/user-event\";\nimport { vi } from \"vitest\";\nimport { LoginForm } from \"./LoginForm\";\n\ndescribe(\"LoginForm\", () => {\n  it(\"calls onSubmit with email and password\", async () => {\n    const onSubmit = vi.fn().mockResolvedValue(undefined);\n    render(<LoginForm onSubmit={onSubmit} />);\n\n    await userEvent.type(screen.getByLabelText(/email/i), \"user@example.com\");\n    await userEvent.type(screen.getByLabelText(/password/i), \"password123\");\n    await userEvent.click(screen.getByRole(\"button\", { name: /sign in/i }));\n\n    await waitFor(() => {\n      expect(onSubmit).toHaveBeenCalledWith({\n        email: \"user@example.com\",\n        password: \"password123\",\n      });\n    });\n  });\n\n  it(\"shows validation error for empty email\", async () => {\n    render(<LoginForm onSubmit={vi.fn()} />);\n    await userEvent.click(screen.getByRole(\"button\", { name: /sign in/i }));\n    expect(screen.getByText(/email is required/i)).toBeInTheDocument();\n  });\n\n  it(\"disables button while submitting\", async () => {\n    const onSubmit = vi.fn(() => new Promise(r => setTimeout(r, 100)));\n    render(<LoginForm onSubmit={onSubmit} />);\n\n    await userEvent.type(screen.getByLabelText(/email/i), \"user@example.com\");\n    await userEvent.type(screen.getByLabelText(/password/i), \"pass\");\n    await userEvent.click(screen.getByRole(\"button\", { name: /sign in/i }));\n\n    expect(screen.getByRole(\"button\", { name: /signing in/i })).toBeDisabled();\n  });\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "### Setup",
+      "confidence": "candidate",
+      "text": "// src/mocks/handlers.ts\nimport { http, HttpResponse } from \"msw\";\n\nexport const handlers = [\n  http.get(\"/api/orders\", () => {\n    return HttpResponse.json([\n      { id: \"ord_1\", status: \"pending\", total: 99.99 },\n      { id: \"ord_2\", status: \"shipped\", total: 49.99 },\n    ]);\n  }),\n\n  http.post(\"/api/orders\", async ({ request }) => {\n    const body = await request.json();\n    return HttpResponse.json(\n      { id: \"ord_new\", status: \"pending\", ...body },\n      { status: 201 }\n    );\n  }),\n\n  http.get(\"/api/orders/:id\", ({ params }) => {\n    if (params.id === \"ord_999\") {\n      return new HttpResponse(null, { status: 404 });\n    }\n    return HttpResponse.json({ id: params.id, status: \"pending\" });\n  }),\n];",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 384,
+      "heading_context": "### Setup",
+      "confidence": "candidate",
+      "text": "// Override per-test\nimport { server } from \"../mocks/server\";\nimport { http, HttpResponse } from \"msw\";\n\nit(\"shows error state when API fails\", async () => {\n  server.use(\n    http.get(\"/api/orders\", () => new HttpResponse(null, { status: 500 }))\n  );\n\n  render(<OrderList />);\n  expect(await screen.findByText(/failed to load/i)).toBeInTheDocument();\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 456,
+      "heading_context": "### Writing Tests",
+      "confidence": "candidate",
+      "text": "// e2e/checkout.spec.ts\nimport { test, expect } from \"@playwright/test\";\n\ntest.describe(\"Checkout flow\", () => {\n  test.beforeEach(async ({ page }) => {\n    // Log in via API (faster than UI login every test)\n    await page.request.post(\"/api/test/login\", {\n      data: { email: \"test@example.com\", password: \"password\" },\n    });\n    await page.goto(\"/cart\");\n  });\n\n  test(\"completes purchase with valid card\", async ({ page }) => {\n    await page.getByRole(\"button\", { name: /checkout/i }).click();\n\n    await page.getByLabel(/card number/i).fill(\"4242 4242 4242 4242\");\n    await page.getByLabel(/expiry/i).fill(\"12/26\");\n    await page.getByLabel(/cvc/i).fill(\"123\");\n    await page.getByRole(\"button\", { name: /pay now/i }).click();\n\n    // Wait for navigation to confirmation page\n    await expect(page).toHaveURL(/\\/order\\/ord_/);\n    await expect(page.getByRole(\"heading\", { name: /order confirmed/i }))\n      .toBeVisible();\n  });\n\n  test(\"shows error for declined card\", async ({ page }) => {\n    await page.getByRole(\"button\", { name: /checkout/i }).click();\n    await page.getByLabel(/card number/i).fill(\"4000 0000 0000 0002\"); // Stripe test decline\n    await page.getByRole(\"button\", { name: /pay now/i }).click();\n\n    await expect(page.getByText(/card was declined/i)).toBeVisible();\n  });\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 586,
+      "heading_context": "### Pact in Practice (TypeScript)",
+      "confidence": "candidate",
+      "text": "// consumer test — generates the pact file\nimport { PactV3, MatchersV3 } from \"@pact-foundation/pact\";\nimport { like, integer } from \"@pact-foundation/pact/src/v3/matchers\";\nimport { OrderApiClient } from \"./orderApiClient\";\n\nconst provider = new PactV3({\n  consumer: \"checkout-frontend\",\n  provider: \"order-api\",\n  dir: \"./pacts\",\n});\n\ndescribe(\"OrderApiClient\", () => {\n  it(\"creates an order\", async () => {\n    await provider\n      .given(\"product prod_123 exists\")\n      .uponReceiving(\"a request to create an order\")\n      .withRequest({\n        method: \"POST\",\n        path: \"/orders\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: { productId: \"prod_123\", quantity: 2 },\n      })\n      .willRespondWith({\n        status: 201,\n        body: {\n          id: like(\"ord_abc\"),          // string, exact value flexible\n          status: \"pending\",\n          quantity: integer(2),\n        },\n      })\n      .executeTest(async (mockServer) => {\n        const client = new OrderApiClient(mockServer.url);\n        const order = await client.createOrder({ productId: \"prod_123\", quantity: 2 });\n        expect(order.status).toBe(\"pending\");\n      });\n  });\n});\n// Running this test writes: ./pacts/checkout-frontend-order-api.json",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 627,
+      "heading_context": "### Pact in Practice (TypeScript)",
+      "confidence": "candidate",
+      "text": "// provider verification — no consumer code needed\nimport { Verifier } from \"@pact-foundation/pact\";\n\ndescribe(\"Order API provider verification\", () => {\n  it(\"satisfies all consumer contracts\", () => {\n    return new Verifier({\n      provider: \"order-api\",\n      providerBaseUrl: \"http://localhost:3001\",   // real running service\n      pactBrokerUrl: \"https://your-pact-broker\",\n      publishVerificationResult: true,\n      providerVersion: process.env.GIT_SHA,\n    }).verifyProvider();\n  });\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 652,
+      "heading_context": "### Pact Broker",
+      "confidence": "candidate",
+      "text": "Consumer CI  →  publish pact file  →  Pact Broker\n                                           |\nProvider CI  ←  pull pact files    ←──────┘\n     |\n     └── verify → publish results → Pact Broker\n                                           |\nConsumer CI  ←  can-i-deploy check ←──────┘\n  (blocks deploy if provider hasn't verified current contract)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

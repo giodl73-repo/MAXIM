@@ -1,0 +1,215 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\27-DISTRIBUTED-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  DISTRIBUTED SYSTEMS PROBLEM SPACE                                          │\n│                                                                             │\n│  Core Challenges             Fundamental Impossibilities                    │\n│  ────────────────────────    ─────────────────────────────────────          │\n│  Partial failures            FLP: No consensus in async with 1 crash        │\n│  Network partitions          CAP: Choose 2 of: C, A, P                      │\n│  Message delays/reordering   Impossibility of 2PC in failures               │\n│  Node crashes (fail-stop)    Byzantine generals require n > 3f nodes        │\n│  Byzantine faults                                                           │\n│                                                                             │\n│  Core Protocols              Modern Systems                                 │\n│  ────────────────────────    ─────────────────────────────────────          │\n│  Paxos (consensus)           etcd/ZooKeeper: Raft + distributed config      │\n│  Multi-Paxos (replication)   Spanner: TrueTime + Paxos per shard            │\n│  Raft (understandable)       CockroachDB: Raft + MVCC + distributed SQL     │\n│  Viewstamped Replication     DynamoDB: eventual consistency + versioning    │\n│  Zab (ZooKeeper)             Kafka: log replication + leader election       │\n│                                                                             │\n│  Consistency Models (strongest to weakest):                                 │\n│  Linearizability > Sequential > Causal > PRAM > Eventual                    │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 55,
+      "heading_context": "## 1. Fundamental Impossibility Results",
+      "confidence": "candidate",
+      "text": "### FLP Impossibility (Fischer-Lynch-Paterson 1985)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 78,
+      "heading_context": "### FLP Impossibility (Fischer-Lynch-Paterson 1985)",
+      "confidence": "candidate",
+      "text": "### CAP Theorem (Brewer 2000, Gilbert-Lynch 2002 proof)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "### CAP Theorem (Brewer 2000, Gilbert-Lynch 2002 proof)",
+      "confidence": "candidate",
+      "text": "Why you must choose:\n  Network partition occurs (P is unavoidable in reality — networks do partition).\n\n  During partition, two nodes have diverged state.\n  → Either refuse requests until partition heals (sacrifice A, keep C)\n  → Or serve requests with potentially stale data (sacrifice C, keep A)\n\nCA systems (no partitions): single-node RDBMS — not distributed\nCP systems: ZooKeeper, etcd, HBase — refuse writes during partition\nAP systems: Cassandra, CouchDB, DynamoDB — serve stale reads during partition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 100,
+      "heading_context": "### CAP Theorem (Brewer 2000, Gilbert-Lynch 2002 proof)",
+      "confidence": "candidate",
+      "text": "### Two-Phase Commit (2PC) — Safe But Not Live",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### Two-Phase Commit (2PC) — Safe But Not Live",
+      "confidence": "candidate",
+      "text": "Phase 1 (Prepare):\n  Coordinator → all participants: \"Prepare to commit\"\n  Each participant: acquire locks, log \"prepared\", respond Yes/No\n\nPhase 2 (Commit/Abort):\n  If all Yes → Coordinator → all: \"Commit\"\n  If any No  → Coordinator → all: \"Abort\"\n  Participants execute and release locks.\n\nFailure scenarios:\n  Coordinator crashes after Phase 1 but before Phase 2:\n  → Participants are blocked (holding locks) waiting for coordinator.\n  → Can't safely commit or abort without coordinator decision.\n  → System is live-locked.\n\nThis is why 2PC is not partition-tolerant for liveness.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 129,
+      "heading_context": "## 2. Consensus Protocols",
+      "confidence": "candidate",
+      "text": "### Paxos (Lamport 1998, published after 9-year delay)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 181,
+      "heading_context": "### Multi-Paxos (state machine replication)",
+      "confidence": "candidate",
+      "text": "### Raft (Ongaro-Ousterhout 2014 — \"Understandable Paxos\")",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 220,
+      "heading_context": "### Raft (Ongaro-Ousterhout 2014 — \"Understandable Paxos\")",
+      "confidence": "candidate",
+      "text": "### Viewstamped Replication (Liskov-Cowling 2012)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "### Modern Consensus — Beyond Raft",
+      "confidence": "candidate",
+      "text": "Classic Paxos: Q1 = Q2 = majority → both phases require n/2 + 1 nodes.\n\nFlexible Paxos example (5-node cluster, 1 leader datacenter + 4 followers):\n  Phase 1 (election): Q1 = 4 nodes  → tolerates 1 failure during election\n  Phase 2 (commit):   Q2 = 2 nodes  → only leader + 1 follower needed per write\n\n  This works because any 4-node set intersects any 2-node set.\n  Result: fast commits (leader + 1 follower, 1 RTT) at cost of slower elections.\n\nWAN use case: place leader in one datacenter, use small Q2 for fast local commits,\n  large Q1 to ensure a new leader sees all committed values during failover.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### Formal Hierarchy",
+      "confidence": "candidate",
+      "text": "Strongest                                                 Weakest\n    │\n    ▼\nLinearizability (atomic consistency, \"C\" in CAP)\n    │  Every operation appears to take effect instantaneously at some point\n    │  between its invocation and response.\n    │  Sequential spec: each op has a single linearization point.\n    │\n    ▼\nSequential Consistency (Lamport 1979)\n    │  All processors see operations in the same total order.\n    │  Order within each processor preserved.\n    │  Does NOT require real-time order across processors.\n    │\n    ▼\nCausal Consistency\n    │  Causally related operations seen in order everywhere.\n    │  Concurrent (causally unrelated) operations may be seen in different order.\n    │  Vector clocks implement causality tracking.\n    │\n    ▼\nPRAM (Pipeline RAM / FIFO) Consistency\n    │  Each processor's writes seen in order by all others.\n    │  Writes from different processors may be seen in different orders.\n    │\n    ▼\nEventual Consistency\n       Eventually, in the absence of updates, all replicas converge to same state.\n       No ordering guarantees. Captures \"read your own writes\" only sometimes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 379,
+      "heading_context": "### Logical Clocks",
+      "confidence": "candidate",
+      "text": "n processes, each with vector V[1..n]\n  - Process i increments V[i] before event.\n  - Send: include own V.\n  - Receive: V[j] = max(local[j], received[j]) for all j; V[i]++.\n\nProperty: VC(a) < VC(b) iff a → b (causally precedes b)\nConcurrent events: neither VC(a) ≤ VC(b) nor VC(b) ≤ VC(a).\n\nConflict detection: Amazon DynamoDB uses vector clocks to detect write conflicts.\nSpace: O(n) per event — problematic for large n.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 484,
+      "heading_context": "### State Machine Replication (SMR)",
+      "confidence": "candidate",
+      "text": "Inputs → [ Consensus Protocol ] → Ordered log of commands\n                                         ↓\n                              [ Deterministic State Machine ]\n                              (same log → same state on all replicas)\n\nProperty: All non-faulty replicas execute same commands in same order → identical state.\nThis is how etcd, ZooKeeper, CockroachDB, and TiKV work.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 572,
+      "heading_context": "## 7. Coordination Services",
+      "confidence": "candidate",
+      "text": "### ZooKeeper (Yahoo! 2010)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 623,
+      "heading_context": "### Google Spanner",
+      "confidence": "candidate",
+      "text": "Architecture:\n  - Universe → Zones → Servers\n  - Data sharded into tablets across Paxos groups\n  - Each Paxos group has 5 replicas across 3+ datacenters\n\nTransactions:\n  - Read-write: Two-phase locking + two-phase commit across shards\n  - 2PC coordinated by transaction coordinator (one shard's Paxos leader)\n  - Read-only: lock-free using TrueTime snapshot reads\n\nTrueTime:\n  GPS + atomic clocks → bounded uncertainty [T_earliest, T_latest] ~7ms\n  Commit wait: sleep until committed timestamp is in the past\n  → External consistency: if T1 commits before T2 starts, T1's timestamp < T2's\n\nSQL layer: F1 SQL (full external SQL)\nUsed for: Google Ads backend, many Google services.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 645,
+      "heading_context": "### CockroachDB",
+      "confidence": "candidate",
+      "text": "Open-source Spanner-inspired.\n  - Raft per range (64MB partitions)\n  - MVCC (Multi-Version Concurrency Control)\n  - HLC timestamps (no GPS/atomic clocks → ~1ms uncertainty vs Spanner's ~7ms)\n  - Distributed SQL (DistSQL): query pushdown to data nodes\n  - Serializable isolation by default (SSI: Serializable Snapshot Isolation)\n  - PostgreSQL-compatible wire protocol\n\nTrade-off vs Spanner: less hardware, more software complexity.\nNo TrueTime → uses HLC + uncertainty bumps on clock skew detection.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 680,
+      "heading_context": "### Apache Kafka — Distributed Log",
+      "confidence": "candidate",
+      "text": "Kafka is not a database but a distributed commit log:\n  - Topic → Partitions → Ordered sequence of messages (offsets)\n  - Producers append to partitions (single leader per partition)\n  - Consumers track offset (durable cursor)\n\nReplication (ISR — In-Sync Replicas):\n  Leader handles all reads/writes.\n  Followers replicate from leader.\n  ISR = set of replicas fully caught up to leader.\n  Committed = all ISR acks.\n  Leader election: ZooKeeper (pre-3.x) or KRaft (3.x: internal Raft).\n\nStrong durability: acks=all → all ISR must commit before producer gets ack.\nHigh throughput: sequential disk writes, zero-copy sendfile(), batch compression.\nUsed for: event streaming, CDC, log aggregation, activity tracking.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "ascii_table_candidate",
+      "line": 770,
+      "heading_context": "### Multi-Region Write Conflict Resolution",
+      "confidence": "candidate",
+      "text": "**LWW + clock skew risk**: In a 5-region deployment with NTP, clocks can differ by 100ms+. A write from region A at T=100 and a write from region B at T=101 (but B's clock is 50ms behind) means A's write (which happened later in real time) loses. This is not hypothetical — it's the reason Spanner exists.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 856,
+      "heading_context": "## Consistency Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Application needs:                           Choose:\n──────────────────────────────────────────   ─────────────────────────────────────────\nStrong consistency, SQL, ACID transactions   CockroachDB, Spanner, PostgreSQL + Patroni\nStrong consistency, key-value                etcd, ZooKeeper\nEventual consistency, massive write scale    Cassandra, DynamoDB (eventually consistent)\nEvent streaming, ordered log                 Kafka\nDistributed config/coordination              etcd, ZooKeeper, Consul\nMulti-region active-active                   DynamoDB Global Tables, Cassandra multi-DC\nCollaborative real-time editing              CRDTs (Yjs for text, Automerge for JSON)\nHigh-availability distributed counter        PN-Counter CRDT\nConflict-free sets                           OR-Set CRDT\n\nConsistency model needed?\n  Reads must reflect writes you just made     Linearizability (strong consistency)\n  Reads can tolerate brief lag, same order    Sequential consistency\n  Related writes must be seen together        Causal consistency\n  Performance over correctness, SLA OK       Eventual consistency\n\nClock approach needed?\n  Linearizability across datacenters          TrueTime (requires GPS/atomic clocks)\n  Causal consistency, no hardware             HLC (CockroachDB approach)\n  Casual ordering only                        Vector clocks + NTP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

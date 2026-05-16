@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:security-cryptography
+kind: guide
+module: computing-software
+section: computing-software
+title: Security and Cryptography - A Layered Reference
+status: source-custody
+source_custody: partial
+current_path: computing/25-SECURITY.md
+canonical_path: computing/25-SECURITY.md
+backsource_ids: [proof-backfill:computing-software:25-security-cryptography, git-history:computing-software:25-security-cryptography]
+concepts: [security, cryptography, threat modeling, encryption, hashing]
+root_concepts: [security, cryptography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Security & Cryptography — A Layered Reference
 
 > **Audience note**: This guide assumes AES, RSA, PKI, Kerberos, and TLS 1.2 fundamentals at the level of someone who built secure Microsoft systems. Sections on AES modes, RSA key generation math, DH derivation, and hash function formal definitions are reference — skim or skip if you know them.

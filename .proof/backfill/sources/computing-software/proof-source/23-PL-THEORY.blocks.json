@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\23-PL-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Frame",
+      "confidence": "candidate",
+      "text": "TYPE SYSTEM EXPRESSIVENESS LATTICE\n====================================\n\n  More expressive →→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→\n  Less decidable →→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→\n\n  STLC ──→ HM ──→ System F ──→ Fω ──→ CoC ──→ MLTT\n    │         │        │          │       │       │\n    │         │        │          │       │       └─ Lean 4, Agda\n    │         │        │          │       └───────── Coq, Agda\n    │         │        │          └───────────────── Haskell + TypeFamilies\n    │         │        └──────────────────────────── Haskell + RankNTypes\n    │         │                                       GHC Core (System F + coercions)\n    │         └────────────────────────────────────── OCaml, Haskell, F#, Elm\n    └──────────────────────────────────────────────── toy languages\n\n  Level       You gain                  You lose              Production language\n  ──────────  ────────────────────────  ────────────────────  ──────────────────\n  STLC        Base types + A → B        Polymorphism          (toy)\n  HM          Let-polymorphism          —                     OCaml, F#, Haskell core\n              Complete inference\n  System F    Rank-n polymorphism       Type inference        Haskell (RankNTypes)\n              Explicit ∀               decidability          GHC Core IR\n  Fω          Type operators            —                     Haskell (TypeFamilies)\n              Type-level functions                            Scala 3 type lambdas\n  CoC         Dependent products        Decidable             Coq, Agda\n              Proofs are programs       typechecking in\n                                        general\n  MLTT        Proof-relevant types      Normalization         Lean 4, Agda\n              Univalence (HoTT)         decidability in\n                                        full generality\n\n  GHC extension → type system level:\n    {-# LANGUAGE RankNTypes #-}      → System F (rank-2+ polymorphism)\n    {-# LANGUAGE TypeFamilies #-}    → Fω (type-level functions)\n    {-# LANGUAGE DataKinds #-}       → limited dependent types (kind-level data)\n    {-# LANGUAGE GADTs #-}           → bounded System Fω\n    {-# LANGUAGE TypeInType #-}      → kinds are types (approaching CoC)\n\n  Why GHC Core is System F with coercions, not Fω:\n    GHC Core uses explicit coercions (type-equality witnesses) rather than\n    type-level functions to handle GADTs and newtypes. A GADT pattern match\n    produces a coercion proof that two types are equal; the coercion is\n    erased at runtime but must be justified in Core. This keeps GHC Core\n    in the decidable fragment while still handling GADTs expressively.\n    Coercions also enable zero-cost newtype wrapping/unwrapping.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "### Where TypeScript Diverges from HM",
+      "confidence": "candidate",
+      "text": "1. No principal types for some expressions:\n   const f = (x) => x;  // inferred as (x: unknown) => unknown in some contexts\n   HM would give ∀α. α → α\n   TS can't always generalize (no rank-1 restriction in same way)\n\n2. Inference is bidirectional, not purely constraint-based:\n   TypeScript uses \"contextual typing\" — the expected type flows inward\n   const arr: number[] = [1, 2, 3];  // literal types inferred as number, not 1|2|3\n   Without the annotation: [1, 2, 3] inferred as (1 | 2 | 3)[]\n\n3. No let-generalization at the value level:\n   TypeScript does generalize generic functions but not every let-binding\n   This is deliberate — full HM generalization interacts badly with mutation\n\n4. Subtyping breaks principal types:\n   HM assumes no subtyping. TypeScript has structural subtyping.\n   These interact in non-trivial ways (variance, conditional types).\n   The combination makes TypeScript's type inference incomplete in general.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "### GHC's Type Inference — OutsideIn(X)",
+      "confidence": "candidate",
+      "text": "Algorithm W (HM):\n  Bottom-up: generate constraints at each node, unify immediately\n  Can't handle: type class constraints (which impose global requirements)\n                GADTs (which require local type refinements to propagate)\n\nOutsideIn(X):\n  Separates \"given\" constraints (what we know at this point)\n  from \"wanted\" constraints (what we need to prove)\n\n  Given: local type assumptions (what enclosing bindings have established)\n  Wanted: constraints generated by the expression being checked\n\n  Propagation: wanted constraints float upward to the enclosing binding\n  Resolution: solved at the outermost scope where enough information exists\n\n  This is why `show . read` requires a type annotation:\n    show :: Show a => a -> String\n    read :: Read a => String -> a\n    show . read :: Read a, Show a => String -> String\n    The constraint `a` has nothing to resolve it — annotation required.\n\n  But `show (read \"42\" :: Int)` works:\n    The annotation `:: Int` resolves `a = Int`, satisfying both constraints.\n    OutsideIn picks this up and solves the wanted constraints.\n\n  Why Haskell type errors are sometimes far from the source:\n    OutsideIn floats wanted constraints outward.\n    The failure is reported at the enclosing binding where resolution fails,\n    not necessarily at the use site that generated the constraint.\n    This is architecturally correct but pedagogically confusing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "### Variance",
+      "confidence": "candidate",
+      "text": "Covariant F:     A <: B  implies  F<A> <: F<B>    (same direction)\n  ReadonlyArray<Cat> <: ReadonlyArray<Animal>   (if Cat <: Animal)\n  Safe: you can read from F<A> wherever F<B> is expected\n\nContravariant F: A <: B  implies  F<B> <: F<A>    (reversed)\n  (Animal → void) <: (Cat → void)               (if Cat <: Animal)\n  A function that handles any Animal can substitute for one needing Cat\n  Safe: you can write/consume into F<A> wherever F<B> is expected\n\nInvariant F:     Neither\n  Array<Cat> ≮ Array<Animal>                    (mutable array)\n  If it were covariant: push(new Dog()) via Animal[] reference = runtime error\n  TypeScript arrays are unsoundly covariant (historical JavaScript compat)\n\nBivariant F:     Both directions (unsound)\n  TypeScript method parameters are bivariant by default (--strictFunctionTypes\n  changes function type parameters to contravariant — the sound choice)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "### Mapped Types",
+      "confidence": "candidate",
+      "text": "// Mapped types: transform every property\ntype Partial<T> = { [K in keyof T]?: T[K] };\ntype Required<T> = { [K in keyof T]-?: T[K] };  // -? removes optional\ntype Readonly<T> = { readonly [K in keyof T]: T[K] };\n\n// Key remapping (TS 4.1+)\ntype Getters<T> = {\n  [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]\n};\ntype G = Getters<{ name: string; age: number }>;\n// { getName: () => string; getAge: () => number }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 526,
+      "heading_context": "## Type Classes vs Interfaces vs Traits",
+      "confidence": "candidate",
+      "text": "Haskell type classes:\n  class Eq a where\n    (==) :: a -> a -> Bool\n\n  instance Eq Int where ...\n  instance Eq a => Eq [a] where ...  -- conditional instances\n\n  Dictionary-passing translation:\n    Compiler generates a dictionary (record of function pointers)\n    per instance. Passes it implicitly at call sites.\n\nRust traits:\n  Direct descendant of Haskell type classes.\n  Trait objects (&dyn Trait) use vtables (like OOP interfaces).\n  impl Trait (monomorphization) generates a copy per concrete type.\n  Orphan rules: can only implement a trait if you own the trait or the type.\n  (Prevents coherence violations — two implementations of same trait for same type)\n\nTypeScript interfaces / structural:\n  No explicit declaration of conformance.\n  {x: number} satisfies {x: number} automatically.\n  No \"instance\" relationship — structural check at each use site.\n  No dictionary passing — erased at runtime.\n  Limitation: can't write \"this type has an Eq instance\" as a constraint.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 579,
+      "heading_context": "### The Expression Problem",
+      "confidence": "candidate",
+      "text": "Given:\n  - A set of types (Circle, Square)\n  - A set of operations (area, perimeter)\n\nCan you add both new types AND new operations without modifying existing code?\n\nOOP solution:    Easy to add new types (new subclass).\n                 Hard to add new operations (modify base class + all subclasses).\n\nFP solution:     Easy to add new operations (new function over the ADT).\n                 Hard to add new types (modify pattern match in all functions).\n\nSolutions:\n  Type classes (Haskell) / Traits (Rust):\n    New type → new instance (no modification to existing code)\n    New operation → new type class (no modification to existing types)\n    OK Solves the expression problem\n\n  Open classes (Ruby, JavaScript prototype):\n    Monkey-patching: add methods to existing types\n    OK Solves it dynamically, at the cost of safety\n\n  Tagless final (Haskell / Scala):\n    Encode operations as type class constraints, types as interpreters\n    OK Solves it in a more principled way at the cost of complexity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 628,
+      "heading_context": "### Operational Semantics",
+      "confidence": "candidate",
+      "text": "Why syntactic safety fails for Rust:\n  Progress: \"well-typed e is either a value or steps\"\n  — false in the presence of unsafe blocks that can produce UB\n\n  Preservation: \"if ⊢ e : T and e → e', then ⊢ e' : T\"\n  — the borrow checker is not a standard type system rule;\n    it's a separate analysis on MIR\n\nRustBelt's fix:\n  Define a semantic interpretation [[T]] for each type T\n  Prove: if v : T in the surface type system, then v ∈ [[T]] holds\n  Prove: operations on v that respect [[T]] cannot cause UB\n  The separation logic handles the heap ownership part",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 650,
+      "heading_context": "### Denotational Semantics",
+      "confidence": "candidate",
+      "text": "[[e]] : Environment → Value   (interpretation function)\n\n[[λx.e]] ρ = λv. [[e]] (ρ[x ↦ v])   -- lambda is a function\n[[e₁ e₂]] ρ = [[e₁]] ρ ([[e₂]] ρ)   -- application is function application\n\nUsed in:\n  Reasoning about program equivalence (⟦e₁⟧ = ⟦e₂⟧ → they're the same)\n  Compiler correctness proofs (translation preserves denotation)\n  Type theory foundations (domain theory for recursive types)\n\nScott domains solve the recursion problem:\n  f = λx. f x  (diverges)\n  Needs a domain with a \"bottom\" element ⊥ representing divergence\n  D ≅ [D → D] — a domain isomorphic to its own function space\n  Dana Scott's CPO construction (1969) makes this precise",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

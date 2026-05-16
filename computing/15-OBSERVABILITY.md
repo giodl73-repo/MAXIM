@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:observability
+kind: guide
+module: computing-software
+section: computing-software
+title: Observability
+status: source-custody
+source_custody: partial
+current_path: computing/15-OBSERVABILITY.md
+canonical_path: computing/15-OBSERVABILITY.md
+backsource_ids: [proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]
+concepts: [observability, logging, metrics, tracing, telemetry, alerts]
+root_concepts: [observability, telemetry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 15 — Observability
 
 ## The Big Picture

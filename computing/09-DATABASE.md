@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:databases
+kind: guide
+module: computing-software
+section: computing-software
+title: Databases - Modern Patterns Guide
+status: source-custody
+source_custody: partial
+current_path: computing/09-DATABASE.md
+canonical_path: computing/09-DATABASE.md
+backsource_ids: [proof-backfill:computing-software:09-databases, git-history:computing-software:09-databases]
+concepts: [databases, sql, nosql, transactions, indexes, orm]
+root_concepts: [databases, data modeling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Databases — Modern Patterns Guide
 
 ## The Big Picture

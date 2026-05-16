@@ -1,0 +1,678 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\25-SECURITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 244,
+      "heading_context": "## 1. Cryptography Fundamentals",
+      "headers": [
+        "Function",
+        "Output",
+        "Security",
+        "Status",
+        "Use case"
+      ],
+      "rows": [
+        [
+          "MD5",
+          "128-bit",
+          "2^18 collisions",
+          "BROKEN",
+          "Legacy verification only"
+        ],
+        [
+          "SHA-1",
+          "160-bit",
+          "SHAttered (2017)",
+          "BROKEN",
+          "Legacy; git still uses but migrating"
+        ],
+        [
+          "SHA-256",
+          "256-bit",
+          "2^128",
+          "Safe",
+          "General, TLS, certificates"
+        ],
+        [
+          "SHA-384",
+          "384-bit",
+          "2^192",
+          "Safe",
+          "TLS 1.3 cipher suites"
+        ],
+        [
+          "SHA-512",
+          "512-bit",
+          "2^256",
+          "Safe",
+          "When 512-bit output needed"
+        ],
+        [
+          "SHA-3 (Keccak)",
+          "variable",
+          "2^(n/2)",
+          "Safe",
+          "Sponge construction; immune to length extension"
+        ],
+        [
+          "BLAKE3",
+          "variable",
+          "2^(n/2)",
+          "Safe",
+          "**Fastest**; preferred for checksums, file verification"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 306,
+      "heading_context": "## 1. Cryptography Fundamentals",
+      "headers": [
+        "KDF",
+        "Design",
+        "GPU resistance",
+        "OWASP rec",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "PBKDF2",
+          "HMAC iterations",
+          "Weak",
+          "Legacy",
+          "GPU-parallelizable; need 600,000+ iterations for SHA-256"
+        ],
+        [
+          "bcrypt",
+          "Blowfish-based",
+          "Moderate",
+          "Acceptable",
+          "Memory-hard (4KB); cost factor 12+; truncates at 72 bytes"
+        ],
+        [
+          "scrypt",
+          "Memory-hard",
+          "Strong",
+          "Acceptable",
+          "N=2^17, r=8, p=1; memory-time tradeoff parameter"
+        ],
+        [
+          "**Argon2id**",
+          "Memory+CPU hard",
+          "**Strongest**",
+          "**Preferred**",
+          "PHC 2015 winner; hybrid of Argon2i (side-channel) and Argon2d (GPU)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 568,
+      "heading_context": "## 3. Secrets Management",
+      "headers": [
+        "Tool",
+        "Integration",
+        "Scope"
+      ],
+      "rows": [
+        [
+          "GitHub secret scanning",
+          "Built-in (free for public, paid for private)",
+          "Push-time scan of new commits"
+        ],
+        [
+          "gitleaks",
+          "Pre-commit hook, CI",
+          "Scan full git history"
+        ],
+        [
+          "truffleHog",
+          "CI, standalone",
+          "Entropy + regex scan of history"
+        ],
+        [
+          "git-secrets",
+          "Pre-commit hook",
+          "Block commits matching configured patterns"
+        ],
+        [
+          "Semgrep secrets",
+          "CI",
+          "Source code + config file patterns"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1042,
+      "heading_context": "## 7. Supply Chain Security",
+      "headers": [
+        "Level",
+        "Requirements",
+        "What it prevents"
+      ],
+      "rows": [
+        [
+          "1",
+          "Build process documented; provenance generated",
+          "Accidental issues"
+        ],
+        [
+          "2",
+          "Signed provenance; hosted build service",
+          "Tampering after build"
+        ],
+        [
+          "3",
+          "Tamper-resistant build platform; signed source",
+          "Compromised build infra"
+        ],
+        [
+          "4",
+          "Two-person review; hermetic builds; all deps at SLSA 3+",
+          "Insider threats"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1111,
+      "heading_context": "## 8. Threat Modeling",
+      "headers": [
+        "Threat",
+        "Violated property",
+        "Example",
+        "Mitigation"
+      ],
+      "rows": [
+        [
+          "**S**poofing",
+          "Authentication",
+          "User claims false identity; ARP spoofing",
+          "MFA, certificates, HMAC"
+        ],
+        [
+          "**T**ampering",
+          "Integrity",
+          "Modify request in transit; corrupt DB record",
+          "TLS, HMAC, digital signatures, database constraints"
+        ],
+        [
+          "**R**epudiation",
+          "Non-repudiation",
+          "\"I never sent that order\"",
+          "Audit logs, digital signatures, append-only event store"
+        ],
+        [
+          "**I**nformation Disclosure",
+          "Confidentiality",
+          "Data exfiltration; verbose errors",
+          "Encryption, ACLs, least privilege"
+        ],
+        [
+          "**D**enial of Service",
+          "Availability",
+          "SYN flood; resource exhaustion",
+          "Rate limiting, DDoS scrubbing, circuit breakers"
+        ],
+        [
+          "**E**levation of Privilege",
+          "Authorization",
+          "SQL injection → DBA rights; SUID bit abuse",
+          "Least privilege, sandboxing, input validation"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 1254,
+      "heading_context": "## 9. Container & Cloud Security",
+      "headers": [
+        "Tool",
+        "Focus",
+        "Integration"
+      ],
+      "rows": [
+        [
+          "Trivy",
+          "OS packages + app deps + secrets",
+          "CLI, GitHub Actions, k8s admission webhook"
+        ],
+        [
+          "Grype",
+          "OS packages + app deps",
+          "CLI, GitHub Actions"
+        ],
+        [
+          "Snyk Container",
+          "CVEs + base image recommendations",
+          "CI, IDE"
+        ],
+        [
+          "Clair",
+          "CVEs",
+          "Used in container registries"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 1380,
+      "heading_context": "## 10. Security Testing",
+      "headers": [
+        "Type",
+        "Tool",
+        "What it finds",
+        "When"
+      ],
+      "rows": [
+        [
+          "SAST",
+          "Semgrep",
+          "Code-level: injection, hardcoded secrets, insecure APIs",
+          "PR"
+        ],
+        [
+          "SAST",
+          "CodeQL (GitHub)",
+          "Data flow analysis: injection, XSS, path traversal",
+          "PR"
+        ],
+        [
+          "SAST",
+          "Roslyn Analyzers (.NET)",
+          ".NET-specific: BinaryFormatter, CryptographicException",
+          "IDE + CI"
+        ],
+        [
+          "DAST",
+          "OWASP ZAP",
+          "Runtime: SSRF, XSS, SQL injection in running app",
+          "Test env"
+        ],
+        [
+          "DAST",
+          "Burp Suite",
+          "Manual + automated: comprehensive web app testing",
+          "Pen test"
+        ],
+        [
+          "SCA",
+          "Dependabot",
+          "Vulnerable library versions",
+          "PR + main"
+        ],
+        [
+          "SCA",
+          "Snyk",
+          "Vulnerable library versions + fix recommendations",
+          "PR"
+        ],
+        [
+          "SCA",
+          "OWASP Dependency-Check",
+          "CVEs in Java/.NET dependencies",
+          "CI"
+        ],
+        [
+          "Secret scanning",
+          "truffleHog",
+          "Leaked secrets in code and git history",
+          "CI + pre-push"
+        ],
+        [
+          "Secret scanning",
+          "gitleaks",
+          "Leaked secrets with custom patterns",
+          "Pre-commit"
+        ],
+        [
+          "Container",
+          "Trivy",
+          "CVEs in OS packages + app deps + secrets in image",
+          "Image build"
+        ],
+        [
+          "Container",
+          "Grype",
+          "CVEs in OS packages and language packages",
+          "Image build"
+        ],
+        [
+          "Fuzzing",
+          "AFL++",
+          "Memory corruption, input parsing bugs",
+          "Security test"
+        ],
+        [
+          "Fuzzing",
+          "Jazzer",
+          "Java: exception-based fuzzing for logic bugs",
+          "Security test"
+        ],
+        [
+          "Pen test",
+          "Metasploit",
+          "Real-world attack simulation",
+          "Periodic"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 1424,
+      "heading_context": "## 11. Old World → New World Bridge",
+      "headers": [
+        "Old World",
+        "New World",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Kerberos tickets",
+          "JWT + OIDC tokens",
+          "Both are time-limited tokens with claims; Kerberos uses symmetric encryption (AES), JWT uses asymmetric (RS256/ES256). Kerberos is network-bound; JWT is transport-agnostic."
+        ],
+        [
+          "ADFS / WS-Federation",
+          "Entra ID + OIDC",
+          "ADFS spoke WS-Federation and SAML 2.0 (XML-based). Entra ID speaks OIDC/OAuth2 (JSON). Same concepts: identity provider, claims, federation. ADFS still usable for on-prem hybrid; new systems use Entra."
+        ],
+        [
+          "Windows Integrated Auth (Negotiate/NTLM/Kerberos)",
+          "Managed Identity + OIDC",
+          "WIA worked because client was on the domain. Cloud workloads use Managed Identity — platform issues OIDC tokens. No Kerberos needed; no domain join needed."
+        ],
+        [
+          "Active Directory Certificate Services (AD CS)",
+          "Let's Encrypt + Azure Key Vault Certificates",
+          "AD CS issued certs within the enterprise CA hierarchy. Let's Encrypt issues public DV certs via ACME. Azure Key Vault can act as CA for internal certs. Both automate the workflow that AD CS did manually."
+        ],
+        [
+          "SQL Server mixed-mode auth (user/pass)",
+          "Entra authentication for Azure SQL",
+          "Azure SQL supports Entra-integrated auth. Application uses Managed Identity → gets token → connects to SQL without a password. `Data Source=server.database.windows.net;Authentication=Active Directory Default`"
+        ],
+        [
+          "App.config / web.config connection strings",
+          "Key Vault secrets + Managed Identity",
+          "Connection strings in config files are never acceptable in cloud-native apps. Fetch from Key Vault at startup; App Service supports Key Vault references in app settings (fetched transparently)."
+        ],
+        [
+          "BinaryFormatter deserialization",
+          "System.Text.Json / Protobuf",
+          "BinaryFormatter is removed in .NET 9 — good. Replace with System.Text.Json (JSON), Google.Protobuf (binary), or MessagePack. Type-safe; no gadget chain exploits."
+        ],
+        [
+          "MD5 for file integrity checks",
+          "SHA-256 or BLAKE3",
+          "MD5 collision attacks are trivial (Wang 2004, ~1 hour; now seconds). The SHAttered attack broke SHA-1 (2017). Use SHA-256 minimum. BLAKE3 is faster and equally secure."
+        ],
+        [
+          "bcrypt in old ASP.NET Identity",
+          "Argon2id",
+          "ASP.NET Identity (old) used PBKDF2 with SHA-1, then SHA-256. Current ASP.NET Core Identity uses PBKDF2-SHA256 with 100,000 iterations. Argon2id (via Konscious.Security.Cryptography or libsodium-net) is the right choice for new password storage."
+        ],
+        [
+          "IPSec site-to-site VPN to on-prem",
+          "Azure Private Link / ExpressRoute",
+          "Private Link exposes Azure PaaS services on your VNet's private IP space. No public internet path. ExpressRoute = dedicated private circuit to Azure, not traversing public internet."
+        ],
+        [
+          "IIS + web.config",
+          "Containerized app + env vars / Key Vault",
+          "web.config transforms and environment-specific configs are replaced by environment variables + external secrets management."
+        ],
+        [
+          "SCOM / manual alerting",
+          "Microsoft Defender for Cloud + Sentinel",
+          "SCOM monitored on-prem infrastructure. Defender for Cloud does continuous posture management across Azure. Sentinel is the SIEM for security event correlation."
+        ],
+        [
+          "Group Policy for security baseline",
+          "Azure Policy + Defender for Cloud",
+          "Azure Policy enforces resource configuration (equivalent to GPO for cloud resources). Defender for Cloud gives recommendations scored against CIS benchmarks."
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 1444,
+      "heading_context": "## 12. Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Solution",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Hash a password for storage",
+          "Argon2id (m=64MB, t=1, p=4)",
+          "Never use bcrypt for new systems; Argon2id is PHC winner"
+        ],
+        [
+          "Hash arbitrary data (checksum)",
+          "SHA-256 or BLAKE3",
+          "BLAKE3 is faster; SHA-256 is more universally supported"
+        ],
+        [
+          "Symmetric encrypt data at rest",
+          "AES-256-GCM",
+          "AEAD; use random 96-bit nonce; never reuse nonce+key pair"
+        ],
+        [
+          "Symmetric encrypt in constrained env",
+          "ChaCha20-Poly1305",
+          "No AES hardware? Use this. Also TLS 1.3 cipher suite."
+        ],
+        [
+          "Sign a JWT (stateless)",
+          "ES256 (ECDSA P-256) or RS256",
+          "Avoid HS256 in multi-party scenarios; ES256 is shorter"
+        ],
+        [
+          "Sign a document / artifact",
+          "Ed25519 (EdDSA)",
+          "Deterministic; no k-reuse risk; fast; preferred for new"
+        ],
+        [
+          "TLS cert for public website",
+          "Let's Encrypt (ACME / certbot)",
+          "Free, 90-day, automated renewal"
+        ],
+        [
+          "TLS cert for Azure App Service",
+          "App Service Managed Cert",
+          "Free, auto-renews, no tooling needed"
+        ],
+        [
+          "Store API keys in production",
+          "Azure Key Vault + Managed Identity",
+          "No credentials in code/config"
+        ],
+        [
+          "Store secrets with k8s",
+          "Sealed Secrets or Vault Agent",
+          "Sealed Secrets simpler; Vault for dynamic creds"
+        ],
+        [
+          "Encrypt secrets in git repo",
+          "SOPS with Azure Key Vault KMS",
+          "File structure preserved; values encrypted"
+        ],
+        [
+          "Service-to-service auth in k8s",
+          "mTLS via Istio or Linkerd",
+          "Sidecar handles cert rotation; no app code changes"
+        ],
+        [
+          "Prevent SQL injection",
+          "Parameterized queries always",
+          "Never string concatenate SQL; use ORM or prepared statements"
+        ],
+        [
+          "Prevent XSS",
+          "Content-Security-Policy nonce",
+          "+ output encoding at render time (React does this by default)"
+        ],
+        [
+          "Block SSRF",
+          "Allowlist outbound + block 169.254.0.0/16",
+          "Block IMDS range; resolve to IP before checking"
+        ],
+        [
+          "Scan for secrets in git history",
+          "truffleHog or gitleaks",
+          "Run on every PR; scan full history on new repos"
+        ],
+        [
+          "Sign container images",
+          "Cosign (keyless OIDC)",
+          "No long-lived keys; Sigstore transparency log"
+        ],
+        [
+          "Verify container image integrity",
+          "cosign verify at deploy time",
+          "Enforce via admission webhook (Kyverno, OPA Gatekeeper)"
+        ],
+        [
+          "Least privilege for Azure workload",
+          "Managed Identity + scoped RBAC",
+          "System-assigned Managed Identity; narrow scope"
+        ],
+        [
+          "JIT access for privileged ops",
+          "Azure AD PIM",
+          "Time-limited elevation; approver workflow; audit log"
+        ],
+        [
+          "Zero-trust access for users",
+          "Entra Conditional Access + MFA",
+          "Device compliance + identity signals on every sign-in"
+        ],
+        [
+          "Threat model a new system",
+          "STRIDE on DFDs",
+          "Microsoft Threat Modeling Tool; apply STRIDE to trust boundaries"
+        ],
+        [
+          "Audit dependencies for CVEs",
+          "Dependabot + `npm audit` / `dotnet list package --vulnerable`",
+          "Automate PRs; fail CI on high/critical"
+        ],
+        [
+          "Security test a web app",
+          "Semgrep (SAST) + OWASP ZAP (DAST)",
+          "SAST on PR; DAST on test environment"
+        ],
+        [
+          "Post-quantum migration",
+          "Hybrid X25519+ML-KEM-768 in TLS",
+          "Deploy via OpenSSL 3.x oqs-provider or BouncyCastle"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 1534,
+      "heading_context": "## 15. Post-Quantum Cryptography",
+      "headers": [
+        "Standard",
+        "Algorithm",
+        "Basis",
+        "Use"
+      ],
+      "rows": [
+        [
+          "FIPS 203",
+          "ML-KEM (Kyber)",
+          "Module Learning With Errors (MLWE)",
+          "Key encapsulation (replaces ECDH)"
+        ],
+        [
+          "FIPS 204",
+          "ML-DSA (Dilithium)",
+          "Module Learning With Errors",
+          "Digital signatures (replaces ECDSA/RSA)"
+        ],
+        [
+          "FIPS 205",
+          "SLH-DSA (SPHINCS+)",
+          "Hash-based",
+          "Digital signatures (hash-only, conservative)"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 1542,
+      "heading_context": "## 15. Post-Quantum Cryptography",
+      "headers": [
+        "Algorithm",
+        "Public key",
+        "Private key",
+        "Ciphertext",
+        "Security level"
+      ],
+      "rows": [
+        [
+          "X25519 (classical)",
+          "32 bytes",
+          "32 bytes",
+          "32 bytes",
+          "128-bit classical"
+        ],
+        [
+          "ML-KEM-512",
+          "800 bytes",
+          "1632 bytes",
+          "768 bytes",
+          "128-bit PQC"
+        ],
+        [
+          "ML-KEM-768",
+          "1184 bytes",
+          "2400 bytes",
+          "1088 bytes",
+          "192-bit PQC"
+        ],
+        [
+          "ML-KEM-1024",
+          "1568 bytes",
+          "3168 bytes",
+          "1568 bytes",
+          "256-bit PQC"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 1590,
+      "heading_context": "## 15. Post-Quantum Cryptography",
+      "headers": [
+        "Year",
+        "Milestone"
+      ],
+      "rows": [
+        [
+          "2024",
+          "NIST FIPS 203/204/205 published; hybrid TLS deployments at major CDNs"
+        ],
+        [
+          "2026",
+          "NIST expects most new systems to support PQC; federal systems guidance"
+        ],
+        [
+          "2030",
+          "NIST deadline: RSA-2048 and ECDH-256 no longer approved for new use"
+        ],
+        [
+          "2035",
+          "NIST deadline: decommission classical-only systems"
+        ]
+      ]
+    }
+  ]
+}

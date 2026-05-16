@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:modern-testing-stack
+kind: guide
+module: computing-software
+section: computing-software
+title: Modern Testing Stack
+status: source-custody
+source_custody: partial
+current_path: computing/18-TESTING.md
+canonical_path: computing/18-TESTING.md
+backsource_ids: [proof-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]
+concepts: [testing, unit tests, integration tests, e2e, test pyramid]
+root_concepts: [testing, quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 18 — Modern Testing Stack
 
 ## The Big Picture

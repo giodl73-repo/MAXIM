@@ -1,0 +1,145 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\27-DISTRIBUTED-SYSTEMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 423,
+      "heading_context": "## 4. Time and Causality",
+      "headers": [
+        "Approach",
+        "Mechanism",
+        "Uncertainty",
+        "Consistency achieved",
+        "Used by"
+      ],
+      "rows": [
+        [
+          "TrueTime",
+          "GPS receivers + atomic clocks in each datacenter; hardware-bounded ε",
+          "ε ≈ 7ms avg (wait this out before commit)",
+          "External consistency (linearizability across datacenters)",
+          "Google Spanner"
+        ],
+        [
+          "Hybrid Logical Clocks (HLC)",
+          "Wall clock + logical counter; no hardware; software-only monotonicity",
+          "~1ms typical (clock skew detection + uncertainty bumps on skew)",
+          "Causal consistency; serializable via SSI",
+          "CockroachDB, YugabyteDB"
+        ],
+        [
+          "NTP + causal metadata",
+          "NTP drift ±100ms+; rely on vector clocks or causal tokens for ordering",
+          "High — cannot trust timestamps for ordering",
+          "Causal consistency (with tokens); eventual without",
+          "Most distributed DBs (Cassandra, DynamoDB default)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 517,
+      "heading_context": "## 6. CRDTs — Conflict-Free Replicated Data Types",
+      "headers": [
+        "CRDT",
+        "Operations",
+        "Merge rule",
+        "Used in"
+      ],
+      "rows": [
+        [
+          "G-Counter",
+          "Increment only",
+          "max per-replica count",
+          "Distributed counters"
+        ],
+        [
+          "PN-Counter",
+          "Inc/Dec",
+          "pair of G-Counters",
+          "Shopping cart quantities"
+        ],
+        [
+          "G-Set",
+          "Add only",
+          "set union",
+          "Tag sets"
+        ],
+        [
+          "2P-Set",
+          "Add/Remove",
+          "add-set ∪, remove-set ∪; add wins",
+          "Distributed sets"
+        ],
+        [
+          "OR-Set (Observed-Remove)",
+          "Add/Remove",
+          "tag each add; remove only removes tagged copies",
+          "Most set CRDTs"
+        ],
+        [
+          "LWW-Element-Set",
+          "Add/Remove",
+          "timestamp; last-write-wins per element",
+          "Casual apps"
+        ],
+        [
+          "LWW-Register",
+          "Assign",
+          "max timestamp wins",
+          "Single-value registers"
+        ],
+        [
+          "MV-Register",
+          "Assign",
+          "multi-value; all concurrent kept",
+          "DynamoDB versioning"
+        ],
+        [
+          "RGA / Logoot",
+          "Insert/Delete",
+          "sequence CRDTs",
+          "Collaborative text editing"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 763,
+      "heading_context": "## 10. Read-Path Optimization and Production Patterns",
+      "headers": [
+        "Strategy",
+        "Mechanism",
+        "Risk",
+        "When to use"
+      ],
+      "rows": [
+        [
+          "Last-Write-Wins (LWW)",
+          "Compare timestamps; highest wins",
+          "Clock skew can silently discard writes",
+          "Immutable records, events, logs"
+        ],
+        [
+          "Compare-and-Swap (CAS) / optimistic locking",
+          "Version counter; reject stale writes",
+          "Higher retry rate under contention",
+          "Low-contention mutable records"
+        ],
+        [
+          "CRDTs",
+          "Commutative merge; no conflict possible",
+          "Limited to CRDT-compatible types",
+          "Counters, sets, presence indicators"
+        ],
+        [
+          "Application-level merge",
+          "Return all conflicting versions; client merges",
+          "Requires client-side merge logic",
+          "Shopping carts, rich documents"
+        ]
+      ]
+    }
+  ]
+}

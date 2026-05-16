@@ -1,0 +1,131 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\11-DOCKER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 741,
+      "heading_context": "## Old World Bridge",
+      "headers": [
+        "Azure / IIS / Windows Concept",
+        "Docker Equivalent"
+      ],
+      "rows": [
+        [
+          "VM image (VHD/VHDX)",
+          "Docker image"
+        ],
+        [
+          "Provisioned VM",
+          "Running container"
+        ],
+        [
+          "MSI installer",
+          "Dockerfile / base image"
+        ],
+        [
+          "IIS + App Pool",
+          "App server embedded in container (Kestrel, Express)"
+        ],
+        [
+          "web.config / app.config",
+          "Environment variables / mounted config files"
+        ],
+        [
+          "xcopy deploy / App Pool recycle",
+          "`docker build` + `docker run` (image is immutable; replace the container, not the files inside it)"
+        ],
+        [
+          "Azure App Service Plan",
+          "Azure Container Apps / AKS Node Pool"
+        ],
+        [
+          "Azure Container Registry",
+          "ACR (same name, now for containers not packages)"
+        ],
+        [
+          "NuGet feed",
+          "Container registry"
+        ],
+        [
+          "Shared assemblies (GAC)",
+          "Base image layers (shared, cached by SHA256)"
+        ],
+        [
+          "Deployment slot",
+          "Blue/green containers behind a load balancer"
+        ],
+        [
+          "VSTS Build pipeline",
+          "CI pipeline → `docker build` → `docker push`"
+        ],
+        [
+          "Windows Service (svchost manages lifetime)",
+          "Container PID 1 (container exits when main process exits)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 767,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "App packaging",
+          "Inspect Dockerfile layers, base image, build context, runtime user, secrets, and reproducibility.",
+          "A container image is a deployable filesystem plus metadata, not a VM."
+        ],
+        [
+          "Local container run",
+          "Compare `docker run` and Compose based on dependencies, ports, env files, and lifecycle.",
+          "Local success can hide production networking and persistence differences."
+        ],
+        [
+          "Multi-service dev stack",
+          "Use Compose services, networks, health checks, volumes, and startup dependencies.",
+          "`depends_on` orders startup; it does not guarantee readiness unless health is modeled."
+        ],
+        [
+          "Persistent data",
+          "Use named volumes, backup/export plan, schema migrations, and cleanup policy.",
+          "Volumes outlive containers and can preserve stale state."
+        ],
+        [
+          "Live code editing",
+          "Use bind mounts, file-watch behavior, container user permissions, and OS filesystem quirks.",
+          "Bind mounts can mask files baked into the image."
+        ],
+        [
+          "Production image size",
+          "Use multi-stage builds, minimal base, dependency pruning, and vulnerability scanning.",
+          "Small images still need patch strategy and provenance."
+        ],
+        [
+          "Image sharing",
+          "Push to GHCR/ACR with tags, digests, immutability, permissions, and CI credentials.",
+          "`latest` is a moving pointer; deploy by digest for reproducibility."
+        ],
+        [
+          "Debugging a container",
+          "Use logs, exec shell, inspect, environment, filesystem, and entrypoint/cmd.",
+          "Debug changes inside a running container are ephemeral."
+        ],
+        [
+          "Disk pressure",
+          "Use `docker system df`, prune selectively, and distinguish images, containers, volumes, and build cache.",
+          "`prune -a` can delete useful caches and stopped-state evidence."
+        ],
+        [
+          "Azure container target",
+          "Compare ACA, App Service, AKS, scaling model, networking, and operational ownership.",
+          "Kubernetes is an orchestration commitment, not a default deployment target."
+        ]
+      ]
+    }
+  ]
+}

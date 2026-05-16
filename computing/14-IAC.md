@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:infrastructure-as-code
+kind: guide
+module: computing-software
+section: computing-software
+title: Infrastructure as Code
+status: source-custody
+source_custody: partial
+current_path: computing/14-IAC.md
+canonical_path: computing/14-IAC.md
+backsource_ids: [proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]
+concepts: [infrastructure as code, terraform, bicep, cloudformation, provisioning]
+root_concepts: [infrastructure as code, provisioning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 14 — Infrastructure as Code
 
 ## The Big Picture

@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\08-BACKEND.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 909,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        "ASP.NET / WCF / .NET concept",
+        "Node.js backend equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "ASP.NET MVC Controller",
+          "Express Router / NestJS Controller",
+          "Same concept"
+        ],
+        [
+          "`[HttpGet]`, `[HttpPost]`",
+          "`app.get()`, `app.post()`",
+          "HTTP verb routing"
+        ],
+        [
+          "`[Route(\"api/users/{id}\")]`",
+          "`app.get('/api/users/:id')`",
+          "Route templates"
+        ],
+        [
+          "`[FromBody]`",
+          "`req.body` (with `express.json()`)",
+          "Body parsing middleware"
+        ],
+        [
+          "`[FromQuery]`",
+          "`req.query`",
+          "Query string params"
+        ],
+        [
+          "`[FromRoute]`",
+          "`req.params`",
+          "Route params"
+        ],
+        [
+          "`ActionResult` / `IResult`",
+          "`res.json()`, `res.status(n).json()`",
+          "Response helpers"
+        ],
+        [
+          "`ModelState.IsValid`",
+          "Zod `safeParse()`",
+          "Input validation"
+        ],
+        [
+          "Data Annotations (`[Required]`)",
+          "Zod schema",
+          "Declarative validation"
+        ],
+        [
+          "`IActionFilter` / Middleware",
+          "Express middleware",
+          "Request/response pipeline"
+        ],
+        [
+          "`IExceptionFilter`",
+          "Express error handler `(err, req, res, next)`",
+          "Global error handling"
+        ],
+        [
+          "WCF `[ServiceContract]` / `[OperationContract]`",
+          "tRPC router + procedures",
+          "tRPC = live TypeScript contract; no generation step"
+        ],
+        [
+          "WCF service contract (public)",
+          "OpenAPI spec / GraphQL SDL",
+          "Machine-readable API contract"
+        ],
+        [
+          "WSDL",
+          "openapi.yaml",
+          "Contract file"
+        ],
+        [
+          "\"Add Service Reference\"",
+          "`openapi-generator` / `graphql-codegen`",
+          "Point at spec, get typed client"
+        ],
+        [
+          "`HttpClient` (consuming)",
+          "`fetch()` / `axios`",
+          "HTTP client"
+        ],
+        [
+          "IIS hosting",
+          "Azure App Service (Node.js) / Vercel / Railway",
+          "Cloud hosting"
+        ],
+        [
+          "Azure Functions (.NET)",
+          "Azure Functions (Node.js) / Vercel Functions",
+          "Serverless"
+        ],
+        [
+          "Swagger UI (Swashbuckle)",
+          "swagger-ui-express / built into NestJS",
+          "Interactive API docs"
+        ],
+        [
+          "`appsettings.json`",
+          "`.env` + `dotenv`",
+          "Environment config"
+        ],
+        [
+          "Dependency Injection container",
+          "NestJS DI / manual composition",
+          "DI pattern"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 943,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Public API design",
+          "Use REST + OpenAPI, resource boundaries, versioning, auth, errors, and client generation.",
+          "Public APIs are contracts; compatibility matters more than elegance."
+        ],
+        [
+          "Internal TypeScript API",
+          "Consider tRPC when client/server share repo, types, deployment cadence, and trust boundary.",
+          "tRPC couples consumers to implementation language and release rhythm."
+        ],
+        [
+          "Graph-shaped data",
+          "Evaluate GraphQL schema, client query needs, authorization, N+1 risk, and caching.",
+          "GraphQL moves complexity into resolver and governance layers."
+        ],
+        [
+          "Minimal Node backend",
+          "Compare Express simplicity, middleware ecosystem, validation, and error handling discipline.",
+          "Minimal boilerplate can mean implicit architecture."
+        ],
+        [
+          "High-performance Node backend",
+          "Consider Fastify with schema validation, plugin model, lifecycle hooks, and benchmarks on real routes.",
+          "Framework speed rarely dominates slow database calls."
+        ],
+        [
+          "Structured enterprise backend",
+          "Use NestJS when DI, guards, filters, modules, and team conventions are valuable.",
+          "Structure helps teams but can be heavy for small services."
+        ],
+        [
+          "Edge deployment",
+          "Check runtime APIs, cold start, data locality, package limits, and Hono/worker fit.",
+          "Edge functions cannot use every Node library or database pattern."
+        ],
+        [
+          "Request validation",
+          "Validate body, params, auth context, and output shape with Zod or equivalent.",
+          "TypeScript types do not validate network input."
+        ],
+        [
+          "Real-time updates",
+          "Compare WebSockets, SSE, polling, backpressure, reconnection, and infrastructure support.",
+          "Real-time is a state consistency problem, not just a transport."
+        ],
+        [
+          "Serverless vs long-running service",
+          "Compare scale-to-zero, latency, connection pooling, background jobs, observability, and cost curve.",
+          "Serverless punishes assumptions about process lifetime."
+        ]
+      ]
+    }
+  ]
+}

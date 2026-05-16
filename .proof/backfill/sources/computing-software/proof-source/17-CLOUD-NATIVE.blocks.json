@@ -1,0 +1,204 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\17-CLOUD-NATIVE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "Cloud-Native: What It Actually Means\n======================================\n\nNot: \"runs in a cloud\"\nYes: \"designed for the properties of cloud infrastructure\"\n\n  Cloud properties:              Cloud-native design response:\n  ─────────────────              ─────────────────────────────\n  Instances fail                 Design for failure (expect crashes)\n  Scale horizontally             Stateless services\n  Elastic capacity               Auto-scaling + load shedding\n  Network is unreliable          Retry with backoff, circuit breakers\n  Deployments are frequent       Zero-downtime deploys, feature flags\n  Many services                  Service discovery, async messaging\n  Teams are autonomous           Loose coupling, independent deploys",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 42,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Architecture Spectrum\n==========================\n\n  Monolith               Modular Monolith          Microservices\n  ────────               ────────────────          ─────────────\n  One deployable         One deployable            Many independent\n  unit                   unit, internal            deployable units\n                         modules/domains\n\n  Simple to deploy       Good middle ground        Maximum autonomy\n  Easy to debug          Easier than micro         Operational complexity\n  Hard to scale parts    Can extract later         Complex distributed sys\n  Team coupling          Reduced coupling          Team independence\n\n  Start here             Often the right answer    When you need it\n  (most apps)            (medium/large teams)      (large orgs, FAANG scale)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "### Synchronous vs Asynchronous",
+      "confidence": "candidate",
+      "text": "Synchronous (request/response)     Asynchronous (event-driven)\n==============================     ===========================\n\n  A calls B, waits for response      A publishes event, continues\n                                     B consumes event later\n\n  A ──────────► B                    A ──► Queue/Topic ──► B\n     ◄──────────                                           C\n                                                           D\n\n  Tight temporal coupling            Temporal decoupling\n  A fails if B is down               A succeeds even if B is down\n  A slows if B is slow               B processes at its own pace\n  Simple to reason about             Harder to trace / debug\n  Good for: reads, queries           Good for: writes, fan-out, spikes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### Message Patterns",
+      "confidence": "candidate",
+      "text": "Queue (point-to-point)             Topic / Pub-Sub (fan-out)\n======================             =========================\n\n  Producer → Queue → Consumer        Publisher → Topic → Consumer A\n                                                        → Consumer B\n  Each message consumed once                             → Consumer C\n\n  Good for: work distribution,       Good for: event broadcast,\n  background jobs, rate limiting     audit log, multiple reactions\n                                     to one business event\n\n  Azure Service Bus (Queue)          Azure Service Bus (Topic)\n  AWS SQS                            Azure Event Grid\n  RabbitMQ                           AWS SNS + SQS\n                                     Kafka (both, at scale)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "### Kafka",
+      "confidence": "candidate",
+      "text": "> ─────────────────             ─────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "### Kafka",
+      "confidence": "candidate",
+      "text": "Kafka vs Traditional Message Queues\n=====================================\n\n  Traditional Queue              Kafka\n  ═════════════════              ═════\n  Message deleted on consume     Message retained (days/weeks)\n  One consumer per message       Multiple consumer groups, each reads all\n  No replay                      Replay from any offset\n  Push to consumer               Consumer pulls at own pace\n  Good for: tasks                Good for: event log, stream processing,\n                                  audit trail, multiple downstream systems\n\n  Order\n  ┌──────────────────────────────────────────────────────────┐\n  │  Topic: orders                                           │\n  │                                                          │\n  │  Partition 0: [order:1] [order:4] [order:7] →            │\n  │  Partition 1: [order:2] [order:5] [order:8] →            │\n  │  Partition 2: [order:3] [order:6] [order:9] →            │\n  │                                                          │\n  │  Consumer group A (analytics):  reads all partitions     │\n  │  Consumer group B (fulfillment): reads all partitions    │\n  │  Consumer group C (audit):      reads all partitions     │\n  └──────────────────────────────────────────────────────────┘\n\n  Ordered within a partition (by key: e.g., customerId)\n  Parallelism = partition count",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "### Kafka",
+      "confidence": "candidate",
+      "text": "// Kafka producer (kafkajs)\nimport { Kafka } from \"kafkajs\";\n\nconst kafka = new Kafka({ brokers: [\"kafka:9092\"] });\nconst producer = kafka.producer();\n\nawait producer.connect();\nawait producer.send({\n  topic: \"orders\",\n  messages: [\n    {\n      key: order.customerId,           // same customer → same partition → ordered\n      value: JSON.stringify(order),\n      headers: { \"event-type\": \"order.created\" },\n    },\n  ],\n});\n\n// Kafka consumer\nconst consumer = kafka.consumer({ groupId: \"fulfillment-service\" });\nawait consumer.connect();\nawait consumer.subscribe({ topic: \"orders\", fromBeginning: false });\n\nawait consumer.run({\n  eachMessage: async ({ topic, partition, message }) => {\n    const order = JSON.parse(message.value.toString());\n    await fulfillOrder(order);\n    // Offset committed automatically after eachMessage returns\n  },\n});",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## gRPC",
+      "confidence": "candidate",
+      "text": "> ───                              ────",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### Circuit Breaker",
+      "confidence": "candidate",
+      "text": "Without circuit breaker            With circuit breaker\n════════════════════               ════════════════════\n\n  Every request to failing           Closed → Open → Half-open\n  service hangs for timeout\n                                     CLOSED: requests pass through\n  100 concurrent requests              (normal operation)\n  × 10s timeout                      OPEN: requests fail fast\n  = 1000s of blocked threads           (service is known-bad)\n                                     HALF-OPEN: probe request\n  Cascading failure →                  (is it recovered?)\n  whole system slow\n                                     Prevents cascade, fast failure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Retry with Exponential Backoff",
+      "confidence": "candidate",
+      "text": "Naive retry (bad)                  Exponential backoff + jitter (good)\n═════════════════                  ══════════════════════════════════\n\n  retry immediately                  attempt 1: wait 1s ± jitter\n  retry immediately                  attempt 2: wait 2s ± jitter\n  retry immediately                  attempt 3: wait 4s ± jitter\n  ...                                attempt 4: wait 8s ± jitter\n                                     max attempts: give up + dead letter\n\n  Thundering herd:                   Jitter spreads the load:\n  1000 clients all retry             not all clients retry at t=1.0s\n  simultaneously → DDoS              spread across 0.8–1.2s window\n  your own service",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 356,
+      "heading_context": "### Retry with Exponential Backoff",
+      "confidence": "candidate",
+      "text": "async function withRetry(fn, { maxAttempts = 4, baseDelayMs = 1000 } = {}) {\n  for (let attempt = 1; attempt <= maxAttempts; attempt++) {\n    try {\n      return await fn();\n    } catch (err) {\n      if (attempt === maxAttempts) throw err;\n      const delay = baseDelayMs * 2 ** (attempt - 1) * (0.5 + Math.random() * 0.5);\n      await new Promise(r => setTimeout(r, delay));\n    }\n  }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 374,
+      "heading_context": "### Bulkhead",
+      "confidence": "candidate",
+      "text": "Without bulkhead                   With bulkhead\n════════════════                   ══════════════\n\n  Shared thread pool                 Separate thread pool per downstream\n  ┌──────────────────┐               ┌──────────────┐  ┌──────────────┐\n  │ 100 threads      │               │ 30 threads   │  │ 30 threads   │\n  │                  │               │ payment-svc  │  │ inventory    │\n  │ payment-svc slow │               └──────────────┘  └──────────────┘\n  │ → fills all 100  │               ┌──────────────┐\n  │ → auth blocked   │               │ 40 threads   │\n  └──────────────────┘               │ auth/other   │\n                                     └──────────────┘\n  One slow dep = system down         payment pool fills → auth still works",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 394,
+      "heading_context": "### Saga Pattern (Distributed Transactions)",
+      "confidence": "candidate",
+      "text": "Order Saga (Choreography)\n==========================\n\n  OrderService                InventoryService           PaymentService\n  ════════════                ════════════════           ══════════════\n  order.created ──────────►\n                              inventory.reserved ──────►\n                                                         payment.captured\n                                                                │\n                                    ◄─────────────────── order.fulfilled\n  ◄────────────────────────── order.completed\n\n  On failure at any step → compensating events published:\n    payment.failed → inventory.released → order.cancelled",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 435,
+      "heading_context": "## Service Mesh",
+      "confidence": "candidate",
+      "text": "Service Mesh Architecture\n==========================\n\n  Pod A                              Pod B\n  ┌─────────────────────┐            ┌─────────────────────┐\n  │  App container      │            │  App container      │\n  │  ┌───────────────┐  │            │  ┌───────────────┐  │\n  │  │  your service │  │            │  │  your service │  │\n  │  └───────┬───────┘  │            │  └───────┬───────┘  │\n  │          │          │            │          │          │\n  │  ┌───────▼───────┐  │  mTLS     │  ┌───────▼───────┐  │\n  │  │  Envoy sidecar│◄─┼───────────┼─►│  Envoy sidecar│  │\n  │  └───────────────┘  │           │  └───────────────┘  │\n  └─────────────────────┘            └─────────────────────┘\n            │                                  │\n            └──────────── Control Plane ───────┘\n                          (Istiod / linkerd)\n                          configures all proxies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 462,
+      "heading_context": "## API Gateway",
+      "confidence": "candidate",
+      "text": "API Gateway Pattern\n====================\n\n  Clients                        Internal Services\n  ───────                        ─────────────────\n\n  Mobile App ─────┐              ┌──► OrderService\n                  │              │\n  Web App ────────┼─► API        ├──► UserService\n                  │   Gateway    │\n  Third-party ────┘   │          ├──► InventoryService\n                      │          │\n                       └─────────┴──► PaymentService\n\n  Gateway handles:\n    Authentication (validate JWT)\n    Rate limiting (100 req/min per client)\n    Request routing (path → service)\n    Protocol translation (REST → gRPC)\n    Response aggregation (BFF pattern)\n    SSL termination\n    Logging + tracing injection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 495,
+      "heading_context": "### Blue/Green",
+      "confidence": "candidate",
+      "text": "Blue/Green Deployment\n======================\n\n  Before:                            After cutover:\n  ┌─────────────────┐                ┌─────────────────┐\n  │ Load Balancer   │                │ Load Balancer   │\n  │ -> Blue (v1) OK │                │ -> Green (v2) OK│\n  │ -> Green idle   │                │ -> Blue idle    │\n  └─────────────────┘                └─────────────────┘\n\n  Green tested while Blue serves     Switch is instant (LB route change)\n  traffic                            Rollback = switch back to Blue\n  Zero downtime                      Requires 2× resource capacity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 513,
+      "heading_context": "### Canary Release",
+      "confidence": "candidate",
+      "text": "Canary Deployment\n==================\n\n  Stage 1:   1% → v2,  99% → v1    (watch error rates, latency)\n  Stage 2:  10% → v2,  90% → v1    (if healthy, continue)\n  Stage 3:  50% → v2,  50% → v1\n  Stage 4: 100% → v2                (full rollout)\n\n  At any stage: metrics cross threshold → automatic rollback to 0%\n\n  Kubernetes: Argo Rollouts or Flagger automate this\n  Feature flags: route % of users to new code path (LaunchDarkly, etc.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 552,
+      "heading_context": "## The 12-Factor App",
+      "confidence": "candidate",
+      "text": "Factor          What It Means\n──────────────────────────────────────────────────────────────────\nI.   Codebase   One repo, many deploys. Not one repo per env.\nII.  Deps       Explicitly declare deps (package.json). No implicit system deps.\nIII. Config     Config in env vars. Not in code, not in files checked into git.\nIV.  Backing    Treat backing services (DB, cache) as attached resources.\n     Services   Swap Postgres URL → point at different DB. No code change.\nV.   Build/Run  Strictly separate build → release → run stages.\nVI.  Processes  Stateless. Shared state in backing services (DB/Redis), not memory.\nVII. Port       Export via port binding. Service IS the server (no app server needed).\n     Binding\nVIII.Concurrency Scale out via processes, not threads. Add pods, not heap.\nIX.  Disposable Fast startup. Graceful shutdown. Crash-only design.\nX.   Dev/Prod   Keep dev, staging, prod as similar as possible. Docker helps.\n     Parity\nXI.  Logs       Treat logs as event streams. Write to stdout. Platform aggregates.\nXII. Admin      Run admin tasks as one-off processes. Not cron in app. Not manual.\n     Processes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\14-IAC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "The Problem IaC Solves\n=======================\n\nOld World                            IaC World\n=========                            =========\n\n  Azure Portal clickops               infrastructure defined in code\n  \"I'll just spin up a VM real quick\" tracked in git\n  Snowflake servers                   reviewed in PRs\n  \"Which settings did we use?\"        reproducible in any environment\n  Manual documentation                auditable history\n  Can't reproduce prod in staging     deploy → destroy → redeploy = identical\n\n  Works fine for one person           Works for teams, at scale, across envs\n  Breaks at two                       Dev ≡ Staging ≡ Production",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 42,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "IaC Tool Landscape\n===================\n\n              Cloud-Agnostic                    Cloud-Native\n              ==============                    ============\n\n  Declarative   Terraform (HCL)                 Bicep (Azure)\n                OpenTofu (OSS fork)             CloudFormation (AWS)\n                                                Deployment Manager (GCP)\n\n  Imperative    Pulumi (TypeScript/Python/Go)   Azure SDK scripts\n  (real code)   CDK (TypeScript/Python)         AWS CDK\n\n  Config Mgmt   Ansible (servers/config)        ─ (not really cloud-native)\n  (not infra)   Chef, Puppet\n\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │  If you're Azure-first:   Bicep is the answer                │\n  │  If you're multi-cloud:   Terraform                          │\n  │  If you want real code:   Pulumi                             │\n  └──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### How Terraform Works",
+      "confidence": "candidate",
+      "text": "Workflow\n=========\n\n  Write .tf files        terraform init          terraform plan\n  ───────────────        ──────────────          ──────────────\n  Define resources       Download providers      Diff desired vs actual\n  in HCL                 (Azure, AWS, GCP,       Shows what will be\n                         K8s, GitHub, etc.)      created/changed/destroyed\n                                                 Review before applying\n\n  terraform apply        terraform destroy\n  ───────────────        ─────────────────\n  Execute the plan       Tear everything down\n  Update state file      (careful in prod)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 553,
+      "heading_context": "## GitOps Pattern",
+      "confidence": "candidate",
+      "text": "GitOps Workflow\n================\n\n  1. Engineer edits .tf / .bicep / Pulumi code\n  2. Opens PR\n  3. CI runs: terraform plan / az deployment what-if / pulumi preview\n     → Posts diff as PR comment: \"+ 2 resources, ~ 1 resource, - 0 resources\"\n  4. Reviewer sees exactly what will change in Azure\n  5. PR merges → CD pipeline runs terraform apply / az deploy / pulumi up\n  6. All infra changes auditable in git history\n\n  No more \"who clicked what in the portal at 3pm Friday\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

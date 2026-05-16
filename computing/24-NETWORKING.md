@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:networking-modern-stack
+kind: guide
+module: computing-software
+section: computing-software
+title: Networking - The Modern Stack
+status: source-custody
+source_custody: partial
+current_path: computing/24-NETWORKING.md
+canonical_path: computing/24-NETWORKING.md
+backsource_ids: [proof-backfill:computing-software:24-networking-modern-stack, git-history:computing-software:24-networking-modern-stack]
+concepts: [networking, http, tcp, dns, tls, proxies]
+root_concepts: [networking, protocols]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Networking — The Modern Stack
 
 > **Audience note**: This guide assumes TCP/IP, DNS, and HTTP/1.1 fundamentals at the level of someone who built them. Sections 1–3 (IP/TCP/DNS) are reference — skim or skip. The high-value sections are 4+ (HTTP/2–3, QUIC, gRPC, modern TLS, WebSockets).

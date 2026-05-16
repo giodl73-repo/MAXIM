@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:programming-language-theory
+kind: guide
+module: computing-software
+section: computing-software
+title: Programming Language Theory in Modern Systems
+status: source-custody
+source_custody: partial
+current_path: computing/23-PL-THEORY.md
+canonical_path: computing/23-PL-THEORY.md
+backsource_ids: [proof-backfill:computing-software:23-programming-language-theory, git-history:computing-software:23-programming-language-theory]
+concepts: [programming language theory, types, semantics, lambda calculus]
+root_concepts: [programming language theory, type systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 23 — Programming Language Theory in Modern Systems
 
 ## The Frame
@@ -574,15 +593,15 @@ Solutions:
   Type classes (Haskell) / Traits (Rust):
     New type → new instance (no modification to existing code)
     New operation → new type class (no modification to existing types)
-    ✅ Solves the expression problem
+    OK Solves the expression problem
 
   Open classes (Ruby, JavaScript prototype):
     Monkey-patching: add methods to existing types
-    ✅ Solves it dynamically, at the cost of safety
+    OK Solves it dynamically, at the cost of safety
 
   Tagless final (Haskell / Scala):
     Encode operations as type class constraints, types as interpreters
-    ✅ Solves it in a more principled way at the cost of complexity
+    OK Solves it in a more principled way at the cost of complexity
 ```
 
 ---

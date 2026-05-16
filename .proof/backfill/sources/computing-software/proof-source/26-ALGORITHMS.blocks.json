@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\26-ALGORITHMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  ALGORITHMIC COMPLEXITY LANDSCAPE                                           │\n│                                                                             │\n│  Provably Efficient                    Practically Efficient                │\n│  ───────────────────────────────       ───────────────────────────────────  │\n│  Sorting:      O(n log n) optimal      TimSort, Introsort (real constants)  │\n│  Shortest path: O(E log V)             Dijkstra with binary heap            │\n│  MST:          O(E log V) or E α(n)    Kruskal + union-find                 │\n│  Max-flow:     O(V²E) Dinic            Push-relabel in practice             │\n│  Matching:     O(E√V)                  Hopcroft-Karp                        │\n│                                                                             │\n│  Intractable (NP-hard)                 Modern Escapes                       │\n│  ───────────────────────               ─────────────────────────────────    │\n│  TSP, 3-SAT, Graph Coloring           FPT (parameterized by solution size)  │\n│  Independent Set, Clique              Approximation schemes (PTAS/FPTAS)    │\n│  Knapsack (general), Partition        Randomized algorithms                 │\n│                                                                             │\n│  Complexity Hierarchy:                                                      │\n│  P ⊆ NP ∩ co-NP ⊆ PH ⊆ PSPACE ⊆ EXPTIME                                     │\n│  NP-hard: ≥ any NP (not necessarily in NP)                                  │\n│  NP-complete: NP-hard ∩ NP                                                  │\n│                                                                             │\n│  Modern practical concerns:                                                 │\n│  Cache efficiency (I/O model)   Parallelism (PRAM)   Streaming (polylog)    │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "### Master Theorem",
+      "confidence": "candidate",
+      "text": "T(n) = aT(n/b) + f(n),   a ≥ 1, b > 1,  c_crit = log_b(a)\n\nCase 1: f(n) = O(n^(c_crit-ε))  →  T(n) = Θ(n^c_crit)       subproblems dominate\nCase 2: f(n) = Θ(n^c_crit)     →  T(n) = Θ(n^c_crit · log n) balanced\nCase 3: f(n) = Ω(n^(c_crit+ε)) + regularity →  T(n) = Θ(f(n)) root dominates\n\nKey examples:\n  Merge sort:    T(n)=2T(n/2)+n     → c_crit=1, Case 2  → Θ(n log n)\n  Binary search: T(n)=T(n/2)+1      → c_crit=0, Case 2  → Θ(log n)\n  Strassen:      T(n)=7T(n/2)+n²    → c_crit=log₂7≈2.81 > 2, Case 1 → Θ(n^log₂7) ≈ Θ(n^2.81)\n  Karatsuba:     T(n)=3T(n/2)+n     → c_crit=log₂3≈1.58 > 1, Case 1 → Θ(n^log₂3) ≈ Θ(n^1.58)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### Hash Tables",
+      "confidence": "candidate",
+      "text": "Chaining                            Open addressing (linear probing)\n──────────────────────────────      ─────────────────────────────────────\nBucket → linked list                H(k), H(k)+1, H(k)+2, ...\nLoad factor α = n/m                 Load factor α < 0.7 (empirically)\nExpected O(1+α) per operation       Cache-friendly (no pointer chasing)\nWorks for α > 1                     Deletion: tombstones or backward shift\n                                    Robin Hood hashing minimizes variance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 158,
+      "heading_context": "### Balanced BSTs",
+      "confidence": "candidate",
+      "text": "**Red-Black Tree** (Java TreeMap, C++ std::map, Linux kernel CFS):",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "### Sorting Reference",
+      "confidence": "candidate",
+      "text": "**pdqsort (pattern-defeating quicksort)**: The standard sort in Rust's `std::sort` and C++ Boost.Sort. Introsort is the baseline; pdqsort adds pattern detection on top:",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### BFS and DFS",
+      "confidence": "candidate",
+      "text": "BFS from s:\n  O(n+m). Explores level by level.\n  BFS tree = shortest-path tree (unweighted). All paths in BFS tree are shortest.\n  Level k = all vertices at distance k from s.\n\nDFS:\n  O(n+m). Explores as deep as possible before backtracking.\n  Edge classification in directed graph:\n    Tree edge:    v discovered through u\n    Back edge:    v is ancestor of u  →  cycle exists\n    Forward edge: v is descendant of u, already finished\n    Cross edge:   v in different subtree or already processed\n  In undirected graph: only tree and back edges exist.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 361,
+      "heading_context": "### Shortest Paths — Detail",
+      "confidence": "candidate",
+      "text": "- Time: O(nm + n² log n) = O(V² log V + VE). Better than Floyd-Warshall's O(V³) when m = o(n²/log n) — i.e., sparse graphs.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 521,
+      "heading_context": "### Range Query Structures",
+      "confidence": "candidate",
+      "text": "Fenwick Tree (Binary Indexed Tree):\n  Supports: point update + prefix sum query.\n  Time: O(log n) each. Build: O(n).\n  Operations use binary representation: update goes \"up\" (i += i & -i),\n  query goes \"down\" (i -= i & -i).\n  Compact, fast, simple to implement. Extend to 2D: O(log² n).\n\nSegment Tree:\n  Supports: range query + point update (O(log n)).\n  With lazy propagation: range update + range query (O(log n)).\n  Any associative operator: sum, min, max, gcd, XOR.\n  Can be made persistent (path copying: O(log n) new nodes per update).\n\nSparse Table:\n  Precompute st[i][j] = op(A[i..i+2^j-1]) for all i, j.\n  Build: O(n log n). Query: O(1) for idempotent ops (min, max, gcd).\n  Query: op(st[l][k], st[r-2^k+1][k]) where 2^k ≤ r-l+1.\n  Static only (no updates).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 580,
+      "heading_context": "### Las Vegas vs Monte Carlo",
+      "confidence": "candidate",
+      "text": "E[comparisons] = Σ_{i<j} Pr[i and j are compared]\nPr[ranks i and j compared] = 2/(j-i+1)  (one is chosen as pivot before the other)\nE[total] = 2 Σ_{i<j} 1/(j-i+1) = 2 Σ_{k=1}^{n-1} (n-k)/k+1 ≈ 2n ln n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 606,
+      "heading_context": "### Streaming Algorithms",
+      "confidence": "candidate",
+      "text": "**Cuckoo filter** (Fan et al. 2014): Stores fingerprints in a cuckoo hash table. Supports deletion (Bloom filter cannot). Better cache performance than Bloom (fingerprints stored contiguously in arrays, not spread across k hash positions). Similar false-positive rates and space. Redis 4.0+ ships a Cuckoo filter module. The trade-off in one line: **Bloom = lookup only; Cuckoo = lookup + delete**.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 719,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Need:                                        Use:\n────────────────────────────────────────     ──────────────────────────────────────────\nDynamic sorted set, predecessor queries      Red-black tree (std::map) or skip list\nStatic range min/max queries                 Sparse table: O(1) query\nDynamic range queries                        Segment tree or Fenwick tree\nShortest path, non-negative weights          Dijkstra O((V+E)logV)\nShortest path, point-to-point               Bidirectional Dijkstra (half the search)\nShortest path, negative edges                Bellman-Ford O(VE)\nAll-pairs shortest paths, dense             Floyd-Warshall O(V³)\nAll-pairs shortest paths, sparse            Johnson's O(V² log V + VE)\nMST                                          Kruskal + DSU for sparse, Prim + heap for dense\nMaximum flow                                 Dinic O(V²E); push-relabel for dense\nBipartite max matching                       Hopcroft-Karp O(E√V)\nMin-cost bipartite matching                  Hungarian O(V³)\nSingle pattern search                        KMP or Z-algorithm\nMultiple pattern search                      Aho-Corasick\nSubstring queries                            Suffix array + LCP or suffix tree\nDistinct count, streaming                    HyperLogLog\nFrequency count, streaming                   Count-Min Sketch\nSet membership, lookup only                  Bloom filter\nSet membership + deletion                    Cuckoo filter\nSet membership, static, best space          XOR filter\nConnected components, dynamic                Union-Find (DSU) O(α(n)) ≈ O(1)\nNP-hard with small parameter k               FPT algorithm (Vertex Cover: O(2^k · n))\nNP-hard, approximation needed                Check approximability: PTAS/FPTAS/constant ratio",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 751,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Hash table is O(1)** — average case with good hash + controlled load factor. Worst case O(n) when all keys collide. Python 3.3+ uses SipHash for dict/set (randomized per-process), defeating adversarial inputs.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

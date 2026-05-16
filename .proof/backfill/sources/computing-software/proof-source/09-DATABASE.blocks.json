@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\09-DATABASE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    DATABASE LANDSCAPE                            |\n|                                                                  |\n|  RELATIONAL (SQL)          DOCUMENT         KEY-VALUE / CACHE    |\n|  ----------------          --------         ---------------      |\n|  PostgreSQL ← king         MongoDB          Redis                |\n|  MySQL / MariaDB           DynamoDB         Memcached            |\n|  SQLite (embedded)         Firestore        Upstash (serverless) |\n|  SQL Server (you know it)  CouchDB          DynamoDB             |\n|                                                                  |\n|  SEARCH                    GRAPH            VECTOR               |\n|  ------                    -----            ------               |\n|  Elasticsearch             Neo4j            pgvector (Postgres)  |\n|  Typesense                 Amazon Neptune   Pinecone             |\n|  Meilisearch               FalkorDB         Qdrant               |\n|                                                                  |\n|  ORM / QUERY LAYER                                               |\n|  -----------------                                               |\n|  Prisma      (type-safe, schema-first, the modern EF Core)       |\n|  Drizzle     (SQL-first, lightweight, growing fast)              |\n|  Knex        (query builder, no model layer)                     |\n|  Kysely      (type-safe query builder, SQL in TS)                |\n|  Raw SQL     (pg / mysql2 clients — always an option)            |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 53,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "**Bridge from .NET**: You know SQL Server + ADO.NET + Entity Framework. That maps almost directly: SQL Server → PostgreSQL, ADO.NET → `pg` client, Entity Framework Core → Prisma. The concepts (migrations, DbContext, DbSet, LINQ-style queries) all have direct equivalents.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## PostgreSQL — The Modern Default",
+      "confidence": "candidate",
+      "text": "  WHY POSTGRES OVER SQL SERVER FOR NEW PROJECTS:\n\n  +-------------------------+---------------------------+\n  | SQL Server              | PostgreSQL                |\n  +-------------------------+---------------------------+\n  | License cost            | Free, open source         |\n  | Windows-first           | Cross-platform            |\n  | Azure SQL (managed)     | Supabase, Neon, AWS RDS,  |\n  |                         | Azure Database for PG     |\n  | T-SQL dialect           | Standard SQL + extensions |\n  | Tight SSMS tooling      | pgAdmin, TablePlus, psql  |\n  | IDENTITY columns        | SERIAL / GENERATED ALWAYS |\n  | NVARCHAR                | TEXT (UTF-8 always)       |\n  | JSON (good)             | JSONB (excellent)         |\n  | No native arrays        | Native array types        |\n  | Full-text search (ok)   | Full-text search (good)   |\n  |                         | pgvector (AI embeddings)  |\n  +-------------------------+---------------------------+\n\n  SQL compatibility: ~90% of T-SQL knowledge transfers.\n  Main syntax differences: string functions, date math, window functions.\n  CROSS APPLY → LATERAL JOIN. TOP(n) → LIMIT n.\n\n  Standard connection URL:\n  postgresql://username:password@hostname:5432/dbname\n  DATABASE_URL=\"postgresql://alice:secret@localhost:5432/myapp\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 145,
+      "heading_context": "## Prisma — The Modern ORM",
+      "confidence": "candidate",
+      "text": "  TRADITIONAL SERVER (long-running process):\n  +------------------+\n  | Node.js process  |  One PrismaClient instance\n  | (Express)        |  Pool: 10 connections\n  +------------------+  Reused across all requests\n\n  SERVERLESS (each invocation may be a new instance):\n  +------------------+  +------------------+  +------------------+\n  | Function inst. 1 |  | Function inst. 2 |  | Function inst. 3 |\n  | PrismaClient     |  | PrismaClient     |  | PrismaClient     |\n  | Pool: 10 conns   |  | Pool: 10 conns   |  | Pool: 10 conns   |\n  +------------------+  +------------------+  +------------------+\n  ...up to 100 instances\n        10                     10                     10          = 1000 connections\n                                                                    Postgres default max: 100\n                                                                    → CONNECTION EXHAUSTION\n\n  The failure mode: traffic spike → 100 Lambda/Vercel invocations\n  → 100 new PrismaClient pools → 1000 Postgres connections → crash.\n  Postgres's default max_connections is 100.\n\n  SOLUTIONS:\n  PgBouncer          Self-hosted connection pooler. Multiplexes app\n                     connections into fewer Postgres connections.\n                     Sits between app and DB.\n\n  Supabase pooler    Built-in PgBouncer mode. Transaction pooling.\n                     Enable in Supabase dashboard.\n\n  Neon serverless    HTTP-based Postgres driver — no persistent TCP\n  driver             connection, no pool per function.\n\n  Prisma Accelerate  Managed pooler + edge caching. Prisma's SaaS answer.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 347,
+      "heading_context": "## Migrations — Schema as Code",
+      "confidence": "candidate",
+      "text": "  THE PROBLEM WITHOUT MIGRATIONS:\n  Dev: \"I added a column to users\"\n  Everyone else: Deployment fails, tests fail, nobody knows why.\n\n  WITH MIGRATIONS:\n  Every schema change = a migration file = checked into git.\n\n  PRISMA MIGRATION WORKFLOW:\n\n  1. Edit schema.prisma (add field, table, index)\n\n  2. npx prisma migrate dev --name add-user-bio\n     → Compares schema to current DB state\n     → Generates SQL migration file\n     → Applies it to your dev DB\n     → Regenerates Prisma Client\n\n  3. Generated file: prisma/migrations/20240222_add_user_bio/migration.sql\n     ALTER TABLE \"User\" ADD COLUMN \"bio\" TEXT;\n\n  4. Commit migration file to git\n\n  5. In CI/CD:\n     npx prisma migrate deploy\n     → Applies any unapplied migrations (in order)\n     → Never runs dev mode (no generation, just applies SQL)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 427,
+      "heading_context": "## Drizzle — The SQL-First Alternative",
+      "confidence": "candidate",
+      "text": "  // schema.ts — schema defined in TypeScript\n  import { pgTable, serial, text, boolean, integer, timestamp } from 'drizzle-orm/pg-core'\n  import { relations } from 'drizzle-orm'\n\n  export const users = pgTable('users', {\n    id:        serial('id').primaryKey(),\n    email:     text('email').notNull().unique(),\n    name:      text('name'),\n    createdAt: timestamp('created_at').defaultNow(),\n  })\n\n  export const posts = pgTable('posts', {\n    id:        serial('id').primaryKey(),\n    title:     text('title').notNull(),\n    published: boolean('published').default(false),\n    authorId:  integer('author_id').references(() => users.id),\n  })\n\n  export const usersRelations = relations(users, ({ many }) => ({\n    posts: many(posts),\n  }))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 476,
+      "heading_context": "## Drizzle — The SQL-First Alternative",
+      "confidence": "candidate",
+      "text": "  PRISMA vs DRIZZLE:\n\n  +------------------+--------------------+--------------------+\n  |                  | Prisma             | Drizzle            |\n  +------------------+--------------------+--------------------+\n  | Schema           | schema.prisma file | TypeScript file    |\n  | Query API        | Object-based       | SQL-like           |\n  | Bundle size      | Larger (client)    | Much smaller       |\n  | Edge runtime     | Limited (Prisma    | Full support       |\n  |                  | Accelerate needed) |                    |\n  | Migrations       | prisma migrate     | drizzle-kit        |\n  | Type safety      | Excellent          | Excellent          |\n  | Raw SQL          | $queryRaw          | sql`` template     |\n  | Maturity         | Mature (2019)      | Growing (2022)     |\n  | Learning curve   | Lower              | Slightly higher    |\n  +------------------+--------------------+--------------------+\n\n  Pick Prisma if: you want EF Core familiarity, mature tooling, Studio UI.\n  Pick Drizzle if: you want SQL control, edge runtime, smaller bundle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 502,
+      "heading_context": "## Connection Pooling",
+      "confidence": "candidate",
+      "text": "  THE PROBLEM:\n  PostgreSQL handles ~100 connections well.\n  Your app might have 10 serverless function instances,\n  each with a PrismaClient holding 10 connections.\n  That's 100 connections from one app. You'll hit limits fast.\n\n  +------------------+         +------------------+\n  | App instances    |         | PostgreSQL       |\n  | (many)           |  -----> | max_connections  |\n  |                  |  -----> | = 100 (default)  |\n  | instance 1 ×10   |  -----> | Accepts 100      |\n  | instance 2 ×10   |  -----> | simultaneous     |\n  | instance 3 ×10   |  -----> | connections      |\n  | ...              |         |                  |\n  +------------------+         +------------------+\n  100 instances = 1000 connections = CRASH\n\n  SOLUTION: Connection pooler sits between app and DB\n\n  App instances → PgBouncer / Supabase pooler → PostgreSQL\n                  (multiplexes many connections\n                   into fewer DB connections)\n\n  PRISMA + SERVERLESS:\n  In serverless (many short-lived functions), use:\n  - PgBouncer (self-hosted)\n  - Supabase built-in pooler (pgBouncer mode)\n  - Neon serverless driver (HTTP-based, no persistent connection)\n  - Prisma Accelerate (managed pooler + edge caching)\n\n  For traditional long-running servers: PrismaClient manages\n  its own pool automatically. Default pool size = CPU cores × 2.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 577,
+      "heading_context": "## Redis — Not Just a Cache",
+      "confidence": "candidate",
+      "text": "  REDIS USE CASES:\n\n  CACHING (most common use)\n  -------------------------\n  Store expensive query results. TTL auto-expires them.\n  GET /api/leaderboard  → check Redis → miss → query DB → store in Redis → return\n  Next request          → check Redis → hit  → return (no DB query)\n\n  SESSION STORAGE\n  ---------------\n  Store user sessions server-side.\n  Key: session_abc123\n  Value: { userId: 456, role: 'admin', expiresAt: ... }\n  Fast O(1) lookup, auto-expire.\n\n  RATE LIMITING\n  -------------\n  INCR user:123:requests:2024022214   → atomic increment\n  EXPIRE user:123:requests:2024022214 3600\n  IF count > 100 THEN reject request\n\n  QUEUES / JOB QUEUES\n  -------------------\n  Push jobs to a list. Workers pop from the list.\n  LPUSH jobs:email { to: \"...\", subject: \"...\" }\n  BRPOP jobs:email 0  (blocking pop — wait for job)\n  Libraries: BullMQ (Redis-backed job queue)\n\n  PUB/SUB (real-time messaging)\n  -----------------------------\n  Publisher: PUBLISH channel:orders { orderId: 123, status: \"shipped\" }\n  Subscriber: SUBSCRIBE channel:orders  → receives the message\n  Lightweight real-time events.\n\n  DISTRIBUTED LOCKS\n  -----------------\n  SET lock:resource:123 \"process-abc\" NX EX 30\n  NX = only set if Not eXists (atomic check-and-set)\n  EX = expire in 30s (auto-release if process dies)\n\n  SORTED SETS (leaderboards, time-series)\n  ----------------------------------------\n  ZADD leaderboard 1500 \"alice\"\n  ZADD leaderboard 2200 \"bob\"\n  ZREVRANGE leaderboard 0 9 WITHSCORES  → top 10 with scores",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 663,
+      "heading_context": "## Managed Database Services",
+      "confidence": "candidate",
+      "text": "  LOCAL DEV:\n  PostgreSQL in Docker (docker-compose.yml)\n  SQLite (no server, single file — great for dev/testing)\n\n  CLOUD OPTIONS:\n\n  +------------------+----------------------------------------+\n  | Service          | Notes                                  |\n  +------------------+----------------------------------------+\n  | Supabase         | Postgres + auth + storage + realtime   |\n  |                  | Free tier. BaaS (Backend as a Service) |\n  |                  | Open source, can self-host             |\n  +------------------+----------------------------------------+\n  | Neon             | Serverless Postgres. Scale to zero.    |\n  |                  | Branch your database like git.         |\n  |                  | Great for serverless / edge apps       |\n  +------------------+----------------------------------------+\n  | PlanetScale      | MySQL-compatible. Branching model.     |\n  | (Vitess)         | Horizontal sharding built-in           |\n  |                  | Changed pricing — verify current model |\n  +------------------+----------------------------------------+\n  | Azure Database   | Managed Postgres on Azure. Familiar    |\n  | for PostgreSQL   | tooling, Azure integration, SLA        |\n  +------------------+----------------------------------------+\n  | AWS RDS /        | Managed Postgres/MySQL/SQL Server      |\n  | Aurora           | Aurora = MySQL/PG compatible, faster   |\n  +------------------+----------------------------------------+\n  | Railway          | Simple Postgres + Redis. Good DX.      |\n  | Render           | Simple managed services. Easy setup.   |\n  +------------------+----------------------------------------+\n\n  REDIS OPTIONS:\n  Upstash         Serverless Redis. Per-request pricing. Great for Vercel.\n  Redis Cloud     Official Redis managed service.\n  Azure Cache     Managed Redis on Azure.\n  for Redis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 770,
+      "heading_context": "### \"ORM vs raw SQL — which is faster?\"",
+      "confidence": "candidate",
+      "text": "### \"What's the N+1 problem?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 796,
+      "heading_context": "### \"JSONB vs separate table — when to embed?\"",
+      "confidence": "candidate",
+      "text": "  EMBED IN JSONB WHEN:\n  - Data is only read/written with its parent\n  - Schema varies per row (product attributes, metadata)\n  - No need to query/filter/index individual fields\n  - Audit history, event payloads, config blobs\n\n  SEPARATE TABLE WHEN:\n  - You query/filter on the nested fields\n  - Multiple rows share the same nested data (normalization)\n  - You need foreign keys or referential integrity\n  - You need to aggregate or join on nested data\n\n  Postgres JSONB lets you index specific JSON paths:\n  CREATE INDEX ON products ((attributes->>'color'));\n  But it gets unwieldy. When querying JSON fields frequently,\n  that's a signal to normalize into proper columns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

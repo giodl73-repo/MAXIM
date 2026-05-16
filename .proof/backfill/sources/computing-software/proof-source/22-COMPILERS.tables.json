@@ -1,0 +1,120 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\22-COMPILERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 457,
+      "heading_context": "## The TypeScript Compiler",
+      "headers": [
+        "Roslyn",
+        "tsc",
+        "Role"
+      ],
+      "rows": [
+        [
+          "Parser → `SyntaxTree`",
+          "Parser → AST",
+          "Syntax; immutable in Roslyn, mutable in tsc"
+        ],
+        [
+          "Binder",
+          "Binder",
+          "Name resolution, scope analysis, control flow"
+        ],
+        [
+          "`ISymbol`",
+          "`Symbol`",
+          "Named entities (types, variables, methods)"
+        ],
+        [
+          "`IOperation`",
+          "IOperation API",
+          "Semantic operations (added tsc 4.x for tooling)"
+        ],
+        [
+          "`Compilation`",
+          "`Program`",
+          "The whole compilation unit"
+        ],
+        [
+          "Emit (IL / PDB)",
+          "Emit (JS / `.d.ts`)",
+          "Code generation"
+        ],
+        [
+          "`SemanticModel` per file",
+          "`TypeChecker` (global)",
+          "On-demand semantic queries"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 743,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to understand...",
+        "Key concept"
+      ],
+      "rows": [
+        [
+          "Why V8 is fast after warmup",
+          "Turbofan JIT + speculative type narrowing"
+        ],
+        [
+          "Why V8 is slow at startup",
+          "Ignition interpreter; Turbofan compilation takes time"
+        ],
+        [
+          "Why esbuild is 100× faster than Webpack",
+          "Go + single pass + no type checking"
+        ],
+        [
+          "Why tsc is slow on large codebases",
+          "TC type system + structural subtyping depth"
+        ],
+        [
+          "Where the Rust borrow checker lives",
+          "MIR — the CFG-based mid-level IR"
+        ],
+        [
+          "Why Rust compiles slowly",
+          "LLVM IR generation + full LLVM optimization pipeline"
+        ],
+        [
+          "How WASM achieves portability",
+          "Stack machine bytecode + structured control flow"
+        ],
+        [
+          "Why SSA is in every serious compiler",
+          "Makes def-use chains trivial → enables all scalar opts"
+        ],
+        [
+          "What LTO does",
+          "Cross-module inlining + whole-program DCE at link time"
+        ],
+        [
+          "How JIT beats AOT on peak throughput",
+          "Profile-guided speculative optimization unavailable to AOT"
+        ],
+        [
+          "Why φ nodes exist",
+          "Control flow merges require explicit value selection in SSA"
+        ],
+        [
+          "How CompCert differs from GCC",
+          "Formally verified (Coq proof) — no miscompilations"
+        ],
+        [
+          "When to use Cranelift vs LLVM backend",
+          "Cranelift: fast debug cycles; LLVM: optimized release builds"
+        ],
+        [
+          "How Roslyn differs from tsc architecturally",
+          "Roslyn: per-file SemanticModel, lazy; tsc: global TypeChecker"
+        ]
+      ]
+    }
+  ]
+}

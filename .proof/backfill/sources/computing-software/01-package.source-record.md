@@ -10,7 +10,7 @@ source_custody: partial
 current_path: .proof/backfill/sources/computing-software/01-package.source-record.md
 canonical_path: .proof/backfill/sources/computing-software/01-package.source-record.md
 backsource_ids: [git-history:computing-software:01-package]
-concepts: [package management, dependency management, registries]
+concepts: [package management, dependency management, system packages, language packages, registries]
 root_concepts: [package management]
 index_roles: [source-map]
 remap_from: []
@@ -31,7 +31,7 @@ updated: null
 | PROOF confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `3` markdown tables, `13` visual/block candidates |
-| Git provenance | `6d4e034363e7a8646b813f96a1292e7b72293689`, `4e0d7aa7ef1273f22643eef4cd9f024a34cb2d2e`, `1b27cd00eaeb39a556ce521e9557ef71029797e4`, `3579f4388e0c67bc59351235c76c526ee9b9e9eb`, `13a1513a44fb7bfa945004302cb8d6cfc2b41ca8`, `29204ca00c85d5f3c428bf59d150376b9c6b04af` |
+| Git provenance | `5644a5a`, `29204ca`, `13a1513`, `3579f43`, `1b27cd0` |
 
 ## Custody note
 

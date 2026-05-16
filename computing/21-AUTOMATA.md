@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:automata-theory
+kind: guide
+module: computing-software
+section: computing-software
+title: Automata Theory in Modern Systems
+status: source-custody
+source_custody: partial
+current_path: computing/21-AUTOMATA.md
+canonical_path: computing/21-AUTOMATA.md
+backsource_ids: [proof-backfill:computing-software:21-automata-theory, git-history:computing-software:21-automata-theory]
+concepts: [automata theory, state machines, regular languages, parsers]
+root_concepts: [automata theory, state machines]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 21 — Automata Theory in Modern Systems
 
 ## The Frame

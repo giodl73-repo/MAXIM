@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\13-CICD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### ADO → GitHub Actions Vocabulary Map",
+      "confidence": "candidate",
+      "text": "Concept              Azure Pipelines YAML              GitHub Actions YAML\n───────              ──────────────────────────────    ──────────────────────────────\n\nTrigger              trigger:                          on:\n                       branches:                         push:\n                         include: [main]                   branches: [main]\n\nRunner               pool:                             runs-on: ubuntu-latest\n                       vmImage: ubuntu-latest\n\nStep (shell)         - script: npm ci                 - run: npm ci\n                       displayName: Install deps         name: Install deps\n\nStep (task/action)   - task: NodeTool@0               - uses: actions/setup-node@v4\n                         inputs:                          with:\n                           versionSpec: '20'               node-version: '20'\n\nVariables            variables:                        env: (job-level)\n                       nodeVersion: '20'                 NODE_VERSION: '20'\n                     $(nodeVersion)                    ${{ vars.NODE_VERSION }}\n                                                       (repo/org variables)\n\nSecrets              $(mySecret)                       ${{ secrets.MY_SECRET }}\n\nJob dependency       dependsOn: Build                  needs: build\n\nCondition            condition: succeeded()            if: success()\n                     condition: and(succeeded(),       if: github.ref ==\n                       eq(variables['Build.Source       'refs/heads/main'\n                       Branch'], 'refs/heads/main'))\n\nEnvironment          environment: production           environment: production\n(approval gate)      (Pipelines → Environments)        (Settings → Environments)\n\nService connection   serviceConnection: myConn         uses: azure/login@v2\n(Azure auth)         (stored credential in ADO)          with:\n                                                           client-id: ...\n                                                           # OIDC — no stored secret\n\nBuild number         $(Build.BuildId)                  ${{ github.run_number }}\nCommit SHA           $(Build.SourceVersion)            ${{ github.sha }}\n\nArtifact (publish)   - task: PublishPipelineArtifact  - uses: actions/upload-artifact@v4\nArtifact (download)  - task: DownloadPipelineArtifact - uses: actions/download-artifact@v4\n\nStages               stages: / stage:                  jobs: (no native stage concept;\n                     (first-class concept)             use job dependencies instead)\n\nVariable Groups      variables:                        No direct equivalent.\n(Key Vault link)       - group: my-vg                  Use OIDC + az keyvault secret\n                     (Library → link to KV)            show, or azure/get-keyvault-\n                                                       secrets action.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "### Anatomy of a Workflow",
+      "confidence": "candidate",
+      "text": ".github/\n└── workflows/\n    ├── ci.yml          runs on every push / PR\n    ├── release.yml     runs on tag push\n    └── deploy.yml      runs on merge to main",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Key Concepts",
+      "confidence": "candidate",
+      "text": "Trigger (on:)\n  push, pull_request, schedule (cron), workflow_dispatch (manual),\n  release, repository_dispatch (webhook)\n\nRunner (runs-on:)\n  ubuntu-latest    GitHub-hosted Linux (most common)\n  windows-latest   GitHub-hosted Windows\n  macos-latest     GitHub-hosted macOS\n  self-hosted      Your own machine/VM registered as a runner\n\nAction (uses:)\n  Reusable step from Marketplace or local file\n  actions/checkout@v4       — clone the repo\n  actions/setup-node@v4     — install Node + optional npm cache\n  actions/cache@v4          — general-purpose cache\n  docker/build-push-action  — build + push Docker image\n\nJob vs Step\n  Workflow → Jobs (run in parallel by default) → Steps (run sequentially)\n  Jobs run on separate VMs. Steps share one VM and its filesystem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 537,
+      "heading_context": "### Branch Strategy → Pipeline Strategy",
+      "confidence": "candidate",
+      "text": "Trunk-based development (recommended)\n=====================================\n  feature/* → main (via PR)\n\n  PR push:   run CI (test, lint, typecheck)\n  Merge:     run CI + build image + deploy to staging\n  Tag v*.*:  deploy to production (with approval gate)\n\nGitFlow (more gates, slower)\n============================\n  feature/* → develop → release/* → main\n\n  develop push:   CI + deploy to dev env\n  release push:   CI + deploy to staging\n  main merge:     CI + deploy to production",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

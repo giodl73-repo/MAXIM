@@ -1,0 +1,3569 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-observability",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "15-OBSERVABILITY.md#000",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "# 15 — Observability"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#001",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#002",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nMonitoring vs Observability\r\n============================"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#003",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Monitoring (old world)             Observability (new world)\r\n  ======================             ========================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#004",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "\"Is it up?\"                        \"Why is it slow for users in Brazil?\"\r\n  Predefined dashboards              Ask arbitrary questions of system state\r\n  Known failure modes only           Debug novel failures you didn't anticipate\r\n  Alert on thresholds                Understand causality"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#005",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Nagios / SCOM / pager              Prometheus + Grafana + Jaeger + OpenTelemetry\r\n  \"The server is down\"               \"Request 7a3f took 4.2s — 3.8s was in the DB\r\n                                      query on the orders table from pod api-6d8b\"\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#006",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nThe Three Pillars\r\n=================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#007",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "LOGS                    METRICS                  TRACES\r\n  ====                    =======                  ======"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#008",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "What happened           How much / how fast      Where did time go"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#009",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Discrete events         Numeric measurements     Request journey\r\n  Text (structured JSON)  aggregated over time     across services\r\n  High cardinality        Low cardinality           Distributed context"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#010",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "\"Error: order 4821     \"p99 latency = 340ms\"    \"POST /checkout\r\n   not found at 14:32\"   \"error rate = 0.3%\"        → order-svc: 12ms\r\n                         \"DB connections: 47\"        → inventory-svc: 8ms\r\n                                                      → payment-svc: 280ms\r\n  ELK / Loki             Prometheus / Datadog          → Stripe API: 261ms\"\r\n  CloudWatch Logs        Grafana / CloudWatch       Jaeger / Tempo / Zipkin\r\n  Azure Monitor Logs     Azure Monitor Metrics      Azure Monitor + App Insights\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#011",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **App Insights → three pillars mapping**\r\n>\r\n> Application Insights covers all three pillars in a single vertically integrated product. The OSS stack disaggregates those same concerns:\r\n>\r\n> | App Insights concept | OSS equivalent |\r\n> |---|---|\r\n> | Log Analytics workspace (traces/events table) | Loki |\r\n> | Azure Monitor Metrics / custom metrics | Prometheus |\r\n> | Application Map + distributed traces (requests + dependencies tables) | Jaeger / Tempo |\r\n> | Workbooks (unified dashboards) | Grafana |\r\n>\r\n> If you've used App Insights, you already understand the three-pillar model — you just knew it under different names. Every new tool in this guide has a direct App Insights analog. Use that as your primary anchor."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#012",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nFull Observability Stack\r\n========================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#013",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Your services\r\n  ┌──────────────────────────────────────────────────────────┐\r\n  │  API   Worker   Auth   DB Proxy   ...                    │\r\n  │  │       │       │        │                              │\r\n  │  └───────┴───────┴────────┘                              │\r\n  │          OpenTelemetry SDK (instrument once)             │\r\n  │          emits: logs + metrics + traces                  │\r\n  └────────────────────────┬─────────────────────────────────┘\r\n                           │\r\n           OpenTelemetry Collector (optional gateway)\r\n                           │\r\n         ┌─────────────────┼─────────────────┐\r\n         ▼                 ▼                 ▼\r\n    Loki (logs)     Prometheus (metrics)  Tempo (traces)\r\n         │                 │                 │\r\n         └─────────────────┼─────────────────┘\r\n                           ▼\r\n                    Grafana (unified UI)\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#014",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#015",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Logs"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#016",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Structured vs Unstructured"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#017",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nUnstructured (bad)                 Structured JSON (good)\r\n==================                 ======================"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#018",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "[14:32:11] ERROR order 4821        {\r\nnot found in database                \"timestamp\": \"2026-02-22T14:32:11Z\",\r\n                                     \"level\": \"error\",\r\n                                     \"message\": \"order not found\",\r\n                                     \"orderId\": 4821,\r\n                                     \"userId\": \"usr_9x3k\",\r\n                                     \"service\": \"order-svc\",\r\n                                     \"traceId\": \"7a3f8b2c...\"\r\n                                   }"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#019",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Hard to query                      Queryable by any field\r\nRegex required                     Filter: level=error AND service=order-svc\r\nNo context                         Correlate with trace ID\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#020",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **Serilog → Pino bridge**\r\n>\r\n> In .NET you have `Serilog` / `NLog` / `Microsoft.Extensions.Logging` for structured logging. You write `Log.Information(\"Order {OrderId} placed by {UserId}\", orderId, userId)` and a sink forwards enriched JSON to App Insights, Seq, or a file.\r\n>\r\n> Node.js equivalent is **Pino** (fastest; JSON-first) or Winston (more configurable). Same concept: log as structured JSON, configure a transport/sink to route output.\r\n>\r\n> ```\r\n> Serilog                          Pino (Node.js)\r\n> ───────                          ──────────────\r\n> Log.Information(\"{K}\", v)        logger.info({ k: v }, \"msg\")\r\n> LogContext.PushProperty(...)     logger.child({ k: v })\r\n> .WriteTo.ApplicationInsights()   transport: pino-applicationinsights\r\n> .WriteTo.Seq()                   transport: pino-seq\r\n> .Enrich.WithTraceIdentifier()    automatic via OTel pino transport\r\n> ```\r\n>\r\n> JSON written to stdout is what Promtail scrapes and ships to Loki — same as Serilog's App Insights sink forwarding to Log Analytics."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#021",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Logging in Node.js — Pino"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#022",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```javascript\r\nimport pino from \"pino\";"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#023",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "const logger = pino({\r\n  level: process.env.LOG_LEVEL ?? \"info\",\r\n  // In prod: output JSON. In dev: pretty-print\r\n  transport: process.env.NODE_ENV !== \"production\"\r\n    ? { target: \"pino-pretty\" }\r\n    : undefined,\r\n});"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#024",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Log with structured context\r\nlogger.info({ orderId: 4821, userId: \"usr_9x3k\" }, \"order not found\");\r\nlogger.error({ err, orderId }, \"payment failed\");"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#025",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Child logger — all entries inherit these fields\r\nconst reqLogger = logger.child({ requestId: req.id, userId: req.user.id });\r\nreqLogger.info(\"checkout started\");\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#026",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Output in production (JSON, one line per event — Loki/ELK can ingest directly):\r\n```json\r\n{\"level\":30,\"time\":1740232331000,\"requestId\":\"abc\",\"userId\":\"usr_9x3k\",\"msg\":\"checkout started\"}\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#027",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Log Aggregation — Loki"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#028",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Loki (from Grafana Labs) indexes log metadata (labels) but not log content — dramatically cheaper than Elasticsearch for storage."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#029",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nLoki Architecture\r\n=================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#030",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Pods → Promtail (agent, reads log files) → Loki → Grafana"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#031",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Labels (indexed, low cardinality):\r\n    {service=\"order-svc\", env=\"production\", pod=\"order-6d8b-abc\"}"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#032",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Log content (not indexed — full text search via grep-like LogQL):\r\n    {\"level\":\"error\",\"orderId\":4821,...}"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#033",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "LogQL query examples:\r\n  {service=\"order-svc\"} |= \"error\"              -- filter by label + content\r\n  {env=\"production\"} | json | level=\"error\"     -- parse JSON, filter field\r\n  rate({service=\"api\"}[5m])                     -- log rate metric\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#034",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **KQL → LogQL contrast**\r\n>\r\n> If you query Log Analytics daily with KQL, be aware: **LogQL is not KQL**. KQL is a columnar query language — SQL-like, with `join`, `summarize`, computed columns, time-series math. LogQL is a log filter language optimized for label-based stream filtering.\r\n>\r\n> ```\r\n> KQL                                     LogQL equivalent\r\n> ───                                     ────────────────\r\n> where ResultCode >= 500                 {app=\"myapp\"} | json | status >= 500\r\n> where timestamp > ago(5m)              [5m] range selector on stream\r\n> summarize count() by bin(timestamp,5m) rate({app=\"myapp\"}[5m])  (LogQL metric query)\r\n> join (other table) on ...              No JOIN — use Grafana correlation instead\r\n> summarize percentile(duration, 99) by  histogram_quantile() in PromQL, not LogQL\r\n> ```\r\n>\r\n> LogQL has no JOINs, no computed columns, no time-series math (that's PromQL's domain). For SQL-like log analysis, Log Analytics + KQL remains more expressive. LogQL is optimized for high-volume label-based filtering and rate metrics — it scales cheaply because Loki doesn't index content."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#035",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#036",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Metrics"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#037",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Prometheus Data Model"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#038",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Prometheus scrapes HTTP endpoints (`/metrics`) on a schedule and stores time-series data."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#039",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nMetric types:\r\n  Counter     — ever-increasing number (requests, errors)\r\n                http_requests_total{method=\"POST\", status=\"200\"} 1247"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#040",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Gauge       — can go up or down (current connections, queue depth)\r\n                db_connections_active 47"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#041",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Histogram   — bucketed observations (request duration)\r\n                http_request_duration_seconds_bucket{le=\"0.1\"} 9823\r\n                http_request_duration_seconds_bucket{le=\"0.5\"} 14201\r\n                http_request_duration_seconds_bucket{le=\"1.0\"} 14687\r\n                → used to calculate percentiles (p50, p95, p99)"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#042",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Summary     — pre-calculated percentiles (less flexible than histogram)\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#043",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Exposing Metrics in Node.js"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#044",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```javascript\r\nimport { collectDefaultMetrics, Counter, Histogram, register } from \"prom-client\";"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#045",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Auto-collect Node.js process metrics (heap, event loop lag, etc.)\r\ncollectDefaultMetrics();"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#046",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Custom metrics\r\nconst httpRequests = new Counter({\r\n  name: \"http_requests_total\",\r\n  help: \"Total HTTP requests\",\r\n  labelNames: [\"method\", \"route\", \"status\"],\r\n});"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#047",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "const httpDuration = new Histogram({\r\n  name: \"http_request_duration_seconds\",\r\n  help: \"HTTP request latency\",\r\n  labelNames: [\"method\", \"route\"],\r\n  buckets: [0.01, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5],\r\n});"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#048",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Middleware\r\napp.use((req, res, next) => {\r\n  const end = httpDuration.startTimer({ method: req.method, route: req.path });\r\n  res.on(\"finish\", () => {\r\n    httpRequests.inc({ method: req.method, route: req.path, status: res.statusCode });\r\n    end();\r\n  });\r\n  next();\r\n});"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#049",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Scrape endpoint — Prometheus hits this\r\napp.get(\"/metrics\", async (req, res) => {\r\n  res.set(\"Content-Type\", register.contentType);\r\n  res.send(await register.metrics());\r\n});\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#050",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **Push vs pull model**\r\n>\r\n> App Insights uses **push**: the SDK calls `trackMetric()` and data flows to Azure. Your app sends; Azure receives.\r\n>\r\n> Prometheus uses **pull**: Prometheus server scrapes your service's `/metrics` endpoint on a configurable schedule (default 15s). Your app exposes; Prometheus comes to collect.\r\n>\r\n> Consequence: Prometheus requires your service to expose a metrics HTTP endpoint. App Insights does not — it just needs outbound HTTPS to Azure. For **short-lived functions or batch jobs** that exit before Prometheus can scrape them, use the **Prometheus Pushgateway** (a buffer that accepts push and holds metrics for scraping) or stick with App Insights / Azure Monitor custom metrics (which are push-friendly by design).\r\n>\r\n> Azure Monitor Container Insights running on AKS scrapes a Prometheus-compatible `/metrics` endpoint under the hood — so the two models are converging, but the conceptual default is inverted."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#051",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### PromQL — Prometheus Query Language"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#052",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```promql\r\n# Request rate over last 5 minutes\r\nrate(http_requests_total[5m])"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#053",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "# Error rate (proportion of 5xx)\r\nrate(http_requests_total{status=~\"5..\"}[5m])\r\n  / rate(http_requests_total[5m])"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#054",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "# p99 latency\r\nhistogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#055",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "# By service — group the above\r\nhistogram_quantile(0.99,\r\n  sum(rate(http_request_duration_seconds_bucket[5m])) by (service, le)\r\n)"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#056",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "# Alert: error rate > 1% for 5 minutes\r\n- alert: HighErrorRate\r\n  expr: |\r\n    rate(http_requests_total{status=~\"5..\"}[5m])\r\n      / rate(http_requests_total[5m]) > 0.01\r\n  for: 5m\r\n  labels:\r\n    severity: critical\r\n  annotations:\r\n    summary: \"Error rate {{ $value | humanizePercentage }} on {{ $labels.service }}\"\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#057",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#058",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Traces"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#059",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### The Problem Traces Solve"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#060",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nMonolith (easy to debug)           Microservices (where did the time go?)\r\n========================           ======================================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#061",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Single process                     POST /checkout → 4.2 seconds total\r\n  Stack trace shows everything         Where was it?\r\n  One log stream                       api-gateway?  order-svc?\r\n                                       inventory-svc?  payment-svc?\r\n                                       Stripe?  DB?"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#062",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "→ Traces answer this question\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#063",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### OpenTelemetry Tracing"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#064",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nTrace anatomy\r\n=============="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#065",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Trace ID: 7a3f8b2c...          (one per request, propagated across services)"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#066",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Spans:\r\n  ├── POST /checkout              [api-gateway]  0ms → 4200ms\r\n  │   ├── validate session        [api-gateway]  2ms → 15ms\r\n  │   ├── HTTP POST /orders       [order-svc]    15ms → 310ms\r\n  │   │   ├── DB SELECT products  [order-svc]    16ms → 89ms\r\n  │   │   └── DB INSERT order     [order-svc]    90ms → 308ms\r\n  │   └── HTTP POST /payment      [payment-svc]  310ms → 4198ms\r\n  │       └── Stripe API call     [payment-svc]  312ms → 4195ms ← SLOW\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#067",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```javascript\r\n// Instrument with OpenTelemetry (auto + manual)\r\nimport { NodeSDK } from \"@opentelemetry/sdk-node\";\r\nimport { OTLPTraceExporter } from \"@opentelemetry/exporter-trace-otlp-http\";\r\nimport { getNodeAutoInstrumentations } from \"@opentelemetry/auto-instrumentations-node\";"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#068",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// SDK setup (usually in a separate tracing.ts, loaded first)\r\nconst sdk = new NodeSDK({\r\n  traceExporter: new OTLPTraceExporter({\r\n    url: \"http://otel-collector:4318/v1/traces\",\r\n  }),\r\n  instrumentations: [\r\n    getNodeAutoInstrumentations(),   // auto: HTTP, Express, pg, redis, etc.\r\n  ],\r\n});\r\nsdk.start();"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#069",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Manual spans for business logic\r\nimport { trace } from \"@opentelemetry/api\";\r\nconst tracer = trace.getTracer(\"order-service\");"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#070",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "async function processOrder(orderId: string) {\r\n  return tracer.startActiveSpan(\"processOrder\", async (span) => {\r\n    span.setAttribute(\"order.id\", orderId);\r\n    try {\r\n      const result = await doWork();\r\n      span.setStatus({ code: SpanStatusCode.OK });\r\n      return result;\r\n    } catch (err) {\r\n      span.recordException(err);\r\n      span.setStatus({ code: SpanStatusCode.ERROR });\r\n      throw err;\r\n    } finally {\r\n      span.end();\r\n    }\r\n  });\r\n}\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#071",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **App Insights SDK → OTel SDK bridge**\r\n>\r\n> The App Insights SDK pattern you know:\r\n> ```javascript\r\n> appInsights.setup(connectionString)\r\n>   .setAutoCollectRequests(true)\r\n>   .setAutoCollectDependencies(true)   // HTTP, DB, Redis\r\n>   .setAutoCollectExceptions(true)\r\n>   .start();\r\n> client.trackDependency({ ... });\r\n> ```\r\n>\r\n> The OTel equivalent:\r\n> ```javascript\r\n> new NodeSDK({\r\n>   instrumentations: [getNodeAutoInstrumentations()],  // HTTP, DB, Redis, etc.\r\n>   traceExporter: new OTLPTraceExporter({ url: \"...\" }),\r\n> }).start();\r\n> tracer.startActiveSpan(\"name\", span => { span.setAttribute(...); });\r\n> ```\r\n>\r\n> Concept mapping:\r\n>\r\n> | App Insights SDK | OTel SDK |\r\n> |---|---|\r\n> | `setAutoCollectRequests(true)` | `getNodeAutoInstrumentations()` HTTP server instrumentation |\r\n> | `setAutoCollectDependencies(true)` | `getNodeAutoInstrumentations()` HTTP client / DB instrumentation |\r\n> | `client.trackDependency(...)` | manual span with `span.setAttribute(\"db.statement\", ...)` |\r\n> | `client.trackRequest(...)` | auto-instrumented HTTP server span |\r\n> | App Insights correlation headers | W3C `traceparent` header (OTel standard) |\r\n> | Connection string → App Insights backend | `OTLPTraceExporter` URL → any OTLP-compatible backend |\r\n>\r\n> Key value: OTel is vendor-neutral. Swap the exporter URL; your instrumentation code doesn't change. See the Azure Monitor Exporter note below for keeping App Insights as the backend while adopting the OTel SDK."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#072",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Context Propagation"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#073",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Trace IDs cross service boundaries via HTTP headers (`traceparent`). Every downstream HTTP call automatically carries the parent span ID so traces stitch together across services."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#074",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nService A                          Service B\r\n─────────                          ─────────\r\nfetch(\"http://order-svc/...\")\r\n  Headers:\r\n    traceparent: 00-7a3f8b2c...-abc123-01\r\n                                   Auto-extracted by OTel middleware\r\n                                   Span created as child of abc123\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#075",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#076",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## OpenTelemetry"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#077",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "The unifying standard. One SDK, any backend."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#078",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nOpenTelemetry Architecture\r\n==========================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#079",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Your app\r\n  ┌────────────────────────────────────────────┐\r\n  │  OTel SDK                                  │\r\n  │  - Auto-instrumentation (HTTP, DB, etc.)   │\r\n  │  - Manual spans + attributes               │\r\n  │  - Metrics API                             │\r\n  │  - Logs bridge                             │\r\n  └────────────────────┬───────────────────────┘\r\n                       │  OTLP protocol\r\n                       ▼\r\n          OTel Collector (optional but recommended)\r\n          ┌────────────────────────────────────────┐\r\n          │  Receivers: OTLP, Jaeger, Zipkin, ...  │\r\n          │  Processors: batch, filter, enrich     │\r\n          │  Exporters: Tempo, Jaeger, Datadog,    │\r\n          │             Azure Monitor, Honeycomb   │\r\n          └────────────────────────────────────────┘\r\n                       │\r\n            ┌──────────┼──────────┐\r\n            ▼          ▼          ▼\r\n          Tempo      Jaeger    Datadog    (or any OTLP-compatible backend)\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#080",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "OTel is vendor-neutral. Instrument once. Swap backends without changing application code. This is the key value: you don't lock yourself to Datadog's SDK."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#081",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#082",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Grafana Stack"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#083",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "The standard open-source observability UI. One UI, all three pillars."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#084",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nGrafana Data Sources\r\n====================="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#085",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Loki      → logs      (LogQL)\r\n  Prometheus → metrics  (PromQL)\r\n  Tempo      → traces   (TraceQL)"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#086",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Grafana correlates them:\r\n  → Click a spike in a metrics graph\r\n  → Jump to logs at that timestamp\r\n  → Jump to trace that caused the spike\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#087",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **Azure Monitor → Grafana bridge**\r\n>\r\n> Grafana is to the OSS stack what **Azure Monitor Workbooks** is to the Azure stack — a unified dashboard layer over heterogeneous data sources. You've used Workbooks to combine Log Analytics queries, metric charts, and App Insights data in one view; Grafana does the same with Loki, Prometheus, and Tempo.\r\n>\r\n> The two worlds are not mutually exclusive: Azure has a first-party **Grafana data source plugin** for Azure Monitor, and **Azure Managed Grafana** is a fully managed Grafana service (GA). If your team runs on Azure but adopts OSS tooling, you can point Grafana at Azure Monitor as a data source and keep all dashboards in one place."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#088",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Dashboard as Code"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#089",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# Grafonnet / JSON — dashboards in git\r\npanels:\r\n  - title: \"Request Rate\"\r\n    type: graph\r\n    targets:\r\n      - expr: rate(http_requests_total[5m])\r\n        legendFormat: \"{{service}}\""
+    },
+    {
+      "id": "15-OBSERVABILITY.md#090",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "- title: \"p99 Latency\"\r\n    type: graph\r\n    targets:\r\n      - expr: histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#091",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "### Alerting"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#092",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# Grafana alert rule (UI or YAML)\r\n- alert: HighLatency\r\n  condition: p99 > 1s for 5 minutes\r\n  notifications:\r\n    - PagerDuty\r\n    - Slack #oncall\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#093",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#094",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Azure Monitor + Application Insights"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#095",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "The Azure-native equivalent of the full Grafana stack."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#096",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nAzure Monitor\r\n============="
+    },
+    {
+      "id": "15-OBSERVABILITY.md#097",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Application Insights    ← APM: requests, dependencies, exceptions, traces\r\n  Log Analytics           ← centralized logs (KQL query language)\r\n  Azure Monitor Metrics   ← platform metrics (VM CPU, App Service requests)\r\n  Alerts                  ← threshold/smart detection alerts → Action Groups\r\n  Workbooks               ← Grafana-equivalent dashboards\r\n  Container Insights      ← AKS pod/node metrics + logs"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#098",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "All data → Log Analytics Workspace (unified store)\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#099",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```javascript\r\n// Application Insights SDK (Node.js)\r\nimport appInsights from \"applicationinsights\";"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#100",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "appInsights\r\n  .setup(process.env.APPLICATIONINSIGHTS_CONNECTION_STRING)\r\n  .setAutoCollectRequests(true)\r\n  .setAutoCollectDependencies(true)    // HTTP, DB, Redis calls\r\n  .setAutoCollectExceptions(true)\r\n  .start();"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#101",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// Custom events + metrics\r\nconst client = appInsights.defaultClient;\r\nclient.trackEvent({ name: \"OrderPlaced\", properties: { orderId, userId } });\r\nclient.trackMetric({ name: \"CheckoutDuration\", value: durationMs });\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#102",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```kusto\r\n// KQL — Log Analytics query language (similar to SQL + pipe syntax)\r\nrequests\r\n| where timestamp > ago(1h)\r\n| where resultCode >= 500\r\n| summarize count() by bin(timestamp, 5m), cloud_RoleName\r\n| render timechart"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#103",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "// P99 latency per operation\r\nrequests\r\n| where timestamp > ago(24h)\r\n| summarize percentile(duration, 99) by name\r\n| order by percentile_duration_99 desc\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#104",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "> **OTel SDK → App Insights backend**\r\n>\r\n> You can instrument with the vendor-neutral OTel SDK and still land data in App Insights / Log Analytics. The OTel Collector has an `azuremonitor` exporter, and the Azure Monitor OpenTelemetry Distro packages this for .NET, Node.js, Python, and Java:\r\n>\r\n> ```javascript\r\n> // Node.js — OTel SDK + Azure Monitor exporter\r\n> import { NodeSDK } from \"@opentelemetry/sdk-node\";\r\n> import { AzureMonitorTraceExporter } from \"@azure/monitor-opentelemetry-exporter\";\r\n>\r\n> new NodeSDK({\r\n>   traceExporter: new AzureMonitorTraceExporter({\r\n>     connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,\r\n>   }),\r\n>   instrumentations: [getNodeAutoInstrumentations()],\r\n> }).start();\r\n> ```\r\n>\r\n> Same App Insights backend, standard OTel SDK. The Application Map, distributed traces, and KQL queries all work as before — you just swapped the proprietary SDK for a vendor-neutral one. Best of both: portable instrumentation code, Azure-native storage and alerting."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#105",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#106",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## SLIs, SLOs, SLAs"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#107",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "The language of production reliability — you built SLAs at VSTS, this is the modern framing:"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#108",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "```\r\nSLI  Service Level Indicator   — the metric you're measuring\r\n     \"availability\" = successful_requests / total_requests"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#109",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "SLO  Service Level Objective   — the target you set internally\r\n     \"99.9% of requests return 2xx over 30-day rolling window\"\r\n     \"p99 latency < 500ms\""
+    },
+    {
+      "id": "15-OBSERVABILITY.md#110",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "SLA  Service Level Agreement   — contractual commitment to customers\r\n     \"99.9% uptime per month, or credits issued\""
+    },
+    {
+      "id": "15-OBSERVABILITY.md#111",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "Error Budget\r\n     SLO = 99.9% → allowed failure = 0.1% = 43.2 min/month\r\n     Budget governs how much risk you can take with deployments\r\n     Budget exhausted → freeze risky changes until next period\r\n```"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#112",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#113",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#114",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "**Logs and traces are not the same thing.**\r\nA log is a discrete event with a timestamp. A trace is a structured record of a request's path through the system, composed of spans. You can correlate them via trace ID in log fields."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#115",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "**Prometheus `rate()` requires a counter, not a gauge.**\r\n`rate()` calculates per-second change. Calling it on a gauge (which can go down) gives meaningless results. Use `rate()` on counters; use raw values or `delta()` for gauges."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#116",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "**High-cardinality labels destroy Prometheus.**\r\nLabels like `userId` or `orderId` create millions of time series — one per unique value. Prometheus stores all series in memory. Label values should be bounded: `method`, `route`, `status_code`, `service`. Never put user IDs or request IDs in labels."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#117",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "**OpenTelemetry is not a backend — it's an instrumentation standard.**\r\nYou still need a backend (Tempo, Jaeger, Zipkin, Honeycomb, Datadog). OTel defines how to collect and ship telemetry. The Collector is a process that receives and forwards telemetry — it's optional but recommended for decoupling your app from backend choice."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#118",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "**Application Insights vs Azure Monitor.**\r\nApplication Insights is a feature of Azure Monitor (not a separate product). They share the same Log Analytics workspace. Application Insights adds APM-specific features (request tracking, dependency maps, live metrics stream) on top of Azure Monitor's storage and alerting."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#119",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#120",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Old World Bridge"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#121",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "| App Insights / Azure Monitor | Modern Observability |\r\n|---|---|\r\n| App Insights requests table | Distributed trace root spans (Tempo / Jaeger) |\r\n| App Insights dependencies table | Child spans — external HTTP/DB/Redis calls |\r\n| App Insights exceptions table | Span error events (`span.recordException()`) |\r\n| App Insights customMetrics table | Prometheus Counter / Gauge / Histogram |\r\n| App Insights traces table (KQL) | Loki logs (LogQL label filter) |\r\n| Application Map (distributed view) | Jaeger / Tempo trace waterfall |\r\n| App Insights SDK auto-collect | OTel `getNodeAutoInstrumentations()` |\r\n| `client.trackDependency()` | Manual OTel span with `span.setAttribute()` |\r\n| App Insights connection string → Azure | OTel exporter URL → any OTLP backend |\r\n| Log Analytics Workbooks | Grafana dashboards |\r\n| KQL (Log Analytics) | LogQL (Loki) — not a direct equivalent; KQL is more expressive |\r\n| Azure Monitor Metrics (push) | Prometheus (pull — scrapes `/metrics` endpoint) |\r\n| SCOM agent on every server | OTel SDK in every service |\r\n| SCOM Management Pack per app | Auto-instrumentation for HTTP/DB/etc. |\r\n| Custom perf counters (Windows) | Prometheus metrics / OTel metrics |\r\n| Event log (Windows) | Structured JSON logs → Loki / Log Analytics |\r\n| SCOM correlation rules | Distributed traces (spans, trace IDs) |\r\n| SCOM dashboards | Grafana dashboards |\r\n| SCOM alert → pager | Grafana alert → PagerDuty / Slack |\r\n| Azure Data Factory pipeline monitoring | OTel spans on each pipeline step |\r\n| Availability tests (App Insights) | Synthetic monitors / uptime checks |"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#122",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#123",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#124",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "- `computing/12-KUBERNETES.md` — runtime platform needing observability.\r\n- `cloud-architecture/08-COST-OPTIMIZATION.md` — telemetry as cost-control input.\r\n- `statistics-applied/01-EXPERIMENTAL-DESIGN.md` — measurement design and inference discipline."
+    },
+    {
+      "id": "15-OBSERVABILITY.md#125",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "15-OBSERVABILITY.md#126",
+      "path": [
+        "15-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:15-observability, git-history:computing-software:15-observability]",
+        "canonical_path": "computing/15-OBSERVABILITY.md",
+        "concepts": "[observability, logging, metrics, tracing, telemetry, alerts]",
+        "current_path": "computing/15-OBSERVABILITY.md",
+        "id": "maxim:computing-software:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability, telemetry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\r\n|---|---|---|\r\n| What happened during an incident | Structured logs in Loki or Log Analytics | Logs explain events; they do not prove latency distribution or causal path. |\r\n| How much, how fast, or how saturated the system is | Metrics in Prometheus or Azure Monitor Metrics | Metrics aggregate away detail; preserve labels carefully or cardinality will explode. |\r\n| Where one slow request spent its time | Distributed traces in Tempo, Jaeger, or App Insights | Traces are only useful when service boundaries propagate context consistently. |\r\n| How to instrument once before choosing a backend | OpenTelemetry SDK plus collector | OTel standardizes telemetry shape; backend query models still differ. |\r\n| Whether operators need one pane or specialized tools | Grafana or Azure Monitor Workbooks | A unified UI is not a unified data model; source-of-truth ownership still matters. |\r\n| When an error spike should page someone | SLO-based alerts via Alertmanager, Grafana, or Azure Alerts | Alert on user-impacting symptoms first; raw error counts create noisy pages. |\r\n| How to inspect Azure logs interactively | Log Analytics with KQL | KQL is powerful but Azure-specific; keep portable fields at ingestion time. |\r\n| How to inspect OSS log streams | Loki with LogQL | Loki indexes labels, not full text; choose labels deliberately. |\r\n| Whether p99 latency is real or bucket artifact | Prometheus histograms plus `histogram_quantile()` | Bucket boundaries determine resolution; bad buckets produce false precision. |\r\n| Whether user journeys map to business outcomes | App Insights custom events or OTel spans | Business events need product semantics, not just HTTP endpoint names. |\r\n| What \"healthy\" means for the service | SLIs, SLOs, and error budgets | SLOs must align with user-visible reliability, not component vanity metrics. |\r\n| How to reduce vendor lock-in | OTel SDK -> OTel Collector -> backend exporter | Vendor neutrality is strongest at instrumentation time, weakest in dashboards and alerts. |\r\n| How to keep App Insights while adopting OTel | Azure Monitor OpenTelemetry Distro or `azuremonitor` exporter | This preserves Azure operations fit but does not make queries portable. |\r\n| How a short-lived job reports Prometheus metrics | Pushgateway | Pushgateway is for service-level job outcomes, not per-instance liveness. |"
+    }
+  ],
+  "refs": [
+    "15-OBSERVABILITY.md"
+  ]
+}

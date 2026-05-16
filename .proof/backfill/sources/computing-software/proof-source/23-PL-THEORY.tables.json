@@ -1,0 +1,77 @@
+{
+  "schema_version": "1",
+  "source_markdown": "C:\\src\\maxim\\computing\\23-PL-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 809,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to understand...",
+        "Concept"
+      ],
+      "rows": [
+        [
+          "Why TypeScript inference sometimes gives `unknown` instead of a type",
+          "Bidirectional inference + context dependency; incomplete vs HM"
+        ],
+        [
+          "Why Rust rejects a program that seems correct",
+          "Affine type violation or lifetime constraint not satisfiable by NLL"
+        ],
+        [
+          "Why TypeScript's `never` shows up in exhaustiveness checking",
+          "`never` is the empty type — Curry-Howard bottom"
+        ],
+        [
+          "Why covariant arrays in TypeScript can cause runtime errors",
+          "Mutable containers should be invariant; TS chose unsound covariance"
+        ],
+        [
+          "Why Rust trait orphan rules exist",
+          "Coherence: one implementation per (type, trait) pair, globally"
+        ],
+        [
+          "Why TypeScript type eval gives \"excessively deep\" error",
+          "TC type system hitting tsc's depth limit guard against non-termination"
+        ],
+        [
+          "Why Haskell compiles so slowly",
+          "Full HM + type class resolution + GHC Core optimization passes"
+        ],
+        [
+          "Why adding a new case to a union type breaks many places",
+          "Exhaustiveness checking — intentional, the point of ADTs"
+        ],
+        [
+          "Where `async/await` sits in type theory",
+          "Partial effect system — marks IO-effectful computation"
+        ],
+        [
+          "Why Rust lifetimes are hard to learn",
+          "They're region type annotations — not in most programmers' prior experience"
+        ],
+        [
+          "Why GHC type errors appear far from the source",
+          "OutsideIn(X) floats wanted constraints outward; error at resolution site"
+        ],
+        [
+          "Why `show . read` needs a type annotation in Haskell",
+          "OutsideIn(X): the constraint `a` has no resolving information without annotation"
+        ],
+        [
+          "Why Scala 3 `given` differs from C# interface dispatch",
+          "Scala: retroactive conformance (add instance for type you don't own); C#: declaration-site only"
+        ],
+        [
+          "Why Rust's type safety proof needed Iris",
+          "Syntactic progress+preservation fails for unsafe; RustBelt uses logical relations + separation logic"
+        ],
+        [
+          "Why GHC Core is System F, not Fω",
+          "Coercions keep the core calculus decidable while supporting GADTs and newtypes"
+        ]
+      ]
+    }
+  ]
+}
