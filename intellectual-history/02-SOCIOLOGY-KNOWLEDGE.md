@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:sociology-knowledge
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: Sociology of Knowledge: Mannheim and Merton
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/02-SOCIOLOGY-KNOWLEDGE.md
+canonical_path: intellectual-history/02-SOCIOLOGY-KNOWLEDGE.md
+backsource_ids: [proof-backfill:intellectual-history:02-sociology-knowledge, git-history:intellectual-history:02-sociology-knowledge]
+concepts: [sociology, knowledge]
+root_concepts: [sociology, knowledge]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sociology of Knowledge: Mannheim and Merton
 
 ## The Big Picture
@@ -7,33 +26,33 @@ and call "knowledge"? It ranges from Mannheim's general theory of ideological th
 Merton's institutional sociology of science to Bloor's radical Strong Programme.
 
 ```
-+-------------------------------------------------------------------+
-|              SOCIOLOGY OF KNOWLEDGE LANDSCAPE                     |
-|                                                                   |
-|  CLASSICAL FOUNDATIONS           SOCIOLOGY OF SCIENCE             |
-|  +---------------------------+   +---------------------------+    |
-|  | MARX: ideas as superstruc-|   | MERTON: norms of science  |    |
-|  | ture reflecting material  |   | (CUDOS), reward system,   |    |
-|  | base; ideology as false   |   | stratification            |    |
-|  | consciousness             |   |                           |    |
-|  |                           |   | EDINBURGH STRONG PROGRAMME|    |
-|  | MANNHEIM: all thought is  |   | (Bloor): causality,       |    |
-|  | "perspectival"; ideology  |   | impartiality, symmetry,   |    |
-|  | AND utopia; relationism   |   | reflexivity               |    |
-|  |                           |   |                           |    |
-|  | DURKHEIM: collective       |   | LATOUR/WOOLGAR: laboratory|    |
-|  | representations shape     |   | ethnography; facts as     |    |
-|  | thought; categories are   |   | social constructions      |    |
-|  | social                    |   +---------------------------+    |
-|  +---------------------------+                                    |
-|                                                                   |
-|  CONTEMPORARY                                                     |
-|  +-----------------------------------------------------------+    |
-|  | Bourdieu: field theory, habitus, cultural capital         |    |
-|  | Collins: interaction ritual chains; tacit knowledge       |    |
-|  | Daston & Galison: objectivity as historical phenomenon    |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              SOCIOLOGY OF KNOWLEDGE LANDSCAPE                     !
+!                                                                   !
+!  CLASSICAL FOUNDATIONS           SOCIOLOGY OF SCIENCE             !
+!  .===========================.   .===========================.    !
+!  ! MARX: ideas as superstruc-!   ! MERTON: norms of science  !    !
+!  ! ture reflecting material  !   ! (CUDOS), reward system,   !    !
+!  ! base; ideology as false   !   ! stratification            !    !
+!  ! consciousness             !   !                           !    !
+!  !                           !   ! EDINBURGH STRONG PROGRAMME!    !
+!  ! MANNHEIM: all thought is  !   ! (Bloor): causality,       !    !
+!  ! "perspectival"; ideology  !   ! impartiality, symmetry,   !    !
+!  ! AND utopia; relationism   !   ! reflexivity               !    !
+!  !                           !   !                           !    !
+!  ! DURKHEIM: collective       !   ! LATOUR/WOOLGAR: laboratory!    !
+!  ! representations shape     !   ! ethnography; facts as     !    !
+!  ! thought; categories are   !   ! social constructions      !    !
+!  ! social                    !   .===========================.    !
+!  .===========================.                                    !
+!                                                                   !
+!  CONTEMPORARY                                                     !
+!  .===========================================================.    !
+!  ! Bourdieu: field theory, habitus, cultural capital         !    !
+!  ! Collins: interaction ritual chains; tacit knowledge       !    !
+!  ! Daston & Galison: objectivity as historical phenomenon    !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -45,18 +64,18 @@ The founding framework for externalist intellectual history:
 ```
   MARX'S MODEL:
 
-  +----------------------------------------------+
-  |              SUPERSTRUCTURE                  |
-  |   Law, Politics, Religion, Philosophy, Art   |
-  |   (ideas, institutions, ideologies)          |
-  +----------------------------------------------+
+  .==============================================.
+  !              SUPERSTRUCTURE                  !
+  !   Law, Politics, Religion, Philosophy, Art   !
+  !   (ideas, institutions, ideologies)          !
+  .==============================================.
             reflects and justifies
-  +----------------------------------------------+
-  |               BASE                           |
-  |   Economic relations of production           |
-  |   (who owns the means of production,         |
-  |   how labor is organized and compensated)    |
-  +----------------------------------------------+
+  .==============================================.
+  !               BASE                           !
+  !   Economic relations of production           !
+  !   (who owns the means of production,         !
+  !   how labor is organized and compensated)    !
+  .==============================================.
 
   "The ideas of the ruling class are in every epoch the ruling ideas."
   — The German Ideology (1846)

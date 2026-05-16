@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:modal-logic
+kind: guide
+module: logic
+section: logic
+title: Modal Logic: Necessity and Possibility
+status: source-custody
+source_custody: partial
+current_path: logic/06-MODAL-LOGIC.md
+canonical_path: logic/06-MODAL-LOGIC.md
+backsource_ids: [proof-backfill:logic:06-modal-logic, git-history:logic:06-modal-logic]
+concepts: [modal, logic]
+root_concepts: [modal, logic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modal Logic: Necessity and Possibility
 
 ## The Big Picture
@@ -8,30 +27,30 @@ Modal logic extends classical logic with operators for **necessity** (box: □) 
 deontic logic, and description logics — all engineering-relevant systems.
 
 ```
-+-------------------------------------------------------------------+
-|                    MODAL LOGIC LANDSCAPE                          |
-|                                                                   |
-|  SYNTAX              SEMANTICS               AXIOM SYSTEMS        |
-|  +------------+      +------------------+    +-----------------+  |
-|  | Classical  |      | Kripke frames:   |    | K (basic)       |  |
-|  | logic plus |      | (W, R)           |    | T  (reflexive)  |  |
-|  | Box phi    |      | W = worlds       |    | S4 (refl+trans) |  |
-|  | Diamond phi|      | R = access rel.  |    | S5 (equiv rel.) |  |
-|  |            |      | Valuation V      |    | GL (Godel-Lob)  |  |
-|  | Box = nec. |      | M, w |= Box phi  |    | B   D   K4      |  |
-|  | Diamond =  |      |   iff all w' in  |    +-----------------+  |
-|  | possible   |      |   R(w): M,w'|=phi|                         |
-|  +------------+      +------------------+                         |
-   |                                                                |
-   |  EXTENSIONS                                                    |
-|  +-----------------------------------------------------------+    |
-|  | Epistemic logic: K_a phi = "agent a knows phi"           |    |
-|  | Deontic: O phi = "phi is obligatory"                     |    |
-|  | Temporal: G phi = "phi holds globally from now"          |    |
-|  | Dynamic: [alpha] phi = "after action alpha, phi holds"   |    |
-|  | Description logics: OWL, EL, ALC (knowledge bases)       |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                    MODAL LOGIC LANDSCAPE                          !
+!                                                                   !
+!  SYNTAX              SEMANTICS               AXIOM SYSTEMS        !
+!  .============.      .==================.    .=================.  !
+!  ! Classical  !      ! Kripke frames:   !    ! K (basic)       !  !
+!  ! logic plus !      ! (W, R)           !    ! T  (reflexive)  !  !
+!  ! Box phi    !      ! W = worlds       !    ! S4 (refl.trans) !  !
+!  ! Diamond phi!      ! R = access rel.  !    ! S5 (equiv rel.) !  !
+!  !            !      ! Valuation V      !    ! GL (Godel-Lob)  !  !
+!  ! Box = nec. !      ! M, w != Box phi  !    ! B   D   K4      !  !
+!  ! Diamond =  !      !   iff all w' in  !    .=================.  !
+!  ! possible   !      !   R(w): M,w'!=phi!                         !
+!  .============.      .==================.                         !
+   !                                                                !
+   !  EXTENSIONS                                                    !
+!  .===========================================================.    !
+!  ! Epistemic logic: K_a phi = "agent a knows phi"           !    !
+!  ! Deontic: O phi = "phi is obligatory"                     !    !
+!  ! Temporal: G phi = "phi holds globally from now"          !    !
+!  ! Dynamic: [alpha] phi = "after action alpha, phi holds"   !    !
+!  ! Description logics: OWL, EL, ALC (knowledge bases)       !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -43,14 +62,14 @@ deontic logic, and description logics — all engineering-relevant systems.
 Modal propositional language:
 ```
   phi ::= p                   (atom)
-        | top | bot
-        | neg phi
-        | phi land psi
-        | phi lor psi
-        | phi -> psi
-        | Box phi              (necessarily phi)
-        | Diamond phi          (possibly phi)
-        | (phi)
+        ! top ! bot
+        ! neg phi
+        ! phi land psi
+        ! phi lor psi
+        ! phi -> psi
+        ! Box phi              (necessarily phi)
+        ! Diamond phi          (possibly phi)
+        ! (phi)
 ```
 
 Defined connective:
@@ -82,15 +101,15 @@ Defined connective:
 ### Truth Conditions
 
 ```
-  M, w |= p           iff   p in V(w)
-  M, w |= top          always
-  M, w |= bot          never
-  M, w |= neg phi      iff   M, w |/= phi
-  M, w |= phi land psi iff   M, w |= phi  and  M, w |= psi
-  M, w |= phi lor psi  iff   M, w |= phi  or   M, w |= psi
-  M, w |= phi -> psi   iff   M, w |/= phi  or  M, w |= psi
-  M, w |= Box phi      iff   for all w' with (w, w') in R: M, w' |= phi
-  M, w |= Diamond phi  iff   exists w' with (w, w') in R: M, w' |= phi
+  M, w != p           iff   p in V(w)
+  M, w != top          always
+  M, w != bot          never
+  M, w != neg phi      iff   M, w !/= phi
+  M, w != phi land psi iff   M, w != phi  and  M, w != psi
+  M, w != phi lor psi  iff   M, w != phi  or   M, w != psi
+  M, w != phi -> psi   iff   M, w !/= phi  or  M, w != psi
+  M, w != Box phi      iff   for all w' with (w, w') in R: M, w' != phi
+  M, w != Diamond phi  iff   exists w' with (w, w') in R: M, w' != phi
 ```
 
 Intuition:
@@ -140,20 +159,20 @@ different modal axioms.
 ### Standard Systems
 
 ```
-  K = {K} + modus ponens + necessitation (if |- phi then |- Box phi)
+  K = {K} . modus ponens . necessitation (if != phi then != Box phi)
   (Bare minimum for modal logic)
 
-  T = K + T axiom     (reflexive frames)
+  T = K . T axiom     (reflexive frames)
   "What is necessary is true"
 
-  S4 = K + T + 4      (reflexive + transitive = preorder frames)
+  S4 = K . T . 4      (reflexive . transitive = preorder frames)
   "Necessity of necessity implies necessity"
 
-  S5 = K + T + 5      (equivalence relation frames)
+  S5 = K . T . 5      (equivalence relation frames)
   "What is possibly possible is possible"
-  = K + T + B + 4     (reflexive + symmetric + transitive)
+  = K . T . B . 4     (reflexive . symmetric . transitive)
 
-  GL = K + 4 + GL axiom  (well-founded transitive = strict partial order)
+  GL = K . 4 . GL axiom  (well=founded transitive = strict partial order)
   "Provability logic": Box = "is provable in PA"
   Löb's theorem = GL axiom
 ```
@@ -162,12 +181,12 @@ different modal axioms.
 
 ```
          K
-         |
+         !
       T     D
-      |
+      !
      S4
     /   \
-   B    S5    (S5 = S4 + B, or K + T + 5)
+   B    S5    (S5 = S4 . B, or K . T . 5)
     \   /
      (S5)
 
@@ -200,7 +219,7 @@ Completeness of modal logic systems: every consistent formula has a Kripke model
   S4 and S5: PSPACE-complete.
 
   Proof: finite model property.
-  If phi is satisfiable, it is satisfied in a model of size <= 2^|phi|.
+  If phi is satisfiable, it is satisfied in a model of size <= 2^!phi!.
   Decision procedure: enumerate bounded models.
 
   Comparison to FOL:
@@ -379,7 +398,7 @@ worlds are states, accessibility is a transition relation. In temporal logic it 
 the state space of a system.
 
 **Necessitation rule.**
-In all normal modal logics, if |- phi then |- Box phi. This does NOT mean Box phi -> phi.
+In all normal modal logics, if \|- phi then \|- Box phi. This does NOT mean Box phi -> phi.
 phi being provable means it's true in every model at every world. Box phi -> phi would
 require reflexivity (system T). The rule says "universal truths are necessarily true,"
 not "necessary statements must be actually true."

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:applications
+kind: guide
+module: logic
+section: logic
+title: Applications: Program Verification and AI Reasoning
+status: source-custody
+source_custody: partial
+current_path: logic/09-APPLICATIONS.md
+canonical_path: logic/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:logic:09-applications, git-history:logic:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications: Program Verification and AI Reasoning
 
 ## The Big Picture
@@ -8,31 +27,31 @@ tools. Dependent type theory (Lean, Coq) produces machine-checked proofs. Descri
 underlie knowledge graphs and OWL ontologies.
 
 ```
-+-------------------------------------------------------------------+
-|              LOGIC IN ENGINEERING AND AI                          |
-|                                                                   |
-|  PROGRAM VERIFICATION        SAT / SMT SOLVING                    |
-|  +--------------------+      +---------------------------+        |
-|  | Hoare logic        |      | SAT: Boolean (CDCL)       |        |
-|  | Weakest precond.   |      | SMT: theories over SAT    |        |
-|  | Model checking     |      |  - EUF (equality + funcs) |        |
-|  | Separation logic   |      |  - Arithmetic (LIA, LRA)  |        |
-|  | Concurrency        |      |  - BitVectors             |        |
-|  | Total correctness  |      |  - Arrays                 |        |
-|  +--------------------+      |  - Strings                |        |
-   |                              | Tools: Z3, CVC5, Yices    |     |
-   |  TYPE THEORY / PROOF ASSISTANTS                                |
-|  +--------------------+      +---------------------------+        |
-|  | Curry-Howard       |      | AI REASONING              |        |
-|  | Martin-Lof TT      |      | +-----------------------+ |        |
-|  | Calculus of Constr |      | | Knowledge graphs      | |        |
-|  | Lean 4             |      | | Description logics    | |        |
-|  | Coq / Rocq         |      | | OWL / RDF / SPARQL    | |        |
-|  | Isabelle/HOL       |      | | Logic programming     | |        |
-|  | Agda               |      | | Answer set programming| |        |
-|  +--------------------+      | | Probabilistic logic   | |        |
-|                              +-+-----------------------+-+        |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              LOGIC IN ENGINEERING AND AI                          !
+!                                                                   !
+!  PROGRAM VERIFICATION        SAT / SMT SOLVING                    !
+!  .====================.      .===========================.        !
+!  ! Hoare logic        !      ! SAT: Boolean (CDCL)       !        !
+!  ! Weakest precond.   !      ! SMT: theories over SAT    !        !
+!  ! Model checking     !      !  = EUF (equality . funcs) !        !
+!  ! Separation logic   !      !  - Arithmetic (LIA, LRA)  !        !
+!  ! Concurrency        !      !  - BitVectors             !        !
+!  ! Total correctness  !      !  - Arrays                 !        !
+!  .====================.      !  = Strings                !        !
+   !                              ! Tools: Z3, CVC5, Yices    !     !
+   !  TYPE THEORY / PROOF ASSISTANTS                                !
+!  .====================.      .===========================.        !
+!  ! Curry-Howard       !      ! AI REASONING              !        !
+!  ! Martin=Lof TT      !      ! .=======================. !        !
+!  ! Calculus of Constr !      ! ! Knowledge graphs      ! !        !
+!  ! Lean 4             !      ! ! Description logics    ! !        !
+!  ! Coq / Rocq         !      ! ! OWL / RDF / SPARQL    ! !        !
+!  ! Isabelle/HOL       !      ! ! Logic programming     ! !        !
+!  ! Agda               !      ! ! Answer set programming! !        !
+!  .====================.      ! ! Probabilistic logic   ! !        !
+!                              .=.=======================.=.        !
+.===================================================================.
 ```
 
 ---
@@ -61,35 +80,35 @@ The modern successor pipeline: **Dafny** (Rustan Leino, also from MSR) is Spec#'
 
 ```
   SKIP:
-     ─────────────────
+     =================
      {P} skip {P}
 
   ASSIGNMENT:
-     ──────────────────────────
+     ==========================
      {Q[E/x]} x := E {Q}
 
      (Substitute E for x in Q to get the precondition)
 
   SEQUENTIAL:
      {P} C1 {R}    {R} C2 {Q}
-     ─────────────────────────
+     =========================
         {P} C1; C2 {Q}
 
   CONDITIONAL:
      {P land B} C1 {Q}    {P land neg B} C2 {Q}
-     ─────────────────────────────────────────────
+     =============================================
      {P} if B then C1 else C2 {Q}
 
   WHILE (partial correctness):
      {I land B} C {I}
-     ──────────────────────────────
+     ==============================
      {I} while B do C {I land neg B}
 
      I = loop invariant
 
   CONSEQUENCE:
      P' => P    {P} C {Q}    Q => Q'
-     ──────────────────────────────────
+     ==================================
               {P'} C {Q'}
 ```
 
@@ -119,10 +138,10 @@ Modern verification tools (Dafny, Frama-C, Why3) work by:
 
   PIPELINE:
   Annotated source
-       |
+       !
        v  VC Generator (wp calculus)
   Verification Conditions (FOL formulas)
-       |
+       !
        v  SMT Solver (Z3)
   VALID / COUNTEREXAMPLE
 ```
@@ -142,7 +161,7 @@ Separation logic (O'Hearn, Reynolds, Yang 2001) extends it.
 
   FRAME RULE (key innovation):
      {P} C {Q}
-     ───────────────────────────── (where C does not touch vars in R)
+     ============================= (where C does not touch vars in R)
      {P * R} C {Q * R}
 
   This allows LOCAL REASONING:
@@ -169,12 +188,12 @@ how modern industrial solvers work:
 ```
   MODERN CDCL SOLVER (CaDiCaL, Kissat, MiniSat):
 
-  +---------+    +-----------+    +-----------+    +----------+
-  | Decide  | -> | Propagate | -> | Conflict? | -> | Analyze  |
-  +---------+    | (BCP:     |    +-----------+    | (1-UIP   |
-  Choose a       | unit prop)|         |           | scheme)  |
-  literal        +-----------+         v           +----------+
-  to assign.                      Backjump to           |
+  .=========.    .===========.    .===========.    .==========.
+  ! Decide  ! -> ! Propagate ! -> ! Conflict? ! -> ! Analyze  !
+  .=========.    ! (BCP:     !    .===========.    ! (1=UIP   !
+  Choose a       ! unit prop)!         !           ! scheme)  !
+  literal        .===========.         v           .==========.
+  to assign.                      Backjump to           !
                                   level, add            v
                                   learned clause.   Learn new clause.
                                                     (add to clause DB)
@@ -204,19 +223,19 @@ SMT (Satisfiability Modulo Theories) extends SAT with background theories.
   SMT ARCHITECTURE:
 
   SMT formula
-      |
+      !
       v
   Preprocessor / Simplifier
-      |
+      !
       v
   Boolean abstraction: replace theory atoms with Boolean variables
-      |    (Tseitin if needed)
+      !    (Tseitin if needed)
       v
-  +-----------+            +-----------------+
-  | SAT solver|  <-------> | Theory solvers  |
-  | (DPLL/    |  query T   | T-SAT / T-UNSAT |
-  | CDCL core)|  learn T-  | for each theory |
-  +-----------+  clauses   +-----------------+
+  .===========.            .=================.
+  ! SAT solver!  <-------> ! Theory solvers  !
+  ! (DPLL/    !  query T   ! T-SAT / T-UNSAT !
+  ! CDCL core)!  learn T-  ! for each theory !
+  .===========.  clauses   .=================.
 
   COMBINED THEORIES (Nelson-Oppen method):
   Theories must be "stably infinite" and share sort signatures.
@@ -228,14 +247,14 @@ SMT (Satisfiability Modulo Theories) extends SAT with background theories.
 
 ```
   THEORY          EXAMPLE FORMULAS              USE CASE
-  ─────           ────────────────              ────────
-  QF_EUF          f(x)=y land f(y)=z -> f(x)=z  Equality + uninterpreted funcs
+  =====           ================              ========
+  QF_EUF          f(x)=y land f(y)=z => f(x)=z  Equality . uninterpreted funcs
                   (congruence closure)
 
-  QF_LIA          x + y < 5 land y > 2           Linear integer arithmetic
+  QF_LIA          x . y < 5 land y > 2           Linear integer arithmetic
                   land x > 0
 
-  QF_LRA          x + y <= 5.5 land y >= 2.3      Linear real arithmetic
+  QF_LRA          x . y <= 5.5 land y >= 2.3      Linear real arithmetic
 
   QF_NIA          x * x = 4                       Nonlinear integer arith.
                                                    (undecidable in general)
@@ -257,7 +276,7 @@ SMT (Satisfiability Modulo Theories) extends SAT with background theories.
 
   x, y = Ints('x y')
   solver = Solver()
-  solver.add(x + y > 5, x > 0, y > 0, x < 3)
+  solver.add(x . y > 5, x > 0, y > 0, x < 3)
   if solver.check() == sat:
       print(solver.model())   # prints x=2, y=4 (or similar)
   else:
@@ -275,13 +294,13 @@ SMT (Satisfiability Modulo Theories) extends SAT with background theories.
 
 ```
   TOOL          LOGIC BASIS         LANGUAGE      USE CASE
-  ────          ────────────        ────────      ────────
-  Dafny         Hoare + ghost spec  Dafny         General programs, AWS
-  Frama-C       Hoare + WP (Why3)   C             Safety-critical C
+  ====          ============        ========      ========
+  Dafny         Hoare . ghost spec  Dafny         General programs, AWS
+  Frama=C       Hoare . WP (Why3)   C             Safety=critical C
   Viper         Permission logic    Viper IR       Rust/Java verification
   VeriFast      Separation logic    C/Java         Heap-heavy code
   Why3          WP calculus         WhyML         Backend for many tools
-  CBMC          BMC (SAT-based)     C/C++         Bug finding (bounded)
+  CBMC          BMC (SAT=based)     C/C..         Bug finding (bounded)
   Infer         Bi-abduction        C/Java/ObjC   Facebook/Meta, null deref
   SeaHorn       Horn clause CHC     C/LLVM        Safety verification
 ```
@@ -296,10 +315,10 @@ The isomorphism between proofs and programs (covered in Module 03, extended here
   PROPOSITIONS AS TYPES:
 
   Proposition          Type
-  ──────────          ────
+  ==========          ====
   P -> Q              P -> Q   (function type)
   P land Q            P * Q    (product/pair type)
-  P lor Q             P + Q    (sum/variant type)
+  P lor Q             P . Q    (sum/variant type)
   bot                 void     (empty type)
   top                 unit     (trivial type)
   neg P               P -> void
@@ -308,7 +327,7 @@ The isomorphism between proofs and programs (covered in Module 03, extended here
 
   Proof of P -> Q     Lambda abstraction: fun (x: P) -> term : Q
   Proof of P land Q   Pair: (proof_P, proof_Q) : P * Q
-  Proof of P lor Q    Injection: Left(proof_P) : P + Q
+  Proof of P lor Q    Injection: Left(proof_P) : P . Q
   Elimination (MP)    Function application: f(x)
   Normalization       Beta reduction
 
@@ -333,12 +352,12 @@ The isomorphism between proofs and programs (covered in Module 03, extended here
 
   EXAMPLES:
   Vec (A: Type) (n: Nat) : Type    (vector of As of length n)
-  head : Pi (n: Nat). Vec A (n+1) -> A   (safe head: length > 0 is IN TYPE)
+  head : Pi (n: Nat). Vec A (n.1) => A   (safe head: length > 0 is IN TYPE)
 
   LEAN 4 EXAMPLE:
   def head {α : Type} : (l : List α) → l.length > 0 → α
-    | a :: _, _ => a
-    | [], h => absurd h (Nat.not_lt_zero 0)
+    ! a :: _, _ => a
+    ! [], h => absurd h (Nat.not_lt_zero 0)
   -- The proof obligation (l.length > 0) is a program argument.
 ```
 
@@ -348,17 +367,17 @@ The isomorphism between proofs and programs (covered in Module 03, extended here
 
 ```
   PROOF ASSISTANT    LOGIC BASIS              NOTABLE USES
-  ────────────────   ──────────               ────────────
-  Lean 4             CIC + mathlib4           Mathlib (100k+ theorems)
+  ================   ==========               ============
+  Lean 4             CIC . mathlib4           Mathlib (100k. theorems)
                      (Calculus of Ind. Constr) Fermat's Last Theorem proof
                                               (ongoing formalization)
   Coq / Rocq         CIC                      CompCert (certified C compiler)
                                               4-Color Theorem (Gonthier 2005)
   Isabelle/HOL       Higher-Order Logic       seL4 (verified microkernel)
-                     + tactics                Archive of Formal Proofs
+                     . tactics                Archive of Formal Proofs
   Agda               Martin-Lof Type Theory   Cubical Agda (HoTT)
   Idris 2            Dependent types          Dependent-typed programming
-  ACL2               First-order + induction  Floating-point verification (AMD)
+  ACL2               First=order . induction  Floating=point verification (AMD)
 ```
 
 ---
@@ -369,11 +388,11 @@ The isomorphism between proofs and programs (covered in Module 03, extended here
 
 ```
   RELATIONAL (SQL / Entity Framework)     KNOWLEDGE GRAPH (OWL / SPARQL)
-  ─────────────────────────────────────   ─────────────────────────────────
+  =====================================   =================================
   Table                                   Class (OWL: owl:Class)
   Row                                     Individual (ABox assertion)
   Foreign key                             Object property (RDF triple: s p o)
-  Schema (DDL)                            Ontology / TBox (class + property defs)
+  Schema (DDL)                            Ontology / TBox (class . property defs)
   JOIN                                    Triple pattern matching in SPARQL
   NULL (absence)                          Open World Assumption: absence ≠ false
   Unique row identity (PRIMARY KEY)       IRI as global identifier
@@ -388,7 +407,7 @@ The critical semantic difference: relational databases use **Closed World Assump
 ### Description Logics and OWL
 
 ```
-  KNOWLEDGE BASE = TBox + ABox
+  KNOWLEDGE BASE = TBox . ABox
 
   TBox (terminology): class and property definitions
     Human sqsubseteq Animal
@@ -404,7 +423,7 @@ The critical semantic difference: relational databases use **Closed World Assump
   Instance checking:  Is Alice a Human?
   Retrieval:          Which individuals are Human?
 
-  TOOLS: HermiT, Pellet, FaCT++ (OWL reasoners)
+  TOOLS: HermiT, Pellet, FaCT.. (OWL reasoners)
   LANGUAGE: OWL 2 (Web Ontology Language, W3C standard)
   USE CASES: Biomedical ontologies (GO, SNOMED CT), knowledge graphs
 ```
@@ -429,7 +448,7 @@ The critical semantic difference: relational databases use **Closed World Assump
   Cut (!): prune search tree.
 
   DATALOG: Prolog without function symbols.
-  Always terminates. Equivalent to relational algebra + recursion.
+  Always terminates. Equivalent to relational algebra . recursion.
   Used in: Datomic, Souffle (program analysis), BigDatalog.
 ```
 
@@ -445,7 +464,7 @@ The critical semantic difference: relational databases use **Closed World Assump
     color(X, blue) :- vertex(X), not color(X, red), not color(X, green).
     :- edge(X,Y), color(X,C), color(Y,C).   % constraint: adjacent = different colors
 
-  Solver: Clingo (combines Gringo grounder + Clasp SAT solver)
+  Solver: Clingo (combines Gringo grounder . Clasp SAT solver)
   Applications: planning, scheduling, configuration, bioinformatics.
 ```
 

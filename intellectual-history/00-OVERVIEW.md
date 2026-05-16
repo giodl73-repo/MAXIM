@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:overview
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: Intellectual History - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/00-OVERVIEW.md
+canonical_path: intellectual-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:intellectual-history:00-overview, git-history:intellectual-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Intellectual History — Landscape and Taxonomy
 
 ## The Big Picture
@@ -8,40 +27,40 @@ and the history of science. The field asks: where do ideas come from, how do the
 and why do some prevail while others vanish?
 
 ```
-+-------------------------------------------------------------------+
-|              INTELLECTUAL HISTORY LANDSCAPE                       |
-|                                                                   |
-|  APPROACHES TO IDEAS                                              |
-|  +------------------+  +------------------+  +----------------+  |
-|  | INTERNALISM       |  | EXTERNALISM      |  | CONTEXTUALISM  |  |
-|  | Ideas on their   |  | Ideas as social  |  | Middle ground  |  |
-|  | own terms:       |  | products:        |  | (Skinner,      |  |
-|  | Logic,           |  | Mannheim,        |  | Cambridge      |  |
-|  | coherence,       |  | Merton,          |  | School)        |  |
-|  | meaning          |  | Marx, Bourdieu   |  |                |  |
-|  +------------------+  +------------------+  +----------------+  |
-|                                                                   |
-|  METHODOLOGIES                                                    |
-|  +-----------------------------------------------------------+    |
-|  | History of philosophy  |  History of science  |  Mentalites   |    |
-|  | Cambridge School (speech acts)  |  Begriffsgeschichte  |        |    |
-|  | Sociology of Knowledge |  Discourse analysis  |  Genealogy    |    |
-|  +-----------------------------------------------------------+    |
-|                                                                   |
-|  MAJOR INTELLECTUAL MOVEMENTS (chronological)                    |
-|  +-----------------------------------------------------------+    |
-|  | Scientific Revolution (1543-1687)                         |    |
-|  | Enlightenment (1688-1800)                                 |    |
-|  | German Idealism + Romanticism (1780-1850)                 |    |
-|  | Positivism + Utilitarianism (1830-1880)                   |    |
-|  | Darwin + Marx + Nietzsche (1859-1900)                     |    |
-|  | Modernism + Vienna Circle (1890-1940)                     |    |
-|  | Existentialism + Frankfurt School (1920-1960)             |    |
-|  | Structuralism + Poststructuralism (1950-1990)             |    |
-|  | Science Studies + Cognitive Turn (1970-2000)              |    |
-|  | Digital + Interdisciplinary (2000-)                       |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              INTELLECTUAL HISTORY LANDSCAPE                       !
+!                                                                   !
+!  APPROACHES TO IDEAS                                              !
+!  .==================.  .==================.  .================.  !
+!  ! INTERNALISM       !  ! EXTERNALISM      !  ! CONTEXTUALISM  !  !
+!  ! Ideas on their   !  ! Ideas as social  !  ! Middle ground  !  !
+!  ! own terms:       !  ! products:        !  ! (Skinner,      !  !
+!  ! Logic,           !  ! Mannheim,        !  ! Cambridge      !  !
+!  ! coherence,       !  ! Merton,          !  ! School)        !  !
+!  ! meaning          !  ! Marx, Bourdieu   !  !                !  !
+!  .==================.  .==================.  .================.  !
+!                                                                   !
+!  METHODOLOGIES                                                    !
+!  .===========================================================.    !
+!  ! History of philosophy  !  History of science  !  Mentalites   !    !
+!  ! Cambridge School (speech acts)  !  Begriffsgeschichte  !        !    !
+!  ! Sociology of Knowledge !  Discourse analysis  !  Genealogy    !    !
+!  .===========================================================.    !
+!                                                                   !
+!  MAJOR INTELLECTUAL MOVEMENTS (chronological)                    !
+!  .===========================================================.    !
+!  ! Scientific Revolution (1543-1687)                         !    !
+!  ! Enlightenment (1688-1800)                                 !    !
+!  ! German Idealism . Romanticism (1780=1850)                 !    !
+!  ! Positivism . Utilitarianism (1830=1880)                   !    !
+!  ! Darwin . Marx . Nietzsche (1859=1900)                     !    !
+!  ! Modernism . Vienna Circle (1890=1940)                     !    !
+!  ! Existentialism . Frankfurt School (1920=1960)             !    !
+!  ! Structuralism . Poststructuralism (1950=1990)             !    !
+!  ! Science Studies . Cognitive Turn (1970=2000)              !    !
+!  ! Digital . Interdisciplinary (2000=)                       !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -51,31 +70,31 @@ and why do some prevail while others vanish?
 Intellectual history revolves around a few persistent methodological disputes:
 
 ```
-  +----------------------------------------------------------+
-  |           THE CORE METHODOLOGICAL DEBATES                |
-  |                                                          |
-  |  QUESTION 1: Autonomy of ideas                           |
-  |  Do ideas have their own logic independent of society?   |
-  |  OR are they determined by social/economic conditions?   |
-  |                                                          |
-  |  Internalists: Lovejoy's "unit ideas," analytic          |
-  |   philosophy of science                                  |
-  |  Externalists: Mannheim (sociology of knowledge),        |
-  |   Merton (sociology of science), Marxist history         |
-  |  Contextualists: Cambridge School (Quentin Skinner)      |
-  |   — ideas as speech acts in specific contexts            |
-  |                                                          |
-  |  QUESTION 2: Continuity vs. rupture                      |
-  |  Do ideas evolve gradually?                              |
-  |  OR are there sudden breaks (Kuhn's paradigm shifts)?    |
-  |                                                          |
-  |  Continuists: cumulative science, evolutionary view      |
-  |  Rupturists: Kuhn, Bachelard, Foucault (episteme shifts) |
-  |                                                          |
-  |  QUESTION 3: Who produces ideas?                         |
-  |  Great thinkers? Social forces? Disciplines?             |
-  |  Institutions? Material conditions?                      |
-  +----------------------------------------------------------+
+  .==========================================================.
+  !           THE CORE METHODOLOGICAL DEBATES                !
+  !                                                          !
+  !  QUESTION 1: Autonomy of ideas                           !
+  !  Do ideas have their own logic independent of society?   !
+  !  OR are they determined by social/economic conditions?   !
+  !                                                          !
+  !  Internalists: Lovejoy's "unit ideas," analytic          !
+  !   philosophy of science                                  !
+  !  Externalists: Mannheim (sociology of knowledge),        !
+  !   Merton (sociology of science), Marxist history         !
+  !  Contextualists: Cambridge School (Quentin Skinner)      !
+  !   — ideas as speech acts in specific contexts            !
+  !                                                          !
+  !  QUESTION 2: Continuity vs. rupture                      !
+  !  Do ideas evolve gradually?                              !
+  !  OR are there sudden breaks (Kuhn's paradigm shifts)?    !
+  !                                                          !
+  !  Continuists: cumulative science, evolutionary view      !
+  !  Rupturists: Kuhn, Bachelard, Foucault (episteme shifts) !
+  !                                                          !
+  !  QUESTION 3: Who produces ideas?                         !
+  !  Great thinkers? Social forces? Disciplines?             !
+  !  Institutions? Material conditions?                      !
+  .==========================================================.
 ```
 
 ---
@@ -141,7 +160,7 @@ Quentin Skinner, John Pocock, John Dunn. Founded in 1960s Cambridge.
   KUHN: Science proceeds via paradigms. Normal science within,
   revolutions between paradigms. Paradigms are incommensurable.
 
-  LAKATOS: Scientific Research Programmes. Hard core + protective belt.
+  LAKATOS: Scientific Research Programmes. Hard core . protective belt.
   More refined than Kuhn; accounts for theory change within programmes.
 
   FEYERABEND: "Anything goes." Science is rhetoric; methods are varied;

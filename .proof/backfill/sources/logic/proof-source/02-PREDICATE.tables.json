@@ -1,0 +1,100 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\02-PREDICATE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 300,
+      "heading_context": "## Decidable Fragments of FOL",
+      "headers": [
+        "Fragment",
+        "Decidability",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Monadic FOL (no function symbols, unary predicates only)",
+          "Decidable",
+          "Löwenheim 1915"
+        ],
+        [
+          "Presburger arithmetic (add but no mult over naturals)",
+          "Decidable",
+          "2EXP-complete"
+        ],
+        [
+          "Quantifier-free (QF) fragments",
+          "Decidable",
+          "Depends on theory"
+        ],
+        [
+          "AE sentences (forall...exists, quantifier-free matrix, no functions)",
+          "Decidable",
+          "Ackermann class"
+        ],
+        [
+          "EA sentences with unary predicates",
+          "Decidable",
+          ""
+        ],
+        [
+          "Full FOL with arithmetic (Peano)",
+          "Undecidable",
+          "Church-Turing 1936"
+        ],
+        [
+          "FOL over reals (Tarski)",
+          "Decidable",
+          "But very high complexity"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 347,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Express \"every x has a property\"",
+          "Forall x. P(x)"
+        ],
+        [
+          "Express \"some x has a property\"",
+          "Exists x. P(x)"
+        ],
+        [
+          "Negate a universal",
+          "neg Forall x. phi  ===  Exists x. neg phi"
+        ],
+        [
+          "Negate an existential",
+          "neg Exists x. phi  ===  Forall x. neg phi"
+        ],
+        [
+          "Eliminate Exists for resolution",
+          "Skolemization"
+        ],
+        [
+          "Make two terms match by substitution",
+          "Unification (Robinson's algorithm)"
+        ],
+        [
+          "Check satisfiability of ground formula",
+          "Herbrand lifting -> propositional SAT"
+        ],
+        [
+          "Decide arithmetic without multiplication",
+          "Presburger arithmetic decision procedure"
+        ],
+        [
+          "Decide real polynomial arithmetic",
+          "Tarski's quantifier elimination (CAD algorithm)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:contemporary
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: Contemporary Intellectual Landscape
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/09-CONTEMPORARY.md
+canonical_path: intellectual-history/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:intellectual-history:09-contemporary, git-history:intellectual-history:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Intellectual Landscape
 
 ## The Big Picture
@@ -9,34 +28,34 @@ intellectual history. Meanwhile, new challenges — climate change, AI, pandemic
 are reframing intellectual priorities.
 
 ```
-+-------------------------------------------------------------------+
-|              CONTEMPORARY INTELLECTUAL LANDSCAPE                  |
-|                                                                   |
-|  BEYOND THE LINGUISTIC TURN           COGNITIVE TURN              |
-|  +-------------------------+          +---------------------+     |
-|  | Material turn           |          | Cognitive science   |     |
-|  | Bodily/Affective turn   |          | Neuroscience        |     |
-|  | Practice theory         |          | Evolutionary psych  |     |
-|  | New Materialism         |          | Embodied cognition  |     |
-|  +-------------------------+          +---------------------+     |
-   |                                                                |
-   |  POLITICAL PHILOSOPHY                 SCIENCE AND SOCIETY      |
-|  +-------------------------+          +---------------------+     |
-|  | Communitarianism        |          | Science studies     |     |
-|  | Deliberative democracy  |          | STS (science,       |     |
-|  | Post-democracy?         |          | technology, society)|     |
-|  | Populism analyzed       |          | AI ethics           |     |
-|  | Identitarian politics   |          | Techno-futures      |     |
-|  +-------------------------+          +---------------------+     |
-   |                                                                |
-   |  GLOBAL INTELLECTUAL HISTORY          NEW CHALLENGES           |
-|  +-------------------------+          +---------------------+     |
-|  | Postcolonial theory     |          | Climate/Anthropocene|     |
-|  | Subaltern studies       |          | AI and consciousness|     |
-|  | World history           |          | Pandemic           |     |
-|  | Comparative philosophy  |          | Disinformation     |     |
-|  +-------------------------+          +---------------------+     |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              CONTEMPORARY INTELLECTUAL LANDSCAPE                  !
+!                                                                   !
+!  BEYOND THE LINGUISTIC TURN           COGNITIVE TURN              !
+!  .=========================.          .=====================.     !
+!  ! Material turn           !          ! Cognitive science   !     !
+!  ! Bodily/Affective turn   !          ! Neuroscience        !     !
+!  ! Practice theory         !          ! Evolutionary psych  !     !
+!  ! New Materialism         !          ! Embodied cognition  !     !
+!  .=========================.          .=====================.     !
+   !                                                                !
+   !  POLITICAL PHILOSOPHY                 SCIENCE AND SOCIETY      !
+!  .=========================.          .=====================.     !
+!  ! Communitarianism        !          ! Science studies     !     !
+!  ! Deliberative democracy  !          ! STS (science,       !     !
+!  ! Post-democracy?         !          ! technology, society)!     !
+!  ! Populism analyzed       !          ! AI ethics           !     !
+!  ! Identitarian politics   !          ! Techno-futures      !     !
+!  .=========================.          .=====================.     !
+   !                                                                !
+   !  GLOBAL INTELLECTUAL HISTORY          NEW CHALLENGES           !
+!  .=========================.          .=====================.     !
+!  ! Postcolonial theory     !          ! Climate/Anthropocene!     !
+!  ! Subaltern studies       !          ! AI and consciousness!     !
+!  ! World history           !          ! Pandemic           !     !
+!  ! Comparative philosophy  !          ! Disinformation     !     !
+!  .=========================.          .=====================.     !
+.===================================================================.
 ```
 
 ---

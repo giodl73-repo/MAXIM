@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:enlightenment
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: The Enlightenment and Its Discontents
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/04-ENLIGHTENMENT.md
+canonical_path: intellectual-history/04-ENLIGHTENMENT.md
+backsource_ids: [proof-backfill:intellectual-history:04-enlightenment, git-history:intellectual-history:04-enlightenment]
+concepts: [enlightenment]
+root_concepts: [enlightenment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Enlightenment and Its Discontents
 
 ## The Big Picture
@@ -9,32 +28,32 @@ are the Romantic reaction, the Counter-Enlightenment, and contemporary critiques
 postcolonial and feminist scholarship.
 
 ```
-+-------------------------------------------------------------------+
-|                   THE ENLIGHTENMENT LANDSCAPE                     |
-|                                                                   |
-|  NATIONAL VARIANTS              CORE THEMES                       |
-|  +----------------------+       +---------------------------+     |
-|  | FRENCH: radical,     |       | Reason vs. revelation     |     |
-|  | anti-clerical,       |       | Progress vs. tradition    |     |
-|  | philosophes          |       | Individual vs. authority  |     |
-|  | (Voltaire, Diderot,  |       | Science as model          |     |
-|  | Condorcet)           |       | Universal human nature    |     |
-|  |                      |       | Religious toleration      |     |
-|  | BRITISH: moderate,   |       | Natural rights            |     |
-|  | empiricist           |       +---------------------------+     |
-|  | (Locke, Hume, Smith) |                                         |
-|  |                      |       DISCONTENTS                       |
-|  | GERMAN (Aufklarung): |       +---------------------------+     |
-|  | Kant, Lessing,       |       | Romanticism (Herder,      |     |
-|  | Mendelssohn          |       |  Coleridge, Schiller)     |     |
-|  |                      |       | Counter-Enlightenment     |     |
-|  | SCOTTISH:            |       | (Burke, Maistre)          |     |
-|  | empirical social     |       | 20th C critique           |     |
-|  | science              |       | (Horkheimer, Adorno)      |     |
-|  | (Hume, Smith,        |       | Postcolonial critique     |     |
-|  | Ferguson, Reid)      |       | (Said, Wynter)            |     |
-|  +----------------------+       +---------------------------+     |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                   THE ENLIGHTENMENT LANDSCAPE                     !
+!                                                                   !
+!  NATIONAL VARIANTS              CORE THEMES                       !
+!  .======================.       .===========================.     !
+!  ! FRENCH: radical,     !       ! Reason vs. revelation     !     !
+!  ! anti-clerical,       !       ! Progress vs. tradition    !     !
+!  ! philosophes          !       ! Individual vs. authority  !     !
+!  ! (Voltaire, Diderot,  !       ! Science as model          !     !
+!  ! Condorcet)           !       ! Universal human nature    !     !
+!  !                      !       ! Religious toleration      !     !
+!  ! BRITISH: moderate,   !       ! Natural rights            !     !
+!  ! empiricist           !       .===========================.     !
+!  ! (Locke, Hume, Smith) !                                         !
+!  !                      !       DISCONTENTS                       !
+!  ! GERMAN (Aufklarung): !       .===========================.     !
+!  ! Kant, Lessing,       !       ! Romanticism (Herder,      !     !
+!  ! Mendelssohn          !       !  Coleridge, Schiller)     !     !
+!  !                      !       ! Counter-Enlightenment     !     !
+!  ! SCOTTISH:            !       ! (Burke, Maistre)          !     !
+!  ! empirical social     !       ! 20th C critique           !     !
+!  ! science              !       ! (Horkheimer, Adorno)      !     !
+!  ! (Hume, Smith,        !       ! Postcolonial critique     !     !
+!  ! Ferguson, Reid)      !       ! (Said, Wynter)            !     !
+!  .======================.       .===========================.     !
+.===================================================================.
 ```
 
 ---

@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-logic-proof-theory",
+  "source": "../../logic",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-PROOF-THEORY.md#000",
+      "path": [
+        "03-PROOF-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:03-proof-theory, git-history:logic:03-proof-theory]",
+        "canonical_path": "logic/03-PROOF-THEORY.md",
+        "concepts": "[proof, theory]",
+        "current_path": "logic/03-PROOF-THEORY.md",
+        "id": "maxim:logic:proof-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[proof, theory]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Proof Theory: Natural Deduction and Sequent Calculus",
+        "updated": "null"
+      },
+      "text": "# Proof Theory: Natural Deduction and Sequent Calculus"
+    },
+    {
+      "id": "03-PROOF-THEORY.md#001",
+      "path": [
+        "03-PROOF-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:03-proof-theory, git-history:logic:03-proof-theory]",
+        "canonical_path": "logic/03-PROOF-THEORY.md",
+        "concepts": "[proof, theory]",
+        "current_path": "logic/03-PROOF-THEORY.md",
+        "id": "maxim:logic:proof-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[proof, theory]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Proof Theory: Natural Deduction and Sequent Calculus",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-PROOF-THEORY.md#002",
+      "path": [
+        "03-PROOF-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:03-proof-theory, git-history:logic:03-proof-theory]",
+        "canonical_path": "logic/03-PROOF-THEORY.md",
+        "concepts": "[proof, theory]",
+        "current_path": "logic/03-PROOF-THEORY.md",
+        "id": "maxim:logic:proof-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[proof, theory]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Proof Theory: Natural Deduction and Sequent Calculus",
+        "updated": "null"
+      },
+      "text": "Proof theory is the study of **formal derivations** — what can be proved and how. It treats\nproofs as mathematical objects, analyzes their structure, and uses that structure to prove\nmeta-theorems (consistency, decidability, proof lengths)."
+    },
+    {
+      "id": "03-PROOF-THEORY.md#003",
+      "path": [
+        "03-PROOF-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:03-proof-theory, git-history:logic:03-proof-theory]",
+        "canonical_path": "logic/03-PROOF-THEORY.md",
+        "concepts": "[proof, theory]",
+        "current_path": "logic/03-PROOF-THEORY.md",
+        "id": "maxim:logic:proof-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[proof, theory]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Proof Theory: Natural Deduction and Sequent Calculus",
+        "updated": "null"
+      },
+      "text": "```\n.===================================================================.\n!                    PROOF SYSTEMS LANDSCAPE                        !\n!                                                                   !\n!  HILBERT SYSTEMS          NATURAL DEDUCTION      SEQUENT CALCULUS !\n!  .=================.      .================.     .=============.  !\n!  ! Many axioms,    !      ! Few axioms,    !     ! Symmetric,  !  !\n!  ! few rules       !      ! many rules     !     ! best for    !  !\n!  ! (Modus Ponens   !      ! Intro/Elim     !     ! meta-proofs !  !\n!  ! only)           !      ! per connective !     ! LK (Gentzen)!  !\n!  ! Awkward to use  !      ! Readable       !     ! LJ (intuit.)!  !\n!  ! Easy to analyze !      ! Curry-Howard   !     !             !  !\n!  .=================.      .================.     .=============.  !\n!                                                                   !\n!  RESOLUTION               TABLEAU                AUTOMATED        !\n!  .=================.      .================.     .=============.  !\n!  ! Clause-based    !      ! Semantic tree  !     ! SAT/SMT     !  !\n!  ! Single rule     !      ! Branch-closing !     ! Lean/Coq    !  !\n!  ! Basis of Prolog !      ! Used in ATP     !     ! Isabelle    !  !\n!  .=================.      .================.     .=============.  !\n!                                                                   !\n!  META-THEOREMS                                                    !\n!  .===========================================================.    !\n!  ! Soundness  Completeness  Cut Elimination  Normalization   !    !\n!  ! Curry-Howard  Gentzen's Hauptsatz  Ordinal Analysis       !    !\n!  .===========================================================.    !\n.===================================================================.\n```"
+    }
+  ],
+  "refs": [
+    "03-PROOF-THEORY.md"
+  ]
+}

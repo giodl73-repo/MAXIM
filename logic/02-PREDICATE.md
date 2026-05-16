@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:predicate
+kind: guide
+module: logic
+section: logic
+title: First-Order Predicate Logic
+status: source-custody
+source_custody: partial
+current_path: logic/02-PREDICATE.md
+canonical_path: logic/02-PREDICATE.md
+backsource_ids: [proof-backfill:logic:02-predicate, git-history:logic:02-predicate]
+concepts: [predicate]
+root_concepts: [predicate]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # First-Order Predicate Logic
 
 ## The Big Picture
@@ -8,37 +27,37 @@ theory, number theory, and group theory are all expressed in FOL. It is complete
 undecidable (Church-Turing 1936).
 
 ```
-+-------------------------------------------------------------------+
-|                    FIRST-ORDER LOGIC LANDSCAPE                    |
-|                                                                   |
-|  SYNTAX                      SEMANTICS                            |
-|  +--------------------+      +----------------------------+       |
-|  | Terms:             |      | Structure M = (D, I):      |       |
-|  |   variables x,y,z  |      |   Domain D (non-empty)     |       |
-|  |   constants a,b    |      |   Interpretation I maps:   |       |
-|  |   functions f(t)   |      |     constants -> D         |       |
-|  | Formulas:          |      |     functions -> D^k -> D  |       |
-|  |   atoms P(t1..tk)  |      |     predicates -> P(D^k)   |       |
-|  |   connectives      |      |   Variable assignment s    |       |
-|  |   Forall x. phi    |      |   M,s |= phi               |       |
-|  |   Exists x. phi    |      +----------------------------+       |
-|  +--------------------+                                           |
-|                                                                   |
-|  PROOF THEORY                DECIDABLE FRAGMENTS                  |
-|  +--------------------+      +----------------------------+       |
-|  | Natural deduction  |      | Monadic FOL (no functions) |       |
-|  | Sequent calculus   |      | Presburger arithmetic      |       |
-|  | Hilbert axioms     |      | Quantifier-free (QF)       |       |
-|  | Resolution         |      | AE sentences (forall-exists|       |
-|  +--------------------+      |   in prenex normal form)   |       |
-|                              +----------------------------+       |
-|                                                                   |
-|  KEY THEOREMS                                                     |
-|  +-----------------------------------------------------------+    |
-|  | Completeness (Godel 1929)   Compactness                   |    |
-|  | Undecidability (Church-Turing 1936)  Lowenheim-Skolem     |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                    FIRST-ORDER LOGIC LANDSCAPE                    !
+!                                                                   !
+!  SYNTAX                      SEMANTICS                            !
+!  .====================.      .============================.       !
+!  ! Terms:             !      ! Structure M = (D, I):      !       !
+!  !   variables x,y,z  !      !   Domain D (non-empty)     !       !
+!  !   constants a,b    !      !   Interpretation I maps:   !       !
+!  !   functions f(t)   !      !     constants -> D         !       !
+!  ! Formulas:          !      !     functions -> D^k -> D  !       !
+!  !   atoms P(t1..tk)  !      !     predicates -> P(D^k)   !       !
+!  !   connectives      !      !   Variable assignment s    !       !
+!  !   Forall x. phi    !      !   M,s != phi               !       !
+!  !   Exists x. phi    !      .============================.       !
+!  .====================.                                           !
+!                                                                   !
+!  PROOF THEORY                DECIDABLE FRAGMENTS                  !
+!  .====================.      .============================.       !
+!  ! Natural deduction  !      ! Monadic FOL (no functions) !       !
+!  ! Sequent calculus   !      ! Presburger arithmetic      !       !
+!  ! Hilbert axioms     !      ! Quantifier-free (QF)       !       !
+!  ! Resolution         !      ! AE sentences (forall-exists!       !
+!  .====================.      !   in prenex normal form)   !       !
+!                              .============================.       !
+!                                                                   !
+!  KEY THEOREMS                                                     !
+!  .===========================================================.    !
+!  ! Completeness (Godel 1929)   Compactness                   !    !
+!  ! Undecidability (Church-Turing 1936)  Lowenheim-Skolem     !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -57,12 +76,12 @@ A signature sigma = (C, F, P) specifies:
 Terms denote elements of the domain:
 ```
   term ::= x              (variable)
-         | a              (constant)
-         | f(t1, ..., tk)  (function application, f has arity k)
+         ! a              (constant)
+         ! f(t1, ..., tk)  (function application, f has arity k)
 
   Examples:
     x                     (just a variable)
-    plus(x, s(0))         (x + 1 in Peano notation)
+    plus(x, s(0))         (x . 1 in Peano notation)
     f(g(a), h(b, c))      (nested functions)
 ```
 
@@ -70,15 +89,15 @@ Terms denote elements of the domain:
 
 ```
   phi ::= P(t1, ..., tk)   (atomic formula, P has arity k)
-        | t1 = t2           (equality, if equality is in signature)
-        | bot               (false)
-        | neg phi
-        | phi land psi
-        | phi lor psi
-        | phi -> psi
-        | phi <-> psi
-        | Forall x. phi     (x bound in phi)
-        | Exists x. phi     (x bound in phi)
+        ! t1 = t2           (equality, if equality is in signature)
+        ! bot               (false)
+        ! neg phi
+        ! phi land psi
+        ! phi lor psi
+        ! phi -> psi
+        ! phi <-> psi
+        ! Forall x. phi     (x bound in phi)
+        ! Exists x. phi     (x bound in phi)
 ```
 
 ### Free vs. Bound Variables
@@ -118,7 +137,7 @@ Example — standard model of arithmetic:
   I(s) = successor function
   I(plus) = addition function
   I(times) = multiplication function
-  I(Less) = {(m,n) | m < n}
+  I(Less) = {(m,n) ! m < n}
 ```
 
 ### Truth Definition (Tarski 1933)
@@ -126,14 +145,14 @@ Example — standard model of arithmetic:
 With variable assignment s: Variables -> D:
 
 ```
-  M, s |= P(t1,...,tk)   iff   (val(t1),...,val(tk)) in I(P)
-  M, s |= t1 = t2         iff   val(t1) = val(t2)
-  M, s |= bot              iff   never
-  M, s |= neg phi          iff   M, s |/= phi
-  M, s |= phi land psi     iff   M, s |= phi and M, s |= psi
-  M, s |= phi lor psi      iff   M, s |= phi or M, s |= psi
-  M, s |= Forall x. phi    iff   for ALL d in D: M, s[x:=d] |= phi
-  M, s |= Exists x. phi    iff   for SOME d in D: M, s[x:=d] |= phi
+  M, s != P(t1,...,tk)   iff   (val(t1),...,val(tk)) in I(P)
+  M, s != t1 = t2         iff   val(t1) = val(t2)
+  M, s != bot              iff   never
+  M, s != neg phi          iff   M, s !/= phi
+  M, s != phi land psi     iff   M, s != phi and M, s != psi
+  M, s != phi lor psi      iff   M, s != phi or M, s != psi
+  M, s != Forall x. phi    iff   for ALL d in D: M, s[x:=d] != phi
+  M, s != Exists x. phi    iff   for SOME d in D: M, s[x:=d] != phi
 
   where val(x) = s(x), val(a) = I(a), val(f(t1..tk)) = I(f)(val(t1)..val(tk))
 ```
@@ -141,8 +160,8 @@ With variable assignment s: Variables -> D:
 ### Validity and Satisfiability
 
 ```
-  M |= phi          phi is true in M under all variable assignments
-  |= phi            phi is valid (true in ALL structures)  [tautology]
+  M != phi          phi is true in M under all variable assignments
+  != phi            phi is valid (true in ALL structures)  [tautology]
   phi is satisfiable  some structure M with some assignment satisfies phi
 ```
 
@@ -305,15 +324,15 @@ A **theory** is a set of sentences closed under logical consequence.
     Decidable (free theory of equality).
 
   PEANO ARITHMETIC (PA):
-    0, s (successor), +, x, induction schema.
+    0, s (successor), ., x, induction schema.
     Undecidable. Incomplete (Godel 1931).
 
   PRESBURGER ARITHMETIC:
-    0, 1, + over naturals. No multiplication.
+    0, 1, . over naturals. No multiplication.
     Decidable (doubly exponential).
 
   THEORY OF REAL CLOSED FIELDS (RCF):
-    0, 1, +, *, < over reals.
+    0, 1, ., *, < over reals.
     Decidable (Tarski 1948) but nonelementary.
 
   ROBINSON ARITHMETIC (Q):

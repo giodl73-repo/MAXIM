@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\06-MODAL-LOGIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "### Language",
+      "confidence": "candidate",
+      "text": "  phi ::= p                   (atom)\n        ! top ! bot\n        ! neg phi\n        ! phi land psi\n        ! phi lor psi\n        ! phi -> psi\n        ! Box phi              (necessarily phi)\n        ! Diamond phi          (possibly phi)\n        ! (phi)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "### Kripke Frames and Models",
+      "confidence": "candidate",
+      "text": "  KRIPKE FRAME: F = (W, R)\n    W: non-empty set of \"possible worlds\" (or states)\n    R: accessibility relation on W  (R subset W x W)\n    R(w) = {w' : (w, w') in R}  (\"worlds accessible from w\")\n\n  KRIPKE MODEL: M = (W, R, V)\n    V: W -> P(Atoms)  (valuation: which atoms are true at each world)\n    Or: V: Atoms -> P(W)  (for which atoms are true: set of worlds)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "### Truth Conditions",
+      "confidence": "candidate",
+      "text": "  M, w != p           iff   p in V(w)\n  M, w != top          always\n  M, w != bot          never\n  M, w != neg phi      iff   M, w !/= phi\n  M, w != phi land psi iff   M, w != phi  and  M, w != psi\n  M, w != phi lor psi  iff   M, w != phi  or   M, w != psi\n  M, w != phi -> psi   iff   M, w !/= phi  or  M, w != psi\n  M, w != Box phi      iff   for all w' with (w, w') in R: M, w' != phi\n  M, w != Diamond phi  iff   exists w' with (w, w') in R: M, w' != phi",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### Correspondence Table",
+      "confidence": "candidate",
+      "text": "  AXIOM                         FRAME CONDITION ON R\n\n  K:  Box(phi -> psi) -> (Box phi -> Box psi)\n      (Distribution axiom)      ANY frame (valid in all Kripke models)\n\n  T:  Box phi -> phi            R is REFLEXIVE\n      (Necessity implies truth) (w, w) in R for all w\n\n  D:  Box phi -> Diamond phi    R is SERIAL\n      (Obligation has a path)   For all w, exists w': (w, w') in R\n\n  4:  Box phi -> Box Box phi    R is TRANSITIVE\n      (S4 axiom)                (w,w') in R and (w',w'') in R => (w,w'') in R\n\n  5:  Diamond phi -> Box Diamond phi   R is EUCLIDEAN\n      (S5 axiom)                (w,w') in R and (w,w'') in R => (w'',w') in R\n\n  B:  phi -> Box Diamond phi    R is SYMMETRIC\n                                (w,w') in R => (w',w) in R\n\n  GL: Box(Box phi -> phi) -> Box phi   R is well-founded transitive\n      (Godel-Lob, provability logic)   (no infinite R-chains)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "## Standard Translation to FOL",
+      "confidence": "candidate",
+      "text": "  STANDARD TRANSLATION ST_x(phi):\n\n  ST_x(p)         = P(x)               (unary predicate for p)\n  ST_x(neg phi)   = neg ST_x(phi)\n  ST_x(phi land psi) = ST_x(phi) land ST_x(psi)\n  ST_x(Box phi)   = Forall y. (R(x,y) -> ST_y(phi))   (fresh y)\n  ST_x(Diamond phi) = Exists y. (R(x,y) land ST_y(phi))  (fresh y)\n\n  Example: Box(p -> q) -> (Box p -> Box q)\n  ST: Forall y.(R(x,y)->(P(y)->Q(y))) -> (Forall y.(R(x,y)->P(y)) -> Forall y.(R(x,y)->Q(y)))\n  This is a FOL tautology (K axiom is valid).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## Epistemic Logic",
+      "confidence": "candidate",
+      "text": "  EPISTEMIC LOGIC (Hintikka 1962):\n  K_a phi  =  \"agent a knows phi\"\n  B_a phi  =  \"agent a believes phi\"\n\n  Kripke semantics: worlds = information states\n  (w, w') in R_a if w' is consistent with a's information at w\n\n  AXIOMS for knowledge:\n  K_a phi -> phi            (what is known is true)\n  K_a phi -> K_a K_a phi    (positive introspection: I know what I know)\n  neg K_a phi -> K_a neg K_a phi  (negative introspection)\n\n  COMMON KNOWLEDGE: C phi = \"everyone knows phi and knows that everyone knows...\"\n  C phi = phi land E phi land E E phi land ...\n  (where E = \"everyone knows\")\n\n  APPLICATION: distributed systems, cryptographic protocols.\n  \"All agents know the public key\" = C(K_all pub_key)\n  Muddy children puzzle, Byzantine agreement analyzed via epistemic logic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## Dynamic Logic",
+      "confidence": "candidate",
+      "text": "  PROPOSITIONAL DYNAMIC LOGIC (PDL):\n  [alpha] phi   =  \"after every execution of program alpha, phi holds\"\n  <alpha> phi   =  \"there exists an execution of alpha after which phi holds\"\n\n  Programs alpha:\n    a          (atomic action)\n    alpha; beta  (sequential composition)\n    alpha union beta  (nondeterministic choice)\n    alpha*     (Kleene star: 0 or more executions)\n    phi?       (test: execute only if phi holds)\n\n  HOARE LOGIC CONNECTION:\n  {P} alpha {Q}  ===  P -> [alpha] Q\n  Hoare pre/postcondition logic is a fragment of PDL.\n\n  PDL is EXPTIME-complete.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## Provability Logic (GL)",
+      "confidence": "candidate",
+      "text": "  PROVABILITY LOGIC (Solovay 1976):\n  Interpret Box phi as \"phi is provable in PA\" (i.e., Provable(gn(phi))).\n\n  GL AXIOMS:\n  K:  Box(phi -> psi) -> (Box phi -> Box psi)\n  4:  Box phi -> Box Box phi       (if provable, provably provable)\n  GL: Box(Box phi -> phi) -> Box phi  (= Lob's theorem!)\n\n  KEY FACTS:\n  Box phi -> phi is NOT an axiom:\n    \"If phi is provable, then phi is true.\"\n    This fails: we cannot assert this in GL (by Godel G2 for Con(PA)).\n  Box(Box phi -> phi) -> Box phi IS an axiom:\n    Lob's theorem: if PA proves \"provable -> true,\" then PA proves it directly.\n\n  COMPLETE AXIOMATIZATION:\n  Solovay 1976: GL is exactly the modal logic of PA provability.\n  Every valid modal statement about PA provability follows from GL.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

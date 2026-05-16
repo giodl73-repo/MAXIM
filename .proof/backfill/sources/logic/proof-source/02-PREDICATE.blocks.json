@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\02-PREDICATE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "### Formulas (Well-Formed Formulas, WFFs)",
+      "confidence": "candidate",
+      "text": "  phi ::= P(t1, ..., tk)   (atomic formula, P has arity k)\n        ! t1 = t2           (equality, if equality is in signature)\n        ! bot               (false)\n        ! neg phi\n        ! phi land psi\n        ! phi lor psi\n        ! phi -> psi\n        ! phi <-> psi\n        ! Forall x. phi     (x bound in phi)\n        ! Exists x. phi     (x bound in phi)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Free vs. Bound Variables",
+      "confidence": "candidate",
+      "text": "  Forall x. (P(x) -> Exists y. Q(x, y))\n\n  Bound: x (by Forall), y (by Exists)\n  Free:  none in this formula\n\n  In: P(x) -> Forall x. Q(x, y)\n  Bound: x in Q(x,y)\n  Free:  x in P(x) [different x!], y",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### Structures",
+      "confidence": "candidate",
+      "text": "  D        non-empty domain (the \"universe\")\n  I(a)     element of D, for each constant a\n  I(f)     function D^k -> D, for each k-ary function symbol f\n  I(P)     subset of D^k, for each k-ary predicate P",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 143,
+      "heading_context": "### Structures",
+      "confidence": "candidate",
+      "text": "### Truth Definition (Tarski 1933)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### Skolemization",
+      "confidence": "candidate",
+      "text": "  Forall x. Exists y. P(x, y)\n\n  Replace y with f(x) where f is a new function symbol:\n  Forall x. P(x, f(x))\n\n  Rule: the Skolem function takes all universally quantified variables\n        in scope as arguments.\n\n  Forall x. Forall z. Exists y. P(x, y, z)\n  =>  Forall x. Forall z. P(x, f(x,z), z)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Unification",
+      "confidence": "candidate",
+      "text": "  Problem: find substitution sigma such that sigma(t1) = sigma(t2)\n\n  Examples:\n    f(x, a)  and  f(b, y)\n    MGU: {x -> b, y -> a}\n    Result: f(b, a)\n\n    f(x, x)  and  f(a, b)\n    FAIL: x would need to be both a and b\n\n    f(x, g(x))  and  f(g(y), y)\n    Naive: {x -> g(y)} then {y -> g(y)} but then y = g(g(y)) = ...\n    FAIL (occur check): x appears in g(x), so x -> g(x) would be circular",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "### Robinson's Unification Algorithm",
+      "confidence": "candidate",
+      "text": "  unify(s, t):\n    if s = t: return {} (empty substitution)\n    if s is variable x:\n      if x in vars(t): FAIL (occur check)\n      return {x -> t}\n    if t is variable x:\n      if x in vars(s): FAIL (occur check)\n      return {x -> s}\n    if s = f(s1..sk), t = f(t1..tk):\n      sigma1 = unify(s1, t1)\n      sigma2 = unify(sigma1(s2), sigma1(t2))\n      ...\n      return sigma_k o ... o sigma1\n    else: FAIL (different function symbols or arities)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

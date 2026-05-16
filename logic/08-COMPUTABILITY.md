@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:computability
+kind: guide
+module: logic
+section: logic
+title: Logic and Computability: Undecidability
+status: source-custody
+source_custody: partial
+current_path: logic/08-COMPUTABILITY.md
+canonical_path: logic/08-COMPUTABILITY.md
+backsource_ids: [proof-backfill:logic:08-computability, git-history:logic:08-computability]
+concepts: [computability]
+root_concepts: [computability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Logic and Computability: Undecidability
 
 ## The Big Picture
@@ -8,28 +27,28 @@ The undecidability of FOL validity (Church-Turing 1936) and the incompleteness o
 hierarchy stratifies the degrees of undecidability.
 
 ```
-+-------------------------------------------------------------------+
-|           LOGIC AND COMPUTABILITY: THE CONNECTION                 |
-|                                                                   |
-|  COMPUTABILITY THEORY        LOGIC                                |
-|  +--------------------+      +----------------------------+       |
-|  | Turing machines    | <--> | Formal proof systems       |       |
-|  | Decidable          | <--> | Recursive sets             |       |
-|  | Semi-decidable     | <--> | Recursively enumerable     |       |
-|  | Undecidable        | <--> | Not RE or not co-RE        |       |
-|  | Rice's theorem     | <--> | Undecidability of props.   |       |
-|  | Halting problem    | <--> | FOL validity undecidable   |       |
-|  +--------------------+      +----------------------------+       |
-   |                                                                |
-   |  ARITHMETIC HIERARCHY                                          |
-|  +-----------------------------------------------------------+    |
-|  | Sigma-0 = Pi-0 = Delta-1 = Recursive (decidable)          |    |
-|  | Sigma-1 = RE (semi-decidable)                             |    |
-|  | Pi-1 = co-RE                                              |    |
-|  | Sigma-n, Pi-n for all n: the analytical hierarchy         |    |
-|  | True arithmetic: not in any Sigma-n                       |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!           LOGIC AND COMPUTABILITY: THE CONNECTION                 !
+!                                                                   !
+!  COMPUTABILITY THEORY        LOGIC                                !
+!  .====================.      .============================.       !
+!  ! Turing machines    ! <--> ! Formal proof systems       !       !
+!  ! Decidable          ! <--> ! Recursive sets             !       !
+!  ! Semi-decidable     ! <--> ! Recursively enumerable     !       !
+!  ! Undecidable        ! <--> ! Not RE or not co-RE        !       !
+!  ! Rice's theorem     ! <--> ! Undecidability of props.   !       !
+!  ! Halting problem    ! <--> ! FOL validity undecidable   !       !
+!  .====================.      .============================.       !
+   !                                                                !
+   !  ARITHMETIC HIERARCHY                                          !
+!  .===========================================================.    !
+!  ! Sigma-0 = Pi-0 = Delta-1 = Recursive (decidable)          !    !
+!  ! Sigma-1 = RE (semi-decidable)                             !    !
+!  ! Pi-1 = co-RE                                              !    !
+!  ! Sigma-n, Pi-n for all n: the analytical hierarchy         !    !
+!  ! True arithmetic: not in any Sigma-n                       !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -121,28 +140,28 @@ FOL is undecidable overall but specific theories are decidable:
     Proof: quantifier elimination (every formula equivalent to QF formula)
     Algorithm: Cylindrical Algebraic Decomposition
 
-  Presburger arithmetic (N, 0, 1, +):      DECIDABLE (2EXP)
+  Presburger arithmetic (N, 0, 1, .):      DECIDABLE (2EXP)
     Proof: quantifier elimination with divisibility predicates.
 
   Theory of Boolean algebras:               DECIDABLE
   Theory of linear orders:                  DECIDABLE
 
-  Peano arithmetic (N, 0, s, +, *):         UNDECIDABLE
+  Peano arithmetic (N, 0, s, ., *):         UNDECIDABLE
     Proof: can interpret all of FOL / encode Turing machines.
 
   ZFC set theory:                           UNDECIDABLE
 
   DECIDABLE FRAGMENTS OF FOL:
-  +------------------+------------------+------------------+
-  | Fragment         | Decidability     | Notes            |
-  +------------------+------------------+------------------+
-  | Propositional    | PSPACE           | No quantifiers   |
-  | Monadic (no func)| DECIDABLE        | Lowenheim 1915   |
-  | 2-variable (FO2) | NEXPTIME         | Two vars only    |
-  | Guarded fragment | EXPTIME          | Modal basis      |
-  | DL (ALC)         | EXPTIME          | Modal + TBox     |
-  | Horn clause FOL  | Undecidable      | But useful       |
-  +------------------+------------------+------------------+
+  .==================.==================.==================.
+  ! Fragment         ! Decidability     ! Notes            !
+  .==================.==================.==================.
+  ! Propositional    ! PSPACE           ! No quantifiers   !
+  ! Monadic (no func)! DECIDABLE        ! Lowenheim 1915   !
+  ! 2-variable (FO2) ! NEXPTIME         ! Two vars only    !
+  ! Guarded fragment ! EXPTIME          ! Modal basis      !
+  ! DL (ALC)         ! EXPTIME          ! Modal . TBox     !
+  ! Horn clause FOL  ! Undecidable      ! But useful       !
+  .==================.==================.==================.
 ```
 
 ---
@@ -182,8 +201,8 @@ Stratifying complexity of logical definability:
     Actually: TOTALITY = {M : M halts on all inputs} is Pi-2-complete.
 
   In general:
-    Sigma-{n+1}: Exists y1. Pi-n formula
-    Pi-{n+1}: Forall y1. Sigma-n formula
+    Sigma={n.1}: Exists y1. Pi=n formula
+    Pi={n.1}: Forall y1. Sigma=n formula
     Delta-n: Sigma-n intersect Pi-n
 ```
 
@@ -335,7 +354,7 @@ Another canonical undecidable problem, useful for reductions in formal language 
                              (diagonal on TMs)
 
   PROOF:                     PROOF:
-  If PA |- G: PA is          If H decides HALT: D(D) contradicts H.
+  If PA !- G: PA is          If H decides HALT: D(D) contradicts H.
   inconsistent.
 
   COMMON STRUCTURE:

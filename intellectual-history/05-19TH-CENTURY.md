@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:19th-century
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: 19th Century: Darwin, Marx, Nietzsche
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/05-19TH-CENTURY.md
+canonical_path: intellectual-history/05-19TH-CENTURY.md
+backsource_ids: [proof-backfill:intellectual-history:05-19th-century, git-history:intellectual-history:05-19th-century]
+concepts: [19th, century]
+root_concepts: [19th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19th Century: Darwin, Marx, Nietzsche
 
 ## The Big Picture
@@ -9,25 +28,25 @@ struggle), and Nietzsche's critique of values (God is dead, morality is will to 
 Together they are the intellectual roots of modernity and its discontents.
 
 ```
-+-------------------------------------------------------------------+
-|            THE 19TH CENTURY INTELLECTUAL RUPTURE                  |
-|                                                                   |
-|  BEFORE                           AFTER                           |
-|  +----------------------+         +-------------------------+     |
-|  | Humans are special   |         | Darwin: humans are      |     |
-|  |  (created by God)    |    =>   |  evolved primates       |     |
-|  +----------------------+         +-------------------------+     |
-|  | Ideas drive history  |         | Marx: material/economic |     |
-|  |  (reason, freedom)   |    =>   |  conditions drive ideas |     |
-|  +----------------------+         +-------------------------+     |
-|  | Morality is absolute |         | Nietzsche: morality is  |     |
-|  |  (God, Kant, Reason) |    =>   |  contingent, power-laden|     |
-|  +----------------------+         +-------------------------+     |
-   |                                                                |
-   |  ALSO: POSITIVISM (Comte)  HISTORICAL IDEALISM (Hegel)         |
-   |         UTILITARIANISM (Mill)  ROMANTICISM (ongoing)           |
-   |         IMPERIALISM (Spencer)  ANARCHISM (Proudhon, Bakunin)   |
-+-------------------------------------------------------------------+
+.===================================================================.
+!            THE 19TH CENTURY INTELLECTUAL RUPTURE                  !
+!                                                                   !
+!  BEFORE                           AFTER                           !
+!  .======================.         .=========================.     !
+!  ! Humans are special   !         ! Darwin: humans are      !     !
+!  !  (created by God)    !    =>   !  evolved primates       !     !
+!  .======================.         .=========================.     !
+!  ! Ideas drive history  !         ! Marx: material/economic !     !
+!  !  (reason, freedom)   !    =>   !  conditions drive ideas !     !
+!  .======================.         .=========================.     !
+!  ! Morality is absolute !         ! Nietzsche: morality is  !     !
+!  !  (God, Kant, Reason) !    =>   !  contingent, power-laden!     !
+!  .======================.         .=========================.     !
+   !                                                                !
+   !  ALSO: POSITIVISM (Comte)  HISTORICAL IDEALISM (Hegel)         !
+   !         UTILITARIANISM (Mill)  ROMANTICISM (ongoing)           !
+   !         IMPERIALISM (Spencer)  ANARCHISM (Proudhon, Bakunin)   !
+.===================================================================.
 ```
 
 ---
@@ -78,7 +97,7 @@ Together they are the intellectual roots of modernity and its discontents.
   WHAT DARWIN DIDN'T KNOW:
   The mechanism of inheritance: no genetics in 1859 (Mendel published 1866,
   unknown to Darwin; rediscovered 1900; synthesis with evolution 1930s-40s).
-  Modern Evolutionary Synthesis: Darwin + Mendel + population genetics.
+  Modern Evolutionary Synthesis: Darwin . Mendel . population genetics.
 ```
 
 ### Impact on Intellectual History
@@ -119,7 +138,7 @@ Together they are the intellectual roots of modernity and its discontents.
 ```
   HISTORICAL MATERIALISM:
   The structure of society is determined by the mode of production.
-  Mode of production = productive forces + relations of production.
+  Mode of production = productive forces . relations of production.
 
   PRODUCTIVE FORCES: technology, skills, labor power, natural resources.
   RELATIONS OF PRODUCTION: social relations structuring production

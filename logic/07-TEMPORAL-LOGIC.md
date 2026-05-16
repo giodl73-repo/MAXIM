@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:temporal-logic
+kind: guide
+module: logic
+section: logic
+title: Temporal Logic and Model Checking
+status: source-custody
+source_custody: partial
+current_path: logic/07-TEMPORAL-LOGIC.md
+canonical_path: logic/07-TEMPORAL-LOGIC.md
+backsource_ids: [proof-backfill:logic:07-temporal-logic, git-history:logic:07-temporal-logic]
+concepts: [temporal, logic]
+root_concepts: [temporal, logic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Temporal Logic and Model Checking
 
 ## The Big Picture
@@ -7,30 +26,30 @@ about infinite traces. CTL/CTL* reason about branching trees of states. Model ch
 automatically verifies whether a finite-state system satisfies a temporal specification.
 
 ```
-+-------------------------------------------------------------------+
-|                 TEMPORAL LOGIC AND MODEL CHECKING                 |
-|                                                                   |
-|  LOGICS              STRUCTURES             ALGORITHMS            |
-|  +------------+      +------------------+   +------------------+  |
-|  | LTL        |      | Kripke structure |   | Explicit-state   |  |
-|  | (linear,   |      | M = (S, T, L):   |   | (SPIN: DFS,      |  |
-|  | paths)     |      | S = states       |   |  Buchi automata)  |  |
-|  |            |      | T = transitions  |   | Symbolic (BDD)   |  |
-|  | CTL        |      | L = labels       |   | SAT-based (BMC)  |  |
-|  | (branching,|      |                  |   | CEGAR            |  |
-|  | trees)     |      | Computation path:|   | IC3/PDR          |  |
-|  |            |      | s0 -> s1 -> s2...|   +------------------+  |
-|  | CTL*       |      +------------------+                         |
-|  | (both)     |                                                   |
-|  +------------+      TOOLS                                        |
-|                      +------------------------------------------+ |
-|  MU-CALCULUS         | SPIN (LTL)  NuSMV/nuXmv (CTL, BDD, SAT)  | |
-|  +------------+      | Uppaal (timed automata)                   | |
-|  | Least/     |      | PRISM (probabilistic)                     | |
-|  | Greatest   |      | TLA+ (Lamport, industrial use at AWS)     | |
-|  | fixpoints  |      | nuXmv, ABC, Cadence JasperGold            | |
-|  +------------+      +------------------------------------------+ |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                 TEMPORAL LOGIC AND MODEL CHECKING                 !
+!                                                                   !
+!  LOGICS              STRUCTURES             ALGORITHMS            !
+!  .============.      .==================.   .==================.  !
+!  ! LTL        !      ! Kripke structure !   ! Explicit-state   !  !
+!  ! (linear,   !      ! M = (S, T, L):   !   ! (SPIN: DFS,      !  !
+!  ! paths)     !      ! S = states       !   !  Buchi automata)  !  !
+!  !            !      ! T = transitions  !   ! Symbolic (BDD)   !  !
+!  ! CTL        !      ! L = labels       !   ! SAT-based (BMC)  !  !
+!  ! (branching,!      !                  !   ! CEGAR            !  !
+!  ! trees)     !      ! Computation path:!   ! IC3/PDR          !  !
+!  !            !      ! s0 -> s1 -> s2...!   .==================.  !
+!  ! CTL*       !      .==================.                         !
+!  ! (both)     !                                                   !
+!  .============.      TOOLS                                        !
+!                      .==========================================. !
+!  MU-CALCULUS         ! SPIN (LTL)  NuSMV/nuXmv (CTL, BDD, SAT)  ! !
+!  .============.      ! Uppaal (timed automata)                   ! !
+!  ! Least/     !      ! PRISM (probabilistic)                     ! !
+!  ! Greatest   !      ! TLA+ (Lamport, industrial use at AWS)     ! !
+!  ! fixpoints  !      ! nuXmv, ABC, Cadence JasperGold            ! !
+!  .============.      .==========================================. !
+.===================================================================.
 ```
 
 ---
@@ -44,37 +63,37 @@ LTL formulas are evaluated over **infinite sequences** (traces) of states:
 ```
   pi = s0 s1 s2 s3 ...   (infinite sequence, omega-word)
 
-  pi^i = s_i s_{i+1} ...  (suffix starting at position i)
+  pi^i = s_i s_{i.1} ...  (suffix starting at position i)
 ```
 
 ### Syntax
 
 ```
   phi ::= p              (atomic proposition)
-        | top | bot
-        | neg phi
-        | phi land psi
-        | phi lor psi
-        | phi -> psi
-        | X phi           (neXt: phi holds at next position)
-        | G phi           (Globally: phi holds at ALL future positions)
-        | F phi           (Finally: phi holds at SOME future position)
-        | phi U psi       (Until: phi holds until psi; psi eventually holds)
-        | phi W psi       (Weak Until: phi U psi or G phi)
-        | phi R psi       (Release: psi holds until and including when phi holds)
+        ! top ! bot
+        ! neg phi
+        ! phi land psi
+        ! phi lor psi
+        ! phi -> psi
+        ! X phi           (neXt: phi holds at next position)
+        ! G phi           (Globally: phi holds at ALL future positions)
+        ! F phi           (Finally: phi holds at SOME future position)
+        ! phi U psi       (Until: phi holds until psi; psi eventually holds)
+        ! phi W psi       (Weak Until: phi U psi or G phi)
+        ! phi R psi       (Release: psi holds until and including when phi holds)
 ```
 
 ### Truth Conditions
 
 ```
-  pi, i |= p          iff  p in L(s_i)
-  pi, i |= neg phi    iff  pi, i |/= phi
-  pi, i |= phi land psi  iff  pi,i |= phi  and  pi,i |= psi
-  pi, i |= X phi      iff  pi, i+1 |= phi
-  pi, i |= G phi      iff  for all j >= i: pi, j |= phi
-  pi, i |= F phi      iff  exists j >= i: pi, j |= phi
-  pi, i |= phi U psi  iff  exists j >= i: pi, j |= psi
-                           AND for all k with i <= k < j: pi, k |= phi
+  pi, i != p          iff  p in L(s_i)
+  pi, i != neg phi    iff  pi, i !/= phi
+  pi, i != phi land psi  iff  pi,i != phi  and  pi,i != psi
+  pi, i != X phi      iff  pi, i.1 != phi
+  pi, i != G phi      iff  for all j >= i: pi, j != phi
+  pi, i != F phi      iff  exists j >= i: pi, j != phi
+  pi, i != phi U psi  iff  exists j >= i: pi, j != psi
+                           AND for all k with i <= k < j: pi, k != phi
 ```
 
 ### LTL Laws
@@ -150,27 +169,27 @@ LTL quantifies implicitly over a single execution path. CTL explicitly quantifie
 
 ```
   phi ::= p
-        | top | bot
-        | neg phi | phi land psi | phi lor psi
-        | AX phi    (on All paths: neXt phi)
-        | EX phi    (there Exists a path: neXt phi)
-        | AG phi    (on All paths: Globally phi)
-        | EG phi    (there Exists a path: Globally phi)
-        | AF phi    (on All paths: Finally phi)
-        | EF phi    (there Exists a path: Finally phi)
-        | A[phi U psi]   (All paths: phi Until psi)
-        | E[phi U psi]   (Exists a path: phi Until psi)
+        ! top ! bot
+        ! neg phi ! phi land psi ! phi lor psi
+        ! AX phi    (on All paths: neXt phi)
+        ! EX phi    (there Exists a path: neXt phi)
+        ! AG phi    (on All paths: Globally phi)
+        ! EG phi    (there Exists a path: Globally phi)
+        ! AF phi    (on All paths: Finally phi)
+        ! EF phi    (there Exists a path: Finally phi)
+        ! A[phi U psi]   (All paths: phi Until psi)
+        ! E[phi U psi]   (Exists a path: phi Until psi)
 ```
 
 ### CTL Truth Conditions on a Kripke structure M = (S, T, L)
 
 ```
-  M, s |= AX phi   iff  for all t with (s,t) in T: M, t |= phi
-  M, s |= EX phi   iff  exists t with (s,t) in T: M, t |= phi
-  M, s |= AG phi   iff  for all paths pi from s, all i: M, pi(i) |= phi
-  M, s |= EG phi   iff  exists path pi from s, for all i: M, pi(i) |= phi
-  M, s |= AF phi   iff  for all paths pi from s, exists i: M, pi(i) |= phi
-  M, s |= EF phi   iff  exists path pi from s, exists i: M, pi(i) |= phi
+  M, s != AX phi   iff  for all t with (s,t) in T: M, t != phi
+  M, s != EX phi   iff  exists t with (s,t) in T: M, t != phi
+  M, s != AG phi   iff  for all paths pi from s, all i: M, pi(i) != phi
+  M, s != EG phi   iff  exists path pi from s, for all i: M, pi(i) != phi
+  M, s != AF phi   iff  for all paths pi from s, exists i: M, pi(i) != phi
+  M, s != EF phi   iff  exists path pi from s, exists i: M, pi(i) != phi
 ```
 
 ### CTL vs. LTL Expressiveness
@@ -196,12 +215,12 @@ LTL quantifies implicitly over a single execution path. CTL explicitly quantifie
 CTL* combines the path quantifiers of CTL with the unrestricted path formulas of LTL:
 
 ```
-  CTL* = CTL + LTL  (both subsume into CTL*)
+  CTL* = CTL . LTL  (both subsume into CTL*)
 
   CTL* state formulas:
-    phi ::= p | neg phi | phi land psi | A psi | E psi
+    phi ::= p ! neg phi ! phi land psi ! A psi ! E psi
   CTL* path formulas:
-    psi ::= phi | neg psi | psi land psi | X psi | psi U psi | G psi | F psi
+    psi ::= phi ! neg psi ! psi land psi ! X psi ! psi U psi ! G psi ! F psi
 
   CTL* model checking: EXPTIME (harder than CTL which is PTIME)
   CTL* satisfiability: 2EXPTIME
@@ -232,7 +251,7 @@ For a finite Kripke structure M with state space S and a CTL formula phi:
     EU[phi U psi]: iterative fixed-point computation.
     AU[phi U psi]: iterative fixed-point computation.
 
-  Time complexity: O(|S| * |phi|)
+  Time complexity: O(!S! * !phi!)
   PTIME in combined state space and formula size.
 ```
 
@@ -260,11 +279,11 @@ For a finite Kripke structure M with state space S and a CTL formula phi:
   4. Check for accepted run in the product.
      (Accepted run = path that visits an accepting state infinitely often)
   5. If accepting run found: counterexample to phi.
-     If no accepting run: M |= phi.
+     If no accepting run: M != phi.
 
   BÜCHI AUTOMATON for LTL formula phi:
   Obtained via tableau construction.
-  Size: exponential in |phi|.
+  Size: exponential in !phi!.
   LTL model checking: PSPACE-complete.
 ```
 
@@ -282,7 +301,7 @@ Instead of explicit state enumeration, represent state sets as BDDs:
   AG phi: start with neg phi states; compute backward reachability.
   Fixed-point computation on BDD-represented sets.
 
-  ADVANTAGE: can handle 10^20+ states (where explicit is hopeless).
+  ADVANTAGE: can handle 10^20. states (where explicit is hopeless).
   DISADVANTAGE: BDD size can blow up for some transition relations.
 ```
 
@@ -320,17 +339,17 @@ The fundamental challenge in model checking:
     10 parallel processes, each with 10 states: 10^10 = 10 billion states.
 
   MITIGATIONS:
-  +--------------+----------------------------------------------------+
-  | Technique    | Idea                                               |
-  +--------------+----------------------------------------------------+
-  | Symbolic     | BDDs represent exponential state sets compactly    |
-  | Partial order| Only explore one interleaving of concurrent events |
-  |  reduction   | (many interleavings give same outcome)              |
-  | Abstraction/ | Model the system at a higher level of abstraction  |
-  |  CEGAR       | Counterexample-Guided Abstraction Refinement       |
-  | SAT/BMC      | Unfold k steps instead of exploring all states     |
-  | Compositional| Verify components separately, compose results       |
-  +--------------+----------------------------------------------------+
+  .==============.====================================================.
+  ! Technique    ! Idea                                               !
+  .==============.====================================================.
+  ! Symbolic     ! BDDs represent exponential state sets compactly    !
+  ! Partial order! Only explore one interleaving of concurrent events !
+  !  reduction   ! (many interleavings give same outcome)              !
+  ! Abstraction/ ! Model the system at a higher level of abstraction  !
+  !  CEGAR       ! Counterexample-Guided Abstraction Refinement       !
+  ! SAT/BMC      ! Unfold k steps instead of exploring all states     !
+  ! Compositional! Verify components separately, compose results       !
+  .==============.====================================================.
 ```
 
 ---
@@ -340,7 +359,7 @@ The fundamental challenge in model checking:
 Lamport's specification language used at Amazon, Microsoft, Oracle:
 
 ```
-  TLA+ = Set theory + temporal logic
+  TLA+ = Set theory . temporal logic
 
   SPECIFICATION STRUCTURE:
     Init: initial state predicate
@@ -353,7 +372,7 @@ Lamport's specification language used at Amazon, Microsoft, Oracle:
     Fairness: WF_vars(Next) -- "the system doesn't stutter forever"
 
   TLC MODEL CHECKER: explicit state model checker for TLA+ specs.
-  Apalache: symbolic model checker for TLA+ (SMT-based).
+  Apalache: symbolic model checker for TLA+ (SMT=based).
 
   INDUSTRIAL USE:
   Amazon uses TLA+ for S3, DynamoDB, EC2 protocols.

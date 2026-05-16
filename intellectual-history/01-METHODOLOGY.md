@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:methodology
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: Methodology: How to Write the History of Ideas
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/01-METHODOLOGY.md
+canonical_path: intellectual-history/01-METHODOLOGY.md
+backsource_ids: [proof-backfill:intellectual-history:01-methodology, git-history:intellectual-history:01-methodology]
+concepts: [methodology]
+root_concepts: [methodology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Methodology: How to Write the History of Ideas
 
 ## The Big Picture
@@ -8,33 +27,33 @@ methodological schools disagree sharply, and their debates parallel disputes in 
 of history and interpretation theory.
 
 ```
-+-------------------------------------------------------------------+
-|                INTELLECTUAL HISTORY METHODS                       |
-|                                                                   |
-|  LEVEL OF ANALYSIS                                                |
-|  +------------------+  +------------------+  +----------------+   |
-|  | TEXT-LEVEL        |  | CONTEXT-LEVEL    |  | STRUCTURE-LEVEL|  |
-|  | Close reading,   |  | Linguistic,      |  | Longue duree,  |  |
-|  | internal logic,  |  | political, social|  | epistemes,     |  |
-|  | authorial intent |  | context of       |  | deep mentality |  |
-|  | (Lovejoy,        |  | production       |  | (Foucault,     |  |
-|  | Cambridge School)|  | (Cambridge,      |  | Annales,       |  |
-|  |                  |  | Mannheim)        |  | Koselleck)     |  |
-|  +------------------+  +------------------+  +----------------+  |
-|                                                                  |
-|  THE HERMENEUTIC CIRCLE                                          |
-|  +-----------------------------------------------------------+   |
-|  | Understanding parts requires understanding the whole,     |    |
-|  | understanding the whole requires understanding parts.     |    |
-|  | Iterative process: never fully resolved.                  |    |
-|  +-----------------------------------------------------------+    |
-   |                                                                |
-   |  CORE RISKS                                                    |
-|  +-----------------------------------------------------------+    |
-|  | Anachronism  |  Whig history  |  Over-contextualization   |    |
-|  | Hagiography  |  Presentism    |  Reductionism             |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                INTELLECTUAL HISTORY METHODS                       !
+!                                                                   !
+!  LEVEL OF ANALYSIS                                                !
+!  .==================.  .==================.  .================.   !
+!  ! TEXT-LEVEL        !  ! CONTEXT-LEVEL    !  ! STRUCTURE-LEVEL!  !
+!  ! Close reading,   !  ! Linguistic,      !  ! Longue duree,  !  !
+!  ! internal logic,  !  ! political, social!  ! epistemes,     !  !
+!  ! authorial intent !  ! context of       !  ! deep mentality !  !
+!  ! (Lovejoy,        !  ! production       !  ! (Foucault,     !  !
+!  ! Cambridge School)!  ! (Cambridge,      !  ! Annales,       !  !
+!  !                  !  ! Mannheim)        !  ! Koselleck)     !  !
+!  .==================.  .==================.  .================.  !
+!                                                                  !
+!  THE HERMENEUTIC CIRCLE                                          !
+!  .===========================================================.   !
+!  ! Understanding parts requires understanding the whole,     !    !
+!  ! understanding the whole requires understanding parts.     !    !
+!  ! Iterative process: never fully resolved.                  !    !
+!  .===========================================================.    !
+   !                                                                !
+   !  CORE RISKS                                                    !
+!  .===========================================================.    !
+!  ! Anachronism  !  Whig history  !  Over-contextualization   !    !
+!  ! Hagiography  !  Presentism    !  Reductionism             !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -49,7 +68,7 @@ The central methodological danger in intellectual history:
 
   EXAMPLES:
   Reading Plato as "anticipating" modern epistemology
-  Reading Newton as a scientist (he was a natural philosopher + alchemist)
+  Reading Newton as a scientist (he was a natural philosopher . alchemist)
   Reading Machiavelli as an amoral "realist" in modern IR theory terms
   Reading Darwin as a social Darwinist (he largely wasn't)
 

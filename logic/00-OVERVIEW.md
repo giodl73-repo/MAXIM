@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:overview
+kind: guide
+module: logic
+section: logic
+title: Logic - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: logic/00-OVERVIEW.md
+canonical_path: logic/00-OVERVIEW.md
+backsource_ids: [proof-backfill:logic:00-overview, git-history:logic:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Logic — Landscape and Taxonomy
 
 ## The Big Picture
@@ -7,43 +26,43 @@ algebra all the way to Gödel's incompleteness results that place hard limits on
 consistent system can prove.
 
 ```
-+-------------------------------------------------------------------+
-|                    THE LOGIC LANDSCAPE                            |
-|                                                                   |
-|  CLASSICAL LOGICS              NON-CLASSICAL LOGICS               |
-|  +----------------------+      +----------------------------+     |
-|  | Propositional (PL)   |      | Modal (K, S4, S5, GL)      |     |
-|  | (Boolean / Zeroth    |      | Temporal (LTL, CTL, CTL*)  |     |
-|  |  Order)              |      | Intuitionistic             |     |
-|  |                      |      | Paraconsistent             |     |
-|  | First-Order (FOL)    |      | Fuzzy / Many-valued        |     |
-|  | (Predicate Logic)    |      | Description Logics         |     |
-|  |                      |      | Linear / Relevance         |     |
-|  | Second-Order (SOL)   |      +----------------------------+     |
-|  | Higher-Order         |                                         |
-|  +----------------------+                                         |
-|                                                                   |
-|  PROOF THEORY                  MODEL THEORY                       |
-|  +----------------------+      +----------------------------+     |
-|  | Natural Deduction    |      | Tarski Semantics           |     |
-|  | Sequent Calculus     |      | Completeness (Godel '29)   |     |
-|  | Hilbert Systems      |      | Compactness                |     |
-|  | Resolution           |      | Lowenheim-Skolem           |     |
-|  +----------------------+      +----------------------------+     |
-|                                                                   |
-|  COMPUTABILITY / LIMITS                                           |
-|  +-----------------------------------------------------------+    |
-|  | Decidability  Completeness  Incompleteness (Godel '31)    |    |
-|  | Halting Problem  Arithmetical Hierarchy  Rice's Theorem   |    |
-|  +-----------------------------------------------------------+    |
-|                                                                   |
-|  APPLICATIONS                                                     |
-|  +-----------------------------------------------------------+    |
-|  | Program Verification  Model Checking  SAT / SMT           |    |
-|  | Type Theory  Curry-Howard  Dependent Types (Lean, Coq)    |    |
-|  | AI Reasoning  Knowledge Representation  Description Logic |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                    THE LOGIC LANDSCAPE                            !
+!                                                                   !
+!  CLASSICAL LOGICS              NON-CLASSICAL LOGICS               !
+!  .======================.      .============================.     !
+!  ! Propositional (PL)   !      ! Modal (K, S4, S5, GL)      !     !
+!  ! (Boolean / Zeroth    !      ! Temporal (LTL, CTL, CTL*)  !     !
+!  !  Order)              !      ! Intuitionistic             !     !
+!  !                      !      ! Paraconsistent             !     !
+!  ! First-Order (FOL)    !      ! Fuzzy / Many-valued        !     !
+!  ! (Predicate Logic)    !      ! Description Logics         !     !
+!  !                      !      ! Linear / Relevance         !     !
+!  ! Second-Order (SOL)   !      .============================.     !
+!  ! Higher-Order         !                                         !
+!  .======================.                                         !
+!                                                                   !
+!  PROOF THEORY                  MODEL THEORY                       !
+!  .======================.      .============================.     !
+!  ! Natural Deduction    !      ! Tarski Semantics           !     !
+!  ! Sequent Calculus     !      ! Completeness (Godel '29)   !     !
+!  ! Hilbert Systems      !      ! Compactness                !     !
+!  ! Resolution           !      ! Lowenheim-Skolem           !     !
+!  .======================.      .============================.     !
+!                                                                   !
+!  COMPUTABILITY / LIMITS                                           !
+!  .===========================================================.    !
+!  ! Decidability  Completeness  Incompleteness (Godel '31)    !    !
+!  ! Halting Problem  Arithmetical Hierarchy  Rice's Theorem   !    !
+!  .===========================================================.    !
+!                                                                   !
+!  APPLICATIONS                                                     !
+!  .===========================================================.    !
+!  ! Program Verification  Model Checking  SAT / SMT           !    !
+!  ! Type Theory  Curry-Howard  Dependent Types (Lean, Coq)    !    !
+!  ! AI Reasoning  Knowledge Representation  Description Logic !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -53,13 +72,13 @@ consistent system can prove.
 The classical hierarchy, weakest to strongest:
 
 ```
-WEAKEST ─────────────────────────────────────────────── STRONGEST
+WEAKEST =============================================== STRONGEST
 
 Propositional   First-Order     Second-Order    Higher-Order
    (PL)           (FOL)           (SOL)            (HOL)
 
 Variables:      Variables:      Variables:       Variables:
-Boolean only    Objects in      Objects +        Objects +
+Boolean only    Objects in      Objects .        Objects .
                 domain          sets of          sets of sets,
                                 objects          etc.
 
@@ -87,29 +106,29 @@ The jump from PL to FOL adds **quantifiers over a domain**. The jump from FOL to
 Every logic has the same basic structure:
 
 ```
-+----------------------------------------------------------+
-|                    ANATOMY OF A LOGIC                    |
-|                                                          |
-|  SYNTAX                   SEMANTICS                      |
-|  +----------------+       +--------------------------+   |
-|  | Language       |       | Interpretation / Model   |   |
-|  | (alphabet,     | ====> | (what the symbols mean)  |   |
-|  |  formulas)     |       |                          |   |
-|  +----------------+       +--------------------------+   |
-|          |                            |                  |
-|          v                            v                  |
-|  PROOF SYSTEM              TRUTH DEFINITION              |
-|  +----------------+       +--------------------------+   |
-|  | Axioms         |       | M |= phi                 |   |
-|  | + Rules        |       | (formula phi is true in  |   |
-|  | |- phi          |       |  model M)                |   |
-|  +----------------+       +--------------------------+   |
-|          |                            |                  |
-|          +──────────┐  ┌─────────────+                  |
-|                     v  v                                 |
-|              SOUNDNESS / COMPLETENESS                    |
-|        |- phi  iff  |= phi  (for classical logics)       |
-+----------------------------------------------------------+
+.==========================================================.
+!                    ANATOMY OF A LOGIC                    !
+!                                                          !
+!  SYNTAX                   SEMANTICS                      !
+!  .================.       .==========================.   !
+!  ! Language       !       ! Interpretation / Model   !   !
+!  ! (alphabet,     ! ====> ! (what the symbols mean)  !   !
+!  !  formulas)     !       !                          !   !
+!  .================.       .==========================.   !
+!          !                            !                  !
+!          v                            v                  !
+!  PROOF SYSTEM              TRUTH DEFINITION              !
+!  .================.       .==========================.   !
+!  ! Axioms         !       ! M != phi                 !   !
+!  ! . Rules        !       ! (formula phi is true in  !   !
+!  ! !- phi          !       !  model M)                !   !
+!  .================.       .==========================.   !
+!          !                            !                  !
+!          .==========┐  ┌=============.                  !
+!                     v  v                                 !
+!              SOUNDNESS / COMPLETENESS                    !
+!        !- phi  iff  != phi  (for classical logics)       !
+.==========================================================.
 ```
 
 Core vocabulary:
@@ -120,10 +139,10 @@ Core vocabulary:
 | **Satisfiable** | True in at least one interpretation |
 | **Contradiction** | False in every interpretation |
 | **Valid argument** | If premises true, conclusion must be true |
-| **Sound proof system** | Only proves true things (|- phi => |= phi) |
-| **Complete proof system** | Proves all true things (|= phi => |- phi) |
-| **Decidable theory** | Algorithm exists to check |= phi |
-| **Consistent** | No contradiction |- bot is derivable |
+| **Sound proof system** | Only proves true things (\|- phi => \|= phi) |
+| **Complete proof system** | Proves all true things (\|= phi => \|- phi) |
+| **Decidable theory** | Algorithm exists to check \|= phi |
+| **Consistent** | No contradiction \|- bot is derivable |
 
 ---
 
@@ -132,12 +151,12 @@ Core vocabulary:
 The fundamental tension in logic:
 
 ```
-MORE EXPRESSIVE ────────────────────────────────────────►
+MORE EXPRESSIVE ========================================►
 
    PL           FOL          SOL          HOL
    Low          Medium        High         Very High
 
-LESS DECIDABLE ────────────────────────────────────────►
+LESS DECIDABLE ========================================►
 
    PL           FOL           SOL          HOL
    Yes          Semi-dec.     No           No
@@ -162,17 +181,17 @@ satisfiability is only semi-decidable (not fully decidable, but provability is e
   (proof-theoretic)             (model-theoretic)
   -----------------             ----------------
   Derivations                   Interpretations
-  |- (turnstile)                |= (double turnstile)
+  !- (turnstile)                != (double turnstile)
   "is provable"                 "is true"
   Hilbert / Gentzen             Tarski
 
   Rules are mechanical.         Truth requires a model.
   String rewriting.             Set-theoretic definitions.
 
-  ─────────────────────────────────────────────────────
+  =====================================================
   BRIDGE: Soundness and Completeness theorems
-  (Godel 1929 for FOL: |- phi  iff  |= phi)
-  ─────────────────────────────────────────────────────
+  (Godel 1929 for FOL: !- phi  iff  != phi)
+  =====================================================
 ```
 
 Gödel's completeness theorem (1929) — distinct from the incompleteness theorems (1931) — says
@@ -246,11 +265,11 @@ These are about different objects: the first is about a proof system, the second
 
 **"Consistent" vs "complete" for theories.**
 A theory T is *consistent* if it does not prove bot. It is *complete* if for every sentence phi,
-either T |- phi or T |- neg phi. Gödel 1931 says no consistent recursively axiomatizable
+either T \|- phi or T \|- neg phi. Gödel 1931 says no consistent recursively axiomatizable
 extension of PA can be complete.
 
 **Syntax vs. semantics.**
-Beginners conflate "provable" (|-) with "true" (|=). Soundness and completeness theorems are
+Beginners conflate "provable" (\|-) with "true" (\|=). Soundness and completeness theorems are
 precisely the results that let you move between them — and incompleteness shows the bridge breaks
 for sufficiently strong theories.
 

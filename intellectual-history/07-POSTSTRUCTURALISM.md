@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:poststructuralism
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: Structuralism and Poststructuralism
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/07-POSTSTRUCTURALISM.md
+canonical_path: intellectual-history/07-POSTSTRUCTURALISM.md
+backsource_ids: [proof-backfill:intellectual-history:07-poststructuralism, git-history:intellectual-history:07-poststructuralism]
+concepts: [poststructuralism]
+root_concepts: [poststructuralism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structuralism and Poststructuralism
 
 ## The Big Picture
@@ -9,29 +28,29 @@ intellectual life from the 1960s-1980s and transformed literary theory, cultural
 and historiography internationally.
 
 ```
-+-------------------------------------------------------------------+
-|              STRUCTURALISM TO POSTSTRUCTURALISM                   |
-|                                                                   |
-|  STRUCTURALISM (1950s-60s)     POSTSTRUCTURALISM (1966-1990s)     |
-|  +---------------------+       +----------------------------+     |
-|  | Saussure: language  |       | DERRIDA:                   |    |
-|  | as system of        |       | Deconstruction, differance,|    |
-|  | differences         |  =>   | trace, logocentrism        |    |
-|  |                     |       |                            |    |
-|  | Levi-Strauss:       |       | FOUCAULT:                  |    |
-|  | myths as logical    |       | Power-knowledge, discourse,|    |
-|  | structures          |       | genealogy, biopolitics     |    |
-|  |                     |       |                            |    |
-|  | Barthes: semiotics  |       | DELEUZE:                   |    |
-|  | of cultural myths   |       | Difference, rhizome,       |    |
-|  |                     |       | desire as positive         |    |
-|  | Lacan: psycho-      |       |                            |    |
-|  | analysis via        |       | LYOTARD:                   |    |
-|  | Saussure            |       | Postmodernity, language    |    |
-|  |                     |       | games, incredulity toward  |    |
-|  +---------------------+       | metanarratives             |    |
-|                                +----------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              STRUCTURALISM TO POSTSTRUCTURALISM                   !
+!                                                                   !
+!  STRUCTURALISM (1950s-60s)     POSTSTRUCTURALISM (1966-1990s)     !
+!  .=====================.       .============================.     !
+!  ! Saussure: language  !       ! DERRIDA:                   !    !
+!  ! as system of        !       ! Deconstruction, differance,!    !
+!  ! differences         !  =>   ! trace, logocentrism        !    !
+!  !                     !       !                            !    !
+!  ! Levi-Strauss:       !       ! FOUCAULT:                  !    !
+!  ! myths as logical    !       ! Power-knowledge, discourse,!    !
+!  ! structures          !       ! genealogy, biopolitics     !    !
+!  !                     !       !                            !    !
+!  ! Barthes: semiotics  !       ! DELEUZE:                   !    !
+!  ! of cultural myths   !       ! Difference, rhizome,       !    !
+!  !                     !       ! desire as positive         !    !
+!  ! Lacan: psycho-      !       !                            !    !
+!  ! analysis via        !       ! LYOTARD:                   !    !
+!  ! Saussure            !       ! Postmodernity, language    !    !
+!  !                     !       ! games, incredulity toward  !    !
+!  .=====================.       ! metanarratives             !    !
+!                                .============================.    !
+.===================================================================.
 ```
 
 ---
@@ -44,7 +63,7 @@ and historiography internationally.
   COURSE IN GENERAL LINGUISTICS (1916, reconstructed from student notes):
   Not published by Saussure; assembled posthumously.
 
-  SIGN = SIGNIFIER + SIGNIFIED
+  SIGN = SIGNIFIER . SIGNIFIED
   Signifier: sound-image (acoustic pattern)
   Signified: concept (mental content)
   Sign: arbitrary combination of the two.
@@ -107,7 +126,7 @@ and historiography internationally.
   MYTHOLOGIES:
   Analyzes bourgeois cultural myths (wrestling, wine, the face of Garbo).
   MYTH = second-order signification.
-  First order: sign (signifier + signified).
+  First order: sign (signifier . signified).
   Second order: the sign itself becomes a signifier for a second concept.
   Example: a photograph of a French soldier saluting the flag = MYTH of empire.
   The photograph is factual; the myth is ideological.
@@ -287,7 +306,7 @@ and historiography internationally.
   Derrida, Foucault, Lacan, Barthes imported to literature departments.
   Deconstruction became a reading practice (de Man at Yale).
   New Historicism (Greenblatt): literature in its power-knowledge context.
-  Cultural Studies (Birmingham): Gramsci + Stuart Hall.
+  Cultural Studies (Birmingham): Gramsci . Stuart Hall.
 
   FEMINIST THEORY:
   Butler (Gender Trouble, 1990): gender is performative, not natural.

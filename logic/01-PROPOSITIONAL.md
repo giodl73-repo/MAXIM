@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:propositional
+kind: guide
+module: logic
+section: logic
+title: Propositional Logic and Truth Tables
+status: source-custody
+source_custody: partial
+current_path: logic/01-PROPOSITIONAL.md
+canonical_path: logic/01-PROPOSITIONAL.md
+backsource_ids: [proof-backfill:logic:01-propositional, git-history:logic:01-propositional]
+concepts: [propositional]
+root_concepts: [propositional]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Propositional Logic and Truth Tables
 
 ## The Big Picture
@@ -7,28 +26,28 @@ Everything is decidable. It is the foundation for SAT solvers, circuit verificat
 all hardware design.
 
 ```
-+------------------------------------------------------------------+
-|               PROPOSITIONAL LOGIC LANDSCAPE                      |
-|                                                                  |
-|  SYNTAX             SEMANTICS            ALGORITHMS              |
-|  +-----------+      +-----------+        +-----------+           |
-|  | Formulas  |      | Truth     |        | Truth     |           |
-|  | built from|      | tables    |        | table     |           |
-|  | atoms and |      |           |        | (2^n rows)|           |
-|  | connectives      | Valuation |        | DPLL      |           |
-|  +-----------+      | (atoms -> |        | CDCL      |           |
-|                     |  {0,1})   |        | BDD       |           |
-|  NORMAL FORMS       +-----------+        | Resolution|           |
-|  +-----------+                           +-----------+           |
-|  | NNF       |      SATISFIABILITY                               |
-|  | CNF       |      +-----------+        APPLICATIONS            |
-|  | DNF       |      | SAT       |        +-----------+           |
-|  | Tseitin   |      | (NP-comp) |        | Circuit   |           |
-|  +-----------+      | UNSAT     |        | hardware  |           |
-|                     | Tautology |        | SMT base  |           |
-|                     +-----------+        | Bounded MC|           |
-|                                          +-----------+           |
-+------------------------------------------------------------------+
+.==================================================================.
+!               PROPOSITIONAL LOGIC LANDSCAPE                      !
+!                                                                  !
+!  SYNTAX             SEMANTICS            ALGORITHMS              !
+!  .===========.      .===========.        .===========.           !
+!  ! Formulas  !      ! Truth     !        ! Truth     !           !
+!  ! built from!      ! tables    !        ! table     !           !
+!  ! atoms and !      !           !        ! (2^n rows)!           !
+!  ! connectives      ! Valuation !        ! DPLL      !           !
+!  .===========.      ! (atoms => !        ! CDCL      !           !
+!                     !  {0,1})   !        ! BDD       !           !
+!  NORMAL FORMS       .===========.        ! Resolution!           !
+!  .===========.                           .===========.           !
+!  ! NNF       !      SATISFIABILITY                               !
+!  ! CNF       !      .===========.        APPLICATIONS            !
+!  ! DNF       !      ! SAT       !        .===========.           !
+!  ! Tseitin   !      ! (NP-comp) !        ! Circuit   !           !
+!  .===========.      ! UNSAT     !        ! hardware  !           !
+!                     ! Tautology !        ! SMT base  !           !
+!                     .===========.        ! Bounded MC!           !
+!                                          .===========.           !
+.==================================================================.
 ```
 
 ---
@@ -45,13 +64,13 @@ A propositional formula is built from:
 Grammar:
 ```
 phi ::= p                   (atom)
-      | top | bot           (constants)
-      | neg phi             (negation)
-      | phi land phi        (conjunction)
-      | phi lor phi         (disjunction)
-      | phi -> phi          (implication)
-      | phi <-> phi         (biconditional)
-      | (phi)               (parentheses)
+      ! top ! bot           (constants)
+      ! neg phi             (negation)
+      ! phi land phi        (conjunction)
+      ! phi lor phi         (disjunction)
+      ! phi -> phi          (implication)
+      ! phi <-> phi         (biconditional)
+      ! (phi)               (parentheses)
 ```
 
 ### Operator Precedence (high to low)
@@ -84,12 +103,12 @@ A **valuation** v maps atoms to {0,1}. Truth of a formula under v is defined ind
 ### Truth Table for Core Connectives
 
 ```
-  p   q  | neg p  p land q  p lor q  p -> q  p <-> q
-  --------|--------------------------------------------------
-  0   0  |   1       0         0        1        1
-  0   1  |   1       0         1        1        0
-  1   0  |   0       0         1        0        0
-  1   1  |   0       1         1        1        1
+  p   q  ! neg p  p land q  p lor q  p -> q  p <-> q
+  --------!--------------------------------------------------
+  0   0  !   1       0         0        1        1
+  0   1  !   1       0         1        1        0
+  1   0  !   0       0         1        0        0
+  1   1  !   0       1         1        1        1
 ```
 
 Key observations:
@@ -167,7 +186,7 @@ an equisatisfiable CNF of linear size.
   Hardness: every NP problem reduces to SAT in polynomial time.
 
   Special cases:
-  2-SAT (each clause has 2 literals):  decidable in O(n+m) via SCC
+  2=SAT (each clause has 2 literals):  decidable in O(n.m) via SCC
   3-SAT:                               NP-complete
   Horn-SAT (at most 1 positive literal per clause): P (unit propagation)
   MAX-SAT:                             NP-hard optimization
@@ -227,11 +246,11 @@ Alternative to CNF for representing Boolean functions compactly.
               p
              / \
            T     F
-           |     |
+           !     !
            q     r
           / \   / \
          T   F T   F
-         |   | |   |
+         !   ! !   !
         [1] [0][1] [0]
 
   Reduced Ordered BDD (ROBDD): canonical form.
@@ -254,7 +273,7 @@ Proof system for propositional logic over clauses.
 ```
   Resolution rule:
         C1 lor p        C2 lor neg p
-        ───────────────────────────────
+        ===============================
                C1 lor C2
 
   Example:

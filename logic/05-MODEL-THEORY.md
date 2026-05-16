@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:model-theory
+kind: guide
+module: logic
+section: logic
+title: Model Theory and Completeness
+status: source-custody
+source_custody: partial
+current_path: logic/05-MODEL-THEORY.md
+canonical_path: logic/05-MODEL-THEORY.md
+backsource_ids: [proof-backfill:logic:05-model-theory, git-history:logic:05-model-theory]
+concepts: [model, theory]
+root_concepts: [model, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Model Theory and Completeness
 
 ## The Big Picture
@@ -8,57 +27,57 @@ semantic foundation for FOL and yields powerful tools — compactness, Löwenhei
 ultraproducts — that have applications across mathematics.
 
 ```
-+-------------------------------------------------------------------+
-|                    MODEL THEORY LANDSCAPE                         |
-|                                                                   |
-|  CORE MACHINERY                                                   |
-|  +--------------------+                                           |
-|  | Signatures         |  ← defines the language                  |
-|  | Structures         |  ← give meaning to the language          |
-|  | Theories           |  ← sets of sentences true in a class     |
-|  | Satisfiability     |                                           |
-|  | Elementary equiv.  |  ← same theory (same FOL sentences)      |
-|  +--------------------+                                           |
-   |           |                                                    |
-   |           | (core machinery feeds)                             |
-   |           v                                                    |
-   |  FUNDAMENTAL THEOREMS                                          |
-|  +------------------------------------------------------------+   |
-|  | Completeness (Godel 1929): T consistent → T has a model   |   |
-|  |   ↓ immediate consequence                                  |   |
-|  | Compactness: T has a model iff every finite subset does    |   |
-|  |   ← also proved directly via Ultraproducts (Los's thm)    |   |
-|  |                                                            |   |
-|  | Lowenheim-Skolem (down): infinite model → countable model  |   |
-|  | Upward LS (Skolem 1922): model of size κ → model any λ≥κ  |   |
-|  |   → Together: FOL cannot pin down cardinality              |   |
-|  |                                                            |   |
-|  | Craig Interpolation: proved via cut elimination            |   |
-|  | Beth Definability: follows from Craig Interpolation        |   |
-|  +------------------------------------------------------------+   |
-|           |                                                       |
-|           | (theorems enable)                                     |
-|           v                                                       |
-|  THEORY CLASSIFICATION          ULTRAPRODUCTS                     |
-|  +--------------------+         +-----------------------------+   |
-|  | Complete theories  |         | Ultrafilter (needs AC)      |   |
-|  | κ-Categorical      |         | Ultraproduct M^I/U          |   |
-|  | Model-complete    |←─ QE ──→| Los's theorem               |   |
-|  | Quantifier elim.  |         |   → proves Compactness       |   |
-|  +--------------------+         |   → non-standard models     |   |
-|           |                     +-----------------------------+   |
-|           | (classification gives)                                |
-|           v                                                       |
-|  APPLICATIONS                                                     |
-|  +-----------------------------------------------------------+    |
-|  | RCF (Tarski): QE → decidable real closed fields           |    |
-|  | ACF (algebraically closed): QE → decidable; Nullstellensatz|   |
-|  | DLO: QE → complete, decidable; ω-categorical              |    |
-|  | Non-standard analysis: ultrapowers of R → infinitesimals  |    |
-|  | SMT theories: each background theory uses QE or Nelson-Op |    |
-|  | O-minimality: tame topology from ordered field structure  |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                    MODEL THEORY LANDSCAPE                         !
+!                                                                   !
+!  CORE MACHINERY                                                   !
+!  .====================.                                           !
+!  ! Signatures         !  ← defines the language                  !
+!  ! Structures         !  ← give meaning to the language          !
+!  ! Theories           !  ← sets of sentences true in a class     !
+!  ! Satisfiability     !                                           !
+!  ! Elementary equiv.  !  ← same theory (same FOL sentences)      !
+!  .====================.                                           !
+   !           !                                                    !
+   !           ! (core machinery feeds)                             !
+   !           v                                                    !
+   !  FUNDAMENTAL THEOREMS                                          !
+!  .============================================================.   !
+!  ! Completeness (Godel 1929): T consistent → T has a model   !   !
+!  !   ↓ immediate consequence                                  !   !
+!  ! Compactness: T has a model iff every finite subset does    !   !
+!  !   ← also proved directly via Ultraproducts (Los's thm)    !   !
+!  !                                                            !   !
+!  ! Lowenheim-Skolem (down): infinite model → countable model  !   !
+!  ! Upward LS (Skolem 1922): model of size κ → model any λ≥κ  !   !
+!  !   → Together: FOL cannot pin down cardinality              !   !
+!  !                                                            !   !
+!  ! Craig Interpolation: proved via cut elimination            !   !
+!  ! Beth Definability: follows from Craig Interpolation        !   !
+!  .============================================================.   !
+!           !                                                       !
+!           ! (theorems enable)                                     !
+!           v                                                       !
+!  THEORY CLASSIFICATION          ULTRAPRODUCTS                     !
+!  .====================.         .=============================.   !
+!  ! Complete theories  !         ! Ultrafilter (needs AC)      !   !
+!  ! κ-Categorical      !         ! Ultraproduct M^I/U          !   !
+!  ! Model-complete    !←= QE ==→! Los's theorem               !   !
+!  ! Quantifier elim.  !         !   → proves Compactness       !   !
+!  .====================.         !   → non-standard models     !   !
+!           !                     .=============================.   !
+!           ! (classification gives)                                !
+!           v                                                       !
+!  APPLICATIONS                                                     !
+!  .===========================================================.    !
+!  ! RCF (Tarski): QE → decidable real closed fields           !    !
+!  ! ACF (algebraically closed): QE → decidable; Nullstellensatz!   !
+!  ! DLO: QE → complete, decidable; ω-categorical              !    !
+!  ! Non-standard analysis: ultrapowers of R → infinitesimals  !    !
+!  ! SMT theories: each background theory uses QE or Nelson-Op !    !
+!  ! O-minimality: tame topology from ordered field structure  !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -75,7 +94,7 @@ A structure M = (D, I) interprets a signature sigma:
 
 A **theory** T is a set of sentences (closed formulas). The theory of a structure M:
 ```
-  Th(M) = {phi : M |= phi}   (all sentences true in M)
+  Th(M) = {phi : M != phi}   (all sentences true in M)
 ```
 
 Th(M) is always **complete**: for every sentence phi, either phi in Th(M) or neg phi in Th(M).
@@ -83,7 +102,7 @@ Th(M) is always **complete**: for every sentence phi, either phi in Th(M) or neg
 A theory T is:
 - **Satisfiable** if it has a model.
 - **Consistent** if no contradiction is derivable (equivalent to satisfiable by completeness).
-- **Complete** if for every sentence phi, T |- phi or T |- neg phi.
+- **Complete** if for every sentence phi, T \|- phi or T \|- neg phi.
 - **Categorical** if all models of T of a given cardinality are isomorphic.
 
 ---
@@ -96,9 +115,9 @@ The semantic-syntactic bridge for FOL:
   GODEL COMPLETENESS (1929):
   For any FOL theory T and sentence phi:
 
-    T |= phi    iff    T |- phi
+    T != phi    iff    T !- phi
 
-  Equivalently: if T has no model, T |- bot (i.e., T is inconsistent).
+  Equivalently: if T has no model, T !- bot (i.e., T is inconsistent).
 
   PROOF SKETCH (Henkin 1949 method, cleaner than Godel's original):
 
@@ -112,12 +131,12 @@ The semantic-syntactic bridge for FOL:
   5. This term model satisfies all of T* (by construction), hence all of T.
   6. Therefore T is satisfiable.
 
-  Contrapositive: if T has no model (T |= bot), then T |- bot.
+  Contrapositive: if T has no model (T != bot), then T !- bot.
 ```
 
 **Consequences**:
 - Compactness (see below) — follows immediately from the proof.
-- Soundness + completeness: |- and |= coincide for FOL.
+- Soundness + completeness: \|- and \|= coincide for FOL.
 
 ---
 
@@ -130,12 +149,12 @@ Perhaps the most useful theorem in model theory:
   A set T of sentences has a model iff every FINITE subset of T has a model.
 
   Equivalently:
-  If T |= phi, then some finite T0 subset of T already has T0 |= phi.
+  If T != phi, then some finite T0 subset of T already has T0 != phi.
 
   PROOF: Immediate from completeness.
-  If T |= phi, then T |- phi.
+  If T != phi, then T !- phi.
   But a derivation is finite — it uses only finitely many axioms from T.
-  So some finite T0 |- phi, hence T0 |= phi.
+  So some finite T0 !- phi, hence T0 != phi.
 ```
 
 ### Applications of Compactness
@@ -145,7 +164,7 @@ Perhaps the most useful theorem in model theory:
   Let T = PA union {c > 0, c > 1, c > 2, c > 3, ...}
   (Add a new constant c and axioms saying it exceeds every standard numeral.)
 
-  Every finite subset is satisfiable: for {c > 0, ..., c > n}, set c = n+1.
+  Every finite subset is satisfiable: for {c > 0, ..., c > n}, set c = n.1.
   By compactness: T has a model.
   That model contains "infinitely large" element c beyond all standard naturals.
   This is a non-standard model of PA.
@@ -175,8 +194,8 @@ Perhaps the most useful theorem in model theory:
   DOWNWARD LOWENHEIM-SKOLEM:
   If T has an infinite model, then T has a countable model.
 
-  More generally: if T has a model of cardinality kappa >= |L| (language cardinality),
-  then T has a model of every cardinality lambda >= |L|.
+  More generally: if T has a model of cardinality kappa >= !L! (language cardinality),
+  then T has a model of every cardinality lambda >= !L!.
 ```
 
 ### Upward (Skolem 1922)
@@ -198,7 +217,7 @@ Perhaps the most useful theorem in model theory:
   HOW CAN A COUNTABLE MODEL CONTAIN "UNCOUNTABLE" SETS?
 
   RESOLUTION:
-  The countable model M |= "R is uncountable" means:
+  The countable model M != "R is uncountable" means:
   there is no function in M from N to R that is a bijection.
 
   But from OUTSIDE M, there are only countably many elements of M,
@@ -253,7 +272,7 @@ a quantifier-free formula.
   EXAMPLES WITH QE:
 
   Theory of real closed fields (Tarski 1948):
-    Every formula over (R, 0, 1, +, *, <) is equivalent to a quantifier-free formula.
+    Every formula over (R, 0, 1, ., *, <) is equivalent to a quantifier=free formula.
     Consequence: RCF is decidable. (Cylinder Algebraic Decomposition is the algorithm.)
     Example: Exists y. y^2 = x  ===  x >= 0  (quantifier-free!)
 
@@ -267,7 +286,7 @@ a quantifier-free formula.
     (This is the model-theoretic view of the Hilbert Nullstellensatz.)
 
   Presburger arithmetic (Presburger 1929):
-    Every formula over (N, 0, 1, +) has QE with divisibility predicates.
+    Every formula over (N, 0, 1, .) has QE with divisibility predicates.
     Consequence: Presburger arithmetic is decidable.
 
   NO QUANTIFIER ELIMINATION:
@@ -305,7 +324,7 @@ Given structures M_i indexed by I, and ultrafilter U on I:
   Domain: equivalence classes of functions f: I -> union(D_{M_i})
   under the equivalence: f ~ g  iff  {i : f(i) = g(i)} in U
 
-  Interpret P([f1],...,[fk]) iff  {i : M_i |= P(f1(i),...,fk(i))} in U
+  Interpret P([f1],...,[fk]) iff  {i : M_i != P(f1(i),...,fk(i))} in U
 ```
 
 ### Łoś's Theorem
@@ -313,10 +332,10 @@ Given structures M_i indexed by I, and ultrafilter U on I:
 ```
   LOS'S THEOREM (fundamental theorem of ultraproducts):
   For any sentence phi:
-    M^I/U |= phi   iff   {i : M_i |= phi} in U
+    M^I/U != phi   iff   {i : M_i != phi} in U
 
   If all M_i are the same structure M:
-    M^I/U |= phi   iff   M |= phi
+    M^I/U != phi   iff   M != phi
 
   (Ultrapower of M satisfies the same sentences as M.)
 ```
@@ -324,7 +343,7 @@ Given structures M_i indexed by I, and ultrafilter U on I:
 **Application — Compactness from Łoś:**
 ```
   If every finite subset of T has a model:
-  Index the models by finite subsets: for each S, M_S |= S.
+  Index the models by finite subsets: for each S, M_S != S.
   Form ultraproduct over a suitable ultrafilter.
   Łoś's theorem gives the ultraproduct satisfies all of T.
 ```
@@ -333,7 +352,7 @@ Given structures M_i indexed by I, and ultrafilter U on I:
 ```
   Take ultrapowers of R: R* = R^N/U (non-principal U).
   R* is an ordered field containing infinitesimals: epsilon with 0 < epsilon < 1/n for all n in N.
-  R* |= same first-order sentences as R (by Łoś).
+  R* != same first-order sentences as R (by Łoś).
   This is the rigorous foundation of Robinson's non-standard analysis.
 ```
 
@@ -343,8 +362,8 @@ Given structures M_i indexed by I, and ultrafilter U on I:
 
 ```
   CRAIG INTERPOLATION THEOREM:
-  If phi |= psi, then there exists chi (over the common signature of phi and psi) such that:
-    phi |= chi  and  chi |= psi
+  If phi != psi, then there exists chi (over the common signature of phi and psi) such that:
+    phi != chi  and  chi != psi
 
   chi uses only the non-logical symbols shared by phi and psi.
 

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\01-PROPOSITIONAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 92,
+      "heading_context": "## Semantics: Truth Tables",
+      "headers": [
+        "phi",
+        "v(phi)"
+      ],
+      "rows": [
+        [
+          "p",
+          "v(p)"
+        ],
+        [
+          "top",
+          "1"
+        ],
+        [
+          "bot",
+          "0"
+        ],
+        [
+          "neg phi",
+          "1 - v(phi)"
+        ],
+        [
+          "phi land psi",
+          "min(v(phi), v(psi))"
+        ],
+        [
+          "phi lor psi",
+          "max(v(phi), v(psi))"
+        ],
+        [
+          "phi -> psi",
+          "0 iff v(phi)=1 and v(psi)=0, else 1"
+        ],
+        [
+          "phi <-> psi",
+          "1 iff v(phi) = v(psi)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 344,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Check if formula is satisfiable",
+          "DPLL / CDCL SAT solver (e.g., Z3, CaDiCaL)"
+        ],
+        [
+          "Convert to CNF without blowup",
+          "Tseitin transformation"
+        ],
+        [
+          "Check tautology",
+          "Check UNSAT of negation"
+        ],
+        [
+          "Check equivalence of two formulas",
+          "Check UNSAT of (phi XOR psi)"
+        ],
+        [
+          "Represent Boolean function canonically",
+          "ROBDD"
+        ],
+        [
+          "Prove propositional validity via rules",
+          "Resolution refutation"
+        ],
+        [
+          "Decide 2-SAT efficiently",
+          "SCC on implication graph"
+        ],
+        [
+          "Work with Horn clauses",
+          "Unit propagation (linear time)"
+        ]
+      ]
+    }
+  ]
+}
