@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistics-applied:experimental-design
+kind: guide
+module: statistics-applied
+section: statistics-applied
+title: Experimental Design - RCTs, Power Analysis, Factorial, Blocking
+status: source-custody
+source_custody: partial
+current_path: statistics-applied/01-EXPERIMENTAL-DESIGN.md
+canonical_path: statistics-applied/01-EXPERIMENTAL-DESIGN.md
+backsource_ids: [proof-backfill:statistics-applied:01-experimental-design, git-history:statistics-applied:01-experimental-design]
+concepts: [experimental, design]
+root_concepts: [experimental, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Experimental Design — RCTs, Power Analysis, Factorial, Blocking
 
 ## The Big Picture

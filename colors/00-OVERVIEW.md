@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:overview
+kind: guide
+module: colors
+section: colors
+title: Color - Overview
+status: source-custody
+source_custody: partial
+current_path: colors/00-OVERVIEW.md
+canonical_path: colors/00-OVERVIEW.md
+backsource_ids: [proof-backfill:colors:00-overview, git-history:colors:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color — Overview
 
 ## The Layered Problem
@@ -7,15 +26,15 @@
 |                    WHAT COLOR ACTUALLY IS                        |
 |                                                                  |
 |  LAYER 1: PHYSICS                                                |
-|  Electromagnetic radiation, 380–700 nm                          |
-|  Spectral power distribution (SPD) of light source              |
+|  Electromagnetic radiation, 380–700 nm                           |
+|  Spectral power distribution (SPD) of light source               |
 |  Spectral reflectance of surface                                 |
 |  → Objective, measurable, wavelength-specific                    |
 |                                                                  |
 |  LAYER 2: PHYSIOLOGY                                             |
-|  Three cone types (L/M/S) in retina                             |
+|  Three cone types (L/M/S) in retina                              |
 |  Opponent-channel encoding (red-green, blue-yellow, light-dark)  |
-|  → 3D compression of infinite spectral information              |
+|  → 3D compression of infinite spectral information               |
 |                                                                  |
 |  LAYER 3: PERCEPTION                                             |
 |  Brain constructs color experience                               |
@@ -183,15 +202,15 @@ WHAT THIS MEANS IN PRACTICE:
 |                        | research; perceptually uniform spacing;  |
 |                        | 3D: Hue / Value / Chroma                 |
 +------------------------+------------------------------------------+
-| CIE XYZ / xyY (1931)  | Measurement, device characterization;   |
+| CIE XYZ / xyY (1931)  | Measurement, device characterization;     |
 |                        | foundation for everything else;          |
 |                        | NOT perceptually uniform                 |
 +------------------------+------------------------------------------+
-| CIELAB / L*a*b* (1976)| Color difference measurement (ΔE);      |
+| CIELAB / L*a*b* (1976)| Color difference measurement (Delta E);   |
 |                        | industrial tolerancing; perceptually     |
 |                        | (approximately) uniform                  |
 +------------------------+------------------------------------------+
-| sRGB                   | Screens, web, consumer images;          |
+| sRGB                   | Screens, web, consumer images;           |
 |                        | default assumption for most digital      |
 |                        | content; ~35% of CIE gamut               |
 +------------------------+------------------------------------------+

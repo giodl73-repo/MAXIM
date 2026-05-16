@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:color-physics
+kind: guide
+module: colors
+section: colors
+title: Color Physics - Light, Wavelength, and Why Objects Have Color
+status: source-custody
+source_custody: partial
+current_path: colors/01-COLOR-PHYSICS.md
+canonical_path: colors/01-COLOR-PHYSICS.md
+backsource_ids: [proof-backfill:colors:01-color-physics, git-history:colors:01-color-physics]
+concepts: [color, physics]
+root_concepts: [color, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color Physics — Light, Wavelength, and Why Objects Have Color
 
 ## The Big Picture

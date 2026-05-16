@@ -1,0 +1,92 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistics-applied\\05-RELIABILITY-SPC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 444,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What does Weibull β < 1 indicate?",
+          "Infant mortality — decreasing failure rate. Fix: burn-in testing before shipping. β=1: exponential (random failures). β>1: wear-out (increasing failure rate)."
+        ],
+        [
+          "What is η in Weibull?",
+          "Scale parameter (characteristic life) = time at which 63.2% of units have failed (since F(η) = 1 − e⁻¹ ≈ 0.632 regardless of β)."
+        ],
+        [
+          "What is Cpk = 1.33 in practical terms?",
+          "4σ between mean and each spec limit. Defect rate ≈ 64 PPM (if centered). Minimum acceptable for most industrial manufacturing. Below 1.0: process is barely fitting spec."
+        ],
+        [
+          "What does SPC distinguish?",
+          "Common cause variation (inherent, stable, do not tamper) vs special cause variation (assignable event → investigate and eliminate)."
+        ],
+        [
+          "What is tampering?",
+          "Adjusting a process in response to common cause variation — increases total variation rather than reducing it. Deming's funnel experiment demonstrates this."
+        ],
+        [
+          "What is MTTF vs MTBF?",
+          "MTTF: mean time to failure for non-repairable units. MTBF: mean time between failures for repairable systems. Availability = MTBF/(MTBF+MTTR)."
+        ],
+        [
+          "Five nines availability = how much downtime per year?",
+          "99.999% = 5.26 minutes per year downtime."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 458,
+      "heading_context": "## CS and Systems Bridges",
+      "headers": [
+        "Reliability / SPC concept",
+        "CS / systems analogue"
+      ],
+      "rows": [
+        [
+          "Control chart (Shewhart X̄/R chart)",
+          "Statistical process monitoring: control limits (±3σ from process mean) are the principled foundation for alert thresholds in application monitoring — the rules for detecting special causes (8 consecutive points above mean, 2 of 3 beyond 2σ) are exactly the alert sensitivity/specificity tradeoffs in SLO monitoring"
+        ],
+        [
+          "Common cause vs special cause variation",
+          "Noise vs signal in telemetry: common cause = intrinsic system variability (do not alert, do not adjust); special cause = assignable event (alert, investigate, eliminate) — tampering on common cause variation increases total variance, the same as over-eager autoscaling on random load spikes"
+        ],
+        [
+          "CUSUM / EWMA charts",
+          "Sequential change-point detection: CUSUM accumulates signed deviations to detect sustained shifts; EWMA exponentially weights recent observations — both are streaming anomaly detectors equivalent to those in time-series monitoring frameworks"
+        ],
+        [
+          "Weibull β < 1 (infant mortality)",
+          "Burn-in period / early-life failure: high initial failure rate that decreases over time — the statistical basis for burn-in testing hardware before deployment; in software, analogous to canary deployment catching integration failures that only manifest early in a component's operating life"
+        ],
+        [
+          "Weibull β = 1 (random failures, constant hazard)",
+          "Memoryless Poisson process: failures arrive at constant rate regardless of age; service request arrivals and hardware random failures both follow this; exponential inter-arrival times, constant MTBF"
+        ],
+        [
+          "Weibull β > 1 (wear-out)",
+          "Aging degradation: failure rate increases with age — storage device write endurance, battery cycle life, mechanical wear; reliability-centered maintenance (replace before wear-out inflection) mirrors proactive infrastructure replacement before MTTF distribution tail"
+        ],
+        [
+          "Six Sigma (3.4 DPMO, Cpk = 1.5)",
+          "Quality SLO: the \"five nines\" (99.999%) of manufacturing; 3.4 DPMO ≈ 0.00034% defect rate; Cpk = 1.5 is the process capability target — directly analogous to software availability SLAs and error budgets, where the allowed failure rate is the spec limit"
+        ],
+        [
+          "FMEA (Failure Mode and Effects Analysis)",
+          "Fault tree / threat model: systematic enumeration of failure modes, each with severity × probability → RPN (Risk Priority Number); prioritizes reliability investment — identical structure to security threat modeling (threat × impact × likelihood)"
+        ],
+        [
+          "Availability = MTBF/(MTBF+MTTR)",
+          "SLO availability budget: MTBF is the average up-time interval; MTTR is the average repair time; higher MTTR shrinks availability even with identical MTBF — the operational implication is that fast recovery (deployment speed, automated rollback) contributes as much to availability as failure prevention"
+        ]
+      ]
+    }
+  ]
+}

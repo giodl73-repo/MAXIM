@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistics-applied:bayesian-practice
+kind: guide
+module: statistics-applied
+section: statistics-applied
+title: Bayesian Practice - Stan/PyMC, MCMC, Priors, Hierarchical Models
+status: source-custody
+source_custody: partial
+current_path: statistics-applied/04-BAYESIAN-PRACTICE.md
+canonical_path: statistics-applied/04-BAYESIAN-PRACTICE.md
+backsource_ids: [proof-backfill:statistics-applied:04-bayesian-practice, git-history:statistics-applied:04-bayesian-practice]
+concepts: [bayesian, practice]
+root_concepts: [bayesian, practice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bayesian Practice — Stan/PyMC, MCMC, Priors, Hierarchical Models
 
 ## The Big Picture

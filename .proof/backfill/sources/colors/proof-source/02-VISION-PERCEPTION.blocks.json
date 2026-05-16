@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "colors\\02-VISION-PERCEPTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              HOW THE EYE AND BRAIN CONSTRUCT COLOR               |\n|                                                                  |\n|  STEP 1: RETINAL SAMPLING (photoreceptors)                       |\n|  ~6M cones: L (peak 564nm), M (534nm), S (420nm)                 |\n|  ~120M rods: single type, peak 498nm, no color discrimination    |\n|  → 3D compression: infinite spectrum → 3 numbers (LMS)           |\n|                                                                  |\n|  STEP 2: OPPONENT ENCODING (horizontal cells → ganglion cells)   |\n|  Channel 1: L − M  (red-green axis)                              |\n|  Channel 2: (L+M) − S  (yellow-blue axis)                        |\n|  Channel 3: L + M + S  (luminance, light-dark)                   |\n|  → 3 channels transmitted to brain via optic nerve               |\n|                                                                  |\n|  STEP 3: CORTICAL PROCESSING (V1, V4, etc.)                      |\n|  Color constancy adjustments (for illuminant)                    |\n|  Context effects (simultaneous contrast)                         |\n|  → Perceptual color experience constructed                       |\n|                                                                  |\n|  KEY: Color is computed, not measured. The brain is              |\n|  solving an inference problem: \"given these cone signals,        |\n|  what are the likely surface reflectances under this illuminant? |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 54,
+      "heading_context": "## The Three Cone Types",
+      "confidence": "candidate",
+      "text": "CONE PHOTOPIGMENTS (opsins):\n  Each cone contains one opsin protein + 11-cis-retinal chromophore\n  Photon absorbed → retinal isomerizes → opsin changes shape → signal cascade\n\n  L-cone (OPN1LW): peak sensitivity ~564 nm (\"red\")\n  M-cone (OPN1MW): peak sensitivity ~534 nm (\"green\")\n  S-cone (OPN1SW): peak sensitivity ~420 nm (\"blue\")\n\n  CRITICAL DETAIL: L and M cones are nearly overlapping\n  +--------------+------------+------------+-----------+\n  |              | L-cone     | M-cone     | S-cone    |\n  +--------------+------------+------------+-----------+\n  | Peak (nm)    | 564        | 534        | 420       |\n  | Overlap      | Heavy L/M overlap       | Separate  |\n  | Count        | ~60%       | ~30%       | ~10%      |\n  | Density      | Densely packed in fovea            |\n  +--------------+------------------------------------+\n\n  IMPLICATION:\n  L-M signal (red-green) distinguishes very similar curves → poor for isoluminant\n  L+M signal (luminance) is very robust\n  S signal (blue-yellow) is separate but coarsely sampled\n\n  Why red-green color blindness is common:\n  L and M opsin genes are adjacent on X chromosome → tandem duplication errors\n  → X-linked inheritance (8% of males, 0.5% females)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Trichromacy (Young-Helmholtz Theory, ~1800-1860)",
+      "confidence": "candidate",
+      "text": "PRINCIPLE:\n  Any visible color can be matched by a mixture of three primaries\n  → Because there are only 3 cone types, 3 numbers describe any color\n  → The CIE XYZ system is the formalization of this\n\n  \"Color matching functions\": x̄(λ), ȳ(λ), z̄(λ)\n  Derived from Guild/Wright experiments (1920s): human observers matched\n  monochromatic test lights by mixing three primaries\n\nWHAT TRICHROMACY ENABLES:\n  RGB monitors: 3 primaries (R, G, B LEDs/phosphors) can match perceptually\n  any color within their gamut → because humans only have 3 cone channels\n\n  A mantis shrimp (16 photoreceptor types) would see through a monitor:\n  it would see 16 primaries and know it's looking at a fake.\n  For humans with 3 cone types, 3 primaries suffice.\n\nWHAT TRICHROMACY DOESN'T MEAN:\n  \"Three primaries can reproduce all visible colors\" — FALSE\n  Three primaries span a triangular gamut on the CIE diagram\n  Colors outside the triangle are out-of-gamut → cannot be reproduced\n  No set of 3 real primaries covers the full CIE diagram\n  (The horseshoe has a curved boundary; triangles only inscribe it)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Opponent Process Theory (Hering, 1878)",
+      "confidence": "candidate",
+      "text": "OBSERVATION (Ewald Hering):\n  Colors appear in opponent pairs:\n  Red vs Green: you can have reddish-yellow, reddish-blue, but not reddish-green\n  Yellow vs Blue: you can have yellowish-red, yellowish-green, but not yellowish-blue\n  Light vs Dark: luminance axis\n\n  These opponent pairs are mutually exclusive at extremes:\n  → \"Reddish-green\" doesn't exist as a color experience\n  → \"Yellowish-blue\" doesn't exist as a color experience\n  (unique hues: red, green, yellow, blue — cannot be \"seen in\" each other)\n\nNEURAL BASIS (confirmed ~1950s):\n  After cones, neurons encode opponent contrasts:\n\n  L − M → RED-GREEN axis\n    L > M → signal = red\n    M > L → signal = green\n    In balance → achromatic (no red-green)\n\n  (L+M) − S → YELLOW-BLUE axis\n    L+M > S → signal = yellow\n    S > L+M → signal = blue\n    In balance → achromatic\n\n  L + M + S → LUMINANCE (brightness)\n\nEXPLAINS:\n  1. Afterimages: stare at red → L channel fatigues → see green afterimage\n     (opponent neutralized; M channel's baseline perceived as green)\n  2. \"Unique hues\": unique yellow = balance of L/M channels, pure S-stimulation\n  3. Simultaneous contrast: gray on red field looks greenish (L-M contrast enhanced)\n  4. Why complementary colors \"cancel\" to gray (additive mixing)\n  5. Color blindness phenotypes follow opponent-channel lines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Metamerism",
+      "confidence": "candidate",
+      "text": "DEFINITION:\n  Two stimuli with DIFFERENT spectral power distributions\n  that produce IDENTICAL LMS cone responses\n  → Appear identical to a human under given conditions\n  → Appear DIFFERENT under different conditions\n\nFORMAL: Two spectral reflectances R₁(λ) and R₂(λ) are metamers if:\n  ∫ R₁(λ)·L(λ)·I(λ) dλ = ∫ R₂(λ)·L(λ)·I(λ) dλ  (L-cone match)\n  and same for M and S\n  Where I(λ) = illuminant SPD\n\nCHANGE THE ILLUMINANT:\n  ∫ R₁(λ)·L(λ)·I'(λ) dλ ≠ ∫ R₂(λ)·L(λ)·I'(λ) dλ\n  → They no longer match!\n\nINDUSTRIAL PROBLEM:\n  Paint batch #1 and batch #2 matched under factory fluorescent\n  Customer sees them under incandescent → they look different\n  → \"Metameric mismatch\" — real quality control failure\n\n  Solutions:\n  • Measure spectrally (spectrophotometer), not visually\n  • Formulate to minimize metameric index (MI)\n  • Use same pigments/dyes to minimize divergence\n\nCAMERA METAMERISM:\n  Camera sensor (RGB filters) ≠ human L/M/S response curves\n  Colors that match visually may not match in camera\n  Colors that match in camera may not match visually\n  → Why cameras need colorimetric correction matrices\n\nILLUMINANT METAMERISM IN ART:\n  Old masters viewed works by candlelight (~2000K)\n  Museums use daylight or 3200K spotlights\n  Different illuminants → some colors appear different from intended\n  Cannot be fully corrected (the original spectral conditions are unknown)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Simultaneous Contrast",
+      "confidence": "candidate",
+      "text": "PHENOMENON:\n  The perceived color/lightness of a region depends on its surroundings.\n\n  LIGHTNESS CONTRAST:\n  Same gray patch on white background → appears darker\n  Same gray patch on black background → appears lighter\n  Weber's law operates locally: JND ∝ background luminance\n\n  COLOR CONTRAST:\n  Same gray on red background → appears slightly greenish\n  Same gray on green background → appears slightly reddish\n  Opponent channels: local L-M signal adjusted relative to surround\n\nCHEVREUL (1839) — DISCOVERED FOR TEXTILES:\n  Michel Eugène Chevreul at Gobelin tapestry factory\n  Noticed adjacent colored threads appeared to shift each other's color\n  \"De la loi du contraste simultané des couleurs\" (1839)\n  Influenced Impressionists (Seurat specifically applied Chevreul's principles)\n\nJOSEF ALBERS — INTERACTION OF COLOR (1963):\n  Systematic pedagogical exploration: same color appears different in context\n  Famous \"nested squares\" demonstrations\n  Yale Bauhaus tradition: perceptual training before color theory\n\nSIMULTANEOUS CONTRAST IN DESIGN:\n  Red CTA button on green background: vibration effect, hard to read\n  Pure complementary pairings: maximum vibration, usually unpleasant\n  Analogous colors: low contrast, harmonious, less demanding\n  High-saturation adjacent complements: use in small amounts for accents\n\n\"THE DRESS\" (2015 INTERNET DEBATE):\n  Blue/black dress appearing white/gold to ~30% of people\n  → Color constancy failure: ambiguous illumination prior\n  People with \"outdoor\" prior (cool shadow illusion) see blue/black\n  People with \"indoor\" prior (warm light illusion) see white/gold\n  Actual dress: blue/black (Lace by Roman)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Color Constancy",
+      "confidence": "candidate",
+      "text": "PHENOMENON:\n  A white piece of paper looks white under:\n  • Midday sunlight (D65, 6500K)\n  • Incandescent light (2700K, much more red)\n  • Fluorescent office light (3500K, spiky spectrum)\n\n  Despite radically different actual light reaching the eye from that paper.\n\nMECHANISM (Von Kries model, approximate):\n  Brain estimates illuminant color from scene statistics\n  Divides cone responses by estimated illuminant\n  → Normalizes away the illuminant tint\n  → Surfaces appear with their \"true\" color\n\n  More complete models (CIECAM02, etc.) account for:\n  • Chromatic adaptation (cone sensitivity gain control)\n  • Background/surround effects\n  • Luminance level effects (Hunt effect: saturation increases with luminance)\n\nLIMITS OF CONSTANCY:\n  • Ambiguous illuminant cues → constancy fails\n  • Novel light sources (sodium vapor, monochromatic) → colors desaturate\n  • The Dress: ambiguous whether dress is in shadow (cool) or direct light (warm)\n  • Works of art under museum lighting ≠ original intended illuminant\n\nADAPTATION IN PRACTICE:\n  Entering dark room: ~20 min dark adaptation (rods adapt)\n  Entering bright light: few seconds (cones overwhelmed, then recover)\n  Chromatic adaptation: stare at red field → red channel desensitizes →\n    white appears greenish briefly → readapts within seconds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 280,
+      "heading_context": "## Color Blindness",
+      "confidence": "candidate",
+      "text": "PREVALENCE:\n  Red-green: 8% males, 0.5% females (X-linked)\n  Blue-yellow (tritanopia): ~0.01% (autosomal, chromosome 7)\n  Complete (achromatopsia): ~0.003% (rod monochromacy)\n\nTYPES:\n+------------------+------------------+-------------------------------+\n| TYPE             | MECHANISM        | EFFECT                        |\n+------------------+------------------+-------------------------------+\n| Protanopia       | L-cones missing  | Red-green confusion; reds dim |\n| Deuteranopia     | M-cones missing  | Red-green confusion; no lumen |\n| Protanomaly      | L-cones shifted  | Reduced red-green             |\n| Deuteranomaly    | M-cones shifted  | Reduced red-green (common)    |\n| Tritanopia       | S-cones missing  | Blue-yellow confusion         |\n| Achromatopsia    | Cones absent     | Grayscale; photophobia        |\n+------------------+------------------+-------------------------------+\n\nDESIGN IMPLICATIONS:\n  Never use red/green alone for information transmission\n  Safe: blue/orange, purple/yellow, colorblind-safe palettes (Okabe-Ito)\n  Test with tools: Sim Daltonism, Coblis, browser devtools accessibility\n\n  % of population affected:\n  8% of male users cannot distinguish red from green\n  For any product with millions of users: millions are red-green blind\n  Not an edge case — a large population\n\nISHIHARA PLATES:\n  Standard 38-plate test for red-green CVD\n  Pseudoisochromatic: number hidden in colored dot pattern\n  Cannot detect blue-yellow CVD (different plates needed)\n  Pass rate for protan: ~20% of normal plates; severe = none\n\nTETRACHROMACY (functional):\n  ~50% of women are carriers of anomalous L/M opsin gene\n  → Some have 4 cone types (two M variants, or L+M variant)\n  → True tetrachromats can distinguish colors trichromats cannot\n  Psychophysically confirmed in a small number of subjects\n  Congenitally color-blind mother → tetrachromat daughter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "## Lightness Perception and Gamma",
+      "confidence": "candidate",
+      "text": "WEBER'S LAW (for lightness):\n  Just-noticeable difference (JND) ∝ background luminance\n  → Relative, not absolute: need ~2% change to notice at any level\n\nIMPLICATION FOR DIGITAL ENCODING:\n  Linear encoding (equal bits per unit luminance):\n  → Wastes most bits on bright values (less perceptually useful)\n  → Not enough bits for dark values (most sensitive range)\n\nGAMMA ENCODING (perceptual quantization):\n  Encode: encoded = linear^(1/γ)  (γ ≈ 2.2 for sRGB)\n  Decode: linear = encoded^γ\n  → More bits allocated to dark range → fewer visible banding artifacts\n\n  PERCEPTUAL LIGHTNESS (CIE L*):\n  L* = 116 × (Y/Yn)^(1/3) − 16  (for Y/Yn > 0.008856)\n  → Cube-root transformation of luminance Y\n  → Perceptually uniform: ΔL* = 1 ≈ 1 JND throughout range\n  → This is why CIELAB is the right space for computing color differences\n\nGAMMA BUG IN 3D RENDERING (very common):\n  Problem: texture authored in sRGB (gamma-encoded)\n  Mistake: use that texture directly in lighting calculations (linear space needed)\n  Result: lighting calculations wrong (too dark in midtones, wrong specularity)\n  Fix: gamma-correct (linearize) textures before lighting; re-apply gamma before display\n  → Called \"linear workflow\" or \"physically based rendering workflow\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

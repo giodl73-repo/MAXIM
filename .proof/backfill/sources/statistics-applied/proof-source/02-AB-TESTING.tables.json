@@ -1,0 +1,209 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistics-applied\\02-AB-TESTING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 97,
+      "heading_context": "## Metric Taxonomy",
+      "headers": [
+        "Type",
+        "Purpose",
+        "Example",
+        "If violated / regresses"
+      ],
+      "rows": [
+        [
+          "Guardrail",
+          "Do no harm — hard stop",
+          "p99 latency, crash rate, core DAU",
+          "Block ship regardless of primary metric win"
+        ],
+        [
+          "Primary / OEC",
+          "Ship/no-ship decision (one metric)",
+          "Session conversion rate, revenue",
+          "Treatment wins iff statistically significant improvement"
+        ],
+        [
+          "Secondary / diagnostic",
+          "Explain primary movement",
+          "Add-to-cart rate, funnel stages",
+          "Informational only — not decision criteria"
+        ],
+        [
+          "North star",
+          "Long-term company health (too noisy for per-experiment detection)",
+          "Weekly active users, LTV",
+          "Validated via proxy: does proxy moving actually move north star?"
+        ],
+        [
+          "Ratio metric",
+          "Normalized engagement (CTR, AOV)",
+          "clicks/session, revenue/visitor",
+          "Use delta method for variance; naive variance is wrong"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 107,
+      "heading_context": "## Metric Taxonomy",
+      "headers": [
+        "Dimension",
+        "A/B Test",
+        "Multi-Armed Bandit"
+      ],
+      "rows": [
+        [
+          "Allocation during experiment",
+          "Fixed 50/50 (equal exploration)",
+          "Adaptive — shifts toward better arm"
+        ],
+        [
+          "Primary objective",
+          "Estimate causal effect",
+          "Minimize regret during exploration"
+        ],
+        [
+          "Treatment effect estimate",
+          "Unbiased",
+          "Biased (arms selected more after looking good)"
+        ],
+        [
+          "Use case",
+          "Clean causal knowledge, feature launch, guardrail checking",
+          "Many variants, ad creative, recommendation selection"
+        ],
+        [
+          "Statistical framework",
+          "Frequentist / anytime-valid inference",
+          "Bayesian (Thompson) or frequentist (UCB)"
+        ],
+        [
+          "Interference detection",
+          "Full SRM checks, SUTVA auditing",
+          "Not standard"
+        ],
+        [
+          "When NOT to use",
+          "(rarely wrong choice for serious decisions)",
+          "When you need a causal estimate or regulatory rigor"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 430,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "To deepen...",
+        "See"
+      ],
+      "rows": [
+        [
+          "Experimental-design assumptions beneath A/B tests",
+          "`statistics-applied/01-EXPERIMENTAL-DESIGN.md`"
+        ],
+        [
+          "Bayesian decision rules for experiments",
+          "`statistics-applied/04-BAYESIAN-PRACTICE.md`"
+        ],
+        [
+          "Product nudges as experiment targets",
+          "`behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md`"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 440,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Sample Ratio Mismatch",
+          "Assignment-count invariant failure: logging, bots, survivorship, or bucketing bug",
+          "Do not analyze through SRM; fix the pipeline first."
+        ],
+        [
+          "CUPED opportunity",
+          "Pre-experiment covariate correlation and variance reduction `1 - rho^2`",
+          "CUPED improves precision but does not create causal identification."
+        ],
+        [
+          "Novelty versus primacy",
+          "Time-decaying engagement inflation versus disruption penalty",
+          "Both can coexist; duration and ramp design determine detectability."
+        ],
+        [
+          "Bandit suitability",
+          "Thompson sampling for regret minimization with many variants and high throughput",
+          "Bandits bias effect estimates; use A/B tests for clean causal knowledge."
+        ],
+        [
+          "Multiple testing risk",
+          "Expected false positives across metrics, variants, and segments",
+          "Post-hoc subgroup discoveries need fresh validation."
+        ],
+        [
+          "Continuous monitoring",
+          "mSPRT or other anytime-valid inference",
+          "Plain `p < 0.05` peeking is not anytime-valid."
+        ],
+        [
+          "Cluster randomization",
+          "Design effect from cluster size and ICC",
+          "Raw observation count can be misleading by 2-5x or worse."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 454,
+      "heading_context": "## CS and Systems Bridges",
+      "headers": [
+        "A/B testing concept",
+        "CS / systems analogue"
+      ],
+      "rows": [
+        [
+          "Assignment via hash(user_id + experiment_id)",
+          "Deterministic sharding: the same input always produces the same shard — consistent, sticky assignment with no central state; identical to consistent hashing for cache or load-balancer routing"
+        ],
+        [
+          "Feature flag gates (config, not deploy)",
+          "Feature toggles / dark launches: the treatment is a runtime config change, not a code deployment — same operational model used in continuous delivery to decouple deploy from release"
+        ],
+        [
+          "SRM detection (chi-squared on assignment counts)",
+          "Data pipeline integrity check: SRM is an invariant violation in the logging pipeline; detecting it is equivalent to running a checksum on pipeline output — the statistical test is the audit"
+        ],
+        [
+          "Guardrail metrics (hard stop on regression)",
+          "Service-level objectives (SLOs) with automated rollback: p99 latency or error rate guardrails are structurally identical to SLO breach alerts that trigger automatic traffic reversal"
+        ],
+        [
+          "CUPED (regress out pre-experiment covariate)",
+          "Control variate in Monte Carlo simulation: reduce variance by subtracting a correlated known quantity — the reduction factor is (1-ρ²), same as variance reduction from control variates in numerical integration"
+        ],
+        [
+          "mSPRT / anytime-valid inference",
+          "Streaming analytics with valid stopping: computes a likelihood ratio that is a valid test statistic at every sample size, enabling continuous monitoring without type I error inflation — analogous to online algorithms that maintain invariants at every step"
+        ],
+        [
+          "Multiple testing (Bonferroni / BH)",
+          "Multiple comparison correction in benchmarking: testing 20 performance metrics against a baseline requires family-wise error rate control to avoid false regressions; same methods apply"
+        ],
+        [
+          "Causal forests / Double ML for HTE",
+          "Heterogeneous subgroup analysis with ML: modern CATE estimation methods (grf, econml) replace the naive \"split by segment\" approach with calibrated, uncertainty-aware effect estimates — reduces false discovery in personalization"
+        ]
+      ]
+    }
+  ]
+}

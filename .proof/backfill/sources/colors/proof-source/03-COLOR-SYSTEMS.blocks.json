@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "colors\\03-COLOR-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|           COLOR SYSTEMS: PURPOSE AND GENEALOGY                   |\n|                                                                  |\n|  PERCEPTUAL SYSTEMS (organized by how humans see)                |\n|  Munsell (1905): 3D Hue/Value/Chroma — art/soil/design           |\n|  NCS (1979): opponent-color model — Scandinavian architecture    |\n|                                                                  |\n|  MEASUREMENT SYSTEMS (physics → numbers)                         |\n|  CIE XYZ (1931): tristimulus values from color-matching funcs    |\n|  CIE xyY (1931): chromaticity + luminance (2D horseshoe diagram) |\n|                                                                  |\n|  UNIFORM PERCEPTUAL SPACES (physics → equal-step perception)     |\n|  CIELAB (1976): L*a*b*, ΔE color difference standard             |\n|  CIELUV (1976): alternative, better for self-luminous displays   |\n|  OKLab (2020): improved uniform space (modern CSS default)       |\n|                                                                  |\n|  DEVICE SPACES (encode for specific output hardware)             |\n|  sRGB (1996): screens, internet — D65 white, γ=2.2               |\n|  Adobe RGB (1998): print preparation — wider gamut               |\n|  Display P3 (2015): modern displays — ~26% wider than sRGB       |\n|  Rec.2020 (2012): UHD/HDR standard — 76% of CIE gamut            |\n|                                                                  |\n|  INDUSTRY COMMUNICATION SYSTEMS (physical sample catalogs)       |\n|  Pantone PMS: spot inks, proprietary                             |\n|  RAL: European industrial/construction                           |\n|  NCS: Scandinavian design                                        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "ALBERT H. MUNSELL (1858–1918): American artist and art teacher\nPublished \"A Color Notation\" (1905) — the first systematic perceptual color system\n\nTHREE AXES:\n\nHUE (H): which color family\n  5 principal: R, Y, G, B, P\n  5 intermediate: YR, GY, BG, PB, RP\n  → 10 major hues, each subdivided 1-10 (so 5R, 10R, etc.)\n  → 100 hue steps total (40 are commonly used)\n  Arranged in a circle; opposite hues are complementary\n\nVALUE (V): lightness\n  0 = ideal black (no light)\n  10 = ideal white (all light)\n  Scale is visually equal-interval\n  Grays: N 0/ through N 10/\n\nCHROMA (C): saturation/purity (distance from neutral gray)\n  0 = neutral gray (no saturation)\n  Maximum varies by hue and value (not uniform)\n  → Yellows: chroma can reach ~16\n  → Blues: chroma stops at ~10 for mid-value\n  → Shape of Munsell solid is IRREGULAR (not sphere or cylinder)\n     because achievable chroma is hue- and value-dependent\n\nNOTATION: H V/C\n  Example: 5R 4/14 = hue 5R (pure red), value 4, chroma 14 (vivid red)\n           10GY 7/4 = yellow-green, light, moderate saturation\n           N 5/ = neutral gray, mid-lightness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### Why Munsell Matters",
+      "confidence": "candidate",
+      "text": "PERCEPTUAL SPACING:\n  Munsell was the first to achieve equal perceived color steps\n  (empirically derived from observer experiments, not calculation)\n  → Moving one unit in any direction = equal perceived change\n  This is the original data set that CIE later tried to formalize\n\nAPPLICATIONS:\n  Soil science: Munsell Soil Color Charts (still standard in pedology)\n  Paint industry: historical paint matching system\n  Color research: defining \"color categories\" experimentally\n  Forensics: tooth/skin color matching\n  Archaeology: ceramic color description\n\nMUNSELL vs OTHER SYSTEMS:\n  Munsell value 0-10 ≠ CIE L* 0-100 (but related: L* ≈ 10×V roughly)\n  Munsell chroma ≠ CIELAB chroma C*ab (different scale)\n  Munsell hue circle ≠ CIELAB hue angle (different distortions)\n  → Convert between via lookup tables (CIE H 18-1983 provides mappings)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### The Color Matching Experiment",
+      "confidence": "candidate",
+      "text": "EXPERIMENT (Guild, Wright, 1920s):\n  Human observers adjusted 3 primaries (R, G, B at fixed wavelengths)\n  to match monochromatic test light at each wavelength\n  → Records: how much R, G, B needed to match 1 watt of each wavelength\n\n  PROBLEM: Some wavelengths require \"negative\" amounts of R primary\n  (so vivid cyan can't be matched without \"subtracting\" red)\n  → No physical meaning; mathematical artifact\n\nCIE 1931 FIX:\n  Transform to fictional XYZ primaries (outside physical spectrum)\n  → All real colors have X, Y, Z ≥ 0\n  → Y is defined to equal luminance (useful secondary property)\n\n  Color matching functions:\n  x̄(λ): X-primary response curve\n  ȳ(λ): Y-primary response curve (= luminous efficiency function V(λ))\n  z̄(λ): Z-primary response curve\n\n  TRISTIMULUS VALUES:\n  X = ∫ S(λ) × x̄(λ) dλ\n  Y = ∫ S(λ) × ȳ(λ) dλ  (= luminance)\n  Z = ∫ S(λ) × z̄(λ) dλ\n  Where S(λ) = SPD × reflectance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### CIE Chromaticity Diagram (xy)",
+      "confidence": "candidate",
+      "text": "CHROMATICITY: separate color from luminance\n  x = X / (X+Y+Z)\n  y = Y / (X+Y+Z)\n  z = Z / (X+Y+Z) = 1 − x − y\n\n  (x, y) = chromaticity (2D, normalized, luminance-independent)\n  Y = luminance (add back when needed → xyY space)\n\nTHE HORSESHOE DIAGRAM:\n  Plot (x, y) for all monochromatic wavelengths\n  → Curved boundary from ~380 to 700 nm (spectral locus)\n  Connect endpoints with straight line (the \"line of purples\")\n  → All real colors are inside this boundary\n\n  WHITE POINT D65:\n  x = 0.3127, y = 0.3290 (defined standard daylight illuminant)\n  → Reference white for sRGB, Display P3, Rec.2020\n\n  GAMUT TRIANGLES:\n  RGB display primaries = triangle on the diagram\n  Colors inside triangle = reproducible\n  Colors outside = out-of-gamut\n\nCRITICAL LIMITATION OF CIE XY:\n  Not perceptually uniform\n  Equal distances in xy ≠ equal perceived color differences\n  Green region: huge area for small perceptual difference\n  Blue-violet region: small area for large perceptual difference\n  → Cannot use xy for ΔE color difference calculation (use CIELAB)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## CIELAB (CIE L*a*b*, 1976)",
+      "confidence": "candidate",
+      "text": "PROBLEM CIELAB SOLVES:\n  CIE XYZ is not perceptually uniform\n  Need a space where ΔE (color difference) = 1 → 1 JND everywhere\n\nTRANSFORMATION (nonlinear from XYZ):\n  X₀, Y₀, Z₀ = XYZ of reference white (D65 for sRGB: X₀=95.047, Y₀=100, Z₀=108.883)\n\n  f(t) = t^(1/3)           if t > (6/29)³ ≈ 0.00886\n         (29/6)² × t/3 + 4/29  otherwise (linear near black)\n\n  L* = 116 × f(Y/Y₀) − 16   (lightness, 0=black, 100=white)\n  a* = 500 × [f(X/X₀) − f(Y/Y₀)]  (green- to red+)\n  b* = 200 × [f(Y/Y₀) − f(Z/Z₀)]  (blue- to yellow+)\n\nINTERPRETATION:\n  +a* = red, −a* = green\n  +b* = yellow, −b* = blue\n  L* = 0 (black) to L* = 100 (white)\n  Neutral grays: a* = 0, b* = 0\n\n  Cylindrical form (LCh):\n  C*ab = √(a*² + b*²)  (chroma)\n  h_ab = atan2(b*, a*)  (hue angle, 0-360°)\n  → More intuitive: L* / C*ab / h_ab\n\nCOLOR DIFFERENCE (ΔE):\n  ΔE*ab = √(ΔL*² + Δa*² + Δb*²)  (original 1976 formula)\n\n  INTERPRETATIONS:\n  ΔE < 1.0:  Barely perceptible even to trained observer\n  1.0-2.0:   Acceptable for most applications (printing, textiles)\n  2.0-3.5:   Perceptible to trained observer\n  3.5-5.0:   Obviously different on direct comparison\n  > 5.0:     Obvious even to casual observer; different colors\n\nCIEDE2000:\n  Improved formula accounting for known non-uniformities in CIELAB:\n  • Hue dependency (blue region still non-uniform in L*a*b*)\n  • Chroma dependency\n  • Lightness dependency\n  Much more complex formula; 6 correction terms\n  Standard for textile, paint, plastic color tolerancing\n\nCIELAB LIMITATIONS:\n  Still not perfect (CIEDE2000 needed for improvement)\n  Better than XYZ but not ideal near blue-violet\n  OKLab (Björn Ottosson, 2020) is more uniform but not ISO standard yet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## sRGB (1996)",
+      "confidence": "candidate",
+      "text": "ORIGIN: Joint Microsoft/HP specification, 1996\n  Designed for: consumer monitors, internet, consistent display\n  White point: D65 (x=0.3127, y=0.3290) — standard daylight\n  Gamma: γ = 2.2 (with linear segment near black: sRGB transfer function)\n\nPRIMARIES (CIE xy chromaticities):\n  R: x=0.64, y=0.33\n  G: x=0.30, y=0.60\n  B: x=0.15, y=0.06\n  → Gamut covers ~35% of CIE xy chromaticity diagram\n\nENCODING:\n  Linear: 0.0 to 1.0 physical light intensity\n  Encoded: 0 to 255 (8-bit) with sRGB transfer function applied\n  Transfer function: approximately x^(1/2.2) for x > 0.0031308\n  → Most images stored as encoded sRGB\n\nUBIQUITY:\n  Default for JPEG, PNG (without profile), most web content\n  When no color profile embedded → assume sRGB\n  Monitor default without calibration ≈ sRGB (approximately)\n\nLIMITATIONS:\n  No saturated cyans, magentas, or wide-gamut greens\n  ~65% of CIE gamut is outside sRGB\n  Inadequate for HDR (luminance limited)\n  Professional photography/video outgrew sRGB by early 2000s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "## Display P3 and Rec.2020",
+      "confidence": "candidate",
+      "text": "DISPLAY P3:\n  Origin: DCI-P3 (digital cinema), adapted by Apple for displays\n  White point: D65 (same as sRGB)\n  Different R, G primaries → green shifted toward cyan\n  Gamut: ~25-26% larger than sRGB\n  Dominant on all modern Apple devices (iPhone 7+, MacBook 2016+, iPad Pro)\n  → CSS color(display-p3 r g b) syntax\n\n  Practical gap:\n  sRGB red: R(0.64, 0.33) P3 red: R(0.68, 0.32) — slightly more saturated\n  sRGB green: G(0.30, 0.60) P3 green: G(0.265, 0.690) — significantly more saturated\n  → The extra gamut is mostly in greens (nature photography, sRGB undersaturates)\n\nREC.2020 (BT.2020):\n  ITU-R standard for UHD and HDR broadcast\n  Primaries chosen to be spectrally narrow (near monochromatic) → very wide gamut\n  Gamut: ~76% of CIE chromaticity diagram\n  R: x=0.708, y=0.292  G: x=0.170, y=0.797  B: x=0.131, y=0.046\n\n  PROBLEM: No display currently achieves 100% Rec.2020\n  Best quantum dot displays: ~90%\n  Standard LCD: ~65%\n  → Rec.2020 is a container/future-proofing standard, not current display spec\n\n  Paired with HDR transfer functions:\n  PQ (Perceptual Quantizer, ST 2084): up to 10,000 nits absolute luminance\n  HLG (Hybrid Log-Gamma): backward-compatible with SDR, up to ~1000 nits\n\nPROPHOTO RGB:\n  Even wider than Rec.2020 (~91% of CIE gamut)\n  Used for archival RAW photo storage\n  Most pixels in ProPhoto are outside display gamut → editing-space only\n  Never used for delivery (most content would be outside any display's gamut)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "## Pantone Matching System (PMS)",
+      "confidence": "candidate",
+      "text": "HISTORY:\n  Lawrence Herbert acquired Pantone Inc. (1962)\n  Created standardized spot-ink system for printing industry\n  Problem it solved: \"match my logo red\" across different printers\n\nSTRUCTURE:\n  ~2,100 PMS colors (Pantone 2023 guide)\n  Each has: unique number, substrate designation (C/U/M), ink formulas\n  • C = coated paper (bright, saturated)\n  • U = uncoated paper (softer appearance, same formula)\n  • M = matte paper\n\nPANTONE NUMBER SYSTEM:\n  100-200: yellows and yellow-reds\n  300-400: reds and pinks\n  500-600: magentas and purples\n  700-800: blues and purples\n  900s: mixed/neutral\n  1000s: greens (process-based)\n  Metallic: 8000 series\n  Pastels: 9000 series\n\nPANTONE vs CMYK:\n  Many Pantone colors are OUT of CMYK gamut\n  CMYK is 4-color process (halftone dots of C, M, Y, K)\n  Pantone is SPOT color (premixed ink applied solid)\n  → Vivid orange, vivid green, metallics: only reproducible as Pantone spot\n  → \"Convert to CMYK\" = gamut compression = color shift\n\nPANTONE COLOR OF THE YEAR:\n  Annual declaration since 2000 (Leatrice Eiseman / Pantone Color Institute)\n  2020: Classic Blue (19-4052)\n  2021: Illuminating (yellow) + Ultimate Gray\n  2022: Very Peri (17-3938) — periwinkle blue-violet\n  2023: Viva Magenta (18-1750)\n  2024: Peach Fuzz (13-1023)\n  Cultural signaling → influence on fashion, interior design, packaging\n\nPANTONE vs COMPETITORS:\n  RAL: German standard, more common in industrial/construction Europe\n  Federal Standard 595: US government/military\n  NCS: Natural Color System (Scandinavian)\n  Toyo: Japanese printing system\n  DIC: Japanese design system",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 366,
+      "heading_context": "## RAL and NCS",
+      "confidence": "candidate",
+      "text": "RAL (Deutsches Institut für Gütesicherung und Kennzeichnung):\n  HISTORY: Founded 1927, \"Reichs-Ausschuß für Lieferbedingungen\" (Imperial Committee)\n  → Standardizing industrial product specifications\n\n  RAL CLASSIC: 213 colors; 4-digit codes\n    1000-1099: Yellows (1001 Beige, 1018 Zinc Yellow)\n    2000-2099: Oranges (2004 Pure Orange)\n    3000-3099: Reds (3020 Traffic Red)\n    4000-4099: Violets (4007 Purple Violet)\n    5000-5099: Blues (5015 Sky Blue)\n    6000-6099: Greens (6002 Leaf Green, 6005 Moss Green)\n    7000-7099: Greys (7016 Anthracite Grey — ubiquitous in European design)\n    8000-8099: Browns\n    9000-9099: Whites and blacks\n\n  RAL DESIGN SYSTEM+: 1825 colors in CIELAB-based systematic arrangement\n  → Professional design/architecture use\n\n  RAL 7016 (Anthracite Grey): the dominant window frame color in Europe\n  RAL 9005 (Jet Black), RAL 9010 (Pure White): architectural standards\n\nNCS (Natural Color System):\n  DEVELOPED: Scandinavian Colour Institute, Sweden, 1979\n  THEORY: Based on Hering's opponent-color perception model (not tristimulus)\n  NOTATION: S YYCC-C₁hue₂ → e.g., S 2050-B40G\n\n  NCS describes: how much of each \"elementary\" color a color contains\n  6 elementary colors: white (W), black (S), yellow (Y), red (R), blue (B), green (G)\n  Nuance: percentage of blackness + chromaticness\n  Hue: described by percentage between two adjacent elementaries\n\n  APPLICATIONS:\n  • Scandinavian building codes\n  • Furniture (IKEA uses NCS)\n  • Nordic paint manufacturers (Jotun, Nordsjö)\n  Advantage over Pantone: physically based in perception, not proprietary",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

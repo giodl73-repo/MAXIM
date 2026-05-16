@@ -1,0 +1,84 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistics-applied\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 268,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What does a 95% CI actually mean?",
+          "If we repeated this sampling procedure many times, ~95% of computed CIs would contain the true parameter. NOT \"95% probability the true value is here.\""
+        ],
+        [
+          "What does p=0.03 actually mean?",
+          "P(data this extreme or more extreme \\| H0 is true) = 0.03. Not: probability H0 is true = 3%. Not: 97% chance the effect is real."
+        ],
+        [
+          "Frequentist vs Bayesian — when to use which?",
+          "Frequentist: pre-specified type I error control, regulatory, repeated-use procedures. Bayesian: decision under uncertainty, hierarchical models, sequential updating, small samples with domain knowledge."
+        ],
+        [
+          "What is Pearl's rung 2?",
+          "Interventional distribution: P(Y\\|do(X)) — what happens when you actively set X. Distinct from P(Y\\|X) (observation). Requires randomization or causal identification assumption."
+        ],
+        [
+          "What is an estimand?",
+          "The specific treatment effect you want to estimate — defined by the target population and the strategy for handling intercurrent events. Precedes choice of estimator."
+        ],
+        [
+          "What is HARKing?",
+          "Hypothesizing After Results are Known — writing a hypothesis to match the significant finding. Inflates false positive rates dramatically. Fixed by pre-registration."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 281,
+      "heading_context": "## CS and Formal Methods Bridges",
+      "headers": [
+        "Applied statistics concept",
+        "Formal / CS analogue"
+      ],
+      "rows": [
+        [
+          "Pre-registration (write analysis plan before data)",
+          "Compile-time constraint checking: hypotheses and analysis plans specified before the program runs catch errors (HARKing, p-hacking) that runtime checking cannot; analogous to type checking vs. runtime exceptions"
+        ],
+        [
+          "Estimand → estimator → estimate",
+          "Specification → implementation → output: the estimand is the formal specification (what you want to measure); the estimator is the algorithm; the estimate is the computed output. Changing implementation must not change the specified quantity"
+        ],
+        [
+          "Identification assumption",
+          "Precondition / invariant: a logical condition that must hold for causal inference to be valid; untestable from the same data — analogous to a function precondition that cannot be verified from inside the function body"
+        ],
+        [
+          "DAG (Directed Acyclic Graph, causal structure)",
+          "Dataflow / dependency graph: causal DAGs formalize the data-generating process; d-separation is the criterion for conditional independence, analogous to information isolation between pipeline stages"
+        ],
+        [
+          "Randomization (breaks confounding)",
+          "Independent random source breaks coupling: T ⊥⊥ (Y(0), Y(1)) isolates treatment from all confounders — analogous to breaking component coupling by introducing a statistically independent control variable"
+        ],
+        [
+          "Potential outcomes Y(1), Y(0)",
+          "Counterfactual semantics: two \"runs\" of the same world under different inputs, never simultaneously observable — mirrors counterfactual reasoning in formal program verification and causal model checking"
+        ],
+        [
+          "Pearl's ladder (association → intervention → counterfactual)",
+          "Three levels of query expressiveness: observational (SELECT), interventional (do-calculus = mutilated model), counterfactual (structural equations + noise). Each requires strictly more model information than the previous"
+        ],
+        [
+          "P-value misinterpretation",
+          "Logical inversion: p = P(data \\| H0), not P(H0 \\| data) — the same base-rate neglect error as confusing a classifier's precision with its recall; Bayes' theorem is needed to get from one to the other"
+        ]
+      ]
+    }
+  ]
+}

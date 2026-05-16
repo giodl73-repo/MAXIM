@@ -1,27 +1,46 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistics-applied:overview
+kind: guide
+module: statistics-applied
+section: statistics-applied
+title: Applied Statistics - Overview
+status: source-custody
+source_custody: partial
+current_path: statistics-applied/00-OVERVIEW.md
+canonical_path: statistics-applied/00-OVERVIEW.md
+backsource_ids: [proof-backfill:statistics-applied:00-overview, git-history:statistics-applied:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applied Statistics — Overview
 
 ## The Landscape
 
 ```
 +------------------------------------------------------------------+
-|              APPLIED STATISTICS: WHAT YOU'RE REALLY DOING       |
+|              APPLIED STATISTICS: WHAT YOU'RE REALLY DOING        |
 |                                                                  |
-|  THE FUNDAMENTAL QUESTION HIERARCHY (Pearl's Ladder):           |
-|  Rung 1 — ASSOCIATION: P(Y | X)                                 |
-|    "What do I see?" — observational data, correlations          |
+|  THE FUNDAMENTAL QUESTION HIERARCHY (Pearl's Ladder):            |
+|  Rung 1 — ASSOCIATION: P(Y | X)                                  |
+|    "What do I see?" — observational data, correlations           |
 |    Available from any dataset                                    |
 |                                                                  |
-|  Rung 2 — INTERVENTION: P(Y | do(X))                           |
-|    "What happens if I act?" — requires randomization or strong  |
+|  Rung 2 — INTERVENTION: P(Y | do(X))                             |
+|    "What happens if I act?" — requires randomization or strong   |
 |    identifying assumption + structural model                     |
 |    RCTs directly reach this rung                                 |
 |                                                                  |
-|  Rung 3 — COUNTERFACTUAL: P(Y_x=1 | X=0)                       |
+|  Rung 3 — COUNTERFACTUAL: P(Y_x=1 | X=0)                         |
 |    "What would have happened?" — individual-level causal effects |
 |    Requires structural causal model (SCM), not just distribution |
 |                                                                  |
-|  OBSERVATIONAL DATA LIVES ON RUNG 1.                            |
-|  Most "data science" conclusions claim rung 2 from rung 1 data. |
+|  OBSERVATIONAL DATA LIVES ON RUNG 1.                             |
+|  Most "data science" conclusions claim rung 2 from rung 1 data.  |
 |  Getting rung 2 from rung 1 requires an identification strategy. |
 +------------------------------------------------------------------+
 ```
@@ -87,11 +106,11 @@ CREDIBLE INTERVAL:
   → Genuine probability statement about the parameter (given prior + data)
 
 +------------------+---------------------------------------------+
-| BAYESIAN WINS    | Decision under uncertainty (expected utility)|
+| BAYESIAN WINS    | Decision under uncertainty / utility        |
 |                  | Hierarchical models (partial pooling)       |
 |                  | Sequential updating (clinical adaptive)     |
 |                  | Small samples + domain knowledge            |
-|                  | Communicating uncertainty to stakeholders    |
+|                  | Communicating uncertainty to stakeholders   |
 +------------------+---------------------------------------------+
 ```
 
@@ -249,7 +268,7 @@ COMPLEMENTS:
 | Question | Answer |
 |----------|--------|
 | What does a 95% CI actually mean? | If we repeated this sampling procedure many times, ~95% of computed CIs would contain the true parameter. NOT "95% probability the true value is here." |
-| What does p=0.03 actually mean? | P(data this extreme or more extreme | H₀ is true) = 0.03. Not: probability H₀ is true = 3%. Not: 97% chance the effect is real. |
+| What does p=0.03 actually mean? | P(data this extreme or more extreme \| H0 is true) = 0.03. Not: probability H0 is true = 3%. Not: 97% chance the effect is real. |
 | Frequentist vs Bayesian — when to use which? | Frequentist: pre-specified type I error control, regulatory, repeated-use procedures. Bayesian: decision under uncertainty, hierarchical models, sequential updating, small samples with domain knowledge. |
 | What is Pearl's rung 2? | Interventional distribution: P(Y\|do(X)) — what happens when you actively set X. Distinct from P(Y\|X) (observation). Requires randomization or causal identification assumption. |
 | What is an estimand? | The specific treatment effect you want to estimate — defined by the target population and the strategy for handling intercurrent events. Precedes choice of estimator. |
@@ -268,7 +287,7 @@ COMPLEMENTS:
 | Randomization (breaks confounding) | Independent random source breaks coupling: T ⊥⊥ (Y(0), Y(1)) isolates treatment from all confounders — analogous to breaking component coupling by introducing a statistically independent control variable |
 | Potential outcomes Y(1), Y(0) | Counterfactual semantics: two "runs" of the same world under different inputs, never simultaneously observable — mirrors counterfactual reasoning in formal program verification and causal model checking |
 | Pearl's ladder (association → intervention → counterfactual) | Three levels of query expressiveness: observational (SELECT), interventional (do-calculus = mutilated model), counterfactual (structural equations + noise). Each requires strictly more model information than the previous |
-| P-value misinterpretation | Logical inversion: p = P(data | H₀), not P(H₀ | data) — the same base-rate neglect error as confusing a classifier's precision with its recall; Bayes' theorem is needed to get from one to the other |
+| P-value misinterpretation | Logical inversion: p = P(data \| H0), not P(H0 \| data) — the same base-rate neglect error as confusing a classifier's precision with its recall; Bayes' theorem is needed to get from one to the other |
 
 ## Common Confusion Points
 

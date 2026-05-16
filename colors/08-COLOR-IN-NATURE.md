@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:color-in-nature
+kind: guide
+module: colors
+section: colors
+title: Color in Nature - Structural Color, Pigments, Bioluminescence
+status: source-custody
+source_custody: partial
+current_path: colors/08-COLOR-IN-NATURE.md
+canonical_path: colors/08-COLOR-IN-NATURE.md
+backsource_ids: [proof-backfill:colors:08-color-in-nature, git-history:colors:08-color-in-nature]
+concepts: [color, in, nature]
+root_concepts: [color, in]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color in Nature — Structural Color, Pigments, Bioluminescence
 
 ## The Big Picture

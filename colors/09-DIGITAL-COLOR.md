@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:digital-color
+kind: guide
+module: colors
+section: colors
+title: Digital Color - Bit Depth, ICC Profiles, Gamma, HDR
+status: source-custody
+source_custody: partial
+current_path: colors/09-DIGITAL-COLOR.md
+canonical_path: colors/09-DIGITAL-COLOR.md
+backsource_ids: [proof-backfill:colors:09-digital-color, git-history:colors:09-digital-color]
+concepts: [digital, color]
+root_concepts: [digital, color]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Color — Bit Depth, ICC Profiles, Gamma, HDR
 
 ## The Big Picture
@@ -102,7 +121,7 @@ Linear encoding (equal bits per unit luminance):
 
 Gamma-encoded (sRGB):
 +-------+-------+-------+-------+-------+-------+-------+-------+
-| 0^2.2 |(.125)^|(.25)^ |(.375)^|(.5)^  |(.625)^|(.75)^ |(.875)^|
+| 0^2.2 | .125^ | .25^  | .375^ | .5^   | .625^ | .75^  | .875^ |
 +-------+-------+-------+-------+-------+-------+-------+-------+
                               (each ^(1/2.2) before storage)
 → More code values allocated to dark range (where sensitivity is high)

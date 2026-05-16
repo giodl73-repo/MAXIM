@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:mixing-theory
+kind: guide
+module: colors
+section: colors
+title: Mixing Theory - Additive vs Subtractive, CMYK, Gamut
+status: source-custody
+source_custody: partial
+current_path: colors/06-MIXING-THEORY.md
+canonical_path: colors/06-MIXING-THEORY.md
+backsource_ids: [proof-backfill:colors:06-mixing-theory, git-history:colors:06-mixing-theory]
+concepts: [mixing, theory]
+root_concepts: [mixing, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mixing Theory — Additive vs Subtractive, CMYK, Gamut
 
 ## The Big Picture

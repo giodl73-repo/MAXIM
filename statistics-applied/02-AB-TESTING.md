@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistics-applied:ab-testing
+kind: guide
+module: statistics-applied
+section: statistics-applied
+title: A/B Testing - Online Experiments, CUPED, SRM, Bandits
+status: source-custody
+source_custody: partial
+current_path: statistics-applied/02-AB-TESTING.md
+canonical_path: statistics-applied/02-AB-TESTING.md
+backsource_ids: [proof-backfill:statistics-applied:02-ab-testing, git-history:statistics-applied:02-ab-testing]
+concepts: [ab, testing]
+root_concepts: [ab, testing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # A/B Testing — Online Experiments, CUPED, SRM, Bandits
 
 ## The Big Picture
