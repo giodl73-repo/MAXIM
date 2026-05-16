@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:overview
+kind: guide
+module: topology
+section: topology
+title: Topology - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: topology/00-OVERVIEW.md
+canonical_path: topology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:topology:00-overview, git-history:topology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Topology — Landscape Overview
 
 ## The Big Picture
@@ -15,7 +34,7 @@ TOPOLOGY — DEPENDENCY FLOW AND MODERN DEVELOPMENTS
 |  LAYER 2: ALGEBRAIC TOPOLOGY                                      |
 |  ┌────────────────────────────────────────────────────────────┐    |
 |  │  π₁(X) fundamental group ─── Van Kampen ─── Covering spaces│    |
-|  │  Homology Hₙ(X) ─── Cohomology Hⁿ(X) ─── Exact sequences │    |
+|  │  Homology Hₙ(X) ─── Cohomology Hⁿ(X) ─── Exact sequences   │    |
 |  │  Euler characteristic ─── Poincaré duality                 │    |
 |  │  (06–08 in this guide)                                     │    |
 |  └──────────┬─────────────────────────┬───────────────────────┘    |
@@ -30,8 +49,8 @@ TOPOLOGY — DEPENDENCY FLOW AND MODERN DEVELOPMENTS
 |             ▼                                                      |
 |  LAYER 4: MODERN FOUNDATIONS                                       |
 |  ┌────────────────────────────────────────────────────────────┐    |
-|  │  ∞-categories: (∞,1)-category of spaces, ∞-topoi (Lurie)  │    |
-|  │  HoTT: types = spaces, paths = proofs, univalence axiom   │    |
+|  │  ∞-categories: (∞,1)-category of spaces, ∞-topoi (Lurie)   │    |
+|  │  HoTT: types = spaces, paths = proofs, univalence axiom    │    |
 |  │  Derived algebraic geometry: derived ∞-categories, E∞-alg  │    |
 |  │  Cobordism hypothesis: classifies TQFTs via ∞-categories   │    |
 |  └────────────────────────────────────────────────────────────┘    |

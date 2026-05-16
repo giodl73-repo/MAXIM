@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "topology\\09-MANIFOLDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|           MANIFOLDS — SPACES THAT LOCALLY LOOK LIKE Rⁿ             |\n+====================================================================+\n|                                                                    |\n|  TOPOLOGICAL MANIFOLD M of dimension n:                           |\n|  A Hausdorff, second-countable space that is locally homeomorphic |\n|  to Rⁿ. Charts, atlases, no preferred coordinates globally.      |\n|                                                                    |\n|  SMOOTH MANIFOLD: topological manifold + compatible smooth atlas. |\n|  Allows calculus: tangent vectors, derivatives, integrals.        |\n|                                                                    |\n|  RIEMANNIAN MANIFOLD: smooth manifold + metric tensor g.          |\n|  Allows geometry: lengths, angles, curvature, geodesics.         |\n|                                                                    |\n|  CLASSIFICATION:                                                   |\n|  Surfaces (2-manifolds): Σ_g (orientable) + RP²#... (unorient.)  |\n|  3-manifolds: Thurston geometrization (8 geometries).             |\n|  4-manifolds: still largely open (exotic R⁴, Donaldson theory).  |\n|  n ≥ 5: surgery theory (Smale, Browder, Novikov) classifies many. |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### Charts and Coordinate Systems",
+      "confidence": "candidate",
+      "text": "CHART (coordinate system): A pair (U, φ) where:\n  U ⊆ M is open.\n  φ: U → Rⁿ is a homeomorphism onto an open subset of Rⁿ.\n  φ assigns coordinates (x₁,...,xₙ) to each point of U.\n\nTRANSITION MAP: Given two charts (U, φ) and (V, ψ) with U∩V ≠ ∅:\n  φ ∘ ψ⁻¹: ψ(U∩V) → φ(U∩V)  is a map from Rⁿ to Rⁿ.\n\nATLAS: A collection {(Uα, φα)} of charts covering M.\n\nC^∞ SMOOTH ATLAS: All transition maps φα ∘ φβ⁻¹ are C^∞ (infinitely differentiable).\n\nSMOOTH MANIFOLD: A topological manifold with a maximal smooth atlas.\n  \"Maximal\" = you've included every chart compatible with the smooth structure.\n  A smooth structure is determined by any smooth atlas (take its maximal extension).\n\nEXAMPLE: S² as smooth manifold.\n  Chart 1 (stereographic from north): φ_N: S²\\{N} → R²\n    φ_N(x,y,z) = (x/(1-z), y/(1-z)).\n  Chart 2 (stereographic from south): φ_S: S²\\{S} → R²\n    φ_S(x,y,z) = (x/(1+z), y/(1+z)).\n  Transition: φ_N ∘ φ_S⁻¹ on R²\\{0}: (u,v) ↦ (u/(u²+v²), v/(u²+v²)).\n  This is C^∞ (even real-analytic). So S² has a smooth structure. ✓\n\nEXOTIC SMOOTH STRUCTURES:\n  Topological manifold can have MULTIPLE non-diffeomorphic smooth structures.\n  Milnor (1956): S⁷ has 28 exotic smooth structures (exotic 7-spheres).\n  R⁴ (exotic R⁴s): R⁴ has uncountably many non-diffeomorphic smooth structures —\n    a unique phenomenon. Rⁿ for n≠4 has exactly one smooth structure (up to diffeo).\n  Donaldson (1983): first proof via Yang-Mills gauge theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### Tangent Vectors",
+      "confidence": "candidate",
+      "text": "TANGENT VECTOR at p ∈ M: An equivalence class of smooth curves through p.\n  Two curves γ₁, γ₂: (-ε,ε) → M with γᵢ(0) = p are equivalent if\n  (φ ∘ γ₁)'(0) = (φ ∘ γ₂)'(0)  in some (hence any) chart φ.\n\nTANGENT SPACE TₚM:\n  The set of all tangent vectors at p. This is an n-dimensional real vector space.\n\nIN COORDINATES: If (U, x₁,...,xₙ) is a chart:\n  TₚM has basis {∂/∂x₁|ₚ, ..., ∂/∂xₙ|ₚ}.\n  A tangent vector v = Σ vⁱ ∂/∂xᵢ.\n\nDERIVATION VIEW: Tangent vectors as derivations on smooth functions.\n  v: C^∞(M) → R, linear, satisfies Leibniz: v(fg) = v(f)g(p) + f(p)v(g).\n  This algebraic view is coordinate-free and extends to algebraic geometry.\n\nTANGENT BUNDLE:\n  TM = ∪_{p∈M} TₚM  (disjoint union of all tangent spaces).\n  TM is itself a smooth 2n-manifold with a natural projection π: TM → M.\n  (π: TₚM ↦ p.)\n  TM → M is a VECTOR BUNDLE of rank n.\n\nSECTIONS OF TM = VECTOR FIELDS:\n  X: M → TM with π ∘ X = id_M.  X(p) ∈ TₚM.\n  In coordinates: X = Σ Xⁱ(x) ∂/∂xᵢ.\n  Lie bracket [X,Y] = X∘Y - Y∘X (another vector field).\n\nCOTANGENT BUNDLE T*M:\n  T*M = ∪ₚ TₚM*  (dual spaces).\n  Sections = 1-forms (differential forms of degree 1).\n  In coordinates: ω = Σ ωᵢ(x) dxᵢ.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "### Maps Between Manifolds",
+      "confidence": "candidate",
+      "text": "SMOOTH MAP: f: M → N smooth if in every pair of charts, the map is C^∞.\n\nDIFFERENTIAL (PUSHFORWARD): df_p: TₚM → T_{f(p)}N.\n  The linear map on tangent spaces induced by f.\n  In coordinates: (df_p)_j^i = ∂f^i/∂x^j |_p (the Jacobian matrix).\n\nIMMERSION: df_p is injective at every p.\n  \"M maps into N without self-intersection of tangent directions.\"\n  Example: curve in R³ with nonzero velocity at each point.\n\nEMBEDDING: An injective immersion that is a homeomorphism onto its image.\n  Example: S² ↪ R³ (the standard sphere as a subspace of R³).\n\nSUBMERSION: df_p is surjective at every p.\n  Example: S³ → S² (Hopf fibration).\n  By the Implicit Function Theorem: fibers f⁻¹(y) are submanifolds.\n\nDIFFEOMORPHISM: Smooth bijection with smooth inverse.\n  f: M → N diffeomorphism ↔ M and N are \"the same\" as smooth manifolds.\n\nREGULAR VALUE THEOREM (inverse function theorem + implicit function):\n  If f: Mⁿ → Nᵏ smooth and y ∈ N is a regular value (df_p surjective for all p ∈ f⁻¹(y)):\n  Then f⁻¹(y) is a smooth (n-k)-dimensional submanifold of M.\n  Example: f(x,y,z) = x²+y²+z² on R³, regular value 1 → f⁻¹(1) = S². ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## Riemannian Manifolds",
+      "confidence": "candidate",
+      "text": "RIEMANNIAN METRIC g: A smooth assignment of an inner product to each tangent space.\n  g_p: TₚM × TₚM → R, symmetric, bilinear, positive definite.\n  In coordinates: ds² = gᵢⱼ dxᵢ ⊗ dxⱼ  (the metric tensor).\n\nEXAMPLES:\n  Euclidean Rⁿ: gᵢⱼ = δᵢⱼ (standard inner product).\n  S² ⊂ R³: induced metric from R³. In spherical: ds² = dθ² + sin²θ dφ².\n  Hyperbolic plane H²: ds² = (dx² + dy²)/y² (upper half-plane).\n    Constant curvature -1.\n\nLENGTH AND DISTANCE:\n  Length of curve γ: [a,b] → M:  L(γ) = ∫_a^b √{g(γ'(t), γ'(t))} dt.\n  d(p,q) = inf{L(γ) : γ connects p to q}.\n  A Riemannian manifold is a metric space.\n\nGEODESIC: A curve γ that locally minimizes length.\n  Satisfies: ∇_{γ'} γ' = 0  (covariant acceleration = 0).\n  In coordinates: γ̈ᵏ + Γᵏᵢⱼ γ̇ⁱ γ̇ʲ = 0  (geodesic equation, Γ = Christoffel symbols).\n\n  Examples:\n  R² geodesics: straight lines.\n  S² geodesics: great circles.\n  H² geodesics: vertical lines and semicircles centered on x-axis.\n\nCURVATURE:\n  Riemann curvature tensor R(X,Y)Z = ∇_X∇_Y Z - ∇_Y∇_X Z - ∇_{[X,Y]}Z.\n  Measures failure of parallel transport to commute.\n\n  Gaussian curvature K (for surfaces):\n    K > 0: sphere (elliptic geometry).\n    K = 0: flat plane, cylinder, torus (Euclidean geometry).\n    K < 0: hyperbolic plane (hyperbolic geometry).\n    K = -1: \"saddle surface.\"\n\n  Gauss-Bonnet theorem:\n    ∫_M K dA = 2π χ(M)  (for compact orientable surface without boundary).\n    Connects curvature (local/differential) to Euler characteristic (global/topological).\n    For S²: ∫_{S²} K dA = 4π = 2π · χ(S²) = 2π · 2. ✓\n    For T²: ∫_{T²} K dA = 0 = 2π · 0. ✓\n\nMORSE THEORY — TOPOLOGY FROM CRITICAL POINTS:\n  A Morse function f: M → R (smooth, non-degenerate critical points)\n  encodes the entire homology H*(M).\n\n  As c sweeps from min(f) to max(f), the sublevel set M_c = {f ≤ c}:\n    passes index-0 critical point → attach 0-cell (new component)\n    passes index-1 critical point → attach 1-cell (merge or create cycle)\n    passes index-k critical point → attach k-cell (k-handle)\n\n  MORSE INEQUALITIES:\n    bₖ(M) ≤ Cₖ   (Betti number ≤ count of index-k critical points)\n    Σ(-1)ᵏ Cₖ = χ(M)   (strong Morse inequality)\n\n  EXAMPLE — height function on T²:\n    1 minimum (index 0), 2 saddles (index 1), 1 maximum (index 2).\n    b₀ ≤ 1, b₁ ≤ 2, b₂ ≤ 1. Equality holds: b₀=1, b₁=2, b₂=1. ✓\n\n  KEY APPLICATIONS:\n  (1) Smale's h-cobordism theorem: canceling pairs of critical points\n      shows W ≅ M×[0,1] in dim ≥ 6 → proves Poincaré conjecture dim ≥ 5.\n  (2) TDA sublevel-set persistence = Morse theory on a filter function.\n  (3) Floer homology = infinite-dimensional Morse theory on loop spaces.\n\nCHERN-GAUSS-BONNET AND ATIYAH-SINGER:\n  Gauss-Bonnet generalizes to arbitrary even-dimensional manifolds:\n    ∫_M Pf(Ω/(2π)) = χ(M)   (Pf = Pfaffian of curvature 2-form matrix)\n\n  The ATIYAH-SINGER INDEX THEOREM (1963) subsumes this:\n    For an elliptic differential operator D on a compact manifold M:\n    index(D) = dim ker(D) − dim coker(D) = ∫_M ch(σ(D)) · Td(TM ⊗ C)\n\n  Special cases:\n    D = d + d*  (de Rham)  → index = χ(M)  (Gauss-Bonnet)\n    D = ∂̄ + ∂̄* (Dolbeault) → index = χ(O_M) (Hirzebruch-Riemann-Roch)\n    D = Dirac operator      → index = Â(M)  (Â-genus)\n\n  The index theorem connects analytical data (solutions of PDEs) to\n  topological data (characteristic classes) — the apex of the differential\n  topology → differential geometry → analysis bridge.\n  Physics: the chiral anomaly in QFT = index of the Dirac operator.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 285,
+      "heading_context": "## Classification of Manifolds",
+      "confidence": "candidate",
+      "text": "### 1-Manifolds",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 299,
+      "heading_context": "### 1-Manifolds",
+      "confidence": "candidate",
+      "text": "### 2-Manifolds (Surfaces)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 301,
+      "heading_context": "### 2-Manifolds (Surfaces)",
+      "confidence": "candidate",
+      "text": "CLASSIFICATION OF COMPACT SURFACES (the fundamental theorem of surface theory):\n\nORIENTABLE SURFACES:\n  Every compact connected orientable surface is homeomorphic to exactly one of:\n  Σ_g = sphere with g handles (genus-g surface), for g = 0, 1, 2, ...\n\n  Σ₀ = S² (sphere)\n  Σ₁ = T² (torus)\n  Σ₂ = double torus (two-holed torus)\n  Σ_g: g handles attached to S².\n\n  Invariant: genus g = number of handles = (1/2) rank H₁ = (1 - χ/2).\n  χ(Σ_g) = 2 - 2g.\n\nNON-ORIENTABLE SURFACES:\n  Every compact connected non-orientable surface is homeomorphic to exactly one of:\n  N_k = connected sum of k copies of RP², for k = 1, 2, 3, ...\n\n  N₁ = RP² (projective plane)\n  N₂ = Klein bottle\n  N₃ = \"dyck's surface\"\n\n  χ(N_k) = 2 - k.\n  N₁ has χ=1, N₂ has χ=0, ...\n\n  NOTE: Klein bottle = T² with one orientation-reversing twist (not embeddable in R³).\n\nCONNECTED SUM:\n  M#N = remove open disk from each, glue boundary circles.\n  Σ_g#Σ_h = Σ_{g+h}.\n  Σ_g # RP² = N_{2g+1} (connected sum of orientable + non-orientable = non-orientable).\n\nKEY TOOLS FOR CLASSIFICATION:\n  1. Triangulate (possible for any surface — Radó's theorem).\n  2. Cut along curves to reduce to a polygon with identifications.\n  3. Standard polygon word: Σ_g = a₁b₁a₁⁻¹b₁⁻¹...aₘbₘaₘ⁻¹bₘ⁻¹.\n  4. Determine genus from Euler characteristic.\n\nCOMPLETE INVARIANTS: genus + orientability ↔ homeomorphism class.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 343,
+      "heading_context": "### 2-Manifolds (Surfaces)",
+      "confidence": "candidate",
+      "text": "### 3-Manifolds",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 369,
+      "heading_context": "### 3-Manifolds",
+      "confidence": "candidate",
+      "text": "### 4-Manifolds",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "### 4-Manifolds",
+      "confidence": "candidate",
+      "text": "4-MANIFOLDS: The wild west of topology.\n\nINTERSECTION FORM:\n  For compact oriented 4-manifold M, the cup product:\n  H²(M;Z) × H²(M;Z) → H⁴(M;Z) ≅ Z\n  is a symmetric bilinear form (over Z), the \"intersection form.\"\n\nCLASSIFICATION BY INTERSECTION FORM:\n  TOPOLOGICAL (Freedman, 1982):\n  Every symmetric bilinear form over Z (with some constraints) arises as the\n  intersection form of a simply-connected compact topological 4-manifold.\n  The manifold is classified up to homeomorphism by its intersection form +\n  Kirby-Siebenmann invariant.\n\n  SMOOTH (Donaldson, 1983):\n  Constrains which forms can arise smoothly:\n  If M is smooth and simply connected, its intersection form is either:\n    - Diagonal (±1's on diagonal) — \"standard\" form.\n    - Even type with signature divisible by 8.\n  This means MOST topological 4-manifolds admit no smooth structure!\n\nEXOTIC R⁴:\n  There exist uncountably many smooth 4-manifolds homeomorphic to R⁴\n  but pairwise non-diffeomorphic.\n  None exist for Rⁿ with n ≠ 4.\n  First found via Donaldson's work + Freedman's theorem.\n\nE₈ MANIFOLD:\n  The E₈ form (8×8 even positive definite matrix) gives a topological\n  4-manifold (Freedman) that has no smooth structure (Donaldson).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "### Higher Dimensional Manifolds",
+      "confidence": "candidate",
+      "text": "n ≥ 5: SURGERY THEORY\n  Smale (h-cobordism theorem, 1960): If W is an h-cobordism between M and N\n  (simply connected, dim ≥ 6), then W ≅ M×[0,1].\n  Corollary (Generalized Poincaré conjecture in dim ≥ 5):\n  M homotopy equivalent to Sⁿ (n ≥ 5) → M homeomorphic to Sⁿ.\n\nSURGERY: Cut out Sᵏ × Dⁿ⁻ᵏ ⊂ M, replace with Dᵏ⁺¹ × Sⁿ⁻ᵏ⁻¹.\n  Systematic way to build manifolds and classify them.\n\nCOBORDISM:\n  Two n-manifolds M, N are cobordant if ∃ (n+1)-manifold W with ∂W = M ⊔ N.\n  Cobordism classes form a ring under disjoint union (addition) and product (multiplication).\n  Thom's theorem: oriented cobordism ring ⊗Q = Q[CP², CP⁴, CP⁶, ...] (polynomial on CP^{2k}'s).\n\nCOBORDISM → TQFT (the modern development connection):\n  A TOPOLOGICAL QUANTUM FIELD THEORY (TQFT) is a symmetric monoidal functor:\n    Z: Cob(n) → Vect\n  Objects of Cob(n) = closed (n-1)-manifolds (boundaries).\n  Morphisms = n-dimensional cobordisms between them.\n  Z assigns a vector space to each boundary and a linear map to each cobordism.\n  Atiyah's axioms (1988) formalize this.\n\n  COBORDISM HYPOTHESIS (Lurie 2009):\n    Fully extended n-dimensional TQFTs (extending down to points) are\n    classified by fully dualizable objects in the target ∞-category.\n    This is stated and proved in the language of (∞,n)-categories.\n    It connects cobordism theory (the algebraic structure of manifold\n    surgery) to the modern ∞-categorical framework.\n\n  EXAMPLES:\n    2D TQFT ↔ commutative Frobenius algebra (complete classification).\n    3D Chern-Simons theory ↔ modular tensor category (Witten, Reshetikhin-Turaev).\n    4D Donaldson/Seiberg-Witten theory ↔ smooth 4-manifold invariants.\n\nEXOTICA IN HIGH DIMENSIONS:\n  Kervaire-Milnor (1963): exotic n-spheres for n ≥ 7.\n  Number of exotic n-spheres:\n    n: 1,2,3,4,5,6,7,8,9,10,11,12,...\n    #: 1,1,1,?,1,1,28,2,8,6,992,1,...\n  (n=4 unknown — smooth 4-dim Poincaré conjecture open.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

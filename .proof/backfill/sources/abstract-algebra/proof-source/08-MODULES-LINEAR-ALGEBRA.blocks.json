@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\08-MODULES-LINEAR-ALGEBRA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|              MODULES — VECTOR SPACES OVER RINGS                    |\n+====================================================================+\n|                                                                    |\n|  F-VECTOR SPACE: V with scalar multiplication F × V → V, F FIELD  |\n|       |                                                            |\n|       | generalize: replace F by any ring R                        |\n|       v                                                            |\n|  R-MODULE: M with R × M → M, R RING                               |\n|                                                                    |\n|  LOSS vs GAIN:                                                     |\n|  - Lose: basis always exists, all bases same size, free ↔ projective|\n|  + Gain: captures abelian groups (Z-modules), ideals (R-modules),  |\n|          representations (k[G]-modules), chain complexes          |\n|                                                                    |\n|  FREE MODULE: M ≅ R^n (has a basis)                               |\n|  PROJECTIVE: direct summand of a free module                      |\n|  FLAT: M ⊗_R - is exact                                          |\n|  INJECTIVE: Hom(-, M) is exact                                    |\n|                                                                    |\n|  STRUCTURE THEOREM FOR FINITELY GENERATED MODULES OVER PID:        |\n|  M ≅ R^r ⊕ R/(d₁) ⊕ R/(d₂) ⊕ ... ⊕ R/(dₖ)                     |\n|  where d₁ | d₂ | ... | dₖ  (invariant factor form)               |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Module Definitions",
+      "confidence": "candidate",
+      "text": "LEFT R-MODULE M:\n  (M, +): abelian group.\n  Scalar multiplication: R × M → M by (r,m) ↦ r·m.\n  Axioms:\n    r(m+n) = rm + rn         (distributive over M)\n    (r+s)m = rm + sm         (distributive over R)\n    (rs)m = r(sm)            (associativity)\n    1_R · m = m              (unit acts as identity)\n\nRIGHT MODULE: multiplication M × R → M. For commutative R: left = right.\n\nEXAMPLES:\n  R-module R: R acts on itself by multiplication. (Free module of rank 1.)\n  Abelian group A: A is a Z-module. (Every abelian group is a Z-module.)\n  Vector space V over F: V is an F-module.\n  Ideal I ⊆ R: I is a submodule of R (as R acts on I).\n  Quotient R/I: R-module.\n  k[G]-module: same as a representation of G over k (group algebra module).\n    r = Σ rₐa (formal sum), (Σrₐa)·v = Σrₐ(a·v).\n  R[x]-module M with an endomorphism T: M → M acting as \"multiplication by x.\"\n    This packages linear operator theory into module language.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 83,
+      "heading_context": "## Submodules and Quotient Modules",
+      "confidence": "candidate",
+      "text": "SUBMODULE: N ≤ M means N is a subgroup closed under R-action: rn ∈ N ∀r∈R, n∈N.\n\nQUOTIENT MODULE: M/N = cosets {m+N}, R-action r(m+N) = (rm)+N.\n\nMODULE HOMOMORPHISM: f: M → N with f(m+m') = f(m)+f(m') and f(rm) = rf(m).\n  Kernel: ker(f) is a submodule of M.\n  Image: im(f) is a submodule of N.\n\nISOMORPHISM THEOREMS hold exactly as for rings and groups:\n  M/ker(f) ≅ im(f).\n\nDIRECT SUM: M ⊕ N (the product module with componentwise operations).\n\nEXAMPLES:\n  Submodule of Z (as Z-module): subgroup nZ.\n  Submodule of Z²: {(a,b) : a≡0 mod 2} or any subgroup closed under Z-action.\n  In k[x]-module on V with T: submodule = T-invariant subspace.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## Free Modules",
+      "confidence": "candidate",
+      "text": "FREE MODULE: M is free of rank n if M ≅ R^n = R ⊕ R ⊕ ... ⊕ R (n times).\n  Equivalently: M has a basis {e₁,...,eₙ} with every m ∈ M uniquely:\n  m = r₁e₁ + ... + rₙeₙ, rᵢ ∈ R.\n\nOVER A FIELD: every module (= vector space) is free. Rank = dimension.\n\nOVER Z: free Z-modules = free abelian groups Z^n. Every subgroup of Z^n is free\n  (of rank ≤ n). Not every Z-module is free (Z/2Z is not free).\n\nOVER A RING: free modules exist. Not all modules are free.\n  Example: Z/2Z as Z-module: if it were free of rank n, it would be isomorphic to Z^n,\n  which is infinite. So Z/2Z is not free.\n\nFREE MODULE UNIVERSAL PROPERTY:\n  Given basis B = {eᵢ}, any function f: B → N (any module N) extends uniquely\n  to a module homomorphism f̄: R^{|B|} → N.\n  (\"Free\" = no relations between basis elements; fully flexible.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Projective, Injective, and Flat Modules",
+      "confidence": "candidate",
+      "text": "PROJECTIVE MODULE P:\n  Definition: Hom(P, -) is exact  (projective modules see every surjection as surjective).\n  Equivalently: P is a direct summand of a free module.\n  Equivalently: Every surjection M → P splits (a section s: P → M exists).\n\n  Over a field: all modules projective.\n  Over Z: projective = free (since Z is a PID).\n  Over a general ring: projective ≠ free.\n    Stably free but not free: Serre's conjecture (proved by Quillen-Suslin 1976):\n    over k[x₁,...,xₙ] (polynomial ring), projective modules ARE free.\n  Over Dedekind domains: projective = rank-1 ideal module. Directly relates to class group.\n    Ideal class group = group of rank-1 projective modules modulo free ones.\n\nINJECTIVE MODULE I:\n  Definition: Hom(-, I) is exact.\n  Equivalently: Every injection I → M splits (a retraction r: M → I exists).\n\n  Baer's criterion: I is injective iff every homomorphism from an ideal to I\n  extends to all of R.\n  Over Z: injective Z-modules = divisible abelian groups (Q, Q/Z, Z/p^∞).\n\nFLAT MODULE M:\n  M ⊗_R - is exact (i.e., tensoring with M preserves short exact sequences).\n  Free → Projective → Flat (implications, not equivalences in general).\n  Over a PID: flat = torsion-free.\n  Over a Noetherian ring: finitely generated flat = projective.\n\nWHY THIS MATTERS (derived categories, homological algebra):\n  Short exact sequence 0 → A → B → C → 0:\n  Applying exact functor: sequence stays exact.\n  Applying non-exact functor: get derived functors Ext^n, Tor_n measuring deviation.\n  Ext^1(C,A) classifies extensions 0 → A → B → C → 0.\n  Tor_1(C,A) = \"torsion interference\" when tensoring.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 267,
+      "heading_context": "## Chain Complexes and Exact Sequences",
+      "confidence": "candidate",
+      "text": "CHAIN COMPLEX:\n  ... → M_{n+1} →^{d_{n+1}} M_n →^{d_n} M_{n-1} → ...\n  Requirement: d_n ∘ d_{n+1} = 0 (image ⊆ kernel at each step).\n\nHOMOLOGY: H_n = ker(d_n) / im(d_{n+1}).\n  Measures \"how far the sequence is from exact.\"\n\nEXACT SEQUENCE:\n  0 → A →^f B →^g C → 0  is exact iff:\n  f is injective, g is surjective, im(f) = ker(g).\n  Called a SHORT EXACT SEQUENCE.\n\nTHE SNAKE LEMMA: If you have a commutative diagram of two SES rows\n  and vertical maps, you get a connecting homomorphism.\n  Foundation of homological algebra.\n\nLONG EXACT SEQUENCE IN Ext:\n  0 → Hom(C,A) → Hom(B,A) → Hom(A,A) → Ext¹(C,A) → Ext¹(B,A) → ...\n  The Ext groups measure obstructions to extending homomorphisms.\n\nDERIVED CATEGORIES — WHERE THIS MACHINERY LIVES:\n  The derived category D(A) of an abelian category A:\n    Objects: chain complexes (up to quasi-isomorphism)\n    Morphisms: \"rooftop\" diagrams A ← C → B where C→A is a quasi-isomorphism\n    Ext^n(M,N) = Hom_{D(A)}(M, N[n])  (Hom in D(A) with shift by n)\n\n  Why this matters:\n  - MIRROR SYMMETRY (Kontsevich 1994): D^b(Coh(X)) ≅ D(Fuk(X̃))\n    Derived category of coherent sheaves on X ≅ Fukaya category of mirror X̃\n    Connects algebraic geometry to symplectic geometry\n  - ALGEBRAIC K-THEORY: K₀(A) = Grothendieck group of D^b(A)\n    Higher K-groups from the derived category's structure\n  - TILTING THEORY: derived equivalences between seemingly unrelated algebras\n    Two algebras can have equivalent derived categories without being isomorphic\n\nPERSISTENT HOMOLOGY — THE STRUCTURE THEOREM IN DATA SCIENCE:\n  A persistence module over k[t] is a family of vector spaces {V_t} with linear\n  maps V_s → V_t for s ≤ t, compatible with composition.\n\n  By the structure theorem for finitely generated modules over k[t] (a PID):\n    Persistence module ≅ ⊕ k[t]/(t^{dᵢ}) ⊕ k[t]^r\n  Each summand k[t]/(t^d) is a \"bar\" — a feature that appears and persists for\n  duration d. The collection of bars is the BARCODE DECOMPOSITION.\n\n  Application: given a point cloud (e.g., from protein structure or sensor data),\n  build a filtration of simplicial complexes, compute homology at each scale →\n  get a persistence module → decompose into bars → read off topological features\n  (connected components, loops, voids) and their persistence across scales.\n  Long bars = real topological features; short bars = noise.\n  This is one of the most compelling modern applications of the structure theorem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

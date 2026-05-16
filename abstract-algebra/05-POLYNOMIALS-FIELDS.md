@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:polynomials-fields
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Polynomials and Fields
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/05-POLYNOMIALS-FIELDS.md
+canonical_path: abstract-algebra/05-POLYNOMIALS-FIELDS.md
+backsource_ids: [proof-backfill:abstract-algebra:05-polynomials-fields, git-history:abstract-algebra:05-polynomials-fields]
+concepts: [polynomials, fields]
+root_concepts: [polynomials, fields]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Polynomials and Fields
 
 ## The Big Picture

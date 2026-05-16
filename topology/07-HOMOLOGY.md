@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:homology
+kind: guide
+module: topology
+section: topology
+title: Homology
+status: source-custody
+source_custody: partial
+current_path: topology/07-HOMOLOGY.md
+canonical_path: topology/07-HOMOLOGY.md
+backsource_ids: [proof-backfill:topology:07-homology, git-history:topology:07-homology]
+concepts: [homology]
+root_concepts: [homology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Homology
 
 ## The Big Picture
@@ -423,7 +442,7 @@ WHY COEFFICIENTS MATTER:
 
 ```
 +------------------------------------------------------------------+
-| SPACE         | H₀ | H₁    | H₂    | H₃  | H₄  | χ              |
+| SPACE         | H₀ | H₁    | H₂    | H₃  | H₄  | χ               |
 +------------------------------------------------------------------+
 | Point         | Z  | 0     | 0     | 0   | 0   |  1  |
 | S¹            | Z  | Z     | 0     | 0   | 0   |  0  |

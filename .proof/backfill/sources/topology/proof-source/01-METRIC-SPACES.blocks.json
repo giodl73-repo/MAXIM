@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "topology\\01-METRIC-SPACES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|              METRIC SPACES — THE CONCRETE FOUNDATION               |\n+====================================================================+\n|                                                                    |\n|  METRIC d: X × X → R satisfying:                                 |\n|  1. d(x,y) = 0 iff x = y  (identity of indiscernibles)           |\n|  2. d(x,y) = d(y,x)        (symmetry)                            |\n|  3. d(x,z) ≤ d(x,y)+d(y,z) (triangle inequality)                 |\n|                                                                    |\n|  Open ball: B(x,r) = {y ∈ X : d(x,y) < r}                       |\n|  Defines topology: U open iff ∀x∈U ∃r>0: B(x,r) ⊆ U             |\n|                                                                    |\n|  CONVERGENCE: xₙ → x iff d(xₙ,x) → 0                             |\n|  COMPLETENESS: every Cauchy sequence converges in X               |\n|  COMPACTNESS: every sequence has a convergent subsequence          |\n|                (for metric spaces = sequential compactness)        |\n|                                                                    |\n|  BAIRE CATEGORY THEOREM:                                          |\n|  Complete metric space is NOT a countable union of nowhere-dense  |\n|  closed sets. ← Fundamental to functional analysis                |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## Baire Category Theorem",
+      "confidence": "candidate",
+      "text": "BAIRE CATEGORY THEOREM:\n  A complete metric space is NOT a countable union of nowhere-dense closed sets.\n\nNOWHERE DENSE: E is nowhere dense if int(cl(E)) = ∅.\n  (\"E has no open part after closing.\")\n  Examples: Z in R (nowhere dense), Q in R (NOT nowhere dense: cl(Q) = R).\n\nMEAGER (FIRST CATEGORY): countable union of nowhere-dense sets.\n  Q has measure zero but is NOT meager (Q = ∪{q} where {q} is nowhere dense... wait:\n  Q = ∪_{q ∈ Q} {q}: each {q} is nowhere dense. Q has cardinality ℵ₀.\n  So Q IS meager in R! R = (R\\Q) ∪ Q; R\\Q is dense and co-meager.)\n\nBAIRE: In a complete metric space X, if X = ∪Aₙ (countable union), then\n  at least one Aₙ has nonempty interior.\n  Equivalently: intersection of countably many dense open sets is dense.\n\nTCS CONNECTION — DESCRIPTIVE SET THEORY:\n  Baire category connects directly to the Borel hierarchy:\n  Open sets = Σ₁⁰, closed = Π₁⁰, Fσ = Σ₂⁰, Gδ = Π₂⁰, ...\n  In computability: decidable sets = clopen (Δ₁⁰),\n    semidecidable = open (Σ₁⁰), co-semidecidable = closed (Π₁⁰).\n  Baire category theorem → \"generic\" computations exist:\n    the meager/comeager distinction parallels \"measure zero\" in\n    algorithmic randomness. A comeager set of reals is \"generic\"\n    (contains a dense Gδ), just as a measure-1 set is \"random.\"\n  Wadge hierarchy (refinement of Borel hierarchy) classifies\n    sets in Polish spaces by continuous reducibility — directly\n    analogous to many-one reducibility in computability theory.\n\nAPPLICATIONS:\n  Open mapping theorem: Continuous surjective linear map between Banach spaces is open.\n    (Proof uses Baire → one term of the preimage has nonempty interior → expand.)\n  Closed graph theorem: Linear map T: X → Y (Banach) has closed graph → T is continuous.\n  Uniform boundedness (Banach-Steinhaus): pointwise bounded family of operators is\n    uniformly bounded.\n    (If Tₙ is a sequence of bounded operators with sup_n |Tₙ(x)| < ∞ for each x,\n     then sup_n ‖Tₙ‖ < ∞.)\n  Principle of condensation of singularities.\n  Non-constructive existence proofs: \"the set of functions where something fails is meager.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## Completeness vs Compactness",
+      "confidence": "candidate",
+      "text": "COMPLETE: every Cauchy sequence converges. (Sequences \"don't escape to infinity.\")\nCOMPACT: every sequence has a convergent subsequence. (Space is \"bounded and complete.\")\n\nIn metric spaces:\n  Compact ⟹ complete and totally bounded.\n  Complete + totally bounded ⟹ compact.\n  (Totally bounded = ∀ε>0, X covered by finitely many ε-balls.)\n\nIn Rⁿ:\n  Compact ↔ closed and bounded  (Heine-Borel).\n\nIn infinite-dimensional spaces (Banach/Hilbert):\n  Closed unit ball is complete but NOT compact!\n  (The sequence e₁, e₂, e₃, ... (standard basis vectors) has d(eᵢ,eⱼ) = √2 → no convergent subseq.)\n  Compact sets in Banach spaces must be \"tight\": no escaping to infinity in any direction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

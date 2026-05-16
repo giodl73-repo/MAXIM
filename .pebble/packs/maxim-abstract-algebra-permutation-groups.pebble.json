@@ -1,0 +1,293 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-abstract-algebra-permutation-groups",
+  "source": "../../abstract-algebra",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-PERMUTATION-GROUPS.md#000",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "# Permutation Groups"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#001",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#002",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|               PERMUTATION GROUPS — STRUCTURE                       |\n+====================================================================+\n|                                                                    |\n|  S_n = all bijections {1,...,n} → {1,...,n}    |S_n| = n!         |\n|         |                                                          |\n|         +──── cycle decomposition ────────────────────────────    |\n|         |     every σ = product of disjoint cycles                |\n|         |     unique up to order; cycle type = conjugacy class     |\n|         |                                                          |\n|         +──── sign homomorphism ─────────────────────────────    |\n|               sgn: S_n → {±1},  sgn(σ) = (-1)^{# transpositions}  |\n|               ker(sgn) = A_n  (alternating group)                  |\n|                                                                    |\n|  A_n = {even permutations}   |A_n| = n!/2                         |\n|  A_n is SIMPLE for n ≥ 5 (no normal subgroups)                    |\n|  → quintic unsolvable; every finite group embeds in some S_n      |\n|                                                                    |\n|  CAYLEY'S THEOREM: Every group G embeds in S_{|G|} via           |\n|  the left-regular representation g ↦ (x ↦ gx).                   |\n+====================================================================+\n```"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#003",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#004",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "## Cycle Notation"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#005",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "```\nA PERMUTATION σ ∈ S_n can be written in cycle notation:"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#006",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "ONE-LINE: σ = 4 1 3 2 5 means 1↦4, 2↦1, 3↦3, 4↦2, 5↦5."
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#007",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "CYCLE NOTATION:\n  Start with 1: σ(1)=4, σ(4)=2, σ(2)=1 → cycle (1 4 2).\n  Move to unfixed: σ(3)=3 → 3 is fixed, write (3) or omit.\n  Remaining: 5 is fixed.\n  Full: σ = (1 4 2)(3)(5) = (1 4 2).  [Singletons suppressed]"
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#008",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "A k-CYCLE (a₁ a₂ ... aₖ) sends: a₁↦a₂, a₂↦a₃, ..., aₖ↦a₁."
+    },
+    {
+      "id": "03-PERMUTATION-GROUPS.md#009",
+      "path": [
+        "03-PERMUTATION-GROUPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]",
+        "canonical_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "concepts": "[permutation, groups]",
+        "current_path": "abstract-algebra/03-PERMUTATION-GROUPS.md",
+        "id": "maxim:abstract-algebra:permutation-groups",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[permutation, groups]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Permutation Groups",
+        "updated": "null"
+      },
+      "text": "UNIQUE FACTORIZATION INTO DISJOINT CYCLES:\n  Every σ ∈ S_n = product of disjoint cycles, unique up to order.\n  Disjoint cycles commute."
+    }
+  ],
+  "refs": [
+    "03-PERMUTATION-GROUPS.md"
+  ]
+}

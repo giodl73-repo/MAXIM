@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:connectedness
+kind: guide
+module: topology
+section: topology
+title: Connectedness
+status: source-custody
+source_custody: partial
+current_path: topology/05-CONNECTEDNESS.md
+canonical_path: topology/05-CONNECTEDNESS.md
+backsource_ids: [proof-backfill:topology:05-connectedness, git-history:topology:05-connectedness]
+concepts: [connectedness]
+root_concepts: [connectedness]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Connectedness
 
 ## The Big Picture

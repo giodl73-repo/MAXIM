@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:topological-spaces
+kind: guide
+module: topology
+section: topology
+title: Topological Spaces
+status: source-custody
+source_custody: partial
+current_path: topology/02-TOPOLOGICAL-SPACES.md
+canonical_path: topology/02-TOPOLOGICAL-SPACES.md
+backsource_ids: [proof-backfill:topology:02-topological-spaces, git-history:topology:02-topological-spaces]
+concepts: [topological, spaces]
+root_concepts: [topological, spaces]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Topological Spaces
 
 ## The Big Picture

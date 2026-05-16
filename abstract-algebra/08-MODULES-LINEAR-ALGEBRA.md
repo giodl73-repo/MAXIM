@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:modules-linear-algebra
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Modules and Linear Algebra
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/08-MODULES-LINEAR-ALGEBRA.md
+canonical_path: abstract-algebra/08-MODULES-LINEAR-ALGEBRA.md
+backsource_ids: [proof-backfill:abstract-algebra:08-modules-linear-algebra, git-history:abstract-algebra:08-modules-linear-algebra]
+concepts: [modules, linear, algebra]
+root_concepts: [modules, linear]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modules and Linear Algebra
 
 ## The Big Picture

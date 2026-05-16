@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\05-POLYNOMIALS-FIELDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|         FIELD EXTENSIONS — THE TOWER                               |\n+====================================================================+\n|                                                                    |\n|                    ALGEBRAICALLY CLOSED                           |\n|            (every polynomial splits into linear factors)          |\n|                C, F̄_p (algebraic closure)                         |\n|                         /                                         |\n|              ALGEBRAIC EXTENSION                                  |\n|              (adjoin roots of polynomials)                        |\n|                      /  |                                         |\n|         Q(√2, √3) ...   |  Q(i) ...  F_{p^n}                    |\n|                  \\      |        /                                |\n|                  GROUND FIELD: Q, F_p, R                          |\n|                                                                    |\n|  [K:F] = degree of extension = dim_F K as F-vector space          |\n|                                                                    |\n|  K algebraic over F: every α ∈ K satisfies f(α)=0 for f ∈ F[x]  |\n|  K transcendental extension: exists α ∈ K satisfying no poly over F |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "### Irreducibility Tests",
+      "confidence": "candidate",
+      "text": "Over Q:\n  1. Rational Root Theorem: if f = aₙxⁿ+...+a₀ ∈ Z[x] has rational root p/q (reduced),\n     then p|a₀ and q|aₙ. Eliminates most candidate roots.\n\n  2. Eisenstein's Criterion: f = aₙxⁿ+...+a₀ is irreducible over Q if ∃ prime p:\n     p ∤ aₙ, p|aₙ₋₁,...,p|a₀, p²∤a₀.\n     Example: x^p - p is Eisenstein (for prime p). x⁴+x³+x²+x+1 is not directly\n       Eisenstein, but substituting x=y+1 gives y⁴+5y³+10y²+10y+5, Eisenstein at p=5.\n\n  3. Reduction mod p: if f mod p is irreducible over F_p for some prime p\n     (and degrees match), then f is irreducible over Q.\n\n  4. For degree 2 or 3: irreducible iff no roots (in Q or R respectively).\n\nOver F_p:\n  Berlekamp or Cantor-Zassenhaus algorithms (polynomial time).\n\n**Key distinction for cryptography**: Factoring *polynomials* over any field (including Z via LLL) is polynomial time. Factoring *integers* is conjectured hard (basis of RSA). These are fundamentally different problems — polynomial factoring reduces to linear algebra over the coefficient field (Berlekamp) or lattice reduction (LLL for Z[x]); integer factoring has no known polynomial-time algorithm on classical computers. The existence of efficient polynomial factoring does NOT help break RSA; the algebraic structure is different.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "### Algebraic Extensions",
+      "confidence": "candidate",
+      "text": "α ∈ K is ALGEBRAIC over F if ∃f(x) ∈ F[x], f ≠ 0, with f(α) = 0.\nα is TRANSCENDENTAL over F if no such f exists.\n\nMINIMAL POLYNOMIAL of α over F:\n  The unique monic irreducible polynomial m_{α,F}(x) ∈ F[x] with m_{α,F}(α) = 0.\n  [F(α):F] = deg(m_{α,F}).\n\n  F(α) = F[x]/(m_{α,F}) as a field.  ← key construction\n\nEXAMPLES:\n  √2 over Q: m = x²-2. [Q(√2):Q] = 2.\n  i over R: m = x²+1. [C:R] = 2.\n  ∛2 over Q: m = x³-2. [Q(∛2):Q] = 3.\n  ζ₅ = e^{2πi/5} over Q: m = x⁴+x³+x²+x+1 (5th cyclotomic polynomial). [Q(ζ₅):Q] = 4.\n  π over Q: transcendental (Lindemann, 1882). No algebraic extension Q(π)/Q is finite.\n  e over Q: transcendental (Hermite, 1873).\n\nALGEBRAIC EXTENSION: every element is algebraic over F.\n  Finite extensions are algebraic.\n  Algebraic numbers Ā = {α ∈ C : α algebraic over Q}: infinite algebraic extension of Q.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 175,
+      "heading_context": "### Simple Extensions",
+      "confidence": "candidate",
+      "text": "Simple extension: K = F(α) for a single element α.\n\nWhen α is algebraic with minimal polynomial m(x) of degree n:\n  F(α) ≅ F[x]/(m(x))\n  Basis: {1, α, α², ..., α^{n-1}}.\n  Addition: componentwise.\n  Multiplication: reduce using m(α) = 0.\n\nExample: Q(√2):\n  Basis {1, √2}.\n  (a + b√2)(c + d√2) = (ac+2bd) + (ad+bc)√2.\n  Inverse of (a+b√2): 1/(a+b√2) = (a-b√2)/(a²-2b²).  [norm = a²-2b²]\n\nExample: GF(4) = F_2(α) where α² + α + 1 = 0 (m irreducible over F_2):\n  Elements: {0, 1, α, α+1}.\n  Multiplication: α² = α+1, (α+1)α = α²+α = (α+1)+α = 1, etc.\n  Note: GF(4)* is cyclic of order 3: α has order 3 (α, α², α³=1).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

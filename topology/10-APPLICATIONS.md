@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:applications
+kind: guide
+module: topology
+section: topology
+title: Applications of Topology
+status: source-custody
+source_custody: partial
+current_path: topology/10-APPLICATIONS.md
+canonical_path: topology/10-APPLICATIONS.md
+backsource_ids: [proof-backfill:topology:10-applications, git-history:topology:10-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications of Topology
 
 ## The Big Picture
@@ -15,7 +34,7 @@
 |                                                                    |
 |  2. TOPOLOGICAL PHASES OF MATTER (Condensed Matter Physics)       |
 |     TKNN invariant, Chern numbers, Berry phase.                   |
-|     Quantum Hall effect: Hall conductance = Chern number = integer.|
+|     Quantum Hall effect: Hall conductance = Chern number = integer. |
 |     Topological insulators: bulk-boundary correspondence.         |
 |     K-theory classifies topological phases.                       |
 |                                                                    |

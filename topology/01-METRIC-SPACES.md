@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:metric-spaces
+kind: guide
+module: topology
+section: topology
+title: Metric Spaces
+status: source-custody
+source_custody: partial
+current_path: topology/01-METRIC-SPACES.md
+canonical_path: topology/01-METRIC-SPACES.md
+backsource_ids: [proof-backfill:topology:01-metric-spaces, git-history:topology:01-metric-spaces]
+concepts: [metric, spaces]
+root_concepts: [metric, spaces]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metric Spaces
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:compactness
+kind: guide
+module: topology
+section: topology
+title: Compactness
+status: source-custody
+source_custody: partial
+current_path: topology/04-COMPACTNESS.md
+canonical_path: topology/04-COMPACTNESS.md
+backsource_ids: [proof-backfill:topology:04-compactness, git-history:topology:04-compactness]
+concepts: [compactness]
+root_concepts: [compactness]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Compactness
 
 ## The Big Picture
@@ -11,8 +30,8 @@
 |                                                                    |
 |  ∀{Uα} open with X = ∪Uα,  ∃ finite {Uα₁,...,Uαₙ}: X=∪Uαᵢ.    |
 |                                                                    |
-|  INTUITION: Compact = "behaves like a finite set" even if infinite.|
-|  The finite-cover condition forces all "infinity" to be controlled.|
+|  INTUITION: Compact = "behaves like a finite set" even if infinite. |
+|  The finite-cover condition forces all "infinity" to be controlled. |
 |                                                                    |
 |  KEY THEOREMS:                                                     |
 |  Heine-Borel: [a,b] ⊆ R is compact (closed + bounded in Rⁿ).     |

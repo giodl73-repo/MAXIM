@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\07-REPRESENTATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|          REPRESENTATION THEORY — GROUPS ACTING ON VECTOR SPACES    |\n+====================================================================+\n|                                                                    |\n|  REPRESENTATION of G over F:                                       |\n|  ρ: G → GL(V)  (homomorphism from G to invertible linear maps)    |\n|  = \"abstract group G\" acting concretely on a vector space V        |\n|                                                                    |\n|  QUESTIONS:                                                        |\n|  1. How many non-isomorphic irreducible representations?          |\n|     Answer: one per conjugacy class.                               |\n|  2. What are their dimensions?                                     |\n|     Answer: d₁,d₂,...,dₖ with Σdᵢ² = |G|.                       |\n|  3. How do tensor products decompose?                              |\n|     Answer: character inner product (Clebsch-Gordan).             |\n|                                                                    |\n|  APPLICATIONS:                                                     |\n|  Quantum mechanics: SU(2) → spin representations                  |\n|  Chemistry: molecular orbitals from symmetry groups               |\n|  Number theory: Artin L-functions from Galois representations      |\n|  CS: Fourier transform on finite groups, graph symmetry            |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Schur's Lemma",
+      "confidence": "candidate",
+      "text": "SCHUR'S LEMMA: Let V, W be irreducible representations of G.\n  (a) Every G-equivariant map f: V → W is either 0 or an isomorphism.\n  (b) Every G-equivariant endomorphism f: V → V is a scalar (f = λ Id_V).\n\nProof:\n  (a): ker(f) is a G-invariant subspace of V (since f is G-equivariant and V irreducible).\n       So ker(f) = 0 (hence f injective) or ker(f) = V (f=0).\n       If f injective: im(f) is G-invariant in W, nonzero, hence all of W. □\n\n  (b): f has an eigenvalue λ (over C, all operators have eigenvalues).\n       f - λId is G-equivariant and not an isomorphism (has non-trivial kernel).\n       By (a): f - λId = 0 → f = λId. □\n\nCONSEQUENCE:\n  EndG(V) = F for irreducible V over algebraically closed F.\n  The G-equivariant endomorphisms form a division algebra.\n  Over C: they're just scalars (by Schur's Lemma).\n\nAPPLICATION:\n  Abelian groups: all irreps over C are 1-dimensional.\n  Proof: for abelian G, every ρ(h) is G-equivariant (since G abelian).\n  By Schur's Lemma: each ρ(h) = scalar. So every G-invariant subspace is the whole space — dim=1.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 177,
+      "heading_context": "## Character Tables",
+      "confidence": "candidate",
+      "text": "CHARACTER TABLE of G: matrix where rows = irreducible characters, columns = conjugacy classes.\n  Entry (i,j) = χᵢ(gⱼ) (value of i-th character on j-th conjugacy class).\n\nNUMBER OF IRREPS = NUMBER OF CONJUGACY CLASSES (over C).\n  (One of the key theorems of the subject.)\n\nSIZE CONSTRAINT: Σᵢ (dim Vᵢ)² = |G|.\n\nEXAMPLE: Character table of S_3 (= D_3).\n  |S_3| = 6.  3 conjugacy classes: {e}, {(12),(13),(23)}, {(123),(132)}.\n\n  G = S_3:     | {e}  | 3 transp. | 2 3-cycles |\n  -------------+-------+-----------+------------+\n  χ_trivial    |   1   |     1     |      1     |\n  χ_sign       |   1   |    -1     |      1     |\n  χ_standard   |   2   |     0     |     -1     |\n\n  Check: 1²+1²+2² = 6 = |S_3|. ✓\n  Orthogonality: ⟨χ_triv, χ_sign⟩ = (1·1·1+3·1·(-1)+2·1·1)/6 = (1-3+2)/6 = 0. ✓\n\nEXAMPLE: Character table of Z/4Z = {0,1,2,3}.\n  4 conjugacy classes (each element is its own class — abelian).\n  4 one-dimensional irreps: χₖ(j) = e^{2πijk/4} = iᵏʲ.\n\n  Z/4Z:        | 0 | 1 | 2 | 3 |\n  χ₀           | 1 | 1 | 1 | 1 |\n  χ₁           | 1 | i |-1 |-i |\n  χ₂           | 1 |-1 | 1 |-1 |\n  χ₃           | 1 |-i |-1 | i |\n\n  This is exactly the DFT matrix! (Discrete Fourier Transform)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "## Representation Theory of SU(2) and SO(3)",
+      "confidence": "candidate",
+      "text": "SU(2) = {M ∈ GL(2,C) : M*M=I, det(M)=1}.\n  SU(2) ≅ S³ as a topological space.\n  As a Lie group, connected and simply connected.\n\nIRREDUCIBLE REPRESENTATIONS OF SU(2):\n  One for each dimension n = 1, 2, 3, 4, ...\n  V_n = symmetric n-th tensor power of C² = polynomials of degree n-1 in z₁,z₂.\n  dim V_n = n.\n  Highest weight: n-1 (quantum number = (n-1)/2).\n\nHALF-INTEGER SPIN:\n  Spin j = (n-1)/2 for n = 1,2,3,...\n  j = 0: trivial (spin-0, scalar).\n  j = 1/2: V_2 (2-dimensional — spinor, electron).\n  j = 1: V_3 (3-dimensional — vector boson).\n  j = 3/2: V_4 (4-dimensional — Δ baryon).\n\nSO(3) REPRESENTATIONS:\n  SO(3) = SU(2)/{±I} (quotient by center).\n  Representations of SO(3) = representations of SU(2) where -I acts trivially.\n  Only ODD-dimensional irreps of SU(2) descend to SO(3): j = 0, 1, 2, ...\n  EVEN-dimensional (j = 1/2, 3/2, ...) do NOT descend — these are \"spinors.\"\n  This is why spin-1/2 requires a full 720° rotation to return to original state.\n\nCLEBSCH-GORDAN DECOMPOSITION:\n  V_m ⊗ V_n ≅ ⊕_{k=|m-n|/2}^{(m+n)/2} V_{2k+1}\n  (using half-integer j notation: V^{j₁} ⊗ V^{j₂} ≅ ⊕_{j=|j₁-j₂|}^{j₁+j₂} V^j)\n\n  Example: spin-1/2 ⊗ spin-1/2 = spin-0 ⊕ spin-1 (singlet + triplet).\n  The \"spin addition\" rule in quantum mechanics.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "## Fourier Analysis on Finite Groups",
+      "confidence": "candidate",
+      "text": "DISCRETE FOURIER TRANSFORM on Z/nZ:\n  f: Z/nZ → C.\n  f̂(k) = Σ_{j=0}^{n-1} f(j) e^{-2πijk/n}.\n  = ⟨f, χₖ⟩ where χₖ(j) = e^{2πijk/n} are the characters of Z/nZ.\n\nFOURIER INVERSION:\n  f(j) = (1/n) Σ_k f̂(k) e^{2πijk/n}.\n\nFAST FOURIER TRANSFORM (FFT):\n  O(n log n) algorithm for DFT.\n  Exploits the decomposition Z/nZ = Z/2Z × Z/(n/2)Z (for n even).\n  Each split halves the problem: T(n) = 2T(n/2) + O(n) → O(n log n).\n\nGENERAL GROUPS:\n  For non-abelian group G: irreps ρᵢ of dimension dᵢ.\n  f̂(ρᵢ) = Σ_{g∈G} f(g) ρᵢ(g)  [matrix-valued Fourier coefficient]\n  Plancherel formula: Σ_{g∈G} |f(g)|² = Σᵢ dᵢ Tr(f̂(ρᵢ)* f̂(ρᵢ)).\n\nNTT (Number Theoretic Transform):\n  FFT over Z/pZ instead of C. Used in:\n  Polynomial multiplication in polynomial-time algorithms.\n  Lattice-based cryptography (Kyber uses NTT in Z_q[x]/(x^n+1)).\n\nAPPLICATIONS OF NON-ABELIAN FOURIER ANALYSIS:\n  The non-abelian FFT on S_n: O(n² n!) — polynomial per group element.\n  Used in computational group theory for efficient convolution on S_n.\n\n  ML connection: functions on permutations arise in ranking, matching, and\n  preference learning. The Fourier transform on S_n decomposes a ranking function\n  into irreducible components (Specht modules), each capturing a different \"order\"\n  of interaction between ranked items.\n\n  Equivariant networks on S_n (Maron et al. 2019):\n    Invariant: f(σ·x) = f(x) for all σ ∈ S_n → DeepSets (Zaheer et al.)\n    Equivariant: f(σ·x) = σ·f(x) → higher-order equivariant message passing\n    The representation theory of S_n (Specht modules, Young tableaux) determines\n    the space of equivariant linear maps between tensor spaces — the \"equivariant\n    layers\" in the network are parameterized by the intertwiner spaces Hom_G(V,W).\n\n  Spectral methods on graphs: the graph Fourier transform uses eigenfunctions\n  of the graph Laplacian, which is the analog of harmonic analysis on the\n  symmetry group of the graph. Spectral GNNs (Bruna et al., Defferrard et al.)\n  compute in this Fourier basis.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

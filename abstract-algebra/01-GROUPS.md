@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:groups
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Groups
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/01-GROUPS.md
+canonical_path: abstract-algebra/01-GROUPS.md
+backsource_ids: [proof-backfill:abstract-algebra:01-groups, git-history:abstract-algebra:01-groups]
+concepts: [groups]
+root_concepts: [groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Groups
 
 ## The Big Picture

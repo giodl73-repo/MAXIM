@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:manifolds
+kind: guide
+module: topology
+section: topology
+title: Manifolds
+status: source-custody
+source_custody: partial
+current_path: topology/09-MANIFOLDS.md
+canonical_path: topology/09-MANIFOLDS.md
+backsource_ids: [proof-backfill:topology:09-manifolds, git-history:topology:09-manifolds]
+concepts: [manifolds]
+root_concepts: [manifolds]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Manifolds
 
 ## The Big Picture

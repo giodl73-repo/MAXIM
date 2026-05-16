@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:category-theory
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Category Theory
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/09-CATEGORY-THEORY.md
+canonical_path: abstract-algebra/09-CATEGORY-THEORY.md
+backsource_ids: [proof-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]
+concepts: [category, theory]
+root_concepts: [category, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Category Theory
 
 ## The Big Picture

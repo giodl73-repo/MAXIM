@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:galois-theory
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Galois Theory
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/06-GALOIS-THEORY.md
+canonical_path: abstract-algebra/06-GALOIS-THEORY.md
+backsource_ids: [proof-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]
+concepts: [galois, theory]
+root_concepts: [galois, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Galois Theory
 
 ## The Big Picture

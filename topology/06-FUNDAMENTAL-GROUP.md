@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:fundamental-group
+kind: guide
+module: topology
+section: topology
+title: Fundamental Group
+status: source-custody
+source_custody: partial
+current_path: topology/06-FUNDAMENTAL-GROUP.md
+canonical_path: topology/06-FUNDAMENTAL-GROUP.md
+backsource_ids: [proof-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]
+concepts: [fundamental, group]
+root_concepts: [fundamental, group]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fundamental Group
 
 ## The Big Picture
@@ -8,7 +27,7 @@
 +====================================================================+
 |                                                                    |
 |  LOOPS at x₀: continuous γ: [0,1] → X with γ(0) = γ(1) = x₀.   |
-|  HOMOTOPY: a deformation of one loop to another (fixing endpoints).|
+|  HOMOTOPY: a deformation of one loop to another (fixing endpoints). |
 |  π₁(X,x₀) = {homotopy classes of loops based at x₀}.             |
 |                                                                    |
 |  GROUP OPERATION: [γ][δ] = [γ * δ]  (concatenation of loops).    |
