@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:evo-devo
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Evolutionary Developmental Biology (Evo-Devo)
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/06-EVO-DEVO.md
+canonical_path: evolutionary-biology/06-EVO-DEVO.md
+backsource_ids: [proof-backfill:evolutionary-biology:06-evo-devo, git-history:evolutionary-biology:06-evo-devo]
+concepts: [evo, devo]
+root_concepts: [evo, devo]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Evolutionary Developmental Biology (Evo-Devo)
 
 ## The Big Picture

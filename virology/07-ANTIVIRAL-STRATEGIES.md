@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:antiviral-strategies
+kind: guide
+module: virology
+section: virology
+title: Antiviral Drugs and Resistance Mechanisms
+status: source-custody
+source_custody: partial
+current_path: virology/07-ANTIVIRAL-STRATEGIES.md
+canonical_path: virology/07-ANTIVIRAL-STRATEGIES.md
+backsource_ids: [proof-backfill:virology:07-antiviral-strategies, git-history:virology:07-antiviral-strategies]
+concepts: [antiviral, strategies]
+root_concepts: [antiviral, strategies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Antiviral Drugs and Resistance Mechanisms
 
 ## The Big Picture
@@ -14,7 +33,7 @@ directly onto stages of the replication cycle.
 │  REPLICATION STEP          DRUG CLASS            TARGET EXAMPLES │
 │  ─────────────────         ──────────            ─────────────── │
 │  Attachment                Entry inhibitors      Maraviroc (HIV) │
-│  Membrane fusion           Fusion inhibitors     Enfuvirtide (HIV)│
+│  Membrane fusion           Fusion inhibitors     Enfuvirtide     │
 │  Genome release            Capsid inhibitors     Lenacapavir     │
 │  Viral polymerase          NRTIs/NNRTIs/NAs      AZT, Sofosbuvir │
 │  RNA replication           RdRp inhibitors       Remdesivir      │

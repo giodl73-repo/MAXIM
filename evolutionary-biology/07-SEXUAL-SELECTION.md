@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:sexual-selection
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Sexual Selection and Life History Theory
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/07-SEXUAL-SELECTION.md
+canonical_path: evolutionary-biology/07-SEXUAL-SELECTION.md
+backsource_ids: [proof-backfill:evolutionary-biology:07-sexual-selection, git-history:evolutionary-biology:07-sexual-selection]
+concepts: [sexual, selection]
+root_concepts: [sexual, selection]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sexual Selection and Life History Theory
 
 ## The Big Picture

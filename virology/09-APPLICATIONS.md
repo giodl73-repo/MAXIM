@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:applications
+kind: guide
+module: virology
+section: virology
+title: Viruses as Tools: Phage Therapy and Gene Delivery
+status: source-custody
+source_custody: partial
+current_path: virology/09-APPLICATIONS.md
+canonical_path: virology/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:virology:09-applications, git-history:virology:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Viruses as Tools: Phage Therapy and Gene Delivery
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:immune-evasion
+kind: guide
+module: virology
+section: virology
+title: Immune Evasion Strategies
+status: source-custody
+source_custody: partial
+current_path: virology/05-IMMUNE-EVASION.md
+canonical_path: virology/05-IMMUNE-EVASION.md
+backsource_ids: [proof-backfill:virology:05-immune-evasion, git-history:virology:05-immune-evasion]
+concepts: [immune, evasion]
+root_concepts: [immune, evasion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Immune Evasion Strategies
 
 ## The Big Picture
@@ -14,21 +33,21 @@ cause chronic infections, why some escape vaccines, and why cytokine storms occu
 │  TARGET         EVASION STRATEGY                  EXAMPLES       │
 │  ─────────      ─────────────────                 ────────       │
 │  Innate         Block IFN induction               Flu NS1        │
-│  sensing        Degrade sensing molecules         SARS nsp3 PLpro │
-│                 Sequester dsRNA from RIG-I        Coronavirus DMVs│
+│  sensing        Degrade sensing molecules         SARS PLpro     │
+│                 Sequester dsRNA from RIG-I        Corona DMVs    │
 │                 cGAS/STING inhibition             Adenovirus E1A │
 │                                                                  │
-│  IFN signaling  Block JAK-STAT pathway            Paramyxovirus V│
+│  IFN signaling  Block JAK-STAT pwy               Paramyxovirus V │
 │                 Degrade STAT1/STAT2               Simian virus 5 │
 │                                                                  │
 │  MHC-I          Downregulate MHC-I                HIV Nef, HCMV  │
 │  presentation   Block TAP (peptide transport)     HSV ICP47      │
 │                 Retain MHC-I in ER/Golgi          HCMV US2/US11  │
 │                                                                  │
-│  CTL killing    Prevent apoptosis                 EBV BHRF1, FLIP │
+│  CTL killing    Prevent apoptosis                 EBV BHRF1/FLIP │
 │                 Target NK cell sensors            HCMV UL18      │
 │                                                                  │
-│  Antibodies     Antigenic variation               HIV gp120 glycan│
+│  Antibodies     Antigenic variation               gp120 glycan   │
 │                 Decoy antigens                    HIV shed gp120 │
 │                 Structural shielding              Sialylation    │
 │                                                                  │

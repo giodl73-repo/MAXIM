@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:population-genetics
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Population Genetics: Hardy-Weinberg and Drift
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/02-POPULATION-GENETICS.md
+canonical_path: evolutionary-biology/02-POPULATION-GENETICS.md
+backsource_ids: [proof-backfill:evolutionary-biology:02-population-genetics, git-history:evolutionary-biology:02-population-genetics]
+concepts: [population, genetics]
+root_concepts: [population, genetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Population Genetics: Hardy-Weinberg and Drift
 
 ## The Big Picture

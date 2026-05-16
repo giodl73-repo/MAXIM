@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "virology\\06-QUASISPECIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                   QUASISPECIES FRAMEWORK                         │\n│                                                                  │\n│  CLASSICAL VIEW:            QUASISPECIES VIEW:                   │\n│  ──────────────             ────────────────────                 │\n│  Virus = defined sequence   Virus = cloud of mutants             │\n│  Evolution = point          Evolution = shift of the cloud       │\n│  mutations over time        in sequence space                    │\n│  Drug resistance = new      Drug resistance variants PRE-EXIST   │\n│  mutation after drug        in the cloud before drug exposure    │\n│  exposure                                                        │\n│                                                                  │\n│  KEY CONSEQUENCES:                                               │\n│  - Drug-resistant mutants are present before treatment begins    │\n│  - \"Consensus sequence\" is a statistical abstraction             │\n│  - Fitness of the cloud (quasispecies fitness) ≠ fitness of      │\n│    any individual variant                                        │\n│  - Error threshold: too high a mutation rate → sequence space    │\n│    information destroyed (error catastrophe)                     │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Mutation Rates — Quantitative Comparison",
+      "confidence": "candidate",
+      "text": "  POLYMERASE              ERROR RATE          VIRUS / ORGANISM\n  ──────────────          ──────────          ────────────────\n  RNA polymerase          ~10⁻⁴/bp/cycle      RNA viruses (typical)\n  (viral RdRp)\n  HIV reverse             ~3×10⁻⁵/bp/cycle    HIV\n  transcriptase\n  CoV RdRp + ExoN         ~10⁻⁶/bp/cycle      SARS-CoV-2 (unusually low for RNA virus)\n  (proofreading)\n  DNA polymerase          ~10⁻⁸/bp/cycle      Large DNA viruses (herpesviruses)\n  (viral, e.g., HSV)\n  Cellular DNA pol        ~10⁻⁹/bp/cycle      Human cells (proofreading + mismatch repair)\n  + repair\n\n  MUTATIONS PER REPLICATION CYCLE (genome × error rate):\n  ─────────────────────────────────────────────────────\n  HIV (9.7 kb × 3×10⁻⁵):      ~0.3 mutations/genome/cycle\n  Poliovirus (7.5 kb × 10⁻⁴): ~0.75 mutations/genome/cycle\n  Influenza (13.6 kb × 10⁻⁴): ~1.4 mutations/genome/cycle\n  SARS-CoV-2 (30 kb × 10⁻⁶):  ~0.03 mutations/genome/cycle\n  HSV-1 (152 kb × 10⁻⁸):      ~0.0015 mutations/genome/cycle\n\n  HIV produces roughly one mutation per replication event on average.\n  Every possible single nucleotide mutant is generated multiple times per day.\n  Most deleterious. Some beneficial. Pre-existing diversity is enormous.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## Quasispecies Theory — Mathematical Foundation",
+      "confidence": "candidate",
+      "text": "  QUASISPECIES EQUATION:\n  ───────────────────────\n  dxᵢ/dt = Σⱼ Qⱼᵢ · fⱼ · xⱼ - Φ · xᵢ\n\n  xᵢ = frequency of sequence i in the population\n  fⱼ = replication rate (fitness) of sequence j\n  Qⱼᵢ = probability that replication of j produces i (mutation matrix)\n  Φ = mean fitness of population (normalization term)\n\n  At equilibrium: stationary quasispecies distribution\n  The \"master sequence\" (maximum fⱼ) dominates but is surrounded by\n  mutant cloud. If fⱼ is very high but Qⱼᵢ is very low (many mutations\n  from j to i), master sequence may not dominate.\n\n  \"Survival of the flattest\":\n  In high mutation rate regime, a sequence with moderate fitness but\n  ROBUST neighbors (flat fitness landscape peak) outcompetes a sequence\n  with very high fitness but steep fitness landscape peak (deleterious\n  neighbors). The cloud as a whole has higher fitness even if the peak is lower.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Sequence Space — Visualizing Viral Evolution",
+      "confidence": "candidate",
+      "text": "  SEQUENCE SPACE:\n  ───────────────\n  Every possible sequence of length L is a point in a hypercube of dimension L\n  (4^L points for DNA/RNA; enormous)\n\n  Quasispecies = cloud of points in sequence space, clustered around master sequence\n  Evolution = drift of the cloud through sequence space under selection + mutation\n\n  Escape from immune pressure:\n  CTL epitope or antibody epitope = specific region of sequence space\n  Immune pressure → selection for sequences outside the epitope region\n  The cloud can \"explore\" the sequence space around an epitope rapidly\n  (HIV explores ~10⁻⁴ × genome size = many positions per cycle)\n\n  Practical consequence:\n  Single mutation = 1 step in sequence space\n  Drug resistance: target the mutation to fitness cost is high (constrained position)\n  Vaccine: target epitopes where mutations have high fitness cost",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### The Error Threshold",
+      "confidence": "candidate",
+      "text": "  ERROR THRESHOLD:\n  ─────────────────\n  For a genome of length L:\n\n  μ_c ≈ ln(W_max/W_cloud) / L\n\n  W_max = maximum fitness (master sequence fitness)\n  W_cloud = average fitness of mutant cloud\n  L = genome length\n\n  For RNA viruses: L ≈ 10⁴-10⁵ bp, W_max/W_cloud ≈ e²-e³\n  → μ_c ≈ 2-3/L ≈ 2-3 × 10⁻⁴ – 10⁻⁵\n\n  Current RNA polymerase error rates (~10⁻⁴) are close to this threshold.\n  This is not a coincidence: RNA virus mutation rates have evolved to be\n  near-threshold (maximum exploration of sequence space while maintaining\n  genome integrity).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### Error Catastrophe as Drug Strategy (Lethal Mutagenesis)",
+      "confidence": "candidate",
+      "text": "  LETHAL MUTAGENESIS DRUGS:\n  ──────────────────────────\n  Ribavirin: nucleoside analog; increases RNA virus mutation rate\n             Acts as mutagen (misincorporated into viral RNA → mutations)\n             + other mechanisms (GTP depletion, innate immune activation)\n             Used for: HCV (now replaced by DAAs), RSV, Lassa fever\n             Mechanism: pushes RNA virus above error threshold in vitro\n             Clinical evidence: imperfect (mutagenesis may not be main mechanism)\n\n  Molnupiravir (EIDD-2801): prodrug of N-hydroxycytidine\n             Incorporated by viral RdRp → causes C:G → U:A transitions\n             Causes ~10× increase in SARS-CoV-2 mutation rate in cell culture\n             Approved for COVID-19 treatment; ~30% reduction in hospitalization\n             Concern: mutagenicity to host DNA? No genotoxicity shown in clinical\n             testing, but ongoing monitoring\n\n  Favipiravir: viral RdRp inhibitor + putative mutagen for influenza/COVID",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "### Pre-existing Resistance — The Clinical Consequence",
+      "confidence": "candidate",
+      "text": "  DRUG RESISTANCE LANDSCAPE (HIV example):\n  ──────────────────────────────────────────\n  Before treatment: viral population = ~10¹⁰ viruses/patient\n  HIV point mutation rate: ~3×10⁻⁵ per position per replication\n  10¹⁰ viruses × ~3×10⁻⁵ = ~300,000 copies with any specific single mutation\n\n  EVERY single-nucleotide mutation exists in the untreated patient.\n  Every two-nucleotide combination also exists at lower frequency.\n  Triple mutants: ~10¹⁰ × (3×10⁻⁵)³ ≈ 0.27 — borderline\n\n  Single-drug treatment: selects pre-existing resistant minority → failure in weeks\n  Triple-drug combination (HAART/cART):\n  - Resistance to drug A requires mutation at position X\n  - Resistance to drug B requires mutation at position Y\n  - Resistance to drug C requires mutation at position Z\n  - Triple-resistant virus requires X+Y+Z simultaneously\n  - Probability: 0.27 × the third mutation = essentially impossible\n  → Triple therapy does not allow rebound (unless poor adherence allows\n    sequential selection)\n\n  THIS is why triple therapy cured AIDS — not because each drug was more potent,\n  but because evolution cannot simultaneously achieve three independent rare\n  mutations before the viral population is suppressed below detection.\n  Bridge: this is the same combinatorial logic as using multiple independent\n  authentication factors in security — no single compromise defeats all three.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### Viral Fitness Costs of Resistance Mutations",
+      "confidence": "candidate",
+      "text": "  Most resistance mutations reduce replicative fitness:\n  ──────────────────────────────────────────────────────\n  HIV RT K65R (tenofovir resistance): reduces RT processivity\n  HIV PR D30N (nelfinavir resistance): reduces PR activity\n  Influenza H275Y (oseltamivir resistance): reduces NA activity slightly\n\n  FITNESS COST IMPLIES:\n  - In absence of drug: wild-type outcompetes resistant mutant\n  - Resistant mutant may have been rare in quasispecies\n  - After drug removed: wild-type rebounds, resistance declines\n  - But: compensatory mutations can restore fitness WITHOUT reverting resistance\n    → Once compensated, resistance is stable even off drug\n\n  This is why drug history matters: resistance patterns from previous\n  treatment remain even after treatment interruption (archival resistance\n  in HIV proviral DNA in long-lived cells).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 254,
+      "heading_context": "## Why Flu Evolves Faster than Poliovirus",
+      "confidence": "candidate",
+      "text": "  COMPARISON: INFLUENZA vs. POLIOVIRUS\n  ──────────────────────────────────────\n  Error rate: both ~10⁻⁴ per bp\n  Genome size: flu 13.6 kb; polio 7.5 kb\n  Mutation rate per genome: flu ~1.4, polio ~0.75 per cycle\n\n  But flu requires annual vaccine updates; polio vaccine has worked for 60+ years.\n\n  REASONS:\n  1. Segmented genome + reassortment: Flu has 8 segments; reassortment creates\n     entirely new antigen combinations (antigenic shift) on top of point mutation drift.\n     Poliovirus genome is non-segmented; no reassortment.\n\n  2. Population structure: Flu cycles globally through a seasonal pattern,\n     escaping immunity driven by global vaccination and natural infection.\n     Poliovirus is cleared efficiently by neutralizing antibodies; the neutralization\n     target (canyon around the 5-fold axis) is structurally constrained —\n     mutations that escape antibodies are mostly lethal to the virus.\n\n  3. Functional constraint on antigenic sites:\n     Poliovirus: receptor binding site = major antibody target → mutations\n                 that escape antibody usually impair receptor binding → lethal\n     Influenza HA: receptor binding site and antibody binding sites are DIFFERENT\n                  regions → receptor binding can be maintained while surface\n                  loops mutate for antibody escape\n\n  4. Immune pressure target: Both viruses face immune selection, but flu has many\n     more accessible escape routes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## Quasispecies vs. Classical Population Genetics",
+      "confidence": "candidate",
+      "text": "  QUASISPECIES THEORY              POPULATION GENETICS\n  ─────────────────────            ─────────────────────\n  Originally developed for         Developed for sexually\n  asexual, rapidly mutating        reproducing organisms,\n  populations                      discrete generations\n\n  Mutation rate so high that        Mutation rate typically low\n  linkage disequilibrium is         (each individual rarely mutates)\n  essentially absent (each          → Population evolves as a\n  offspring is unique)              collection of individuals with\n                                    defined genotypes\n\n  Selection acts on the             Selection acts on individuals\n  quasispecies distribution         within the population\n  as a whole\n\n  Recombination: less critical      Recombination: central to\n  (most RNA viruses have some       evolutionary dynamics\n  recombination, but less than\n  eukaryotes)\n\n  Both frameworks apply to viruses; which is more useful depends on\n  whether recombination or mutation rate dominates.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

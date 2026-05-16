@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "virology\\08-PANDEMIC-BIOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                   PANDEMIC BIOLOGY LANDSCAPE                     │\n│                                                                  │\n│  EMERGENCE                SPREAD                  CONTROL        │\n│  ────────                 ─────────               ───────        │\n│  Spillover from animals   R₀ determines           Herd immunity  │\n│  Host range expansion     exponential growth      Vaccination    │\n│  Reassortment             Serial interval         NPIs           │\n│  Genetic adaptation       Generation time         Antivirals     │\n│  Zoonosis                 Superspreading          Quarantine     │\n│                                                                  │\n│  KEY EQUATION:                                                   │\n│  R_eff = R₀ × (1 - p_immune) × (1 - p_NPI)                       │\n│                                                                  │\n│  R_eff < 1:  epidemic declines                                   │\n│  R_eff = 1:  endemic equilibrium                                 │\n│  R_eff > 1:  epidemic grows                                      │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Basic Reproduction Number R₀",
+      "confidence": "candidate",
+      "text": "  FORMAL DEFINITION:\n  ───────────────────\n  R₀ = β × D\n\n  β = transmission rate (probability of transmission per contact × contact rate)\n  D = duration of infectious period\n\n  Alternatively:\n  R₀ = β × D × c\n\n  β = probability of transmission given a contact\n  D = duration of infectious period\n  c = contact rate\n\n  GENERATION TIME vs. SERIAL INTERVAL:\n  ──────────────────────────────────────\n  Generation time (Tg): time from infection of index case to infection of\n                        secondary case (cannot be directly observed)\n  Serial interval (SI): time between symptom onset in index case and\n                        symptom onset in secondary case (observable)\n  SI ≈ Tg when incubation periods are similar\n  SI can be negative (pre-symptomatic transmission possible when incubation\n  period is longer than generation time)\n\n  R₀ and initial exponential growth rate r:\n  ────────────────────────────────────────────\n  If generation time Tg is fixed:  R₀ ≈ e^(r × Tg)\n  If generation time varies:       R₀ = (1 + r × Tg)^n\n                                   (depends on distribution model)\n\n  This allows estimating R₀ from initial epidemic doubling time alone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## R₀ Values of Known Pathogens",
+      "confidence": "candidate",
+      "text": "  PATHOGEN              R₀ RANGE      NOTABLE FEATURES\n  ─────────────         ────────      ─────────────────\n  Measles               12-18         Highest known; airborne; >95% vaccination\n                                      needed for herd immunity\n  Mumps                 4-7\n  Smallpox              3-7           Eradicated; one of highest R₀ among controlled diseases\n  Polio                 4-6           Near eradication with OPV/IPV\n  SARS-CoV-2 (original) 2.5-3.5\n  SARS-CoV-2 (Delta)    5-8\n  SARS-CoV-2 (Omicron)  9-15          Very high; lower severity per infection\n  Influenza H1N1 2009   1.2-1.4       Relatively low; seasonal flu ~1.1-1.4\n  SARS-CoV-1 2003       2-5\n  Ebola (West Africa)   1.5-2.5       Low R₀ but high CFR\n  HIV                   2-5           Long infectious period; sexual transmission\n  Rabies                <1            (in humans; zoonotic only; no h-h transmission)\n  Norovirus             14-21         Cruise ships; very low infectious dose\n\n  R₀ > 1 required for epidemic; R₀ < 1 means infection dies out\n  Natural variation: R₀ is not fixed — it varies by setting, density, behavior",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## Herd Immunity Threshold",
+      "confidence": "candidate",
+      "text": "  DERIVATION:\n  ──────────\n  Effective reproduction number: R_eff = R₀ × S  (S = fraction susceptible)\n  Epidemic stops when R_eff ≤ 1:\n  R₀ × S ≤ 1\n  S ≤ 1/R₀\n  Fraction immune needed: 1 - S ≥ 1 - 1/R₀\n\n  HERD IMMUNITY THRESHOLD (HIT):\n  ───────────────────────────────\n  HIT = 1 - 1/R₀\n\n  R₀ = 2:    HIT = 0.50 (50% immune)\n  R₀ = 3:    HIT = 0.67 (67%)\n  R₀ = 5:    HIT = 0.80 (80%)\n  R₀ = 10:   HIT = 0.90 (90%)\n  R₀ = 15:   HIT = 0.93 (93%)  ← measles\n  R₀ = 18:   HIT = 0.94 (94%)\n\n  Implications for vaccine coverage targets:\n  ─────────────────────────────────────────\n  Measles: >95% vaccination coverage required\n  Polio: >80-85% required for elimination\n  COVID-19 (original): ~65-70% (but variants changed this)\n  COVID-19 (Omicron): ~90-93% (near-impossible by vaccination alone)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## The SIR Model — Mathematical Foundation",
+      "confidence": "candidate",
+      "text": "  COMPARTMENTS:\n  ─────────────\n  S = susceptible fraction of population\n  I = infectious fraction\n  R = removed (recovered + immune, or deceased)\n\n  DIFFERENTIAL EQUATIONS:\n  ─────────────────────────\n  dS/dt = -β·S·I\n  dI/dt = β·S·I - γ·I\n  dR/dt = γ·I\n\n  β = transmission rate; γ = recovery rate; D = 1/γ = infectious duration\n  R₀ = β/γ\n\n  EPIDEMIC CURVE:\n  ────────────────\n  Peak when dI/dt = 0 → S = γ/β = 1/R₀\n  → Epidemic peaks when susceptible fraction drops to 1/R₀\n  After peak: I declines exponentially\n\n  FINAL EPIDEMIC SIZE:\n  ─────────────────────\n  Final fraction infected Z satisfies: Z + e^(-R₀·Z) = 1\n  For R₀ = 2: Z ≈ 80% of population infected\n  For R₀ = 3: Z ≈ 94%\n  (Even with herd immunity at 50% and 67%, epidemic overshoots past HIT\n   before declining → \"overshoot\")\n\n  EXTENSIONS:\n  ───────────\n  SEIR: add Exposed (E) compartment (latent period)\n  SIRD: add Disease (D = dead) compartment separate from R\n  Age-structured: different β and γ for age groups\n  Network models: heterogeneous contact patterns, superspreaders",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Viral Emergence — Zoonosis to Pandemic",
+      "confidence": "candidate",
+      "text": "  SPILLOVER EVENT CHAIN:\n  ──────────────────────\n  1. RESERVOIR HOST: virus circulates asymptomatically\n     (bats: coronaviruses, Ebola, Nipah, Hendra, rabies\n      birds: influenza\n      rodents: hantaviruses, Lassa\n      primates: HIV, Ebola, HTLV)\n\n  2. AMPLIFYING HOST (optional): intermediate host amplifies virus\n     (camels: MERS-CoV\n      pigs: 2009 H1N1 origin\n      palm civets: SARS-CoV-1\n      pangolins or other: possibly SARS-CoV-2?)\n\n  3. SPILLOVER: virus infects a human (dead-end or limited transmission)\n     Requirements: receptor compatibility; restricted innate immune block\n\n  4. ADAPTATION: virus acquires mutations enabling human-to-human transmission\n     Key changes needed:\n     - Receptor binding to human receptor (not just animal)\n     - Upper respiratory tropism (for respiratory spread)\n     - Stability in respiratory droplets/aerosols\n     - Evasion of human innate immune restriction factors\n\n  5. SUSTAINED HUMAN-TO-HUMAN TRANSMISSION:\n     R₀ > 1 in humans; geographic spread\n\n  6. PANDEMIC: global spread in immunologically naive population\n\n  SARS-CoV-2 EMERGENCE:\n  ──────────────────────\n  December 2019: cluster of pneumonia in Wuhan, China\n  January 2020: novel betacoronavirus identified; genome sequenced\n  March 2020: WHO declares pandemic\n  Closest bat coronavirus: RaTG13 (96.2% genomic similarity to SARS-CoV-2)\n  But: SARS-CoV-2 has unique furin cleavage site (PRRAR) absent in close relatives\n  Receptor-binding domain: well-adapted to human ACE2 without obvious intermediate\n  Exact emergence route: debated; lab origin hypothesis not conclusively excluded",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## Influenza Pandemics — Historical Pattern",
+      "confidence": "candidate",
+      "text": "  YEAR    SUBTYPE   ORIGIN              CFR        DEATHS ESTIMATE\n  ────    ───────   ──────              ─────      ─────────────────\n  1918    H1N1      Unknown (bird?)     2-3%       ~50-100 million\n          \"Spanish flu\"\n  1957    H2N2      Reassortant (China) ~0.1%      1-4 million\n  1968    H3N2      Reassortant (HK)   ~0.1%      1-4 million\n  1977    H1N1      Lab accident?       Low        Mild (H1N1 circulated 1918-1957)\n  2009    H1N1      Swine reassortant   ~0.01-0.02% 150,000-500,000\n  (H5N1   H5N1      Avian              ~60%       <1,000 (no human-human spread)\n  ongoing)\n\n  1918 WHY SO SEVERE?\n  ────────────────────\n  1. Second wave (fall 1918): particularly virulent variant\n  2. Cytokine storm: high pathogenicity in young adults (1918 unusual: W-shaped\n     mortality curve — high in young adults, not just elderly + infants)\n  3. Secondary bacterial pneumonia (no antibiotics in 1918)\n  4. No prior immunity in population\n  5. PB1-F2: particularly proapoptotic in 1918 strain\n\n  2009 H1N1 WHY MILD?\n  ────────────────────\n  1. Low R₀ initially (~1.4)\n  2. Elderly had some cross-reactive immunity from 1918-related strains\n  3. Not particularly virulent per infection\n  4. Rapid vaccine development (early immunization of key groups)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## Non-Pharmaceutical Interventions (NPIs)",
+      "confidence": "candidate",
+      "text": "  NPI                     MECHANISM               R₀ REDUCTION ESTIMATE\n  ────                    ─────────               ─────────────────────\n  Mask (medical)          Block droplet           20-40%\n  Mask (N95)              Filter aerosol + droplet 50-70%\n  Social distancing       Reduce contacts         40-70%\n  School closure          Reduce contact rate     10-30%\n  Lockdown (stay home)    Reduce contacts broadly 50-80%\n  Hand hygiene            Block contact route     10-20%\n  Testing + isolation     Remove infectious cases 20-50%\n  Contact tracing         Remove exposed cases    10-30%\n  Border restrictions     Delay importation       Delay, not prevent\n\n  KEY INSIGHT: NPIs reduce R_eff multiplicatively\n  R_eff = R₀ × (1 - p₁) × (1 - p₂) × ...\n  Multiple partial NPIs can bring R_eff below 1 even when none alone would",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "## Vaccine-Mediated Herd Immunity — Calculation",
+      "confidence": "candidate",
+      "text": "  For a vaccine with efficacy VE (fraction of vaccinations that prevent infection):\n  ─────────────────────────────────────────────────────────────────────────────────\n  R_eff = R₀ × (1 - p × VE)\n\n  Where p = fraction vaccinated, VE = vaccine efficacy against infection\n\n  To achieve herd immunity:\n  R₀ × (1 - p × VE) < 1\n  p > (1 - 1/R₀) / VE = HIT / VE\n\n  Example: measles\n  R₀ = 15; HIT = 93%; measles vaccine VE = 97%\n  p > 0.93 / 0.97 = 0.96 → need >96% coverage\n\n  COVID-19 (Omicron):\n  R₀ ≈ 12; HIT ≈ 92%; Omicron-specific vaccine VE against infection ~40%\n  p > 0.92 / 0.40 = 2.3  → impossible (>100% required!)\n  → Vaccination alone cannot achieve herd immunity against Omicron\n  → Strategy shifts to: reduce severe disease, not prevent transmission",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 328,
+      "heading_context": "## Pandemic Preparedness Framework",
+      "confidence": "candidate",
+      "text": "  DETECTION:\n  ──────────\n  Genomic surveillance: sequence representative samples continuously\n  Sewage surveillance: wastewater SARS-CoV-2 (detects 3-7 days before clinical cases)\n  Sentinel networks: primary care surveillance, hospital admissions\n  Animal-human interface: monitor farm workers, wildlife interfaces\n\n  RESPONSE SPEED:\n  ───────────────\n  mRNA vaccine platform: critical advance\n  SARS-CoV-2: sequence available Jan 10 2020\n             mRNA vaccine in clinical trial: March 16 2020 (66 days!)\n             EUA granted: December 11 2020 (just under 11 months)\n  Historical comparison: influenza vaccine requires ~6 months per strain update\n  mRNA platform allows <100 day response target (CEPI 100 Days Mission)\n\n  COUNTERMEASURES:\n  ─────────────────\n  Broad-spectrum antivirals: remdesivir, molnupiravir (target conserved viral enzymes)\n  Prototype pathogen approach: develop vaccines for prototypical viruses in each\n    family; accelerate for closest relative in next outbreak\n  Stockpiling: antivirals, PPE, ventilators, vaccines\n  International cooperation: WHO PHEIC declaration, COVAX",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:baltimore-classification
+kind: guide
+module: virology
+section: virology
+title: Baltimore Classification System
+status: source-custody
+source_custody: partial
+current_path: virology/02-BALTIMORE-CLASSIFICATION.md
+canonical_path: virology/02-BALTIMORE-CLASSIFICATION.md
+backsource_ids: [proof-backfill:virology:02-baltimore-classification, git-history:virology:02-baltimore-classification]
+concepts: [baltimore, classification]
+root_concepts: [baltimore, classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Baltimore Classification System
 
 ## The Big Picture
@@ -17,7 +36,7 @@ or disease type because it reveals the replication strategy.
 │  Class II  ssDNA    → dsDNA → mRNA                               │
 │  Class III dsRNA    → mRNA  (viral RdRp required)                │
 │  Class IV  +ssRNA   = mRNA  (genome IS the mRNA)                 │
-│  Class V   -ssRNA   → mRNA  (viral RdRp required for first step)│
+│  Class V   -ssRNA   → mRNA  (viral RdRp required for first step) │
 │  Class VI  ssRNA-RT → DNA   → mRNA  (reverse transcription)      │
 │  Class VII dsDNA-RT → mRNA  (with RT in replication cycle)       │
 │                                                                  │

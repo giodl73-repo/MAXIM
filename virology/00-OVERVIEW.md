@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:overview
+kind: guide
+module: virology
+section: virology
+title: Virology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: virology/00-OVERVIEW.md
+canonical_path: virology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:virology:00-overview, git-history:virology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Virology — Landscape and Taxonomy
 
 ## The Big Picture
@@ -9,8 +28,8 @@ shells. This distinction shapes everything about virology.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    VIROLOGY LANDSCAPE                             │
-│                                                                    │
+│                    VIROLOGY LANDSCAPE                            │
+│                                                                  │
 │  WHAT VIRUSES ARE:                 WHAT VIRUSES ARE NOT:         │
 │  ─────────────────                 ─────────────────────         │
 │  Nucleic acid (RNA or DNA)         Not cells                     │
@@ -19,16 +38,16 @@ shells. This distinction shapes everything about virology.
 │  Obligate intracellular            No protein synthesis outside  │
 │  Genome 2-200 kb range            host                           │
 │                                    Not universally "alive"       │
-│                                                                    │
-│  CLASSIFICATION:                                                  │
+│                                                                  │
+│  CLASSIFICATION:                                                 │
 │  ─────────────────                                               │
 │  Baltimore system (1971) — based on genome type + replication    │
 │  7 classes: I-VII (dsDNA → ssRNA → retroviruses → dsRNA)         │
-│                                                                    │
-│  HOST RANGE:                                                      │
-│  ─────────────                                                    │
+│                                                                  │
+│  HOST RANGE:                                                     │
+│  ─────────────                                                   │
 │  Bacteriophage (bacteria) · Animal viruses · Plant viruses       │
-│  Archaeal viruses · Giant viruses (Mimivirus, ~1.2 Mb genome)   │
+│  Archaeal viruses · Giant viruses (Mimivirus, ~1.2 Mb genome)    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

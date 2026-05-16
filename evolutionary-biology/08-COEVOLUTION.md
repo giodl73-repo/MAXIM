@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:coevolution
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Coevolution and Arms Races
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/08-COEVOLUTION.md
+canonical_path: evolutionary-biology/08-COEVOLUTION.md
+backsource_ids: [proof-backfill:evolutionary-biology:08-coevolution, git-history:evolutionary-biology:08-coevolution]
+concepts: [coevolution]
+root_concepts: [coevolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Coevolution and Arms Races
 
 ## The Big Picture

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "evolutionary-biology\\01-NATURAL-SELECTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────┐\n│                  NATURAL SELECTION ENGINE                      │\n│                                                                │\n│  PREREQUISITES (all three required simultaneously):            │\n│  ─────────────                                                 │\n│  1. VARIATION         Individuals differ in some trait         │\n│  2. HERITABILITY      Offspring resemble parents for trait     │\n│  3. FITNESS EFFECT    Variants differ in survival/reproduction │\n│                              │                                 │\n│                              ▼                                 │\n│           Allele frequencies change across generations         │\n│                              │                                 │\n│                              ▼                                 │\n│  ┌──────────────────────────────────────────────────────────┐  │\n│  │  TYPES BY FITNESS LANDSCAPE SHAPE                        │  │\n│  │                                                           │  │\n│  │  Directional:   one extreme favored                      │  │\n│  │  Stabilizing:   intermediate favored                     │  │\n│  │  Disruptive:    both extremes favored                    │  │\n│  │  Balancing:     multiple alleles maintained              │  │\n│  └──────────────────────────────────────────────────────────┘  │\n└────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Darwin's Logic — Reconstructed",
+      "confidence": "candidate",
+      "text": "Premise 1: More offspring are produced than can survive (Malthus)\nPremise 2: Individuals vary in heritable traits\nPremise 3: Some variants survive and reproduce better\n─────────────────────────────────────────────────────\nConclusion: Those variants become more common over generations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Fitness: Formal Definition",
+      "confidence": "candidate",
+      "text": "  Genotype    Fitness (general diploid model)\n  ──────────  ──────────────────────────────\n  AA          1\n  Aa          1 - hs\n  aa          1 - s\n\n  h = 0:  A is fully dominant (aa selected against, Aa normal)\n  h = 1:  A is fully recessive (only aa has full fitness)\n  h = 0.5: additive (heterozygote intermediate)\n  h > 1:  overdominance (heterozygote more fit than either homozygote)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Types of Selection — Visual",
+      "confidence": "candidate",
+      "text": "  DIRECTIONAL SELECTION\n  ─────────────────────\n  Frequency\n      │ Before: ────────/\\────────\n      │ After:           ────────/\\──\n      └──────────────────────────────→ Trait value\n      Shifts the mean; reduces variance if sustained\n\n  STABILIZING SELECTION\n  ─────────────────────\n  Frequency\n      │ Before: ────/\\────\n      │ After:      /\\\\      (sharper peak)\n      └────────────────────→ Trait value\n      Maintains the mean; reduces variance\n      Example: human birth weight (too small = premature, too large = difficult delivery)\n\n  DISRUPTIVE SELECTION\n  ────────────────────\n  Frequency\n      │ Before:    /\\\n      │ After:  /\\    /\\    (bimodal)\n      └────────────────────→ Trait value\n      Can drive speciation if coupled with assortative mating\n\n  BALANCING SELECTION\n  ───────────────────\n  Multiple alleles maintained indefinitely\n  Mechanisms: overdominance, frequency-dependent, spatiotemporally variable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Hard Sweeps vs. Soft Sweeps",
+      "confidence": "candidate",
+      "text": "  HARD SWEEP (classic selective sweep)\n  ─────────────────────────────────────\n  Single new mutation arises → beneficial → sweeps to fixation\n  Signature: loss of diversity around the selected site\n  Linkage disequilibrium haplotype \"hitchhikes\" to high frequency\n\n  SOFT SWEEP\n  ──────────\n  Selection acts on:\n  (a) Standing variation — allele already at some frequency when environment changes\n  (b) Multiple independent origins of the same mutation\n  Signature: diversity less depleted; multiple haplotypes at the selected locus\n  Common in humans (most human adaptation appears to be soft sweeps)\n  Example: lactase persistence — multiple independent mutations in regulatory region\n           in cattle-herding populations on different continents",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "## Optimization and Signal Processing Bridge",
+      "confidence": "candidate",
+      "text": "SELECTION AS GRADIENT ASCENT:\n\n  Fitness landscape W(genotype): maps genotype space → R (fitness value)\n  Selection equation:  Δp = p·q·[p(w₁₁-w₁₂) + q(w₁₂-w₂₂)] / w̄\n\n  This is gradient ascent on mean fitness w̄:\n    Δw̄ ∝ (∂w̄/∂p) · Var(p) × selection_strength\n  Fisher's Fundamental Theorem: rate of increase of mean fitness =\n    additive genetic variance in fitness (exact analog of gradient magnitude)\n\n  Epistasis = non-convexity: fitness interaction between loci →\n    multiple local optima on the landscape →\n    Wright's \"problem of peaks\": populations can get stuck at local optima\n    Drift = stochastic perturbation to escape local optima (same role as\n    momentum / noise in SGD escaping sharp minima)\n\nBREEDER'S EQUATION AS SGD:\n\n  R = h² · S\n\n  R = response (parameter update Δθ)\n  S = selection differential (gradient estimate from data)\n  h² = narrow-sense heritability = fraction of variation that is \"signal\"\n     = V_A / V_P = additive variance / total phenotypic variance\n     ≈ effective learning rate × signal-to-noise ratio\n\n  If h² = 0: no heritable variation → no response (like zero learning rate)\n  If h² = 1: all variation is additive genetic → maximal response\n  h² < 1:   noise (environmental variance V_E) reduces effective learning\n\n4Nes AS SIGNAL-TO-NOISE RATIO:\n\n  Effective selection: benefit = s (selection coefficient per generation)\n  Drift noise: σ²(Δp) = p(1-p)/(2Ne) ≈ 1/(8Ne) at p = 0.5\n\n  SNR analog: beneficial allele is \"detectable\" above drift noise when:\n    s >> 1/(2Ne)  →  4Nes >> 1\n\n  Below threshold (4Nes < 1): allele behaves as effectively neutral\n    → fixed by drift with probability ~1/(2Ne) (same as neutral allele)\n  Above threshold (4Nes >> 1): probability of fixation ≈ 2s\n    → selection is the dominant force\n\n  This is exactly the SNR threshold in detection theory:\n    signal power s² vs. noise power σ² = 1/(2Ne)\n    SNR = s / σ = s·√(2Ne) ∝ s·√Ne",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

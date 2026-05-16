@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:pandemic-biology
+kind: guide
+module: virology
+section: virology
+title: Pandemic Biology: Emergence and Spread
+status: source-custody
+source_custody: partial
+current_path: virology/08-PANDEMIC-BIOLOGY.md
+canonical_path: virology/08-PANDEMIC-BIOLOGY.md
+backsource_ids: [proof-backfill:virology:08-pandemic-biology, git-history:virology:08-pandemic-biology]
+concepts: [pandemic, biology]
+root_concepts: [pandemic, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pandemic Biology: Emergence and Spread
 
 ## The Big Picture

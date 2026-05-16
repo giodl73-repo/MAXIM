@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "evolutionary-biology\\03-MOLECULAR-EVOLUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│              MOLECULAR EVOLUTION LANDSCAPE                       │\n│                                                                  │\n│  INPUT                  FORCES                OUTPUT             │\n│  ─────                  ──────                ──────             │\n│  Mutation               Purifying selection   Seq divergence     │\n│  Recombination          Positive selection    Polymorphism level │\n│  Gene duplication       Neutral drift         Gene family size   │\n│  Horizontal transfer    Codon usage bias      GC content         │\n│                         Methylation           Substitution rate  │\n│                                                                  │\n│  KEY TOOL: dN/dS ratio (ω = Ka/Ks)                               │\n│  ─────────────────────────────────                               │\n│  ω < 1:  purifying selection (most genes)                        │\n│  ω = 1:  neutral (pseudogenes, some introns)                     │\n│  ω > 1:  positive selection (immune, reproductive genes)         │\n│                                                                  │\n│  MOLECULAR CLOCK: neutral substitution rate ≈ μ (mutation rate)  │\n│  Calendar time → sequence divergence → divergence dates          │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## Types of Substitution",
+      "confidence": "candidate",
+      "text": "  DNA level:\n  ──────────\n  Synonymous (silent):     codon change that doesn't alter amino acid\n                           (UCU → UCC, both = serine)\n  Nonsynonymous:           codon change that alters amino acid\n                           Conservative: similar biochemical properties\n                           Radical: different properties\n  Nonsense:                creates stop codon\n  Indel:                   insertion or deletion (frameshift if not mod 3)\n\n  Transition vs. transversion:\n  ────────────────────────────\n  Transition:   purine → purine (A↔G) or pyrimidine → pyrimidine (C↔T)\n                More common (transition/transversion ratio Ti/Tv ≈ 2)\n  Transversion: purine → pyrimidine or vice versa\n                Less common",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## dN/dS Ratio — The Main Diagnostic",
+      "confidence": "candidate",
+      "text": "  dS = synonymous substitution rate per synonymous site\n       (tracks the neutral molecular clock — just drift + mutation)\n\n  dN = nonsynonymous substitution rate per nonsynonymous site\n       (tracks amino acid change — affected by selection)\n\n  ω = dN/dS\n\n  Interpretation:\n  ───────────────\n  ω < 1:  purifying selection — most amino acid changes are deleterious\n           Most proteins: ω ≈ 0.1-0.3\n  ω = 1:  neutral — amino acid changes fix at same rate as silent changes\n           Pseudogenes, relaxed constraint regions\n  ω > 1:  positive selection — amino acid changes fix faster than silent changes\n           Rapidly evolving genes: immune (MHC), venom, male reproductive, viral",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "## Codon Usage Bias",
+      "confidence": "candidate",
+      "text": "CAUSES OF CODON USAGE BIAS:\n\n  1. TRANSLATIONAL SELECTION:\n     Codons matching abundant tRNA species → faster, more accurate translation\n     \"Preferred\" codons = those with cognate tRNA at high cellular concentration\n     Selection for preferred codons detectable at 4Nes > 1 (effective population\n     size must be large enough for selection to act on the small per-codon benefit)\n\n     Magnitude of benefit: ~0.01–0.1% per synonymous codon for elongation speed\n     → only effective in large-N organisms (bacteria, yeast) not small-N (mammals)\n     → highly expressed genes show stronger CUB: more selection pressure\n\n  2. MUTATIONAL BIAS:\n     Asymmetric mutation rates (e.g., GC-biased gene conversion in mammals)\n     → CUB reflects underlying genome nucleotide composition\n     Distinguishing selection vs. mutation: compare expressed vs. unexpressed regions\n\n  3. mRNA SECONDARY STRUCTURE:\n     Local codon usage affects mRNA folding → ribosome stall sites\n     5' end of CDS: rare codons slow initial elongation → helps co-translational folding\n     \"Ramp\" effect: deliberate deceleration at start helps prevent ribosome collisions\n\nMEASUREMENT:\n  Codon Adaptation Index (CAI): ratio of codon frequency to most frequent codon\n    for same amino acid, relative to highly expressed reference genes\n  Effective number of codons (ENC): ranges from 20 (extreme bias) to 61 (no bias)\n  Relative synonymous codon usage (RSCU): observed / expected under uniform use\n\nAPPLICATIONS:\n  Codon optimization for heterologous expression:\n    Replace rare host codons with preferred codons → higher protein yield\n    Tool: used routinely in synthetic biology (vaccine antigen production, etc.)\n  Codon deoptimization: attenuate viruses for live vaccines (many rare codons → slow growth)\n  Evolutionary inference: CUB as proxy for gene expression history\n    Highly expressed ancient genes maintain CUB; recently duplicated/transferred genes do not",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### The Concept",
+      "confidence": "candidate",
+      "text": "  D = 2·r·t  →  t = D / (2·r)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Strict vs. Relaxed Clocks",
+      "confidence": "candidate",
+      "text": "  STRICT CLOCK                      RELAXED CLOCK\n  ────────────                      ─────────────\n  r constant across all branches    r varies per branch\n  First assumed by Zuckerkandl &    Implemented in BEAST (Bayesian\n  Pauling (1965)                    Evolutionary Analysis by Sampling\n  Falsified for many genes          Trees)\n  Still useful for approximate      Uses Markov chain Monte Carlo\n  dating                            integrates over rate uncertainty",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## Horizontal Gene Transfer (HGT)",
+      "confidence": "candidate",
+      "text": "  HGT mechanisms in bacteria:\n  ───────────────────────────\n  Transformation:  uptake of free DNA from environment\n  Transduction:    phage carries DNA from one bacterium to another\n  Conjugation:     direct cell-to-cell transfer via pili (plasmids)\n  Integrons:       site-specific recombination, mobile gene cassettes\n\n  Impact:\n  ───────\n  Antibiotic resistance genes spread horizontally across genera in years\n  Metabolic pathway genes acquired wholesale\n  Pathogenicity islands: blocks of virulence genes transferred as units\n  ~10-50% of any given bacterial genome is HGT-acquired",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "## Substitution Models — Markov Chain Bridge",
+      "confidence": "candidate",
+      "text": "CONTINUOUS-TIME MARKOV CHAIN ON 4 STATES:\n\n  State space: Σ = {A, C, G, T}\n  Rate matrix Q (4×4, off-diagonal = instantaneous substitution rates):\n\n  JC69 (Jukes-Cantor 1969):\n    Q = μ · [−3  1   1   1 ]    (all rates equal, λ = 3μ)\n            [  1 −3  1   1 ]\n            [  1  1 −3  1 ]\n            [  1  1   1 −3]\n\n  HKY85: transitions (A↔G, C↔T) at rate κ·μ; transversions at rate μ\n    Biological reason: purine↔purine and pyrimidine↔pyrimidine (same ring size)\n    are ~2–10× more frequent than purine↔pyrimidine substitutions\n\n  GTR: full 4×4 with 6 free rate parameters + 4 base frequencies\n    = most general time-reversible chain on 4 states\n    9 free parameters total; rate matrix satisfies detailed balance (πᵢQᵢⱼ = πⱼQⱼᵢ)\n\nMATRIX EXPONENTIATION FOR TRANSITION PROBABILITIES:\n  P(t) = exp(Qt)    (matrix exponential — same as time-homogeneous CTMC)\n\n  P(t)ᵢⱼ = probability that nucleotide i becomes j after time t\n  Computed via: eigendecomposition Q = VDV⁻¹ → P(t) = V·exp(Dt)·V⁻¹\n\n  JC69 solution:\n    P(same, t)     = ¼ + ¾·e^(-4μt)\n    P(different, t) = ¼ − ¼·e^(-4μt)\n\n  At t → ∞: P → stationary distribution (uniform for JC69; π for GTR)\n  At short t: P ≈ I + Qt (linear approximation; first-order Taylor expansion)\n\nSATURATION PROBLEM = MARKOV CHAIN MIXING:\n  At large divergence t, the chain approaches stationarity\n  → multiple substitutions at same site → observed differences underestimate true distance\n  → model correction (JC distance = −¾ ln(1 − 4/3 · p)) recovers true distance\n  Analogous to: distinguishing short random walks from long ones in a well-mixed chain —\n  at stationarity, all state information is lost\n\nRATE VARIATION ACROSS SITES = MIXTURE MODEL:\n  GTR+Γ: each site drawn from a Gamma(α,α) distribution of rates\n  → mixture of CTMCs with different time scales\n  → α → ∞: uniform rates; α → 0: most sites invariant, few hypervariable\n  Identical to: mixture-of-experts model where each site selects its rate class",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "### Population-level tests (within-species polymorphism)",
+      "confidence": "candidate",
+      "text": "  D = (θ_π - θ_W) / sqrt(Var(θ_π - θ_W))\n\n  θ_π = average pairwise differences (sensitive to intermediate-freq variants)\n  θ_W = Watterson's estimate (sensitive to all variants equally)\n\n  D < 0: excess of rare variants → recent positive selection (sweep) or\n         population expansion\n  D > 0: excess of intermediate-freq variants → balancing selection or\n         population contraction\n  D ≈ 0: consistent with neutral equilibrium",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "## Ancient DNA — Molecular Evolution in Real Time",
+      "confidence": "candidate",
+      "text": "  Key insights from aDNA:\n  ────────────────────────\n  - European hunter-gatherers, early farmers, steppe pastoralists: three major\n    ancestry components in modern Europeans, mixed 8,000-2,500 ya\n  - Neanderthal admixture into non-Africans: 1-3% of genome\n  - Denisovan admixture in Melanesians / Tibetans (EPAS1 high-altitude adaptation)\n  - Yamnaya steppe expansion ~3000 BCE correlated with IE language spread\n  - Lactase persistence LCT-13910*T allele rose from 0→90% in Europe in 5,000 years\n    → selection coefficient s ≈ 0.02 (one of the strongest known in humans)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

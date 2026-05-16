@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:quasispecies
+kind: guide
+module: virology
+section: virology
+title: Quasispecies Theory and Viral Evolution
+status: source-custody
+source_custody: partial
+current_path: virology/06-QUASISPECIES.md
+canonical_path: virology/06-QUASISPECIES.md
+backsource_ids: [proof-backfill:virology:06-quasispecies, git-history:virology:06-quasispecies]
+concepts: [quasispecies]
+root_concepts: [quasispecies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quasispecies Theory and Viral Evolution
 
 ## The Big Picture

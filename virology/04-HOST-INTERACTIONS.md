@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:host-interactions
+kind: guide
+module: virology
+section: virology
+title: Virus-Host Interactions and Tropism
+status: source-custody
+source_custody: partial
+current_path: virology/04-HOST-INTERACTIONS.md
+canonical_path: virology/04-HOST-INTERACTIONS.md
+backsource_ids: [proof-backfill:virology:04-host-interactions, git-history:virology:04-host-interactions]
+concepts: [host, interactions]
+root_concepts: [host, interactions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Virus-Host Interactions and Tropism
 
 ## The Big Picture

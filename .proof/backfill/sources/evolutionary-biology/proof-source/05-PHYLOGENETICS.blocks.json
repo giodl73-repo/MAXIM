@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "evolutionary-biology\\05-PHYLOGENETICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                   PHYLOGENETICS WORKFLOW                         │\n│                                                                  │\n│  DATA                ALIGNMENT            TREE INFERENCE         │\n│  ────                ─────────            ──────────────         │\n│  DNA sequences  →  Multiple sequence  →  Parsimony               │\n│  Protein seqs      alignment (MSA)       Maximum likelihood      │\n│  Morphology        ClustalW/MUSCLE       Bayesian MCMC           │\n│  SNP arrays        MAFFT                                         │\n│                                                                  │\n│  TREE INTERPRETATION        MOLECULAR CLOCK                      │\n│  ──────────────────         ────────────────                     │\n│  Topology: who is           Strict: rate constant                │\n│    related to whom          Relaxed: rate varies                 │\n│  Branch lengths:            Calibrated against fossils           │\n│    amount of change         Output: divergence times             │\n│  Bootstrap/PP:                                                   │\n│    statistical support                                           │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Reading a Phylogenetic Tree",
+      "confidence": "candidate",
+      "text": "  Internal nodes = common ancestors\n  Tips (leaves) = sampled taxa (species, individuals, sequences)\n  Branch lengths = amount of evolution (substitutions per site, or time)\n  Root = deepest common ancestor\n\n  Example rooted tree:\n\n         ┌──── Human\n       ┌─┤\n       │ └──── Chimpanzee     } Clade A\n  ─────┤\n       │   ┌── Gorilla\n       └───┤             } Clade B\n           └── Orangutan\n\n  Clade: monophyletic group = ancestor + ALL descendants\n         (Human + Chimpanzee + Gorilla + Orangutan = clade)\n  (Human + Chimpanzee) = clade A\n  (Human + Gorilla) = NOT a clade (polyphyletic w.r.t. topology above)\n\n  KEY RULE: the *branching order* is what matters, not left-right placement.\n  Rotating branches around a node does NOT change relationships.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 82,
+      "heading_context": "## Methods of Phylogenetic Inference",
+      "confidence": "candidate",
+      "text": "### 1. Maximum Parsimony",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 97,
+      "heading_context": "### 1. Maximum Parsimony",
+      "confidence": "candidate",
+      "text": "### 2. Distance Methods (UPGMA, Neighbor-Joining)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 111,
+      "heading_context": "### 2. Distance Methods (UPGMA, Neighbor-Joining)",
+      "confidence": "candidate",
+      "text": "### 3. Maximum Likelihood (ML)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 131,
+      "heading_context": "### 3. Maximum Likelihood (ML)",
+      "confidence": "candidate",
+      "text": "### 4. Bayesian MCMC",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Phylogenetic Inference — Statistical Inference Bridge",
+      "confidence": "candidate",
+      "text": "MAXIMUM LIKELIHOOD PHYLOGENETICS:\n\n  Goal: find tree T* = argmax P(sequences | T, θ)\n        where θ = substitution model parameters (rate matrix Q, branch lengths)\n\n  Likelihood computation: Felsenstein's pruning algorithm (1981)\n    = dynamic programming on the tree (bottom-up message passing)\n    Same structure as: belief propagation on a tree-structured graphical model\n    Time complexity: O(n · L · k²) where n = taxa, L = sites, k = states (4)\n    The tree's topology is the latent structure (discrete, combinatorial)\n\n  Tree topology space: (2n-3)!! unrooted binary trees for n taxa\n    n=10:  2,027,025 trees\n    n=50:  3 × 10⁷⁴ trees (vastly larger than state spaces of most search problems)\n  Search: heuristic (NNI, SPR, TBR branch swapping) — same as local search in\n    combinatorial optimization. Exact solution (exhaustive search) intractable for n > 12.\n\nBAYESIAN PHYLOGENETICS = POSTERIOR SAMPLING ON TREE SPACE:\n\n  P(T, θ | data) ∝ P(data | T, θ) · P(T) · P(θ)\n\n  Identical to any Bayesian model with a discrete latent variable\n  Implemented via MCMC (MrBayes, BEAST, RevBayes):\n    - Proposal moves: NNI/SPR topology moves + parameter updates\n    - Metropolis-Hastings acceptance criterion (same as any MCMC)\n    - Convergence: run multiple chains, check Rhat / ESS (same as Stan/PyMC)\n\n  Output: posterior probability (PP) of each clade\n    PP = fraction of MCMC samples containing the clade\n    PP ≥ 0.95: high support (analogous to 95% credible interval)\n    More conservative than bootstrap (because PP accounts for model uncertainty)\n\nBOOTSTRAP = FREQUENTIST RESAMPLING:\n  Resample sites (columns) of alignment with replacement → 100–1000 pseudoreplicates\n  → run ML on each → frequency of clade across replicates = bootstrap support\n  Conceptually: same as any bootstrap uncertainty estimate in frequentist inference\n  BS ≥ 70% ≈ PP ≥ 0.95 (rough correspondence)\n\nMODEL SELECTION:\n  AIC = 2k − 2·ln(L̂): penalizes parameters\n  BIC = k·ln(n) − 2·ln(L̂): stronger penalty\n  Same as model selection in any regression context\n  IQ-TREE's ModelFinder: tests all models → AIC/BIC rank",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 211,
+      "heading_context": "## Substitution Models",
+      "confidence": "candidate",
+      "text": "- Unequal base frequencies (A+T ≠ G+C in many organisms)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## Substitution Models",
+      "confidence": "candidate",
+      "text": "  MODEL HIERARCHY (increasing complexity):\n  ─────────────────────────────────────────\n  JC69  → all rates equal, equal frequencies\n  K80   → Ti ≠ Tv, equal frequencies\n  F81   → all rates equal, unequal frequencies\n  HKY85 → Ti ≠ Tv, unequal frequencies (most common simple model)\n  GTR   → all 6 rate parameters free, unequal frequencies\n        → 9 free parameters total\n\n  +Γ:   rate variation across sites (gamma distribution, parameter α)\n        α < 1: most sites slow, some very fast\n        α > 1: rates more uniform\n  +I:   proportion of invariable sites (impossible to change regardless of time)\n\n  Model selection: AIC (Akaike Information Criterion) or BIC\n  IQ-TREE does model selection automatically via ModelFinder",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "## Gene Trees vs. Species Trees",
+      "confidence": "candidate",
+      "text": "  Species tree: the true evolutionary history of the species (reticulate\n                for populations, but tree-like for species phylogeny)\n\n  Gene tree: the genealogical history of a particular locus/gene\n\n  These CAN DIFFER due to:\n  ─────────────────────────\n  1. Incomplete lineage sorting (ILS / deep coalescence)\n  2. Horizontal gene transfer (HGT)\n  3. Gene duplication + loss (paralog confused with ortholog)\n  4. Hybridization / introgression\n\n  ILS example:\n  ────────────\n  Speciation events A-B split and A-C split occurred in rapid succession.\n  For some genes, the ancestral polymorphism was not resolved before the\n  second split. Result: gene tree shows (A, C) as sister even when species\n  tree has (A, B) as sister.\n\n  This is not error — it is expected population-genetic behavior.\n  In the human-chimp-gorilla trichotomy:\n  - Many gene trees support (human, gorilla) as sister\n  - Species tree: (human, chimp) sister\n  - ILS explains this; the short branch between the splits was short in time\n    relative to N_e",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "## Phylogenetic Networks",
+      "confidence": "candidate",
+      "text": "WHY NETWORKS, NOT TREES:\n\n  Tree assumption: every nucleotide position shares the same evolutionary history\n  Network reality: different positions have different histories (due to HGT,\n                   hybridization, recombination, ILS)\n\n  Signal in the data: \"tree-like\" signal from vertical descent\n                    + \"non-tree\" signal from reticulate events\n  Split decomposition: identifies both types of signal\n\nPHYLOGENETIC NETWORK TYPES:\n\n  1. IMPLICIT NETWORKS (data display):\n     Split graph / NeighborNet:\n       Identifies all splits (bipartitions) supported by the data\n       Conflicting splits displayed as parallelograms\n       → immediately visualizes \"tree-like\" vs. network-like signal\n       Tool: SplitsTree4\n\n  2. EXPLICIT NETWORKS (model reticulation events):\n     HGT networks: model directed gene transfer edges (donor → recipient)\n     Hybridization networks: model hybrid speciation (two parents → hybrid child)\n     Tools: PhyloNet, HGT-Detection (via parsimony of gene tree incongruence)\n\n  3. GENE TREE RECONCILIATION:\n     Given species tree S and gene trees G₁...Gₙ:\n     Count: duplications + losses + HGT events to explain G within S\n     Parsimony: minimize total events (NP-hard in general)\n     → same combinatorial optimization as string edit distance, but on trees\n\nBACTERIA AND ARCHAEA:\n  ~10–50% of any given bacterial genome has been acquired via HGT\n  Core genome (shared by all strains): mostly vertical, somewhat tree-like\n  Pan-genome (union of all genes in a species): includes accessory genome\n    that flows horizontally between lineages\n  \"Tree of life\" for bacteria: core genome phylogeny (ribosomal genes)\n    provides a vertical backbone, but most functional diversity = horizontal\n\nEUKARYOTES WITH NETWORK HISTORIES:\n  Plants: allopolyploidy → hybrid species have two parents\n    Bread wheat: hexaploid (AABBDD) from three ancestor genomes\n    → its phylogeny is a network, not a tree\n  Animals: rarer, but documented\n    Darwin's finches: some interspecies hybridization\n    Polar bear + brown bear: ancient admixture\n    Neanderthal + H. sapiens: ~2% Neanderthal DNA in non-African humans",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 374,
+      "heading_context": "## Ancestral State Reconstruction",
+      "confidence": "candidate",
+      "text": "  Methods:\n  ─────────\n  Parsimony: minimize total changes (fast, biased under unequal rates)\n  Maximum likelihood: P(data | model, tree) for each ancestral state\n  Bayesian: posterior distribution over ancestral states\n\n  Applications:\n  - Inferring ancestral protein sequences (resurrect ancient proteins — \"paleogenomics\")\n  - Mapping habitat transitions on tree (did flight evolve once or multiple times?)\n  - Tracing migration routes (virus epidemiology)\n  - Ancestral gene regulation (where did enhancers evolve?)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 395,
+      "heading_context": "## Phylogenomics",
+      "confidence": "candidate",
+      "text": "  ADVANTAGES:\n  ───────────\n  - More data → better resolution of short branches\n  - Can identify ILS-prone regions\n  - Can detect horizontal transfer, admixture\n  - Can build \"supermatrices\" (concatenation) or \"coalescent-based\" trees\n\n  CHALLENGES:\n  ───────────\n  - Systematic error: model misspecification amplified across thousands of genes\n  - Long branch attraction: still a problem with poor models\n  - Gene tree heterogeneity: concatenation assumes all genes share one history\n  - Computational: thousands of genes × complex models = expensive\n\n  Modern approach: ASTRAL or SVDquartets for coalescent tree from many gene trees\n                   + detect outlier genes (possible HGT, duplication errors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

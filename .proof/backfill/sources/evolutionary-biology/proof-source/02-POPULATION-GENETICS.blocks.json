@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "evolutionary-biology\\02-POPULATION-GENETICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│               EVOLUTIONARY FORCES ON ALLELE FREQUENCY            │\n│                                                                  │\n│  FORCE           DIRECTION        SPEED        PREDICTABLE?      │\n│  ─────           ─────────        ─────        ────────────      │\n│  Selection       Toward fitness   Fast (large s)   Yes           │\n│  Genetic drift   Random           Faster in        No (stoch.)   │\n│                                   small N                        │\n│  Mutation        Toward new       Very slow         Yes (μ)      │\n│                  alleles          (~10⁻⁸/bp/gen)                 │\n│  Gene flow       Toward source    Depends on        Yes (Fst)    │\n│                  population       migration rate                 │\n│                                                                  │\n│  NULL: HARDY-WEINBERG EQUILIBRIUM                                │\n│  ─────────────────────────────────                               │\n│  No forces acting → allele frequencies constant, genotype        │\n│  frequencies = p², 2pq, q² forever                               │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "### Derivation",
+      "confidence": "candidate",
+      "text": "  Gametes unite randomly:\n\n             A (p)         a (q)\n       ┌────────────┬────────────┐\n  A(p) │  AA  p·p   │  Aa  p·q   │\n       ├────────────┼────────────┤\n  a(q) │  Aa  q·p   │  aa  q·q   │\n       └────────────┴────────────┘\n\n  f(AA) = p²\n  f(Aa) = 2pq   (two ways to produce it: Ap×aq or ap×Aq)\n  f(aa) = q²\n\n  Check: p² + 2pq + q² = (p + q)² = 1² = 1  ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "### Fixation and Loss",
+      "confidence": "candidate",
+      "text": "  Source of N_e < N:\n  ──────────────────\n  Bottlenecks:          N_e ≈ 1 / Σ(1/N_t)   (harmonic mean)\n  Unequal sex ratio:    N_e = 4·N_f·N_m / (N_f + N_m)\n  Variance in reprod:   N_e ≈ 4N / (V_k + 2)  (V_k = variance in offspring number)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "### Breeder's Equation",
+      "confidence": "candidate",
+      "text": "FST = (H_T − H_S) / H_T\n\n  H_T = expected heterozygosity in total population = 2·p̄·(1−p̄)\n  H_S = average expected heterozygosity within subpopulations\n\n  ANOVA framing:\n    Total variance = between-group variance + within-group variance\n    F = MS_between / MS_within\n\n  FST interpretation:\n    FST = 0:   all variation is within populations (no differentiation)\n    FST = 1:   all variation is between populations (fixed differences)\n    FST = 0.05–0.15: low but detectable structure (human global FST ≈ 0.15)\n    FST = 0.15–0.25: moderate (most vertebrate species)\n\n  Weir & Cockerham (1984) estimator: robust to sample size imbalance\n  — same correction as Tukey's method in unbalanced ANOVA\n\n**Allele frequency tables as indexed lookups:**\n  Population × locus matrix = database join table\n  Row key: population ID; column key: locus ID; value: allele frequency p\n  Population structure analysis (STRUCTURE, ADMIXTURE) = soft clustering\n    → probabilistic assignment of rows to latent cluster columns\n    → equivalent to non-negative matrix factorization of the frequency matrix\n  PCA on allele frequencies: each individual = vector in SNP-space\n    → first PC often captures geography (isolation-by-distance)\n    → same dimensionality reduction as PCA on any high-dimensional data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:speciation
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Speciation: Mechanisms and Models
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/04-SPECIATION.md
+canonical_path: evolutionary-biology/04-SPECIATION.md
+backsource_ids: [proof-backfill:evolutionary-biology:04-speciation, git-history:evolutionary-biology:04-speciation]
+concepts: [speciation]
+root_concepts: [speciation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Speciation: Mechanisms and Models
 
 ## The Big Picture
