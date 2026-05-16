@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:contemporary
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Contemporary Art and Architecture - Koolhaas, Hadid, Piano, Foster, Gehry, Warhol, Rothko, Basquiat
+status: source-custody
+source_custody: partial
+current_path: artists-architects/09-CONTEMPORARY.md
+canonical_path: artists-architects/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:artists-architects:09-contemporary, git-history:artists-architects:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Art and Architecture — Koolhaas, Hadid, Piano, Foster, Gehry, Warhol, Rothko, Basquiat
 
 ## The Postwar Break

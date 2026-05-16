@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:19th-century
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: 19th-Century Philosophy - Schopenhauer, Marx, Kierkegaard, Nietzsche
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/07-19TH-CENTURY.md
+canonical_path: philosophers-thinkers/07-19TH-CENTURY.md
+backsource_ids: [proof-backfill:philosophers-thinkers:07-19th-century, git-history:philosophers-thinkers:07-19th-century]
+concepts: [19th, century]
+root_concepts: [19th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19th-Century Philosophy — Schopenhauer, Marx, Kierkegaard, Nietzsche
 
 ## The Big Picture

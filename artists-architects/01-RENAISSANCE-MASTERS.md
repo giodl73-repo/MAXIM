@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:renaissance-masters
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Renaissance Masters - Brunelleschi, Alberti, Leonardo, Michelangelo, Raphael
+status: source-custody
+source_custody: partial
+current_path: artists-architects/01-RENAISSANCE-MASTERS.md
+canonical_path: artists-architects/01-RENAISSANCE-MASTERS.md
+backsource_ids: [proof-backfill:artists-architects:01-renaissance-masters, git-history:artists-architects:01-renaissance-masters]
+concepts: [renaissance, masters]
+root_concepts: [renaissance, masters]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Renaissance Masters — Brunelleschi, Alberti, Leonardo, Michelangelo, Raphael
 
 ## The Renaissance as Intellectual Program

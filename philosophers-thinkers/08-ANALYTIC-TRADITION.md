@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:08-analytic-tradition
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: The Analytic Tradition - Frege, Russell, Wittgenstein, Quine, Davidson
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/08-ANALYTIC-TRADITION.md
+canonical_path: philosophers-thinkers/08-ANALYTIC-TRADITION.md
+backsource_ids: [proof-backfill:philosophers-thinkers:08-analytic-tradition, git-history:philosophers-thinkers:08-analytic-tradition]
+concepts: [analytic, tradition]
+root_concepts: [analytic, tradition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Analytic Tradition — Frege, Russell, Wittgenstein, Quine, Davidson
 
 ## Why This Section Is Your Home Base

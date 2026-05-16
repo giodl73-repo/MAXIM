@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:20th-century-continental
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: 20th-Century Continental and Political Philosophy
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/09-20TH-CENTURY-CONTINENTAL.md
+canonical_path: philosophers-thinkers/09-20TH-CENTURY-CONTINENTAL.md
+backsource_ids: [proof-backfill:philosophers-thinkers:09-20th-century-continental, git-history:philosophers-thinkers:09-20th-century-continental]
+concepts: [20th, century, continental]
+root_concepts: [20th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20th-Century Continental and Political Philosophy
 
 ## The Landscape

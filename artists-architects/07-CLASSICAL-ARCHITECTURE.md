@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:classical-architecture
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Classical Architecture - Vitruvius, Palladio, Wren, Vanbrugh, Soane
+status: source-custody
+source_custody: partial
+current_path: artists-architects/07-CLASSICAL-ARCHITECTURE.md
+canonical_path: artists-architects/07-CLASSICAL-ARCHITECTURE.md
+backsource_ids: [proof-backfill:artists-architects:07-classical-architecture, git-history:artists-architects:07-classical-architecture]
+concepts: [classical, architecture]
+root_concepts: [classical, architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Architecture — Vitruvius, Palladio, Wren, Vanbrugh, Soane
 
 ## The Classical System

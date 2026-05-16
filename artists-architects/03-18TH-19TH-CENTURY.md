@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:18th-19th-century
+kind: guide
+module: artists-architects
+section: artists-architects
+title: 18th and 19th Century - Goya, David, Turner, Constable, Delacroix, Courbet
+status: source-custody
+source_custody: partial
+current_path: artists-architects/03-18TH-19TH-CENTURY.md
+canonical_path: artists-architects/03-18TH-19TH-CENTURY.md
+backsource_ids: [proof-backfill:artists-architects:03-18th-19th-century, git-history:artists-architects:03-18th-19th-century]
+concepts: [18th, 19th, century]
+root_concepts: [18th, 19th]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 18th and 19th Century — Goya, David, Turner, Constable, Delacroix, Courbet
 
 ## The Political Context

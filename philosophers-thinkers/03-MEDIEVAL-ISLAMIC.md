@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:medieval-islamic
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: Medieval and Islamic Philosophy - Augustine, Avicenna, Averroes, Aquinas, Maimonides
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/03-MEDIEVAL-ISLAMIC.md
+canonical_path: philosophers-thinkers/03-MEDIEVAL-ISLAMIC.md
+backsource_ids: [proof-backfill:philosophers-thinkers:03-medieval-islamic, git-history:philosophers-thinkers:03-medieval-islamic]
+concepts: [medieval, islamic]
+root_concepts: [medieval, islamic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval and Islamic Philosophy — Augustine, Avicenna, Averroes, Aquinas, Maimonides
 
 ## The Big Picture: Transmission and Transformation

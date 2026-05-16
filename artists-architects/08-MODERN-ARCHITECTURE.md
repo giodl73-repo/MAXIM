@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:modern-architecture
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Modern Architecture - Sullivan, Wright, Le Corbusier, Mies van der Rohe
+status: source-custody
+source_custody: partial
+current_path: artists-architects/08-MODERN-ARCHITECTURE.md
+canonical_path: artists-architects/08-MODERN-ARCHITECTURE.md
+backsource_ids: [proof-backfill:artists-architects:08-modern-architecture, git-history:artists-architects:08-modern-architecture]
+concepts: [modern, architecture]
+root_concepts: [modern, architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Architecture — Sullivan, Wright, Le Corbusier, Mies van der Rohe
 
 ## The Break with Classicism
