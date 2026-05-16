@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\02-MECHANICS-OF-MATERIALS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 241,
+      "heading_context": "## Beam Deflection",
+      "headers": [
+        "Loading",
+        "δ_max",
+        "Location",
+        "θ_max"
+      ],
+      "rows": [
+        [
+          "Simply supported, midpoint load P",
+          "PL³/48EI",
+          "midspan",
+          "PL²/16EI"
+        ],
+        [
+          "Simply supported, UDL w",
+          "5wL⁴/384EI",
+          "midspan",
+          "wL³/24EI"
+        ],
+        [
+          "Cantilever, end load P",
+          "PL³/3EI",
+          "free end",
+          "PL²/2EI"
+        ],
+        [
+          "Cantilever, UDL w",
+          "wL⁴/8EI",
+          "free end",
+          "wL³/6EI"
+        ],
+        [
+          "Simply supported, moment M at end",
+          "ML²/9√3 EI",
+          "x=L/√3",
+          "ML/6EI"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 380,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Formula",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Normal stress in member",
+          "σ = N/A",
+          "Axial loading"
+        ],
+        [
+          "Bending stress",
+          "σ = My/I",
+          "Max at extreme fiber"
+        ],
+        [
+          "Shear stress in beam",
+          "τ = VQ/(Ib)",
+          "Max at neutral axis"
+        ],
+        [
+          "Torsional shear (circular)",
+          "τ = Tc/J",
+          "Max at surface"
+        ],
+        [
+          "Deflection (standard case)",
+          "Superposition tables",
+          "Check linearity"
+        ],
+        [
+          "Deflection (general)",
+          "EIy'' = M(x), integrate twice",
+          "Apply BCs"
+        ],
+        [
+          "Column buckling check",
+          "P_cr = π²EI/(KL)²",
+          "Check slenderness first"
+        ],
+        [
+          "Combined loading",
+          "σ_vm = √(σ²+3τ²)",
+          "Plane stress, von Mises"
+        ],
+        [
+          "Thick-walled cylinder",
+          "Lamé equations",
+          "r_i/t < 10"
+        ],
+        [
+          "First yield load",
+          "M_y = S × S_y",
+          "S = section modulus"
+        ],
+        [
+          "Collapse load",
+          "M_p = Z × S_y",
+          "Z = plastic section modulus"
+        ]
+      ]
+    }
+  ]
+}

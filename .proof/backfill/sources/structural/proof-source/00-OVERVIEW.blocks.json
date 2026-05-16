@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "APPLIED LOADS\n  Gravity (dead + live)     Wind     Seismic     Thermal     Fatigue\n        v                     v          v             v          v\n        ---------------------- loads combine ----------------------\n                                      v\n                              STRUCTURAL SYSTEM\n        +-------------------------------------------------------------+\n        |  STATICS                                                    |\n        |  Equilibrium - reactions, internal forces (V, M, N, T)      |\n        +-------------------------------------------------------------+\n        |  MECHANICS OF MATERIALS                                     |\n        |  Stress/strain, bending, shear, torsion, deflection         |\n        +-------------------------------------------------------------+\n        |  STRUCTURAL ANALYSIS                                        |\n        |  Matrix methods, FEM, influence lines, dynamics             |\n        +-------------------------------------------------------------+\n        |  STRUCTURAL DESIGN                                          |\n        |  RC (ACI 318), Steel (AISC), Timber (NDS), Masonry          |\n        +-------------------------------------------------------------+\n        |  GEOTECHNICAL                                               |\n        | Soil mechanics, foundations, earth pressure, slope stability|\n        +-------------------------------------------------------------+\n                                      |\n                              SERVICEABILITY + SAFETY",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "## Fundamental Quantities",
+      "confidence": "candidate",
+      "text": "FORCE AND MOMENT EQUILIBRIUM (the foundation of everything)\n  ΣFx = 0,  ΣFy = 0,  ΣFz = 0    (force balance)\n  ΣMx = 0,  ΣMy = 0,  ΣMz = 0    (moment balance)\n\n2D: 3 equations → can solve 3 unknowns (statically determinate)\n    More unknowns → statically indeterminate (need compatibility equations)\n\nINTERNAL FORCES on a cross section:\n  N = normal force (axial, along member)\n  V = shear force (perpendicular to member axis)\n  M = bending moment\n  T = torsional moment (torque)\n\nSTRESS (force per area):\n  σ = N/A (axial)       σ = My/I (bending)\n  τ = VQ/(Ib) (shear)   τ = Tr/J (torsion)\n\nSTRAIN (deformation per length):\n  ε = σ/E (normal)      γ = τ/G (shear)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Engineering Bridge: Structural Analysis as Numerical PDE Solve",
+      "confidence": "candidate",
+      "text": "STRUCTURAL CONCEPT              CS / NUMERICAL METHODS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\n[K]{d} = {F}                    Sparse linear system  Ax = b\n  K is symmetric positive       → Sparse Cholesky (direct: PARDISO/MUMPS)\n  definite after BCs applied    → Conjugate gradient with ILU preconditioner\n\nK sparsity pattern              Adjacency structure of the mesh graph\n  K_ij ≠ 0 only if nodes       → K is the graph Laplacian of the FE mesh\n  i,j share an element          → Bandwidth depends on node numbering (RCM reordering)\n\nModal analysis [K]φ = ω²[M]φ   Generalized eigenvalue decomposition\n  Natural frequencies = ω_n     → Shift-invert Lanczos (ARPACK) for lowest modes\n  Mode shapes = eigenvectors    → Same algorithm as Google PageRank (power iteration variant)\n\nMesh refinement convergence     Richardson extrapolation / grid convergence study\n  h-refinement, p-refinement    → Same convergence theory as finite differences for PDEs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Decision Guide",
+      "confidence": "candidate",
+      "text": "WHAT STRUCTURAL PROBLEM ARE YOU SOLVING?\n        │\n        ├─ What are the reactions and internal forces?\n        │   └─► 01-STATICS (hand methods) or 03-STRUCTURAL-ANALYSIS (matrix/FEM)\n        │\n        ├─ Will the cross-section fail or deform too much?\n        │   └─► 02-MECHANICS-OF-MATERIALS (σ, τ, deflection)\n        │\n        ├─ Is this an indeterminate structure or dynamic problem?\n        │   └─► 03-STRUCTURAL-ANALYSIS (matrix stiffness, modal analysis)\n        │\n        └─ Is the ground involved (foundation, retaining wall, slope)?\n            └─► 04-GEOTECHNICAL",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

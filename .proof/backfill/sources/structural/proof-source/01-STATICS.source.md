@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "01-STATICS.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:structural:statics
 kind: guide
