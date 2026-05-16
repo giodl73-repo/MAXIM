@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:retaining
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Retaining Structures: Earth Pressure, Wall Types, MSE, Seismic
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/08-RETAINING.md
+canonical_path: geotechnical-engineering/08-RETAINING.md
+backsource_ids: [proof-backfill:geotechnical-engineering:08-retaining, git-history:geotechnical-engineering:08-retaining]
+concepts: [retaining]
+root_concepts: [retaining]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Retaining Structures: Earth Pressure, Wall Types, MSE, Seismic
 
 ## The Big Picture
@@ -5,39 +24,24 @@
 Retaining structures hold back a mass of soil (or other material) against gravity and lateral loads. The driving force is lateral earth pressure from the retained soil. The resisting mechanism depends on the wall type: gravity (self-weight), cantilever (structural moment), or reinforced mass (internal reinforcement + friction).
 
 ```
-+------------------------------------------------------------------+
-|               LATERAL EARTH PRESSURE — MASTER CONCEPT            |
-+------------------------------------------------------------------+
-|                                                                  |
-|  AT-REST (K0): No wall movement                                 |
-|  Ko = σ'h / σ'v = 1 - sinφ' (Jaky's formula, NC)              |
-|                                                                  |
-|  ACTIVE (Ka): Wall moves away from soil                         |
-|  → Soil expands toward wall                                     |
-|  → Minimum lateral pressure for equilibrium                     |
-|  Small movement needed: δ/H ≈ 0.001–0.005 for sand             |
-|                                                                  |
-|  PASSIVE (Kp): Wall moves into soil                             |
-|  → Soil compressed by wall                                      |
-|  → Maximum lateral resistance                                   |
-|  Large movement needed: δ/H ≈ 0.01–0.05 for sand               |
-|                                                                  |
-|  PRESSURE DIAGRAM (cohesionless soil, no water):               |
-|                                                                  |
-|  ACTIVE:        PASSIVE:         AT REST:                       |
-|  ───┐           ───┐             ───┐                          |
-|     │              │  much          │  between                 |
-|     │  σ'h = Ka×γz │  larger        │  active and              |
-|     │              │                │  passive                 |
-|     ▼              ▼                 ▼                         |
-|  Pressure          Pressure          Pressure                  |
-|  triangular        triangular        triangular                |
-|  (increases        (larger)                                    |
-|  with depth)                                                   |
-|                                                                |
-|  Ka << Ko << Kp (typically Ka ≈ 0.3, Ko ≈ 0.5, Kp ≈ 3.0)       |
-|                                                                |
-+------------------------------------------------------------------+
+LATERAL EARTH PRESSURE — MASTER CONCEPT
+
+AT-REST (K0): No wall movement
+Ko = σ'h / σ'v = 1 - sinφ' (Jaky's formula, NC)
+
+ACTIVE (Ka): Wall moves away from soil
+- Soil expands toward wall
+- Minimum lateral pressure for equilibrium
+- Small movement needed: δ/H ≈ 0.001–0.005 for sand
+
+PASSIVE (Kp): Wall moves into soil
+- Soil compressed by wall
+- Maximum lateral resistance
+- Large movement needed: δ/H ≈ 0.01–0.05 for sand
+
+Pressure diagrams for cohesionless soil without water are triangular and increase with depth.
+Passive pressure is much larger than active pressure; at-rest pressure lies between them.
+Ka << Ko << Kp (typically Ka ≈ 0.3, Ko ≈ 0.5, Kp ≈ 3.0)
 ```
 
 ---

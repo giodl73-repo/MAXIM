@@ -1,0 +1,92 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\02-EFFECTIVE-STRESS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 229,
+      "heading_context": "## Seepage and Flow Nets",
+      "headers": [
+        "Soil Type",
+        "k (cm/s)"
+      ],
+      "rows": [
+        [
+          "Clean gravel",
+          "1–10"
+        ],
+        [
+          "Clean sand",
+          "10⁻² – 10⁻¹"
+        ],
+        [
+          "Silty sand",
+          "10⁻³ – 10⁻⁴"
+        ],
+        [
+          "Silt",
+          "10⁻⁴ – 10⁻⁵"
+        ],
+        [
+          "Clay",
+          "< 10⁻⁷"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 300,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Field Question",
+        "Use This Model",
+        "What To Calculate",
+        "Design / Monitoring Action"
+      ],
+      "rows": [
+        [
+          "What stress controls strength and settlement at depth?",
+          "Effective vertical stress",
+          "σ'v = σv - u; below water table use γ' = γsat - γw for increments",
+          "Build the stress profile before choosing shear strength or consolidation parameters"
+        ],
+        [
+          "A water table is being lowered for excavation or pumping",
+          "Drawdown -> u decreases -> σ' increases",
+          "Change in σ' from old u to new u",
+          "Estimate consolidation settlement; instrument nearby structures and piezometric response"
+        ],
+        [
+          "A fill, tank, or embankment is loaded quickly on saturated clay",
+          "Undrained pore-pressure response",
+          "Δu = B[Δσ3 + A(Δσ1 - Δσ3)]",
+          "Stage construction; watch piezometers and inclinometers until excess u dissipates"
+        ],
+        [
+          "A retaining wall or basement is designed before movement occurs",
+          "At-rest lateral effective stress",
+          "σ'h = Ko σ'v; Ko = 1 - sinφ' for NC soils, OCR correction for OC soils",
+          "Use Ko for initial condition; switch to active/passive only after wall movement is credible"
+        ],
+        [
+          "Water flows under a sheet pile, dam, or excavation base",
+          "Darcy + flow net",
+          "q = k(Nf/Nd)Δh; exit gradient iexit",
+          "Add cutoff, drainage blanket, relief wells, or filters if piping margin is low"
+        ],
+        [
+          "Is the downstream soil about to boil or pipe?",
+          "Critical hydraulic gradient",
+          "ic = (Gs - 1)/(1 + e) ≈ γ'/γw; FS = ic/iexit",
+          "Require appropriate FS; design filters so base soil cannot migrate"
+        ],
+        [
+          "Field data disagree with the clean calculation",
+          "Observational method",
+          "Compare predicted u, settlement, and movement to instruments",
+          "Revise k, stratigraphy, drainage path, or construction sequence before continuing"
+        ]
+      ]
+    }
+  ]
+}

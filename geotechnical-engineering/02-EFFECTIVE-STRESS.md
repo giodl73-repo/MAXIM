@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:effective-stress
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Effective Stress: Terzaghi Principle, Pore Pressure, Stress Paths, Seepage
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/02-EFFECTIVE-STRESS.md
+canonical_path: geotechnical-engineering/02-EFFECTIVE-STRESS.md
+backsource_ids: [proof-backfill:geotechnical-engineering:02-effective-stress, git-history:geotechnical-engineering:02-effective-stress]
+concepts: [effective, stress]
+root_concepts: [effective, stress]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Effective Stress: Terzaghi Principle, Pore Pressure, Stress Paths, Seepage
 
 ## The Big Picture

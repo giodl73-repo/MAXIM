@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:shallow-foundations
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Shallow Foundations: Bearing Capacity, Settlement, Mats
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/06-SHALLOW-FOUNDATIONS.md
+canonical_path: geotechnical-engineering/06-SHALLOW-FOUNDATIONS.md
+backsource_ids: [proof-backfill:geotechnical-engineering:06-shallow-foundations, git-history:geotechnical-engineering:06-shallow-foundations]
+concepts: [shallow, foundations]
+root_concepts: [shallow, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Shallow Foundations: Bearing Capacity, Settlement, Mats
 
 ## The Big Picture

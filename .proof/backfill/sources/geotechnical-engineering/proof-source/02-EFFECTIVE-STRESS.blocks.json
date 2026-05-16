@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\02-EFFECTIVE-STRESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               EFFECTIVE STRESS — MASTER CONCEPT                  |\n+------------------------------------------------------------------+\n|                                                                  |\n|  TOTAL STRESS  σ = weight of everything above (soil + water)    |\n|                                                                  |\n|  PORE WATER PRESSURE  u = pressure of water in the voids        |\n|  (hydrostatic: u = γw × hw   where hw = depth below water table)|\n|                                                                  |\n|  EFFECTIVE STRESS  σ' = σ - u                                   |\n|  = the intergranular contact stress between soil particles       |\n|  = what actually squeezes grains together                        |\n|  = what governs strength, compressibility, volume change        |\n|                                                                  |\n|  KEY INSIGHT:                                                    |\n|  Pumping water out (lowering water table) → u decreases         |\n|  → σ' increases → soil compresses (surface settles!)           |\n|                                                                  |\n|  Mexico City built on ancient lake bed:                         |\n|  Pumping groundwater for city supply →                          |\n|  Water table drops 30+ meters →                                 |\n|  Effective stress increases dramatically →                      |\n|  City sinks 8–10 meters over 20th century.                      |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### Total Vertical Stress",
+      "confidence": "candidate",
+      "text": "STRESS PROFILE CALCULATION:\n\n  Surface\n\n  ─────────────────────────────  z = 0, σv = 0\n\n  LAYER 1: γ₁ = 18 kN/m³ (unsaturated sand), thickness h₁ = 3m\n           σv increases at 18 kN/m³ per meter\n\n  ─────────────────────────────  z = 3m, σv = 54 kPa\n\n  WATER TABLE\n\n  ─────────────────────────────  z = 3m, u = 0\n\n  LAYER 2: γsat = 20 kN/m³ (saturated clay), thickness h₂ = 5m\n           σv increases at 20 kN/m³ per meter\n\n  ─────────────────────────────  z = 8m, σv = 54 + 5×20 = 154 kPa\n                                          u = 5 × 9.81 = 49 kPa\n                                          σ' = 154 - 49 = 105 kPa\n\n  Note: γw = 9.81 kN/m³ ≈ 10 kN/m³ (often used for simplicity)\n        γ' = γsat - γw = 20 - 10 = 10 kN/m³ (buoyant unit weight)\n        So below water table: σ' increases at γ' = γsat - γw per meter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "## Stress Paths",
+      "confidence": "candidate",
+      "text": "p'-q' STRESS PATH EXAMPLE — UNDRAINED TRIAXIAL:\n\n  q'\n  |          Failure envelope (Kf line: slope = sinφ', intercept = c'cosφ')\n  |         /\n  |       /         Path B: NC clay (undrained, excess u generated)\n  |     /          /  ← moves LEFT because u increases\n  |   /           /    (p' decreases as u builds up)\n  | /            /\n  +──────────────────── p'\n       Path A: Dense sand (undrained)\n               moves RIGHT initially (dilates, negative u)\n               then turns back at failure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Flow Nets",
+      "confidence": "candidate",
+      "text": "FLOW NET COMPONENTS:\n\n  Flow lines: paths water takes (tangent to velocity vector)\n  Equipotential lines: lines of equal total head\n  Flow tubes: channels between adjacent flow lines\n  Potential drops: intervals between adjacent equipotentials\n\n  Properties:\n  - Flow lines ⊥ equipotential lines (for isotropic soil)\n  - Flow elements form approximate squares\n  - Seepage quantity: q = k × Nf/Nd × Δh\n    where Nf = number of flow tubes\n          Nd = number of potential drops\n          Δh = total head difference\n\nBENEATH A SHEET PILE (schematic):\n\n  HIGH HEAD                    LOW HEAD\n  ──────────────     ┃     ──────────────\n                     ┃\n  ↘  ↘  ↘  ↘       ┃       ↙  ↙  ↙\n    ↘  ↘  ↘         ┃         ↙  ↙\n      ↓  ↓  ↓       ┃       ↑  ↑  ↑\n        ↓  ↓  ↓  ↙  ┃  ↘  ↑  ↑  ↑\n             ↓ ↙    ┃    ↖ ↑  ↑\n               ──────────────\n               (flow curves under pile)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:ground-improvement
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Ground Improvement: Preloading, Stone Columns, Grouting, Deep Soil Mixing
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/09-GROUND-IMPROVEMENT.md
+canonical_path: geotechnical-engineering/09-GROUND-IMPROVEMENT.md
+backsource_ids: [proof-backfill:geotechnical-engineering:09-ground-improvement, git-history:geotechnical-engineering:09-ground-improvement]
+concepts: [ground, improvement]
+root_concepts: [ground, improvement]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ground Improvement: Preloading, Stone Columns, Grouting, Deep Soil Mixing
 
 ## The Big Picture

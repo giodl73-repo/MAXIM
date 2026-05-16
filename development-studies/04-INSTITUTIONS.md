@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:institutions
+kind: guide
+module: development-studies
+section: development-studies
+title: Institutions and Governance: Acemoglu/Robinson, Property Rights, Rule of Law
+status: source-custody
+source_custody: partial
+current_path: development-studies/04-INSTITUTIONS.md
+canonical_path: development-studies/04-INSTITUTIONS.md
+backsource_ids: [proof-backfill:development-studies:04-institutions, git-history:development-studies:04-institutions]
+concepts: [institutions]
+root_concepts: [institutions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Institutions and Governance: Acemoglu/Robinson, Property Rights, Rule of Law
 
 ## The Big Picture

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\06-SHALLOW-FOUNDATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|          SHALLOW FOUNDATION DESIGN — DECISION FLOW               |\n+------------------------------------------------------------------+\n|                                                                  |\n|  STRUCTURAL LOADS: Column, wall, mat loads (kN, kN/m, kPa)     |\n|              |                                                   |\n|              v                                                   |\n|  SOIL PROFILE: Depth to acceptable bearing layer?               |\n|  Groundwater table position?                                     |\n|  Is near-surface soil adequate?                                 |\n|              |                                                   |\n|  YES: Shallow foundation feasible                               |\n|              |                                                   |\n|              v                                                   |\n|  CHECK 1: BEARING CAPACITY                                       |\n|  qu = cNc + qNq + 0.5γBNγ (Terzaghi general shear)             |\n|  Factor of safety: qa = qu / FS (FS = 2.5 to 3)                |\n|  Applied pressure q ≤ qa?                                        |\n|              |                                                   |\n|  YES: OK from strength perspective                               |\n|              |                                                   |\n|              v                                                   |\n|  CHECK 2: SETTLEMENT                                             |\n|  Immediate: Si = qBIf/Es (elastic)                               |\n|  Consolidation: Sc = Cc/(1+eo) × H × log(σ'f/σ'o)              |\n|  Is total and differential settlement within limits?            |\n|              |                                                   |\n|  YES: Foundation design acceptable                               |\n|              |                                                   |\n|  NO (either check): Increase size, change depth, use deep fdn.  |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 77,
+      "heading_context": "## Bearing Capacity Theory",
+      "confidence": "candidate",
+      "text": "### Terzaghi's General Bearing Capacity Equation (1943)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### Terzaghi's General Bearing Capacity Equation (1943)",
+      "confidence": "candidate",
+      "text": "BEARING CAPACITY FACTORS (selected values):\n\n  φ'    Nc      Nq      Nγ\n  0     5.14    1.00    0.00   ← undrained clay: qu = 5.14 × Su\n  10    8.35    2.47    1.22\n  20    14.8    6.40    5.39\n  25    20.7    10.7    10.9\n  30    30.1    18.4    22.4\n  35    46.1    33.3    48.0\n  40    75.3    64.2    109\n\n  Undrained clay (φ = 0): qu = 5.14 × Su + γDf\n  (first term from Nc = 5.14; second term = overburden)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "### Meyerhof/Hansen/Vesic Modifications",
+      "confidence": "candidate",
+      "text": "- Square: Fcs = 1 + (Nq/Nc)(B/L), Fqs = 1 + (B/L)tanφ'",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

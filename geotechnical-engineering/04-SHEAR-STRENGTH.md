@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:shear-strength
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/04-SHEAR-STRENGTH.md
+canonical_path: geotechnical-engineering/04-SHEAR-STRENGTH.md
+backsource_ids: [proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]
+concepts: [shear, strength]
+root_concepts: [shear, strength]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength
 
 ## The Big Picture
@@ -106,35 +125,15 @@ Output: τ vs. σ'_n at failure → plot several tests → Mohr-Coulomb line
 
 More controlled, better for clayey soils. Three test types:
 
-```
 TRIAXIAL TEST CONFIGURATIONS:
 
-  +------------------+------------------+------------------+
-  |    UU TEST        |    CU TEST        |    CD TEST     |
-  |  (Unconsolidated  |  (Consolidated-   |  (Consolidated-|
-  |   Undrained)      |   Undrained)      |   Drained)     |
-  +------------------+------------------+------------------+
-  | Consolidation:    | Consolidate to    | Consolidate to   |
-  | NOT consolidated  | in-situ stress    | target stress    |
-  | before shear      | before shear      | before shear     |
-  +------------------+------------------+------------------+
-  | Drainage in shear:| Closed (no        | Open (slow shear |
-  | Closed            | drainage)         | so Δu dissipates)|
-  +------------------+------------------+------------------+
-  | Pore pressure:    | Measured (so      | Controlled       |
-  | Not measured      | effective stress  | (u = hydrostatic)|
-  |                   | known)            |                  |
-  +------------------+------------------+------------------+
-  | Results:          | c', φ' in terms   | c', φ' in terms|
-  | Su = qu/2         | of effective      | of effective   |
-  | (total stress,    | stress (reliable) | stress (most   |
-  | φ = 0 analysis)   |                   | fundamental)   |
-  +------------------+------------------+------------------+
-  | Use for:          | Short-term +      | Long-term        |
-  | Quick loading,    | long-term analysis| analysis, drained|
-  | field vane check  |                   | slopes           |
-  +------------------+------------------+------------------+
-```
+| Aspect | UU test (Unconsolidated Undrained) | CU test (Consolidated Undrained) | CD test (Consolidated Drained) |
+|---|---|---|---|
+| Consolidation | NOT consolidated before shear | Consolidate to in-situ stress before shear | Consolidate to target stress before shear |
+| Drainage in shear | Closed | Closed; no drainage | Open; slow shear so Δu dissipates |
+| Pore pressure | Not measured | Measured, so effective stress is known | Controlled; u = hydrostatic |
+| Results | Su = qu/2; total stress, φ = 0 analysis | c', φ' in terms of effective stress (reliable) | c', φ' in terms of effective stress (most fundamental) |
+| Use for | Quick loading and field vane check | Short-term plus long-term analysis | Long-term analysis and drained slopes |
 
 ### Mohr Circle Construction (Triaxial)
 

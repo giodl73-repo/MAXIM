@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:history
+kind: guide
+module: development-studies
+section: development-studies
+title: History of Development: Modernization Theory, Dependency, Post-Development
+status: source-custody
+source_custody: partial
+current_path: development-studies/01-HISTORY.md
+canonical_path: development-studies/01-HISTORY.md
+backsource_ids: [proof-backfill:development-studies:01-history, git-history:development-studies:01-history]
+concepts: [history]
+root_concepts: [history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History of Development: Modernization Theory, Dependency, Post-Development
 
 ## The Big Picture

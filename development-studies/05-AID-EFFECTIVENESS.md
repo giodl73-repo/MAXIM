@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:aid-effectiveness
+kind: guide
+module: development-studies
+section: development-studies
+title: Aid Effectiveness: Sachs vs. Easterly Debate, RCTs, Conditional Cash Transfers
+status: source-custody
+source_custody: partial
+current_path: development-studies/05-AID-EFFECTIVENESS.md
+canonical_path: development-studies/05-AID-EFFECTIVENESS.md
+backsource_ids: [proof-backfill:development-studies:05-aid-effectiveness, git-history:development-studies:05-aid-effectiveness]
+concepts: [aid, effectiveness]
+root_concepts: [aid, effectiveness]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aid Effectiveness: Sachs vs. Easterly Debate, RCTs, Conditional Cash Transfers
 
 ## The Big Picture

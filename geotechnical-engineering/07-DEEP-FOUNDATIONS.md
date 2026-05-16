@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:deep-foundations
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Deep Foundations: Driven Piles, Drilled Shafts, Capacity, Lateral Loads
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/07-DEEP-FOUNDATIONS.md
+canonical_path: geotechnical-engineering/07-DEEP-FOUNDATIONS.md
+backsource_ids: [proof-backfill:geotechnical-engineering:07-deep-foundations, git-history:geotechnical-engineering:07-deep-foundations]
+concepts: [deep, foundations]
+root_concepts: [deep, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deep Foundations: Driven Piles, Drilled Shafts, Capacity, Lateral Loads
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:sustainability
+kind: guide
+module: development-studies
+section: development-studies
+title: Sustainability and Development Goals: SDGs, Planetary Boundaries, Degrowth
+status: source-custody
+source_custody: partial
+current_path: development-studies/09-SUSTAINABILITY.md
+canonical_path: development-studies/09-SUSTAINABILITY.md
+backsource_ids: [proof-backfill:development-studies:09-sustainability, git-history:development-studies:09-sustainability]
+concepts: [sustainability]
+root_concepts: [sustainability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sustainability and Development Goals: SDGs, Planetary Boundaries, Degrowth
 
 ## The Big Picture

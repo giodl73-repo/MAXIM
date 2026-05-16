@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:consolidation
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Consolidation: Primary Settlement, Terzaghi 1D Theory, Time Rates, PVDs
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/03-CONSOLIDATION.md
+canonical_path: geotechnical-engineering/03-CONSOLIDATION.md
+backsource_ids: [proof-backfill:geotechnical-engineering:03-consolidation, git-history:geotechnical-engineering:03-consolidation]
+concepts: [consolidation]
+root_concepts: [consolidation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Consolidation: Primary Settlement, Terzaghi 1D Theory, Time Rates, PVDs
 
 ## The Big Picture

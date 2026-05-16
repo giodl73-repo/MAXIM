@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:microfinance
+kind: guide
+module: development-studies
+section: development-studies
+title: Microfinance and Poverty: Grameen Bank, Impact Evidence, Mobile Money
+status: source-custody
+source_custody: partial
+current_path: development-studies/06-MICROFINANCE.md
+canonical_path: development-studies/06-MICROFINANCE.md
+backsource_ids: [proof-backfill:development-studies:06-microfinance, git-history:development-studies:06-microfinance]
+concepts: [microfinance]
+root_concepts: [microfinance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microfinance and Poverty: Grameen Bank, Impact Evidence, Mobile Money
 
 ## The Big Picture
@@ -80,38 +99,23 @@ Muhammad Yunus founded Grameen Bank in Bangladesh in 1983 (formal charter). Nobe
 ```
 GRAMEEN GROUP LENDING STRUCTURE:
 
-  5 borrowers form a group (self-selected → information screening)
-  ┌──────────────────────────────────────────┐
-  │  Borrower 1  │  Borrower 2  │  Borrower 3│
-  │  Borrower 4  │  Borrower 5               │
-  └──────────────────────────────────────────┘
-                    │
-              JOINT LIABILITY:
-              If any member defaults,
-              group loses access to future loans
-                    │
-              ┌─────────────────────┐
-              │ INCENTIVE EFFECTS:  │
-              │ 1. Select good peers│
-              │    (adverse sel. ↓) │
-              │ 2. Monitor peers    │
-              │    (moral hazard ↓) │
-              │ 3. Bail out peers   │
-              │    (default ↓)      │
-              └─────────────────────┘
+5 borrowers form a group (self-selected -> information screening)
+Borrower 1, Borrower 2, Borrower 3, Borrower 4, Borrower 5
+        |
+        v
+JOINT LIABILITY: if any member defaults, group loses access to future loans
+        |
+        v
+INCENTIVE EFFECTS
+1. Select good peers (reduces adverse selection)
+2. Monitor peers (reduces moral hazard)
+3. Bail out peers (reduces default)
 
-  WEEKLY MEETINGS:
-  Groups meet weekly with field officer
-  Repayment in small installments (discipline)
-  Social pressure for repayment
-  Information sharing about business opportunities
-
-  WOMEN BORROWERS:
-  Grameen: 97%+ women borrowers
-  Theory: women have higher social capital (more constrained, more embedded
-         in community), thus better group lending candidates
-  AND: women more likely to invest in household/children
+WEEKLY MEETINGS
+Groups meet weekly with field officer; repayment is in small installments.
+Social pressure supports repayment and information sharing about business opportunities.
 ```
+
 
 **The original Grameen model's features**:
 - Loan starts small (~$50–200), grows with repayment history

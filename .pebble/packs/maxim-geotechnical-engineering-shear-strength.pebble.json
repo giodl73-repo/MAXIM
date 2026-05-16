@@ -1,0 +1,461 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-geotechnical-engineering-shear-strength",
+  "source": "../../geotechnical-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-SHEAR-STRENGTH.md#000",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "# Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#001",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#002",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "Soil fails in shear — not compression or tension. When you push soil to its limit (under a footing, inside a slope, behind a retaining wall), it mobilizes shearing resistance along a failure surface. Understanding what governs that resistance — and how it changes with drainage conditions and stress history — is the core of geotechnical strength analysis."
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#003",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|               SHEAR STRENGTH — CONCEPTUAL MAP                    |\n+------------------------------------------------------------------+\n|                                                                  |\n|  MOHR-COULOMB FAILURE CRITERION                                  |\n|  τ_f = c' + σ'_n × tan(φ')     [effective stress parameters]   |\n|  τ_f = cu (= Su)               [total stress for undrained]     |\n|                                                                  |\n|  KEY DISTINCTION:                                                |\n|  DRAINED analysis: stresses change slowly; pore pressure        |\n|  ≈ hydrostatic throughout loading; use c', φ'                   |\n|                                                                  |\n|  UNDRAINED analysis: stresses change faster than drainage;      |\n|  excess pore pressure develops; use Su = cu (φ=0 analysis)      |\n|                                                                  |\n|  WHEN DOES EACH APPLY?                                           |\n|  Sand: always drained (high k → pore pressure dissipates fast)  |\n|  Soft clay: short-term = undrained; long-term = drained         |\n|  Stiff clay: often drained controls (swells long-term)          |\n|                                                                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#004",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#005",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "## The Mohr-Coulomb Failure Criterion"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#006",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "### Effective Stress Form"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#007",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "**τ_f = c' + σ'_n × tan φ'**"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#008",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "where:\n- τ_f = shear stress at failure (shear strength)\n- c' = effective cohesion intercept (kPa)\n- σ'_n = effective normal stress on failure plane\n- φ' = effective friction angle"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#009",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "```\nMOHR CIRCLE AND FAILURE ENVELOPE:"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#010",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "τ\n  |               Failure envelope\n  |              /   τ = c' + σ'tanφ'\n  |             /\n  |            /   *\n  |           / *     (σ'3, 0) ... (σ'1, 0) Mohr circle\n  |          /*          ^\n  |         *           failure if circle tangent to envelope\n  |        /\n  +──────────────────────── σ'\n  0     c'/tanφ'"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#011",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "Each Mohr circle = one test (different confining pressure)\n  Failure envelope = best-fit line tangent to circles\n  Slope = tanφ', intercept = c'\n```"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#012",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "### The Friction Angle"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#013",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "φ' governs how shear strength increases with normal stress. It comes from:"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#014",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "1. **Mineral friction**: Quartz-quartz contact friction ≈ 26–30°\n2. **Particle interlocking**: denser/rounder particles → lower effective φ'\n3. **Dilation**: dense sands dilate (expand) during shear → extra resistance → φ'peak > φ'critical"
+    },
+    {
+      "id": "04-SHEAR-STRENGTH.md#015",
+      "path": [
+        "04-SHEAR-STRENGTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:geotechnical-engineering:04-shear-strength, git-history:geotechnical-engineering:04-shear-strength]",
+        "canonical_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "concepts": "[shear, strength]",
+        "current_path": "geotechnical-engineering/04-SHEAR-STRENGTH.md",
+        "id": "maxim:geotechnical-engineering:shear-strength",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "geotechnical-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shear, strength]",
+        "section": "geotechnical-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shear Strength: Mohr-Coulomb, Triaxial Tests, Critical State, Residual Strength",
+        "updated": "null"
+      },
+      "text": "For design, distinguish:\n| Parameter | Meaning | Use |\n|-----------|---------|-----|\n| φ'peak | Strength at failure | Short-term, pre-failure calculations |\n| φ'critical state (φ'cv) | Strength after large strain (dilation complete) | Post-failure, residual |\n| φ'residual | Strength after very large strain (clay particles aligned) | Reactivated landslides |"
+    }
+  ],
+  "refs": [
+    "04-SHEAR-STRENGTH.md"
+  ]
+}
