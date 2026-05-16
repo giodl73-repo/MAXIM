@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemical-eng:overview
+kind: guide
+module: chemical-eng
+section: chemical-eng
+title: Chemical Engineering - Landscape and Field Taxonomy
+status: source-custody
+source_custody: partial
+current_path: chemical-eng/00-OVERVIEW.md
+canonical_path: chemical-eng/00-OVERVIEW.md
+backsource_ids: [proof-backfill:chemical-eng:00-overview, git-history:chemical-eng:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chemical Engineering — Landscape & Field Taxonomy
 
 ## The Big Picture
@@ -12,19 +31,19 @@ RAW MATERIALS
       │
       ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  THERMODYNAMICS                                                          │
-│  What is possible? Energy/equilibrium constraints, phase behavior        │
+│  THERMODYNAMICS                                                         │
+│  What is possible? Energy/equilibrium constraints, phase behavior       │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  TRANSPORT PHENOMENA (Bird-Stewart-Lightfoot)                            │
-│  How fast? Momentum (flow), energy (heat), mass (diffusion) — unified   │
+│  TRANSPORT PHENOMENA (Bird-Stewart-Lightfoot)                           │
+│  How fast? Momentum (flow), energy (heat), mass (diffusion) - unified   │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  REACTION ENGINEERING                                                    │
-│  How does chemistry happen at scale? Kinetics, reactor design            │
+│  REACTION ENGINEERING                                                   │
+│  How does chemistry happen at scale? Kinetics, reactor design           │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  SEPARATIONS                                                             │
-│  How do we get pure products? Distillation, absorption, membranes        │
+│  SEPARATIONS                                                            │
+│  How do we get pure products? Distillation, absorption, membranes       │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  PROCESS DESIGN & SAFETY                                                 │
+│  PROCESS DESIGN & SAFETY                                                │
 │  Integration: flowsheets, economics, control, HAZOP                     │
 └─────────────────────────────────────────────────────────────────────────┘
         │

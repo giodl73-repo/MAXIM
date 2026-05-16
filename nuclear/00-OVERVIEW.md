@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nuclear:overview
+kind: guide
+module: nuclear
+section: nuclear
+title: Nuclear Engineering - Landscape and Field Taxonomy
+status: source-custody
+source_custody: partial
+current_path: nuclear/00-OVERVIEW.md
+canonical_path: nuclear/00-OVERVIEW.md
+backsource_ids: [proof-backfill:nuclear:00-overview, git-history:nuclear:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nuclear Engineering — Landscape & Field Taxonomy
 
 ## The Big Picture
@@ -13,19 +32,19 @@ NUCLEAR PHYSICS
         │
         ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  REACTOR PHYSICS (NEUTRONICS)                                            │
+│  REACTOR PHYSICS (NEUTRONICS)                                           │
 │  Criticality k_eff, neutron transport, flux distribution, kinetics      │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  THERMAL HYDRAULICS                                                      │
+│  THERMAL HYDRAULICS                                                     │
 │  Heat removal from fuel, coolant flow, DNB, reactivity feedback         │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  REACTOR TYPES                                                           │
+│  REACTOR TYPES                                                          │
 │  PWR, BWR, CANDU, SMR, Gen IV concepts                                  │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  SAFETY SYSTEMS & ACCIDENT ANALYSIS                                      │
+│  SAFETY SYSTEMS & ACCIDENT ANALYSIS                                     │
 │  Defense in depth, ECCS, LOCA, accident lessons                         │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  FUEL CYCLE                                                              │
+│  FUEL CYCLE                                                             │
 │  Mining → enrichment → fabrication → reactor → spent fuel → waste       │
 └─────────────────────────────────────────────────────────────────────────┘
 ```

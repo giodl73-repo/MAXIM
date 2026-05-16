@@ -1,0 +1,1424 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-chemical-eng-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.chemical-eng.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-chemical-eng-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-source-corpus.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemical-eng-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemical-eng-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-overview.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.thermo.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemical-eng-thermo.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/01-THERMO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemical-eng-thermo.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/01-THERMO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.thermo.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-thermo.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.thermo.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-thermo.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-thermo.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/01-THERMO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.thermo.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/01-THERMO.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.thermo.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/01-THERMO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/01-THERMO.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/01-THERMO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.thermo.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/01-THERMO.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.thermo.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/01-THERMO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/01-THERMO.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/01-THERMO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.thermo.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/01-THERMO.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.thermo.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/01-THERMO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/01-THERMO.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/01-THERMO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.reaction-engineering.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemical-eng-reaction-engineering.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemical-eng-reaction-engineering.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.reaction-engineering.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-reaction-engineering.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.reaction-engineering.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-reaction-engineering.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-reaction-engineering.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.reaction-engineering.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/02-REACTION-ENGINEERING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.reaction-engineering.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/02-REACTION-ENGINEERING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.reaction-engineering.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/02-REACTION-ENGINEERING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.reaction-engineering.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/02-REACTION-ENGINEERING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.reaction-engineering.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/02-REACTION-ENGINEERING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.reaction-engineering.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/02-REACTION-ENGINEERING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/02-REACTION-ENGINEERING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.transport.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemical-eng-transport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/03-TRANSPORT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemical-eng-transport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/03-TRANSPORT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.transport.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-transport.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.transport.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-transport.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-transport.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/03-TRANSPORT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.transport.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/03-TRANSPORT.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.transport.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/03-TRANSPORT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/03-TRANSPORT.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/03-TRANSPORT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.transport.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/03-TRANSPORT.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.transport.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/03-TRANSPORT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/03-TRANSPORT.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/03-TRANSPORT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.transport.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/03-TRANSPORT.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.transport.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/03-TRANSPORT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/03-TRANSPORT.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/03-TRANSPORT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.separations.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemical-eng-separations.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/04-SEPARATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemical-eng-separations.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/04-SEPARATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.separations.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-separations.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.separations.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-separations.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-separations.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/04-SEPARATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.separations.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/04-SEPARATIONS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.separations.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/04-SEPARATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/04-SEPARATIONS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/04-SEPARATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.separations.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/04-SEPARATIONS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.separations.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/04-SEPARATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/04-SEPARATIONS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/04-SEPARATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.separations.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/04-SEPARATIONS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.separations.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/04-SEPARATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/04-SEPARATIONS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/04-SEPARATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.process-design.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemical-eng-process-design.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemical-eng-process-design.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.process-design.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-chemical-eng-process-design.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.process-design.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemical-eng.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemical-eng-process-design.json",
+            "module": "chemical-eng",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-chemical-eng-process-design.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.process-design.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/05-PROCESS-DESIGN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.process-design.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/05-PROCESS-DESIGN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.process-design.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/05-PROCESS-DESIGN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.process-design.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/05-PROCESS-DESIGN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemical-eng.process-design.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/chemical-eng/proof-source/05-PROCESS-DESIGN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemical-eng.process-design.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "chemical-eng",
+            "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/chemical-eng/proof-source/05-PROCESS-DESIGN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemical-eng",
+        "guide": "chemical-eng/05-PROCESS-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

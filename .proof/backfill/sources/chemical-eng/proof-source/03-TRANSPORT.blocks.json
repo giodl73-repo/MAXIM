@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\03-TRANSPORT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Momentum, Energy, and Mass Transfer (Bird-Stewart-Lightfoot Framework)",
+      "confidence": "candidate",
+      "text": "THE BSL UNIFICATION\n\nTransport type     Flux equation              Transport coefficient\n─────────────────────────────────────────────────────────────────────\nMomentum         τ = −μ dv_x/dy              μ (dynamic viscosity)\n(viscous flow)                                ν = μ/ρ (kinematic)\n\nHeat             q = −k dT/dy                k (thermal conductivity)\n(conduction)                                  α = k/(ρCp) (thermal diffusivity)\n\nMass             J_A = −D_AB dC_A/dy          D_AB (binary diffusivity)\n(diffusion)\n\nSame structure: flux = −(diffusivity) × d(concentration)/dy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 81,
+      "heading_context": "## Diffusivity Values Reference",
+      "confidence": "candidate",
+      "text": "### Gas-Phase Binary Diffusivities (at 25°C, 1 atm)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 93,
+      "heading_context": "### Gas-Phase Binary Diffusivities (at 25°C, 1 atm)",
+      "confidence": "candidate",
+      "text": "### Liquid-Phase Diffusivities (dilute solutions at 25°C)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "### Example: Laminar Flow in a Tube (Hagen-Poiseuille)",
+      "confidence": "candidate",
+      "text": "Shells: cylindrical annuli at radius r, thickness Δr, length L\n\nMomentum balance (z-direction):\n  (τ_rz × 2πr L)|_r − (τ_rz × 2πr L)|_{r+Δr} + (p₀ − p_L)(2πr Δr) = 0\n\nDivide by 2π L Δr, take Δr → 0:\n  d(r τ_rz)/dr = −(p_L − p₀)r/L  ≡  (P₀ − P_L)r/L\n\nIntegrate:  r τ_rz = (P₀−P_L)r²/(2L) + C₁\n  BC: finite at r=0 → C₁ = 0\n\nSubstitute Newton's law τ_rz = −μ dv_z/dr:\n  dv_z/dr = −(P₀−P_L)r/(2μL)\n\nIntegrate: v_z = (P₀−P_L)(R²−r²)/(4μL)   [parabolic profile!]\n\nMax velocity (centerline): v_max = (P₀−P_L)R²/(4μL)\nAverage velocity: v_avg = v_max/2\n\nHagen-Poiseuille: Q = πR⁴(P₀−P_L)/(8μL)   ← Volume flow rate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "### Simultaneous Heat and Mass Transfer (Drying)",
+      "confidence": "candidate",
+      "text": "Constant rate period: surface wet, rate = k_c (C_As − C_A∞)\n  → controlled by external mass transfer + heat transfer\n  → wet bulb temperature at surface\n\nFalling rate period: surface dries, diffusion within solid limits\n  → rate decreases → longer drying time\n\nCharacteristic drying curve: rate vs moisture content\n\nSpray drying: droplets in hot gas → simultaneous heat/mass → fast drying",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

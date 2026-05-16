@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemical-eng:thermo
+kind: guide
+module: chemical-eng
+section: chemical-eng
+title: 01 - Chemical Engineering Thermodynamics
+status: source-custody
+source_custody: partial
+current_path: chemical-eng/01-THERMO.md
+canonical_path: chemical-eng/01-THERMO.md
+backsource_ids: [proof-backfill:chemical-eng:01-thermo, git-history:chemical-eng:01-thermo]
+concepts: [thermo]
+root_concepts: [thermo]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Chemical Engineering Thermodynamics
 
 ## The Big Picture

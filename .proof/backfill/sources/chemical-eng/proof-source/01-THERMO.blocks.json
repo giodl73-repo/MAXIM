@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\01-THERMO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "### Phase Equilibria, Equations of State, Fugacity, Activity",
+      "confidence": "candidate",
+      "text": "CHEMICAL THERMODYNAMICS TOOLKIT\n\n  EQUATIONS OF STATE        PHASE EQUILIBRIUM          REACTION EQUILIBRIUM\n  ─────────────────         ──────────────────         ───────────────────────\n  PV relationships          VLE, LLE, SLE              K_eq = exp(−ΔG°/RT)\n  ideal gas → Peng-Robinson Raoult → NRTL/UNIQUAC       van't Hoff: d(lnK)/dT\n  compressibility Z         fugacity = activity         Gibbs energy minimization\n  fugacity coefficient φ    azeotropes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### Gibbs Phase Rule",
+      "confidence": "candidate",
+      "text": "F = C − P + 2\n\nF = degrees of freedom (intensive variables that can be independently set)\nC = number of independent chemical components\nP = number of phases present (not confused with pressure)\n\nExamples:\n  Pure water, vapor-liquid: F = 1−2+2 = 1  (specify T or P → state fixed)\n  Water-ethanol, vapor-liquid: F = 2−2+2 = 2  (specify T and x)\n  Triple point: F = 0  (no freedom, exactly one T,P)\n  Pure gas: F = 2  (specify T and P independently)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## Fugacity and Activity",
+      "confidence": "candidate",
+      "text": "For real gas:   fᵢ = φᵢ yᵢ p    (φᵢ from EOS; φᵢ → 1 for ideal gas)\nFor liquid:     fᵢ = γᵢ xᵢ fᵢ°  (γᵢ = activity coefficient; fᵢ° = reference fugacity)\n\nVLE equilibrium: fᵢ^V = fᵢ^L\n  → φᵢ yᵢ p = γᵢ xᵢ φᵢ^sat pᵢ^sat   (modified Raoult's law, complete form)\n  → yᵢ p = γᵢ xᵢ pᵢ^sat              (simplified: assume vapor ideal, Poynting negligible)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Azeotropes",
+      "confidence": "candidate",
+      "text": "At azeotrope: yᵢ = xᵢ for all i  → Kᵢ = 1 for all i → separation by ordinary distillation fails\n\nPositive deviation (γᵢ > 1): minimum-boiling azeotrope (ethanol-water at 95.6 mol% ethanol)\nNegative deviation (γᵢ < 1): maximum-boiling azeotrope (HCl-water at ~20 wt% HCl)\n\nRemedies:\n  Pressure-swing distillation: azeotrope composition shifts with pressure → two columns\n  Extractive distillation: add solvent to change relative volatility\n  Azeotropic distillation: add entrainer (forms heteroazeotrope)\n  Membrane separation: bypass thermodynamic limitations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "## Chemical Reaction Equilibrium",
+      "confidence": "candidate",
+      "text": "Exothermic reactions (e.g., NH₃ synthesis, SO₃ formation):\n  Low T: high equilibrium conversion but slow kinetics\n  High T: fast kinetics but low equilibrium conversion\n  Optimal T profile: start high (fast), cool as equilibrium is approached\n\nEndothermic reactions (e.g., steam reforming CH₄ + H₂O → CO + 3H₂):\n  High T always better for equilibrium → favor high T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

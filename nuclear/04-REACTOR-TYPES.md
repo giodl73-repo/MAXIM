@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nuclear:reactor-types
+kind: guide
+module: nuclear
+section: nuclear
+title: 04 - Reactor Types
+status: source-custody
+source_custody: partial
+current_path: nuclear/04-REACTOR-TYPES.md
+canonical_path: nuclear/04-REACTOR-TYPES.md
+backsource_ids: [proof-backfill:nuclear:04-reactor-types, git-history:nuclear:04-reactor-types]
+concepts: [reactor, types]
+root_concepts: [reactor, types]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Reactor Types
 
 ## PWR, BWR, CANDU, Advanced Designs, SMRs, Gen IV

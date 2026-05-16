@@ -1,0 +1,101 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\01-THERMO.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 155,
+      "heading_context": "## Activity Coefficient Models (for VLE)",
+      "headers": [
+        "Model",
+        "Parameters",
+        "Range",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Margules (1-suffix)",
+          "1 per binary",
+          "Simple",
+          "Educational"
+        ],
+        [
+          "van Laar",
+          "2 per binary",
+          "Some",
+          "Early model"
+        ],
+        [
+          "Wilson",
+          "2 per binary",
+          "Good",
+          "Not for LLE"
+        ],
+        [
+          "NRTL",
+          "3 per binary",
+          "Excellent",
+          "Works for LLE too"
+        ],
+        [
+          "UNIQUAC",
+          "2 per binary + structure",
+          "Very good",
+          "Group contribution variant: UNIFAC"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 321,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Tool",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Gas phase P-V-T",
+          "Peng-Robinson EOS",
+          "Standard for hydrocarbons"
+        ],
+        [
+          "VLE, non-ideal mixture",
+          "Modified Raoult's + NRTL",
+          "Need γᵢ model"
+        ],
+        [
+          "Azeotrope check",
+          "Compute γᵢ at all compositions",
+          "Where γᵢxᵢ/yᵢ = 1"
+        ],
+        [
+          "Flash drum design",
+          "Rachford-Rice equation",
+          "Iterative root finding"
+        ],
+        [
+          "Reaction equilibrium",
+          "K_eq = exp(−ΔG°/RT)",
+          "From thermodynamic tables"
+        ],
+        [
+          "T effect on equilibrium",
+          "van't Hoff equation",
+          "Exothermic ↔ endothermic"
+        ],
+        [
+          "Number of phases possible",
+          "Gibbs phase rule",
+          "F = C − P + 2"
+        ],
+        [
+          "LLE / extraction",
+          "Activity model with LLE capability",
+          "NRTL or UNIQUAC"
+        ]
+      ]
+    }
+  ]
+}

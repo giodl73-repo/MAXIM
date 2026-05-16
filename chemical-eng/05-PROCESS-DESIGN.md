@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemical-eng:process-design
+kind: guide
+module: chemical-eng
+section: chemical-eng
+title: 05 - Process Design and Safety
+status: source-custody
+source_custody: partial
+current_path: chemical-eng/05-PROCESS-DESIGN.md
+canonical_path: chemical-eng/05-PROCESS-DESIGN.md
+backsource_ids: [proof-backfill:chemical-eng:05-process-design, git-history:chemical-eng:05-process-design]
+concepts: [process, design]
+root_concepts: [process, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Process Design & Safety
 
 ## Flowsheets, Heat Integration, Process Control, HAZOP

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nuclear:reactor-physics
+kind: guide
+module: nuclear
+section: nuclear
+title: 02 - Reactor Physics
+status: source-custody
+source_custody: partial
+current_path: nuclear/02-REACTOR-PHYSICS.md
+canonical_path: nuclear/02-REACTOR-PHYSICS.md
+backsource_ids: [proof-backfill:nuclear:02-reactor-physics, git-history:nuclear:02-reactor-physics]
+concepts: [reactor, physics]
+root_concepts: [reactor, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Reactor Physics
 
 ## Criticality, Neutron Transport, Neutron Economy, Kinetics

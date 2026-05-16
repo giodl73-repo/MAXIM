@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\04-SEPARATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Distillation, Absorption, Extraction, Membranes, Adsorption",
+      "confidence": "candidate",
+      "text": "SEPARATION SELECTION — FROM FEED TO EQUIPMENT\n┌─────────────────────────────────────────────────────────────────────────┐\n│ FEED MIXTURE                                                            │\n│   What phases?  What property differs between components?               │\n└────────┬────────────────────────────────────────────────────────────────┘\n         │\n         ├─ Boiling point differs (α > 1.05)?\n         │   └─► DISTILLATION\n         │       ├─ Tray column (equilibrium stages, high throughput)\n         │       └─ Packed column (low pressure drop, smaller scale)\n         │\n         ├─ Solubility differs in a solvent?\n         │   └─► LIQUID-LIQUID EXTRACTION\n         │       ├─ Mixer-settler (equilibrium stages)\n         │       └─ Packed/spray column (differential contact)\n         │\n         ├─ Size or charge differs?\n         │   └─► MEMBRANES\n         │       ├─ MF/UF (size, particles/macromolecules)\n         │       ├─ NF/RO (size + charge, dissolved solutes)\n         │       └─ Gas separation (permeability difference)\n         │\n         ├─ Surface affinity differs?\n         │   └─► ADSORPTION\n         │       ├─ PSA (pressure swing — gas separation)\n         │       ├─ TSA (thermal swing — solvent recovery)\n         │       └─ Chromatography (analytical or prep-scale)\n         │\n         └─ Solid-liquid phase boundary?\n             └─► CRYSTALLIZATION (cooling, evaporative, antisolvent)\n┌─────────────────────────────────────────────────────────────────────────┐\n│ CONTACTING METHOD:                                                      │\n│   Equilibrium stages: each stage reaches VLE/LLE → step-off design      │\n│   Differential contact: continuous gradient → NTU/HTU design            │\n└─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### McCabe-Thiele Graphical Method (Binary Distillation)",
+      "confidence": "candidate",
+      "text": "Assumptions: constant molar overflow (CMO), negligible heat effects\n\nRectifying section operating line:\n  y = (R/(R+1)) x + x_D/(R+1)\n  [slope = L/V = R/(R+1), passes through (x_D, x_D)]\n\nStripping section operating line:\n  y = ((L+F_q)/(V−F(1−q))) x − (B x_B)/(V−F(1−q))\n  [passes through (x_B, x_B)]\n\nq-line (feed condition):\n  y = q/(q−1) × x − z_F/(q−1)\n  q = fraction of feed that is liquid\n  q = 1: saturated liquid feed  → vertical q-line at x = z_F\n  q = 0: saturated vapor feed   → horizontal q-line at y = z_F",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### Azeotropic and Extractive Distillation",
+      "confidence": "candidate",
+      "text": "Minimum-boiling azeotrope (e.g., ethanol-water at 95.6%):\n  Cannot pass azeotrope by ordinary distillation\n\nApproaches:\n  1. Pressure-swing: azeotrope composition changes with P → two-column system\n     (ethanol-water: limited shift → not practical)\n  2. Extractive distillation: add heavy solvent (e.g., ethylene glycol) that changes γ\n     → shifts relative volatility → can separate past azeotrope → recover solvent\n  3. Azeotropic distillation: add entrainer (e.g., benzene for ethanol dehydration)\n     → forms heterogeneous azeotrope → decant → two columns\n  4. Molecular sieves (adsorption): for dehydration (ethanol-water, last bit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "### Kremser Equation (Dilute Systems, Straight Equilibrium)",
+      "confidence": "candidate",
+      "text": "For absorption:  y*= m x  (Henry's law, m = slope)\nAbsorption factor: A = L/(mG)  where L = liquid rate, G = gas rate\n\nNumber of ideal stages:\n  N = ln[(y_in − mx_in)/(y_out − mx_in) × (1 − 1/A) + 1/A] / ln(A)\n\nFor stripping: use stripping factor S = mG/L = 1/A\n\nDesign guidelines:\n  A = 1.25–1.5 (absorption) — economic optimum\n  Too low A → many stages; too high A → excessive solvent",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Reverse Osmosis (RO) and Pressure-Driven Membranes",
+      "confidence": "candidate",
+      "text": "Process         MWCO / pore size    Removes\n─────────────────────────────────────────────────────────────────\nMicrofiltration  0.1–10 μm          Particles, bacteria, cells\nUltrafiltration  1–100 kDa          Colloids, proteins, viruses\nNanofiltration   200–1000 Da        Small organics, divalent ions\nReverse osmosis  < 200 Da           All ions, small molecules",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "### Pressure Swing Adsorption (PSA)",
+      "confidence": "candidate",
+      "text": "Cycle:\n  1. Adsorption at high pressure: feed passes through bed, impurity adsorbs\n  2. Depressurization + purge: regenerate bed at low pressure (impurity desorbs)\n  3. Repressurization: return to high pressure for next cycle\n\nApplications:\n  Air separation: O₂ production (zeolite adsorbs N₂ preferentially) → 90–95% O₂\n  H₂ purification: activated carbon adsorbs CO, CO₂, CH₄ → >99.9% H₂\n  CO₂ capture from flue gas (post-combustion, emerging technology)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Crystallization",
+      "confidence": "candidate",
+      "text": "Supersaturation: S = C/C* or σ = (C−C*)/C*  (C* = saturation concentration)\n\nNucleation:\n  Homogeneous: J = A exp(−B/σ²)  (classical nucleation theory)\n  Heterogeneous: lower energy barrier → occurs at lower σ → faster\n\nCrystal growth:\n  G = k_g σ^g   (growth rate, g ≈ 1–3)\n\nCrystal size distribution (CSD):\n  Population balance: dn/dL + Gn/τ = 0  (MSMPR model)\n  n = n₀ exp(−L/(Gτ))  → exponential distribution\n  Dominant size: L_dom = 3Gτ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

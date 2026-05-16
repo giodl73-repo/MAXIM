@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\05-PROCESS-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "### Degree of Freedom Analysis",
+      "confidence": "candidate",
+      "text": "**For a steady-state unit with N_s streams, each with C components + T + P:**",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "### Recycle Streams — Tearstream Convergence",
+      "confidence": "candidate",
+      "text": "A → B → ... → RECYCLE → A\n\nIterative convergence (successive substitution):\n  1. Guess recycle stream composition/flow\n  2. Propagate around loop → get new recycle estimate\n  3. Check convergence\n  4. Repeat (possibly slow)\n\nWegstein acceleration or Broyden's method speeds convergence\nASPEN, HYSYS handle automatically — but understand convergence behavior",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Control Loop Design",
+      "confidence": "candidate",
+      "text": "Level control: use proportional-only (avoid reset windup) or P+I\n  Fast response unnecessary; smooth flow to downstream more important\n\nFlow control: fast → tight PI control\n  Use low gain, fast reset (τ_I ≈ 0.1–1 min)\n\nTemperature control: slower process → may use PID\n  Distillation column: tray temperature → reflux ratio or reboiler duty\n\nPressure control: critical safety parameter\n  Relief valve (hard safety); pressure control valve (regulatory)\n\nComposition control: slow (analyzer delay) → cascade control often used\n  Inner loop (fast: T or flow) → outer loop (slow: composition)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "### HAZOP (Hazard and Operability Study)",
+      "confidence": "candidate",
+      "text": "HAZOP GUIDE WORD     FAULT INJECTION EQUIVALENT\n──────────────────────────────────────────────────────────────────────────\nNO / NOT             Null input, zero throughput, connection drop\nMORE                 Overload, buffer overflow, resource exhaustion\nLESS                 Timeout, underflow, degraded throughput\nREVERSE              Backpressure, deadlock, inverted dependency\nAS WELL AS           Contamination, mixed state, unexpected side-channel\nPART OF              Partial failure, incomplete write, split-brain\nOTHER THAN           Wrong type, format error, misrouted message",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 340,
+      "heading_context": "### Layers of Protection Analysis (LOPA)",
+      "confidence": "candidate",
+      "text": "### Relief System Design (API 520/521)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "### Relief System Design (API 520/521)",
+      "confidence": "candidate",
+      "text": "Relief scenarios (must consider all):\n  1. Fire (vessel surrounded by fire → boiling/vapor generation)\n  2. Control valve failure (open → overpressure)\n  3. Blocked outlet (flow continues, pressure rises)\n  4. Heat exchanger tube failure (high-P tube leaks into low-P shell)\n  5. Loss of cooling (exothermic reaction runway)\n  6. Liquid expansion (thermal expansion of trapped liquid)\n\nRelief valve sizing:\n  A = W / (C K_d P₁ √(M/(Z T₁)))   (for vapor, from API 520)\n  A = area, W = mass flow, C = gas constant, K_d = discharge coefficient\n  P₁ = relieving pressure, M = molecular weight, Z = compressibility, T₁ = temperature",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "### Capital Cost Estimation",
+      "confidence": "candidate",
+      "text": "Lang factor method:\n  FCI (Fixed Capital Investment) = Lang factor × Σ(equipment purchase cost)\n  Lang factor: 3–4 for fluid processing, 4–5 for mixed fluid/solid, 5–6 for solid\n\nPurchased equipment cost C_p:\n  C_p = C_b (S/S_b)^n   (capacity scaling)\n  n ≈ 0.6–0.7 (\"six-tenths rule\")   → scale up 10× capacity: cost only 4–5×\n\nOrder of magnitude: ±30–50%\nPreliminary estimate: ±15–25%\nDefinitive estimate: ±5–10% (requires detailed design)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

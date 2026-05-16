@@ -1,0 +1,292 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nuclear\\05-SAFETY-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Defense in Depth, LOCA, Passive Safety, Accident Lessons",
+      "confidence": "candidate",
+      "text": "DEFENSE IN DEPTH — FIVE BARRIERS TO FISSION PRODUCT RELEASE\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  5. Containment Building (reinforced concrete, 1.5–2.0 m thick)      │\n  │     ┌────────────────────────────────────────────────────────────┐   │\n  │     │  4. Reactor Pressure Vessel (12 cm steel, 155 bar)         │   │\n  │     │     ┌──────────────────────────────────────────────────┐   │   │\n  │     │     │  3. Primary Coolant Barrier (piping, pumps, SGs) │   │   │\n  │     │     │     ┌──────────────────────────────────────────┐  │   │  │\n  │     │     │     │  2. Fuel Cladding (Zircaloy, 0.57 mm)    │  │   │   │\n  │     │     │     │     ┌────────────────────────────────┐   │  │   │   │\n  │     │     │     │     │  1. Fuel Matrix (UO₂ ceramic)  │   │  │   │   │\n  │     │     │     │     │  retains ~99% fission products │   │  │   │   │\n  │     │     │     │     └────────────────────────────────┘   │  │   │   │\n  │     │     │     └──────────────────────────────────────────┘  │   │   │\n  │     │     └──────────────────────────────────────────────────┘   │   │\n  │     └────────────────────────────────────────────────────────────┘   │\n  └──────────────────────────────────────────────────────────────────────┘\n\nAny accident must breach multiple independent barriers to cause a significant release.\nEach barrier independently delays/reduces public dose. All must fail simultaneously for\na major release (very low probability — but Chernobyl and Fukushima demonstrated it's possible).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 58,
+      "heading_context": "## Defense in Depth Philosophy",
+      "confidence": "candidate",
+      "text": "### IAEA Safety Principles (SSR-2/1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### IAEA Safety Principles (SSR-2/1)",
+      "confidence": "candidate",
+      "text": "Level 1: Prevention of abnormal operation and failures\n  → Good design, quality assurance, adequate margins, trained operators\n\nLevel 2: Control of abnormal operation and detection of failures\n  → Control systems, protection systems, monitoring, alarms\n\nLevel 3: Control of design basis accidents\n  → Reactor protection system (RPS), ECCS, emergency procedures\n  → Prevents escalation of design basis events to severe accidents\n\nLevel 4: Control of severe plant conditions, including prevention of accident progression\n  → Severe accident management guidelines (SAMGs), hydrogen recombiners\n  → Core catchers, filtered containment venting\n\nLevel 5: Mitigation of radiological consequences of significant releases\n  → Emergency planning zone (EPZ), evacuation planning, dosimetry\n  → 10-mile EPZ (nuclear), 50-mile EPZ (ingestion pathway)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Trip Signals and Logic",
+      "confidence": "candidate",
+      "text": "RPS monitors reactor parameters → actuates SCRAM if limits exceeded\n\nTypical trip signals:\n  High neutron flux (power) → immediate\n  High-high flux (fast rate trip) → immediate\n  Low coolant flow → if power/flow ratio too high\n  Low RCS pressure → if coolant boiling risk\n  High RCS pressure → if structural limit approached\n  High containment pressure → loss of coolant\n  Low steam generator level → loss of feedwater event\n  Safety injection signal (SIS) → automatic\n\n2-out-of-4 logic (typical):\n  Four independent channels measure each parameter\n  Trip if any 2 of 4 channels exceed setpoint\n  → Tolerates one spurious trip (no 1/4 single-point spurious shutdown)\n  → Still trips on 1/3 (can detect incipient failure before demand)\n\nSCRAM (rod trip): rods dropped by gravity in 1–2 seconds\n  PWR: 48–88 control rod assemblies drop by gravity\n  BWR: rods driven in by high-pressure nitrogen + gravity (from below)\n  Reactivity insertion: ~7000 pcm in < 2 seconds → deep subcriticality\n\nATWS (Anticipated Transient Without Scram):\n  ATWS = normal transient + failure to scram (stuck rods)\n  PWR ATWS: high boron injection + turbine trip (10 CFR 50.62)\n  BWR ATWS: recirculation pump trip + standby liquid control (boron/sodium pentaborate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Safety Injection Signal (SIS)",
+      "confidence": "candidate",
+      "text": "SIS actuated by: low RCS pressure (≤ 1724 psia), high containment pressure\nInitiates:\n  ECCS (Emergency Core Cooling System) actuation\n  Reactor trip\n  Containment isolation\n  Emergency diesel generators start\n\nSingle failure criterion: ECCS must function with ONE active component failed\n  → two trains, each independently capable\n  → separation: different buildings, different power buses, different cooling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### ECCS Subsystems (PWR)",
+      "confidence": "candidate",
+      "text": "HIGH PRESSURE INJECTION SYSTEM (HPIS):\n  Trigger: RCS pressure < setpoint (~1750 psia)\n  Source: RWST (Refueling Water Storage Tank) or IRWST\n  Flow: ~1500 gpm per train\n  Purpose: maintain core cooling before significant depressurization\n  Effective for: small-break LOCA, steam line break, steam generator tube rupture\n\nACCUMULATORS (passive injection):\n  Pressure: nitrogen-pressurized tanks at ~600 psia\n  Volume: 4 × large tanks (4-loop PWR)\n  Activation: passive — check valve opens when RCS drops below accumulator pressure\n  Flow: very large (thousands of gpm)\n  Purpose: core reflood during large-break LOCA blowdown → refill phase\n\nLOW PRESSURE INJECTION SYSTEM (LPIS / LPSI / RHR):\n  Trigger: RCS pressure < ~100 psia (fully depressurized)\n  Source: RWST → sump recirculation (after ~20 min)\n  Purpose: long-term core cooling after LOCA\n  Shares trains with: Residual Heat Removal (RHR) for normal decay heat removal\n\nTiming:\n  0–30 s: HPIS actuates; accumulator check valves begin to crack\n  30–200 s: LOCA blowdown; accumulators discharge\n  200+ s: LPIS active; sump recirculation begins\n  Core reflood complete: ~300–600 s → stable cooling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 183,
+      "heading_context": "### ECCS Subsystems (PWR)",
+      "confidence": "candidate",
+      "text": "### ECCS 10 CFR 50.46 Criteria",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 204,
+      "heading_context": "## Passive Safety Systems (Generation III+)",
+      "confidence": "candidate",
+      "text": "### AP1000 Passive Safety Philosophy",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "### AP1000 Passive Safety Philosophy",
+      "confidence": "candidate",
+      "text": "\"Active\" safety → requires: AC power, pumps, operator action, diesels\n\"Passive\" safety → relies on: gravity, natural circulation, stored energy (compressed N₂), buoyancy\n\nAP1000 passive safety:\n  NO active ECCS pumps required\n  72-hour grace period without ANY operator action or external power\n\nPASSIVE CORE COOLING SYSTEM (PXS):\n  CMT (Core Makeup Tanks): 2 × 70 m³ tanks, pressurized\n    → driven by pressure differential; injects directly on SIS\n  Accumulators: 2 × passive injection (N₂ pressurized)\n  IRWST: 1700 m³ large tank inside containment\n    → gravity drains through check valves when pressure drops sufficiently\n    → provides gravity-injection for 72 hours\n  ADS (Automatic Depressurization System): 4-stage depressurization\n    → drops RCS pressure → allows accumulator + IRWST injection\n\nPASSIVE CONTAINMENT COOLING (PCS):\n  Water tank on top of containment building\n  Gravity flow over steel containment shell → evaporative cooling\n  Air inlet chimney + PCS water evaporation → removes heat by natural draft\n  72+ hours on tank water; indefinite on air alone after tank depletion\n\n  Heat removal capacity: >1 MW for long-term; adequate for decay heat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "### Large-Break Loss of Coolant Accident (LB-LOCA)",
+      "confidence": "candidate",
+      "text": "Initiating event: double-ended guillotine break of 2-foot diameter cold-leg pipe\n  (PWR has cold-leg, cross-over leg, hot-leg; cold-leg break is worst case for ECCS)\n\nSequence:\n  t=0: break opens; pressure wave propagates; flow reversal\n  t<1s: SCRAM signal on low pressure; rods drop; fission power stops\n  t=1-30s: BLOWDOWN — vessel depressurizes, core partially uncovered\n       → decay heat with no cooling → clad temperature rises\n       → PCT typically 900–1100°C during blowdown (Zr oxidation starts at ~950°C)\n  t≈25s: HPIS and accumulators activate (accumulators at ~600 psia)\n  t=30-200s: REFLOOD begins — water injection into lower plenum\n       → quench front moves upward through core\n       → PCT may peak here (~1200°C if marginal margin)\n  t>200s: LPIS active; stable long-term cooling established\n\n  KEY 10 CFR 50.46 LIMIT: PCT ≤ 1204°C\n  Design margin: typical analysis shows PCT ≈ 1050–1150°C (150–350°C margin)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "### Small-Break LOCA (SB-LOCA)",
+      "confidence": "candidate",
+      "text": "Initiating event: small pipe break, stuck-open PORV, steam generator tube rupture\n  Flow out < HPIS makeup → slow pressure decrease\n\nChallenges unique to SB-LOCA:\n  Loop seal filling: liquid fills U-bend of steam generator coolant pipes\n  → core uncovery possible even while loop seals remain full\n  → natural circulation interrupted (no driving head if steam-filled hot legs)\n\n  TMI-2 was an SB-LOCA (stuck-open PORV):\n  → Pressurizer appeared FULL (but was actually an air/steam bubble)\n  → operators thought HFP was normal → manually throttled HPIS!\n  → core uncovered → severe fuel damage (~50% core damage)\n  → no significant public health impact but dramatic loss of plant\n\n  Post-TMI changes:\n  → Added pressurizer level indication\n  → Added subcooling monitors (shows how far from boiling — not just pressure)\n  → Emergency Operating Procedures (EOPs) completely revised\n  → Operator training on event-based AND symptom-based approaches",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### Main Steam Line Break (MSLB)",
+      "confidence": "candidate",
+      "text": "Initiating event: steam line rupture between steam generator and turbine isolation valve\n  → rapid cooldown of primary side\n  → RCS temperature drops → reactivity increases (negative MTC → positive for cooldown)\n  → if boron diluted (start of cycle, high enrichment) → possible return to criticality\n\n  Design requirement: maintain subcriticality during MSLB with highest worth rod stuck out\n  Control: SIS injects borated water; steam isolation valves close\n\nControl rod ejection:\n  Failed control rod assembly cover → ejection by pressure differential\n  Rapid positive reactivity insertion → \"stuck rod ejection\" analyzed\n  RPS trip on high flux → limits power excursion\n  Fuel centerline temperature limit: no fuel pellet melting",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "### PRA Structure",
+      "confidence": "candidate",
+      "text": "Level 1 PRA: Core damage frequency (CDF)\n  → Identifies combinations of failures that lead to core damage\n  → Event trees + fault trees\n  → CDF target: < 10⁻⁴/yr (existing plants), < 10⁻⁵/yr (Gen III+)\n\nLevel 2 PRA: Large early release frequency (LERF)\n  → Given core damage, what is probability of large early release?\n  → Models containment failure modes, severe accident progression\n  → LERF target: < 10⁻⁵/yr\n\nLevel 3 PRA: Consequence analysis (off-site dose)\n  → Given release, what are doses to population?\n  → Used for emergency planning zone sizing\n  → Not required for licensing but used for safety insights\n\nDominant accident sequences (typical PWR):\n  Station blackout (SBO): 35–40% of CDF\n  Loss of feedwater (LOFW): 10–15%\n  Transients with ATWS: 5–10%\n  LOCA: 10–15% (large break is rare; small break dominates)\n  Interfacing systems LOCA: 2–5%\n  Fire: 20–25% (major external hazard)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 336,
+      "heading_context": "### PRA Insights and Uses",
+      "confidence": "candidate",
+      "text": "Risk-informed regulation (10 CFR 50.65, 50.69):\n  → Allows relaxation of some deterministic requirements if low risk\n  → Maintenance scheduling optimization (don't take both trains down simultaneously)\n  → Importance measures: Fussell-Vesely, risk achievement worth (RAW)\n\n  Fussell-Vesely (FV): fractional contribution to CDF if component fails\n  RAW: how much CDF increases if component is unavailable\n\n  High RAW + High FV → most risk-important components → most maintenance attention\n\nFire PRA:\n  10 CFR 50.48 / NFPA 805: fire most important external hazard\n  Cable fire → loss of multiple systems → must show diverse/redundant alternatives\n  All plants required to have fire PRA by NRC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "### Core Damage Sequence",
+      "confidence": "candidate",
+      "text": "If core cooling fails (SBO + ECCS failure + ATWS):\n\n  0–1 hr: Core uncovery begins; decay heat heats core\n  1–2 hr: Fuel temperatures exceed 1204°C → Zircaloy oxidation accelerates\n           Zr + H₂O → ZrO₂ + H₂ (exothermic, generates hydrogen)\n           Fission gas release → clad failure → volatile FPs (I-131, Cs-137) released\n\n  2–4 hr: Core damage → fuel collapse → corium (molten fuel + cladding + steel) forms\n           Molten pool in lower head of RPV\n           Lower head heats → potential RPV failure (\"vessel melt-through\")\n\n  4–6 hr: REACTOR VESSEL FAILURE → corium falls to containment floor\n           MCCI (Molten Core Concrete Interaction) → basemat attack\n           → generates CO₂, CO, H₂O → containment pressurization\n           → also: aerosol release of FPs into containment atmosphere\n\n  6–12 hr: Containment pressurization → risk of:\n           → Hydrogen detonation (if H₂ accumulates + ignites)\n           → Overpressure failure\n           → Steam explosion (if corium contacts water pool)\n\n  Long-term: containment integrity determines offsite release",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 386,
+      "heading_context": "### Hydrogen Generation and Control",
+      "confidence": "candidate",
+      "text": "Sources of hydrogen in severe accidents:\n  1. Zircaloy oxidation (primary source during in-vessel phase):\n     Zr + 2H₂O → ZrO₂ + 2H₂   (1 kg Zr → 0.45 m³ H₂ at STP)\n     Total in-vessel: ~1000 kg Zr in PWR core → up to 500 m³ H₂\n\n  2. Core-concrete interaction (ex-vessel):\n     Corium + concrete → CO₂ + CO + H₂O → reduces to H₂\n\n  Hydrogen concentration in containment:\n  Flammable if > 4% H₂ (lower flammable limit)\n  Detonable if > ~18% H₂ (depending on O₂, steam concentration)\n\n  Hydrogen control systems:\n  Passive Autocatalytic Recombiners (PAR): Pd/Pt catalyst converts H₂ + O₂ → H₂O\n    → no power needed, self-starting above ~50°C\n    → PARs in all new designs (AP1000, EPR, APR-1400)\n    → post-Fukushima retrofit required for existing LWRs\n  Ignitors (deliberate): controlled burn at low concentration (< detonable)\n    → TMI containment design: spark ignitors\n  Hydrogen recombiners (catalytic): active (require power)\n    → older systems, being replaced by PARs\n\n  Fukushima: loss of PAR-equivalent led to H₂ buildup in reactor buildings\n    Unit 1, 3, 4 (Unit 4 via exhaust duct) → hydrogen explosions\n    → destroyed secondary confinement but NOT primary containment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 416,
+      "heading_context": "### Core Catcher (Ex-Vessel Melt Retention)",
+      "confidence": "candidate",
+      "text": "Gen III+ designs include core catcher for in-vessel or ex-vessel melt retention:\n\n  VVER-1200 / EPR: dedicated core catcher below RPV\n    → corium flows into sacrificial material (iron oxide) → dilutes → solidifies\n    → passive water cooling of catcher vessel\n\n  AP1000: in-vessel melt retention (IVR)\n    → Cool OUTSIDE of reactor vessel with cavity flooding\n    → Natural circulation of water around lower RPV head\n    → Heat removal path: corium → steel wall → water film → boiling\n    → Must show RPV lower head thermally survives (critical heat flux not exceeded)\n    → Works for AP1000 power level; may not scale to large EPR/VVER\n\n  TMI-2: demonstrated ~50% core damage but NO reactor vessel failure\n    → in-vessel melt retention occurred passively (water kept vessel cool)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 438,
+      "heading_context": "## Major Nuclear Accidents",
+      "confidence": "candidate",
+      "text": "### Three Mile Island Unit 2 (1979) — USA",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 440,
+      "heading_context": "### Three Mile Island Unit 2 (1979) — USA",
+      "confidence": "candidate",
+      "text": "Event type: Small-Break LOCA (stuck-open PORV — pilot-operated relief valve)\n\nSequence:\n  03:53 AM: Loss of feedwater → PORV opens (to relieve pressure surge) → correct\n  03:53:05: PORV fails to reseat → small LOCA → coolant escapes through PORV\n            PORV indicator shows \"commanded closed\" (not position indicator) → WRONG\n  Operators see FULL PRESSURIZER → assume adequate cooling\n  Operators TURN OFF HPIS (thinking they're in a solid-water transient) → WRONG\n  ~2 hours: Core begins to uncover\n  ~5 hours: Core severely damaged (~50% core melt); H₂ bubble in RPV\n  No early containment failure; small H₂ explosion in containment (no damage)\n\nReleases:\n  ~17 Ci I-131 (small vs Chernobyl); no direct deaths\n  Releases mostly noble gases; very small public health impact\n\nLessons learned:\n  → Symptom-based EOPs (not just event-based): diagnose what's happening, not assume it\n  → Subcooling monitoring required: know actual margin from boiling\n  → Pressurizer level not sufficient: PORV position indicator required\n  → Human factors in control room design: reduce alarm overload\n  → Training revolution: NRC requirement for simulator training\n  → Operator licensing requirements strengthened\n  → Created Institute of Nuclear Power Operations (INPO) — peer review",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 467,
+      "heading_context": "### Three Mile Island Unit 2 (1979) — USA",
+      "confidence": "candidate",
+      "text": "### Chernobyl Unit 4 (1986) — USSR",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 469,
+      "heading_context": "### Chernobyl Unit 4 (1986) — USSR",
+      "confidence": "candidate",
+      "text": "Event type: Prompt criticality excursion + steam explosion\n\nContext:\n  RBMK-1000: graphite-moderated, water-cooled, positive void coefficient\n  Safety test: testing emergency feedwater pump on turbine coastdown (low power)\n  Operating at ~200 MWt (intended: 700 MWt; design: 3200 MWt) — dangerously low\n\nSequence:\n  01:23:04 AM: Test begins; turbines disconnecting from grid\n  01:23:40: AZ-5 SCRAM signal pressed\n              PROBLEM: graphite tips on control rod bottoms INSERT BEFORE BORON\n              → \"positive scram\" effect → brief reactivity addition at top of core\n  01:23:43: Power excursion → ~30,000 MWt (~10× design)\n  01:23:44-47: Two explosions: steam explosion + possible prompt criticality\n              → Roof blown off; 1600-ton reactor lid lifted\n              → Graphite fire begins (no containment at all)\n\nPhysics:\n  At low power: positive void coefficient dominant; positive scram effect → catastrophic\n  Post-accident investigation: RBMK fundamentally unsafe at low power\n  → Operating staff had NO awareness of positive scram effect (classified information)\n\nReleases: ~5 million Ci I-131; 70 million Ci noble gases\n  27 acute radiation deaths (first responders); 28 early deaths\n  ~6,000 thyroid cancers in children (mostly treatable); 15 deaths\n  WHO estimate: ~4,000 excess cancer deaths total (upper range; uncertain)\n  Liquidator radiation exposure: ~600,000 workers, varying doses\n\nLessons learned:\n  → RBMK design fundamentally unsafe; retrofitted (but never fully fixed)\n  → No reactor design may have a positive void coefficient without demonstrated safety\n  → Secretive nuclear culture kills people: IAEA Convention on Nuclear Safety (1994)\n  → Emergency planning zones revised globally\n  → WANO (World Association of Nuclear Operators) created 1989 — peer review, no more isolation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 506,
+      "heading_context": "### Chernobyl Unit 4 (1986) — USSR",
+      "confidence": "candidate",
+      "text": "### Fukushima Daiichi (2011) — Japan",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 508,
+      "heading_context": "### Fukushima Daiichi (2011) — Japan",
+      "confidence": "candidate",
+      "text": "Event type: Station blackout (SBO) from external event → hydrogen explosions → core melt\n\nContext:\n  March 11, 2011: Tōhoku earthquake (M9.0) + 15-meter tsunami\n  All Units 1, 2, 3 operating; Units 4, 5, 6 in outage\n  Reactors scrammed correctly on earthquake → fission stopped\n\nSequence:\n  Unit 1: RCIC (isolation condenser) worked 8 hours then stopped; operators didn't notice\n    → Core uncovered → fuel damage → H₂ generation\n    → March 12: H₂ explosion in reactor building (secondary containment)\n    → Containment NOT breached; damage to reactor building only\n\n  Unit 3: RCIC/HPCI operated ~36 hours; SBO continued\n    → Eventually operators lost track of system status\n    → March 14: H₂ explosion, similar to Unit 1\n\n  Unit 4 (shutdown): H₂ traveled via exhaust duct from Unit 3\n    → March 15: explosion in Unit 4 spent fuel pool area\n    → Spent fuel pool remained intact; no fuel damage in SFP\n\n  Unit 2: RCIC worked longest; pressure relief valve stuck initially\n    → Core damage but containment more intact (less H₂ release)\n\nReleases:\n  ~1/10 of Chernobyl release (much of ocean-deposited)\n  ~900 km² exclusion zone (temporary); ~400 km² still restricted 2024\n  No direct radiation deaths; 1 cancer death (worker) recognized\n  Evacuation-related deaths: ~2,200 stress-related (indirect)\n\nWhy different from Chernobyl:\n  BWR containment remained largely intact (pressure suppression)\n  No prompt criticality (fission stopped by SCRAM immediately)\n  No graphite fire\n  Lower total release; ocean deposition reduced land contamination\n\nLessons learned:\n  → FLEX strategy: portable ECCS equipment at all plants (NRC Order EA-12-049)\n  → Hardened filtered containment vents required (remove H₂ + filter FPs)\n  → Battery backup extended to 8 hours → 24 hours → 72 hours\n  → Spent fuel pool monitoring/cooling backup required\n  → Station blackout duration assumptions: 4 hours → extended to 72 hours\n  → IAEA Fukushima Action Plan: all countries reviewed procedures\n  → Japan: all reactors shut down 2011–2013 for review; restarts under new NRA regulator",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 559,
+      "heading_context": "## Post-Fukushima Requirements (FLEX)",
+      "confidence": "candidate",
+      "text": "NRC Order EA-12-049 (FLEX strategy):\n  Flexible and diverse (FLEX) mitigation equipment:\n  → Portable diesel generators, portable pumps, portable spray systems\n  → Stored on-site and off-site (regional FLEX Support Centers)\n  → Deployable within 8 hours\n\n  Three-phase approach:\n  Phase 1 (0–8 hr): Use existing installed systems (AC power if available)\n  Phase 2 (8–72 hr): Deploy FLEX portable equipment on-site\n  Phase 3 (72 hr+): Resupply from FLEX Support Center (2 centers: Raleigh NC, Phoenix AZ)\n\n  All US plants required to implement FLEX by 2016\n  European stress tests: similar requirements implemented across EU\n\nNew safety features post-Fukushima:\n  → Spent fuel pool instrumentation (level, temperature)\n  → Filtered containment venting (hardened vent + filter for FPs)\n  → Emergency core cooling backup power (72-hour batteries)\n  → Diverse and flexible coping strategies\n  → Enhanced on-site emergency diesel fuel storage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 615,
+      "heading_context": "### ALARA Principle",
+      "confidence": "candidate",
+      "text": "ALARA: As Low As Reasonably Achievable\n\n  Not just meeting limits — continuous minimization\n\n  Implementation:\n  → Remote handling equipment (reduce hands-on time)\n  → Shielding optimization: lead curtains, temporary concrete shields\n  → Source term control: reactor water chemistry (CRUD buildup reduces dose)\n    Zn addition (depleted zinc oxide) reduces CRUD activity on pipes/components\n  → Scheduling: minimize time in radiation areas (time × dose rate = dose)\n  → Dosimetry: real-time alarming dosimeters; TLD for record\n\n  Collective dose (man-rem or person-mSv):\n  PWR typical annual: 50–150 person-mSv (improved from 300+ person-rem in 1970s)\n  BWR typically higher due to radioactive turbine area maintenance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 635,
+      "heading_context": "### Effluent Control",
+      "confidence": "candidate",
+      "text": "Normal operation releases:\n  Gaseous: Noble gases (Kr-85, Xe-133), H-3 (tritium), I-131 (tiny amounts)\n    → all plants have charcoal delay beds, HEPA filters, holdup tanks\n  Liquid: Tritium (T) most common liquid release; low-level process water\n    → liquid radwaste processing: evaporation, ion exchange, filtering\n\n  10 CFR 50, Appendix I limits:\n  Design objective: ≤ 5 mrem/yr (0.05 mSv/yr) to any individual from liquid releases\n  ≤ 5 mrem/yr from gaseous releases (excluding noble gases)\n  Noble gas: ≤ 10 mrem/yr whole body\n\n  Tritium controversy (2020s):\n  TEPCO planned Fukushima treated water release (ALPS) → tritium in Pacific\n  ~1300 TBq/yr release (less than ocean background; below WHO limits)\n  Controversial despite meeting all international safety standards",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
