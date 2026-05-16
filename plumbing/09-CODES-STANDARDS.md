@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:codes-standards
+kind: guide
+module: plumbing
+section: plumbing
+title: Codes and Standards
+status: source-custody
+source_custody: partial
+current_path: plumbing/09-CODES-STANDARDS.md
+canonical_path: plumbing/09-CODES-STANDARDS.md
+backsource_ids: [proof-backfill:plumbing:09-codes-standards, git-history:plumbing:09-codes-standards]
+concepts: [codes, standards]
+root_concepts: [codes, standards]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Codes & Standards
 
 ## IRC, IPC, UPC, Permits, Sizing Tables

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:weave-structures
+kind: guide
+module: textiles
+section: textiles
+title: Weave Structures
+status: source-custody
+source_custody: partial
+current_path: textiles/06-WEAVE-STRUCTURES.md
+canonical_path: textiles/06-WEAVE-STRUCTURES.md
+backsource_ids: [proof-backfill:textiles:06-weave-structures, git-history:textiles:06-weave-structures]
+concepts: [weave, structures]
+root_concepts: [weave, structures]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Weave Structures
 
 ## Plain, Twill, Satin, Pile, Jacquard — The Grammar of Woven Fabric

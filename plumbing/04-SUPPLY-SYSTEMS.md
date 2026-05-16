@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:supply-systems
+kind: guide
+module: plumbing
+section: plumbing
+title: Supply Systems
+status: source-custody
+source_custody: partial
+current_path: plumbing/04-SUPPLY-SYSTEMS.md
+canonical_path: plumbing/04-SUPPLY-SYSTEMS.md
+backsource_ids: [proof-backfill:plumbing:04-supply-systems, git-history:plumbing:04-supply-systems]
+concepts: [supply, systems]
+root_concepts: [supply, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Supply Systems
 
 ## Pressure, Water Heaters, Hammer, Recirculation, Anti-Scald

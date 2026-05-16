@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:natural-fibers-plant
+kind: guide
+module: textiles
+section: textiles
+title: Natural Fibers - Plant (Cellulosic)
+status: source-custody
+source_custody: partial
+current_path: textiles/01-NATURAL-FIBERS-PLANT.md
+canonical_path: textiles/01-NATURAL-FIBERS-PLANT.md
+backsource_ids: [proof-backfill:textiles:01-natural-fibers-plant, git-history:textiles:01-natural-fibers-plant]
+concepts: [natural, fibers, plant]
+root_concepts: [natural, fibers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Natural Fibers — Plant (Cellulosic)
 
 ## The Big Picture: Cellulose as the Common Thread

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:fixtures
+kind: guide
+module: plumbing
+section: plumbing
+title: Fixtures
+status: source-custody
+source_custody: partial
+current_path: plumbing/06-FIXTURES.md
+canonical_path: plumbing/06-FIXTURES.md
+backsource_ids: [proof-backfill:plumbing:06-fixtures, git-history:plumbing:06-fixtures]
+concepts: [fixtures]
+root_concepts: [fixtures]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fixtures
 
 ## Toilets, Faucets, Showers — Mechanisms, Water Efficiency, Code
@@ -308,11 +327,11 @@ FIXTURE SELECTION MATRIX:
   ┌───────────────────────────────────────────────────────────┐
   │  Feature           │ Pressure-Balance  │ Thermostatic     │
   ├───────────────────────────────────────────────────────────┤
-  │  Scald from flush  │ Prevents ✅       │ Prevents ✅     │
-  │  Temp from cold WH │ No protection ⚠️  │ Prevents ✅     │
+  │  Scald from flush  │ Prevents         │ Prevents       │
+  │  Temp from cold WH │ No protection    │ Prevents       │
   │  Multiple outlets  │ No               │ Yes             │
   │  Cost              │ $50-200          │ $200-800+       │
-  │  Code minimum      │ Yes ✅           │ More than min   │
+  │  Code minimum      │ Yes             │ More than min   │
   └───────────────────────────────────────────────────────────┘
 
   ANTI-SCALD TEMPERATURE LIMIT STOP:

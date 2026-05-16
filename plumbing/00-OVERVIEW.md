@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:overview
+kind: guide
+module: plumbing
+section: plumbing
+title: Plumbing Systems - Overview
+status: source-custody
+source_custody: partial
+current_path: plumbing/00-OVERVIEW.md
+canonical_path: plumbing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:plumbing:00-overview, git-history:plumbing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plumbing Systems — Overview
 
 ## The Big Picture: Three Separate Trees
@@ -112,7 +131,7 @@ GOVERNING CODES
 │  Published by ICC                                         │
 ├────────────────────────────────────────────────────────────┤
 │  UPC — Uniform Plumbing Code                               │
-│  Western states: CA, WA, OR, AZ, HI                      │
+│  Western states: CA, WA, OR, AZ, HI                        │
 │  Published by IAPMO                                        │
 ├────────────────────────────────────────────────────────────┤
 │  LOCAL AMENDMENTS — ALWAYS WIN                            │

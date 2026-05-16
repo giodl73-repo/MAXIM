@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:fashion-industry
+kind: guide
+module: textiles
+section: textiles
+title: Fashion Industry
+status: source-custody
+source_custody: partial
+current_path: textiles/13-FASHION-INDUSTRY.md
+canonical_path: textiles/13-FASHION-INDUSTRY.md
+backsource_ids: [proof-backfill:textiles:13-fashion-industry, git-history:textiles:13-fashion-industry]
+concepts: [fashion, industry]
+root_concepts: [fashion, industry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fashion Industry
 
 ## Haute Couture to Fast Fashion — The Economics and Ecology of Dress

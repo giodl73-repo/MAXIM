@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:overview
+kind: guide
+module: textiles
+section: textiles
+title: Textiles - Overview: Fiber to Finished Garment
+status: source-custody
+source_custody: partial
+current_path: textiles/00-OVERVIEW.md
+canonical_path: textiles/00-OVERVIEW.md
+backsource_ids: [proof-backfill:textiles:00-overview, git-history:textiles:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Textiles — Overview: Fiber to Finished Garment
 
 ## The Big Picture: A Six-Stage Supply Chain

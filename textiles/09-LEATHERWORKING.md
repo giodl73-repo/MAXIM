@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:leatherworking
+kind: guide
+module: textiles
+section: textiles
+title: Leatherworking
+status: source-custody
+source_custody: partial
+current_path: textiles/09-LEATHERWORKING.md
+canonical_path: textiles/09-LEATHERWORKING.md
+backsource_ids: [proof-backfill:textiles:09-leatherworking, git-history:textiles:09-leatherworking]
+concepts: [leatherworking]
+root_concepts: [leatherworking]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Leatherworking
 
 ## Tanning Chemistry, Leather Grades, Craft Roles — From Hide to Finished Goods

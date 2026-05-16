@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:water-quality
+kind: guide
+module: plumbing
+section: plumbing
+title: Water Quality
+status: source-custody
+source_custody: partial
+current_path: plumbing/07-WATER-QUALITY.md
+canonical_path: plumbing/07-WATER-QUALITY.md
+backsource_ids: [proof-backfill:plumbing:07-water-quality, git-history:plumbing:07-water-quality]
+concepts: [water, quality]
+root_concepts: [water, quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Water Quality
 
 ## Hardness, Scaling, Softeners, Filtration, Lead Pipes
@@ -438,7 +457,7 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
   │  (iron), black staining (manganese)                      │
   │  Sulfur smell (hydrogen sulfide): common in anaerobic    │
   │  aquifers; not a health threat at low levels             │
-  │  Treatment: oxidation (chlorination or air) + filtration│
+  │  Treatment: oxidation (chlorination or air) + filtration │
   │                                                          │
   │  Nitrates: agricultural areas, near septic systems       │
   │  MCL: 10 mg/L (as N); dangerous for infants <6 months    │

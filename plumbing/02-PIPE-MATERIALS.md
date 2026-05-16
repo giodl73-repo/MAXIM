@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:pipe-materials
+kind: guide
+module: plumbing
+section: plumbing
+title: Pipe Materials
+status: source-custody
+source_custody: partial
+current_path: plumbing/02-PIPE-MATERIALS.md
+canonical_path: plumbing/02-PIPE-MATERIALS.md
+backsource_ids: [proof-backfill:plumbing:02-pipe-materials, git-history:plumbing:02-pipe-materials]
+concepts: [pipe, materials]
+root_concepts: [pipe, materials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pipe Materials
 
 ## Copper, PEX, PVC, CPVC, Cast Iron — Properties, Ratings, Applications
@@ -152,30 +171,30 @@ Legacy — remove       Galvanized      N/A             N/A      Replace if foun
   COMPARISON:
   ┌─────────────────────────────────────────────────────────────────┐
   │ Property        │ PEX-a         │ PEX-b         │ PEX-c         │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
   │ Cross-link      │ Peroxide      │ Silane (Sievert│ Electron     │
   │ method          │ (Engel)       │ method) or    │ beam         │
-  │                 │               │ electron beam │              │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
-  │ Cross-link      │ ~75-80%       │ ~65-70%       │ ~70-75%      │
-  │ density         │ (highest)     │               │              │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
-  │ Flexibility     │ Most flexible │ Slightly       │ Moderate     │
-  │                 │               │ stiffer       │              │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
-  │ Fitting method  │ Expansion     │ Crimp/Clamp   │ Crimp/Clamp  │
-  │                 │ (Uponor/PEX-a)│ /SharkBite    │ /SharkBite   │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
+  │                 │               │ electron beam │               │
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
+  │ Cross-link      │ ~75-80%       │ ~65-70%       │ ~70-75%       │
+  │ density         │ (highest)     │               │               │
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
+  │ Flexibility     │ Most flexible │ Slightly       │ Moderate      │
+  │                 │               │ stiffer       │               │
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
+  │ Fitting method  │ Expansion     │ Crimp/Clamp   │ Crimp/Clamp   │
+  │                 │ (Uponor/PEX-a)│ /SharkBite    │ /SharkBite    │
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
   │ Heat repair     │ Yes (heat     │ No            │ No           │
-  │                 │ straightens   │               │              │
-  │                 │ kinks)        │               │              │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
-  │ Cost            │ Highest       │ Moderate      │ Moderate     │
-  │ (fittings)      │               │               │              │
-  ├─────────────────┼───────────────┼───────────────┼──────────────┤
+  │                 │ straightens   │               │               │
+  │                 │ kinks)        │               │               │
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
+  │ Cost            │ Highest       │ Moderate      │ Moderate      │
+  │ (fittings)      │               │               │               │
+  ├─────────────────┼───────────────┼───────────────┼───────────────┤
   │ Availability    │ Specialty     │ Wide (home    │ Limited      │
-  │                 │               │ centers)      │              │
-  └─────────────────┴───────────────┴───────────────┴──────────────┘
+  │                 │               │ centers)      │               │
+  └─────────────────┴───────────────┴───────────────┴───────────────┘
 ```
 
 ### PEX-a Expansion Fitting System
