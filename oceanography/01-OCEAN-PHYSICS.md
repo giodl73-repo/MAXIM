@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:ocean-physics
+kind: guide
+module: oceanography
+section: oceanography
+title: Ocean Physics - Density Stratification, Thermocline, Halocline, Pycnocline, SOFAR Channel
+status: source-custody
+source_custody: partial
+current_path: oceanography/01-OCEAN-PHYSICS.md
+canonical_path: oceanography/01-OCEAN-PHYSICS.md
+backsource_ids: [proof-backfill:oceanography:01-ocean-physics, git-history:oceanography:01-ocean-physics]
+concepts: [ocean, physics]
+root_concepts: [ocean, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean Physics — Density Stratification, Thermocline, Halocline, Pycnocline, SOFAR Channel
 
 ## The Big Picture

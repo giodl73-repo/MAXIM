@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:overview
+kind: guide
+module: hydrology
+section: hydrology
+title: Hydrology - Overview: Hydrological Cycle, Global Freshwater Inventory, Field Branches
+status: source-custody
+source_custody: partial
+current_path: hydrology/00-OVERVIEW.md
+canonical_path: hydrology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:hydrology:00-overview, git-history:hydrology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydrology — Overview: Hydrological Cycle, Global Freshwater Inventory, Field Branches
 
 ## The Big Picture

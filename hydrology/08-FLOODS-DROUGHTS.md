@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:floods-droughts
+kind: guide
+module: hydrology
+section: hydrology
+title: Floods and Droughts - Flood Frequency Analysis, Return Periods, Drought Indices (PDSI/SPI), Early Warning
+status: source-custody
+source_custody: partial
+current_path: hydrology/08-FLOODS-DROUGHTS.md
+canonical_path: hydrology/08-FLOODS-DROUGHTS.md
+backsource_ids: [proof-backfill:hydrology:08-floods-droughts, git-history:hydrology:08-floods-droughts]
+concepts: [floods, droughts]
+root_concepts: [floods, droughts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Floods and Droughts — Flood Frequency Analysis, Return Periods, Drought Indices (PDSI/SPI), Early Warning
 
 ## The Big Picture

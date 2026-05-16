@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:lakes-wetlands
+kind: guide
+module: hydrology
+section: hydrology
+title: Lakes and Wetlands - Lake Stratification, Eutrophication, Wetland Hydrology, Peatlands
+status: source-custody
+source_custody: partial
+current_path: hydrology/05-LAKES-WETLANDS.md
+canonical_path: hydrology/05-LAKES-WETLANDS.md
+backsource_ids: [proof-backfill:hydrology:05-lakes-wetlands, git-history:hydrology:05-lakes-wetlands]
+concepts: [lakes, wetlands]
+root_concepts: [lakes, wetlands]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lakes and Wetlands — Lake Stratification, Eutrophication, Wetland Hydrology, Peatlands
 
 ## The Big Picture
@@ -13,13 +32,13 @@
 |                                                        ▼                  |
 |  WATERSHED RUNOFF ──────────────────────────────► LAKE / RESERVOIR       |
 |  RIVER INFLOW ───────────────────────────────────►  │                    |
-|                                                        │ ←─ Stratification|
+|                                                        │ ←─ Stratification |
 |  GROUNDWATER ◄──────────────────────────────────────── │    (warm epilimnion|
 |  (seepage in or out; direction ← head gradient)       │     over cold    |
 |                                                        │     hypolimnion) |
 |  ┌─── NUTRIENT LOADING (P, N from runoff) ──────────►  │                 |
-|  │                                                      │ → EUTROPHICATION|
-|  │     WETLANDS (riparian, fringe, isolated):           │   (algae blooms,|
+|  │                                                      │ → EUTROPHICATION |
+|  │     WETLANDS (riparian, fringe, isolated):           │   (algae blooms, |
 |  │     ├─ Intercept runoff → filter P, N, sediment      │    hypoxia)     |
 |  │     ├─ Denitrification → remove NO₃⁻ as N₂ gas      │                 |
 |  │     └─ Peat accumulation → C sequestration          │                 |

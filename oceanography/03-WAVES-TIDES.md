@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:waves-tides
+kind: guide
+module: oceanography
+section: oceanography
+title: Waves and Tides - Wave Mechanics, Dispersion, Tidal Forcing, Amphidromic Points
+status: source-custody
+source_custody: partial
+current_path: oceanography/03-WAVES-TIDES.md
+canonical_path: oceanography/03-WAVES-TIDES.md
+backsource_ids: [proof-backfill:oceanography:03-waves-tides, git-history:oceanography:03-waves-tides]
+concepts: [waves, tides]
+root_concepts: [waves, tides]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Waves and Tides — Wave Mechanics, Dispersion, Tidal Forcing, Amphidromic Points
 
 ## The Big Picture

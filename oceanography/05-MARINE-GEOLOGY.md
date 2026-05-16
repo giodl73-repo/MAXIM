@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:marine-geology
+kind: guide
+module: oceanography
+section: oceanography
+title: Marine Geology - Ocean Floor Morphology, Mid-Ocean Ridges, Trenches, Seamounts, Sediment Layers
+status: source-custody
+source_custody: partial
+current_path: oceanography/05-MARINE-GEOLOGY.md
+canonical_path: oceanography/05-MARINE-GEOLOGY.md
+backsource_ids: [proof-backfill:oceanography:05-marine-geology, git-history:oceanography:05-marine-geology]
+concepts: [marine, geology]
+root_concepts: [marine, geology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Marine Geology — Ocean Floor Morphology, Mid-Ocean Ridges, Trenches, Seamounts, Sediment Layers
 
 ## The Big Picture
@@ -70,14 +89,14 @@ SLOW RIDGE STRUCTURE (Mid-Atlantic):
   │        Axial Valley (1–3 km deep, 10–30 km wide)         │
   │  Rift flanks rise 1000–3000 m above valley floor         │
   │  Serpentinized peridotite exposed (mantle at surface)    │
-  │  Episodic: long quiescence → magmatic pulse → rapid build│
+  │  Episodic: long quiescence → magmatic pulse → fast build │
   └──────────────────────────────────────────────────────────┘
 
 FAST RIDGE STRUCTURE (East Pacific Rise):
   ┌──────────────────────────────────────────────────────────┐
   │  Axial Summit Trough (AST): narrow graben, <100 m wide   │
   │  No major rift valley — continuous magma supply          │
-  │  Axial magma chamber (AMC): thin melt lens at ~2 km depth│
+  │  Axial magma chamber (AMC): thin melt lens at ~2 km deep │
   │  Smooth, broad dome morphology                           │
   └──────────────────────────────────────────────────────────┘
 ```

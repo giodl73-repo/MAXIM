@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hydrology\\07-WATER-QUALITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                   WATER QUALITY FRAMEWORK                                 |\n+===========================================================================+\n|                                                                           |\n|  SOURCE          TRANSPORT            EXPOSURE              EFFECT        |\n|  ──────          ─────────            ────────              ──────        |\n|  Point source    Advection            Drinking              Acute toxicity |\n|  Nonpoint        Dispersion           Swimming              Chronic/sub-  |\n|  source          Dilution             Agriculture           lethal        |\n|  Natural         Sorption/            Ecosystem             Carcinogen    |\n|  background      desorption           (indirect)            Endocrine     |\n|                  Decay/transform                            disrupt       |\n|                                                                           |\n|  CONTAMINANT CATEGORIES:                                                  |\n|  Biological: bacteria, viruses, protozoa, helminths                       |\n|  Chemical: nutrients (N, P), metals, organics, pharmaceuticals            |\n|  Physical: turbidity, temperature, dissolved oxygen, salinity             |\n|  Radiological: radium, radon, uranium (mostly natural), cesium (nuclear)  |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "## Key Water Quality Parameters",
+      "confidence": "candidate",
+      "text": "PHYSICAL:\n  Temperature: affects DO solubility, reaction rates, aquatic life\n  Turbidity (NTU): light scatter → measure of suspended solids\n  Color: true (dissolved organics) vs. apparent (turbidity)\n  Total Suspended Solids (TSS): filter-retained particles, mg/L\n\nOXYGEN:\n  Dissolved oxygen (DO): critical for aquatic life\n    Cold saturation (~15°C): ~10 mg/L\n    Warm saturation (~25°C): ~8 mg/L\n    Below 5 mg/L: fish stress; below 2 mg/L: most fish die\n  Biochemical Oxygen Demand (BOD₅):\n    O₂ consumed by microbes in 5 days at 20°C\n    Measure of biodegradable organic matter\n    Clean river: <2 mg/L; Treated wastewater: 10–30 mg/L; Raw sewage: 100–300 mg/L\n  Chemical Oxygen Demand (COD): all oxidizable organics\n    BOD ≈ 0.5–0.7 × COD (for typical domestic wastewater)\n\nNUTRIENTS:\n  Total Phosphorus (TP): mg/L; sum of all P forms\n  Soluble Reactive Phosphorus (SRP/TDP): immediately bioavailable\n  Total Nitrogen (TN): sum of NO₃ + NO₂ + NH₄ + organic N\n  NH₄⁺ (ammonium): toxic to fish at elevated pH (un-ionized NH₃ form)\n    NH₄⁺ ⇌ NH₃ + H⁺; pKa = 9.25; at pH 8, ~2% NH₃; at pH 10, ~60% NH₃\n  NO₃⁻ (nitrate): MCL 10 mg N/L (methemoglobinemia risk in infants)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Dissolved Transport",
+      "confidence": "candidate",
+      "text": "FULLY MIXED STREAM:\n  For conservative (non-reacting) tracer in 1D river:\n    C(x,t) = (M/A√(4πDt)) × exp(-(x-vt)²/(4Dt))\n\n  v = stream velocity, D = longitudinal dispersion, A = cross-section, M = mass injected\n\n  MIXING ZONES:\n    Complete mixing requires travel time t* = B²/(8D_T)\n    where B = stream width, D_T = transverse dispersion coefficient\n    D_T ≈ 0.6 × u* × h (u* = shear velocity, h = depth)\n\nFIRST-ORDER DECAY IN STREAMS:\n  Bacterial die-off, BOD consumption, photodegradation:\n  dC/dt = -k C → C(t) = C₀ exp(-k t)\n  In terms of distance: C(x) = C₀ exp(-k x/v)\n\n  DO SAG CURVE (Streeter-Phelps, 1925):\n    Classic model for BOD → DO depletion in rivers\n\n    dD/dt = k_d × L - k_r × D\n\n    D = DO deficit (DO_sat - DO_actual), mg/L\n    k_d = BOD decay rate (deoxygenation), day⁻¹\n    k_r = reaeration rate (reoxygenation from atmosphere), day⁻¹\n    L = BOD remaining at time t\n\n    Solution gives \"sag\" shape: DO drops downstream of discharge,\n    then recovers as BOD consumed and reaeration restores DO.\n    Critical point: x_c = (v/k_d-k_r) × ln[(k_r/k_d) × (1 - D₀(k_r-k_d)/(k_d L₀))]\n\n    Used to: set discharge limits on BOD to protect DO standards",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### Nonpoint Source Pollution",
+      "confidence": "candidate",
+      "text": "NONPOINT SOURCE (NPS) vs. POINT SOURCE:\n  Point source: pipe, outfall — precise location, regulated by permit\n  Nonpoint source: diffuse — agriculture, urban runoff, atmospheric deposition\n  NPS accounts for ~60–70% of US water quality impairments (EPA 303d lists)\n\nMAJOR NPS CATEGORIES:\n  Agricultural:\n    NO₃⁻ from fertilizers: leaches through soil to groundwater or tile drains\n    TP from manure, erosion: binds to sediment particles\n    Pesticides: herbicides (atrazine), insecticides\n  Urban:\n    Heavy metals from vehicle brake pads (copper), tire wear (zinc, 6PPD-quinone)\n    Hydrocarbons from road surfaces\n    Pet waste, leaf litter (BOD, nutrients)\n    Temperature (hot pavement runoff heats streams)\n  Atmospheric:\n    N deposition (NOₓ from combustion) on watersheds\n    Mercury deposition → methylation → bioaccumulation in fish food chain\n\nBEST MANAGEMENT PRACTICES (BMPs):\n  Agricultural: riparian buffers, cover crops, precision fertilizer application\n  Construction: silt fences, sediment basins, stabilization\n  Urban: GI (see 06-WATER-ENGINEERING.md), street sweeping, pet waste stations\n  Wetland restoration: natural nutrient filter in watershed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Drinking Water Treatment Train",
+      "confidence": "candidate",
+      "text": "CONVENTIONAL SURFACE WATER TREATMENT:\n\n  RAW WATER → INTAKE SCREENING → COAGULATION → FLOCCULATION\n  → SEDIMENTATION → FILTRATION → DISINFECTION → DISTRIBUTION\n\n1. COAGULATION/FLOCCULATION:\n   COAGULATION: add coagulant → charge neutralization → primary particles destabilize\n     Alum: Al₂(SO₄)₃ → Al³⁺ → compresses electrical double layer on particles\n     Ferric chloride: FeCl₃ → similar mechanism + sweep floc\n     Polymer coagulants: PAC (polyaluminum chloride) — common modern coagulant\n     Optimum pH: Al coagulation: 6.5–7.5; Fe coagulation: 5–8\n     Rapid mixing: G ~300–700 s⁻¹ for 30–60 seconds\n\n   FLOCCULATION: gentle mixing to grow floc particles\n     G ~20–70 s⁻¹ for 15–30 minutes\n     Camp number Gt ≈ 10⁴–10⁵ (G = velocity gradient, t = time)\n     Floc particles: 1 μm → 100–1000 μm (settles readily)\n\n2. SEDIMENTATION:\n   Gravity settling of coagulated particles\n   Horizontal-flow sedimentation basin: overflow rate = Q/A = 0.5–2.5 m/h\n   Inclined plate settler (lamella settler): increases effective area × 5–20\n   Sedimentation efficiency: Stokes' law\n     v_s = (ρ_p - ρ_w) g d² / (18μ)\n     Particles > 50 μm settle quickly; < 1 μm → colloidal (doesn't settle → coagulation critical)\n\n3. FILTRATION:\n   Rapid gravity filter: sand + anthracite media, 5–15 m/h rate\n   Mechanisms: straining, sedimentation, interception, diffusion, surface attachment\n   Backwash: reverse flow to clean filter (every 24–72 hr)\n   Membrane filtration (MF, UF): pore size 0.01–0.1 μm\n     MF: removes protozoa (Cryptosporidium, Giardia), bacteria\n     UF: removes viruses (some), bacteria\n     NF, RO: removes dissolved organics, salts, pharmaceuticals\n\n4. DISINFECTION:\n   CHLORINATION (Cl₂ or NaOCl):\n     Most common disinfectant globally\n     Mechanism: oxidation of cell membrane, DNA damage\n     Free chlorine: HOCl + OCl⁻; HOCl more effective\n     CT concept: C × T = contact concentration × contact time (mg·min/L)\n     Giardia inactivation (3-log): CT = 40 mg·min/L at pH 7, 10°C\n     Cryptosporidium: CHLORINE INEFFECTIVE → use UV or ozone\n     Disinfection Byproducts (DBPs): Cl₂ + NOM → trihalomethanes (THMs), HAAs\n       THMs (chloroform, etc.): MCL = 80 μg/L total; suspected carcinogens\n       DBP management: remove NOM before chlorination; reduce Cl₂ dose; switch to chloramine\n\n   UV DISINFECTION:\n     254 nm UV damages DNA (thymine dimers → inhibits replication)\n     Dose: 40 mJ/cm² → 4-log Giardia; 40 mJ/cm² → 3-log Crypto (very effective)\n     Advantages: no DBPs, effective against Crypto\n     Disadvantages: no residual (must chlorinate after for distribution system)\n\n   OZONATION:\n     Ozone (O₃): very strong oxidant\n     Effective against: pathogens, taste/odor compounds, micropollutants\n     Forms biologically active filters (BAF): O₃ breaks large organics into biodegradable\n       → biofilter (activated carbon) removes → better DBP precursor removal\n     DBP: bromate (BrO₃⁻) from ozone + bromide; MCL = 10 μg/L\n\n5. ADVANCED TREATMENT:\n   Activated carbon: GAC (granular) or PAC (powdered)\n     Adsorbs: taste/odor, pesticides, pharmaceuticals, DBP precursors\n   Softening: lime-soda process or IX (ion exchange) to remove Ca, Mg (hardness)\n   Reverse osmosis: removes dissolved salts, micropollutants\n     Required for: brackish/saline sources, PFAS removal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Wastewater Treatment",
+      "confidence": "candidate",
+      "text": "CONVENTIONAL WASTEWATER TREATMENT:\n\n  SCREENING → PRIMARY SEDIMENTATION → BIOLOGICAL TREATMENT\n  → SECONDARY SEDIMENTATION → DISINFECTION → DISCHARGE\n\nPRIMARY TREATMENT: physical removal\n  Bar screen: removes gross solids\n  Primary clarifier: gravity settling of settleable solids\n  Remove: ~50% TSS, ~35% BOD\n  Primary sludge: ~40–60% of total sludge produced\n\nSECONDARY (BIOLOGICAL) TREATMENT: dissolved organic removal\n  ACTIVATED SLUDGE (most common):\n    Aeration basin: air + wastewater + \"mixed liquor\" (bacteria suspension)\n    Microorganisms oxidize BOD + NH₄ (nitrification)\n    Secondary clarifier: bacteria settle → return activated sludge (RAS)\n      back to aeration basin; waste activated sludge (WAS) to digestion\n    Effluent: TSS < 20 mg/L, BOD < 20 mg/L (typical secondary standard)\n    SRT (solids retention time): 5–15 days (mesophilic)\n      Longer SRT → more nitrification; shorter → younger culture, less nitrification\n\n  MEMBRANE BIOREACTOR (MBR):\n    Activated sludge + membrane filtration in one tank\n    Eliminates secondary clarifier\n    Better effluent quality (TSS < 5 mg/L)\n    More expensive, membrane fouling management required\n\nNUTRIENT REMOVAL (nitrogen):\n  Nitrification (aerobic): NH₄⁺ → NO₂⁻ → NO₃⁻ (Nitrifiers: Nitrosomonas, Nitrobacter)\n  Denitrification (anoxic): NO₃⁻ → N₂ (Heterotrophs in anoxic zone)\n  A/O, A/A/O, Bardenpho: various configurations of aerobic/anoxic zones\n  BNR (Biological Nutrient Removal): removes both N and P biologically\n\nPHOSPHORUS REMOVAL:\n  Biological: \"luxury uptake\" by polyphosphate-accumulating organisms (PAOs)\n  Chemical: add FeCl₃ or Al₂(SO₄)₃ → precipitate FePO₄ or AlPO₄\n\nSLUDGE TREATMENT:\n  Thickening → Anaerobic digestion → Dewatering → Biosolids\n  Anaerobic digestion: 35–55°C, 20–30 day HRT, ~50% VS reduction\n  Biogas production: ~0.5 m³ methane per kg VS destroyed\n    → CHP (combined heat and power) at modern WRRFs\n  Biosolids: Class A or B based on pathogen reduction\n    Class A: land application, composting, direct food crop use possible\n    Class B: restricted land application (no direct human food crop contact for period)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 276,
+      "heading_context": "## Water Quality Standards and Indices",
+      "confidence": "candidate",
+      "text": "US REGULATORY FRAMEWORK:\n  Safe Drinking Water Act (SDWA):\n    MCLs (Maximum Contaminant Levels): legally enforceable standards\n    MCLGs (Maximum Contaminant Level Goals): non-enforceable health goals\n    Treatment technique requirements (Cryptosporidium, turbidity)\n\n  Clean Water Act (CWA):\n    Water quality standards: designated uses + criteria to protect them\n    Designated uses: aquatic life, human contact recreation, water supply, aesthetic\n    NPDES (National Pollutant Discharge Elimination System): permit for discharges\n    303(d) list: impaired waters not meeting standards → TMDL required\n    TMDL (Total Maximum Daily Load): maximum pollutant load a water body can receive\n\nKEY MCLs (drinking water):\n  Turbidity: ≤ 0.3 NTU (95% of samples), 1 NTU max (filtration)\n  Total coliform: 5% positive samples in month (RTCR: zero positive allowed)\n  E. coli: zero in any sample\n  NO₃⁻: 10 mg N/L (methemoglobinemia)\n  Arsenic: 10 μg/L\n  Lead: 15 μg/L (action level, 90th percentile)\n  PFAS (2024 EPA rule): PFOA: 4 ng/L; PFOS: 4 ng/L; combinations\n  Total THMs: 80 μg/L; HAA5: 60 μg/L\n  Atrazine: 3 μg/L\n\nWATER QUALITY INDEX (WQI):\n  Single number summarizing overall water quality\n  Canadian WQI (CCME) — widely adopted:\n    F1 = scope (% parameters failing)\n    F2 = frequency (% tests failing)\n    F3 = amplitude (magnitude of failures)\n    WQI = 100 - (√(F1² + F2² + F3²) / 1.732)\n    100 = excellent, 0 = terrible\n\nTROPHIC STATE INDEX (TSI) for lakes (Carlson):\n  TSI = 60 - 14.4 × ln(Secchi depth)\n  TSI = 9.81 × ln(Chl-a) + 10.4\n  TSI = 14.42 × ln(TP) + 4.15\n  30–50: oligotrophic, 50–70: eutrophic, >70: hypereutrophic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "## Emerging Contaminants",
+      "confidence": "candidate",
+      "text": "PFAS (Per- and Polyfluoroalkyl Substances):\n  ~12,000+ compounds; \"forever chemicals\" — extremely resistant to degradation\n  C-F bond: strongest in organic chemistry (bond energy ~544 kJ/mol vs C-H ~413)\n  Sources: AFFF firefighting foam (military bases), non-stick coatings (Teflon), food packaging\n  Detected: in blood of virtually all Americans; in Arctic marine mammals; breast milk\n  Health: kidney cancer, thyroid disease, immune suppression, developmental effects\n  Treatment: GAC (good but regeneration releases PFAS), ion exchange (IX), RO (best)\n  Disposal: PFAS concentrate from treatment → must be destroyed (incineration at >1100°C, electrochemical oxidation)\n  Liability: 3M, DuPont, Chemours have paid billions in settlements\n\nMICROPLASTICS:\n  <5 mm particles from plastic degradation, synthetic fibers, tire wear\n  Found: all oceans, deep sea sediments, Arctic ice, drinking water, human blood\n  Health effects: still being studied; bioaccumulation of sorbed contaminants\n  Treatment: conventional filtration removes most; very fine particles escape\n\nPHARMACEUTICALS AND PERSONAL CARE PRODUCTS (PPCPs):\n  Antibiotics, hormones, anti-depressants, analgesics → wastewater → receiving waters\n  Incomplete removal by conventional WWT (50–95% removal varies widely)\n  Estrogenic effects: documented in fish (feminized male fish below WWT outfalls)\n  Antibiotic resistance: contributes to AMR (antimicrobial resistance)\n  Advanced treatment (ozonation, GAC, AOP) required for effective removal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "## Bridges from CS and Engineering",
+      "confidence": "candidate",
+      "text": "WATER QUALITY CONCEPT         CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nStreeter-Phelps DO sag        First-order linear ODE system (RC circuit)\n  dD/dt = K_d·L - K_a·D       → two coupled first-order ODEs\n  BOD decay: dL/dt = -K_d·L   → exponential decay; K_d = 1/τ (time constant)\n  DO deficit D(t)              → analogous to capacitor voltage during\n                                  charge/discharge with two competing rates\n  DO minimum (critical point)  → undershoot; K_a >> K_d → fast re-aeration;\n                                  K_a << K_d → deep sag (oxygen debt)\n\nAdvection-dispersion equation Convection-diffusion PDE\n  ∂C/∂t + v·∂C/∂x = D·∂²C/∂x² → same PDE as heat transfer / Fick's diffusion\n  v = advective velocity       → bulk transport (convection term)\n  D = dispersion coefficient   → spreading from turbulence + molecular diffusion\n  Analytical solution          → Gaussian plume centered at x = v·t, spreading\n                                  as √(2Dt) (same as Brownian motion)\n  Peclet number Pe = v·L/D     → advection-dominated (Pe >> 1) vs. diffusion-\n                                  dominated (Pe << 1); same as in heat transfer\n\nCT concept (disinfection)     Dose = integral of exposure signal\n  CT = C × t                  → energy under curve: ∫ C(t) dt\n  Chick-Watson law             → log-inactivation = k × CT (linear in dose)\n  CT table for pathogens       → lookup table of required dose for given kill level\n  Parallel to: radiation dose  → absorbed dose = intensity × time (Gray)\n\nTMDL (Total Maximum Daily Load) Resource budget / capacity planning\n  Load = point sources + NPS  → total allocated capacity across all consumers\n  TMDL = LA + WLA + MOS        → apportionment among sources + safety margin\n  Assimilative capacity        → system headroom; exceeding it triggers failure\n  Load allocation to users     → like bandwidth allocation in a shared medium\n\nCoagulation-flocculation      Aggregation algorithm\n  Charge neutralization        → reduce electrostatic repulsion between colloids\n  Particle collision rate ∝ N² → quadratic in concentration (all-to-all)\n  Orthokinetic flocculation    → shear-induced collisions (rate ∝ velocity gradient)\n  Settling rate ∝ d²           → Stokes' law; larger particles settle faster\n                                  (same as sorting by mass in a gravitational field)\n\nActivated sludge bioreactor   Continuous-flow CSTR with feedback recycle\n  Aerobic reactor + clarifier  → reactor stage + separator stage\n  Sludge recycle              → feedback loop maintaining microbial population\n  SRT (sludge retention time) → mean residence time of biomass (≠ HRT)\n  MLSS (mixed liquor suspended → working concentration of catalyst\n    solids)\n  F/M ratio (food/mass)        → substrate loading rate; controls kinetics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

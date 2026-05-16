@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:precipitation-runoff
+kind: guide
+module: hydrology
+section: hydrology
+title: Precipitation and Runoff - Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph
+status: source-custody
+source_custody: partial
+current_path: hydrology/01-PRECIPITATION-RUNOFF.md
+canonical_path: hydrology/01-PRECIPITATION-RUNOFF.md
+backsource_ids: [proof-backfill:hydrology:01-precipitation-runoff, git-history:hydrology:01-precipitation-runoff]
+concepts: [precipitation, runoff]
+root_concepts: [precipitation, runoff]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Precipitation and Runoff — Rainfall-Runoff Mechanics, Infiltration, SCS Curve Number, Unit Hydrograph
 
 ## The Big Picture

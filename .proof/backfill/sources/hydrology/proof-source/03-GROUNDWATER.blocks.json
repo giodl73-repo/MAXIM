@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hydrology\\03-GROUNDWATER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                  GROUNDWATER SYSTEM STRUCTURE                             |\n|       Darcy's law: flux proportional to head gradient — same as Ohm's law |\n+===========================================================================+\n|                                                                           |\n|  VADOSE ZONE (unsaturated):         SATURATED ZONE:                      |\n|  ─────────────────────────          ─────────────                        |\n|  Soil → Capillary fringe            Water table (unconfined aquifer)     |\n|  Tension > atmospheric              Water table at atmospheric pressure  |\n|  Water held by capillarity          Pore pressure > atmospheric          |\n|                                     Phreatic surface = water table       |\n|                                                                           |\n|  CONFINED AQUIFER:                  AQUITARD (low K):                    |\n|  ─────────────────                  ────────────────                     |\n|  Bounded above by aquitard          Confining layer                      |\n|  Pressure head > water table        Silt, clay, unfractured rock         |\n|  Artesian if head > land surface    Separates aquifer systems            |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "### The Ohm's Law Analog",
+      "confidence": "candidate",
+      "text": "OHM'S LAW:           I = V/R = (ΔV/L) × (A/R_L)   current ∝ voltage gradient\n\nDARCY'S LAW:         Q = K × (Δh/L) × A            flow ∝ head gradient\n                     q = Q/A = K × dh/dL            specific discharge (flux)\n\n  Where:\n    Q = volumetric flow rate (m³/s)\n    K = hydraulic conductivity (m/s) ← analogous to electrical conductivity 1/R_L\n    dh/dL = hydraulic gradient (dimensionless) ← analogous to ΔV/L\n    A = cross-sectional area (m²)\n    q = specific discharge (Darcy flux, m/s) — NOT pore velocity!\n\n  Pore velocity (actual water velocity):\n    v = q / n\n    n = porosity (fraction of void space)\n    If n = 0.3 and q = 10⁻⁵ m/s → v = 3.3×10⁻⁵ m/s ≈ 3 m/day\n\nTHE FULL ANALOGY:\n  Hydrology                    Electrical\n  ─────────────────────────    ─────────────────────────\n  Hydraulic head h (m)         Voltage V (V)\n  Specific discharge q (m/s)   Current density J (A/m²)\n  Hydraulic conductivity K     Electrical conductivity σ\n  Storage coefficient S        Capacitance C\n  Darcy's law q = K dh/dl      Ohm's law J = σ E = σ (-dV/dl)\n  Storage eq: S ∂h/∂t = ...   RC circuit: C dV/dt = ...\n  Transmissivity T = Kb        Sheet conductance (σ × thickness)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Hydraulic Head",
+      "confidence": "candidate",
+      "text": "HYDRAULIC HEAD:\n  h = z + P/(ρg)\n\n  z   = elevation above datum (potential energy component)\n  P/(ρg) = pressure head (pressure energy component)\n  ρ   = water density\n  g   = gravitational acceleration\n\n  For a well: hydraulic head = level where water stabilizes in the well\n  (standpipe head = pressure head + elevation = total energy per unit weight)\n\n  WATER TABLE: surface where P = atmospheric → pressure head = 0 → h = z\n  Piezometric surface: locus of hydraulic heads in a confined aquifer\n    (can be above land surface → artesian conditions → well flows without pumping)\n\nHYDRAULIC GRADIENT:\n  i = -dh/dl = -(Δh/L)\n  Negative sign: flow is from high head to low head (down the gradient)\n  Typical values: 1:1000 (0.001) in flat terrain to 1:100 in hilly areas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "## Hydraulic Conductivity",
+      "confidence": "candidate",
+      "text": "HYDRAULIC CONDUCTIVITY K (m/s):\n  Measure of ease of water flow through porous medium\n  Depends on: pore geometry (rock/soil) + fluid viscosity\n\n  K = k × ρg/μ\n    k = intrinsic permeability (m²) — depends only on porous medium geometry\n    μ = dynamic viscosity of water (~1×10⁻³ Pa·s at 20°C)\n    → For oil (higher viscosity) in same rock: lower K\n\n  VALUES ACROSS MATERIALS (K in m/s):\n\n  Gravel:           10⁻² – 10⁻¹     (fastest, used for drains)\n  Coarse sand:      10⁻⁴ – 10⁻²\n  Medium sand:      10⁻⁵ – 10⁻³\n  Fine sand:        10⁻⁶ – 10⁻⁴\n  Silt:             10⁻⁸ – 10⁻⁵\n  Clay:             10⁻¹⁰ – 10⁻⁸    (practically impermeable)\n  Limestone (karst):10⁻⁶ – 10⁻²    (highly variable, secondary porosity)\n  Fractured rock:   10⁻⁷ – 10⁻⁴    (depends on fracture density)\n  Unfractured rock: 10⁻¹³ – 10⁻¹⁰\n\n  8 orders of magnitude variation in common earth materials!\n\nPERMEABILITY FIELD:\n  K varies spatially (heterogeneous aquifer)\n  Layered systems: effective K_horizontal >> K_vertical\n  Fractures: extremely high local K, create preferential flow paths\n  Representative elementary volume (REV): scale above which\n    average K is meaningful (~10–100 × grain diameter)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Aquifer Types",
+      "confidence": "candidate",
+      "text": "UNCONFINED AQUIFER (water-table aquifer):\n  Top boundary: free water surface (water table) — at atmospheric pressure\n  Bottom: bedrock or low-K aquitard\n  Water table rises/falls with recharge/pumping\n  Storage: water released by draining pores = specific yield Sy\n  Typical Sy = 0.1–0.3 (fraction drained)\n\n  WATER TABLE FLUCTUATION:\n    Pumping: water table FALLS locally around well\n    Recharge: water table RISES\n    Mounding under recharge basins\n    Seasonal fluctuation: typically 1–5 m in humid regions\n\nCONFINED AQUIFER (artesian aquifer):\n  Bounded above AND below by low-K aquitard\n  Pressure head > elevation of top of aquifer → artesian conditions\n  ARTESIAN WELL: water rises in well to piezometric surface level\n                 FLOWING artesian well: piezometric surface above land surface\n\n  Storage: water released by elastic compression/expansion of water and aquifer\n  Storativity (storage coefficient) S = S_s × b\n    S_s = specific storage (m⁻¹) = ρw g (α + n β)\n      α = aquifer compressibility, β = water compressibility\n    b = aquifer thickness\n  Typical S = 10⁻⁵ – 10⁻³ (much smaller than unconfined Sy = 0.1–0.3)\n  → Confined aquifers deliver water via compression, not draining\n\nLEAKY AQUIFER (semi-confined):\n  Top or bottom is low-K (but not zero) layer — leakance\n  Pumping → head drops → leakage from adjacent aquifer\n  Most aquifers in reality are \"leaky\" — pure confinement rare\n  Leakance coefficient B: B = √(Tb') where T = transmissivity, b' = aquitard T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "### Governing PDE",
+      "confidence": "candidate",
+      "text": "LAPLACE EQUATION (steady, homogeneous, isotropic):\n  ∇²h = 0\n  → Same as electrostatics (Laplace for electric potential), heat conduction at steady state\n\nDIFFUSION EQUATION (transient):\n  S ∂h/∂t = T ∇²h      (confined aquifer)\n  Sy ∂h/∂t = K ∇²h     (unconfined, Boussinesq approximation)\n\n  S = storativity, T = transmissivity = K × b\n  This is the HEAT EQUATION — identical mathematical form\n  → All solutions from heat conduction apply to groundwater flow!\n  → Theis solution = point source solution to the heat equation\n\n  The mathematical equivalence:\n    Temperature T ↔ Hydraulic head h\n    Thermal diffusivity α ↔ Hydraulic diffusivity D = T/S\n    Heat flux q = -k ∇T ↔ Darcy flux q = -K ∇h\n\nANISOTROPY:\n  Natural aquifers: K_horizontal >> K_vertical\n  Layered sediment: K_h / K_v ≈ 10–1000 (horizontal conducts much better)\n  Aligned fractures: K in fracture orientation >> K perpendicular\n  → Full form: q_i = K_ij ∂h/∂x_j (K becomes a tensor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 217,
+      "heading_context": "## Well Hydraulics — Theis Solution",
+      "confidence": "candidate",
+      "text": "THEIS (1935) SOLUTION FOR A PUMPING WELL (confined aquifer):\n\n  s(r,t) = Q/(4πT) × W(u)\n\n  Where:\n    s = drawdown = h₀ - h (initial head minus current head) [m]\n    Q = pumping rate [m³/s]\n    T = transmissivity [m²/s]\n    W(u) = well function = -Ei(-u) = -γ - ln(u) + u - u²/2! + ...\n    u = r²S / (4Tt)\n    r = distance from well [m]\n    S = storativity [-]\n    t = time since pumping began [s]\n\n  PHYSICAL INTERPRETATION:\n    Drawdown cone spreads radially from pumping well\n    Rate of cone expansion ~ √(Tt/S)\n    Peak drawdown at well, decreasing with r\n\n  SMALL u APPROXIMATION (Cooper-Jacob, 1946):\n    W(u) ≈ -0.5772 - ln(u)    valid for u < 0.01\n\n    s ≈ Q/(4πT) × [-0.5772 - ln(r²S/4Tt)]\n    s ≈ (2.303Q)/(4πT) × log(2.25Tt / r²S)\n\n    This is LINEAR in log(t) — the basis for time-drawdown analysis!\n    Plot s vs. log(t) on straight line → slope = 2.303Q/(4πT) → solve for T\n    Extrapolate to s=0 → t₀ → solve for S\n\nTHEIS WELL FUNCTION TABLE:\n  u        W(u)\n  0.001    6.33\n  0.01     4.04\n  0.1      1.82\n  1.0      0.219\n  10.0     0.000",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "## Aquifer Testing",
+      "confidence": "candidate",
+      "text": "PUMPING TEST PROCEDURE:\n  1. Measure initial water levels in pumping well + observation wells\n  2. Pump at constant rate Q (measure with flowmeter)\n  3. Record water level (head) vs. time in observation wells\n  4. Analyze: plot s vs. t on log scale → type curve matching or Cooper-Jacob\n\n  THEIS TYPE CURVE METHOD:\n    Plot s vs. t on log-log paper → scale-shift to match Theis W(u) vs. 1/u curve\n    Match point: read off (s, t, W(u), 1/u) simultaneously\n    T = Q × W(u) / (4π × s)\n    S = 4Tu × t / r²\n\n  COOPER-JACOB STRAIGHT LINE METHOD:\n    Plot s vs. log(t) → straight line portion (after u < 0.01)\n    Slope Δs per log-cycle → T = 2.303Q / (4π × Δs)\n    Extrapolate to s=0, t₀: S = 2.25T t₀ / r²\n\n  RECOVERY TEST:\n    Stop pumping → water levels recover\n    Theis residual drawdown method: s' = Q/(4πT) × log(t/t')\n    t = time since pumping started, t' = time since pumping stopped\n    Same straight-line method → T (don't need exact S)\n    Advantage: simpler, Q uncertainty less important\n\nSLUG TEST (for low-K formations):\n  Instantaneous removal or addition of water volume to well\n  → head change vs. time analyzed (Hvorslev, Cooper-Bredehoeft-Papadopulos methods)\n  Used where pumping tests not feasible (low K, small wells)\n  Limitation: tests only immediate vicinity of well (1–5 m radius)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "## Well Design and Protection",
+      "confidence": "candidate",
+      "text": "WELL CONSTRUCTION (top to bottom):\n\n  Ground surface\n  ┌───────────────────┐\n  │   Grout seal      │\n  │                   │\n  │   Casing (steel   │\n  │   or PVC pipe)    │\n  │                   │\n  │   Well screen     │\n  │   (slotted pipe)  │\n  │                   │\n  │                   │\n  │   Filter pack     │\n  │   (gravel)        │\n  └───────────────────┘\n    Grout seal:   prevents contamination from surface.\n    Casing:       structural support, keeps hole open.\n    Well screen:  allows water in, keeps sand out;\n                  pump intake typically in middle.\n    Filter pack:  graded gravel around screen.\n    Bottom plug:  closes the casing at the base.\n\nWELL DESIGN PARAMETERS:\n  Screen slot size: retain 90% of filter pack material\n  Filter pack grain size: retain 90% of aquifer material × 4–6 factor\n  Well radius: larger radius → larger Q for same drawdown\n    BUT: Q ∝ 1/log(R/r_w) — logarithmic → diminishing returns above ~30 cm\n\nWELLHEAD PROTECTION:\n  WHPA (Wellhead Protection Area): zone around well\n    1-day travel time: immediate protection zone (bacteria, protozoa)\n    10-year travel time: pesticide, volatile contaminant zone\n    Calculate: elliptical capture zone using Darcy velocity and porosity\n  Groundwater travel time: t = L × n / q (porosity × distance / Darcy flux)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "## Groundwater Contamination Basics",
+      "confidence": "candidate",
+      "text": "ADVECTION-DISPERSION EQUATION (ADE):\n  ∂C/∂t + v ∂C/∂x = D ∂²C/∂x² - R_d(C)\n\n  C = contaminant concentration\n  v = pore velocity (= q/n)\n  D = dispersion coefficient (mechanical + molecular diffusion)\n  R_d = reactions (decay, sorption)\n\n  This is: Convection-diffusion equation — same as heat equation + convection term\n\nLONGITUDINAL DISPERSION:\n  D_L = α_L × v + D_e\n  α_L = longitudinal dispersivity (scale-dependent: 0.01 m to 100 m)\n  D_e = effective diffusion coefficient\n  → Plumes spread in travel direction; concentration front is smeared\n\nRETARDATION (sorption to aquifer material):\n  R = 1 + (ρ_b/n) × K_d\n  R = retardation factor\n  K_d = distribution coefficient (soil-water partition coefficient, mL/g)\n  Actual contaminant speed = v/R\n  Benzene (low K_d): R≈1 → travels fast\n  DDT (high K_d): R>>1 → travels very slowly (barely moves)\n\nPUMP-AND-TREAT LIMITATIONS:\n  Theoretical: pump groundwater → treat → dispose\n  Reality: residual contamination in low-K zones slowly leaches for decades\n  DNAPL (Dense Non-Aqueous Phase Liquids: PCE, TCE): sink to bottom of aquifer\n    Very difficult to remove → \"DNAPL problem\"\n  Monitored Natural Attenuation (MNA): allow natural biodegradation + dilution\n    Works for BTEX (benzene, toluene, ethylbenzene, xylene) in many cases\n    Not for PCBs, heavy metals, fluorinated compounds (PFAS)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

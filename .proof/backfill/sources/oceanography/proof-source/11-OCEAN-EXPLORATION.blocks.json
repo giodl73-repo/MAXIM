@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "oceanography\\11-OCEAN-EXPLORATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                  OCEAN OBSERVING SYSTEM LANDSCAPE                         |\n|     From single-ship surveys to globally integrated sensor networks       |\n+===========================================================================+\n|                                                                           |\n|  IN SITU (wet)                          REMOTE SENSING (dry)              |\n|  ──────────────                         ─────────────────────             |\n|  Ships/CTD casts   Ships of opportunity Altimetry (Jason/Sentinel)        |\n|  Argo floats       Fixed moorings       SST (AVHRR, MODIS)                |\n|  Gliders           Bottom observatories Ocean color (MODIS, SeaWiFS)      |\n|  AUVs/ROVs         Drifters             SAR (surface roughness, waves)    |\n|  Wave buoys        Tide gauges          Gravity (GRACE — water mass)       |\n|                                                                           |\n|  DEPTH COVERAGE:                                                          |\n|  Surface:   drifters, wave buoys, saildrones, ships                       |\n|  0–2000 m:  Argo (4000+ floats), CTD casts, gliders                      |\n|  >2000 m:   Deep Argo, deep moorings, bottom landers                      |\n|  Seafloor:  cabled observatories (OOI, NEPTUNE), ROVs, landers            |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### Historical Methods",
+      "confidence": "candidate",
+      "text": "LEAD LINE (pre-1920s):\n  Weighted line lowered to bottom → count out length → depth recorded\n  HMS Challenger: 492 deep soundings over 3.5-yr voyage\n  Limitation: slow (~hours per sounding), error-prone, limited coverage\n\nSINGLE-BEAM ECHO SOUNDER (1920s–present):\n  Acoustic pulse (sonar) transmitted downward\n  Travel time to bottom and back → depth = (c × TWT)/2\n  c ≈ 1500 m/s in seawater\n  Invention: first used commercially 1924 (Germany, ATLAS echo sounder)\n  Creates single track along ship's course\n\nSWATH BATHYMETRY / MULTIBEAM SONAR (1960s–present):\n  Multiple acoustic beams fanned across track (up to 120° swath)\n  Each ping: measures 256–512 depth points simultaneously\n  Swath width: ~3–5× water depth (deeper = wider swath)\n  Resolution: ~1–10 m in shallow water, ~50–100 m in deep ocean\n  Speed: maps ~50–100 km² per hour at 12-knot ship speed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### Coverage Problem",
+      "confidence": "candidate",
+      "text": "HOW MUCH OCEAN IS MAPPED?\n\n  High resolution direct mapping (satellite-validated multibeam):\n    ~26% of ocean floor mapped at <1 km resolution (as of 2023)\n    Seabed 2030 project: aims for 100% by 2030 (very ambitious)\n\n  Satellite altimetry-derived bathymetry (Smith & Sandwell, GEBCO):\n    \"Maps\" 100% of ocean floor — but at ~3–5 km resolution\n    Method: gravity anomalies → crustal mass variations → topography\n    Sufficient for large features (ridges, trenches), not for fine structure\n\n  IMPLICATION:\n    ~74% of deep ocean floor less well-mapped than Mars surface\n    Mars: global 100 m resolution from MOLA laser altimeter\n    Ocean: most areas: 3–5 km resolution or just ship tracklines\n\nGEBCO (General Bathymetric Chart of the Oceans):\n  Global bathymetric standard, compiled from all available data\n  Current version: 15-arc-second grid (~500 m resolution)\n  Actually reflects combined satellite + ship data\n  Seabed 2030: international effort to compile all data into one database",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Acoustic Methods in Detail",
+      "confidence": "candidate",
+      "text": "SONAR VARIANTS:\n  Single-beam: depth profile along track\n  Multibeam: full swath coverage per ping, color-coded depth maps\n  Sidescan sonar: acoustic backscatter image of seafloor texture\n    (not depth — texture: sandy vs. rocky vs. sediment-covered)\n    Resolution: cm-scale in shallow water; used for archaeology\n  Sub-bottom profiler: lower frequency (1–10 kHz) penetrates sediment\n    Images sub-surface layers to 10–100 m below seafloor\n    Used for: sediment stratigraphy, buried pipelines, archaeological sites\n\nACOUSTIC DOPPLER CURRENT PROFILER (ADCP):\n  Emits acoustic pulses, measures Doppler shift from backscatterers (plankton, bubbles)\n  → current velocity profiles (not just surface) at multiple depths\n  Typical range: 50–1000 m depending on frequency (lower freq = deeper range)\n  Mounted on ship hull, moored, or lowered\n  Also: bottom-mounted ADCP looking up through water column\n\nLONG-RANGE ACOUSTICS (SOFAR):\n  See 01-OCEAN-PHYSICS.md — SOFAR channel\n  RAFOS floats: receive SOFAR pulses from moored sound sources → Lagrangian tracking\n  Acoustic thermometry: travel time of sound pulses across basin → average temperature\n    Heard Island Feasibility Test (1991): sound from Heard Island detected globally\n    Climate change monitoring: ocean warming increases sound speed → travel time decreases",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Crewed Research Submersibles",
+      "confidence": "candidate",
+      "text": "ALVIN (WHOI):\n  Operational since 1964 (multiple hull replacements, essentially rebuilt)\n  Current depth rating: 4,500 m (new titanium hull → 6,500 m by ~2024)\n  Famous dives: Galapagos Rift (1977, first hydrothermal vents),\n                RMS Titanic (1986, 3800 m depth)\n  ~5000 dives total\n  Crew: 2 scientists + 1 pilot, 9-hr maximum dive\n\nNAUTILE (IFREMER, France): 6,000 m\nMIR I & II (Russia): 6,000 m — used in James Cameron's Titanic film\nSHINKAI 6500 (JAMSTEC, Japan): 6,500 m — deepest crewed submersible after Trieste/Limiting Factor\nLIMITING FACTOR (Inkfish/Caladan Oceanic):\n  Full ocean depth rated (11,000 m) — commercial vessel\n  Victor Vescovo descends: all 5 ocean deeps in 2018–2019\n  Challenger Deep: 10,928 m (deepest crewed dive since Trieste 1960)\n\nBATHYSCAPHE TRIESTE (1960):\n  Jacques Piccard + Don Walsh: 10,916 m, January 23, 1960\n  First humans to reach the deepest point — not repeated for 52 years",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### Remotely Operated Vehicles (ROVs)",
+      "confidence": "candidate",
+      "text": "ROV OPERATING PRINCIPLE:\n  Surface ship (control room) ────────────────────────────────►\n                                 Tether (umbilical): power + comms\n                                 ────────────────────────────────────►\n                                                      ROV (subsea)\n                                                      cameras, manipulators,\n                                                      sensors, sample containers\n\nTETHER:\n  Delivers power (typically 50–200 kW electrical)\n  Returns real-time HD video, sensor data\n  Length: 100 m to 10+ km for ultra-deep ROVs\n  Fiber-optic core for high-bandwidth video\n\nMAJOR DEEP-SEA ROVS:\n  Jason/Jason II (WHOI): 6,500 m — US academic workhorse\n  Hercules (Ocean Exploration Trust/E/V Nautilus): 4,000 m\n  SuBastian (Schmidt Ocean Institute/R/V Falkor): 4,500 m\n  ROPOS (Canada): 5,000 m\n  Victor 6000 (IFREMER): 6,000 m\n  Kaiko (JAMSTEC): 11,000 m — reached Challenger Deep 1995\n\nADVANTAGES OVER CREWED:\n  Unlimited bottom time (no life support, CO₂ buildup, crew fatigue)\n  No risk to human life\n  Can work in highly toxic environments (H₂S-rich vent fluids)\n  Real-time streaming — larger scientific audience\n  Easier to work multiple ROVs from one ship",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### Autonomous Underwater Vehicles (AUVs)",
+      "confidence": "candidate",
+      "text": "AUV CLASSIFICATION:\n\nSURVEY AUVs:\n  Torpedo-shaped, propeller-driven\n  Speed: 1–2 m/s, range: 50–200 km on batteries\n  Carries: multibeam sonar, sidescan, sub-bottom profiler\n  Use: detailed bathymetric mapping of small areas\n  Example: ABE, Sentry (WHOI), Hugin (Kongsberg), Autosub (NOC)\n\nOCEAN GLIDERS:\n  Buoyancy-driven (no propeller)\n  Pitch controlled by internal mass shift → saw-tooth path through water\n  Speed: ~0.25 m/s, range: 1,000–5,000 km on batteries\n  Duration: weeks to months per deployment\n  Carries: CTD (temperature, salinity, depth), O₂, chlorophyll, sometimes ADCP\n  Use: mesoscale transects, long-term monitoring, hurricane surveys\n  Types: Seaglider (UW), Spray (Scripps/SIO), Slocum (Teledyne)\n\nSAILDRONE:\n  Wind-propelled surface vehicle (wing sail)\n  Solar-powered sensors, satellite comms\n  Duration: up to 12+ months\n  Covers: surface meteorology, SST, O₂, CO₂, waves\n  New capability: hurricane surveys at surface (survived Cat-4 interior, 2021)\n\nWAVE GLIDER (Liquid Robotics):\n  Surface float + submerged glider connected by tether\n  Wave energy converted to forward propulsion\n  Long endurance (months), low energy use",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "## Argo Float Program",
+      "confidence": "candidate",
+      "text": "ARGO CONCEPT:\n  Autonomous profiling floats, drift freely with ocean currents\n  Mission: global ocean temperature + salinity profiles to 2000 m\n  Launched: 2000 pilot; global array (~3000 floats) by 2007\n\nARGO FLOAT OPERATING CYCLE:\n  ┌─────────────────────────────────────────────────┐\n  │  Surface: GPS fix + data transmission (6-12 hr) │\n  │       │                                         │\n  │       ▼ Descend to \"parking depth\" (1000 m)     │\n  │  Drift at parking depth (9–10 days)             │\n  │       │                                         │\n  │       ▼ Descend to profiling depth (2000 m)     │\n  │  Ascend slowly through water column (6–10 hr)   │\n  │  Measure T + S continuously (CTD sensor)        │\n  │       │                                         │\n  │       ▼ Return to surface                       │\n  │  Transmit profile via Iridium satellite         │\n  │       Loop back to park depth                   │\n  └─────────────────────────────────────────────────┘\n\n  Cycle duration: 10 days (standard)\n  Float lifespan: ~3–5 years (battery limited)\n  Each float cost: ~$15,000–$25,000\n\nARGO NETWORK (2024):\n  ~3,900 active floats globally\n  >700 measurements per day\n  3.4 million profiles in database (launched through 2024)\n  Geographic coverage: all major ocean basins\n\nEXTENSIONS:\n  Deep Argo: 6,000 m (uses different pump technology, larger pressure housing)\n    ~200 floats operational as of 2024\n  BGC-Argo (Biogeochemical): adds O₂, pH, NO₃, chl, PAR, backscatter\n    ~600+ floats; tracks biological and chemical properties\n  Polar Argo: ice-tethered profilers (ITP) for Arctic under-ice sampling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## Fixed Moorings and Bottom Observatories",
+      "confidence": "candidate",
+      "text": "SURFACE MOORING:\n  Buoy at surface: meteorology (wind, T, humidity, precip), SST, waves\n  Subsurface instruments: CTD, ADCP, current meters at multiple depths\n  Anchored by chain/rope to seafloor anchor\n  Examples: TAO/TRITON array (equatorial Pacific/Indian, ~70 moorings — El Niño monitoring)\n            PIRATA array (equatorial Atlantic)\n            OceanSITES: global network of ~400 time-series moorings\n\nRAPID MOORING ARRAY (26°N):\n  Monitors AMOC continuously since 2004\n  ~40 moorings across Atlantic: Western Boundary, Eastern Boundary, mid-basin\n  Measures volume transport of deep western boundary current + surface layer\n  Key result: AMOC ~17–18 Sv mean; ~15% decline observed 2004–2024 (debated)\n\nCABLED SEAFLOOR OBSERVATORIES:\n  NEPTUNE Canada (now Ocean Networks Canada):\n    800 km fiber-optic cable, Juan de Fuca tectonic plate\n    Provides power + broadband comms to instruments on seafloor\n    Instruments: seismometers, pressure sensors, cameras, CTDs, hydrophones\n  OOI (Ocean Observatories Initiative, NSF):\n    Multiple arrays: Pioneer (NW Atlantic Shelf), Irminger Sea, Southern Ocean\n    Combination of moored + profiler + glider systems\n  EMSO (European Multidisciplinary Seafloor and water column Observatory):\n    Network across European seas and Atlantic\n\nBOTTOM LANDERS:\n  Instrument platform lowered to seafloor, works autonomously\n  No tether — free-fall deployment\n  Recovery: acoustic release command → drops weights → buoyantly ascends\n  Duration: weeks to months\n  Carries: sediment trap, ADCP, camera, chemical sensors\n  Used in: hadal zones (up to 11 km depth), remote areas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 313,
+      "heading_context": "## Remote Sensing from Space",
+      "confidence": "candidate",
+      "text": "SATELLITE OCEANOGRAPHY SUITE:\n\nALTIMETRY (sea surface height):\n  Radar pulse to ocean surface, measures return time\n  Resolution: ~7 cm vertical, ~7 km spatial, 10-day repeat\n  Products: sea surface height anomaly (SSHA) → geostrophic currents, eddies,\n            El Niño state, sea level rise trend\n  Satellites: TOPEX/Poseidon (1992), Jason-1/2/3, Sentinel-6 Michael Freilich\n\nSEA SURFACE TEMPERATURE (SST):\n  Infrared radiometers: AVHRR (since 1978), MODIS (2000–present), VIIRS\n  Resolution: 1 km, multiple overpasses per day\n  Limitation: clouds block IR\n  Microwave SST (AMSR, WindSat): cloud-penetrating, ~25 km resolution\n\nOCEAN COLOR / CHLOROPHYLL:\n  Reflected sunlight in visible wavelengths\n  Chlorophyll absorption at 443 nm → [Chl] from ocean color algorithm\n  SeaWiFS (1997–2010), MODIS-Aqua (2002–), PACE (2024–)\n  Used for: primary production, bloom monitoring, harmful algal blooms\n\nSEA ICE:\n  Passive microwave: distinguish ice from water, measure concentration\n  SSMI/SSMIS (1979–present): ~25 km resolution, daily global maps\n  Active SAR (Sentinel-1): 10–100 m resolution, ice type discrimination\n\nSURFACE WIND STRESS:\n  Scatterometers: measure Bragg-scattering from wind-roughened surface\n  QuikSCAT (1999–2009), ASCAT, HY-2B\n  Key input for: forcing ocean circulation models, operational forecasting\n  ~25 km resolution, 2-day repeat (global coverage)\n\nGRAVITY / OCEAN MASS:\n  GRACE/GRACE-FO: measures changes in Earth's gravity field (distance between two satellites)\n  Products: ocean bottom pressure changes, ice mass loss, groundwater\n  ~300 km resolution, monthly\n  Used to: track AMOC variability, ice sheet mass balance, groundwater depletion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 357,
+      "heading_context": "## Ocean Modeling",
+      "confidence": "candidate",
+      "text": "OCEAN GENERAL CIRCULATION MODELS (OGCM):\n  Solve Navier-Stokes + thermodynamics + salt conservation on ocean grid\n  Numerical schemes: finite difference, finite element, spectral\n\n  RESOLUTION CLASSIFICATION:\n    1° grid (110 km): \"low resolution\" — misses mesoscale eddies\n    0.25° grid (28 km): \"eddy-permitting\" — partially resolves eddies\n    0.1° grid (11 km): \"eddy-resolving\" — resolves mesoscale eddies\n    0.01° grid: experimental — approaching submesoscale\n\n  MAJOR OPERATIONAL MODELS:\n    NEMO (Nucleus for European Modelling of the Ocean): European standard\n    MOM6 (GFDL/NOAA): US academic standard\n    HYCOM (HYbrid Coordinate Ocean Model): US Navy operational\n    ROMS (Regional Ocean Modeling System): regional, high-resolution studies\n\n  COUPLED MODELS:\n    Ocean + atmosphere + sea ice → Earth System Models (ESMs)\n    Used for IPCC projections, seasonal forecasting, climate attribution\n\n  DATA ASSIMILATION:\n    Combine model prediction with observations (Argo, altimetry, SST)\n    → Ocean state estimate (4D-Var, EnKF methods — same as weather data assimilation)\n    Products: HYCOM analysis (operational), ECCO (research reanalysis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 411,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Real-time ocean observing is still very sparse**: Despite Argo, TAO/TRITON, satellites, large parts of the ocean (Southern Ocean, Arctic under-ice, all depths > 2000 m, most of the seafloor) are still poorly observed. Weather has hourly global surface data from thousands of stations + radiosondes + satellites. Ocean state estimation is fundamentally more uncertain — vast volume, difficult access, sparse observations.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 417,
+      "heading_context": "## CTD Rosette — The Fundamental Oceanographic Instrument",
+      "confidence": "candidate",
+      "text": "CTD ROSETTE SYSTEM:\n  \"CTD\" = Conductivity, Temperature, Depth sensors (primary measurements)\n  Conductivity + Temperature → Salinity (derived via international equations of state)\n  Depth from pressure sensor (calibrated vs. CTD depth)\n\nPHYSICAL SETUP:\n  ┌──────────────────────────────────────────────────────┐\n  │  ROSETTE FRAME (stainless steel, octagonal/circular) │\n  │                                                      │\n  │  12–36 NISKIN BOTTLES mounted radially               │\n  │  (each 1.7–30 L capacity; close on command)          │\n  │                                                      │\n  │  CTD SENSOR PACKAGE at base:                         │\n  │    Primary + secondary (redundant) CT sensors        │\n  │    Pressure transducer                               │\n  │    Dissolved O₂ (optional — polarographic/optode)    │\n  │    Fluorometer (chlorophyll proxy)                   │\n  │    Transmissometer (particle turbidity)              │\n  │    Altimeter (distance to bottom — prevents crash)   │\n  │    Sometimes: pH, NO₃, PAR, ADCP upward-looking      │\n  │                                                      │\n  │  DATA LINK: Electromechanical coax cable to ship     │\n  │    Real-time data display in ship control room       │\n  │    Technician closes bottles at target depths        │\n  └──────────────────────────────────────────────────────┘\n\nCAST WORKFLOW:\n  1. Rosette deployed over side or stern on conducting cable\n  2. CTD data streams live to ship as rosette descends\n  3. Typical descent rate: 1 m/s (downcast used for primary data)\n     (upcast: bottles fired at discrete target depths)\n  4. At target depth (identified from downcast data — pycnocline, oxygen minimum, etc.):\n     Deckhand \"fires\" a bottle via console → spring-loaded caps snap shut\n  5. Rosette retrieved; bottles subsampled in lab van on deck:\n     O₂ (Winkler titration), nutrients (auto-analyzer), DIC/TA, salinity (salinometer),\n     chlorophyll (filtered, extracted), trace metals (ultra-clean bottles),\n     biology (preservative-fixed samples), microbiome (frozen), radiocarbon, etc.\n\nKEY MEASUREMENTS FROM WATER SAMPLES (cannot be measured in situ reliably):\n  Dissolved O₂ (Winkler titration: more accurate than electrodes at depth)\n  Nutrients (NO₃⁻, PO₄³⁻, Si(OH)₄): requires colorimetric analysis\n  DIC and TA: acid extraction + infrared gas analysis\n  Trace metals: require ultra-clean sampling (separate \"clean rosette\")\n  Radioisotopes: ¹⁴C, ²³⁰Th, ²³⁴Th for age dating and particle flux\n  Biological samples: DNA, RNA, cell counts, phytoplankton taxonomy\n\nCTD RESOLUTION AND ACCURACY:\n  Temperature: ±0.001°C (SBE 911+ standard instrument)\n  Salinity: ±0.002 PSU\n  Pressure: ±0.5 dbar\n  Sampling rate: 24 Hz (averaged to 1 Hz for profile archive)\n  This resolution allows detection of thermohaline intrusions <1 m thick",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

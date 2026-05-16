@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:sea-level-climate
+kind: guide
+module: oceanography
+section: oceanography
+title: Sea Level and Climate - Isostasy, Eustasy, IPCC Projections, Storm Surge, Historic Transgressions
+status: source-custody
+source_custody: partial
+current_path: oceanography/10-SEA-LEVEL-CLIMATE.md
+canonical_path: oceanography/10-SEA-LEVEL-CLIMATE.md
+backsource_ids: [proof-backfill:oceanography:10-sea-level-climate, git-history:oceanography:10-sea-level-climate]
+concepts: [sea, level, climate]
+root_concepts: [sea, level]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sea Level and Climate — Isostasy, Eustasy, IPCC Projections, Storm Surge, Historic Transgressions
 
 ## The Big Picture

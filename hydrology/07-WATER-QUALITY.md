@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:water-quality
+kind: guide
+module: hydrology
+section: hydrology
+title: Water Quality - Contaminant Transport, Treatment Processes, Water Quality Index
+status: source-custody
+source_custody: partial
+current_path: hydrology/07-WATER-QUALITY.md
+canonical_path: hydrology/07-WATER-QUALITY.md
+backsource_ids: [proof-backfill:hydrology:07-water-quality, git-history:hydrology:07-water-quality]
+concepts: [water, quality]
+root_concepts: [water, quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Water Quality — Contaminant Transport, Treatment Processes, Water Quality Index
 
 ## The Big Picture
@@ -9,7 +28,7 @@
 |                                                                           |
 |  SOURCE          TRANSPORT            EXPOSURE              EFFECT        |
 |  ──────          ─────────            ────────              ──────        |
-|  Point source    Advection            Drinking              Acute toxicity|
+|  Point source    Advection            Drinking              Acute toxicity |
 |  Nonpoint        Dispersion           Swimming              Chronic/sub-  |
 |  source          Dilution             Agriculture           lethal        |
 |  Natural         Sorption/            Ecosystem             Carcinogen    |

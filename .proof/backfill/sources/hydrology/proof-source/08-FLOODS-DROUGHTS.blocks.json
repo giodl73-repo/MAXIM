@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hydrology\\08-FLOODS-DROUGHTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                  EXTREMES OF THE WATER CYCLE                              |\n|         Flood = too much water too fast; Drought = too little too long    |\n+===========================================================================+\n|                                                                           |\n|  FLOOD                                  DROUGHT                          |\n|  ──────────────────────                 ────────────────────              |\n|  Excess water beyond capacity           Deficit of precipitation          |\n|  Fast-onset (hours–days)                Slow-onset (weeks–months)         |\n|  Visible, sudden                        Invisible, gradual                |\n|  Fatalities: direct (drowning)          Fatalities: indirect (food)       |\n|  Property damage dominant              Economic damage cumulative         |\n|  Caused by: heavy rain, snowmelt,       Caused by: low precipitation,     |\n|  dam break, storm surge                 high temperature/ET, poor mgmt    |\n|                                                                           |\n|  COMMON THREAD: both are statistical distributions                        |\n|  Return period is a probabilistic concept, not a prediction of timing     |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "### Statistical Foundation",
+      "confidence": "candidate",
+      "text": "ANNUAL MAXIMUM SERIES (AMS):\n  Record maximum discharge for each year → n-year dataset\n  Assume: each annual maximum is an independent sample from a stationary distribution\n  Fit a probability distribution → estimate return periods for unobserved events\n\nPARTIAL DURATION SERIES (PDS) / PEAKS OVER THRESHOLD (POT):\n  Include all peaks above a threshold (not just annual maxima)\n  Better for: shorter records, high-frequency events (< 10-yr)\n  AMS 2-yr event ≈ PDS 1.16-yr event (correction factor for high-frequency range)\n\nKEY DISTRIBUTIONS FOR FLOOD FREQUENCY:\n  Log-Pearson Type III (LP3):    US standard (Bulletin 17C, USGS)\n    log(Q) follows Pearson Type III distribution\n    Parameters: mean, variance, skewness of log-transformed flows\n    Skewness: weighted average of station + regional skewness (GEV regions)\n\n  Generalized Extreme Value (GEV):\n    Family includes Gumbel (ξ=0), Fréchet (ξ>0), Weibull (ξ<0)\n    European standard; fits with L-moments (more robust than ML for small samples)\n    ξ (shape parameter) controls tail behavior: ξ > 0 → heavy tail (more extreme events)\n\n  Gumbel (Extreme Value Type I):\n    P(X ≤ x) = exp(-exp(-(x-μ)/β))\n    Good for: flood maxima with moderate skewness\n    Theoretical basis: asymptotic extreme value distribution\n\n  Log-normal:\n    Simpler; often adequate for moderate-skew flood data\n\nMETHOD OF FITTING:\n  Method of moments (MOM): match distribution moments to sample moments\n  Maximum likelihood (ML): maximize likelihood of observed data\n  L-moments: linear combinations of order statistics; more robust for small n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### Return Period and Exceedance Probability",
+      "confidence": "candidate",
+      "text": "RETURN PERIOD T vs. EXCEEDANCE PROBABILITY p:\n  T = 1/p   (T in years, p = annual exceedance probability)\n\n  100-year flood: p = 0.01 = 1% per year\n  50-year flood:  p = 0.02 = 2% per year\n  10-year flood:  p = 0.10 = 10% per year\n\n  PROBABILITY OF OCCURRENCE IN N YEARS:\n    P(≥1 occurrence in N yr) = 1 - (1-p)^N = 1 - (1 - 1/T)^N\n\n    100-yr flood in 100 years: P = 1 - (0.99)^100 = 0.634 (63.4%)\n    100-yr flood in 30 years:  P = 1 - (0.99)^30  = 0.260 (26%)\n    100-yr flood in 500 years: P = 1 - (0.99)^500 = 0.993 (99.3%)\n\n  PRACTICAL INTERPRETATION:\n    \"100-year event\" does NOT mean:\n      × \"Occurs exactly once per century\"\n      × \"Safe for 100 years after it occurs\"\n      × \"The largest possible event\"\n    It MEANS: 1% probability of being equaled or exceeded in any given year.\n\n    Two 100-year floods can occur in consecutive years.\n    100-year flood can occur in year 1 of a 100-year record.\n    100-year flood designation is about probability, not schedule.\n\nPLOTTING POSITIONS (empirical frequency):\n  For n data points ranked in ascending order (rank m):\n  Weibull:       P(X ≤ x_m) = m/(n+1)        (simple, no bias for median)\n  Hazen:         P = (m-0.5)/n                (unbiased for range of distributions)\n  Blom:          P = (m-0.375)/(n+0.25)       (approximately unbiased for normal)\n  Gringorten:    P = (m-0.44)/(n+0.12)        (appropriate for Gumbel)\n\n  Plot on probability paper (Gumbel, log-normal, etc.) → fit line → extrapolate to T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "## Flood Frequency Under Non-Stationarity",
+      "confidence": "candidate",
+      "text": "STATIONARITY ASSUMPTION:\n  Traditional frequency analysis assumes: statistics (mean, variance) don't change over time\n  \"Stationarity is dead\" (Milly et al., 2008, Science): climate change violates assumption\n\n  NON-STATIONARITY SOURCES:\n    Climate change: shifting precipitation intensity, temperature, snowmelt timing\n    Land use change: urbanization, deforestation → altered runoff\n    River engineering: channelization, levees, dam operations\n    Long-term variability: PDO, AMO cycles overlay 30–60 yr trends\n\n  APPROACHES TO NON-STATIONARY FREQUENCY ANALYSIS:\n    Time-varying distributions: parameters μ(t), σ(t) as function of time or covariates\n    Covariate models: P(X > x) = f(climate index, land use, T_global)\n    Ensemble approaches: use climate model projections to shift distribution forward\n    Expected annual damage (EAD): integrate damage × probability over shifted distribution\n\n  PRACTICAL IMPACT:\n    A structure designed for 100-yr return period in 1970\n    May now be providing only 50-yr protection (due to increased precipitation)\n    Future design should account for ~20–40% increase in extreme precipitation\n    in many regions (thermodynamic scaling: ~7% increase per °C of warming)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Flood Types and Processes",
+      "confidence": "candidate",
+      "text": "FLASH FLOODS:\n  Short duration, high intensity rainfall → rapid runoff in small steep basins\n  Time to peak: minutes to hours\n  Warning time: very short (impossible to forecast >1–2 hr in advance in many cases)\n  Most deadly flood type worldwide (~60% of flood fatalities)\n  Classic example: Johnstown Flood (1889), Big Thompson Canyon (1976)\n\nRIVERINE FLOODS:\n  Large river, large watershed, slower response\n  Time to peak: hours to days\n  Warning time: days to weeks (adequate for evacuation)\n  Mississippi 1993, Missouri 2011: weeks of flooding\n  Driven by: long-duration storm systems, saturated antecedent conditions, snowmelt\n\nSNOWMELT FLOODS:\n  Rapid spring warmth → fast snowmelt → saturated soils (still frozen) → flood\n  \"Freshet\": annual spring snowmelt flood in Northern rivers\n  Rain-on-snow events: double trouble — rain + melt simultaneously\n  Example: Red River of the North floods (Fargo-Moorhead): annual spring event\n\nCOASTAL/STORM SURGE FLOODS:\n  See oceanography/10-SEA-LEVEL-CLIMATE.md\n  Compound: tidal + surge + wave + riverine all simultaneous\n\nICE JAM FLOODS:\n  River ice breaks up in spring → transported downstream → jams at constrictive sections\n  → Rapid backwater rise upstream of jam\n  → Also: sudden release when jam breaks → flood wave downstream\n  Common: Yukon, Mackenzie, Amur, Siberian rivers\n  Extremely difficult to predict and manage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## Design Storm and Design Flood",
+      "confidence": "candidate",
+      "text": "DESIGN EVENT SELECTION:\n  Regulatory/infrastructure standard → target return period\n  Consequences of failure → risk tolerance\n\n  US REGULATORY STANDARDS:\n    Urban drainage (minor system): 2–10 yr\n    Urban drainage (major system): 25–100 yr\n    Stormwater detention: pre/post-development 2-yr and 10-yr peaks\n    FEMA regulatory floodplain: 100-yr (1% AEP)\n    NFIP mandatory insurance: 100-yr floodplain\n    Critical facilities (hospitals, emergency response): 500-yr\n    Dams (high-hazard): PMF (Probable Maximum Flood)\n\nDESIGN STORM METHODS:\n  IDF-based (single storm): rational method or SCS 24-hr storm\n  Historical event: use actual storm as design event (common for calibration)\n  Continuous simulation: run continuous long-term simulation → extract design conditions\n\n  INDEX FLOOD METHOD (regional):\n    Flood quantile at ungauged site = index flood × dimensionless growth curve\n    Index flood = median or mean annual flood from regression\n    Q_T = Q_2 × f(T, region)\n    Used when no gauge data available",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Drought Concepts and Types",
+      "confidence": "candidate",
+      "text": "DROUGHT TAXONOMY:\n  Meteorological drought: precipitation deficit (2+ months below normal)\n  Hydrological drought: streamflow and groundwater below normal\n    Lags meteorological drought by weeks to months\n  Agricultural drought: soil moisture deficit affecting crop growth\n    Most sensitive to short-duration events during critical growth periods\n  Socioeconomic drought: supply-demand balance disrupted\n    Depends on water management as much as hydrology\n\nDROUGHT CASCADES:\n  Rainfall deficit\n       ↓ (1–4 weeks)\n  Reduced soil moisture → agricultural drought\n       ↓ (1–3 months)\n  Reduced streamflow → hydrological drought\n       ↓ (3–12 months)\n  Reduced reservoir storage and groundwater\n       ↓ (months–years)\n  Water supply shortage → socioeconomic drought\n\n  RECOVERY ALSO FOLLOWS THIS SEQUENCE:\n  Normal rain returns → soil moisture recovers first\n  Streamflow recovers more slowly\n  Groundwater slowest (months–years for deep aquifers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "### Palmer Drought Severity Index (PDSI)",
+      "confidence": "candidate",
+      "text": "PDSI (Palmer, 1965):\n  Physically-based moisture accounting model\n  Inputs: precipitation, temperature (for PET calculation), soil water capacity\n  Core: water balance model tracking:\n    AWC (available water capacity) = two soil layers\n    Recharge, Runoff, Loss (ET), Potential values of each component\n\n  PDSI CALCULATION:\n    d = P - P_hat\n    where P = actual precipitation, P_hat = \"climatically appropriate precipitation\"\n    (computed from prior moisture conditions + seasonal averages)\n\n    X_t = 0.897 X_{t-1} + (1/3) Z_t\n    Z_t = K × d  (Z-index, monthly anomaly)\n    K = climate characteristic factor (normalizes for regional seasonality)\n\n    PDSI CATEGORIES:\n    > +4.0:  Extremely wet\n    +3 to +4: Very wet\n    +2 to +3: Moderately wet\n    -1 to +1: Near normal\n    -2 to -3: Moderate drought\n    -3 to -4: Severe drought\n    < -4.0:  Extreme drought\n\n  STRENGTHS: physically based, long historical record (US back to 1895), widely used\n  WEAKNESSES:\n    Monthly timestep (misses sub-monthly variability)\n    Original PET from Thornthwaite (temperature-based only) → underestimates PET under warming\n    sc-PDSI (self-calibrating): removes some regional calibration inconsistencies\n    PDSI only covers US; Palmer never published full methodology → DIFFICULT to reproduce exactly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "### Standardized Precipitation Index (SPI)",
+      "confidence": "candidate",
+      "text": "SPI (McKee et al., 1993):\n  Simpler than PDSI — PRECIPITATION ONLY (no temperature or soil moisture)\n  Works at any timescale: 1, 3, 6, 12, 24, 48 months\n\n  CALCULATION:\n    1. Fit gamma distribution to long-term precipitation record (30+ years)\n       for a given month and accumulation period\n    2. Transform to standard normal distribution\n    3. SPI = standard normal deviate\n\n    SPI = (x - μ_x) / σ_x  (approximately, after transformation)\n\n  SPI VALUES:\n    > +2.0: Extremely wet\n    +1.5 to +2.0: Very wet\n    -1.0 to +1.0: Near normal\n    -1.5 to -2.0: Severely dry\n    < -2.0: Extremely dry\n\n  SPI-1: reflects monthly precipitation → rapid onset/end, agricultural drought\n  SPI-3: 3-month: soil moisture drought, spring streamflow\n  SPI-6: 6-month: medium-term, streamflow, reservoir storage\n  SPI-12: annual: groundwater, large reservoirs\n  SPI-24: 2-year: major aquifer response\n\n  STANDARDIZED PRECIPITATION-EVAPOTRANSPIRATION INDEX (SPEI):\n    Same as SPI but using P - PET (climatic water balance instead of P alone)\n    Better under warming (temperature-driven PET increases → drought intensification)\n    UN WMO recommends SPEI for climate change contexts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### Other Drought Indices",
+      "confidence": "candidate",
+      "text": "STREAMFLOW DROUGHT:\n  Streamflow percentile below Q10 (10th percentile) = drought threshold\n  Standardized Streamflow Index (SSI): analogous to SPI for streamflow\n  7Q10: 7-day low flow with 10-year return period (used for water quality permitting)\n\nGROUNDWATER DROUGHT:\n  Groundwater level below seasonally adjusted threshold\n  Standardized Groundwater Index (SGI): distribution-fit to monthly groundwater levels\n  Responds slowest — can persist 1–2 years after precipitation recovery\n\nUSDM (US DROUGHT MONITOR):\n  Weekly national synthesis of drought conditions (USDA, NOAA, NDMC)\n  D0–D4 scale: Abnormally Dry through Exceptional Drought\n  Combines: SPI, PDSI, soil moisture, streamflow, groundwater, crop conditions\n  Expert judgment used alongside automated indices\n  USDM drives federal drought declarations → $billions in assistance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "## Compound Events",
+      "confidence": "candidate",
+      "text": "COMPOUND EVENTS (concurrent or sequential extremes):\n  Flood + drought: Mediterranean drought → desiccated soil → subsequent flash flood\n    (dry hard crust → high runoff even from moderate rain)\n  Heatwave + drought: elevated temperature → more ET → drought intensification\n  Storm surge + river flood: coastal flooding from both ocean and upstream simultaneously\n  Wildfire + flood: fire destroys vegetation → increased runoff, debris flows in next rain season\n\nCALIFORNIA COMPOUND SEQUENCE:\n  2017: extreme drought → wildfire season\n  2017–18: Thomas Fire → 2018 Montecito debris flow (21 deaths)\n  Wildfire removes soil-binding vegetation → bare hydrophobic soil → debris flows\n  This sequence is a 21st century climate compound event archetype\n\nSTATISTICAL APPROACH:\n  Joint probability: P(A ∩ B) = P(A) × P(B) if independent\n  But: floods and droughts are often correlated\n  Copula functions: model joint distribution of two variables with non-Gaussian dependence\n    Archimedean copulas (Clayton, Gumbel, Frank): common in hydrology\n    Allows: P(flood > x AND surge > y) correctly accounting for correlation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "## Early Warning Systems",
+      "confidence": "candidate",
+      "text": "FLOOD EARLY WARNING SYSTEM (EWS) COMPONENTS:\n\n1. MONITORING:\n   Dense rain gauge + stream gauge networks (telemetry → real-time)\n   Radar QPE (quantitative precipitation estimation): 5–15 min update\n   Satellite: PERSIANN, IMERG for remote/ungauged areas\n\n2. HYDROLOGICAL FORECASTING:\n   Rainfall-runoff model: NWS RDHM (Research Distributed Hydrologic Model)\n   European: GloFAS (Global Flood Awareness System, Copernicus/ECMWF)\n   Ensemble forecasting: 50 ensembles of NWP input → flood probability forecast\n\n   FORECAST LEAD TIMES:\n     Flash flood: 0–6 hr (model-based), potentially 0–1 hr (observed-based)\n     Riverine flood: 1–7 days for large rivers\n     Seasonal: 1–3 months (for planning, not direct action)\n\n3. THRESHOLD DETERMINATION:\n   Flood guidance: compare forecast flow with bankfull/threshold flow at locations\n   NWS action/flood/major flood stages at each gauge\n   Impact-based thresholds: tie stages to specific impacts (road flooding, structure damage)\n\n4. DISSEMINATION:\n   NWS products: watches (conditions favorable), warnings (imminent/occurring)\n   WEA (Wireless Emergency Alerts): Flash flood warnings to mobile phones\n   Social media: supplementary distribution\n   Community-based: local networks for rural/developing-world gaps\n\nDROUGHT EARLY WARNING:\n  USDM weekly monitoring\n  ENSO forecasts: El Niño → drought in SE US, E. Africa; La Niña → wet in SE US\n  Seasonal outlooks: CPC 90-day precipitation/temperature outlooks\n  Groundwater level monitoring: lag indicator for recovery\n  Reservoir storage levels: operational indicator\n  Agricultural indicators: normalized difference vegetation index (NDVI) from satellites",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 418,
+      "heading_context": "## Bridges from CS and Engineering",
+      "confidence": "candidate",
+      "text": "FLOODS/DROUGHTS CONCEPT       CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nFlood frequency analysis      Extreme value theory (EVT)\n  Annual maximum series (AMS) → block maxima: take max over fixed block (1 yr)\n  GEV distribution            → Fisher-Tippett-Gnedenko theorem (EVT analog of CLT)\n    ξ < 0: Weibull (bounded upper tail)\n    ξ = 0: Gumbel (exponential tail; most common for rainfall)\n    ξ > 0: Fréchet (heavy tail; dangerous floods)\n  Peaks-over-threshold (POT)  → threshold exceedances → Generalized Pareto (GPD)\n                                  (analogous to count processes: Poisson arrivals)\n\nReturn period T               Mean recurrence interval — not a fixed cycle\n  P(exceedance/year) = 1/T    → T is 1/rate, not a guarantee of timing\n  P(≥1 occurrence in n years) → 1 - (1 - 1/T)^n ≈ 1 - e^{-n/T}\n  100-yr flood in 100 years   → 63.2% probability (not 100%); same as\n                                  P(≥1 Poisson event) in time = mean interval\n\nL-moments (Hosking)           Robust moment estimators (resistant to outliers)\n  L1 = mean, L2 = L-scale     → analogous to mean + MAD (median absolute deviation)\n  L-skewness τ3 = λ3/λ2       → same normalization as conventional skewness but\n                                  computed from linear combinations of order stats\n  Advantage over ML/MOM       → low breakdown point for heavy tails + small samples\n                                  (exactly the regime where hydrological data live)\n\nCopulas in compound events    Multivariate dependence beyond marginals\n  Joint distribution of       → specify marginal distributions separately from\n  flood + storm surge           dependence structure\n  Gaussian copula             → elliptical; underestimates tail dependence\n  Clayton/Gumbel copula       → asymmetric; better for tail co-exceedance\n  Vine copula (pair copula)   → decomposition for high-dimensional dependence\n  Hydrological application    → P(flood AND surge AND high tide)\n\nSPI (Standardized Precip Index) Z-score transformation to normal distribution\n  SPI = (P - μ) / σ           → but P is not normal → fit gamma → CDF → Φ^{-1}\n                                  (probability integral transform to normality)\n  SPI-1: monthly drought      → 1-month accumulation; short-memory\n  SPI-6: agricultural         → 6-month accumulation; medium-memory\n  SPI-12: hydrological        → 12-month accumulation; long-memory (groundwater)\n  Timescale = integration window → same as moving-average filter bandwidth\n\nPDSI (Palmer Drought Severity) State-space model with moisture memory\n  Monthly water balance:      → forced first-order autoregressive model\n  dMoisture/dt = P - ET - ...   (PDSI has long memory: ~18-month e-fold)\n  \"Normal\" = calibrated        → region-specific baseline; PDSI is relative\n  Self-calibrated PDSI (sc-PDSI) → removes region-dependence (centering + scaling)\n\nFlood routing (dynamic wave)  Hyperbolic PDE (wave equation with diffusion)\n  Saint-Venant equations       → continuity + momentum PDEs\n  CFL stability condition      → timestep ≤ Δx / (v + c) where c = wave celerity\n  Numerical methods            → finite difference (explicit vs. implicit);\n                                  implicit required for stiff systems\n                                  (same tradeoff as stiff ODE solvers)\n\nNon-stationarity in extremes  Concept drift / distribution shift\n  \"Stationarity is dead\" (Milly→ parameters of underlying distribution shift\n    et al., 2008)                over time due to land use, climate, urbanization\n  Time-varying GEV parameters → generalized additive model (GAM) for μ(t), σ(t)\n  Detection: Mann-Kendall test → non-parametric monotone trend test on time series\n                                  (ranks-based; H₀: no trend)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

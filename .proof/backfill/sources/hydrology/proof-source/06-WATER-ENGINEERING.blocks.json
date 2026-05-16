@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hydrology\\06-WATER-ENGINEERING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|           WATER INFRASTRUCTURE — FLOW THROUGH THE SYSTEM                  |\n+===========================================================================+\n|                                                                           |\n|  WATERSHED                                                                |\n|  (rain + snowmelt)                                                        |\n|       │                                                                   |\n|       ├──► STORMWATER SYSTEM                                              |\n|       │     GI (rain gardens, bioswales) → attenuate small storms        |\n|       │     Storm sewers → convey runoff to outlet                       |\n|       │     Detention basin → peak attenuation (release slowly)          |\n|       │     Retention pond → volume reduction (infiltrate/evaporate)     |\n|       │            │ excess flow                                          |\n|       │            ▼                                                      |\n|       └──► RIVER / STREAM                                                 |\n|                 │ high flow                                               |\n|                 ├──► FLOOD PROTECTION                                     |\n|                 │     Levees / floodwalls → keep flow in channel          |\n|                 │     Flood bypass → divert excess to safe area           |\n|                 │     Floodplain buyouts → remove people from risk        |\n|                 │                                                         |\n|                 ▼                                                         |\n|           DAM / RESERVOIR  ◄── key: STORES WATER for multiple services   |\n|                 │                                                         |\n|                 ├──► HYDROPOWER (turbines in penstock)                    |\n|                 ├──► WATER SUPPLY (intake → treatment → distribution)    |\n|                 ├──► IRRIGATION (canals, drip, sprinkler)                |\n|                 └──► FLOOD CONTROL (rule curve + controlled release)     |\n|                                                                           |\n|  KEY INTERACTION: storage enables all services; flood/supply/power       |\n|  COMPETE for the same reservoir volume — managed by rule curves           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "### Dam Types",
+      "confidence": "candidate",
+      "text": "GRAVITY DAM:\n  Resists water pressure by weight of dam itself\n  Material: mass concrete or roller-compacted concrete (RCC)\n  Cross-section: triangular profile (widest at base, where hydrostatic pressure max)\n  Forces: water pressure (horizontal), weight (vertical), uplift (pore pressure in foundation)\n  Safety: factor of safety against sliding ≥ 1.5, against overturning ≥ 2.0\n  Examples: Grand Coulee (US), Hoover (US), Three Gorges (China)\n\nARCH DAM:\n  Transfers water pressure laterally to canyon walls (abutments)\n  Can be very thin → less concrete → lower cost in narrow canyons\n  Requires: sound canyon wall rock (carries horizontal arch thrust)\n  Profile: curved in plan view; arch-gravity: curved + heavy\n  Examples: Hoover is actually arch-gravity; Vajont (collapsed 1963)\n\nEMBANKMENT DAM:\n  Earth or rock fill; most common dam type worldwide\n  Two types:\n    Earthfill: compacted clay core (impervious) + gravel/rock shells\n    Rockfill: rock shells + clay or concrete core (or geomembrane face)\n  FAILURE MODE: OVERTOPPING (most common earthfill failure)\n    → designed with large emergency spillways to prevent overtopping\n    Internal erosion (piping): seepage through dam entrains soil particles\n      → progressive erosion → internal tunnel → failure\n      → prevents by: filter and drainage layers, compaction\n  Examples: Tarbela (Pakistan — largest by volume), Aswan High Dam (Egypt)\n\nBUTTRESS DAM:\n  Hollow: concrete face supported by buttresses (fins)\n  Less concrete than gravity dam; requires sound foundation\n  Rare today (RCC made gravity dams cheaper)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### Reservoir Hydraulics",
+      "confidence": "candidate",
+      "text": "SPILLWAYS AND OUTLETS:\n\n  SPILLWAY: overflow structure for flood routing\n    Free flow (uncontrolled): water spills when reservoir fills\n    Gated (controlled): gates regulate flow; allows higher surcharge storage\n\n  SPILLWAY DESIGN FLOOD (SDF):\n    How large a flood must the spillway handle?\n    Consequence classification:\n      Low hazard (undeveloped downstream): 10–50 yr return period\n      Significant hazard: 100–500 yr\n      High hazard (dense population below): 1000-yr to PMF (Probable Maximum Flood)\n    PMF (Probable Maximum Flood): derived from PMP (Probable Maximum Precipitation)\n      Theoretical maximum precipitation from atmospheric physics\n      Used for high-hazard structures: nuclear plants, major dams\n\n  OUTLET WORKS:\n    Valve/gate structures at base of dam\n    Controls releases for: downstream flow, irrigation water supply, power generation\n    Must operate during and after major floods\n\nRESERVOIR SEDIMENTATION:\n  Rivers carry sediment → enters slow-moving reservoir → deposits\n  Trap efficiency (TE): fraction of incoming sediment deposited\n    TE ≈ function of reservoir capacity / annual inflow (Brune curve)\n    TE > 95% for large reservoirs (almost all sediment trapped)\n\n  CONSEQUENCES:\n    Reservoir capacity decreases over time (most lose 1–2% per year)\n    Dead storage (below lowest outlet): fills with sediment\n    Downstream: sediment-starved → incision, delta retreat, beach starvation\n    Colorado River: Hoover + Glen Canyon dams trap ~100% of sediment\n      → Grand Canyon riverbed incised, Colorado Delta destroyed\n    Major Nile Delta erosion since Aswan High Dam (1970)\n\n  FLUSHING: periodic controlled releases to scour sediment\n    Effective for thin-drawdown reservoirs; difficult for deep reservoirs\n  VENTING TURBIDITY CURRENTS: allow sediment-laden floods through low-level outlets\n  BYPASS CHANNEL: route sediment-laden floods around reservoir",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Levees",
+      "confidence": "candidate",
+      "text": "LEVEE TYPES:\n  Earthen: compacted soil embankment (most common)\n  Concrete floodwall: vertical structure (urban areas, limited space)\n  Sheet pile: steel or concrete sections driven into ground (temporary, emergency)\n\nLEVEE DESIGN:\n  Height = design flood water surface elevation + freeboard\n    Freeboard: safety margin, typically 0.5–1.5 m (protects against wave action, uncertainty)\n  Side slopes: 2H:1V to 3H:1V (flatter is more stable)\n  Foundation: key trench or cutoff wall to prevent underseepage\n\nLEVEE FAILURE MODES:\n  Overtopping: flood exceeds levee height → water flows over → rapid erosion\n    → 75%+ of levee failures historically\n  Seepage/piping: water seeps through or under levee → internal erosion\n    → detectable by: wet spots on land side, sand boils (artesian sand eruptions)\n  Slope failure: saturated levee → reduced shear strength → sliding failure\n    Saturation-induced failure: typically occurs AFTER flood recedes\n    (seepage pressure highest when flood drops rapidly)\n\nLEVEE SYSTEMS AND FALSE SECURITY:\n  Levees rated to specific event (e.g., 100-yr event)\n  Property development fills in behind levees (because \"protected\")\n  When exceeded: CATASTROPHIC failure (no gradual flooding)\n    vs. unleveed floodplain: gradual inundation, lower damage\n  New Orleans Katrina 2005: levees failed at BELOW design event\n    → risk was much higher than advertised → \"levee effect\" of encouraging floodplain development\n  Sacramento-San Joaquin Delta: 1100 km of aging levees protecting\n    ~1 million hectares below sea level → \"California's Katrina waiting to happen\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Urban Hydrology and Impervious Cover",
+      "confidence": "candidate",
+      "text": "URBAN EFFECTS ON HYDROLOGY:\n  Impervious surfaces (roofs, roads, parking): fast runoff response\n    CN goes from 55–70 (natural) to 90–98 (urban)\n    Tc (time of concentration) decreases dramatically: 6 hr → 1 hr\n    Peak flow increases: typically 3–10× natural\n  Stormwater drainage systems: storm sewers accelerate runoff to streams\n  Combined sewers: mix stormwater + sanitation → overflow during storms (CSOs)\n    → water quality problem; phase-out in US required by Clean Water Act\n\nTRADITIONAL (\"GRAY\") STORMWATER INFRASTRUCTURE:\n  Storm sewers: pipes (concrete, HDPE) collecting runoff from streets\n  Inlet: curb catch basin → collector pipe → outfall to stream\n  Design: Rational method, 5-yr or 10-yr return period event\n  Limitations: only manages quantity; doesn't remove pollutants; expensive\n\nCONVENTIONAL DETENTION BASIN:\n  Pond that temporarily stores stormwater during storms\n  Outlet: small orifice + spillway\n  Design: attenuate post-development peak flow to pre-development rates\n  Volume: computed from routing (detention ∝ time × Qin - Qout)\n  Limitation: volume-based — can control 2-yr and 10-yr peaks but not water quality well",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "### Green Infrastructure (GI) / Low-Impact Development (LID)",
+      "confidence": "candidate",
+      "text": "PRINCIPLE: Manage stormwater where it falls — retain, infiltrate, evapotranspire\n  Rather than: collect fast → pipe → stream\n\nBIORETENTION (RAIN GARDEN):\n  Shallow depression planted with native plants + engineered soil mix\n  Stormwater enters → pools → infiltrates through engineered media\n  Media: sand-compost mix → supports plant growth + treats runoff quality\n  Underdrain: perforated pipe at bottom (if native soils too impermeable)\n  Size: typically 5–20% of contributing impervious area\n  Water quality: removes: TSS 85–90%, TN 40–60%, TP 60–80%, metals 85–95%\n  Flood control: depends on sizing\n\nPERMEABLE PAVEMENT:\n  Pervious concrete, porous asphalt, interlocking pavers with gaps\n  Runoff infiltrates through surface → storage in gravel base → drain/infiltrate\n  Load-bearing: can support vehicles (parking lots, low-traffic roads)\n  Maintenance: vacuum sweeping to prevent clogging (critical!)\n  Not suitable: fine-grained soils (slow infiltration), steep slopes, spill areas\n\nGREEN ROOF:\n  Extensive: 3–10 cm growing media, succulents (Sedum), 10–30 kg/m²\n  Intensive: 15–100+ cm growing media, garden, 50–300 kg/m²\n  Stormwater retention: 40–80% of annual rainfall retained (evapotranspired)\n  Cooling: significant urban heat island mitigation\n  Structural requirement: extensive adds ~12 kg/m² to existing structure\n\nBIOSWALE / VEGETATED SWALE:\n  Open channel with vegetation, designed to slow runoff + allow infiltration\n  Check dams: small berms slow flow in swale → longer residence time\n  Replaces: traditional concrete-lined drainage channels\n  Works for: linear drainage paths (roadsides, parking lot borders)\n\nTREE BOXES / INFILTRATION TRENCHES:\n  Underground storage + tree canopy interception\n  Continuous walls of soil alongside roads\n  Intercepts roof runoff + sidewalk runoff\n  Very effective per $ in dense urban areas\n\nGI PERFORMANCE METRICS:\n  Retention: total stormwater volume captured (not released)\n  Detention: peak flow attenuation (delay and slow)\n  Water quality: pollutant removal (%) for TSS, nutrients, metals\n  In practice: GI designed to manage \"small frequent storms\" (80th percentile ~1–1.5 inch event)\n  Extreme events: GI supplemented by conventional detention basins",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "### Source Types and Reliability",
+      "confidence": "candidate",
+      "text": "SOURCE SELECTION CRITERIA:\n  Quantity: adequate annual yield to meet demand (with safety factor)\n  Reliability: 95–99% probability of meeting demand in any year\n  Quality: treatability (less costly to treat = better source)\n  Location: proximity to demand (pump costs, pipe lengths)\n  Regulatory: permitting, senior water rights, interstate compact\n\nSOURCE TYPES:\n  Surface water: rivers, lakes, reservoirs\n    + High yield, renewable\n    - Variable quality and quantity; vulnerable to drought; requires treatment\n  Groundwater: wells in aquifers\n    + Usually better quality (natural filtration), reliable, distributed\n    - Can be overdrafted (non-renewable), subsidence, contamination risk\n  Rainwater harvesting: roof collection → cisterns\n    + No pumping energy\n    - Variable supply, limited capacity, requires treatment\n  Treated wastewater (direct/indirect potable reuse):\n    + Large volume, consistent\n    - Public acceptance, advanced treatment required\n    Indirect reuse: discharged to stream/aquifer, then re-withdrawn (existing de facto reuse)\n    Direct potable reuse (DPR): treat to drinking water standards → direct to distribution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### Reservoir Yield Analysis",
+      "confidence": "candidate",
+      "text": "SAFE YIELD OF RESERVOIR:\n  Maximum constant draft that can be maintained throughout a critical drought\n  Critical drought: worst sequence of below-average inflows in historical record\n\n  MASS CURVE METHOD (Ripple, 1882):\n    Plot cumulative inflow vs. time\n    Required storage = maximum deficit between cumulative demand and cumulative inflow\n    Graphically: largest \"sag\" on the mass balance curve\n\n  STOCHASTIC ANALYSIS:\n    Generate synthetic streamflow sequences (preserve mean, variance, lag-1 autocorrelation)\n    Monte Carlo: thousands of simulations → yield-reliability-storage relationships\n    Design: select storage for desired reliability (95%, 99%, etc.)\n\n  RULE CURVES:\n    Operating rules: when to release, when to withhold, conservation pool levels\n    Flood control pool: empty space reserved for flood storage at top of reservoir\n    Conservation pool: stored water for supply\n    Dead storage: below outlets (sedimentation sink)\n    Top of dam (emergency spillway crest)\n    ┌──────────────────────┐\n    │ Flood control pool   │\n    │                      │\n    │ Conservation pool    │\n    │                      │\n    │ Dead storage         │\n    └──────────────────────┘\n      Flood control pool: empty in winter, can store flood.\n      Conservation pool:  water supply, hydropower, recreation.\n      Dead storage:       below outlets, fills with sediment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "### Water Distribution Systems",
+      "confidence": "candidate",
+      "text": "DISTRIBUTION SYSTEM DESIGN:\n  Pressure requirement: minimum 140 kPa (20 psi) at service connections\n                        280+ kPa (40 psi) at fire hydrants\n  System pressure: controlled by storage tanks / pressure zones\n  Pressure zones: separate zones for elevation differences (>45 m → separate zone)\n  Network modeling: Hardy-Cross or Newton-Raphson node-based analysis\n    (Iterative solution to nonlinear pipe network equations — same as circuit analysis)\n\nPIPE SIZING (Hazen-Williams):\n  V = 0.849 × C × R^0.63 × S^0.54    (velocity in m/s)\n  Q = A × V\n\n  C = Hazen-Williams coefficient (roughness):\n    Ductile iron (new): C = 130\n    Ductile iron (old): C = 100–120\n    PVC: C = 150\n    Concrete: C = 120\n\n  Friction loss: h_f = 10.67 × L × Q^1.852 / (C^1.852 × D^4.87)\n\nPIPE MATERIALS:\n  Ductile iron (DI): standard for large mains (100–1200 mm), 50+ yr life\n  PVC: service lines and smaller mains (12–400 mm), corrosion-resistant\n  HDPE: flexible, trenchless installation, corrosion-resistant\n  Concrete cylinder: large-diameter water mains (600–3600 mm)\n  Lead service lines: LEGACY PROBLEM\n    Used extensively pre-1950 in US\n    Still present in ~6–10 million US homes (estimate)\n    Corrosion → lead leaching → especially harmful to children (neurotoxic)\n    Lead service line replacement programs: ~$60 billion national need\n\nWATER DEMAND:\n  Per capita: 200–400 L/day (US, includes commercial/industrial)\n    Residential: ~150–250 L/person/day\n  Peak day: 1.5–2.5 × average day (seasonal variation, summer irrigation)\n  Peak hour: 2–4 × average day (morning/evening peaks)\n  Fire demand: 30–60 L/s for 2 hr (for residential areas — larger for commercial)\n  System must meet: max hour domestic + fire demand simultaneously",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "## Hydropower",
+      "confidence": "candidate",
+      "text": "HYDROPOWER POTENTIAL:\n  P = η × ρ × g × Q × H\n\n  P = power (W)\n  η = efficiency (0.85–0.95 for modern turbines)\n  ρ = water density (1000 kg/m³)\n  g = 9.81 m/s²\n  Q = flow rate (m³/s)\n  H = head (height water falls, m)\n\n  EXAMPLE: Q=100 m³/s, H=50 m, η=0.90\n    P = 0.90 × 1000 × 9.81 × 100 × 50 = 44 MW\n\nTURBINE TYPES:\n  High head (>30 m): Pelton (impulse), Francis\n    Pelton: very high head (200–2000 m), spoon-shaped buckets, jet deflection\n    Francis: medium-high head (10–600 m), spiral casing, radial-axial flow\n  Low head (<30 m): Kaplan, propeller, run-of-river bulb turbines\n    Kaplan: adjustable-pitch propeller blades → efficient over wide flow range\n    Best for: large rivers with small head (Columbia, St. Lawrence, Rhine)\n\nPUMPED STORAGE HYDROPOWER (PSH):\n  Largest grid-scale energy storage technology (90%+ of global grid storage by capacity)\n  Off-peak: pump water uphill (cheap electricity → potential energy)\n  Peak: release water to generate power (sell at peak price)\n  Round-trip efficiency: ~75–80%\n  Response time: <30 seconds → crucial for grid frequency regulation\n  Examples: Bath County (US, 3003 MW), Hoover (US), Bieudron (Switzerland, 1269 MW)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "## Bridges from CS and Engineering",
+      "confidence": "candidate",
+      "text": "WATER ENGINEERING CONCEPT     CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nPipe network analysis         Kirchhoff's circuit laws on a flow graph\n  (Hardy-Cross method)\n  Node equations: Σ Q_in = Σ Q_out  → KCL: current conservation at each node\n  Loop equations: Σ h_f = 0         → KVL: head loss around any closed loop = 0\n  Head loss h_f = r·Q^n            → nonlinear \"resistance\" (n ≈ 1.85 Hazen-Williams)\n  Hardy-Cross: iterative Δ-correction → Newton-Raphson on system of loop equations\n  Modern solvers (EPANET)          → sparse linear system at each Newton iteration\n\nReservoir rule curve          Finite-state machine / control policy\n  Zones: flood, conservation,  → states with different operating rules\n    buffer, dead pool\n  Level threshold triggers     → state transitions based on measured level\n    different release policies\n  Competing objectives         → multi-objective optimization (Pareto frontier):\n    flood control vs. supply     maximize supply reliability subject to flood risk\n    vs. power vs. ecology        (same as SLA tradeoff in service engineering)\n\nSpillway design (PMF routing) Worst-case stress test for fail-safe\n  PMF = Probable Maximum Flood → design load = worst credible input (not just\n  Route through reservoir        historical max — analogous to chaos engineering\n  Check: does water top dam?     scenarios exceeding observed failures)\n\nReservoir sedimentation       Log-structured storage with compaction problem\n  Sediment settles in delta    → incoming writes accumulate in delta (new data)\n  Trap efficiency: 95–99%      → nearly all load captured; no escape\n  Dead storage lost forever    → write amplification with no reclaim path\n  Flushing/sluicing            → compaction / space reclamation operation\n\nDetention basin routing       Discrete-time low-pass filter\n  dS/dt = I(t) - Q(t)         → integrator with bounded state\n  Q = f(S) via stage-discharge → output as function of state (nonlinear)\n  Storage-indication method    → explicit solution: rearrange to isolate Q(t)\n                                  from known S+I; same as z-transform approach\n\nWater hammer (transient flow) Acoustic pressure wave in pipe\n  Joukowsky: ΔP = ρ·c·ΔV      → wave equation; c = speed of sound in pipe\n  Valve closure time < 2L/c   → destructive resonance; pipes burst\n  Pressure relief valves       → circuit breakers for over-pressure\n  Surge tanks                  → impedance matching (reduce wave reflection)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 471,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Green infrastructure doesn't replace conventional for large storms**: GI (rain gardens, bioretention, permeable pavement) is excellent for small, frequent storms (the 80th percentile storm ~25 mm / 1 inch). For 100-year flood events, you still need large detention basins and conveyance. A comprehensive stormwater system uses GI at the lot level + detention at the sub-basin level + major drainage at the basin level.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

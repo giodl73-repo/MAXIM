@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "oceanography\\03-WAVES-TIDES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                  OCEAN WAVES — CLASSIFICATION BY PERIOD                   |\n+===========================================================================+\n|                                                                           |\n|  CAPILLARY     WIND     SWELL    INFRAGRAVITY  TIDES    TSUNAMIS          |\n|  WAVES         WAVES    WAVES    WAVES                                    |\n|  ─────────     ─────    ─────    ────────────  ─────    ────────          |\n|  < 0.1 s      1–25 s   10–25s   25s–5 min     12–24 h  5 min–1 hr        |\n|  Surface      Wind      Distant  Near-shore    Lunar/   Seismic           |\n|  tension      driven    wind     coupling      solar    origin            |\n|  restoring    wind      swell    currents      gravity  long wave         |\n|                                                                           |\n+===========================================================================+\n|  RESTORING FORCES:                                                        |\n|    Surface tension dominates: capillary waves (<1.73 cm wavelength)       |\n|    Gravity dominates: all longer waves                                    |\n|    Coriolis dominates: planetary waves (Rossby, Kelvin)                   |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "### Two Limiting Cases",
+      "confidence": "candidate",
+      "text": "DEEP WATER (kh >> 1, i.e., h >> λ/4π):\n  tanh(kh) → 1\n  ω² = gk\n  Phase speed: c_p = ω/k = √(g/k) = √(gλ/2π)\n  Group speed: c_g = dω/dk = c_p/2  ← HALF of phase speed\n\n  Example: λ = 100 m → c_p = √(9.81×100/2π) ≈ 12.5 m/s (27 knots)\n\nSHALLOW WATER (kh << 1, i.e., h << λ/4π):\n  tanh(kh) → kh\n  ω² = gk²h\n  Phase speed: c_p = √(gh)\n  Group speed: c_g = c_p  ← NON-DISPERSIVE (all frequencies same speed)\n\n  Example: h = 4000 m (open ocean) → c_p = √(9.81×4000) ≈ 200 m/s\n  (This is why tsunamis are fast: λ >> depth → shallow-water waves)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### Wave Energy and Group Velocity",
+      "confidence": "candidate",
+      "text": "ENERGY DENSITY:\n  E = (1/2)ρg a²   [J/m²]\n\n  where a = amplitude, ρ = water density\n\n  For a 2 m amplitude wave: E ≈ ½ × 1025 × 9.81 × 4 ≈ 20,000 J/m²\n\nENERGY PROPAGATION:\n  Energy travels at GROUP VELOCITY c_g, not phase velocity c_p\n\n  For deep-water waves: c_g = c_p/2\n    → Individual crests move THROUGH the wave group\n    → Watch a wave group from above: crests appear at back, travel forward,\n       vanish at front — like a \"Mexican wave\" at a stadium\n    → Energy envelope travels at half the crest speed\n\nWAVE TRAINS AND SWELL:\n  Wind generates broadband spectrum of waves (many frequencies)\n  Dispersion separates them: longer wavelengths travel faster\n  → Distant swell arrives as nearly monochromatic waves\n     (long waves arrived first, short ones are still en route)\n  Surfers track Southern Ocean storms by swell period:\n    20 s period swell → arrived from far away → long deep-ocean swell\n    8 s period → local or regional generation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Wave Breaking and Surf Zone",
+      "confidence": "candidate",
+      "text": "DEEP WATER WAVE SHOALING:\n\n  As waves approach shallow water (h decreasing):\n    c_p ∝ √h → slows down\n    Energy conservation: E × c_g = const (no dissipation)\n    As c_g decreases, E must increase → amplitude increases (shoaling)\n\n  Wave steepness: ε = a/λ\n    Breaking occurs when ε ~ 1/7 (empirical criterion)\n    or when wave height ≥ 0.78 × water depth (shallow water)\n\nBREAKER TYPES:\n  Spilling breaker:   gentle slope, small ε → foam from crest downward\n  Plunging breaker:   steeper slope → overturning crest (\"barrel\")\n  Surging breaker:    very steep slope → wave runs up without breaking\n\nSURF ZONE DYNAMICS:\n  Breaking waves → radiation stress gradient → drives longshore current\n  (current parallel to beach, in direction of wave approach)\n  Longshore current → longshore sediment transport → coastal morphology",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Tsunamis",
+      "confidence": "candidate",
+      "text": "TSUNAMI PHYSICS:\n\n  Seismic source (usually subduction zone megathrust) displaces seafloor\n  → vertical displacement of water column\n  → Very long wavelength wave (100–1000 km) compared to ocean depth\n  → SHALLOW WATER WAVE regardless of ocean depth\n\n  Open ocean:\n    λ ~ 500 km, h ~ 4 km\n    c = √(gh) = √(9.81 × 4000) ≈ 200 m/s ≈ 720 km/h (jet airliner speed)\n    Amplitude: ~0.1–1 m (barely detectable at sea surface)\n    Period: 10 min to 2 hr\n\n  Approaching shore:\n    Depth decreases → c decreases → wave slows and amplifies\n    Shoaling: amplitude ∝ h^(-1/4)\n    Runup: can reach 30–40 m above sea level (2011 Tohoku: 40 m in places)\n\n  DART BUOY NETWORK:\n    Bottom pressure sensors detect tsunami (~1 Pa change at 6000 m depth)\n    Transmit to surface buoy → satellite → warning centers\n    Warning time: 0 min (local) to ~8 hr (trans-Pacific)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### Tidal Forcing",
+      "confidence": "candidate",
+      "text": "TIDAL FORCE = differential gravitational pull\n\n  Moon's gravity on near-side ocean > gravity at Earth center > far-side ocean\n  Net: two tidal bulges — one toward Moon, one away\n\n  LUNAR TIDAL FORCE MAGNITUDE:\n    F_tidal ∝ M_Moon × R_Earth / D³\n    Maximum: ~1.1×10⁻⁷ g (11 millionths of Earth gravity)\n    Small, but acts over the entire ocean → resonance amplification\n\n  SUN'S CONTRIBUTION:\n    Sun is ~390× farther away, 27 million× more massive\n    F_sun / F_moon ≈ 0.46  (Sun's tidal force ~46% of Moon's)\n    → Spring tides (Moon+Sun aligned): ≈ 1.46× lunar alone\n    → Neap tides (Moon-Sun at 90°): ≈ 0.54× lunar alone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Tidal Constituents (Harmonic Analysis)",
+      "confidence": "candidate",
+      "text": "TIDAL HARMONIC DECOMPOSITION:\n  Real tidal signal = sum of discrete sinusoidal constituents\n\n  PRINCIPAL CONSTITUENTS:\n  Symbol  Period      Description\n  ──────  ──────      ───────────\n  M2      12.42 hr    Principal lunar semi-diurnal (largest globally)\n  S2      12.00 hr    Principal solar semi-diurnal\n  N2      12.66 hr    Larger lunar elliptic semi-diurnal\n  K1      23.93 hr    Lunisolar diurnal\n  O1      25.82 hr    Principal lunar diurnal\n  P1      24.07 hr    Principal solar diurnal\n  M4      6.21 hr     Shallow-water harmonic (1/4 diurnal)\n\n  Spring tide: M2 + S2 in phase (every ~14.77 days)\n  Perigean spring tide: M2 amplified when Moon at perigee\n\n  The ~37 major constituents account for >99% of tidal variance at any station.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## Dynamic Tides — Real Ocean Response",
+      "confidence": "candidate",
+      "text": "TIDAL RESONANCE:\n  If ocean basin length L = (2n-1) × quarter wavelength of M2:\n    c = √(gh), T = 12.42 hr → λ = c × T\n    h = 4000 m → c = 200 m/s → λ = 200 × 44,712 s = 8,942 km\n    Quarter wavelength = 2,235 km\n\n  Bay of Fundy: L ≈ 270 km, h ≈ 80 m → T_resonance ≈ 13.3 hr (close to M2!)\n    → Fundy tides: up to 16 m range (highest on Earth)\n\n  North Sea: L ≈ 600 km, h ≈ 60 m → resonance near M2 → 5–7 m tides",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## Amphidromic Points",
+      "confidence": "candidate",
+      "text": "AMPHIDROMIC SYSTEM:\n\n  Coriolis effect + basin geometry → tidal wave becomes a ROTATING WAVE\n  (Kelvin wave rotating around a basin)\n\n  AMPHIDROMIC POINT: node where tidal amplitude = zero\n  Cotidal lines radiate outward from amphidromic point\n  Co-range lines form closed curves around amphidromic point\n\n  In Northern Hemisphere:\n    Tidal wave rotates COUNTER-CLOCKWISE around amphidromic point\n    (Coriolis deflects to the right → Kelvin wave hugs right-hand coast)\n\n  In Southern Hemisphere: rotates CLOCKWISE\n\n  North Atlantic M2 tidal system:\n    ~3 amphidromic points\n    Tidal range: 0 m at amphidromic point, up to 8+ m at resonant coasts\n\nASCII MAP OF N. ATLANTIC TIDAL SYSTEM (schematic):\n                                     High tidal range: English Channel, Bay of Fundy\n                      ↗ cotidal line\n    ·Amphidromic point  ← near-zero range at center\n  ↙↗ cotidal lines rotate counterclockwise\n                                     ↘ cotidal line toward S. America",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "## Tidal Power and Dissipation",
+      "confidence": "candidate",
+      "text": "TOTAL TIDAL ENERGY DISSIPATION: ~3.7 TW\n\nWHERE IT GOES:\n  ~2.5 TW  Deep-sea internal tides (wave generation over ridge topography)\n  ~0.7 TW  Shallow-water dissipation (bottom friction, turbulence)\n  ~0.5 TW  Internal seiches in enclosed seas\n\n  Deep-ocean internal tide mixing (from ~2.5 TW):\n    This drives ~half of the diapycnal mixing required to maintain\n    the thermohaline circulation — critical link!\n    Without tidal mixing, deep water wouldn't upwell efficiently.\n\nTIDAL BRAKING:\n  Tidal dissipation transfers angular momentum from Earth's rotation to Moon\n  → Earth's rotation slowing: +1.4 ms/century to day length\n  → Moon receding: +3.8 cm/yr from Earth\n  (Measured by lunar laser ranging since 1969 Apollo retroreflectors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "## Kelvin Waves and Coastal Trapping",
+      "confidence": "candidate",
+      "text": "KELVIN WAVE:\n  Rotating wave that propagates along a coastline or equator\n  Cannot exist in open ocean — requires boundary to prevent Coriolis deflection\n\n  COASTAL KELVIN WAVE:\n    Propagates with coast on its RIGHT (N. Hemisphere)\n    Decays exponentially away from coast with e-folding scale = Rossby radius\n    Phase speed: c = √(gh) (same as shallow-water gravity wave)\n    Key role: tidal propagation along coasts, wind-driven coastal surges\n\n  EQUATORIAL KELVIN WAVE:\n    Propagates eastward along equator (equator acts as \"waveguide\")\n    Period: weeks to months\n    Phase speed: ~2.8 m/s for baroclinic mode\n    KEY ROLE IN EL NIÑO:\n      Anomalous westerly wind burst in central Pacific\n      → downwelling equatorial Kelvin wave propagates east at ~2.8 m/s\n      → reaches South American coast in ~2 months\n      → depresses thermocline off Peru\n      → warm water anomaly → El Niño SST signal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "## Storm Surge",
+      "confidence": "candidate",
+      "text": "STORM SURGE MECHANISM:\n  Two effects:\n  1. Inverse barometer: 1 hPa pressure drop → ~1 cm sea level rise\n     Major hurricane: central pressure ~940 hPa = 70 hPa drop → ~70 cm surge\n  2. Wind stress: sustained onshore winds pile water against coast\n     η = τ × L / (ρ g h)\n     where τ = wind stress, L = fetch, h = water depth\n     Can produce 3–6 m surges in shallow shelf seas\n\n  CATASTROPHIC SURGES:\n    Bangladesh 1970 Bhola cyclone: ~6 m surge, ~500,000 deaths\n    Hurricane Katrina 2005: ~8–9 m surge over low-lying New Orleans\n    2013 Typhoon Hainan (Haiyan): ~6 m surge, central Philippines\n\n  STORM SURGE vs. TSUNAMI:\n    Both are long waves → shallow-water wave physics\n    Storm surge: slow rise over hours (synoptic timescale forcing)\n    Tsunami: arrive as discrete waves, period 10 min–1 hr\n    Storm surge can be superimposed on astronomical tide → compound event",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 396,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Storm surge ≠ wave height**: Storm surge is the quasi-static sea level elevation. Waves ride on top of the surge. Total water level during a storm = tide + surge + wave setup + individual wave height. Katrina's 8 m storm surge still had 10 m waves on top in some areas.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 402,
+      "heading_context": "## Rogue Waves",
+      "confidence": "candidate",
+      "text": "GENERATION MECHANISMS (several compete):\n  1. LINEAR FOCUSING:\n     Directional spread + varying currents can geometrically focus\n     wave energy to a point — purely linear, no nonlinearity needed\n     Steep opposing currents (Agulhas, Gulf Stream) known hotspots\n\n  2. NONLINEAR (Benjamin-Feir instability):\n     Modulation instability: uniform wave train amplifies side-band\n     perturbations → energy concentrates into large packets\n     NLS (nonlinear Schrödinger equation) governs this regime\n     Also responsible for optical rogue waves in fiber lasers\n\n  3. WAVE-CURRENT INTERACTION:\n     Opposing current → wave compresses (shorter λ) → steepens\n     → focusing into rogue event\n     Documented mechanism in Agulhas current (SA to Indian Ocean)\n\nSTATISTICS:\n  Linear theory: P(H > 2H_s) ~ 10⁻⁴ (very rare)\n  Observed: significantly more frequent (~10⁻³ in some datasets)\n  Difference = evidence of nonlinear focusing\n\nPRACTICAL ENGINEERING IMPACT:\n  Offshore platform design: 100-year return wave used in structural codes\n  Pre-Draupner: rogue wave dismissed as mariners' tales\n  Post-2000 satellite data: confirmed frequent occurrence globally\n  CMAX/MaxWave programs: systematic satellite measurement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:rivers-floodplains
+kind: guide
+module: hydrology
+section: hydrology
+title: Rivers and Floodplains - Channel Morphology, Manning Equation, Meandering, Sediment Transport
+status: source-custody
+source_custody: partial
+current_path: hydrology/04-RIVERS-FLOODPLAINS.md
+canonical_path: hydrology/04-RIVERS-FLOODPLAINS.md
+backsource_ids: [proof-backfill:hydrology:04-rivers-floodplains, git-history:hydrology:04-rivers-floodplains]
+concepts: [rivers, floodplains]
+root_concepts: [rivers, floodplains]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rivers and Floodplains — Channel Morphology, Manning Equation, Meandering, Sediment Transport
 
 ## The Big Picture

@@ -1,0 +1,2393 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-hydrology-watershed-analysis",
+  "source": "../../hydrology",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#000",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "# Watershed Analysis — Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#001",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#002",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                  WATERSHED ANALYSIS AS GRAPH THEORY                       |\n|         A drainage network is a directed acyclic graph on a DEM           |\n+===========================================================================+\n|                                                                           |\n|  DIGITAL ELEVATION MODEL (DEM) — raster grid of elevation values          |\n|      │                                                                    |\n|      ▼ Flow direction algorithm (D8, D-inf, MFD)                         |\n|  FLOW DIRECTION GRID — each cell points to lowest neighbor                |\n|      │                                                                    |\n|      ▼ Flow accumulation (upstream cell count)                           |\n|  FLOW ACCUMULATION GRID — each cell: # of upstream cells                 |\n|      │                                                                    |\n|      ├──► STREAM NETWORK — cells with accumulation > threshold            |\n|      │         Graph topology: tributary confluence = node merge          |\n|      │                                                                    |\n|      └──► WATERSHED BOUNDARY — all cells draining to a given outlet      |\n|               = divide (ridgeline) connecting highest surrounding cells   |\n|               = catchment area contributing to outlet                    |\n|                                                                           |\n+===========================================================================+\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#003",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#004",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Digital Elevation Models (DEMs)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#005",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nDEM DATA SOURCES:"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#006",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "SRTM (Shuttle Radar Topography Mission, 2000):\n    1 arc-second (~30 m) resolution globally\n    Radar interferometry (C-band + X-band)\n    Vertical accuracy: ~5–10 m RMSE (varies by terrain)\n    Gap-filled in some problematic areas\n    Free globally via USGS EarthExplorer"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#007",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "ALOS PALSAR (Japan):\n    12.5 m resolution globally\n    Good forest penetration (L-band radar sees through canopy)\n    Best available global DEM for forested terrain"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#008",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "ASTER GDEM (Terra satellite):\n    30 m resolution, photogrammetric stereo method\n    Noisier than SRTM in flat terrain; better over high-relief areas"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#009",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "USGS 3DEP (US only):\n    1 m (urban, high-priority), 3 m, 10 m resolution\n    LiDAR-derived in many areas — most accurate available\n    BareSurface vs. Surface (includes vegetation) — critical distinction for hydrology"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#010",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "LIDAR DEMs:\n    Airborne LiDAR: 0.5–1 m resolution, ±5–15 cm vertical accuracy\n    Ground point filtering removes buildings and vegetation → bare-earth DEM\n    Required for accurate floodplain mapping"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#011",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "DEM PREPROCESSING:\n  Hydrological conditioning: essential before flow routing\n    Pit filling: sink cells (depressions) filled to ensure continuous drainage\n    (Natural depressions in landscape: wetlands, lakes → problem for flow routing)\n    Burning streams: carve stream channel into DEM where known location\n    (Prevents \"leaking\" of streams across ridges due to DEM error)\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#012",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#013",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Flow Direction Algorithms"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#014",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nD8 ALGORITHM (most common):\n  Each cell drains to ONE of 8 neighbors (N, NE, E, SE, S, SW, W, NW)\n  Choice: steepest descent neighbor\n  Slope to each neighbor: Δz / distance (diagonal = √2 × cell size)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#015",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "LIMITATION: all flow concentrated to single path\n  → artificial flow concentration, poor lateral dispersion\n  → problematic for divergent hillslopes (ridges)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#016",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "D-INFINITY (Tarboton, 1997):\n  Flow direction = continuous angle (0–2π)\n  Flow split between two adjacent cells based on angle\n  Better represents divergent hillslope flow\n  Computational cost: higher"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#017",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "MFD (Multiple Flow Direction):\n  Flow distributed to all downslope neighbors, weighted by slope\n  Best for representing broad wetland flow and diffuse hillslope drainage\n  Poor for defined channel networks (too diffuse)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#018",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "PRACTICAL CHOICE:\n  D8: stream networks, watershed delineation (sharp drainage divides) ✓\n  D-infinity: hillslope flow paths, shallow groundwater\n  MFD: broad floodplain inundation, wetland flow\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#019",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#020",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Flow Accumulation and Stream Network Extraction"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#021",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nFLOW ACCUMULATION ALGORITHM:\n  For each cell: count all cells upstream (including self) = 1 + sum of upstream cells\n  Terminal cells: value = 1 (no one drains to them)\n  Outlet cell: value = total cells in watershed"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#022",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "This is a topological sort on the flow-direction DAG (directed acyclic graph)\n  Computationally: O(n log n) or better with spatial partitioning"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#023",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "STREAM NETWORK EXTRACTION:\n  Threshold T: cells with accumulation > T are \"stream cells\"\n  T too high → few long streams (misses small tributaries)\n  T too low → every cell is a stream (unrealistic)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#024",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "CALIBRATION:\n    Match extracted channel heads to field verification or high-resolution imagery\n    Often: T equivalent to 0.1–1 km² contributing area for humid region streams\n    Arid: larger threshold (channels only form with larger contributing area)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#025",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "STREAM NETWORK STATISTICS:\n    Channel density = total stream length / watershed area (km/km²)\n    Stream frequency = number of streams / watershed area (streams/km²)\n    Bifurcation ratio (Rb): count(order-n streams) / count(order-(n+1) streams)\n      Typical Rb = 3–5\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#026",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#027",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Strahler Stream Order"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#028",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nSTRAHLER ORDERING SYSTEM (1952):\n  Fingertip tributaries (headwaters): order 1\n  Two order-1 streams join → order 2\n  Two order-2 streams join → order 3\n  Two streams of SAME order join → increment by 1\n  Lower order meets higher order → higher order continues (no change)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#029",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n       1──┐\n       1──┘ → 2──┐\n       1──┐      │ → 3──┐\n       1──┘ → 2──┘      │ → 4\n       1──┐              │\n       1──┘ → 2──┐      │\n              2──┘ → 3──┘"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#030",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "The MAIN STEM is the highest-order stream through the basin.\n  Mississippi River: ~9th order (drainage basin: 3.2 million km²)\n  Typical small catchment stream: 1st–3rd order\n  Amazon: ~12th order"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#031",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "HORTON'S LAWS (derived from Strahler order):\n  Law of stream numbers:  N(w) = R_b^(Ω-w)\n    N(w) = number of streams of order w\n    R_b = bifurcation ratio (~3–5)\n    Ω = basin order (highest order)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#032",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Law of stream lengths:  L(w) = L_1 × R_L^(w-1)\n    R_L = length ratio (~1.5–3.5)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#033",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Law of drainage areas:  A(w) = A_1 × R_A^(w-1)\n    R_A = area ratio (~3–6)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#034",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "These self-similar scaling laws = fractal structure of river networks\n  The drainage network is a self-similar branching fractal\n  (same geometric structure at multiple scales → Hack's law, Tokunaga trees)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#035",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TOPOLOGICAL NETWORK PROPERTIES:\n  Bifurcation ratio R_b controls flood peak timing:\n    High R_b (less branching) → more synchronized tributary peaks → flashier floods\n    Low R_b → more staggered arrivals → attenuated peak\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#036",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#037",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Watershed Delineation"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#038",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nDELINEATION ALGORITHM:\n  Given outlet point (pour point) on DEM:\n  1. Start at outlet cell\n  2. Identify all cells that drain to outlet (trace upstream through flow-direction grid)\n  3. Boundary = all cells at the edge of contributing area"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#039",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "IMPLEMENTATION: simple BFS/DFS on flow-direction grid\n    Similar to connected components algorithm on a graph\n    Efficient O(n) once flow-direction grid is computed"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#040",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TOPOGRAPHIC INDICES:"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#041",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TOPOGRAPHIC WETNESS INDEX (TWI):\n    TWI = ln(a / tan(β))\n    a = specific upslope contributing area (m²/m) = flow accumulation × cell width\n    β = local slope angle"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#042",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "High TWI → large upslope area + gentle slope → saturated, wetland areas\n    Low TWI → small upslope area + steep → well-drained, upland areas\n    Used to: identify soil moisture patterns, probable saturation zones,\n             prime locations for wetlands, saturated excess runoff generation"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#043",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "STREAM POWER INDEX (SPI):\n    SPI = a × tan(β)\n    Proxy for erosive power of water at a point\n    High SPI → high-energy gully and channel formation potential"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#044",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "SLOPE POSITION CLASSIFICATION:\n    Combine TWI, curvature, elevation within catchment\n    → ridgetop, shoulder, backslope, footslope, toeslope, channel\n    Widely used in soil mapping, terrain analysis"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#045",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "WATERSHED BOUNDARY PRECISION:\n  DEM resolution limits accuracy:\n    30 m DEM → watershed boundary uncertainty ±30 m\n    1 m LiDAR → boundary uncertainty ±1 m\n  Flat terrain (< 0.1% slope): major errors in flow routing\n    (Small elevation errors redirect drainage over large areas)\n  Coastal and tidal areas: dynamic boundary that changes with tide\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#046",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#047",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Drainage Network Patterns"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#048",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nPLAN-VIEW DRAINAGE PATTERNS (visible on maps, reflect underlying geology):"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#049",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "DENDRITIC:\n    Tree-like, random branching\n    Uniform substrate (isotropic geology)\n    Most common pattern in nature"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#050",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "PARALLEL:\n    Tributaries nearly parallel\n    Uniform regional slope or parallel structural fabric (dikes, faults)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#051",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TRELLIS:\n    Main streams perpendicular to tributaries\n    Folded sedimentary rock (ridges and valleys)\n    Example: Valley and Ridge province, Appalachians"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#052",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "RECTANGULAR:\n    Right-angle bends in streams\n    Jointed or faulted bedrock (fractures at 90°)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#053",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "RADIAL:\n    Streams radiate outward from a central high point\n    Volcanic cone, dome uplift\n    Example: Mt. Rainier, Black Hills"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#054",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "ANNULAR:\n    Streams follow concentric arcs around a dome\n    Eroded structural dome with alternating hard/soft rock rings"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#055",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "DERANGED:\n    No clear pattern, many lakes, poorly integrated\n    Recently glaciated terrain (Laurentian Shield, Scandinavia)\n    Glaciers destroy pre-existing drainage → new drainage slowly developing"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#056",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "DRAINAGE PATTERN → QUICK GEOLOGICAL DIAGNOSIS:\n  Trellis → folded Appalachian-type geology\n  Radial → volcanic or dome structure\n  Deranged → glaciated terrain\n  Dendritic → homogeneous geology, mature drainage\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#057",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#058",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Hydrograph Response and Catchment Properties"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#059",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nRUNOFF RESPONSE CHARACTERISTICS:"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#060",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "FLASHY CATCHMENT:\n    Small area, steep slopes, impervious cover (urban), sparse vegetation\n    Short Tc, high peak flows, rapid recession\n    High Rb (bifurcation ratio)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#061",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "SLOW RESPONSE CATCHMENT:\n    Large area, gentle slopes, forested, permeable soils, many lakes/wetlands\n    Long Tc, low peak flows relative to rainfall, slow recession\n    Low Rb, high storage"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#062",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TIME OF CONCENTRATION METHODS:\n  Kirpich (1940): Tc = 0.0195 L^0.77 S^-0.385\n    L = channel length (m), S = channel slope\n    Simple, widely used for small catchments"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#063",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "SCS Lag Method: Tc = Tlag / 0.6\n    Tlag = CN-based lag time from SCS formulas"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#064",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Velocity-area method: Tc = Σ(L_i / V_i)\n    Sum of travel times through different segments\n    V from Manning equation for each segment"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#065",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "SPECIFIC DISCHARGE (UNIT AREA RUNOFF):\n  q = Q / A (m³/s/km²)\n  Allows comparison of runoff rates between different-sized catchments\n  Flood frequency: \"unit area\" scale is standardized across basins\n  For example: 100-yr specific discharge maps show regional pattern\n    (eastern US: 1–5 m³/s/km², arid SW: 0.01–0.1 m³/s/km²)\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#066",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#067",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## GIS and Computational Tools"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#068",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nSTANDARD HYDROLOGICAL GIS WORKFLOW:"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#069",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "DATA → DEM preparation → Pit filling → Flow direction → Flow accumulation\n       → Stream network → Watershed delineation → Morphometric analysis"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#070",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TOOLS:\n  ArcGIS Hydrology toolbox (Arc Hydro): industry standard, expensive\n  QGIS + SAGA GIS: open source, capable, free\n  TauDEM (Terrain Analysis Using Digital Elevation Models):\n    Utah State University, command-line, parallel processing\n    Best for large DEMs (national-scale analysis)\n  GRASS GIS r.watershed: classic, robust, open source\n  Whitebox GAT: free academic tool, excellent teaching/research\n  SWAT (Soil and Water Assessment Tool): full watershed simulation model\n    Uses DEM + soil + land use + weather → continuous water balance simulation\n    Widely used for NPS pollution, climate change impact studies"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#071",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "LARGE-SCALE PRODUCTS:\n  HydroBASINS: Pfafstetter watershed coding system, global drainage basins\n    Pfafstetter code: 0–9 at each level, encodes topology\n    10-level hierarchy → each drainage basin has unique 10-digit code\n  HydroSHEDS: global hydrological data derived from SRTM\n  NHDPlus (US National Hydrography Dataset): national stream network + attributes\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#072",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#073",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## CS Bridges — Watershed Analysis as Graph Algorithms"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#074",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "```\nWATERSHED CONCEPT             CS / GRAPH EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nDEM raster                    Weighted grid graph (implicit adjacency)\n  Each cell = node              → 8-connected grid (D8) or continuous (D-inf)\n  Elevation difference = weight → directed edge to steepest downslope neighbor"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#075",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Flow direction grid (D8)      Functional graph (each node has exactly 1 out-edge)\n  Cycles impossible             → DAG (gravity guarantees no cycles after pit-fill)\n  Flat areas ambiguous          → tie-breaking heuristics (same as DFS on tie)"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#076",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Flow accumulation             Topological sort + prefix sums upstream\n  Process nodes in topo order   → add 1 + upstream contributions\n  Result at outlet              → total node count in reachable subgraph\n  Complexity: O(n)              → linear pass after O(n log n) sort"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#077",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Watershed delineation         Reverse-graph BFS/DFS from outlet\n  Reverse all edge directions   → compute nodes reachable from outlet\n  Result = connected component  → exactly the \"upslope contributing area\""
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#078",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Pit filling                   Making DAG property hold globally\n  Fill sinks to overflow point  → repair a broken topological ordering\n  Essential preprocessing step  → same role as cycle-breaking in DAG analysis"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#079",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Strahler stream order         Binary tree node labeling\n  Two order-k nodes join → k+1  → exactly the \"Strahler number\" of a binary tree\n  Headwaters (leaves) = 1       → leaf label = 1; propagate up by merge rule\n  Horton's scaling laws         → tree-wide self-similar (fractal) branching stats"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#080",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "TWI = ln(a / tan β)           Log-odds of saturation probability\n  Large upslope area a          → high \"upstream supply\" (like in-degree)\n  Steep slope β                 → fast drainage (low residence time)\n  High TWI → probable saturation → inverse of drainage capacity / supply"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#081",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Pfafstetter coding system     Hierarchical spatial index (trie over basins)\n  10-level hierarchy            → prefix tree; basin = path from root to leaf\n  Digit encodes topology        → branching structure recoverable from code alone"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#082",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "Bifurcation ratio Rb          Branching factor of drainage tree\n  Rb = count(order n)/count(n+1) → average branching factor across tree levels\n  High Rb → more tributaries    → wider, shallower tree → synchronized peaks\n  Low Rb → fewer, larger joins  → deeper, balanced tree → staggered peaks\n```"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#083",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "02-WATERSHED-ANALYSIS.md#084",
+      "path": [
+        "02-WATERSHED-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:hydrology:02-watershed-analysis, git-history:hydrology:02-watershed-analysis]",
+        "canonical_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "concepts": "[watershed, analysis]",
+        "current_path": "hydrology/02-WATERSHED-ANALYSIS.md",
+        "id": "maxim:hydrology:watershed-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "hydrology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[watershed, analysis]",
+        "section": "hydrology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Watershed Analysis - Watershed Delineation, DEM Analysis, Strahler Stream Order, Drainage Density",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|----------|--------|\n| What algorithm delineates watersheds from a DEM? | D8 flow direction → flow accumulation → upslope trace from outlet |\n| What is Strahler order? | Hierarchical stream ordering; two same-order streams join → increment; headwaters = 1 |\n| What does TWI indicate? | Topographic Wetness Index: high = likely saturated/wetland; low = well-drained upland |\n| What is bifurcation ratio? | Count(order n) / Count(order n+1); typically 3–5; controls flood peak timing |\n| What DEM resolution is needed for accurate watershed delineation? | Depends on catchment size; LiDAR (1 m) for urban/floodplain; 10–30 m for regional |\n| What is a deranged drainage pattern? | No organized pattern; many lakes; recently glaciated terrain |\n| Why burn streams into a DEM? | Force hydrological flow direction to match known channel locations; prevent routing errors |\n| What controls Tc? | Channel slope, channel length, roughness; smaller/steeper catchment → shorter Tc |"
+    }
+  ],
+  "refs": [
+    "02-WATERSHED-ANALYSIS.md"
+  ]
+}

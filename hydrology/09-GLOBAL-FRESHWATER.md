@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hydrology:global-freshwater
+kind: guide
+module: hydrology
+section: hydrology
+title: Global Freshwater - Freshwater Scarcity, Virtual Water, Transboundary Rivers, Groundwater Depletion
+status: source-custody
+source_custody: partial
+current_path: hydrology/09-GLOBAL-FRESHWATER.md
+canonical_path: hydrology/09-GLOBAL-FRESHWATER.md
+backsource_ids: [proof-backfill:hydrology:09-global-freshwater, git-history:hydrology:09-global-freshwater]
+concepts: [global, freshwater]
+root_concepts: [global, freshwater]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global Freshwater — Freshwater Scarcity, Virtual Water, Transboundary Rivers, Groundwater Depletion
 
 ## The Big Picture

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "oceanography\\07-OCEAN-CHEMISTRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                  SEAWATER CHEMICAL STRUCTURE                              |\n+===========================================================================+\n|                                                                           |\n|  MAJOR IONS (> 1 mmol/kg)     CONSERVATIVE TRACERS                       |\n|  ─────────────────────────    ────────────────────                        |\n|  Cl⁻     548 mmol/kg  19.4 g/kg   Salinity, Na⁺, Cl⁻ ratios              |\n|  Na⁺     470 mmol/kg  10.8 g/kg   constant relative to each other        |\n|  SO₄²⁻   28 mmol/kg   2.65 g/kg   → diagnostic of water mass mixing       |\n|  Mg²⁺    53 mmol/kg   1.27 g/kg                                           |\n|  Ca²⁺    10 mmol/kg   0.41 g/kg   NON-CONSERVATIVE (consumed/produced)    |\n|  K⁺      10 mmol/kg   0.38 g/kg   ─────────────────────────────────────   |\n|  HCO₃⁻    2.3 mmol/kg 0.14 g/kg   O₂, CO₂, nutrients (NO₃,PO₄,Si)       |\n|  Br⁻     0.84 mmol/kg 0.07 g/kg   → vary with biological activity        |\n|                                                                           |\n|  RESIDENCE TIMES (ocean water mass exchange):                             |\n|  Cl⁻ > 10⁸ yr   SO₄²⁻ ~10⁷ yr   Na⁺ ~7×10⁷ yr   Ca²⁺ ~10⁶ yr           |\n|  (long residence = conservative; short = reactive)                        |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "## Conservative vs. Non-Conservative Ions",
+      "confidence": "candidate",
+      "text": "RULE OF CONSTANT PROPORTIONS (Forchhammer, 1865):\n  Major ions maintain constant proportions relative to chlorinity\n  regardless of total salinity.\n  → Na⁺/Cl⁻ ≈ 0.858 everywhere in open ocean\n  → Mg²⁺/SO₄²⁻ ratio constant\n\n  WHY: Residence times >> ocean mixing timescale (~1000 yr)\n  So any regional input is diluted/mixed globally before significant change\n\n  VIOLATIONS OF CONSTANT PROPORTIONS:\n    Hydrothermal vents: remove Mg²⁺, SO₄²⁻ from seawater\n    Anoxic basins (Black Sea): SO₄²⁻ depleted by sulfate reduction\n    Evaporite formation: Ca²⁺, SO₄²⁻ removed\n    River input: different composition from seawater\n    These are real but small perturbations in the open ocean\n\nMAJOR ION RESIDENCE TIMES:\n  Cl⁻:   230 million yr     (hardly ever removed — conservative)\n  Na⁺:   83 million yr\n  Mg²⁺:  13 million yr      (removed by hydrothermal vents)\n  SO₄²⁻: 11 million yr      (removed by diagenesis, some hydrothermal)\n  Ca²⁺:  1.1 million yr     (removed by CaCO₃ precipitation, biologically)\n  K⁺:    12 million yr\n  HCO₃⁻: ~100,000 yr       (reactive via carbonate system)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "### Equilibria",
+      "confidence": "candidate",
+      "text": "CO₂ SYSTEM IN SEAWATER:\n\n  CO₂(atm) ⇌ CO₂(aq)                    KH = Henry's constant\n  CO₂(aq) + H₂O ⇌ H₂CO₃                K0\n  H₂CO₃ ⇌ H⁺ + HCO₃⁻                   pK1 ≈ 6.0 at 25°C, 35 PSU\n  HCO₃⁻ ⇌ H⁺ + CO₃²⁻                   pK2 ≈ 9.1 at 25°C, 35 PSU\n\n  Together: CO₂(aq) + H₂O ⇌ H⁺ + HCO₃⁻ (dominant at ocean pH)\n\nTHE FOUR VARIABLES — know any two, calculate all others:\n  DIC  = dissolved inorganic carbon = [CO₂] + [HCO₃⁻] + [CO₃²⁻]   ~2100 μmol/kg\n  TA   = total alkalinity ≈ [HCO₃⁻] + 2[CO₃²⁻] + [B(OH)₄⁻] + ...  ~2350 μeq/kg\n  pH   = −log[H⁺]                                                    8.1–8.3\n  pCO₂ = partial pressure of CO₂                                     ~410 μatm (2024)\n\nOCEAN SURFACE pH: ~8.1 (slightly alkaline, dominated by HCO₃⁻ at this pH)\n  DIC speciation at pH 8.1:\n    CO₂(aq): ~1% of DIC\n    HCO₃⁻: ~91% of DIC  ← dominant species\n    CO₃²⁻: ~8% of DIC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "### Buffering — The Revelle Factor",
+      "confidence": "candidate",
+      "text": "BJERRUM PLOT (species fractions vs. pH):\n  pH < 6:   CO₂(aq) dominant\n  pH 6–9:   HCO₃⁻ dominant   ← seawater range\n  pH > 9:   CO₃²⁻ dominant\n\nREVELLE FACTOR (buffer factor):\n  Revelle factor R = (ΔpCO₂/pCO₂) / (ΔDIC/DIC)\n\n  R ≈ 9–15 depending on temperature and current DIC/TA state\n  HIGH R (warm water, high pCO₂) → less efficient CO₂ buffer\n  LOW R (cold water, high CO₃²⁻) → more efficient CO₂ buffer\n\n  R ≈ 10 means: to increase DIC by 1%, pCO₂ must increase 10%\n  → Ocean is a LESS efficient CO₂ buffer than you might expect from total DIC\n\n  CONSEQUENCE:\n    As we add CO₂, R increases (less CO₃²⁻ available)\n    → Future ocean less efficient at absorbing CO₂\n    → Carbon cycle feedback: atmospheric CO₂ increases faster as R increases\n\nALKALINITY CONTROLS:\n  Alkalinity dominated by carbonate/bicarbonate, borate\n  Biological CaCO₃ PRECIPITATION removes TA:\n    Ca²⁺ + 2HCO₃⁻ → CaCO₃ + CO₂ + H₂O  (decreases TA and DIC)\n    Net effect: raises pCO₂ in surface water slightly (counterintuitive)\n  CaCO₃ DISSOLUTION increases TA → better pH buffering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Ocean Acidification",
+      "confidence": "candidate",
+      "text": "ANTHROPOGENIC CO₂ → OCEAN ACIDIFICATION:\n\n  Since preindustrial (~1750):\n    Atmospheric CO₂: 280 → 420 ppm (2024) (+50%)\n    Ocean surface pCO₂: ~280 → ~415 μatm\n    Ocean surface pH: ~8.18 → ~8.08 (−0.10 pH units, ongoing)\n    [H⁺] increased ~26% (because pH is logarithmic)\n    [CO₃²⁻] decreased ~25–30% since preindustrial\n\n  RCP 8.5 projection (high emissions):\n    2100: pH → ~7.75 (total drop ~0.4 units)\n    [CO₃²⁻] → ~50% of preindustrial\n    Aragonite saturation Ω → <1 in Arctic/Antarctic by 2050s\n\nSATURATION STATE:\n  Ω_calcite = [Ca²⁺][CO₃²⁻] / K'sp\n  Ω > 1: supersaturated → CaCO₃ stable (organisms can precipitate shells)\n  Ω = 1: saturation horizon\n  Ω < 1: undersaturated → CaCO₃ dissolves\n\n  Modern surface: Ω_calcite ≈ 5–6 (tropics), ~2 (Arctic)\n  Modern surface: Ω_aragonite ≈ 3–4 (tropics), ~1–1.5 (Arctic)\n  Aragonite more soluble than calcite:\n    Many corals, pteropods build aragonite → more vulnerable\n\nBIOLOGICAL IMPACTS:\n  Calcifiers under stress when Ω < ~2 (not just when Ω < 1):\n    Pteropods: shells dissolve rapidly when Ω_aragonite < 1\n    Oyster larvae: massive die-offs in Pacific Northwest hatcheries (2007–2008)\n    Cold-water corals: lose skeleton formation ability, already in undersaturated water\n    Tropical coral reefs: combined stress of warming + acidification\n    Benefit?: some organisms grow faster in mildly elevated CO₂ (CO₂ fertilization,\n    seagrasses, some macroalgae, coccolithophores — but offset by other stressors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Nutrient Cycles",
+      "confidence": "candidate",
+      "text": "REDFIELD RATIO:\n  In bulk phytoplankton biomass:\n    C : N : P = 106 : 16 : 1 (by atoms) — Redfield (1934)\n\n  Oceanic dissolved nutrient ratio ~ Redfield:\n    → Biological uptake and remineralization maintain it globally\n    → Suggests C, N, P cycling are coupled by biology\n\n  MODERN REFINEMENT: \"Extended Redfield\":\n    (CH₂O)₁₀₆(NH₃)₁₆(H₃PO₄)(H₄SiO₄)₁₅ including silica for diatoms\n    C:N:P:Si = 106:16:1:15 (for siliceous phytoplankton)\n\nMACRO NUTRIENTS:\n  NO₃⁻ (nitrate): limiting nutrient in most of ocean\n    Surface: depleted (< 1 μM) in subtropical gyres\n    Deep: ~30–45 μM in North Atlantic deep water, ~43 μM in deep Pacific\n    Remineralization: organic N → NH₄⁺ → NO₂⁻ → NO₃⁻ (nitrification)\n\n  PO₄³⁻ (phosphate): rarely limiting in open ocean; limiting in some lakes\n    Deep ocean: ~2.5 μM (Atlantic) to ~3.5 μM (Pacific)\n    No gaseous phase → harder to fix new phosphorus\n\n  Si(OH)₄ (silicic acid): limiting for diatoms/radiolaria/sponges\n    Deep ocean: varies widely (5–180 μM)\n    Much higher in deep Pacific/Southern Ocean\n\nMICRO NUTRIENTS:\n  Fe (iron): LIMITING nutrient in Southern Ocean, equatorial Pacific, N. Pacific\n    (HNLC regions: High Nutrient, Low Chlorophyll)\n    Surface: <1 nM, often <0.1 nM\n    Sources: atmospheric dust, sediment diffusion, hydrothermal vents, glacial meltwater\n    Iron fertilization experiments (IRONEX, SOIREE): confirmed iron limitation\n    Southern Ocean iron limit reduces efficiency of biological carbon pump globally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## The Biological Pump",
+      "confidence": "candidate",
+      "text": "BIOLOGICAL CARBON PUMP:\n\n  Surface:  CO₂ fixation by phytoplankton → organic particles\n  Sinking:  ~20% of surface production sinks below thermocline\n            ~5–10% reaches seafloor\n  Deep:     Remineralization releases CO₂ to deep water\n  Burial:   <0.5% of surface production buried in sediment (permanent removal)\n\n  EXPORT PRODUCTION: ~10 GtC/yr sink below 100 m globally\n  BURIAL: ~0.1 GtC/yr buried in sediment\n\n  PUMP EFFICIENCY CONTROLS:\n    Bloom formation: large cells, aggregates → fast sinking (>100 m/day)\n    Grazing: mesozooplankton fecal pellets = efficient sink vector\n    Ballast: dense mineral particles (CaCO₃, SiO₂) accelerate sinking\n    Microbial loop: small cells reprocessed in surface → don't sink (leak back)\n\nBIOLOGICAL PUMP + CARBONATE PUMP:\n  Soft tissue pump: organic C sinking → deep DIC increase (reduces alkalinity near surface)\n  Carbonate pump: CaCO₃ shells sinking → transfers alkalinity to deep\n    Net surface effect: raises pCO₂ slightly\n    Deep effect: CaCO₃ dissolution restores alkalinity\n  The two pumps work in opposition for pH and pCO₂ but together for deep DIC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## Oxygen Minimum Zones (OMZ)",
+      "confidence": "candidate",
+      "text": "OMZ FORMATION:\n\n  Respiration of sinking organic matter consumes O₂ at mid-depth (200–1000 m)\n  Slow ventilation (sluggish circulation, far from O₂ source) → O₂ not replenished\n  Threshold: O₂ < 20 μmol/kg → aerobic fauna excluded\n  Extreme OMZ: O₂ < 1 μmol/kg → euxinic conditions\n\n  LOCATION OF MAJOR OMZs:\n    Eastern Pacific (California, Peru upwelling zones): most intense global OMZs\n    Arabian Sea and Bay of Bengal (Indian Ocean): large OMZs\n    Eastern Atlantic: moderate\n    Deep Black Sea: permanently anoxic below 200 m (classic example)\n\n  DENITRIFICATION IN OMZ:\n    When O₂ → 0: bacteria use NO₃⁻ as terminal electron acceptor\n    NO₃⁻ → NO₂⁻ → N₂O → N₂ (nitrogen gas)\n    → PERMANENT REMOVAL of fixed nitrogen from ocean\n    → N₂O (potent greenhouse gas) released to atmosphere from OMZ boundaries\n    OMZ denitrification ~ 60% of global marine N loss\n\nCLIMATE AND OMZ EXPANSION:\n  Warming → less O₂ solubility → lower baseline O₂\n  Increased stratification → less ventilation → less O₂ supply\n  Observed: OMZs expanding (~5% per decade in some regions since 1960s)\n  Implication: denitrification increases → less fixed N for productivity\n  → Negative feedback on primary production",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Trace Metals and Isotopes",
+      "confidence": "candidate",
+      "text": "TRACE METAL DISTRIBUTIONS (nutrient-type vs. scavenged-type):\n\n  NUTRIENT-TYPE (correlate with nutrients, depleted at surface):\n    Fe, Zn, Ni, Cd — taken up by phytoplankton, remineralized at depth\n\n  SCAVENGED-TYPE (short residence time, removed by particle adsorption):\n    Al, Pb, Th — depleted in deep water, higher near particle sources\n    ²³⁴Th/²³⁸U disequilibrium: particle flux tracer (residence time ~24 days)\n\n  CONSERVATIVE-TYPE (no biological interaction):\n    Li, Cs, Rb — behave like salinity\n\n  KEY EXAMPLE — Cadmium:\n    Cd/phosphate ratio is nearly constant in seawater (Cd follows PO₄)\n    Cd/Ca ratio in foraminifera fossils → paleoproxy for deep water nutrients\n    → reconstructs ancient ocean circulation patterns\n\nSTABLE ISOTOPES AS PROXIES:\n  δ¹³C: biological fractionation (light carbon preferentially fixed by photosynthesis)\n    Deep water δ¹³C decreases as organic matter remineralized → old water is ¹³C-depleted\n    δ¹³C of foram shells → reconstructs ancient ocean circulation\n  δ³⁴S: sulfur cycling in sediments\n  ⁸⁷Sr/⁸⁶Sr: conservative (residence ~5 Myr) → records continental weathering rates\n  δ¹¹B: pH proxy in foram shells (boron speciation pH-dependent)\n    Used to reconstruct past ocean pH → past atmospheric CO₂",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "## Dissolved Organic Carbon (DOC)",
+      "confidence": "candidate",
+      "text": "DOC POOLS AND THEIR DYNAMICS:\n\n  TOTAL OCEAN DOC: ~660 GtC\n    Surface water:  ~60–80 μmol/kg   (biologically active zone)\n    Deep water:     ~34–40 μmol/kg   (old, refractory)\n\n  BIOAVAILABILITY SPECTRUM:\n  ┌────────────────────────────────────────────────────────┐\n  │ Labile DOC          │ Remineralized hours-days         │\n  │                     │ ~1–10% of production             │\n  │                     │ Fuels microbial loop             │\n  ├────────────────────────────────────────────────────────┤\n  │ Semi-labile DOC     │ Remineralized months-decades    │\n  │                     │ Seasonal accumulation/export    │\n  ├────────────────────────────────────────────────────────┤\n  │ Refractory DOC      │ Millennial residence time        │\n  │ (RDOC)              │ ~6,000 yr average deep water     │\n  │                     │ ~94% of ocean DOC inventory      │\n  └────────────────────────────────────────────────────────┘\n\nORIGIN OF REFRACTORY DOC:\n  Photochemical transformation: UV creates unreactive molecules\n  Microbial transformation: \"microbial carbon pump\" —\n    bacteria consume labile DOC, release refractory byproducts\n    (mucopolysaccharides, melanin-like compounds)\n  This is analogous to a chemical refinery that converts\n  reactive feedstocks into inert stable products as a\n  byproduct of processing\n\nCARBON FLUX SIGNIFICANCE:\n  ~0.4 GtC/yr enters deep ocean as DOC via thermohaline sinking\n  Comparable to export production via biological pump (~0.5–1 GtC/yr burial)\n  DOC behaves as a slow-release carbon reservoir: temperature-sensitive\n  remineralization means warming could mobilize some RDOC → positive feedback\n\nMEASUREMENT:\n  High-temperature combustion (HTC): dominant modern method\n  Wet chemical oxidation: historical\n  DOC concentration maps reveal: upwelling, river plumes, vent plumes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

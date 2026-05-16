@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oceanography:ocean-currents
+kind: guide
+module: oceanography
+section: oceanography
+title: Ocean Currents - Geostrophic Flow, Gyres, Western Boundary Intensification, Ekman Transport, Upwelling
+status: source-custody
+source_custody: partial
+current_path: oceanography/04-OCEAN-CURRENTS.md
+canonical_path: oceanography/04-OCEAN-CURRENTS.md
+backsource_ids: [proof-backfill:oceanography:04-ocean-currents, git-history:oceanography:04-ocean-currents]
+concepts: [ocean, currents]
+root_concepts: [ocean, currents]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean Currents — Geostrophic Flow, Gyres, Western Boundary Intensification, Ekman Transport, Upwelling
 
 ## The Big Picture
