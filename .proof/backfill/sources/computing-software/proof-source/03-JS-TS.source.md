@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "03-JS-TS.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:computing-software:javascript-typescript
 kind: guide
