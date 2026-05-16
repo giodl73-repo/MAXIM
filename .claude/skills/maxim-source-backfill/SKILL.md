@@ -80,6 +80,13 @@ It also checks every registry shaft path exists.
 
 ## Rules
 
+- For content maintenance after backfill, edit the canonical numbered guide in
+  the module directory first, then rerun this helper with `--validate`.
+- Do not hand-edit generated source-corpus outputs unless the task explicitly
+  changes the generator/schema: `.proof/backfill/sources/**`,
+  `.proof/backfill/modules/**`, `.crop/views/**`, `.pebble/packs/**`, and
+  `.fletch/registries/**` are regenerated from the guide source.
+- Commit source guide edits and regenerated outputs together.
 - Do not mark source custody complete in first pass.
 - Preserve existing frontmatter values when present.
 - Keep CROP/PEBBLE/PROOF interpretation out of FLETCH core; FLETCH only fetches

@@ -12,6 +12,36 @@
 
 ---
 
+## Source-First Editing Rule
+
+MAXIM now treats the numbered module guides as the canonical source for the
+source-corpus pipeline.
+
+1. **Edit source guides first.** Make content changes in the numbered guide files
+   under the module directory, for example `computing/01-PACKAGE.md` or
+   `religious-studies/00-OVERVIEW.md`.
+2. **Do not hand-edit generated source-corpus artifacts.** Treat these paths as
+   derived output unless a task explicitly changes the generator/schema:
+   `.proof/backfill/sources/**`, `.proof/backfill/modules/**`, `.crop/views/**`,
+   `.pebble/packs/**`, and `.fletch/registries/**`.
+3. **Regenerate after source edits.** After changing a module guide, run the
+   source-backfill helper for that module:
+
+   ```powershell
+   python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py `
+     --module-dir <module-dir> `
+     --module-id <module-id> `
+     --validate
+   ```
+
+   Use `--module-id computing-software` for the legacy `computing/` module;
+   otherwise the module id normally matches the directory name.
+4. **Commit source and regenerated outputs together.** A content change is not
+   complete until the guide, PROOF source markdown/sidecars, CROP views, PEBBLE
+   packs, FLETCH registry, and validation results all agree.
+
+---
+
 ## Project Purpose
 
 A **self-authored reference library** organized by field. Each field is a subdirectory containing numbered guides. Every guide follows the same format: layered ASCII diagrams, mental models, practical comparisons, and decision cheat sheets. Never dumbed down.
