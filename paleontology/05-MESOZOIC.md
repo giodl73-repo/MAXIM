@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:mesozoic
+kind: guide
+module: paleontology
+section: paleontology
+title: Mesozoic Era - Triassic Recovery, Jurassic Giants, Cretaceous Flowering Plants and Birds, K-Pg Boundary
+status: source-custody
+source_custody: partial
+current_path: paleontology/05-MESOZOIC.md
+canonical_path: paleontology/05-MESOZOIC.md
+backsource_ids: [proof-backfill:paleontology:05-mesozoic, git-history:paleontology:05-mesozoic]
+concepts: [mesozoic]
+root_concepts: [mesozoic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mesozoic Era — Triassic Recovery, Jurassic Giants, Cretaceous Flowering Plants and Birds, K-Pg Boundary
 
 ## The Big Picture

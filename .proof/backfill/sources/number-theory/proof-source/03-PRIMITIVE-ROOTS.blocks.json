@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\03-PRIMITIVE-ROOTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|          MULTIPLICATIVE STRUCTURE OF Z/pZ                          |\n+====================================================================+\n|                                                                    |\n|  (Z/pZ)* = {1, 2, ..., p-1}  under multiplication mod p          |\n|                                                                    |\n|  This is a CYCLIC GROUP of order p-1                              |\n|                                                                    |\n|       g (primitive root) generates everything:                     |\n|  g¹, g², g³, ..., g^{p-1} = 1  hits all of (Z/pZ)*              |\n|                                                                    |\n|  DISCRETE LOGARITHM (DLP):                                        |\n|  Given g, a, p — find x such that gˣ ≡ a (mod p)                  |\n|                                                                    |\n|  ┌─────────────────┐         ┌──────────────────────────┐         |\n|  │  EASY direction │         │  HARD direction (DLP)    │         |\n|  │  gˣ mod p       │         │  log_g(a) mod p          │         |\n|  │  O(log x) steps │         │  best: sub-exp time      │         |\n|  │  (square+mult.) │         │  (index calculus)        │         |\n|  └─────────────────┘         └──────────────────────────┘         |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### Baby-Step Giant-Step (BSGS)",
+      "confidence": "candidate",
+      "text": "Goal: find x with gˣ ≡ a (mod p). Let m = ⌈√(p-1)⌉.\nWrite x = im - j where 0 ≤ i,j < m.\nThen gˣ = g^{im-j} = (g^m)^i · g^{-j} ≡ a\n         → (g^m)^i ≡ a · gʲ\n\nAlgorithm:\n  Baby steps: Compute a·gʲ for j = 0,...,m-1. Store in hash table.\n  Giant steps: Compute (g^m)^i for i = 0,...,m-1. Look up in table.\n  Match: output x = im - j.\n\nComplexity: Time O(√p), Space O(√p).\n  For p ≈ 2^{128}: √p ≈ 2^{64} — completely infeasible.\n  This is why DH parameters need p of 2048+ bits.\n  This is why ECC at 256 bits gives equivalent security to RSA at 3072 bits\n  (ECDLP requires O(√p) with p≈2^{256}, DLP in Z/pZ requires sub-exp).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 218,
+      "heading_context": "## Comparison: DLP vs ECDLP",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n| PROBLEM    | GROUP           | Best attack   | Security bits      |\n+-------------------------------------------------------------------+\n| DLP        | (Z/pZ)*         | Index calculus| 128-bit: p≈3072b  |\n|            |                 | sub-exp time  | 256-bit: p≈15360b |\n+-------------------------------------------------------------------+\n| ECDLP      | E(F_p) (ellip-  | BSGS/Pollard  | 128-bit: p≈256b    |\n|            | tic curve group)| rho: O(√p)    | 256-bit: p≈512b    |\n+-------------------------------------------------------------------+\n\nKey insight: No sub-exponential algorithm is known for ECDLP in general.\n  For generic groups, BSGS is optimal (Shoup's lower bound).\n  ECC gives much smaller key sizes for equivalent security.\n  RSA-2048 ≈ ECC-224 in security level.\n\nBoth broken by Shor's algorithm on a quantum computer.\nPost-quantum alternative: SVP/CVP in lattices (not broken by Shor).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

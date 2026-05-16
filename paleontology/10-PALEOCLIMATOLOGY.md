@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:paleoclimatology
+kind: guide
+module: paleontology
+section: paleontology
+title: Paleoclimatology - Proxy Records, Greenhouse/Icehouse Cycles, PETM, Ice Cores
+status: source-custody
+source_custody: partial
+current_path: paleontology/10-PALEOCLIMATOLOGY.md
+canonical_path: paleontology/10-PALEOCLIMATOLOGY.md
+backsource_ids: [proof-backfill:paleontology:10-paleoclimatology, git-history:paleontology:10-paleoclimatology]
+concepts: [paleoclimatology]
+root_concepts: [paleoclimatology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paleoclimatology — Proxy Records, Greenhouse/Icehouse Cycles, PETM, Ice Cores
 
 ## The Big Picture
@@ -107,7 +126,7 @@ CLIMATE FEEDBACK LOOP DIAGRAM (control systems view):
   │     → Enhanced silicate weathering (faster kinetics at higher T)     │
   │     → CaSiO₃ + CO₂ → CaCO₃ + SiO₂ (Urey reaction)                    │
   │     → CO₂ drawdown → cooling (timescale: 10⁴–10⁶ yr)                 │
-  │     → Negative feedback: LONG delay; not fast enough for short events│
+  │     → Negative feedback: LONG delay; too slow for short events       │
   │                                                                      │
   │  CO₂ ↑                                                               │
   │     → Enhanced plant growth → more organic C burial → CO₂ ↓          │

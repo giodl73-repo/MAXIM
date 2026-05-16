@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:cryptography-connections
+kind: guide
+module: number-theory
+section: number-theory
+title: Number Theory in Cryptography
+status: source-custody
+source_custody: partial
+current_path: number-theory/10-CRYPTOGRAPHY-CONNECTIONS.md
+canonical_path: number-theory/10-CRYPTOGRAPHY-CONNECTIONS.md
+backsource_ids: [proof-backfill:number-theory:10-cryptography-connections, git-history:number-theory:10-cryptography-connections]
+concepts: [cryptography, connections]
+root_concepts: [cryptography, connections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Number Theory in Cryptography
 
 ## The Big Picture

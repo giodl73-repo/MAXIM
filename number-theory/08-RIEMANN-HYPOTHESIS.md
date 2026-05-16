@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:riemann-hypothesis
+kind: guide
+module: number-theory
+section: number-theory
+title: The Riemann Hypothesis
+status: source-custody
+source_custody: partial
+current_path: number-theory/08-RIEMANN-HYPOTHESIS.md
+canonical_path: number-theory/08-RIEMANN-HYPOTHESIS.md
+backsource_ids: [proof-backfill:number-theory:08-riemann-hypothesis, git-history:number-theory:08-riemann-hypothesis]
+concepts: [riemann, hypothesis]
+root_concepts: [riemann, hypothesis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Riemann Hypothesis
 
 ## The Big Picture
@@ -321,12 +340,12 @@ GRAND RIEMANN HYPOTHESIS (GRH extended):
 
 | If you want to... | RH says... |
 |------------------|-----------|
-| Bound π(x) error tightly | |π(x)-Li(x)| < (1/8π)√x·ln x |
+| Bound π(x) error tightly | \|π(x)-Li(x)\| < (1/8π)√x·ln x |
 | Make Miller-Rabin deterministic | Test bases a ≤ 2(ln n)² under ERH |
 | Understand prime gaps | p_{n+1}-p_n = O(√p_n log p_n) |
 | Use Robin's criterion | σ(n) < eᵞ·n·ln(ln n) for n>5040 |
 | Understand GUE connection | Zero spacings = random Hermitian eigenvalue spacings |
-| Know what's been verified | All zeros with |Im| < T₀ ~ 10²² are on critical line |
+| Know what's been verified | All zeros with \|Im\| < T₀ ~ 10²² are on critical line |
 
 ---
 

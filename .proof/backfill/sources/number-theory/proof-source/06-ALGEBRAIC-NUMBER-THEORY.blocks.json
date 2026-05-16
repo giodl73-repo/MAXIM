@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\06-ALGEBRAIC-NUMBER-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|        THE PROGRAM: FIX UNIQUE FACTORIZATION                       |\n+====================================================================+\n|                                                                    |\n|  Z: unique factorization holds ✓                                   |\n|  Z[√-5]: FAILS — 6 = 2·3 = (1+√-5)(1-√-5)                       |\n|                                                                    |\n|  REMEDY: Factor IDEALS, not elements.                              |\n|                                                                    |\n|  Every nonzero ideal in O_K factors uniquely as product of         |\n|  prime ideals.  ← The Dedekind factorization theorem              |\n|                                                                    |\n|  MEASURE OF FAILURE:                                               |\n|  Class group Cl(K) = {fractional ideals} / {principal ideals}     |\n|  |Cl(K)| = h_K (class number)                                     |\n|  h_K = 1 ⟺ O_K is a PID ⟺ unique element factorization           |\n|                                                                    |\n|  HIERARCHY:                                                        |\n|  Euclidean domain → PID → UFD → integral domain                   |\n|  Z is Euclidean (so PID, so UFD)                                  |\n|  Z[√-5]: not UFD, not PID, h = 2                                  |\n|  Z[i] (Gaussian integers): h = 1 → PID, unique factorization ✓   |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "## Rings of Integers",
+      "confidence": "candidate",
+      "text": "DEFINITION: O_K = ring of algebraic integers of K\n  = {α ∈ K : α satisfies a monic polynomial with Z coefficients}\n\nO_K is a free Z-module of rank n = [K:Q].\nIt has an integral basis {ω₁, ..., ωₙ}: every element = Σ aᵢωᵢ, aᵢ ∈ Z.\n\nEXAMPLES:\n  K = Q:                 O_K = Z\n  K = Q(√d), d ≡ 2,3 (mod 4):  O_K = Z[√d] = {a+b√d : a,b ∈ Z}\n  K = Q(√d), d ≡ 1 (mod 4):    O_K = Z[(1+√d)/2]  ← note: NOT Z[√d]!\n\n  d=5: O_K = Z[(1+√5)/2] — includes the golden ratio φ = (1+√5)/2.\n  d=-3: O_K = Z[(1+√-3)/2] = Z[ω] where ω = e^{2πi/3}.\n  d=-1: O_K = Z[i] (Gaussian integers).\n  d=-5: O_K = Z[√-5].\n\nCyclotomic: O_{Q(ζₙ)} = Z[ζₙ].\n\nDISCRIMINANT Δ_K:\n  det[σᵢ(ωⱼ)]² where σᵢ are the embeddings.\n  Measures how \"spread\" the ring is.\n  |Δ_K| grows with K; Minkowski: |Δ_K| ≥ some bound depending on n.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 108,
+      "heading_context": "### Norm and Trace",
+      "confidence": "candidate",
+      "text": "NORM: N_{K/Q}(α) = ∏_{σ:K→C} σ(α)  (product over all embeddings)\nTRACE: Tr_{K/Q}(α) = Σ_{σ:K→C} σ(α)\n\nFor K = Q(√d):\n  N(a+b√d) = a² - db²\n  Tr(a+b√d) = 2a\n\nProperties:\n  N(αβ) = N(α)N(β)  (multiplicative)\n  Tr(α+β) = Tr(α) + Tr(β)  (linear)\n  N(α) ∈ Z for α ∈ O_K\n  α is a unit in O_K ⟺ N(α) = ±1\n\nUnits in Z[√-5]:\n  N(a+b√-5) = a² + 5b² = ±1 → only a=±1, b=0.\n  Units: {±1} only.\n\nUnits in Z[√2]:\n  N(a+b√2) = a² - 2b² = ±1 → Pell equation!\n  Fundamental unit: 1+√2, N(1+√2) = 1-2 = -1.\n  All units: ±(1+√2)^k, k ∈ Z.  (Infinite unit group)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "### Why Elements Fail",
+      "confidence": "candidate",
+      "text": "In Z[√-5]:\n  2 · 3 = (1+√-5)(1-√-5) = 6\n  All four factors are irreducible (no way to factor further in O_K).\n  Euclid's lemma fails for 2: 2 | (1+√-5)(1-√-5) but 2 ∤ (1+√-5).\n\nIn terms of ideals:\n  (2)   = p₁ · p̄₁  where p₁ = (2, 1+√-5)\n  (3)   = p₂ · p̄₂  where p₂ = (3, 1+√-5)\n  (1+√-5) = p₁ · p₂\n  (1-√-5) = p̄₁ · p̄₂\n\nSo: (6) = (2)·(3) = p₁·p̄₁·p₂·p̄₂ = (1+√-5)·(1-√-5) ← same ideal factorization!\nThe apparent non-uniqueness in elements is resolved in ideals.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 179,
+      "heading_context": "### Prime Ideal Factorization",
+      "confidence": "candidate",
+      "text": "### Example: Splitting in Q(√-5)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "### Example: Splitting in Q(√-5)",
+      "confidence": "candidate",
+      "text": "K = Q(√-5), Δ_K = -20.\n\nRamified primes: divisors of 20 = {2, 5}.\n  2O_K = (2, 1+√-5)² = p₁²\n  5O_K = (5, √-5)²   = p₂²\n\nFor other primes p, use Legendre symbol (-5/p) = (-1/p)(5/p):\n  p=3: (-5/3) = (-2/3) = (-1/3)(2/3) = ...\n    (-1/3) = (-1)^{(3-1)/2} = (-1)^1 = -1\n    (2/3) = (-1)^{(9-1)/8} = (-1)^1 = -1\n    (-5/3) = (-1)(-1) = 1 → 3 SPLITS\n  p=7: (-5/7) = (-1/7)(5/7)\n    (-1/7) = (-1)^3 = -1\n    (5/7) = (7/5)(-1)^{2·3} = (7/5) = (2/5) = (-1)^{(25-1)/8} = (-1)^3 = -1\n    (-5/7) = (-1)(-1) = 1 → 7 SPLITS\n  p=11: (-1/11)=1, (5/11): (5/11)(11/5) = (-1)^{5·2}=1, (11/5)=(1/5)=1, so (5/11)=1\n    (-5/11) = 1·1 = 1 → 11 SPLITS\n  p=13: (-5/13) = (-1/13)(5/13)\n    (-1/13) = (-1)^{(13-1)/2} = (-1)^6 = 1\n    (5/13): compute 5^{(13-1)/2} = 5^6 mod 13.\n    5² ≡ 12, 5³ ≡ 60 ≡ 8, 5^6 ≡ 8² ≡ 64 ≡ 12 ≡ -1 mod 13.\n    So (5/13) = -1.\n    (-5/13) = 1 · (-1) = -1 → 13 IS INERT in Q(√-5).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 237,
+      "heading_context": "### Class Group Computation",
+      "confidence": "candidate",
+      "text": "MINKOWSKI'S THEOREM: Every ideal class contains an ideal of norm ≤ M_K,\nwhere M_K is the Minkowski bound:\n\n  M_K = (4/π)^{r₂} · (n!/n^n) · √|Δ_K|  (simplified)\n\nFor Q(√-d): M_K ≈ (2/π)√d.\n\nTo compute Cl(K):\n  1. Compute M_K.\n  2. Factor all rational primes p ≤ M_K into prime ideals.\n  3. These prime ideals GENERATE Cl(K).\n  4. Find relations among them (via norm computations).\n\nExample: K = Q(√-5), |Δ|=20, M_K ≈ (2/π)√5 ≈ 1.42 · 2.24 ≈ 2.85.\n  Only need primes p ≤ 2.\n  (2) = (2, 1+√-5)² — gives one prime ideal p₁ = (2, 1+√-5).\n  p₁² = (2) — principal. So p₁ has order ≤ 2 in Cl.\n  Is p₁ principal? Need α with N(α) = 2, i.e., a²+5b²=2 → impossible.\n  So p₁ has order exactly 2 in Cl(K).\n  Cl(Q(√-5)) = Z/2, h=2. ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Dirichlet's Unit Theorem",
+      "confidence": "candidate",
+      "text": "O_K* (units of O_K) ≅ μ_K × Z^{r₁+r₂-1}\n\nwhere:\n  μ_K = finite cyclic group of roots of unity in K\n  r₁ = # real embeddings K → R\n  r₂ = # conjugate pairs of complex embeddings\n  r₁ + 2r₂ = [K:Q]\n\nUNIT RANK = r₁ + r₂ - 1:\n  Imaginary quadratic (r₁=0, r₂=1): rank 0+1-1 = 0 → finite unit group\n    Q(√-1): units = {±1, ±i} = Z/4\n    Q(√-3): units = {±1, ±ω, ±ω²} = Z/6\n    Most Q(√-d): units = {±1} = Z/2\n  Real quadratic (r₁=2, r₂=0): rank 2+0-1 = 1 → unit group = {±1}×Z\n    Fundamental unit ε₁ generates the infinite part.\n    Q(√2): ε₁ = 1+√2 (fundamental unit)\n    Q(√5): ε₁ = (1+√5)/2 = φ (golden ratio)\n  Totally real cubic (r₁=3, r₂=0): rank 2 → two fundamental units.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "## Connections to Lattice Cryptography",
+      "confidence": "candidate",
+      "text": "IDEAL LATTICES:\n  An ideal I ⊆ O_K is also a lattice in K ⊗ R ≅ R^n.\n  \"Shortest vector\" in I = short element of O_K.\n  SVP in ideal lattices ← hard problem (but structured)\n\nRING-LWE (Learning With Errors over rings):\n  Sample: (a, b = a·s + e) where a,b ∈ O_K/(q), s is the secret, e is error\n  Security reduces to worst-case problems on ideal lattices in Q(ζₙ).\n  Used in: CRYSTALS-Kyber (KEM), CRYSTALS-Dilithium (signatures) — both NIST PQC standards.\n\nTHE CLASS GROUP RELEVANCE:\n  Attacks on ring-LWE relate to distinguishing ideal classes.\n  NTRU uses special ideals in number rings.\n  If O_K has large class number h_K, there are more distinct ideal types —\n  this affects both the hardness and the implementation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

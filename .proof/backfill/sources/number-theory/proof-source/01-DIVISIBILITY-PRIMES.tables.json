@@ -1,0 +1,73 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\01-DIVISIBILITY-PRIMES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 349,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether two integers share a divisor",
+          "Euclidean algorithm",
+          "Runtime depends on bit length"
+        ],
+        [
+          "Whether a modular inverse exists",
+          "Extended Euclidean algorithm",
+          "Requires coprimality with the modulus"
+        ],
+        [
+          "Whether small factors are enough",
+          "Trial division up to `sqrt(n)`",
+          "Becomes infeasible quickly"
+        ],
+        [
+          "Whether medium factors might be found probabilistically",
+          "Pollard rho",
+          "Runtime depends on factor size and randomness"
+        ],
+        [
+          "Whether a large general integer must be factored",
+          "Number field sieve",
+          "This is major computation, not a routine operation"
+        ],
+        [
+          "Whether primality can be tested quickly",
+          "Miller-Rabin",
+          "Probabilistic unless deterministic base bounds apply"
+        ],
+        [
+          "Whether primality certainty is theoretical",
+          "AKS",
+          "Deterministic polynomial time is not practical speed"
+        ],
+        [
+          "Whether prime counts need approximation",
+          "Prime number theorem",
+          "Error terms matter for finite ranges"
+        ],
+        [
+          "Whether all primes up to `N` are needed",
+          "Sieve of Eratosthenes",
+          "Memory and cache layout dominate large sieves"
+        ],
+        [
+          "Whether divisor sums are algebraic convolutions",
+          "Dirichlet convolution / Mobius inversion",
+          "Multiplicativity assumptions must be checked"
+        ],
+        [
+          "Whether primes in arithmetic progressions are guaranteed",
+          "Dirichlet L-functions",
+          "Requires coprime residue class and analytic machinery"
+        ]
+      ]
+    }
+  ]
+}

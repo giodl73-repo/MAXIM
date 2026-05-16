@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\09-COMPUTATIONAL-NUMBER-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|       COMPUTATIONAL NUMBER THEORY — COMPLEXITY LANDSCAPE           |\n+====================================================================+\n|                                                                    |\n|  EASY (polynomial time):                                          |\n|  +------------------+  +------------------+  +------------------+ |\n|  | GCD / inverse    |  | Modular exp.     |  | PRIMES (AKS)     | |\n|  | O(log² n)        |  | O(log³ n)        |  | O(log^6 n)       | |\n|  +------------------+  +------------------+  +------------------+ |\n|                                                                    |\n|  EFFICIENT PROBABILISTIC (expected poly time):                    |\n|  +------------------+  +------------------+                       |\n|  | Miller-Rabin     |  | Jacobi symbol    |                       |\n|  | O(k log³ n)      |  | O(log² n)        |                       |\n|  +------------------+  +------------------+                       |\n|                                                                    |\n|  SUB-EXPONENTIAL (known best, not poly):                          |\n|  +------------------+  +------------------+                       |\n|  | Integer factoring|  | Discrete log     |                       |\n|  | NFS: L[1/3,1.923]|  | Index calculus   |                       |\n|  +------------------+  +------------------+                       |\n|                                                                    |\n|  QUANTUM POLYNOMIAL:                                              |\n|  +-----------------------------------------------+               |\n|  | Shor's algorithm: factoring AND discrete log  |               |\n|  | O((log n)³) on a quantum computer             |               |\n|  +-----------------------------------------------+               |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 110,
+      "heading_context": "### Miller-Rabin Primality Test",
+      "confidence": "candidate",
+      "text": "### AKS Primality Test (Agrawal-Kayal-Saxena, 2002)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 112,
+      "heading_context": "### AKS Primality Test (Agrawal-Kayal-Saxena, 2002)",
+      "confidence": "candidate",
+      "text": "THEOREM: PRIMES is in P.\n  There is a deterministic polynomial-time algorithm for primality testing.\n\nKey idea: if p is prime, then for any a with gcd(a,p)=1:\n  (x + a)^p ≡ x^p + a (mod p)  [in (Z/pZ)[x]/(x^r - 1)]\n\nAKS checks this for several values of r and a.\n\nALGORITHM (simplified):\n  1. If n = a^b for a,b > 1: COMPOSITE.\n  2. Find smallest r such that ord_r(n) > (log n)².\n  3. If gcd(a,n) > 1 for some a ≤ r: COMPOSITE.\n  4. If n ≤ r: PRIME.\n  5. For a = 1 to ⌊√φ(r) log n⌋:\n       If (x+a)^n ≢ x^n + a (mod x^r - 1, n): COMPOSITE.\n  6. PRIME.\n\nComplexity: O(log^{6+ε} n) — polynomial.\n\nPRACTICAL STATUS:\n  AKS is SLOW in practice compared to Miller-Rabin.\n  For 1000-bit n: Miller-Rabin (30 rounds) takes microseconds; AKS takes minutes.\n  Used for: theoretical completeness (PRIMES ∈ P is a landmark result).\n  Not used in: real cryptographic implementations (Miller-Rabin is standard).\n\nThe practical tools:\n  OpenSSL, GPG: Miller-Rabin with sufficient rounds.\n  GMP (GNU Multi-Precision): Deterministic for small n, probabilistic for large.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 186,
+      "heading_context": "### Pollard Rho Algorithm",
+      "confidence": "candidate",
+      "text": "### Pollard p-1 Algorithm",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

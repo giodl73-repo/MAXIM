@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:computational-number-theory
+kind: guide
+module: number-theory
+section: number-theory
+title: Computational Number Theory
+status: source-custody
+source_custody: partial
+current_path: number-theory/09-COMPUTATIONAL-NUMBER-THEORY.md
+canonical_path: number-theory/09-COMPUTATIONAL-NUMBER-THEORY.md
+backsource_ids: [proof-backfill:number-theory:09-computational-number-theory, git-history:number-theory:09-computational-number-theory]
+concepts: [computational, number, theory]
+root_concepts: [computational, number]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computational Number Theory
 
 ## The Big Picture

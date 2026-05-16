@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:divisibility-primes
+kind: guide
+module: number-theory
+section: number-theory
+title: Divisibility and Primes
+status: source-custody
+source_custody: partial
+current_path: number-theory/01-DIVISIBILITY-PRIMES.md
+canonical_path: number-theory/01-DIVISIBILITY-PRIMES.md
+backsource_ids: [proof-backfill:number-theory:01-divisibility-primes, git-history:number-theory:01-divisibility-primes]
+concepts: [divisibility, primes]
+root_concepts: [divisibility, primes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Divisibility and Primes
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:overview
+kind: guide
+module: paleontology
+section: paleontology
+title: Paleontology - Geologic Time Scale, Fossil Record Structure, Field Branches
+status: source-custody
+source_custody: partial
+current_path: paleontology/00-OVERVIEW.md
+canonical_path: paleontology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:paleontology:00-overview, git-history:paleontology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paleontology — Geologic Time Scale, Fossil Record Structure, Field Branches
 
 ## The Big Picture
@@ -20,7 +39,7 @@
 |                          Triassic          201–252  Recovery, first dinos |
 |               ─────────────────────────────────────────────────────────  |
 |               PALEOZOIC  Permian           252–299  Marine dominated     |
-|               (538–252)  Carboniferous     299–359  Coal swamps, tetrapods|
+|               (538–252)  Carboniferous     299–359  Coal swamps, tetrapods |
 |                          Devonian          359–419  Fish diversification |
 |                          Silurian          419–444  Vascular plants      |
 |                          Ordovician        444–485  Marine invertebrates |

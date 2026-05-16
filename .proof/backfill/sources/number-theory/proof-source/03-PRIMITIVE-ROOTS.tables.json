@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\03-PRIMITIVE-ROOTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 289,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Method"
+      ],
+      "rows": [
+        [
+          "Check if g is primitive root mod p",
+          "Verify g^{(p-1)/q} ≢ 1 for all prime q\\|p-1"
+        ],
+        [
+          "Find primitive root mod p",
+          "Test candidates; expected O(log log p) trials"
+        ],
+        [
+          "Compute discrete log (small p)",
+          "Baby-step giant-step: O(√p)"
+        ],
+        [
+          "Compute discrete log (p-1 smooth)",
+          "Pohlig-Hellman: fast"
+        ],
+        [
+          "Compute discrete log (general large p)",
+          "Index calculus: sub-exp"
+        ],
+        [
+          "Choose DH parameters",
+          "p safe prime (p=2q+1) or q large prime subgroup order"
+        ],
+        [
+          "Understand ECDLP hardness",
+          "No sub-exp attack known; O(√p) generic lower bound"
+        ],
+        [
+          "Understand why 256-bit ECC ≈ 3072-bit DH",
+          "ECC: generic O(√p); DH: sub-exp index calculus"
+        ]
+      ]
+    }
+  ]
+}

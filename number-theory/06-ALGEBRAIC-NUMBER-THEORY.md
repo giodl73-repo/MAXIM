@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:algebraic-number-theory
+kind: guide
+module: number-theory
+section: number-theory
+title: Algebraic Number Theory
+status: source-custody
+source_custody: partial
+current_path: number-theory/06-ALGEBRAIC-NUMBER-THEORY.md
+canonical_path: number-theory/06-ALGEBRAIC-NUMBER-THEORY.md
+backsource_ids: [proof-backfill:number-theory:06-algebraic-number-theory, git-history:number-theory:06-algebraic-number-theory]
+concepts: [algebraic, number, theory]
+root_concepts: [algebraic, number]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Algebraic Number Theory
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:diophantine-equations
+kind: guide
+module: number-theory
+section: number-theory
+title: Diophantine Equations
+status: source-custody
+source_custody: partial
+current_path: number-theory/05-DIOPHANTINE-EQUATIONS.md
+canonical_path: number-theory/05-DIOPHANTINE-EQUATIONS.md
+backsource_ids: [proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]
+concepts: [diophantine, equations]
+root_concepts: [diophantine, equations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Diophantine Equations
 
 ## The Big Picture
