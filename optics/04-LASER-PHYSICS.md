@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:laser-physics
+kind: guide
+module: optics
+section: optics
+title: Laser Physics
+status: source-custody
+source_custody: partial
+current_path: optics/04-LASER-PHYSICS.md
+canonical_path: optics/04-LASER-PHYSICS.md
+backsource_ids: [proof-backfill:optics:04-laser-physics, git-history:optics:04-laser-physics]
+concepts: [laser, physics]
+root_concepts: [laser, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Laser Physics
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:ai-robotics
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - AI and Learning-Based Robotics
+status: source-custody
+source_custody: partial
+current_path: robotics/09-AI-ROBOTICS.md
+canonical_path: robotics/09-AI-ROBOTICS.md
+backsource_ids: [proof-backfill:robotics:09-ai-robotics, git-history:robotics:09-ai-robotics]
+concepts: [ai, robotics]
+root_concepts: [ai, robotics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — AI and Learning-Based Robotics
 
 ## The Big Picture

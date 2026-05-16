@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\06-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 471,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Controller choice"
+      ],
+      "rows": [
+        [
+          "Joint position tracking, simple",
+          "PID per joint"
+        ],
+        [
+          "Joint position tracking, fast/precise",
+          "PID + gravity compensation feedforward"
+        ],
+        [
+          "Full trajectory tracking",
+          "Computed-torque control (inverse dynamics)"
+        ],
+        [
+          "Cartesian position tracking",
+          "Operational-space control"
+        ],
+        [
+          "Robot interacting with environment",
+          "Impedance control"
+        ],
+        [
+          "Explicit force regulation (polishing, grinding)",
+          "Hybrid position-force control"
+        ],
+        [
+          "Unknown payload, adapts online",
+          "Adaptive control (MRAC)"
+        ],
+        [
+          "Legged robot balance + tasks",
+          "Whole-body control (QP)"
+        ],
+        [
+          "Hard-to-model nonlinear system",
+          "Learning-based (RL + sim-to-real)"
+        ],
+        [
+          "ROS 2 robot",
+          "ros2_control + JointTrajectoryController"
+        ],
+        [
+          "Franka arm",
+          "libfranka + FCI + CartesianImpedanceController"
+        ]
+      ]
+    }
+  ]
+}

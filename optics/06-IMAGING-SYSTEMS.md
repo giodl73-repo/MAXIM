@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:imaging-systems
+kind: guide
+module: optics
+section: optics
+title: Imaging Systems
+status: source-custody
+source_custody: partial
+current_path: optics/06-IMAGING-SYSTEMS.md
+canonical_path: optics/06-IMAGING-SYSTEMS.md
+backsource_ids: [proof-backfill:optics:06-imaging-systems, git-history:optics:06-imaging-systems]
+concepts: [imaging, systems]
+root_concepts: [imaging, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Imaging Systems
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:geometric-optics
+kind: guide
+module: optics
+section: optics
+title: Geometric Optics
+status: source-custody
+source_custody: partial
+current_path: optics/01-GEOMETRIC-OPTICS.md
+canonical_path: optics/01-GEOMETRIC-OPTICS.md
+backsource_ids: [proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]
+concepts: [geometric, optics]
+root_concepts: [geometric, optics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geometric Optics
 
 ## The Big Picture

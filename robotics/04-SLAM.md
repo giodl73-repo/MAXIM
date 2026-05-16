@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:slam
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - SLAM (Simultaneous Localization and Mapping)
+status: source-custody
+source_custody: partial
+current_path: robotics/04-SLAM.md
+canonical_path: robotics/04-SLAM.md
+backsource_ids: [proof-backfill:robotics:04-slam, git-history:robotics:04-slam]
+concepts: [slam]
+root_concepts: [slam]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — SLAM (Simultaneous Localization and Mapping)
 
 ## The Big Picture

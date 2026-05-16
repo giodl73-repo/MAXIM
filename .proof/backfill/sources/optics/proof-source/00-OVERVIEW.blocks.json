@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "optics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "## The EM Spectrum — Where Optics Lives",
+      "confidence": "candidate",
+      "text": "Frequency (Hz):\n1e4      1e8      1e12     1e14 1e15     1e18     1e22\n |        |        |        |    |        |        |\n v        v        v        v    v        v        v\n[Radio][Microwave][Infrared][VIS][UV][X-ray][Gamma]\n         |                  |    |\n         |                  +----+ <-- \"Optical\" regime\n         |                  Visible: 380-700 nm\n         |\n         Radar, WiFi, cell -- same physics,\n         different engineering vocabulary\n\nWavelength:\n 30km     3m      300um   700nm 400nm   0.1nm   0.001nm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 84,
+      "heading_context": "## Application Domains",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                     OPTICS APPLICATIONS                          |\n|                                                                  |\n|  IMAGING          COMMUNICATIONS      SENSING          MFG       |\n|  -------          --------------      -------          ---       |\n|  Cameras          Fiber networks       LiDAR           Laser     |\n|  Microscopes      WDM systems          Spectroscopy    cutting   |\n|  Telescopes       Free-space IR        Interferometry  Litho-    |\n|  OCT medical      Optical switches     OCT medical     graphy    |\n|  Retinal scan     Data center optics   Gyroscopes      3D print  |\n|  Endoscopes       Silicon photonics    Atomic clocks   Welding   |\n+------------------------------------------------------------------+\n\nKey cross-domain enablers:\n  Laser     -- coherent light source enabling all of the above\n  Detector  -- CCD/CMOS/APD converting photons to electrons\n  Fiber     -- low-loss waveguide for long-distance light transport\n  Lens/mirror -- the passive routing infrastructure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "## The Analogy That Frames Everything",
+      "confidence": "candidate",
+      "text": "  ELECTRONICS                     OPTICS\n  ===========                     ======\n\n  Electron (carrier)              Photon (carrier)\n        |                               |\n  Conductor / insulator           Waveguide / free space\n        |                               |\n  Transistor (active)             Laser / modulator (active)\n  Resistor / capacitor            Lens / mirror (passive)\n        |                               |\n  Circuit (lumped elements)       Optical system (ray/wave)\n        |                               |\n  IC / ASIC                       Photonic integrated circuit (PIC)\n        |                               |\n  System (computer)               System (LiDAR, camera, comms link)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 189,
+      "heading_context": "## The Three Regimes — When to Use Which",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  REGIME DECISION TREE                                         |\n|                                                               |\n|  Is the aperture/feature size >> lambda (say, > 100 lambda)?  |\n|       YES --> Use geometric optics (ray tracing)              |\n|       NO  --> Is it ~lambda to ~100 lambda?                   |\n|                YES --> Use wave optics (diffraction matters)  |\n|                NO  --> Is it single-photon or quantum?        |\n|                         YES --> Quantum optics                |\n|                         NO  --> Wave optics still works       |\n+---------------------------------------------------------------+\n\nPractical examples:\n  Camera lens (f = 50mm, lambda = 550nm):  50mm >> 550nm  -> geometric OK\n  CD/DVD pit (600 nm, lambda = 780 nm):    size ~ lambda  -> wave optics required\n  Diffraction grating (1 um period):       period ~ lambda -> wave optics required\n  Single-photon detector:                  individual quanta -> quantum optics\n  SM fiber (core = 9um, lambda = 1550nm):  core ~ 6 lambda -> wave optics\n  Human eye (pupil 2-8mm, lambda ~550nm):  pupil >> lambda -> geometric\n    (with Abbe limit as the fundamental floor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

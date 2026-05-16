@@ -1,0 +1,119 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\04-SLAM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 475,
+      "heading_context": "## SLAM Systems Reference",
+      "headers": [
+        "System",
+        "Modality",
+        "Map type",
+        "Loop closure",
+        "Open source?"
+      ],
+      "rows": [
+        [
+          "GMapping",
+          "2D LiDAR",
+          "Occ. grid",
+          "No",
+          "Yes (ROS)"
+        ],
+        [
+          "Cartographer (Google)",
+          "2D/3D LiDAR",
+          "Submap + pose graph",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "ORB-SLAM3",
+          "Camera (+ IMU)",
+          "3D landmarks",
+          "Yes (BoW)",
+          "Yes"
+        ],
+        [
+          "RTAB-Map",
+          "Camera/LiDAR",
+          "3D point cloud",
+          "Yes",
+          "Yes (ROS)"
+        ],
+        [
+          "LOAM / LIO-SAM",
+          "3D LiDAR + IMU",
+          "3D map",
+          "Yes (SC)",
+          "Yes"
+        ],
+        [
+          "FAST-LIO2",
+          "3D LiDAR + IMU",
+          "iKd-tree",
+          "Limited",
+          "Yes"
+        ],
+        [
+          "OpenVSLAM",
+          "Camera",
+          "3D landmarks",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "ElasticFusion",
+          "RGB-D",
+          "Surfel map",
+          "Yes",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 490,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Recommended approach"
+      ],
+      "rows": [
+        [
+          "Indoor flat floor, 2D navigation",
+          "GMapping or Cartographer 2D"
+        ],
+        [
+          "Indoor 3D with robot arm",
+          "RTAB-Map or ORB-SLAM3 with RGB-D"
+        ],
+        [
+          "Outdoor autonomous vehicle",
+          "LIO-SAM or Cartographer 3D"
+        ],
+        [
+          "Visual only, no LiDAR",
+          "ORB-SLAM3 monocular or stereo"
+        ],
+        [
+          "Real-time, computationally limited",
+          "FAST-LIO2 (very efficient)"
+        ],
+        [
+          "Need dense map for grasping",
+          "ElasticFusion or KinectFusion"
+        ],
+        [
+          "Large-scale multi-session",
+          "ORB-SLAM3 atlas (map reuse)"
+        ],
+        [
+          "Loop closure only (no full SLAM)",
+          "Scan Context for re-ID"
+        ]
+      ]
+    }
+  ]
+}

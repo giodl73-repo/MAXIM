@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:actuators
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Actuators
+status: source-custody
+source_custody: partial
+current_path: robotics/07-ACTUATORS.md
+canonical_path: robotics/07-ACTUATORS.md
+backsource_ids: [proof-backfill:robotics:07-actuators, git-history:robotics:07-actuators]
+concepts: [actuators]
+root_concepts: [actuators]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Actuators
 
 ## The Big Picture

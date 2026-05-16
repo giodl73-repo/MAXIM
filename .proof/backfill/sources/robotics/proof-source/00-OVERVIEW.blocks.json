@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                        ROBOTICS SYSTEM STACK                              |\n+===========================================================================+\n|                                                                           |\n|   PHYSICAL WORLD                                                          |\n|   +------------------------------------------------------------------+   |\n|   | Objects, terrain, humans, physics                                |   |\n|   +------------------------------------------------------------------+   |\n|            |  forces, light, distance             ^ forces, motion        |\n|            v                                      |                       |\n|   +-----------------+                   +-------------------+             |\n|   |  SENSING        |                   |  ACTUATION        |             |\n|   |  (Ch 03)        |                   |  (Ch 07)          |             |\n|   |  LiDAR, cams    |                   |  Motors, drives   |             |\n|   |  IMU, encoders  |                   |  Hydraulic, soft  |             |\n|   |  Force/torque   |                   |  Harmonic gears   |             |\n|   +-----------------+                   +-------------------+             |\n|            |  raw data                          ^ joint torques           |\n|            v                                    |                         |\n|   +-----------------+                   +-------------------+             |\n|   |  STATE ESTIMATN |                   |  CONTROL          |             |\n|   |  (Ch 03, 04)    |                   |  (Ch 06)          |             |\n|   |  SLAM, Kalman   |                   |  PID, computed-t  |             |\n|   |  Odometry, AMCL |                   |  Impedance, force |             |\n|   +-----------------+                   +-------------------+             |\n|            |  pose + map                        ^ trajectory              |\n|            v                                    |                         |\n|   +--------------------------------------------------+                   |\n|   |              PLANNING (Ch 05)                    |                   |\n|   |  Task planning -> path planning -> trajectory gen|                   |\n|   |  A*, RRT, RRT*, CHOMP, PDDL                      |                   |\n|   +--------------------------------------------------+                   |\n|            |  goal, constraints                                           |\n|            v                                                              |\n|   +--------------------------------------------------+                   |\n|   |           AI / REASONING (Ch 09)                 |                   |\n|   |  RL policies, imitation learning, foundation LLMs|                   |\n|   |  Perception (6-DOF pose est.), task understanding|                   |\n|   +--------------------------------------------------+                   |\n|                                                                           |\n|   MIDDLEWARE: ROS 2 / DDS (Ch 08) -- wires all subsystems together        |\n|   MATH FOUNDATION: Kinematics (Ch 01) + Dynamics (Ch 02)                 |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "## Four Subsystems — Brief Taxonomy",
+      "confidence": "candidate",
+      "text": "+---------------------------+---------------------------+\n|       MECHANICS           |       SENSING             |\n|---------------------------|---------------------------|\n| Structure + kinematics    | Proprioceptive (self)     |\n| Links, joints, frames     |   Encoders, IMUs          |\n| Serial / parallel / soft  | Exteroceptive (world)     |\n| DH parameters             |   LiDAR, cameras, FT      |\n| Workspace envelopes       | Fusion: Kalman, EKF       |\n+---------------------------+---------------------------+\n|       COMPUTATION         |       ACTUATION           |\n|---------------------------|---------------------------|\n| State estimation          | Electric: DC, BLDC        |\n| SLAM, localization        | Transmissions: gears,     |\n| Planning: path, task      |   harmonic drives, cable  |\n| Control laws              | Hydraulic / pneumatic     |\n| AI/ML inference           | Soft: PAM, elastomers     |\n+---------------------------+---------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 108,
+      "heading_context": "### By Structure",
+      "confidence": "candidate",
+      "text": "SERIAL (open-chain)              PARALLEL (closed-chain)\n+------+                         +--Actuator--+--Actuator--+\n| Base |                         |            |            |\n|  J1  |-- link1 --+             +----link----+----link----+\n|  J2  |-- link2 --+                          |\n|  J3  |-- link3 -- EE            End-effector (delta, Stewart)\n+------+\n  Each joint affects all         All actuators share load.\n  downstream links.              High stiffness, small workspace.\n  Industrial arms (KUKA, ABB,    Pick-and-place (Adept Quattro),\n  Fanuc, UR5/UR10).              Flight simulators (Stewart).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 122,
+      "heading_context": "### By Structure",
+      "confidence": "candidate",
+      "text": "MOBILE                           AERIAL\n+-------+                        +-rotors-+\n| drive |                        | body   |\n| wheels|                        | IMU    |\n+-------+                        +-rotors-+\nchassis -- sensors --\nwheels/tracks/legs\n  Differential drive             Multirotor (quad/hex/octo)\n  Ackermann (car steering)       Fixed-wing UAV\n  Omnidirectional (mecanum)      VTOL hybrid\n  Legged: biped/quadruped        Tethered / free",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "### By Application Domain",
+      "confidence": "candidate",
+      "text": "+--Industrial--+  +--Service--+  +--Medical--+  +--Field--+  +--Research--+\n| Welding      |  | Warehouse |  | Surgical  |  | Drone   |  | MIT Cheetah|\n| Assembly     |  | logistics |  | (Da Vinci)|  | mapping |  | CMU arm    |\n| Painting     |  | Cleaning  |  | Rehab     |  | Disaster|  | Stanford   |\n| CNC machining|  | Delivery  |  | Prosthetics|  | Space  |  | ETH Zurich |\n+--------------+  +-----------+  +-----------+  +---------+  +------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 248,
+      "heading_context": "## The Autonomy Stack — Layered View",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------+\n|  TASK LEVEL                                              |\n|  \"Pick the red block and place it in the bin\"            |\n|  PDDL planners, LLM task understanding, behavior trees   |\n|  Rate: 1-10 Hz or event-driven                           |\n+----------------------------------------------------------+\n                        |\n+----------------------------------------------------------+\n|  NAVIGATION / PATH LEVEL                                 |\n|  \"Go from A to B avoiding obstacles\"                     |\n|  A*, RRT, Nav2, global costmaps                          |\n|  Rate: 10-50 Hz                                          |\n+----------------------------------------------------------+\n                        |\n+----------------------------------------------------------+\n|  TRAJECTORY / MOTION LEVEL                               |\n|  \"Follow this Cartesian path at 0.5 m/s\"                 |\n|  CHOMP, minimum-snap, trajectory interpolation           |\n|  Rate: 100-500 Hz                                        |\n+----------------------------------------------------------+\n                        |\n+----------------------------------------------------------+\n|  CONTROL LEVEL                                           |\n|  \"Track this reference joint angle\"                      |\n|  PID, computed-torque, impedance control                 |\n|  Rate: 1-10 kHz                                          |\n+----------------------------------------------------------+\n                        |\n+----------------------------------------------------------+\n|  HARDWARE / ACTUATOR LEVEL                               |\n|  \"Apply 12 N*m to joint 3\"                               |\n|  Motor drives, current control, FOC                      |\n|  Rate: 10-100 kHz (current loop)                         |\n+----------------------------------------------------------+\n                        |\n+----------------------------------------------------------+\n|  PHYSICS                                                 |\n|  Newton's laws, electromagnetism, contact mechanics      |\n|  Runs at infinite Hz (or c)                              |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 317,
+      "heading_context": "## Where Robotics Intersects Other Disciplines",
+      "confidence": "candidate",
+      "text": "                  ROBOTICS\n                     |\n        +------------+------------+\n        |            |            |\n   Mechanical    Electrical    Computer\n   Engineering   Engineering    Science\n        |            |            |\n   Kinematics    Motor drives   Algorithms\n   Dynamics      Power elec.    SLAM\n   Structures    Sensors        Planning\n   Mechanisms    Embedded       AI/ML\n                 systems        ROS 2\n                     |\n               Control Theory\n               (sits at the intersection\n                of all three)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "optics\\02-WAVE-OPTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    WAVE OPTICS LANDSCAPE                         |\n|                                                                  |\n|  FOUNDATION           DIFFRACTION         INTERFERENCE           |\n|  ----------           -----------         ------------           |\n|  Huygens-Fresnel      Fraunhofer          Two-beam               |\n|  principle            (far field)         (Young, Michelson)     |\n|  Wave equation        Fresnel             Multi-beam             |\n|  Coherence            (near field)        (Fabry-Perot)          |\n|                       Gratings                                   |\n|                                                                  |\n|  FOURIER OPTICS       HOLOGRAPHY          COHERENCE              |\n|  ------------         ----------          ---------              |\n|  Lens as FT           Recording           Temporal               |\n|  4f system            Reconstruction      (coherence length)     |\n|  Spatial filtering    Volume holograms    Spatial                |\n|  PSF/OTF              Applications        (van Cittert-Zernike)  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## Huygens-Fresnel Principle",
+      "confidence": "candidate",
+      "text": "  Huygens (1678): Every point on a wavefront acts as a secondary\n  point source emitting spherical wavelets. The new wavefront is\n  the envelope of all secondary wavelets.\n\n  Fresnel (1818): Added the interference between wavelets, giving\n  a quantitative theory that explains diffraction patterns.\n\n  +--wavefront at t=0--+\n  *  *  *  *  *  *  *     <- each point emits a wavelet\n  |  |  |  |  |  |  |\n  o  o  o  o  o  o  o     <- secondary sources\n   \\  \\ | /  / \\ | /\n    \\   X   /   X\n     \\  |  /   / \\\n      +-+-+-+-+-+          <- new wavefront at t = dt\n                           (constructive along original direction,\n                            destructive off-axis for plane wave)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 93,
+      "heading_context": "## Diffraction Regimes",
+      "confidence": "candidate",
+      "text": "  N = a^2 / (lambda * L)\n\n  a = aperture half-width\n  lambda = wavelength\n  L = propagation distance\n\n  +---------+-----------+----------------------------------------+\n  | N >> 1  | Geometric | Geometric optics valid                 |\n  | N ~ 1   | Fresnel   | Near-field diffraction; Fresnel int.   |\n  | N << 1  | Fraunhof. | Far-field diffraction; aperture FT     |\n  +---------+-----------+----------------------------------------+\n\n  Practical threshold for Fraunhofer (far field):\n    L >> a^2 / lambda  (Fraunhofer condition)\n\n  Example: a = 1mm aperture, lambda = 500nm\n    Fraunhofer regime: L >> 1mm^2 / 500nm = 2 meters\n    For lab work: use a lens to bring far field to focal plane",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### Single Slit",
+      "confidence": "candidate",
+      "text": "  Aperture function: rect(x/a)  (width a, unit transmission)\n\n  Intensity pattern:\n  I(u) = I0 * sinc^2(pi*a*u/lambda)\n  where u = sin(theta) (spatial variable)\n\n  sinc(x) = sin(x)/x\n\n  Intensity:\n     |\n  I0 +\n     |  *\n     | * *\n     |*   *\n     +-----*-----------*-----------*--> theta\n          first          second\n          zero at        zero at\n          theta = lambda/a   theta = 2*lambda/a\n\n  Central maximum width: 2*lambda/a\n  First null: theta = arcsin(lambda/a) ~ lambda/a (small angle)\n  -> Narrower slit: wider diffraction pattern (Fourier uncertainty)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 167,
+      "heading_context": "### Diffraction Grating",
+      "confidence": "candidate",
+      "text": "  Grating equation (constructive interference):\n    d * sin(theta_m) = m * lambda   (m = 0, +/-1, +/-2, ...)\n\n  m = grating order\n  theta_m = diffraction angle for order m\n\n  Resolving power:\n    R = lambda / Delta_lambda = m * N\n    m = grating order used, N = total number of illuminated slits\n\n  Example: 1200 lines/mm grating, N = 5000 illuminated lines,\n  order m = 1: R = 5000 -> resolves lambda and lambda + 0.1nm at 500nm\n\n  Grating dispersion (angular):\n    d(theta)/d(lambda) = m / (d * cos(theta_m))\n\n  Blazed grating: groove shaped to concentrate diffraction\n  into one specific order (typically m=1) for maximum efficiency.\n  Blaze wavelength = wavelength of maximum efficiency.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "### Michelson Interferometer",
+      "confidence": "candidate",
+      "text": "                     Mirror M1\n                        |\n  Source --> Beamsplitter ---> Mirror M2\n                  |\n                Detector\n\n  OPD = 2 * (L1 - L2)   (factor 2: beam travels path twice)\n\n  Applications:\n  - Measure displacement to lambda/100 precision\n  - Measure refractive index of gas (insert cell in one arm)\n  - LIGO gravitational wave detector (L ~ 4km, measures 10^-18 m)\n  - FTIR spectrometer (scan M1 while recording intensity)\n\n  The \"old world\" equivalent: measuring a voltage to ppm precision\n  with a Wheatstone bridge. Same null-measurement principle -- you\n  measure a difference against a reference, not an absolute value.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 263,
+      "heading_context": "### Fabry-Perot Etalon",
+      "confidence": "candidate",
+      "text": "  Multiple reflections add coherently:\n\n  R1          R2\n  |           |\n  |<--- L --->|\n\n  Transmission as function of wavelength (Airy function):\n  T(delta) = 1 / (1 + F * sin^2(delta/2))\n  where delta = 4*pi*n*L*cos(theta) / lambda\n  F = 4R / (1-R)^2   (R = mirror reflectance)\n\n  Transmission peaks: sharp maxima when delta = 2*pi*m (m = integer)\n  Peak condition:     2 * n * L * cos(theta) = m * lambda\n\n  Free spectral range (FSR): spacing between adjacent peaks\n    FSR = lambda^2 / (2*n*L)   [wavelength units]\n    FSR = c / (2*n*L)          [frequency units]\n\n  Finesse: F_n = pi*sqrt(F)/2 = pi*sqrt(R)/(1-R)\n    Number of resolvable peaks within one FSR\n    Higher R -> sharper peaks -> higher finesse\n\n  Example: L = 1 cm, n = 1.5, R = 0.99\n    FSR = c/(2*1.5*0.01) = 10 GHz\n    Finesse = pi*sqrt(0.99)/(1-0.99) ~ 313\n    Resolution = FSR/Finesse ~ 32 MHz\n\n  Applications: laser line selection, laser linewidth measurement,\n  optical spectrum analyzers, cavity for laser oscillation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "### The Lens as a Fourier Transform",
+      "confidence": "candidate",
+      "text": "  Input plane            Lens           Back focal plane\n  (object)                                (Fourier plane)\n\n  u(x, y)   ---[lens f]---  U(fx, fy)\n\n  U(fx, fy) = FT{u(x,y)} evaluated at fx = x'/(lambda*f), fy = y'/(lambda*f)\n\n  x', y' = coordinates in back focal plane\n\n  Physical meaning:\n    A plane wave at angle theta_x arrives at a single point x' = f * tan(theta_x) ~ f * sin(theta_x)\n    An object point at (x, y) creates a spherical wave -> plane wave at specific angle -> point in focal plane\n    The focal plane contains the angular spectrum of the input",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 359,
+      "heading_context": "### The Lens as a Fourier Transform",
+      "confidence": "candidate",
+      "text": "### The 4f Optical Processing System",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 361,
+      "heading_context": "### The 4f Optical Processing System",
+      "confidence": "candidate",
+      "text": "  Input  Lens1  Fourier  Lens2  Output\n  plane  (f1)   plane    (f2)   plane\n    |      |      |        |      |\n    |<-f1->|<-f1->|<--f2-->|<-f2->|\n\n  - Lens 1: FT of input appears in middle (Fourier) plane\n  - Place a spatial filter mask in the Fourier plane\n  - Lens 2: inverse FT reconstructs the filtered image\n  - Total length = 2*f1 + 2*f2\n\n  Spatial filtering examples:\n  - Low-pass filter: circular aperture blocking high spatial freq (blur)\n  - High-pass filter: central stop blocking low freq (edge enhancement)\n  - Notch filter: block specific spatial freq (remove periodic noise)\n  - Dark-field microscopy: block zero order (DC), pass scattered light\n\n  Bridge: identical concept to DSP filter design, just operating on\n  2D spatial data rather than 1D temporal signals. The \"sampling theorem\"\n  becomes the Nyquist-Shannon criterion for pixel pitch vs. optical bandwidth.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 389,
+      "heading_context": "### Recording",
+      "confidence": "candidate",
+      "text": "  Object beam          Reference beam\n       \\                    /\n        \\                  /\n         v                v\n  +-----------------------------+\n  |         Holographic         |\n  |         recording medium    |\n  |     (film, photorefractive) |\n  +-----------------------------+\n    Interference pattern is stored as a refractive-index\n    variation in the film or photorefractive material.\n\n  Intensity pattern:\n  I = |E_obj + E_ref|^2\n    = |E_obj|^2 + |E_ref|^2 + E_obj*E_ref* + E_obj*E_ref\n\n  Last two terms = hologram (contains amplitude AND phase of object)\n  Ordinary photography: only |E_obj|^2 (intensity; phase lost)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "### Reconstruction",
+      "confidence": "candidate",
+      "text": "  Illuminate developed hologram with reference beam alone:\n\n  E_ref * hologram -> E_ref * (E_obj*E_ref*) + ...\n                   -> |E_ref|^2 * E_obj + conjugate terms\n\n  Result: reconstructed object wave E_obj appears!\n  Observer sees a 3D image as if the original object were present.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "### Volume vs. Surface Holograms",
+      "confidence": "candidate",
+      "text": "  Surface hologram:  thin recording medium\n    Transmission angle responds to Bragg condition loosely\n    Reflects/transmits white light producing colored images\n    (credit card security holograms)\n\n  Volume hologram:   thick recording medium (> 100 um)\n    Strong Bragg selectivity: reconstruction only at specific\n    lambda and angle -> high wavelength/angular selectivity\n    Used in: WDM multiplexers, holographic storage (research),\n    head-up displays, wavelength-selective elements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\09-AI-ROBOTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                       AI ROBOTICS LANDSCAPE                               |\n+===========================================================================+\n|                                                                           |\n|  REINFORCEMENT LEARNING        IMITATION LEARNING                         |\n|  ======================        ==================                         |\n|  Learn from reward signal      Learn from human demonstrations            |\n|  No demonstration needed       No reward engineering needed               |\n|  Sample-inefficient            Efficient but limited to demo distribution  |\n|  PPO, SAC, Dreamer             BC, DAgger, ACT, Diffusion Policy          |\n|                                                                           |\n|  FOUNDATION MODELS             PERCEPTION / REPRESENTATION                |\n|  ================              ==========================                 |\n|  RT-1, RT-2                    Object detection (YOLO, SAM)               |\n|  Octo, pi0                     6-DOF pose estimation (FoundationPose)     |\n|  OpenVLA, GROOT                Semantic scene understanding               |\n|  LLM for task planning         NeRF/3DGS for scene reconstruction         |\n|                                                                           |\n|  SIM-TO-REAL TRANSFER          DEXTEROUS MANIPULATION                     |\n|  ====================          ======================                     |\n|  Domain randomization          In-hand manipulation                       |\n|  System identification         Tactile sensing                            |\n|  Adaptive domain random.       Contact-rich tasks                         |\n|  Real-to-sim (reverse)         Deformable objects                         |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 83,
+      "heading_context": "### Reward Design Challenges",
+      "confidence": "candidate",
+      "text": "REWARD SHAPING is the hardest part of RL for robotics.\n\nSPARSE REWARD:\n  +10 if task complete, 0 otherwise.\n  Simple to define but extremely hard to learn.\n  Robot wanders randomly until accidentally completing task.\n  For 6-DOF manipulation: probability of accidental success ~ 0.\n\nDENSE REWARD:\n  Proxy reward guiding robot toward goal.\n  Example: r = -||p_EE - p_target|| + bonus_if_contact + penalty_if_collision\n\n  REWARD HACKING: robot finds unintended ways to maximize reward.\n    - \"Run fast\" reward: robot learns to be tall (falls over = no friction).\n    - \"Push object to target\" reward: robot learns to push the target marker.\n    - RL is policy optimization, not intent optimization.\n\nGOOD REWARD STRUCTURE (practice):\n  1. Dense shaping for early training.\n  2. Sparse task success bonus for final performance.\n  3. Safety penalties (joint limits, collision).\n  4. Regularization (action magnitude penalty -> smooth motions).\n  5. Terminate episode on clear failure (saves simulation time).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Sim-to-Real Transfer",
+      "confidence": "candidate",
+      "text": "THE SIM-TO-REAL GAP:\n  Policy trained in simulation fails on real hardware.\n  Causes: unmodeled friction, motor compliance, sensor noise,\n          visual appearance, actuator delays, cable flex.\n\nDOMAIN RANDOMIZATION:\n  Train in simulation with randomized physics parameters.\n  Random: motor strength +/-20%, friction coefficient, link masses,\n          joint damping, sensor noise, visual textures.\n  Policy must work across ALL randomized parameters.\n  -> When deployed to real world, treats real world as \"another randomized sim.\"\n\n  Introduced by: OpenAI for Dactyl (2019 Rubik's Cube).\n  Effective range: typically physics params +/-20-50%.\n  More randomization = more robust but harder to train.\n\nSYSTEM IDENTIFICATION (SysID):\n  Measure real robot parameters (inertia, friction, motor models).\n  Use measured values as center of randomization range.\n  Better than random center.\n  Tools: excitation trajectories, maximum-likelihood estimation.\n\nADAPTIVE DOMAIN RANDOMIZATION (ADR):\n  Automatically expand randomization range as policy improves.\n  Start narrow (easier training), gradually expand (more robustness).\n  Policy \"earns\" harder randomization by succeeding at current level.\n\nREAL-TO-SIM (REVERSE):\n  Instead of making sim match reality: learn the gap and correct for it.\n  GraspNet, DexPoint: transfer by learning from real data first,\n  then use sim only for safe exploration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 315,
+      "heading_context": "## Foundation Models for Robotics",
+      "confidence": "candidate",
+      "text": "### RT-1 (Robotics Transformer 1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 339,
+      "heading_context": "### RT-1 (Robotics Transformer 1)",
+      "confidence": "candidate",
+      "text": "### RT-2 (Robotics Transformer 2)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 387,
+      "heading_context": "### Octo (Open Source Generalist Robot)",
+      "confidence": "candidate",
+      "text": "### pi0 (Physical Intelligence)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 464,
+      "heading_context": "## Perception Pipeline for Manipulation",
+      "confidence": "candidate",
+      "text": "### 6-DOF Object Pose Estimation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 489,
+      "heading_context": "### Object Detection and Segmentation",
+      "confidence": "candidate",
+      "text": "YOLO (You Only Look Once, v8/v11):\n  Real-time object detection + segmentation.\n  Single forward pass: bounding boxes + class + confidence.\n  Speed: 100-300 FPS on GPU. Runs on Jetson Orin.\n  Use for: known object classes, fast detection.\n\nGROUNDING DINO + SAM (Segment Anything):\n  Open-vocabulary: detect arbitrary objects from text description.\n  \"Find the red cup\" -> bounding box -> SAM -> precise segmentation mask.\n  Slower: 2-5 Hz. Use for: semantic querying by language.\n\nFOUNDATION MODEL STACK FOR MANIPULATION PERCEPTION:\n  Language query -> Grounding DINO -> bounding box\n                                   |\n                            SAM -> segmentation mask\n                                   |\n                     FoundationPose -> 6-DOF pose\n                                   |\n                      IK + planner -> grasp trajectory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 515,
+      "heading_context": "## Current State vs Hype",
+      "confidence": "candidate",
+      "text": "+--------------------+----------------------------------+---------------------------+\n| Capability         | Actually Works (2025)            | Still Research Frontier   |\n+--------------------+----------------------------------+---------------------------+\n| Locomotion         | Quadruped on rough terrain:      | Agile dexterous biped     |\n| (legged robots)    | YES (Spot, ANYmal, Unitree Go2)  | locomotion with loco-manip|\n+--------------------+----------------------------------+---------------------------+\n| Pick-and-place     | Known objects, structured env:   | Arbitrary objects, clutter|\n| manipulation       | YES (industrial > 99.9%)         | packing, unstructured env |\n+--------------------+----------------------------------+---------------------------+\n| Dexterous          | Simple in-hand: limited.         | Reliable in-hand for      |\n| manipulation       | Research demos possible          | general objects           |\n+--------------------+----------------------------------+---------------------------+\n| Task following     | Simple pick/place tasks          | Complex multi-step cooking|\n| from language      | (RT-2, pi0) with ~70-80%         | assembly, open-ended tasks|\n+--------------------+----------------------------------+---------------------------+\n| Safety near humans | Cobots with contact detection:   | Full body awareness,      |\n|                    | YES (UR, Franka)                 | reliable in open spaces   |\n+--------------------+----------------------------------+---------------------------+\n| Learning from      | ~50-200 demos for tabletop:      | Fewer demos, harder tasks |\n| few demos          | YES (ACT, Diffusion Policy)      | long-horizon, outdoor     |\n+--------------------+----------------------------------+---------------------------+\n| Multi-task robot   | 5-20 task generalization:        | Thousands of tasks,       |\n| with 1 policy      | YES (RT-2, Octo for tabletop)   | household-scale variety   |\n+--------------------+----------------------------------+---------------------------+\n| Autonomous mobile  | Structured warehouse, hospital:  | Open outdoor unstructured |\n| navigation         | YES (Amazon Robotics, Boston     | with changing layout      |\n|                    | Dynamics Scout)                  |                           |\n+--------------------+----------------------------------+---------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

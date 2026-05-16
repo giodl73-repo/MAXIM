@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "optics\\04-LASER-PHYSICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                      LASER ARCHITECTURE                          |\n|                                                                  |\n|  GAIN MEDIUM          PUMP               OPTICAL CAVITY          |\n|  ----------           ----               ---------------         |\n|  Atoms/molecules/     Converts external  Mirrors providing       |\n|  semiconductors       energy to          feedback + mode         |\n|  with population      population         selection               |\n|  inversion            inversion                                  |\n|                                                                  |\n|  Active medium <-- pump from energy source                       |\n|  Energy source: electrical, optical, or thermal                  |\n|  Cavity: M1 (R=1.0)  --->  gain medium  --->  M2 (R=0.98)        |\n|  Photons bounce M1 <-> M2 on round-trip; small leakage at M2     |\n|  becomes the laser output beam.                                  |\n|                                                                  |\n|  Threshold condition: round-trip gain = round-trip loss          |\n|  g(nu) * 2L >= alpha_loss + ln(1/(R1*R2)) / (2L)                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Einstein Coefficients — The Quantum Foundation",
+      "confidence": "candidate",
+      "text": "  Process             Rate                    Description\n  -------             ----                    -----------\n  Absorption          R_12 = B12 * rho * N1   Atom absorbs photon, goes up\n  Spontaneous emit.   R_21 = A21 * N2         Atom emits random photon, goes down\n  Stimulated emit.    R_stim = B21 * rho * N2 Photon triggers identical copy\n\n  rho = photon energy density at frequency nu\n  N1, N2 = population densities in states |1> and |2>\n  A21 = Einstein A coefficient (spontaneous emission rate)\n  B12 = B21 = Einstein B coefficient (proportional to A21)\n\n  Key ratios:\n  A21 / B21 = 8*pi*h*nu^3 / c^3\n\n  At frequency nu:\n  - Spontaneous rate grows as nu^3 -> harder to make X-ray lasers\n  - Stimulated rate independent of nu -> visible lasers efficient\n\n  Why stimulated emission is the magic:\n  Stimulated photon is IDENTICAL to trigger photon:\n    - Same frequency\n    - Same phase\n    - Same polarization\n    - Same direction\n  This is coherent amplification. The copied photon adds in phase.\n  In contrast, spontaneous emission goes in random directions and phases.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## Population Inversion",
+      "confidence": "candidate",
+      "text": "  N2/N1 = exp(-(E2-E1) / kT)\n\n  At any positive temperature: N2 < N1 (lower state always more populated)\n  -> absorption always dominates over stimulated emission\n  -> no net gain -> can't lase with just two levels\n\n  Need POPULATION INVERSION: N2 > N1 (more atoms in upper state)\n  This is NOT a thermal equilibrium state -- it requires pumping\n\n  Two-level system: IMPOSSIBLE to invert\n    - Pump drives N1 -> N2, but stimulated emission also drives N2 -> N1\n    - At best: N1 = N2 (transparent, not amplifying)\n    - Saturation prevents inversion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 107,
+      "heading_context": "### Three-Level Laser (Ruby, early lasers)",
+      "confidence": "candidate",
+      "text": "  +--------+ Level 3 (fast decay)\n      |      <- pump absorbs here (fast, broad)\n      | fast\n      v\n  +--------+ Level 2 (metastable, long lifetime = laser upper level)\n      |      <- STIMULATED EMISSION happens here (laser transition)\n      |      <- Level 2 lifetime ~ms (for ruby), >> thermal relaxation\n      v\n  +--------+ Level 1 (ground state = lower laser level)\n\n  Problem: lower laser level is the ground state, which is always populated.\n  Must pump MORE than half the atoms to get inversion -> high pump threshold.\n  Ruby laser: requires very intense flashlamp pumping.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 125,
+      "heading_context": "### Four-Level Laser (Nd:YAG, HeNe, most practical lasers)",
+      "confidence": "candidate",
+      "text": "  +--------+ Level 4 (fast decay from pump absorption)\n      |\n      | fast (~ps)\n      v\n  +--------+ Level 3 (metastable, upper laser level)\n      |\n      | stimulated emission at laser wavelength\n      v\n  +--------+ Level 2 (lower laser level, rapidly depopulated)\n      |\n      | fast (~ps)\n      v\n  +--------+ Level 1 (ground state)\n\n  Advantage: lower laser level (2) is quickly emptied -> always empty.\n  Any pump-excited population in level 3 -> inversion maintained.\n  Much lower threshold than three-level systems.\n  Nd:YAG: transitions at 1064nm (main), 1319nm, 946nm.\n  HeNe: lower level actively depopulated by collisions with tube walls.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 205,
+      "heading_context": "### Cavity Stability Criterion",
+      "confidence": "candidate",
+      "text": "  Round-trip ABCD matrix: M = M_mirror2 * M_propagation * M_mirror1 * M_propagation\n\n  Stability condition:\n  -1 <= (A+D)/2 <= +1\n\n  Equivalently (for symmetric two-mirror cavity with mirror ROC = R, length = L):\n  0 <= (1 - L/R1)(1 - L/R2) <= 1   [g1 and g2 stability parameters]\n  g1 = 1 - L/R1,  g2 = 1 - L/R2\n\n  Stable configurations:\n    Plane-plane (R1 = R2 = inf): g1=g2=1, marginally stable (sensitive to misalignment)\n    Concentric (R1=R2=L/2): g1=g2=-1, marginally stable (opposite extreme)\n    Hemispherical (R1=L, R2=inf): g1=0, g2=1, stable and practical\n    Confocal (R1=R2=L): g1=g2=0, center of stability diagram\n\n  Bridge: this is exactly the stability analysis of a feedback loop --\n  the round-trip matrix is the loop transfer matrix, and the eigenvalue\n  condition is the Nyquist stability criterion for optical resonators.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## Gaussian Beam Propagation",
+      "confidence": "candidate",
+      "text": "  Intensity profile (at waist location z=0):\n  I(r, z) = I0 * [w0/w(z)]^2 * exp(-2*r^2 / w(z)^2)\n\n  Beam radius w(z):\n  w(z) = w0 * sqrt(1 + (z/z_R)^2)\n\n  Rayleigh range: z_R = pi * w0^2 / lambda\n    = distance from waist where beam radius = sqrt(2) * w0\n    = depth of focus (distance over which beam is \"focused\")\n\n  Divergence half-angle (far field):\n  theta = lambda / (pi * w0)    [radians, small angle]\n  -> Smaller waist = larger divergence (Fourier uncertainty)\n\n  Beam parameter product (BPP):\n  BPP = w0 * theta = lambda / pi    [for ideal M^2=1 beam]\n\n  M^2 factor:\n  Real beam: BPP_real = M^2 * lambda/pi\n  M^2 = 1: ideal; M^2 > 1: non-ideal (multimode, aberrated)\n\n  Example: 1064nm Nd:YAG, w0 = 1mm:\n  z_R = pi * (1mm)^2 / 1064nm = 2.96m\n  theta = 1064nm / (pi * 1mm) = 0.34 mrad = 0.019 deg",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 263,
+      "heading_context": "## Laser Types Survey",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  LASER TYPE   WAVELENGTH  OUTPUT       KEY APPLICATION           |\n|  ----------   ----------  ------       ---------------           |\n|                                                                  |\n|  SOLID-STATE                                                     |\n|  Nd:YAG       1064nm      CW/pulsed    Industrial, medical,      |\n|  (Nd:glass)               multi-W to  pumping other lasers       |\n|               532nm       kW with      532nm via SHG (green)     |\n|               355nm       harmonics    355nm UV via THG          |\n|                                                                  |\n|  Ti:sapphire  650-1100nm  Tunable CW,  Ultrafast science,        |\n|  (Ti:Al2O3)               modelocked   spectroscopy, STED micro  |\n|               (pump with  fs pulses    Pulse: 10-100 fs          |\n|               532nm Nd)                                          |\n|                                                                  |\n|  Er:YAG       2940nm      Pulsed       Dental/medical (water     |\n|                                        absorbs strongly here)    |\n|                                                                  |\n|  GAS                                                             |\n|  HeNe         632.8nm     CW, mW       Alignment, holography,    |\n|               1152nm      low power    laser pointers (historic) |\n|               3390nm                   Single freq, long l_c     |\n|                                                                  |\n|  CO2          10.6um      CW/pulsed    Cutting, welding,         |\n|               9.6um       W to kW      marking, surgery          |\n|                                        Highest power CW lasers   |\n|                                                                  |\n|  Excimer      193nm (ArF) Pulsed       Photolithography (Intel   |\n|  (rare gas +  248nm (KrF) high energy  7nm node: EUVL at 13.5nm) |\n|  halide)      308nm (XeCl) per pulse   LASIK eye surgery (193nm) |\n|                                                                  |\n|  SEMICONDUCTOR                                                   |\n|  Diode laser  780nm       mW to W      CD/DVD, telecom,          |\n|  (edge emit)  808nm       single mode  pumping solid-state,      |\n|               980nm       to 10W bars  LiDAR, sensing            |\n|               1310nm                                             |\n|               1550nm                                             |\n|                                                                  |\n|  VCSEL        850nm       mW,          Short-reach fiber links,  |\n|  (Vertical    940nm       fast mod     face ID sensors (iPhone), |\n|  cavity SE)   1310nm      >10 GHz      LiDAR arrays              |\n|                                                                  |\n|  FIBER                                                           |\n|  Er-doped     1550nm      1W to kW     Long-haul fiber amp,      |\n|  fiber laser  (EDFA       (CW)         high-power industrial,    |\n|               amplifier)               coherent comms            |\n|  Yb-doped     1030-1120nm             Industrial cutting/weld    |\n|  fiber laser              to 100kW    Best beam quality at power |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### Q-Switching (Short Pulses, High Peak Power)",
+      "confidence": "candidate",
+      "text": "  Normal cavity: Q = omega * (stored energy) / (power loss)\n  High Q cavity -> narrow linewidth -> stores energy -> lases efficiently\n\n  Q-switch operation:\n  1. Insert high-loss element (Q-spoiler): Q is LOW\n  2. Keep pumping: population inversion builds up (can't lase, too much loss)\n  3. Suddenly switch to HIGH Q: now gain >> loss\n  4. All stored inversion releases in a single short intense pulse\n\n  Pulse width: nanoseconds (cavity round-trip time scale)\n  Peak power: 10^6 x CW average power (pulse compression by ~1 million)\n\n  Q-switch methods:\n    Acousto-optic (AOM): fast, external RF signal, rep rate flexible\n    Electro-optic (EOM/Pockels cell): fastest, kV switching required\n    Passive (saturable absorber): crystal or film bleaches at high intensity\n\n  Bridge: Q-switching is analogous to a pipeline stall-and-release:\n  fill the pipeline (gain medium) while blocking output, then open\n  the floodgates. The capacitor-discharge analogy from circuits works too.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "### Mode-Locking (Ultrashort Pulses, Femtosecond Scale)",
+      "confidence": "candidate",
+      "text": "  N longitudinal modes with fixed phase relationship:\n  When N modes are locked in phase, they sum coherently -> short pulse\n\n  Pulse width:  tau_p ~ 1 / Delta_nu_gain  (Fourier limit)\n  Repetition rate = c / (2L)   (FSR of cavity)\n\n  Example: Ti:sapphire, gain bandwidth = 120THz, L = 1.5m:\n  tau_p ~ 1/120THz = 8 fs  (femtosecond)\n  Rep rate = 3e8/(2*1.5) = 100 MHz (10ns spacing)\n\n  Mode-locking methods:\n    Active: acousto-optic modulator at cavity FSR frequency\n    Passive: saturable absorber (SESAM -- semiconductor saturable\n             absorber mirror; bleaches at high intensity, shorter pulses survive)\n    Kerr lens mode-locking (KLM): Kerr effect in Ti:sapphire itself;\n      high intensity -> self-focusing -> selects for pulsed operation\n      (Kerr lens has higher transmission for pulsed than CW mode)\n\n  Chirped Pulse Amplification (CPA, Nobel 2018 -- Mourou & Strickland):\n  Problem: amplifying fs pulses to high energy -- intensity in gain\n  medium destroys it (GW/cm^2 level).\n  Solution:\n  1. Generate fs pulse from oscillator\n  2. STRETCH in time by chirp (~1000x longer, 10 ps -> 10 ns)\n     (diffraction grating or dispersive fiber)\n  3. Amplify the stretched pulse safely (now nanosecond, manageable intensity)\n  4. RECOMPRESS (reverse grating pair)\n  5. Get original fs duration back, but now with amplified energy\n\n  Result: petawatt (10^15 W) peak power lasers\n  Applications: ablation physics, electron acceleration, attosecond science",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

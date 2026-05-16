@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\02-DYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+==========================================================================+\n|                          ROBOT DYNAMICS LANDSCAPE                        |\n+==========================================================================+\n|                                                                          |\n|  EQUATION OF MOTION (EOM):                                               |\n|                                                                          |\n|         M(q) * q_ddot  +  C(q, q_dot) * q_dot  +  G(q)  =  tau         |\n|         ^^^^^^^^^^^^^     ^^^^^^^^^^^^^^^^^^      ^^^^      ^^^          |\n|         Inertia term      Coriolis/centripetal    Gravity   Joint        |\n|         (mass matrix)     term                   vector    torques       |\n|                                                                          |\n|  FORWARD DYNAMICS         |  INVERSE DYNAMICS                            |\n|  Input:  tau (torques)    |  Input:  q, q_dot, q_ddot (motion)           |\n|  Output: q_ddot (accel)   |  Output: tau (torques required)              |\n|  Used in: simulation      |  Used in: computed-torque control            |\n|                           |           motor sizing                       |\n|                                                                          |\n|  TWO FORMULATIONS         |                                              |\n|  Newton-Euler (recursive) |  Efficient: O(n) for serial chain            |\n|  Lagrangian (energy)      |  Elegant: derives EOM from energy functions  |\n|                                                                          |\n+==========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "### Two Passes",
+      "confidence": "candidate",
+      "text": "PASS 1 — OUTWARD (base to end-effector): propagate velocities and accelerations\n============================================================================\n\nFor i = 1 to n (joint 1 to end-effector):\n\n  omega_i = R_i^T * omega_{i-1} + q_dot_i * z_i\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            rotate parent angular velocity to link frame + joint rotation contribution\n\n  alpha_i = R_i^T * alpha_{i-1} + q_ddot_i * z_i + q_dot_i * (omega_i x z_i)\n\n  a_i = R_i^T * (alpha_{i-1} x p_{i-1,i} + omega_{i-1} x (omega_{i-1} x p_{i-1,i}) + a_{i-1})\n        ^^^^^^^   angular accel contribution  centripetal term                         parent accel\n\n  a_{ci} = a_i + alpha_i x p_{i,ci} + omega_i x (omega_i x p_{i,ci})\n            linear acceleration of center of mass of link i\n\nwhere:\n  omega_i, alpha_i: angular velocity/acceleration of link i\n  a_i:              linear acceleration of link i origin\n  a_{ci}:           linear acceleration of COM of link i\n  z_i:              joint axis in link i frame (typically [0,0,1])\n  p_{i-1,i}:        vector from joint i-1 to joint i in link i frame\n  p_{i,ci}:         vector from joint i origin to link i COM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 225,
+      "heading_context": "### The Equation of Motion",
+      "confidence": "candidate",
+      "text": "EULER-LAGRANGE: d/dt (dL/dq_dot) - dL/dq = tau\n\nResult:\n\n     M(q) * q_ddot  +  C(q, q_dot) * q_dot  +  G(q)  =  tau\n\nThis is the fundamental EOM for a serial robot arm with rigid links.\n\nIn practice:\n  tau = M(q)*q_ddot + C(q,q_dot)*q_dot + G(q)   <- INVERSE DYNAMICS\n        (given desired motion, compute required torques)\n\n  q_ddot = M(q)^{-1} * (tau - C(q,q_dot)*q_dot - G(q))   <- FORWARD DYNAMICS\n        (given applied torques, compute resulting acceleration)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## Physical Meaning of Each Term",
+      "confidence": "candidate",
+      "text": "TERM            PHYSICAL MEANING                    WHEN DOMINANT\n====            ================                    =============\nM(q) q_ddot     Inertial resistance to              High accelerations,\n                acceleration. Larger M -> harder    heavy links, or\n                to move, but also harder to stop.   extreme poses (full\n                M varies with pose (more extended   extension: higher M)\n                = higher effective inertia).\n\nC(q,q_dot)q_dot Coriolis: coupling between joints.  High joint velocities.\n                Moving joint 1 while joint 2 moves  Fast manipulation,\n                generates a \"fictitious\" force at    legged locomotion.\n                joint 2 due to rotating frame.\n                Centripetal: q_dot^2 terms pulling\n                links inward (like a spinning chain).\n\nG(q)            Gravity torque. All the torque the  Any non-zero g.\n                actuators must provide just to       Dominant at slow\n                hold the arm still against gravity.  speeds / static.\n                G(q) = 0 for horizontal plane arms.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 302,
+      "heading_context": "### Rigid Contact Model",
+      "confidence": "candidate",
+      "text": "FRICTION CONE:\n                 /\\\n                /  \\  friction cone\n               / mu \\\n        ------+------+------  contact surface\n               normal force n\n\n  For contact to be stable (no slip):\n    |f_tangential| <= mu * f_normal    (Coulomb friction)\n    f_normal >= 0                       (no pull: unilateral constraint)\n\n  mu_s: static friction coefficient (no motion)\n  mu_k: kinetic friction coefficient (sliding)\n  Typically: mu_s > mu_k.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

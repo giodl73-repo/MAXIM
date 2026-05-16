@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\07-ACTUATORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                        ACTUATOR LANDSCAPE                                 |\n+===========================================================================+\n|                                                                           |\n|  ELECTRIC                    HYDRAULIC              PNEUMATIC             |\n|  =======                    =========              =========             |\n|  DC brushed motor           Servo valve            PAM (McKibben)        |\n|  BLDC motor (most common)   Linear hydraulic       Soft pneumatic        |\n|  Stepper motor              Rotary hydraulic       Linear cylinder       |\n|  Linear motor (direct)                                                   |\n|                                                                           |\n|  TRANSMISSION                                       NOVEL                 |\n|  ============                                      ======                |\n|  Spur / planetary gears                            Shape memory alloy    |\n|  Harmonic drive (key for manipulation)             Dielectric elastomer  |\n|  Ball screw                                        Piezoelectric         |\n|  Cable / tendon drive                              Twisted coiled        |\n|                                                                           |\n|  SERVO DRIVE LOOP:                                                        |\n|  Position ref -> [Position ctrl] -> Velocity ref                         |\n|  Velocity ref -> [Velocity ctrl] -> Current ref                          |\n|  Current ref  -> [Current ctrl]  -> Motor voltage/PWM (10-100 kHz)       |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "### Physics",
+      "confidence": "candidate",
+      "text": "TORQUE:\n  tau = Kt * I\n  Kt: torque constant [N*m/A]\n  I:  armature current [A]\n\nBACK-EMF:\n  V_emf = Ke * omega\n  Ke: back-EMF constant [V/(rad/s)]\n  omega: angular velocity [rad/s]\n\n  Note: Kt = Ke (numerically, in SI units). Same constant.\n\nCIRCUIT EQUATION:\n  V = R * I + L * dI/dt + Ke * omega\n  V:  applied voltage\n  R:  armature resistance\n  L:  armature inductance\n\n  At steady-state (dI/dt = 0):\n  I = (V - Ke * omega) / R\n  tau = Kt * (V - Ke * omega) / R\n\nSPEED-TORQUE CURVE:\n  tau         Stall torque: tau_stall = Kt * V / R   (omega = 0)\n  ^\n  | *\n  |  *\n  |   *    Linear. Higher V shifts curve up.\n  |    *\n  +-------> omega\n         No-load speed: omega_nl = V / Ke   (tau = 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 209,
+      "heading_context": "## Servo Drive Architecture",
+      "confidence": "candidate",
+      "text": "CASCADED CONTROL LOOPS:\n=========================\n\n  External planner/controller\n           |\n           | position setpoint (q_d)       -- e.g., 1 kHz from ROS\n           v\n  +------------------+\n  |  POSITION LOOP   |\n  +------------------+\n   Kp*(q_d - q_measured) → velocity reference\n           |\n           | velocity setpoint (omega_d) — 1-4 kHz typically\n           v\n  +------------------+\n  |  VELOCITY LOOP   |\n  +------------------+\n   Kp*(omega_d - omega) → current reference\n           |\n           | current setpoint (I_d) — 5-20 kHz\n           v\n  +------------------+\n  |  CURRENT LOOP    |\n  +------------------+\n   FOC: Id/Iq PI + Park/Clarke + PWM\n           |\n  PWM to motor  (20-100 kHz switching)\n           |\n       Motor -> robot joint\n\nKEY RULE: inner loop bandwidth must be 5-10x outer loop bandwidth.\n  Current loop:   5-20 kHz\n  Velocity loop:  500-4000 Hz\n  Position loop:  100-1000 Hz\n  Trajectory:     10-500 Hz\n  Task planner:   1-50 Hz",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "## Hydraulic Actuators",
+      "confidence": "candidate",
+      "text": "HYDRAULIC SERVO SYSTEM:\n  Pump (constant pressure supply) -> Servo valve -> Actuator\n\nSERVO VALVE:\n  Proportional valve: controls flow rate proportional to input current.\n  High bandwidth: 50-200 Hz possible.\n  Very precise: ~0.1% resolution.\n\nFORCE DENSITY:\n  Hydraulic: 1-10 kN from small cylinder.\n  Electric: comparable power requires much larger motor.\n  Force density (force/volume): hydraulic >> electric.\n  Atlas (original): 28 hydraulic joints. Could lift 11 kg, survive falls.\n\nDOWNSIDES:\n  Leaks (oil contamination).\n  High-pressure lines (safety hazard).\n  Hydraulic power unit (HPU): heavy, loud, large.\n  Thermal: oil temperature affects viscosity -> behavior changes.\n  Not suitable for cleanroom, food, medical environments.\n\nTREND: Atlas transitioned to electric in 2024. Most new humanoids are electric.\n       Hydraulics remains superior for ultra-high-force field robots.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:control
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Robot Control
+status: source-custody
+source_custody: partial
+current_path: robotics/06-CONTROL.md
+canonical_path: robotics/06-CONTROL.md
+backsource_ids: [proof-backfill:robotics:06-control, git-history:robotics:06-control]
+concepts: [control]
+root_concepts: [control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Robot Control
 
 ## The Big Picture
