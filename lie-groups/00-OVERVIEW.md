@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:overview
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Lie Groups - Landscape and Directory Map
+status: source-custody
+source_custody: partial
+current_path: lie-groups/00-OVERVIEW.md
+canonical_path: lie-groups/00-OVERVIEW.md
+backsource_ids: [proof-backfill:lie-groups:00-overview, git-history:lie-groups:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lie Groups — Landscape and Directory Map
 
 ## The Big Picture
@@ -24,15 +43,15 @@ point: Lie groups are the mathematical language of continuous symmetry.
 |  +------------------+          +----------------------+          |
 |  | REPRESENTATIONS  |          | CLASSIFICATION       |          |
 |  | G → GL(V)        |          | A_n  B_n  C_n  D_n   |          |
-|  | Schur's lemma    |          | E6   E7   E8          |          |
-|  | Characters χ(g)  |          | F4   G2               |          |
-|  | Peter-Weyl thm   |          | Dynkin diagrams       |          |
+|  | Schur's lemma    |          | E6   E7   E8         |          |
+|  | Characters χ(g)  |          | F4   G2              |          |
+|  | Peter-Weyl thm   |          | Dynkin diagrams      |          |
 |  +------------------+          +----------------------+          |
 |         |                                   |                    |
 |         v                                   v                    |
 |  +----------------------------------------------------------+    |
-|  |                    APPLICATIONS                           |    |
-|  |  Physics: gauge theory, SU(3)×SU(2)×U(1) Standard Model |    |
+|  |                    APPLICATIONS                          |    |
+|  |  Physics: gauge theory, SU(3)×SU(2)×U(1) Standard Model  |    |
 |  |  Geometry: principal bundles, connections, holonomy      |    |
 |  |  ML: equivariant networks, SE(3)-GNNs                    |    |
 |  |  Robotics: SE(3) rigid body kinematics                   |    |
@@ -151,16 +170,16 @@ WHAT YOU NEED TO KNOW FIRST:
          \                        |                        /
           \                       v                       /
            +----------------------------------------------+
-           |              THIS DIRECTORY                   |
-           |  Lie groups = groups + smooth manifold        |
+           |              THIS DIRECTORY                  |
+           |  Lie groups = groups + smooth manifold       |
            +----------------------------------------------+
                           |              |
-           +--------------+              +--------------+
+                          |              |
            v                                            v
 +-------------------+                        +-------------------+
 | Algebraic Topology|                        | Differential Geom |
-| Homotopy groups   |                        | Fiber bundles      |
-| Covering spaces   |                        | Riemannian metrics |
+| Homotopy groups   |                        | Fiber bundles     |
+| Covering spaces   |                        | Riemannian metrics|
 +-------------------+                        +-------------------+
 ```
 

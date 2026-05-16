@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:second-variation
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Second Variation and Stability
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/06-SECOND-VARIATION.md
+canonical_path: variational-calculus/06-SECOND-VARIATION.md
+backsource_ids: [proof-backfill:variational-calculus:06-second-variation, git-history:variational-calculus:06-second-variation]
+concepts: [second, variation]
+root_concepts: [second, variation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Second Variation and Stability
 
 ## The Big Picture

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "lie-groups\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                  LIE GROUPS: APPLICATION MAP                         |\n+----------------------------------------------------------------------+\n|                                                                      |\n|  PHYSICS                          HARMONIC ANALYSIS                  |\n|  Gauge theory (07)                Fourier on groups                  |\n|  Angular momentum (04)            Peter-Weyl theorem (03)            |\n|  Spacetime symmetry               Zonal spherical functions          |\n|                                                                      |\n|  DIFFERENTIAL GEOMETRY            MACHINE LEARNING                   |\n|  Principal bundles (08)           Equivariant neural networks        |\n|  Holonomy, curvature              SE(3)-equivariant GNNs             |\n|                                   E(3) equivariant networks          |\n|                                                                      |\n|  ROBOTICS & CONTROL               COMPUTER VISION                    |\n|  SE(3) rigid body motion          Camera calibration (SO(3))         |\n|  Lie group integrators            Pose estimation                    |\n|  Kinematics on Lie groups         Optical flow (SE(2))               |\n|                                                                      |\n|  MATHEMATICS                      SIGNAL PROCESSING                  |\n|  Symmetric spaces                 Wavelets on spheres                |\n|  Representation theory            Non-commutative harmonic analysis  |\n|                                                                      |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Fourier Analysis on Groups (Peter-Weyl as Generalized Fourier)",
+      "confidence": "candidate",
+      "text": "G = S^1 = U(1):\n  Irreps: rho_n: e^{i theta} |-> e^{i n theta}  for n in Z (1-dim reps)\n  Characters: chi_n(g) = rho_n(g) = e^{i n theta}\n  Fourier expansion: f(theta) = sum_n f_hat(n) e^{i n theta}\n  Parseval: ||f||^2_{L^2} = sum_n |f_hat(n)|^2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## Robotics: SE(3) Rigid Body Motion",
+      "confidence": "candidate",
+      "text": "se(3) = so(3) semi-direct R^3\nElements: (omega, v) where omega in so(3) (angular velocity), v in R^3 (linear velocity)\n\nIn matrix form (homogeneous coordinates, 4x4 matrices):\n  (omega, v) <-->  [[ omega_skew | v ],\n                    [    0       | 0 ]]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## Robotics: SE(3) Rigid Body Motion",
+      "confidence": "candidate",
+      "text": "exp(omega_skew, v) = ?\n\nIf omega != 0, let theta = |omega|, u = omega/theta:\n  R = I + sin(theta)/theta * omega_skew + (1-cos(theta))/theta^2 * omega_skew^2\n  t = (I - R) * (omega x v) / theta^2 + omega * (omega . v) / theta^2\n\n(Closed-form formula for exp in SE(3))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 203,
+      "heading_context": "## Robotics: SE(3) Rigid Body Motion",
+      "confidence": "candidate",
+      "text": "exp(theta * n_skew) = I + sin(theta) n_skew + (1-cos(theta)) n_skew^2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

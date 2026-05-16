@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:functionals
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Functionals and the Variational Derivative
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/01-FUNCTIONALS.md
+canonical_path: variational-calculus/01-FUNCTIONALS.md
+backsource_ids: [proof-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]
+concepts: [functionals]
+root_concepts: [functionals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Functionals and the Variational Derivative
 
 ## The Big Picture

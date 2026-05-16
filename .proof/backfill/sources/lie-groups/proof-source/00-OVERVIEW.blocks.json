@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "lie-groups\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                     LIE GROUPS: THE LANDSCAPE                    |\n+------------------------------------------------------------------+\n|                                                                  |\n|  CONCRETE MATRIX GROUPS           ABSTRACT STRUCTURE             |\n|  (the examples you work with)     (the theory behind them)       |\n|                                                                  |\n|  GL(n,R), GL(n,C)  ──────────┐   Lie Algebra  g = T_e G         |\n|  SL(n,R), SL(n,C)  ──────────┤   Bracket [X,Y]: g × g → g       |\n|  O(n), SO(n)        ──────────┤   Exponential map exp: g → G     |\n|  U(n), SU(n)        ──────────┤   Baker-Campbell-Hausdorff        |\n|  Sp(2n)             ──────────┘   Lie's three theorems            |\n|         |                                   |                    |\n|         v                                   v                    |\n|  +------------------+          +----------------------+          |\n|  | REPRESENTATIONS  |          | CLASSIFICATION       |          |\n|  | G → GL(V)        |          | A_n  B_n  C_n  D_n   |          |\n|  | Schur's lemma    |          | E6   E7   E8         |          |\n|  | Characters χ(g)  |          | F4   G2              |          |\n|  | Peter-Weyl thm   |          | Dynkin diagrams      |          |\n|  +------------------+          +----------------------+          |\n|         |                                   |                    |\n|         v                                   v                    |\n|  +----------------------------------------------------------+    |\n|  |                    APPLICATIONS                          |    |\n|  |  Physics: gauge theory, SU(3)×SU(2)×U(1) Standard Model  |    |\n|  |  Geometry: principal bundles, connections, holonomy      |    |\n|  |  ML: equivariant networks, SE(3)-GNNs                    |    |\n|  |  Robotics: SE(3) rigid body kinematics                   |    |\n|  |  Harmonic analysis: Fourier as Peter-Weyl on S¹          |    |\n|  +----------------------------------------------------------+    |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## The Central Idea: Local = Global for Lie Groups",
+      "confidence": "candidate",
+      "text": "INFINITESIMAL (local, linear, easy)   ←→   GLOBAL (nonlinear, curved)\n       Lie algebra  g                            Lie group  G\n       tangent space at identity               the full manifold\n       bracket [X,Y]                           multiplication g·h\n       structure constants                     global topology\n\n    exp: g ──────────────────────────────────> G\n         X  ──────────────────────────────────> e^X\n\n    log: G ──────────────────────────────────> g  (near identity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "## The Five-Level Hierarchy",
+      "confidence": "candidate",
+      "text": "LEVEL 1: TOPOLOGICAL GROUP\n  Group G + Hausdorff topology, multiplication and inversion continuous\n  Example: (R, +), (S¹, ×), (GL(n,R), matrix multiplication)\n\n       ↓  add smooth structure\n\nLEVEL 2: LIE GROUP\n  Topological group where G is a smooth manifold,\n  multiplication G×G → G and inversion G → G are smooth maps\n  Example: GL(n,R) open subset of M_n(R) ≅ R^(n²)\n\n       ↓  differentiate at identity\n\nLEVEL 3: LIE ALGEBRA  g = Lie(G) = T_e G\n  Tangent space at identity with Lie bracket [·,·]\n  Skew-symmetric: [X,Y] = -[Y,X]\n  Jacobi identity: [X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0\n\n       ↓  classify\n\nLEVEL 4: ROOT SYSTEM  Φ ⊂ h*\n  For semisimple g: Cartan subalgebra h, roots α,\n  Weyl group W, Dynkin diagram\n\n       ↓  represent\n\nLEVEL 5: REPRESENTATION  ρ: G → GL(V)\n  Irreducible reps classified by highest weights\n  Physical fields live here",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 162,
+      "heading_context": "## Prerequisites and Cross-References",
+      "confidence": "candidate",
+      "text": "WHAT YOU NEED TO KNOW FIRST:\n+-------------------+     +-------------------+     +-------------------+\n| Linear Algebra    |     | Multivariable Calc|     | Group Theory      |\n| Eigenvalues       |     | Manifolds, tangent|     | Homomorphisms     |\n| Determinants      |     | spaces, smooth    |     | Quotient groups   |\n| Inner products    |     | maps, derivatives |     | Normal subgroups  |\n+-------------------+     +-------------------+     +-------------------+\n         \\                        |                        /\n          \\                       v                       /\n           +----------------------------------------------+\n           |              THIS DIRECTORY                  |\n           |  Lie groups = groups + smooth manifold       |\n           +----------------------------------------------+\n                          |              |\n                          |              |\n           v                                            v\n+-------------------+                        +-------------------+\n| Algebraic Topology|                        | Differential Geom |\n| Homotopy groups   |                        | Fiber bundles     |\n| Covering spaces   |                        | Riemannian metrics|\n+-------------------+                        +-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 208,
+      "heading_context": "## The Compact/Non-Compact Divide",
+      "confidence": "candidate",
+      "text": "COMPACT LIE GROUPS                  NON-COMPACT LIE GROUPS\n+-------------------------+          +-------------------------+\n| SO(n), SU(n), Sp(n)     |          | GL(n,R), SL(n,R)        |\n| U(n), O(n)              |          | SO(p,q) Lorentz group   |\n|                         |          | Sp(2n,R) symplectic     |\n| Properties:             |          |                         |\n| - Finite volume         |          | Properties:             |\n| - All reps unitary      |          | - Infinite volume       |\n| - Peter-Weyl applies    |          | - Infinite-dim unitary  |\n| - Representations       |          |   reps (for physics)    |\n|   are fully reducible   |          | - Harish-Chandra theory |\n| - Weyl's theorem        |          |                         |\n+-------------------------+          +-------------------------+\n   PHYSICS: internal sym                PHYSICS: spacetime sym\n   (gauge groups)                       (Poincaré, Lorentz)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1357 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-lie-groups-root-systems",
+  "source": "../../lie-groups",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-ROOT-SYSTEMS.md#000",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "# Root Systems and Weight Lattices"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#001",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#002",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "Root systems encode the structure of semisimple Lie algebras in a finite combinatorial object:\na finite set of vectors in Euclidean space satisfying reflection symmetry conditions. The\nclassification of root systems is equivalent to the classification of semisimple Lie algebras."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#003",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|                ROOT SYSTEMS: THE STRUCTURE                           |\n+----------------------------------------------------------------------+\n|                                                                      |\n|  Start: semisimple Lie algebra g, Cartan subalgebra h               |\n|                                                                      |\n|  g = h  (+)  sum_{alpha in Phi} g_alpha                             |\n|       |               |                                              |\n|    Cartan        root spaces                                         |\n|    subalgebra    (1-dim each, for simple g)                         |\n|                                                                      |\n|  Root system Phi subset h* = dual of h:                             |\n|  - Finite set of nonzero vectors                                     |\n|  - Spans h* (as a vector space)                                      |\n|  - If alpha in Phi: -alpha in Phi (alpha and -alpha come in pairs)   |\n|  - Reflection symmetry: s_alpha(Phi) = Phi for each alpha           |\n|  - Integrality: <alpha, beta_check> in Z for all alpha,beta in Phi  |\n|                                                                      |\n|  KEY DECOMPOSITION:                                                  |\n|  Phi = Phi_+ union Phi_-  (positive and negative roots)             |\n|  Phi_+ = {alpha_1, ..., alpha_n} contains simple roots Pi            |\n|  Every positive root = non-negative integer combination of Pi        |\n|                                                                      |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#004",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#005",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "## The Cartan Decomposition"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#006",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "Let g be a complex semisimple Lie algebra. A **Cartan subalgebra** h is a maximal abelian\nsubalgebra consisting of semisimple (diagonalizable) elements."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#007",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "For matrix algebras: h is the diagonal matrices."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#008",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Root space decomposition:**\nSince h is abelian and acts on g by the adjoint representation ad: h -> End(g), the\nsimultaneous eigenspaces are well-defined."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#009",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "For each linear functional alpha: h -> C (an element of h*), define:\n```\ng_alpha = { X in g : [H, X] = alpha(H) X  for all H in h }\n```"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#010",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Theorem:** g decomposes as:\n```\ng = h  (+)  sum_{alpha in Phi} g_alpha\n```\nwhere Phi = { alpha in h* \\ {0} : g_alpha != 0 } is the **root system**, and dim(g_alpha) = 1\nfor each alpha in Phi when g is simple."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#011",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Example for sl(2):** h = span{H}, roots are {alpha, -alpha} where alpha(H) = 2.\n  g = h (+) g_alpha (+) g_{-alpha}  (the triple H, E, F from 03-REPRESENTATIONS.md)."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#012",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Example for sl(3):** h = diagonal traceless matrices (2-dimensional). 6 roots:\n```\ne_1-e_2, e_2-e_1, e_1-e_3, e_3-e_1, e_2-e_3, e_3-e_2\nwhere (e_i-e_j)(diag(a_1,a_2,a_3)) = a_i - a_j\n```\nPositive roots: e_1-e_2, e_1-e_3, e_2-e_3. Simple roots: alpha_1 = e_1-e_2, alpha_2 = e_2-e_3.\nThis is the A_2 root system (SU(3) case)."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#013",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#014",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "## Root System Axioms"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#015",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "An abstract root system is a finite subset Phi of a Euclidean space (V, <.,..>) satisfying:"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#016",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Axiom 1 (Spanning):** Phi spans V as a real vector space."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#017",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Axiom 2 (No scaling):** The only multiples of alpha in Phi are pm alpha.\n  (Some sources allow 2-element Phi to be a \"non-reduced\" root system, but we take reduced.)"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#018",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Axiom 3 (Reflection closure):** For each alpha in Phi, the reflection:\n```\ns_alpha: V -> V,   s_alpha(beta) = beta - <beta, alpha_check> alpha\nwhere alpha_check = 2*alpha / <alpha,alpha>  (the coroot)\n```\nmaps Phi to itself: s_alpha(Phi) = Phi."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#019",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Axiom 4 (Integrality):** For all alpha, beta in Phi:\n```\n<beta, alpha_check> = 2*<beta,alpha>/<alpha,alpha> in Z\n```"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#020",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "The **Weyl group** W is the group generated by all reflections s_alpha for alpha in Phi.\nIt is a finite group (since Phi is finite and W permutes Phi)."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#021",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#022",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "## Simple Roots and the Cartan Matrix"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#023",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "A **simple root system** or **base** Pi = {alpha_1, ..., alpha_r} subset Phi is a subset such that:\n1. Pi is a basis for V (r = rank = dim V)\n2. Every root is either a non-negative or non-positive integer combination of Pi"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#024",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "```\nExample: A_2 (sl(3) root system)\n  Roots: 6 vectors in R^2 at 60-degree intervals\n  Simple roots: alpha_1, alpha_2  (angle between them = 120 degrees)\n  Positive roots: alpha_1, alpha_2, alpha_1+alpha_2\n  Negative roots: -alpha_1, -alpha_2, -(alpha_1+alpha_2)"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#025",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "+------> alpha_1\n  |  . alpha_1+alpha_2\n  |       .\n  v alpha_2  .\n```"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#026",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Cartan matrix:** A = (a_{ij}) where a_{ij} = <alpha_i, alpha_j_check> = 2<alpha_i,alpha_j>/<alpha_j,alpha_j>."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#027",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "The Cartan matrix encodes all the structure of the root system:\n- Diagonal entries a_{ii} = 2 always\n- Off-diagonal entries a_{ij} in {0,-1,-2,-3} for i != j (for irreducible root systems)\n- a_{ij} * a_{ji} in {0,1,2,3}"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#028",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "**Example Cartan matrices:**"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#029",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "A_2 (SU(3)):           B_2 (SO(5)/Sp(4)):       G_2:\n  [[ 2, -1],             [[ 2, -1],               [[ 2, -1],\n   [-1,  2]]              [-2,  2]]                [-3,  2]]"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#030",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "Note: the Cartan matrix is not symmetric (for non-simply-laced root systems), but A_T is related\nto A by conjugation by the diagonal matrix of root lengths squared."
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#031",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#032",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "## Dynkin Diagrams"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#033",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "A Dynkin diagram is a graphical encoding of the Cartan matrix:\n- One node per simple root\n- Nodes i and j are connected by a_{ij} * a_{ji} = 0,1,2,3 lines\n- For double or triple bonds, an arrow points from the longer root to the shorter root"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#034",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "```\nA_n (n nodes, single bonds):\n  o---o---o--- ... ---o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#035",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "B_n (n nodes, last bond double with arrow to right):\n  o---o---o--- ... ---o==>o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#036",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "C_n (n nodes, last bond double with arrow to left):\n  o---o---o--- ... ---o<==o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#037",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "D_n (n nodes, last node forks):\n  o---o---o--- ... ---o-<o\n                          \\o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#038",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "G_2 (2 nodes, triple bond):\n  o≡≡>o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#039",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "F_4 (4 nodes, one double bond):\n  o---o==>o---o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#040",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "E_6, E_7, E_8 (Y-shaped):\n  E_6:        o\n              |\n  o---o---o---o---o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#041",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "E_7:        o\n              |\n  o---o---o---o---o---o"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#042",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "E_8:            o\n                  |\n  o---o---o---o---o---o---o\n```"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#043",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#044",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "## The Classification Result"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#045",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "The connected Dynkin diagrams (equivalently, the simple root systems) are exactly:"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#046",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "| Series | Diagram | Corresponding group | Rank | Notes |\n|--------|---------|---------------------|------|-------|\n| A_n | o-o-...-o (n nodes) | SU(n+1) | n | n >= 1 |\n| B_n | o-o-...-o==>o | SO(2n+1) | n | n >= 2 |\n| C_n | o-o-...-o<==o | Sp(2n) | n | n >= 3 |\n| D_n | o-o-...-o fork | SO(2n) | n | n >= 4 |\n| G_2 | o≡≡>o | Exceptional | 2 | rank 2 |\n| F_4 | o-o==>o-o | Exceptional | 4 | rank 4 |\n| E_6 | Y-shape, 6 | Exceptional | 6 | |\n| E_7 | Y-shape, 7 | Exceptional | 7 | |\n| E_8 | Y-shape, 8 | Exceptional | 8 | |"
+    },
+    {
+      "id": "05-ROOT-SYSTEMS.md#047",
+      "path": [
+        "05-ROOT-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]",
+        "canonical_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "concepts": "[root, systems]",
+        "current_path": "lie-groups/05-ROOT-SYSTEMS.md",
+        "id": "maxim:lie-groups:root-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[root, systems]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Root Systems and Weight Lattices",
+        "updated": "null"
+      },
+      "text": "This is the complete list. No others exist. The proof is a beautiful induction using the\nallowed Cartan matrix entry products {0,1,2,3} and the fact that the Cartan matrix must be\npositive definite."
+    }
+  ],
+  "refs": [
+    "05-ROOT-SYSTEMS.md"
+  ]
+}

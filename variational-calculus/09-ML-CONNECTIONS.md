@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:ml-connections
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Connections to Machine Learning and Gradient Flows
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/09-ML-CONNECTIONS.md
+canonical_path: variational-calculus/09-ML-CONNECTIONS.md
+backsource_ids: [proof-backfill:variational-calculus:09-ml-connections, git-history:variational-calculus:09-ml-connections]
+concepts: [ml, connections]
+root_concepts: [ml, connections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Connections to Machine Learning and Gradient Flows
 
 ## The Big Picture

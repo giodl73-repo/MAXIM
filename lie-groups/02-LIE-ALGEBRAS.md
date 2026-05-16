@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:lie-algebras
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Lie Algebras and the Exponential Map
+status: source-custody
+source_custody: partial
+current_path: lie-groups/02-LIE-ALGEBRAS.md
+canonical_path: lie-groups/02-LIE-ALGEBRAS.md
+backsource_ids: [proof-backfill:lie-groups:02-lie-algebras, git-history:lie-groups:02-lie-algebras]
+concepts: [lie, algebras]
+root_concepts: [lie, algebras]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lie Algebras and the Exponential Map
 
 ## The Big Picture

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\03-CONSTRAINTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              CONSTRAINED VARIATION                                    |\n|                                                                       |\n|  UNCONSTRAINED: extremize J[u] over all admissible u                  |\n|  → Euler-Lagrange equation                                            |\n|                                                                       |\n|  ISOPERIMETRIC CONSTRAINT:                                            |\n|  extremize J[u] subject to K[u] = C (integral constraint)             |\n|  → E-L for J − λK  (Lagrange multiplier λ)                            |\n|                                                                       |\n|  HOLONOMIC (POINTWISE) CONSTRAINT:                                    |\n|  extremize J[u] subject to g(x, u, u') = 0                            |\n|  → E-L for F + λ(x)g (multiplier is a FUNCTION)                       |\n|                                                                       |\n|  NON-HOLONOMIC (DIFFERENTIAL) CONSTRAINT:                             |\n|  constraint involves velocities in a non-integrable way               |\n|  → Requires special treatment                                         |\n|                                                                       |\n|  CONNECTION TO OPTIMIZATION:                                          |\n|  This is infinite-dimensional constrained optimization.               |\n|  Same idea as KKT conditions but in function spaces.                  |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Queen Dido's Problem (Historical)",
+      "confidence": "candidate",
+      "text": "  Dido's problem: maximize area enclosed between a curve and\n  a straight shoreline, with curve of fixed length.\n\n  One side is the x-axis (straight line from 0 to a).\n  Curve u(x) connects (0,0) to (a,0).\n\n  Maximize: A = ∫₀ᵃ u dx\n  Subject to: L = ∫₀ᵃ √(1+u'²) dx  (fixed length)\n\n  Augmented: ∫₀ᵃ [u − λ√(1+u'²)] dx\n\n  E-L: 1 − λ d/dx[u'/√(1+u'²)] = 0\n  → u'/√(1+u'²) = (x − x₀)/λ   (integrating)\n  → (x−x₀)² + u² = λ²  (circle of radius λ)\n\n  ANSWER: Semicircle. Dido should construct a semicircular city.\n  (Historical: Carthage was semi-circular. Virgil, Aeneid.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## Non-Holonomic Constraints",
+      "confidence": "candidate",
+      "text": "  HOLONOMIC: constraint = f(q₁,...,q_n, t) = 0\n  (depends only on positions, not velocities)\n  Can reduce number of DOF.\n  Lagrange multipliers → constraint forces.\n\n  NON-HOLONOMIC: constraint = f(q, q̇, t) = 0\n  (depends on velocities in a non-integrable way)\n  Cannot reduce DOF by simple substitution.\n  Requires: Lagrange-d'Alembert principle.\n\n  EXAMPLES:\n  • Rolling without slipping:  ẋ = r·θ̇  (can be integrated → holonomic)\n  • Rolling without slipping on a plane (x,y):\n    ẋ = r cosφ · θ̇\n    ẏ = r sinφ · θ̇\n    These two together are non-integrable for general paths.\n  • Knife-edge (skate blade): blade moves only along its direction.\n\n  LAGRANGE-D'ALEMBERT for non-holonomic:\n  Σ (d/dt ∂L/∂q̇ᵢ − ∂L/∂qᵢ) δqᵢ = 0\n  for all virtual displacements δq consistent with constraint.\n\n  Non-holonomic constraints lead to:\n  • Anholonomic geometry (Berry phase in quantum mechanics)\n  • Sub-Riemannian geometry\n  • Motion planning in robotics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

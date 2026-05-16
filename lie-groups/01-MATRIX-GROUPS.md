@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:matrix-groups
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Matrix Lie Groups - Concrete Examples
+status: source-custody
+source_custody: partial
+current_path: lie-groups/01-MATRIX-GROUPS.md
+canonical_path: lie-groups/01-MATRIX-GROUPS.md
+backsource_ids: [proof-backfill:lie-groups:01-matrix-groups, git-history:lie-groups:01-matrix-groups]
+concepts: [matrix, groups]
+root_concepts: [matrix, groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Matrix Lie Groups — Concrete Examples
 
 ## The Big Picture

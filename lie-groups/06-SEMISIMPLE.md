@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:semisimple
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Classification of Simple Lie Algebras
+status: source-custody
+source_custody: partial
+current_path: lie-groups/06-SEMISIMPLE.md
+canonical_path: lie-groups/06-SEMISIMPLE.md
+backsource_ids: [proof-backfill:lie-groups:06-semisimple, git-history:lie-groups:06-semisimple]
+concepts: [semisimple]
+root_concepts: [semisimple]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classification of Simple Lie Algebras
 
 ## The Big Picture

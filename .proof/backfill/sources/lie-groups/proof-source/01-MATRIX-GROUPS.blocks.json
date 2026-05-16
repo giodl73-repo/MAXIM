@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "lie-groups\\01-MATRIX-GROUPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    MATRIX LIE GROUPS: TAXONOMY                       |\n+----------------------------------------------------------------------+\n|                                                                      |\n|  GENERAL LINEAR (base case)                                          |\n|  GL(n,R) = {A in M_n(R) : det A != 0}   dim = n^2                  |\n|  GL(n,C) = {A in M_n(C) : det A != 0}   dim = 2n^2                 |\n|                                                                      |\n|  DETERMINANT-1 CONSTRAINT                                            |\n|  SL(n,R) = {A in GL(n,R) : det A = 1}   dim = n^2-1                |\n|  SL(n,C) = {A in GL(n,C) : det A = 1}   dim = 2n^2-2               |\n|                                                                      |\n|  ORTHOGONAL / UNITARY (preserve inner product)                       |\n|  O(n)  = {A in GL(n,R) : A^T A = I}     dim = n(n-1)/2             |\n|  SO(n) = {A in O(n) : det A = 1}         dim = n(n-1)/2             |\n|  U(n)  = {A in GL(n,C) : A† A = I}      dim_R = n^2                |\n|  SU(n) = {A in U(n) : det A = 1}         dim_R = n^2-1             |\n|                                                                      |\n|  SYMPLECTIC (preserve skew form)                                     |\n|  Sp(2n,R) = {A in GL(2n,R) : A^T J A = J}  dim = n(2n+1)          |\n|  Sp(n) (compact form)                                                |\n|                                                                      |\n|  CLASSICAL SERIES (Cartan's notation):                               |\n|  A_n <-> SU(n+1)  B_n <-> SO(2n+1)  C_n <-> Sp(n)  D_n <-> SO(2n)|\n|                                                                      |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## General Linear Group GL(n,R)",
+      "confidence": "candidate",
+      "text": "M_n(R) iso R^(n^2)  --det-->  R\n                              |\nGL(n,R) = det^{-1}(R\\{0})    R \\ {0} = (-inf,0) union (0,inf)\n                              |\n                              Two components:\n                              det > 0  ->  orientation-preserving\n                              det < 0  ->  orientation-reversing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 206,
+      "heading_context": "## Symplectic Groups",
+      "confidence": "candidate",
+      "text": "SYMPLECTIC vs ORTHOGONAL:\n  Orthogonal: A^T A = I   (preserve symmetric form sum x_i y_i)\n  Symplectic: A^T J A = J  (preserve skew form sum (x_i y_{n+i} - x_{n+i} y_i))\n\n  Orthogonal matrices: finite orbits (compact group SO(n))\n  Symplectic matrices: unbounded orbits (non-compact Sp(2n,R))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Topology: Compact vs Non-Compact",
+      "confidence": "candidate",
+      "text": "COMPACTNESS CRITERION FOR CLOSED MATRIX SUBGROUPS:\n  A closed subgroup of GL(n,R) is compact iff it is bounded.\n\n  O(n): A^T A=I forces all entries in [-1,1].  Bounded + Closed -> Compact\n  U(n): A†A=I forces all entries in unit disk.  Bounded + Closed -> Compact\n  SL(n,R): no bound on entries (diagonal [[t,0],[0,1/t]] -> inf). Not compact.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "## Other Important Lie Groups",
+      "confidence": "candidate",
+      "text": "SE(n) = SO(n) semi-direct R^n  (semidirect product)\n\nElements: (R, t) where R in SO(n), t in R^n\nAction: x |-> Rx + t\nMultiplication: (R_1,t_1).(R_2,t_2) = (R_1 R_2, R_1 t_2 + t_1)\n\nMatrix form in homogeneous coordinates:\n  [ R | t ]\n  [---+---]   in GL(n+1,R)\n  [ 0 | 1 ]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 306,
+      "heading_context": "## Embeddings and Inclusions",
+      "confidence": "candidate",
+      "text": "GL(n,C) -------> GL(2n,R)      [z = a+bi |-> [[a,-b],[b,a]] block]\n    |                 |\n  SL(n,C)          GL(n,R)\n    |                 |\n  SU(n)  -------> SO(2n)\n    |\n  U(n)   -------> O(2n)\n\nCompact chain:\n  SU(n) subset U(n) subset O(2n)\n  Sp(n) subset U(2n) subset O(4n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

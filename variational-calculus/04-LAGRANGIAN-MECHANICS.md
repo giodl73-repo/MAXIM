@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:lagrangian-mechanics
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Lagrangian Mechanics
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/04-LAGRANGIAN-MECHANICS.md
+canonical_path: variational-calculus/04-LAGRANGIAN-MECHANICS.md
+backsource_ids: [proof-backfill:variational-calculus:04-lagrangian-mechanics, git-history:variational-calculus:04-lagrangian-mechanics]
+concepts: [lagrangian, mechanics]
+root_concepts: [lagrangian, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lagrangian Mechanics
 
 ## The Big Picture

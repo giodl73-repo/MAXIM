@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\05-HAMILTONIAN-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              LAGRANGIAN vs. HAMILTONIAN                               |\n|                                                                       |\n|  LAGRANGIAN           HAMILTONIAN                                     |\n|  -----------          -----------                                     |\n|  State: (q, q̇)       State: (q, p)  [phase space]                     |\n|  n 2nd-order ODEs     2n 1st-order ODEs                               |\n|  L = T − V            H = T + V  (usually energy)                     |\n|  q̈ = f(q, q̇)         q̇ = ∂H/∂p,  ṗ = −∂H/∂q                      |\n|  Tangent bundle TQ    Cotangent bundle T*Q                            |\n|                                                                       |\n|  ADVANTAGES OF HAMILTONIAN:                                           |\n|  • Phase space geometry (symplectic structure)                        |\n|  • Conservation: {H, f} = 0 ↔ f is conserved                          |\n|  • Canonical transformations simplify problems                        |\n|  • Direct path to quantum mechanics                                   |\n|  • Statistical mechanics (Liouville's theorem)                        |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "## The Legendre Transform",
+      "confidence": "candidate",
+      "text": "  STEP 1: CANONICAL MOMENTA\n  pᵢ = ∂L/∂q̇ᵢ   (n equations)\n\n  STEP 2: INVERT (if possible)\n  Express q̇ᵢ = q̇ᵢ(q, p, t) from the p equations.\n  Requires: ∂²L/∂q̇ᵢ∂q̇ⱼ nonsingular (Hessian invertible).\n\n  STEP 3: LEGENDRE TRANSFORM\n  H(q, p, t) = Σᵢ pᵢ q̇ᵢ − L(q, q̇, t)\n  where q̇ on the right is expressed as a function of (q,p).\n\n  EXAMPLE: L = ½m|q̇|² − V(q)\n  p = mq̇  →  q̇ = p/m\n  H = p·(p/m) − [½m|p/m|² − V] = |p|²/2m + V(q)  ← Kinetic + potential!\n\n  EXAMPLE: Relativistic particle:\n  L = −mc²√(1−v²/c²) − V\n  p = mv/√(1−v²/c²)  →  v = pc/√(m²c²+p²)\n  H = √(m²c⁴ + p²c²) + V   ← Relativistic energy-momentum relation!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "## Hamilton's Equations",
+      "confidence": "candidate",
+      "text": "  HAMILTON'S EQUATIONS:\n  ┌────────────────────────────────────────────────────────────────┐\n  │   dqᵢ/dt = ∂H/∂pᵢ     (velocity = slope of H in p-direction)│\n  │   dpᵢ/dt = −∂H/∂qᵢ    (force = −slope of H in q-direction)     │\n  └────────────────────────────────────────────────────────────────┘\n\n  These replace: n 2nd-order E-L equations\n  With:          2n 1st-order equations\n\n  ENERGY CONSERVATION:\n  dH/dt = Σ (∂H/∂qᵢ q̇ᵢ + ∂H/∂pᵢ ṗᵢ) + ∂H/∂t\n        = Σ (∂H/∂qᵢ ∂H/∂pᵢ − ∂H/∂pᵢ ∂H/∂qᵢ) + ∂H/∂t\n        = ∂H/∂t\n\n  If H has no explicit t: dH/dt = 0. Energy is conserved.\n\n  DERIVATION from Lagrangian:\n  d/dt(H) = d/dt(Σpᵢq̇ᵢ − L) = Σ(ṗᵢq̇ᵢ + pᵢq̈ᵢ − ∂L/∂qᵢq̇ᵢ − ∂L/∂q̇ᵢq̈ᵢ − ∂L/∂t)\n  Use E-L: ṗᵢ = ∂L/∂qᵢ, and pᵢ = ∂L/∂q̇ᵢ → terms cancel.\n  = −∂L/∂t = ∂H/∂t  ■",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## Phase Space and Symplectic Structure",
+      "confidence": "candidate",
+      "text": "  PHASE SPACE: M = {(q₁,...,q_n, p₁,...,p_n)} = T*Q  (cotangent bundle)\n\n  SYMPLECTIC FORM:\n  ω = Σᵢ dpᵢ ∧ dqᵢ   (the canonical symplectic 2-form)\n\n  PROPERTIES OF ω:\n  • Closed: dω = 0\n  • Non-degenerate: ω(v,w) = 0 for all w → v = 0\n  • Antisymmetric: ω(v,w) = −ω(w,v)\n\n  HAMILTONIAN VECTOR FIELD X_H:\n  ω(X_H, ·) = dH  defines X_H uniquely (via non-degeneracy of ω).\n  In coordinates: X_H = Σ(∂H/∂pᵢ ∂/∂qᵢ − ∂H/∂qᵢ ∂/∂pᵢ)\n  This is EXACTLY Hamilton's equations!\n\n  SYMPLECTIC VOLUME:\n  ω^n = ω ∧ ω ∧ ... ∧ ω (n times) is the volume form on phase space.\n  Up to a constant: vol = dq₁∧dp₁∧...∧dqₙ∧dpₙ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Poisson Brackets",
+      "confidence": "candidate",
+      "text": "  POISSON BRACKET:\n  {f, g} = Σᵢ (∂f/∂qᵢ ∂g/∂pᵢ − ∂f/∂pᵢ ∂g/∂qᵢ)\n\n  PROPERTIES:\n  • Antisymmetry:    {f,g} = −{g,f}\n  • Bilinearity:     {αf+βg, h} = α{f,h} + β{g,h}\n  • Leibniz rule:    {fg, h} = f{g,h} + {f,h}g\n  • Jacobi identity: {f,{g,h}} + {g,{h,f}} + {h,{f,g}} = 0\n  These are the axioms of a Lie algebra!\n\n  CANONICAL BRACKETS:\n  {qᵢ, qⱼ} = 0\n  {pᵢ, pⱼ} = 0\n  {qᵢ, pⱼ} = δᵢⱼ\n\n  TIME EVOLUTION OF OBSERVABLES:\n  df/dt = {f, H} + ∂f/∂t\n\n  CONSERVATION: f is conserved ↔ {f, H} = 0  (f commutes with H)\n\n  QUANTUM MECHANICS CORRESPONDENCE:\n  Classical {f, g} → Quantum [F̂, Ĝ]/(iℏ)\n  Classical canonical relations → Canonical commutation relations:\n  [q̂ᵢ, p̂ⱼ] = iℏδᵢⱼ   (Heisenberg uncertainty principle!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## Canonical Transformations",
+      "confidence": "candidate",
+      "text": "  A transformation (q,p) → (Q,P) is CANONICAL if it preserves ω:\n  Σ dPᵢ ∧ dQᵢ = Σ dpᵢ ∧ dqᵢ   (symplectic condition)\n\n  Equivalently: {Qᵢ, Qⱼ}_{q,p} = 0,  {Pᵢ, Pⱼ}_{q,p} = 0,\n                {Qᵢ, Pⱼ}_{q,p} = δᵢⱼ\n\n  GENERATING FUNCTIONS:\n  F₁(q, Q):  p = ∂F₁/∂q,   P = −∂F₁/∂Q,  K = H + ∂F₁/∂t\n  F₂(q, P):  p = ∂F₂/∂q,   Q = ∂F₂/∂P,   K = H + ∂F₂/∂t\n\n  STRATEGY: Find a canonical transformation where H(Q,P) = E (constant).\n  Then Q̇ = ∂H/∂P = 0, Ṗ = −∂H/∂Q = 0: trivially solved!\n  This is the Hamilton-Jacobi approach.\n\n  KEY CANONICAL TRANSFORMATIONS:\n  • Identity: F₂ = Σ qᵢPᵢ  (trivial)\n  • Point transformation: Q = Q(q), P transforms contravariantly\n  • Fourier transform (quantum mechanics): q ↔ p exchange\n  • Action-angle: (q,p) → (J,θ) for integrable systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Hamilton-Jacobi Equation",
+      "confidence": "candidate",
+      "text": "  Find F₂(q, P, t) = S(q, α, t) [Hamilton's principal function]\n  such that the new Hamiltonian K = 0 (motion trivial in (Q,P)).\n\n  Condition: H(q, ∂S/∂q, t) + ∂S/∂t = 0\n\n  HAMILTON-JACOBI EQUATION:\n  ┌────────────────────────────────────────────────────────────────┐\n  │  ∂S/∂t + H(q, ∂S/∂q, t) = 0                                    │\n  └────────────────────────────────────────────────────────────────┘\n\n  This is a PDE for S(q,t). Once solved:\n  Q = ∂S/∂P = const   (α's, initial data)\n  p = ∂S/∂q\n\n  STATIONARY CASE:  S = W(q) − Et  (time-independent H)\n  H(q, ∂W/∂q) = E  (EIKONAL EQUATION for W)\n\n  CONNECTION TO QUANTUM MECHANICS:\n  Schrödinger equation: iℏ ∂ψ/∂t = Ĥψ\n  WKB ansatz: ψ = e^{iS/ℏ}\n  Leading-order O(ℏ⁰): ∂S/∂t + H(q, ∇S) = 0  (Hamilton-Jacobi!)\n\n  Quantum mechanics → classical mechanics as ℏ → 0.\n  The action S is the phase of the wavefunction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

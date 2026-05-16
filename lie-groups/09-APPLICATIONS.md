@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:applications
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Applications Beyond Physics
+status: source-custody
+source_custody: partial
+current_path: lie-groups/09-APPLICATIONS.md
+canonical_path: lie-groups/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:lie-groups:09-applications, git-history:lie-groups:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications Beyond Physics
 
 ## The Big Picture

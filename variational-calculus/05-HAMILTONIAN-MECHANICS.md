@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:hamiltonian-mechanics
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Hamiltonian Mechanics and Phase Space
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/05-HAMILTONIAN-MECHANICS.md
+canonical_path: variational-calculus/05-HAMILTONIAN-MECHANICS.md
+backsource_ids: [proof-backfill:variational-calculus:05-hamiltonian-mechanics, git-history:variational-calculus:05-hamiltonian-mechanics]
+concepts: [hamiltonian, mechanics]
+root_concepts: [hamiltonian, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hamiltonian Mechanics and Phase Space
 
 ## The Big Picture

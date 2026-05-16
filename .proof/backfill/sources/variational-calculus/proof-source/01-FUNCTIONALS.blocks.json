@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\01-FUNCTIONALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## Functionals: From Functions to Numbers",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              FUNCTIONS vs. FUNCTIONALS                                |\n|                                                                       |\n|  FUNCTION:   f: R^n → R                                               |\n|  Input:  a point x ∈ R^n (finite-dimensional vector)                  |\n|  Output: a number f(x) ∈ R                                            |\n|  Extremum condition:  ∇f(x) = 0   (gradient = 0)                      |\n|                                                                       |\n|  FUNCTIONAL:  J: V → R   (V = function space)                         |\n|  Input:  a FUNCTION u ∈ V  (infinite-dimensional \"point\")             |\n|  Output: a number J[u] ∈ R                                            |\n|  Extremum condition:  δJ/δu = 0   (variational derivative = 0)        |\n|                                                                       |\n|  KEY: infinite-dimensional optimization requires infinite-dimensional |\n|  calculus — this is what variational calculus provides.               |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Integral Functionals: The Standard Form",
+      "confidence": "candidate",
+      "text": "  BASIC INTEGRAL FUNCTIONAL:\n  J[u] = ∫ₐᵇ F(x, u(x), u'(x)) dx\n\n  F is called the LAGRANGIAN or LAGRANGE DENSITY.\n  (x = independent variable, u = function, u' = derivative)\n\n  MULTI-VARIABLE:\n  J[u] = ∫_Ω F(x, u, ∇u) dx   (x ∈ R^n, u: Ω → R)\n\n  MULTIPLE FUNCTIONS:\n  J[u,v] = ∫ₐᵇ F(x, u, v, u', v') dx  (system case)\n\n  HIGHER DERIVATIVES:\n  J[u] = ∫ₐᵇ F(x, u, u', u'') dx   (beam bending, thin plates)\n\n  EXAMPLES:\n  ┌───────────────────────────────────────────────────────────────┐\n  │ Arc length:         J[u] = ∫√(1+u'²) dx                       │\n  │ Area functional:    J[u] = ∫∫ √(1+u_x²+u_y²) dA               │\n  │ Dirichlet energy:   J[u] = ½∫|∇u|² dA                         │\n  │ Elastic energy:     J[u] = ½∫EI(u'')² dx  (beam)              │\n  │ Least action:       S[q] = ∫[½m|q̇|² − V(q)] dt                │\n  │ Optimal transport:  W²[T] = ∫|x − T(x)|² dμ(x)                │\n  │ Log-likelihood:     L[θ] = Σ log p(xᵢ; θ) (with θ = fn)       │\n  └───────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Integration by Parts: Deriving E-L",
+      "confidence": "candidate",
+      "text": "  The key step: integrate the η' term by parts.\n\n  δJ = ∫ₐᵇ [F_u · η + F_{u'} · η'] dx\n\n     = ∫ₐᵇ F_u · η dx + [F_{u'} · η]ₐᵇ − ∫ₐᵇ (d/dx F_{u'}) · η dx\n\n     = [F_{u'} · η]ₐᵇ + ∫ₐᵇ [F_u − d/dx(F_{u'})] · η dx\n\n  FIXED ENDPOINTS: η(a) = η(b) = 0 → boundary term vanishes.\n\n  δJ = ∫ₐᵇ [F_u − d/dx(F_{u'})] · η dx = 0   for ALL η\n\n  By the FUNDAMENTAL LEMMA of calculus of variations:\n  if ∫ₐᵇ f(x)·η(x) dx = 0 for all smooth η with η(a)=η(b)=0,\n  then f(x) = 0 everywhere on [a,b].\n\n  → EULER-LAGRANGE EQUATION:  F_u − d/dx(F_{u'}) = 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## The Variational Derivative (Functional Gradient)",
+      "confidence": "candidate",
+      "text": "  VARIATIONAL DERIVATIVE (Fréchet derivative):\n  δJ/δu = ∂F/∂u − ∇·(∂F/∂(∇u))\n\n  This is the \"gradient\" of J as a function of the infinite-dimensional\n  argument u. The Euler-Lagrange equation is simply:\n\n  δJ/δu = 0\n\n  EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ Dirichlet: J[u] = ½∫|∇u|² dx                                    │\n  │   δJ/δu = −∇²u   (the negative Laplacian)                       │\n  │   δJ/δu = 0 → ∇²u = 0  (Laplace equation)                       │\n  │                                                                 │\n  │ Area: J[u] = ∫√(1+|∇u|²) dA                                     │\n  │   δJ/δu = −∇·(∇u/√(1+|∇u|²))                                    │\n  │   = −(mean curvature H of the surface u)                        │\n  │   δJ/δu = 0 → H = 0  (minimal surface equation)                 │\n  │                                                                 │\n  │ Action: S[q] = ∫L(q,q̇)dt                                        │\n  │   δS/δq = ∂L/∂q − d/dt(∂L/∂q̇)                                   │\n  │   δS/δq = 0 → Euler-Lagrange equations of mechanics             │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## Natural Boundary Conditions",
+      "confidence": "candidate",
+      "text": "  δJ = [F_{u'}η]ₐᵇ + ∫ₐᵇ [F_u − (F_{u'})'] η dx = 0\n\n  If endpoint b is FREE (no constraint on u(b)):\n  The term F_{u'}(b)·η(b) must also vanish for arbitrary η(b).\n  → NATURAL BOUNDARY CONDITION: F_{u'}(b) = 0.\n\n  EXAMPLE: Neumann BC for Dirichlet functional.\n  J[u] = ½∫₀ᴸ u'² dx, u(0) = 0 (fixed), u(L) free.\n  F = ½u'², F_{u'} = u'\n  E-L: u'' = 0 → u linear.\n  Natural BC: u'(L) = 0 → Neumann condition emerges naturally!\n\n  SIGNIFICANCE:\n  Essential BCs (Dirichlet): prescribed on function u directly.\n  Natural BCs (Neumann): emerge from the variational formulation.\n  This is exactly the FEM Essential vs. Natural BC distinction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## Functionals with Higher Derivatives",
+      "confidence": "candidate",
+      "text": "  BEAM BENDING (Euler-Bernoulli):\n  J[u] = ½ ∫₀ᴸ EI (u'')² dx − ∫₀ᴸ q(x)u dx\n\n  F = ½EI(u'')² − qu,  depends on u, u', u''\n\n  E-L EQUATION FOR HIGHER ORDER:\n  For J[u] = ∫ F(x,u,u',u'') dx:\n  E-L: F_u − (F_{u'})' + (F_{u''})'' = 0\n\n  For beam: 0 − 0 + (EI·u'')'' − q = 0\n  → (EI u'')'' = q   (4th order ODE — biharmonic)\n\n  GENERAL RULE for J[u] = ∫ F(x,u,u',...,u^{(n)}) dx:\n  E-L: Σ_{k=0}^n (−1)^k d^k/dx^k (∂F/∂u^{(k)}) = 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

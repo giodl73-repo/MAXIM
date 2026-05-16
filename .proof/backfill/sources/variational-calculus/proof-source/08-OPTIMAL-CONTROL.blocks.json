@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\08-OPTIMAL-CONTROL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              OPTIMAL CONTROL LANDSCAPE                                |\n|                                                                       |\n|  VARIATIONAL CALCULUS:        OPTIMAL CONTROL:                        |\n|  u(t) unconstrained           control u(t) ∈ U (constrained set)      |\n|  Euler-Lagrange sufficient    Pontryagin MP necessary                 |\n|  Smooth solutions             Possibly bang-bang solutions            |\n|  No state constraints         State constraints allowed               |\n|                                                                       |\n|  PROBLEM: minimize J = ∫₀ᵀ L(x,u,t) dt + Ψ(x(T))                      |\n|           subject to: ẋ = f(x, u, t)  (dynamics)                      |\n|                        x(0) = x₀       (initial state)                |\n|                        u(t) ∈ U         (control constraint)          |\n|                                                                       |\n|  x = state,  u = control,  L = running cost,  Ψ = terminal cost       |\n|                                                                       |\n|  APPLICATIONS:                                                        |\n|  Aerospace: minimum fuel / time trajectories                          |\n|  Robotics: minimum energy / time motion planning                      |\n|  Economics: optimal capital accumulation (Ramsey model)               |\n|  Neural ODEs: optimal depth in continuous networks                    |\n|  RL: continuous-time limit of reinforcement learning                  |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## Pontryagin Maximum Principle (PMP)",
+      "confidence": "candidate",
+      "text": "  PROBLEM:\n  Minimize: J[u] = ∫₀ᵀ L(x(t), u(t), t) dt + Ψ(x(T))\n  Subject to: ẋ(t) = f(x(t), u(t), t),  x(0) = x₀,  u(t) ∈ U\n\n  HAMILTONIAN (control theory — different from mechanics!):\n  H(x, p, u, t) = p · f(x, u, t) − L(x, u, t)\n\n  (p is the costate or adjoint variable — analogous to momentum)\n\n  PONTRYAGIN MAXIMUM PRINCIPLE:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ If u*(t) is optimal, then there exists costate p(t) such that:   │\n  │                                                                  │\n  │ 1. STATE EQUATION:  ẋ* = ∂H/∂p = f(x*, u*, t)                    │\n  │                                                                  │\n  │ 2. COSTATE EQUATION: ṗ = −∂H/∂x = ∂L/∂x − p·∂f/∂x                │\n  │    (backward ODE! — integrated from T to 0)                      │\n  │    Transversality: p(T) = −∂Ψ/∂x(T) (terminal condition for p)│\n  │                                                                  │\n  │ 3. MAXIMUM CONDITION:                                            │\n  │    H(x*(t), p(t), u*(t), t) = max_{u ∈ U} H(x*(t), p(t), u, t)│\n  │    The optimal control MAXIMIZES the Hamiltonian at each t.      │\n  └──────────────────────────────────────────────────────────────────┘\n\n  KEY DIFFERENCE from E-L:\n  E-L: δH/δu = 0 (unconstrained stationarity)\n  PMP: max over U (constrained maximum — may be on boundary of U)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Bellman's Principle and HJB Equation",
+      "confidence": "candidate",
+      "text": "  BELLMAN'S PRINCIPLE OF OPTIMALITY (1957):\n  An optimal control, for any sub-interval [t,T], is optimal for\n  the remaining problem starting at (x(t), t).\n\n  \"Whatever the initial state and initial decision are, the remaining\n  decisions must constitute an optimal policy with regard to the state\n  resulting from the first decision.\"\n\n  VALUE FUNCTION:\n  V(x, t) = min_{u(·)} ∫_t^T L(x,u,s) ds + Ψ(x(T))\n  (minimum cost to go from state x at time t)\n\n  HAMILTON-JACOBI-BELLMAN (HJB) EQUATION:\n  ┌────────────────────────────────────────────────────────────────┐\n  │  −∂V/∂t = min_{u ∈ U} [L(x,u,t) + ∇V · f(x,u,t)]               │\n  │  = min_{u ∈ U} [L(x,u,t) + ∇_x V · f(x,u,t)]                   │\n  │  Terminal condition: V(x,T) = Ψ(x)                             │\n  └────────────────────────────────────────────────────────────────┘\n\n  HJB is a NONLINEAR PDE for V(x,t) (Hamilton-Jacobi type).\n  Once V is known: optimal control u*(x,t) = argmin_{u∈U}[L + ∇V·f]\n\n  RELATIONSHIP TO PMP:\n  If V is smooth: ∇_x V(x*(t), t) = −p(t)  (costate = gradient of value function)\n  V satisfies HJB ↔ PMP conditions satisfied along optimal trajectory.\n  HJB gives the global solution; PMP gives the local (trajectory) conditions.\n\n  VISCOSITY SOLUTIONS:\n  HJB is typically non-smooth (optimal control often bang-bang).\n  Crandall-Lions (1983) viscosity solution theory handles non-smooth V.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## Linear Quadratic Regulator (LQR)",
+      "confidence": "candidate",
+      "text": "  LQR PROBLEM:\n  Minimize J = ∫₀ᵀ [xᵀQx + uᵀRu] dt + xᵀ(T) P_T x(T)\n  Subject to: ẋ = Ax + Bu,   x(0) = x₀\n  (Q ≥ 0, R > 0, P_T ≥ 0 symmetric matrices)\n\n  U = R^m (unconstrained!) → PMP gives interior condition.\n\n  COSTATE EQUATION:  ṗ = −Qx − Aᵀp\n  OPTIMALITY:  Ru + Bᵀp = 0  →  u* = −R⁻¹Bᵀp\n\n  ASSUME p(t) = −P(t)x(t)  (Riccati ansatz):\n  ṗ = −Ṗx − Pẋ = −Qx − Aᵀp = −Qx + AᵀPx\n  −(Ṗx + P(Ax + Bu)) = −Qx + AᵀPx\n  Substituting u* = R⁻¹Bᵀ P x:\n\n  RICCATI EQUATION:\n  −Ṗ = Aᵀ P + PA − PBR⁻¹Bᵀ P + Q\n  P(T) = P_T\n\n  OPTIMAL CONTROL:  u*(t) = −K(t) x(t)  where K(t) = R⁻¹Bᵀ P(t)\n  LINEAR FEEDBACK CONTROL.\n\n  INFINITE HORIZON (T→∞, stabilizing P):\n  P satisfies ALGEBRAIC RICCATI EQUATION:\n  Aᵀ P + PA − PBR⁻¹Bᵀ P + Q = 0\n  K = R⁻¹Bᵀ P = constant feedback gain matrix.\n  Standard feedback controller for linear systems.\n\n  LQR is the foundation of model-predictive control (MPC) — the standard\n  approach in process control, aerospace, robotics, and any system requiring\n  constrained optimal feedback over a receding horizon.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
