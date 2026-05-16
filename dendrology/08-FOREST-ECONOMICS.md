@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:forest-economics
+kind: guide
+module: dendrology
+section: dendrology
+title: Forest Economics: Timber Markets, Carbon Credits, Certification
+status: source-custody
+source_custody: partial
+current_path: dendrology/08-FOREST-ECONOMICS.md
+canonical_path: dendrology/08-FOREST-ECONOMICS.md
+backsource_ids: [proof-backfill:dendrology:08-forest-economics, git-history:dendrology:08-forest-economics]
+concepts: [forest, economics]
+root_concepts: [forest, economics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forest Economics: Timber Markets, Carbon Credits, Certification
 
 ## The Big Picture

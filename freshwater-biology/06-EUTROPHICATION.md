@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:eutrophication
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Eutrophication: Causes, Algal Blooms, Hypoxia, Remediation
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/06-EUTROPHICATION.md
+canonical_path: freshwater-biology/06-EUTROPHICATION.md
+backsource_ids: [proof-backfill:freshwater-biology:06-eutrophication, git-history:freshwater-biology:06-eutrophication]
+concepts: [eutrophication]
+root_concepts: [eutrophication]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Eutrophication: Causes, Algal Blooms, Hypoxia, Remediation
 
 ## The Big Picture

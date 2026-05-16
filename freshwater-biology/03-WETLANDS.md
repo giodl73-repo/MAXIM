@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:wetlands
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Wetlands: Classification, Hydrology, Blue Carbon, Ecosystem Services
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/03-WETLANDS.md
+canonical_path: freshwater-biology/03-WETLANDS.md
+backsource_ids: [proof-backfill:freshwater-biology:03-wetlands, git-history:freshwater-biology:03-wetlands]
+concepts: [wetlands]
+root_concepts: [wetlands]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wetlands: Classification, Hydrology, Blue Carbon, Ecosystem Services
 
 ## The Big Picture

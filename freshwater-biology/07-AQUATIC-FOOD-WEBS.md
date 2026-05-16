@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:aquatic-food-webs
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Aquatic Food Webs: Trophic Cascades, Keystone Species, Bioaccumulation
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/07-AQUATIC-FOOD-WEBS.md
+canonical_path: freshwater-biology/07-AQUATIC-FOOD-WEBS.md
+backsource_ids: [proof-backfill:freshwater-biology:07-aquatic-food-webs, git-history:freshwater-biology:07-aquatic-food-webs]
+concepts: [aquatic, food, webs]
+root_concepts: [aquatic, food]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aquatic Food Webs: Trophic Cascades, Keystone Species, Bioaccumulation
 
 ## The Big Picture

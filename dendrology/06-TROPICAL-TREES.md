@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:tropical-trees
+kind: guide
+module: dendrology
+section: dendrology
+title: Tropical Tree Diversity: Rainforest Structure, Emergents, Epiphytes
+status: source-custody
+source_custody: partial
+current_path: dendrology/06-TROPICAL-TREES.md
+canonical_path: dendrology/06-TROPICAL-TREES.md
+backsource_ids: [proof-backfill:dendrology:06-tropical-trees, git-history:dendrology:06-tropical-trees]
+concepts: [tropical, trees]
+root_concepts: [tropical, trees]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tropical Tree Diversity: Rainforest Structure, Emergents, Epiphytes
 
 ## The Big Picture

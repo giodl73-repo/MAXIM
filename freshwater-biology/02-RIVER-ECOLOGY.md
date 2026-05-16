@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:river-ecology
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: River Ecology: River Continuum Concept, Hydraulics, Riparian Zones
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/02-RIVER-ECOLOGY.md
+canonical_path: freshwater-biology/02-RIVER-ECOLOGY.md
+backsource_ids: [proof-backfill:freshwater-biology:02-river-ecology, git-history:freshwater-biology:02-river-ecology]
+concepts: [river, ecology]
+root_concepts: [river, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # River Ecology: River Continuum Concept, Hydraulics, Riparian Zones
 
 ## The Big Picture

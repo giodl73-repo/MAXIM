@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:wood-properties
+kind: guide
+module: dendrology
+section: dendrology
+title: Wood Properties: Grain, Density, Hardness, Shrinkage, Moisture
+status: source-custody
+source_custody: partial
+current_path: dendrology/02-WOOD-PROPERTIES.md
+canonical_path: dendrology/02-WOOD-PROPERTIES.md
+backsource_ids: [proof-backfill:dendrology:02-wood-properties, git-history:dendrology:02-wood-properties]
+concepts: [wood, properties]
+root_concepts: [wood, properties]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wood Properties: Grain, Density, Hardness, Shrinkage, Moisture
 
 ## The Big Picture

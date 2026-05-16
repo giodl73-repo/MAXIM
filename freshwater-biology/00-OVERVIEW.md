@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:overview
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Freshwater Biology - Lakes, Rivers, Wetlands, and Groundwater: The Full Landscape
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/00-OVERVIEW.md
+canonical_path: freshwater-biology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:freshwater-biology:00-overview, git-history:freshwater-biology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Freshwater Biology — Lakes, Rivers, Wetlands, and Groundwater: The Full Landscape
 
 ## The Big Picture
