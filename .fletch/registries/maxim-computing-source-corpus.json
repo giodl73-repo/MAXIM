@@ -265,6 +265,235 @@
         "guide": "computing/04-BUILD.md",
         "publication_state": "partial-source-custody"
       }
+    },
+    {
+      "id": "maxim.computing-frontend-frameworks.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-computing-frontend-frameworks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.computing-source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "computing-software",
+            "guide": "computing/05-FRONTEND.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-computing-frontend-frameworks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "computing-software",
+        "guide": "computing/05-FRONTEND.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.computing-frontend-frameworks.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-computing-frontend-frameworks.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.computing-frontend-frameworks.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "computing-software",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.computing-source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-computing-frontend-frameworks.json",
+            "module": "computing-software",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-computing-frontend-frameworks.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "computing-software",
+        "guide": "computing/05-FRONTEND.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.computing-frontend-frameworks.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/computing-software/proof-source/05-FRONTEND.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.computing-frontend-frameworks.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "computing-software",
+            "guide": "computing/05-FRONTEND.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/computing-software/proof-source/05-FRONTEND.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "computing-software",
+        "guide": "computing/05-FRONTEND.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.computing-frontend-frameworks.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/computing-software/proof-source/05-FRONTEND.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.computing-frontend-frameworks.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "computing-software",
+            "guide": "computing/05-FRONTEND.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/computing-software/proof-source/05-FRONTEND.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "computing-software",
+        "guide": "computing/05-FRONTEND.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.computing-frontend-frameworks.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/computing-software/proof-source/05-FRONTEND.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.computing-frontend-frameworks.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "computing-software",
+            "guide": "computing/05-FRONTEND.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/computing-software/proof-source/05-FRONTEND.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "computing-software",
+        "guide": "computing/05-FRONTEND.md",
+        "publication_state": "partial-source-custody"
+      }
     }
   ]
 }
