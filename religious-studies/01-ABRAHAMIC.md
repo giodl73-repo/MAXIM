@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:abrahamic
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Abrahamic Religions - Judaism, Christianity, Islam
+status: source-custody
+source_custody: partial
+current_path: religious-studies/01-ABRAHAMIC.md
+canonical_path: religious-studies/01-ABRAHAMIC.md
+backsource_ids: [proof-backfill:religious-studies:01-abrahamic, git-history:religious-studies:01-abrahamic]
+concepts: [abrahamic]
+root_concepts: [abrahamic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Abrahamic Religions — Judaism, Christianity, Islam
 
 ## The Big Picture
@@ -52,33 +71,24 @@ Judaism does not accept the Christian fulfillment claim or the Islamic supersess
 |                  JEWISH TEXTUAL LAYERS                           |
 |                                                                  |
 |  TANAKH (Hebrew Bible)                                           |
-|  +-----------+------------------+------------------+             |
-|  | Torah     | Nevi'im          | Ketuvim          |            |
-|  | (Law)     | (Prophets)       | (Writings)       |            |
-|  | 5 books   | Former + Latter  | Psalms, Proverbs,|            |
-|  | Genesis-  | Prophets         | Job, Ruth,       |            |
-|  | Deuter-   | (Joshua-Kings,   | Esther, Daniel,  |            |
-|  | onomy     | Isaiah-Malachi)  | Ezra-Nehemiah    |            |
-|  +-----------+------------------+------------------+            |
-   |                                                              |
-   |  ORAL TORAH (claims equal authority with Written Torah)      |
-|  +------------------+                                           |
-|  | Mishnah (c.200 CE)| Oral law codified by Rabbi Judah         |
-|  | 6 orders, 63 tracts| the Prince. Topical arrangement.        |
-|  +------------------+                                           |
-   |          |                                                   |
-   |          v                                                   |
-|  +-------------------+------------------+                       |
-|  | Babylonian Talmud  | Jerusalem Talmud |                       |
-|  | (c.500 CE)         | (c.400 CE)       |                       |
-|  | Mishnah + Gemara   | Less authoritative|                      |
-|  | (rabbinic commentary| in most          |                      |
-|  | on Mishnah)        | traditions        |                      |
-|  +-------------------+------------------+                       |
-   |                                                              |
-   |  LATER LAYERS: Midrash (narrative exegesis), Responsa        |
-   |  (legal rulings), Kabbalah (medieval mystical tradition),    |
-   |  Shulchan Aruch (Joseph Karo, 1563 — practical law code)     |
+|    Torah (Law): Genesis-Deuteronomy                              |
+|    Nevi'im (Prophets): Former + Latter Prophets                  |
+|      Joshua-Kings, Isaiah-Malachi                                |
+|    Ketuvim (Writings): Psalms, Proverbs, Job, Ruth,              |
+|      Esther, Daniel, Ezra-Nehemiah                               |
+|                                                                  |
+|  ORAL TORAH (claims equal authority with Written Torah)          |
+|    Mishnah (c.200 CE): Oral law codified by Rabbi Judah          |
+|      the Prince; 6 orders, 63 tractates.                         |
+|      |                                                           |
+|      v                                                           |
+|    Babylonian Talmud (c.500 CE): Mishnah + Gemara                |
+|    Jerusalem Talmud (c.400 CE): less authoritative in most       |
+|      traditions.                                                 |
+|                                                                  |
+|  LATER LAYERS: Midrash (narrative exegesis), Responsa            |
+|  (legal rulings), Kabbalah (medieval mystical tradition),        |
+|  Shulchan Aruch (Joseph Karo, 1563 - practical law code)         |
 +------------------------------------------------------------------+
 ```
 
@@ -248,29 +258,27 @@ against, and excluded by developing ecclesial consensus.
 |              CHRISTIAN DENOMINATIONAL TREE                       |
 |                                                                  |
 |  EARLY CHURCH (1st-4th c)                                        |
+|  EARLY CHURCH (1st-4th c)                                        |
 |       |                                                          |
-|  +-----------------+                                             |
-|  | Great Schism 1054 CE: EAST-WEST SPLIT                        |
-|  +-----------------+                                            |
-   |       |                    |                                 |
-   |  ROMAN CATHOLIC        EASTERN ORTHODOX                      |
-   |  (~1.3 billion)        (Greek, Russian,                      |
-   |  Papal authority       Serbian, Coptic, etc.)                |
-   |  Magisterium           Conciliar authority                   |
-   |  Marian doctrines      Seven ecumenical councils             |
-   |  Purgatory, indulgences Icons, theosis                       |
-   |       |                                                      |
-   |  REFORMATION (Luther 1517, Calvin, Zwingli, Anabaptists)     |
-   |       |                                                      |
-   |  PROTESTANT BRANCHES:                                        |
-   |  Lutheran (justification by faith alone, sola scriptura)     |
-   |  Reformed/Presbyterian (Calvin — double predestination)      |
-   |  Anglican/Episcopalian (via media, retained episcopacy)      |
-   |  Baptist (believer's baptism only, congregationalism)        |
-   |  Methodist (Wesley — sanctification, Arminian)               |
-   |  Pentecostal/Charismatic (Spirit gifts, glossolalia — 20th c)|
-   |  Evangelical (biblical inerrancy, conversion emphasis)       |
-+------------------------------------------------------------------+
+|  Great Schism 1054 CE: EAST-WEST SPLIT                           |
+|       |                    |                                     |
+|  ROMAN CATHOLIC        EASTERN ORTHODOX                          |
+|  (~1.3 billion)        (Greek, Russian,                          |
+|  Papal authority       Serbian, Coptic, etc.)                    |
+|  Magisterium           Conciliar authority                       |
+|  Marian doctrines      Seven ecumenical councils                 |
+|  Purgatory, indulgences Icons, theosis                           |
+|       |                                                          |
+|  REFORMATION (Luther 1517, Calvin, Zwingli, Anabaptists)         |
+|       |                                                          |
+|  PROTESTANT BRANCHES:                                            |
+|  Lutheran (justification by faith alone, sola scriptura)         |
+|  Reformed/Presbyterian (Calvin - double predestination)          |
+|  Anglican/Episcopalian (via media, retained episcopacy)          |
+|  Baptist (believer's baptism only, congregationalism)            |
+|  Methodist (Wesley - sanctification, Arminian)                   |
+|  Pentecostal/Charismatic (Spirit gifts, glossolalia - 20th c)    |
+|  Evangelical (biblical inerrancy, conversion emphasis)           |
 ```
 
 Key Reformation theological claims:
@@ -320,7 +328,8 @@ Why did Jesus die, and how does it save? No single theory is normative for all C
 |  Sophisticated authentication methodology:                       |
 |  Isnad (chain of transmission): A heard from B heard from C...   |
 |  Matn (content): the actual report.                              |
-|  Grades: sahih (sound), hasan (good), da'if (weak), mawdu' (forged)|
+|  Grades: sahih (sound), hasan (good), da'if (weak), mawdu'       |
+|  (forged).                                                       |
 |       |                                                          |
 |  SHARIA (Islamic law)                                            |
 |  Derived from: Quran + Sunna + ijma (scholarly consensus)        |

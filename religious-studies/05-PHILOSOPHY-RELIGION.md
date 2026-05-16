@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:philosophy-religion
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Philosophy of Religion
+status: source-custody
+source_custody: partial
+current_path: religious-studies/05-PHILOSOPHY-RELIGION.md
+canonical_path: religious-studies/05-PHILOSOPHY-RELIGION.md
+backsource_ids: [proof-backfill:religious-studies:05-philosophy-religion, git-history:religious-studies:05-philosophy-religion]
+concepts: [philosophy, religion]
+root_concepts: [philosophy, religion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophy of Religion
 
 ## The Big Picture

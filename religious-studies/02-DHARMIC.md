@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:dharmic
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Dharmic Religions - Hinduism, Buddhism, Jainism, Sikhism
+status: source-custody
+source_custody: partial
+current_path: religious-studies/02-DHARMIC.md
+canonical_path: religious-studies/02-DHARMIC.md
+backsource_ids: [proof-backfill:religious-studies:02-dharmic, git-history:religious-studies:02-dharmic]
+concepts: [dharmic]
+root_concepts: [dharmic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dharmic Religions — Hinduism, Buddhism, Jainism, Sikhism
 
 ## The Big Picture
@@ -21,7 +40,7 @@ Hindu Atman concept; Jainism rejected the Vedic tradition entirely.
 |  Vedic roots,          Rejects Vedic        Rejects    Monotheist; |
 |  vast diversity.       authority,           Vedas;     rejects     |
 |  ~1.2 billion.         Atman concept.       ahimsa     caste.      |
-|                        ~500 million.        central.   ~30 million.|
+|                       ~500 million.        central.   ~30 million. |
 |                                             ~5 million.            |
 |                                                                    |
 |  SHARED CONCEPTS (with different meanings in each tradition):      |

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:structural-logic
+kind: guide
+module: architecture
+section: architecture
+title: Structural Logic in Architecture
+status: source-custody
+source_custody: partial
+current_path: architecture/02-STRUCTURAL-LOGIC.md
+canonical_path: architecture/02-STRUCTURAL-LOGIC.md
+backsource_ids: [proof-backfill:architecture:02-structural-logic, git-history:architecture:02-structural-logic]
+concepts: [structural, logic]
+root_concepts: [structural, logic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structural Logic in Architecture
 
 ## The Big Picture

@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture\\06-CONTEMPORARY-MOVEMENTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n|              CONTEMPORARY ARCHITECTURE LANDSCAPE                   |\n|                                                                    |\n|  COMPUTATIONAL /         SUSTAINABILITY          SOCIAL /          |\n|  PARAMETRIC              IMPERATIVE              CONTEXTUAL        |\n|  ──────────────         ───────────────         ───────────        |\n|  Hadid, Gehry, BIG      Mass timber             Adaptive reuse     |\n|  Snøhetta, MVRDV        Net-zero / PH           Community-led      |\n|  Form follows           Embodied carbon         Participatory      |\n|  algorithm              Living Building         Historic context   |\n|                         Biophilic design        Jane Jacobs        |\n|                                                                    |\n|        TECTONIC /            PREFAB /                              |\n|        STRUCTURAL            OFFSITE                               |\n|        ──────────────        ──────────────                        |\n|        Calatrava             Volumetric modular                    |\n|        Piano (Rogers)        Panelized systems                     |\n|        Glenn Murcutt         DFMA                                  |\n|        Structure as          Factory quality,                      |\n|        architecture          field speed                           |\n|                                                                    |\n|  These are not competing — a project can be simultaneously         |\n|  parametric, mass timber, biophilic, and prefabricated.            |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "### The Shift from Drafting to Algorithm",
+      "confidence": "candidate",
+      "text": "  PARAMETRIC DESIGN SHIFT\n  ========================\n\n  CONVENTIONAL DESIGN:           PARAMETRIC DESIGN:\n  Draw this shape.               Write rules that generate shapes.\n\n  Plan with fixed dimensions.    Plan with variable parameters:\n  Change one dimension           - Façade density = f(solar exposure)\n  → redraw everything.           - Column spacing = f(floor load + program)\n                                 - Panel size = f(structure + budget + fab)\n                                 Change parameter → all instances update.\n\n  WHAT ENABLES IT:\n  Rhino + Grasshopper (McNeel)   Visual programming + NURBS geometry\n  CATIA (Dassault)               Originally aerospace/auto → Gehry\n  ArchiCAD + Grasshopper         Open BIM + parametric\n  Dynamo + Revit (Autodesk)      BIM-integrated parametric\n  Python / C# scripting          Code-first geometry generation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "### Frank Gehry / Gehry Technologies",
+      "confidence": "candidate",
+      "text": "  GEHRY'S COMPUTATIONAL PROCESS\n  ================================\n\n  PHYSICAL MODEL (still primary design tool at Gehry):\n  Hand-built crumpled titanium / paper model\n             │\n             ▼\n  3D SCAN / DIGITIZE:\n  Model scanned with 3D digitizer\n  → point cloud → NURBS surface\n             │\n             ▼\n  CATIA (aerospace software, Dassault):\n  Surfaces rationalized into:\n  - Flat panels (cheapest)\n  - Single-curvature panels (bent sheet, affordable)\n  - Double-curvature panels (most expensive, minimize)\n             │\n             ▼\n  UNFOLDING / DEVELOPABILITY:\n  Single-curvature surface can be unrolled flat.\n  Pattern cut from flat titanium sheet.\n  Bent to final curve in factory.\n  CNC ensures precision.\n             │\n             ▼\n  TITANIUM CLADDING PANELS (Bilbao):\n  0.38mm thick titanium (thinner than US dime).\n  33,000 panels, each unique.\n  Random-looking surface is actually highly optimized.\n  Budget was preserved by eliminating double-curvature panels.\n\n  THE LESSON:\n  Digital fabrication decouples complexity of form from\n  cost — IF the complexity is resolved into fabricatable\n  geometry. A doubly-curved panel costs 10× a flat one.\n  Gehry's team eliminates 90% of double-curvature by\n  rationalizing to single-curvature equivalents.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### BIG (Bjarke Ingels Group)",
+      "confidence": "candidate",
+      "text": "  BIG'S DESIGN METHOD\n  ====================\n\n  1. START WITH PROGRAM (functional requirements)\n  2. APPLY CONSTRAINTS (solar, views, neighbors, code)\n  3. GENERATE DIAGRAM (simple geometric operation on program)\n  4. EVALUATE: does the diagram solve multiple constraints\n     simultaneously?\n\n  EXAMPLES:\n  ──────────\n\n  8 House Copenhagen (2010):\n  Program: housing + retail + office\n  Constraint: all units need daylight + garden access\n  Diagram: stack housing on a loop — figure-8 shape\n           ground-level loop = street for cyclists\n           all units face outward or into courtyard\n           penthouse accessible by bike up sloped walkway\n\n  VIA 57 West NYC (2016):\n  Program: residential tower on Manhattan west side\n  Constraint: courtyard (ground amenity) + views + sunlight\n  Diagram: hybrid — courtyard block on one side,\n           tower on the other. \"Courtscraper.\"\n  Result: single form resolves courtyard + tower typologies.\n\n  AMAGER BAKKE (CopenHill, 2019):\n  Program: waste-to-energy plant + public amenity\n  Constraint: Copenhagen has no hills → no ski slope\n  Diagram: put a ski slope on the power plant roof\n  Result: industrial building + ski/hiking amenity\n  Carbon emission signal: ring of smoke = one ton CO2 emitted",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "### Frei Otto",
+      "confidence": "candidate",
+      "text": "  OTTO'S FORM-FINDING EXPERIMENTS\n  ==================================\n\n  PROBLEM: What is the optimal shape for a minimal surface?\n  (A surface spanning a boundary with minimum area)\n\n  PHYSICAL EXPERIMENT:\n  Wire frame dipped in soapy water.\n  Soap film automatically forms minimal surface.\n  Hang wet mesh from fixed points:\n  mesh sags into catenary — the optimal compression form.\n\n  RESULTS:\n  Munich Olympic Stadium (1972):\n  Tensile cable net (not soap film, but same logic)\n  Irregular topography → irregular cable net spans gracefully\n  Form found by models, not calculation (calculation verified it)\n\n  Multihalle Mannheim (1975):\n  Timber lattice gridshell — curved in two directions\n  Form-found by hanging chain mesh upside down\n  → invert to get compression surface\n  Spans 60m with 50mm timber laths\n\n  CONNECTION TO COMPUTATION:\n  Grasshopper \"Kangaroo\" plugin → physical simulation\n  Catenary form-finding → digitally\n  Same logic as Otto's physical experiments, now parametric",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Grimshaw's Eden Project",
+      "confidence": "candidate",
+      "text": "  EDEN PROJECT GEODESIC DOMES\n  ============================\n\n  Program: Botanical biomes (tropical + Mediterranean)\n  in an exhausted china clay pit, Cornwall UK (2001)\n\n  CHALLENGE:\n  Irregular pit topography → no flat datum for structure\n  Solution: Each biome is a set of interlocked geodesic spheres\n           Ground-touching point varies per sphere\n           No two structural frames identical\n\n  STRUCTURAL LOGIC:\n  Hexagonal-pentagonal geodesic subdivision of sphere.\n  ETFE (Ethylene Tetrafluoroethylene) pneumatic cushions\n  fill each hexagon/pentagon (3 layers, air-inflated,\n  transparent, very light, excellent insulation).\n  The structure is pure geometry optimization.\n\n  ETFE vs GLASS:\n  ETFE:  1% of glass weight; 70% light transmission\n         R-4 to R-6 (multi-layer cushion)\n         Self-cleaning (rain runs off)\n         Flexible → geodesic curvature easy\n         Birds don't see it → death risk (vs fritted glass)\n  GLASS: heavier, brittle, fixed panels, conventional",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "### Why Mass Timber Is Exploding",
+      "confidence": "candidate",
+      "text": "  MASS TIMBER DRIVERS\n  ====================\n\n  1. CARBON:\n     Concrete cement: ~800 kg CO2/tonne (calcination process)\n     Steel (blast furnace): ~1,800 kg CO2/tonne\n     CLT (cross-laminated timber): sequesters carbon during growth\n     Net: CLT is carbon-positive over full lifecycle\n\n  2. SPEED:\n     CLT panels prefabricated in factory\n     Arrive on site, crane to position, bolt down\n     One floor per week is achievable (vs 2–3 weeks concrete)\n     No formwork → no stripping time\n\n  3. SEISMIC:\n     CLT is light (1/5 density of concrete)\n     Lighter building → smaller seismic force (F = ma)\n     Timber is ductile (bends before breaking)\n     Post-Northridge: mass timber buildings performed well\n\n  4. BIOPHILIC:\n     Exposed wood reduces stress (Kellert / Terrapin Bright Green)\n     Occupant preference consistently shown in POE studies\n     No acoustic penalty: CLT floors can be acoustic-rated\n\n  5. ECONOMICS:\n     Faster schedule = less financing cost\n     Lighter structure = smaller foundation\n     Often cost-competitive with concrete at 8–15 stories\n     Above 20 stories: hybrid (timber floors + concrete core)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "### Mass Timber Products",
+      "confidence": "candidate",
+      "text": "  MASS TIMBER PRODUCT FAMILY\n  ============================\n\n  CLT (Cross-Laminated Timber)\n  ────────────────────────────\n  Layers of dimensional lumber at 90° angles, glued.\n  Layer stack (5-ply CLT):\n    layer 1: grain runs 0  deg ( ──────────── )\n    layer 2: grain runs 90 deg ( |  |  |  |  )\n    layer 3: grain runs 0  deg ( ──────────── )\n    layer 4: grain runs 90 deg ( |  |  |  |  )\n    layer 5: grain runs 0  deg ( ──────────── )\n  Two-way spanning (like a concrete slab)\n  Panels: typically 3, 5, or 7 layers\n  Panel sizes: up to 3.5m wide × 20m long\n  Spans: 4–8m (floor); up to 12m with special design\n  Use: floors, walls, roofs\n\n  DLT (Dowel-Laminated Timber)\n  ────────────────────────────\n  Lumber boards stacked vertically, connected by hardwood\n  dowels (no glue, no metal fasteners).\n  One-way spanning, but more sustainable (no adhesives).\n  Spans: 4–8m typical.\n\n  GLT / Glulam (Glue-Laminated Timber)\n  ─────────────────────────────────────\n  Horizontal laminations, all parallel grain.\n  Used for: beams, columns, arches.\n  Spans: 8–40m economically (arches to 80m+).\n  Custom curved profiles: glulam arch, glulam portal frame.\n  Finish: exposed, stained — architecturally beautiful.\n\n  LVL (Laminated Veneer Lumber)\n  ──────────────────────────────\n  Thin wood veneers, all parallel grain, glued.\n  High, consistent strength.\n  Use: headers, beams, rim boards.\n  Not exposed architecturally (veneered appearance).\n\n  NAIL-LAMINATED TIMBER (NLT)\n  ─────────────────────────────\n  Dimensional lumber stood on edge, nailed together.\n  Very old system (platform framing era).\n  Low tech, low cost, can use local lumber.\n  Exposed: beautiful grain lines.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "### Tall Mass Timber",
+      "confidence": "candidate",
+      "text": "  TALL TIMBER BUILDINGS (2024)\n  ==============================\n\n  Building                    Location    Stories  Height  System\n  ──────────────────────────────────────────────────────────────────\n  Ascent                      Milwaukee   25       87m     GLT+CLT+conc.core\n  Brock Commons (UBC)         Vancouver   18       58m     CLT + conc.core\n  HoHo Wien                   Vienna      24       84m     Timber-concrete\n  Sara Kulturhus              Skellefteå  20       75m     Glulam+CLT\n  Mjostarnet                  Brumunddal  18       85.4m   Glulam (tallest timber)\n\n  PATTERN:\n  All tall timber buildings use a HYBRID approach:\n  - Timber for floors and envelope framing (low weight, fast)\n  - Concrete or steel for lateral core (stiffness, fire rating)\n  - Below ground: concrete (durability, waterproofing)\n\n  PURE TIMBER to 25+ stories is theoretical.\n  Practical upper limit without concrete core: ~12 stories.\n  Above that: timber floors + concrete/steel lateral core.\n\n  FIRE CODE:\n  IBC 2021 (US): Mass Timber Construction Types IV-A, IV-B, IV-C\n  Up to 18 stories (IV-A) with sprinklers + char design\n  Some jurisdictions have adopted; others pending.\n  EU: varies significantly by country.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 427,
+      "heading_context": "### Notable Adaptive Reuse Projects",
+      "confidence": "candidate",
+      "text": "  ADAPTIVE REUSE EXAMPLES\n  =========================\n\n  TATE MODERN (Bankside Power Station → Museum):\n  Herzog & de Meuron, 2000\n  Turbine Hall: 155m × 35m × 34m — one of world's great interior spaces\n  Oil tanks (added 2016): found circular geometry preserved\n  Lesson: the industrial structure provides spatial quality\n          that the new architecture cannot rival. Don't compete — frame it.\n\n  HIGHLINE (elevated freight railway → public park):\n  Diller Scofidio + Renfro, 2009–2014\n  Steel structure preserved, planted over.\n  Catalyzed entire West Side neighborhood transformation.\n  Lesson: infrastructure can become public amenity.\n          The elevated datum creates urban experience.\n\n  PECKHAM RYELANDS (coal bunker → community center):\n  Haworth Tompkins / local partnership, 2015\n  Minimum intervention: structure preserved, openings created.\n  Lesson: structural limitation is creative constraint,\n          not problem to be solved by demolition.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 458,
+      "heading_context": "### Volumetric Modular",
+      "confidence": "candidate",
+      "text": "  VOLUMETRIC MODULAR CONSTRUCTION\n  ==================================\n\n  CONCEPT:\n  Complete building modules (box units) built in factory.\n  Craned onto site and connected.\n\n  ┌──────────────────────────────────────────┐\n  │ FACTORY (controlled environment)         │\n  │                                          │\n  │ ┌────┐  ┌────┐  ┌────┐  ┌────┐           │\n  │ │ M1 │  │ M2 │  │ M3 │  │ M4 │          │\n  │ └────┘  └────┘  └────┘  └────┘          │\n  │  walls + floors + MEP all installed      │\n  └──────────────────────────────────────────┘\n               │ transport\n               ▼\n  ┌──────────────────────────────────────────┐\n  │ SITE                                     │\n  │         M4 M3                            │\n  │         M2 M1     stacked, connected     │\n  │         ──────────────                   │\n  └──────────────────────────────────────────┘\n\n  ADVANTAGES:\n  90% of work in factory: weather-independent, repetitive,\n  QC inspectable, labor-controlled.\n  Site assembly: crane + bolts. Fast.\n  Typical hotel floor: 2–4 modules/day vs 2 weeks conventional.\n  Waste: factory can sort and recycle much more efficiently.\n\n  LIMITATIONS:\n  Module transport: max road transport: ~4m wide × 13m long\n  Interior dimension: ~3.5m wide (structural wall on each side)\n  Design flexibility: works for repetitive programs (hotel rooms,\n  student housing, student apartments, hospital patient rooms)\n  NOT: column-free spaces, complex geometry, custom programs\n\n  EXAMPLES:\n  CitizenM hotels: flagship volumetric modular\n  AC Marriott NYC: 168 rooms, 90-day site erection\n  Brock Commons UBC: hybrid (volumetric + CLT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 546,
+      "heading_context": "### What Biophilia Is",
+      "confidence": "candidate",
+      "text": "### Kellert's 14 Biophilic Design Patterns",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 548,
+      "heading_context": "### Kellert's 14 Biophilic Design Patterns",
+      "confidence": "candidate",
+      "text": "  BIOPHILIC DESIGN FRAMEWORK (Kellert / Browning / Ryan)\n  =========================================================\n\n  NATURE IN THE SPACE:\n  1.  Visual connection with nature\n  2.  Non-visual connection (sound, smell, touch, taste)\n  3.  Non-rhythmic sensory stimuli (natural unpredictability)\n  4.  Thermal and airflow variability\n  5.  Presence of water\n  6.  Dynamic and diffuse light\n  7.  Connection with natural systems (seasons, weather)\n\n  NATURAL ANALOGUES:\n  8.  Biomorphic forms and patterns (fractal, organic)\n  9.  Material connection with nature (wood, stone, water)\n  10. Complexity and order (fractal organization)\n\n  NATURE OF THE SPACE:\n  11. Prospect (visual access to space)\n  12. Refuge (sense of shelter)\n  13. Mystery (partially revealed information, inviting exploration)\n  14. Risk / peril (controlled sense of danger — edge, height)\n\n  EVIDENCE BASE:\n  Roger Ulrich: hospital views → faster recovery (1984)\n  Rachel & Stephen Kaplan: attention restoration theory\n  — nature restores directed attention (Kaplan 1989)\n  Terrapin Bright Green research:\n  - 8% increase in wellbeing (biophilic offices)\n  - 13% increase in productivity\n  - 15% increase in creativity\n  These numbers are from consulting research, not RCT —\n  treat as directional, not precise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

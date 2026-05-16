@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:environmental
+kind: guide
+module: architecture
+section: architecture
+title: Environmental Design
+status: source-custody
+source_custody: partial
+current_path: architecture/03-ENVIRONMENTAL.md
+canonical_path: architecture/03-ENVIRONMENTAL.md
+backsource_ids: [proof-backfill:architecture:03-environmental, git-history:architecture:03-environmental]
+concepts: [environmental]
+root_concepts: [environmental]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Environmental Design
 
 ## The Big Picture

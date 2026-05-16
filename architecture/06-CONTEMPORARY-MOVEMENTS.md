@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:contemporary-movements
+kind: guide
+module: architecture
+section: architecture
+title: Contemporary Architecture Movements
+status: source-custody
+source_custody: partial
+current_path: architecture/06-CONTEMPORARY-MOVEMENTS.md
+canonical_path: architecture/06-CONTEMPORARY-MOVEMENTS.md
+backsource_ids: [proof-backfill:architecture:06-contemporary-movements, git-history:architecture:06-contemporary-movements]
+concepts: [contemporary, movements]
+root_concepts: [contemporary, movements]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Architecture Movements
 
 ## The Big Picture
