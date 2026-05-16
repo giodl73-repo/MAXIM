@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:demographic-transition
+kind: guide
+module: demography
+section: demography
+title: Demographic Transition
+status: source-custody
+source_custody: partial
+current_path: demography/05-DEMOGRAPHIC-TRANSITION.md
+canonical_path: demography/05-DEMOGRAPHIC-TRANSITION.md
+backsource_ids: [proof-backfill:demography:05-demographic-transition, git-history:demography:05-demographic-transition]
+concepts: [demographic, transition]
+root_concepts: [demographic, transition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Demographic Transition
 
 ## The Big Picture
@@ -132,6 +151,7 @@ SDT EVIDENCE:
 | Transition in progress | Stage 2–3 | 2.0–4.0 | South Asia, Southeast Asia, Latin America, MENA, Eastern Africa | Rapid fertility decline ongoing; youth dividend window opening |
 | Slow / early transition | Stage 2 | 4.0–7.0 | Sub-Saharan Africa (esp. West and Central Africa) | CDR has fallen substantially; CBR still very high; maximum NI phase |
 
+```
 SUB-SAHARAN AFRICA DIVERGENCE:
   Why is SSA transitioning more slowly than comparable-income regions 1970s?
   Proposed explanations:

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "demography\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture: Population as a Dynamical System",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    DEMOGRAPHY LANDSCAPE                                     │\n│                                                                             │\n│  FORMAL DEMOGRAPHY               SOCIAL DEMOGRAPHY                          │\n│  (mathematical/statistical)      (contextual/behavioral)                    │\n│                                                                             │\n│  ┌─────────────────────┐         ┌─────────────────────────────────────┐    │\n│  │ Life tables          │         │ SES gradients in fertility/mortality │  │\n│  │ Cohort-component     │         │ Race/ethnicity × demographic outcomes│  │\n│  │ projection           │         │ Gender and reproductive behavior     │  │\n│  │ Fertility/mortality  │         │ Migration and identity               │  │\n│  │ measurement          │         │ Religion and family formation        │  │\n│  │ Population momentum  │         │ Policy effects on demographics       │  │\n│  └─────────────────────┘         └─────────────────────────────────────┘    │\n│                                                                             │\n│  THREE FUNDAMENTAL PROCESSES:                                               │\n│  FERTILITY (births) + MORTALITY (deaths) + MIGRATION (in/out)               │\n│  → determines population SIZE, STRUCTURE, DISTRIBUTION                      │\n│                                                                             │\n│  MATHEMATICAL STRUCTURE:                                                    │\n│  Population = a dynamical system                                            │\n│  Balancing equation = first-order difference equation                       │\n│  Leslie matrix = age-structured linear system (eigenvalue theory)           │\n│  Life table = survival function (same hazard framework as reliability)      │\n│  Stable population theory = steady-state of the demographic system          │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Key Rate Concepts",
+      "confidence": "candidate",
+      "text": "CRUDE RATES (per 1,000 population):\n  CBR = Births / Population × 1000   (Crude Birth Rate)\n  CDR = Deaths / Population × 1000   (Crude Death Rate)\n  Problem: confounded by age structure\n  CBR high in young populations even if fertility per woman is low\n  CDR low in young populations even if age-specific death rates are high\n\nAGE-SPECIFIC RATES:\n  ASFR_x = Births to women aged x / Women aged x × 1000\n  ASDR_x = Deaths at age x / Population at age x × 1000\n\nPERIOD vs. COHORT RATES:\n  Period:  measures rates across all age groups in a single calendar year\n           → snapshot of current behavior; may be distorted by timing changes\n  Cohort:  follows a birth cohort through time\n           → \"pure\" measure of completed fertility/mortality for that cohort\n           → only fully observable after the cohort has completed reproduction/died",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Stable Population Theory (Lotka)",
+      "confidence": "candidate",
+      "text": "STABLE POPULATION (Lotka 1907):\n  If ASFR and ASDR remain constant → population converges to stable\n  age structure regardless of initial age distribution.\n\n  The stable age structure is determined by:\n  c(x) = b × l(x) × e^{-rx}\n  where: c(x) = proportion of population at age x\n         b    = birth rate of stable population\n         l(x) = survivorship to age x (from life table)\n         r    = intrinsic rate of natural increase (Lotka's r)\n\n  Lotka's r satisfies the Euler-Lotka equation:\n  1 = ∫₀^∞ e^{-rx} × l(x) × m(x) dx\n  where m(x) = maternity function (ASFR)\n\n  This is the characteristic equation of the demographic system.\n  r > 0: growing population; r = 0: stationary; r < 0: declining\n\nSTATIONARY POPULATION:\n  r = 0, NRR = 1, stable age structure.\n  Special case where birth rate = death rate.\n\nCONNECTION TO LINEAR ALGEBRA:\n  Leslie matrix formulation:\n  n(t+1) = A × n(t)\n  where n(t) = age-structured population vector\n  A = Leslie matrix (survival rates on subdiagonal, fertility on first row)\n  Dominant eigenvalue λ = e^r = finite rate of increase\n  Stable age structure = dominant right eigenvector of A\n  Reproductive value vector = dominant left eigenvector of A",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 147,
+      "heading_context": "## Population Pyramid Types",
+      "confidence": "candidate",
+      "text": "THREE FUNDAMENTAL SHAPES:\n\n  EXPANSIVE (high birth, high death):   STATIONARY:          CONSTRICTIVE:\n  High CBR + CDR declining              Low birth + low death  Low birth rate\n  Young population, wide base           Near-equal widths      Narrow base\n                                        Rectangular\n       |  |                                  |  |                    | ██ |\n       | ██|                                 | ██|                   |████|\n       |████|                               |████|                  |██████|\n       |██████|                             |████|                   |████|\n       |████████|                           |████|                   | ██ |\n\n  Examples: Sub-Saharan Africa    Examples: Japan, W. Europe    Japan (future)\n            Afghanistan, Niger    Scandinavia                   Germany\n\nTRANSITION:\n  Hourglass-like intermediate stages during demographic transition\n  Bulge moves upward as the large birth cohort ages through\n  → \"Demographic echo\" (baby boom cohort)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

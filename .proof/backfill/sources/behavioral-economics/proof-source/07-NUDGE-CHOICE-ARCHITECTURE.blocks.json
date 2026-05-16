@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "behavioral-economics\\07-NUDGE-CHOICE-ARCHITECTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    CHOICE ARCHITECTURE LANDSCAPE                            │\n│                                                                             │\n│  THALER & SUNSTEIN \"NUDGE\" (2008):                                          │\n│  A nudge is any aspect of the choice architecture that alters people's      │\n│  behavior in a predictable way without forbidding any options or            │\n│  significantly changing their economic incentives.                          │\n│                                                                             │\n│  LIBERTARIAN PATERNALISM:                                                   │\n│  Libertarian: preserve freedom of choice (don't mandate or forbid)          │\n│  Paternalist: steer choices toward outcomes that people would choose        │\n│    if they were paying full attention, fully informed, with self-control    │\n│                                                                             │\n│  RATIONALE:                                                                 │\n│  Choice architecture is unavoidable — someone must decide defaults,         │\n│  information presentation, ordering, framing.                               │\n│  The status quo is itself a choice architecture.                            │\n│  If we must choose, choose thoughtfully.                                    │\n│                                                                             │\n│  MECHANISM: Behavioral architecture exploits predictable cognitive          │\n│  patterns (default effects, loss aversion, anchoring) to guide choices      │\n│  without eliminating options or changing underlying incentives.             │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "## EAST Framework",
+      "confidence": "candidate",
+      "text": "EAST FRAMEWORK (BIT, \"EAST: Four Simple Ways to Apply Behavioural Insights\"):\n\n  E — EASY:\n  Make the desired behavior the path of least resistance.\n  Reduce friction: every additional step reduces compliance by ~15-20%.\n  Simplify forms: single-page enrollment > multi-page.\n  Remove unnecessary decisions: default to the optimal choice.\n  Auto-fill where possible: pre-populated information fields.\n  Example: UK tax authority (HMRC) simplified a sentence → 5% higher on-time payment.\n\n  A — ATTRACTIVE:\n  Make the desired behavior salient and appealing.\n  Attention: highlight relevant information (bold, visually prominent).\n  Attractive design: well-designed choice environments perform better.\n  Incentives: reward-framed, even small, symbolically meaningful rewards.\n  Example: Personalized letters (\"People in your neighborhood have already paid their taxes\")\n  → 15% higher compliance than standard letter.\n\n  S — SOCIAL:\n  Leverage social norms and social proof.\n  Descriptive norms: \"Most people in your situation do X.\"\n  Social comparison: \"Your energy use is 20% above your neighbors' average.\"\n  Social support: peer-to-peer pledges, social accountability.\n  Messenger matters: trusted social peer > authority figure for many behaviors.\n  Example: Opower (now Oracle Utilities): neighbor comparison → 2% energy reduction.\n    Persistent at scale; cost-effective vs. traditional conservation programs.\n\n  T — TIMELY:\n  Deliver interventions at the right moment.\n  Teachable moments: life transitions (new job, new home, retirement, illness)\n  → windows of receptivity when habits are disrupted and choices are open.\n  Prompt at decision point: reminder at the time of decision, not days before.\n  Implementation intention: \"When you receive the form, you will complete it\n    immediately and place it in the blue box.\" → 2× compliance vs. \"please fill in form.\"\n\n  BIT meta-analysis: EAST interventions average ~20-30% improvement in target behavior.\n  Most effective combination: Easy + Timely (reduce friction at decision moment).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## Engineering Bridge: Choice Architecture as Search Space Design",
+      "confidence": "candidate",
+      "text": "CLASSICAL OPTIMIZATION FRAMING:\n  Agent has utility function U(x) over outcomes x ∈ X.\n  Standard assumption: agent explores X and finds argmax U(x).\n\n  Choice architecture insight: agents don't explore X globally.\n  They use local search with bounded cognitive resources:\n    - Default = starting point (agents often stop searching immediately)\n    - Framing = topology of the solution space (which moves are salient)\n    - Option order = search sequence (first option explored gets preference)\n    - Choice set size = branching factor (more options → more likely to stop early)\n    - Anchoring = initial seed for the search (biases toward nearby solutions)\n\n  DESIGNING THE SEARCH SPACE:\n  Choice architect doesn't change U(x) — can't tell people what to want.\n  Choice architect changes the search landscape over X:\n    Make desired outcome the default (search terminates at the starting point)\n    Reduce friction to desired option (lower the path cost)\n    Make alternatives prominent (change salience = change exploration probability)\n    Limit choice set (reduce branching factor → reduce decision paralysis)\n\n  CS ANALOGIES:\n  Default effect    ← greedy initialization: optimizer returns default if not restarted\n  Simplification    ← reducing search space dimensionality (fewer parameters to tune)\n  Ordered options   ← sequential search with early termination (first-fit vs. best-fit)\n  Commitment device ← constraint propagation: add constraints to prune future options\n  Social proof      ← warm-starting with population solution (majority choice as prior)\n  Loss framing      ← asymmetric cost function (losses weighted more than gains)\n\nLIBERTARIAN PATERNALISM IN CONTROL THEORY TERMS:\n  Traditional regulation: mandate x ∈ {allowed set} (hard constraint)\n  Libertarian paternalism: design search space so desired x is found most often\n    while preserving feasibility of all x ∈ X (soft guidance, no hard constraint)\n  Analogous to: soft constraints in constrained optimization vs. hard constraints\n  Trade-off: soft guidance is weaker but preserves autonomy (no feasibility violations)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:fertility
+kind: guide
+module: demography
+section: demography
+title: Fertility
+status: source-custody
+source_custody: partial
+current_path: demography/02-FERTILITY.md
+canonical_path: demography/02-FERTILITY.md
+backsource_ids: [proof-backfill:demography:02-fertility, git-history:demography:02-fertility]
+concepts: [fertility]
+root_concepts: [fertility]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fertility
 
 ## Fertility Measurement Landscape
@@ -13,7 +32,7 @@
 │  (children per 100      TFR (Total Fertility    (follows one birth cohort   │
 │   women 15-49)          Rate)                    to end of reproduction)    │
 │                         NRR (Net Reproduction   Parity progression ratios   │
-│                         Rate)                   (prob. of having n+1 given n)│
+│                         Rate)                   (prob. having n+1 given n)  │
 │                         GRR (Gross Reprod. Rate)                            │
 │                                                                             │
 │  BEHAVIORAL FRAMEWORK: BONGAARTS PROXIMATE DETERMINANTS MODEL               │

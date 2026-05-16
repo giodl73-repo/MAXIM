@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "behavioral-economics\\10-APPLICATIONS-PRODUCT-UX.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Product Design Spectrum: From Helpful to Harmful",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    PRODUCT BEHAVIORAL DESIGN SPECTRUM                       │\n│                                                                             │\n│  ETHICAL                                                        UNETHICAL   │\n│  DESIGN                                                        DARK PATTERN │\n│     │                                                               │       │\n│  BENEFICIAL DEFAULTS     PERSUASIVE DESIGN       MANIPULATIVE     DECEPTIVE │\n│  User genuinely          Works through            Exploits         Outright │\n│  benefits; would         cognitive shortcuts      cognitive        false    │\n│  choose same             but serves user          weaknesses       info     │\n│  if fully informed       AND product goals        against user     design   │\n│                                                   interest                  │\n│                                                                             │\n│  Example: Netflix pause  Example: Social proof   Example: Variable Example: │\n│  suggestions at end      \"X people watching       reward → infinite Fake    │\n│  of season               this right now\"          scroll           timer    │\n│                                                                             │\n│  THE CRITICAL DISTINCTION:                                                  │\n│  Nudge: guides toward outcome user would choose if attentive and informed.  │\n│  Dark pattern: guides toward outcome that benefits product over user.       │\n│  Same technical mechanism (cognitive shortcuts); different alignment.       │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Onboarding Friction Reduction",
+      "confidence": "candidate",
+      "text": "PROBLEM: Users abandon products before experiencing core value.\n  Every decision step, form field, and permission request is friction.\n  Each friction point loses a percentage of users.\n  Product value behind friction wall → users never reach it.\n\nBEHAVIORAL MECHANISMS AT WORK:\n  Status quo bias + present bias: the effort of setup feels costly now;\n    benefit is future and uncertain. Users default to \"not completing setup.\"\n  Cognitive load: too many decisions at once → decision fatigue → abandon.\n  Implementation intention deficit: \"I'll set this up later\" = never (present bias).\n\nBENEFICIAL DESIGN PATTERNS:\n\n  Progressive disclosure:\n    Show only what's needed at each step. Defer complex choices to later.\n    Wizard pattern: one question per screen, progress indicator → completion rate ↑\n    \"Just-in-time\" settings: surface only when the setting becomes relevant.\n\n  Defaults that express care:\n    Choose defaults that work for most users — invest engineering time to find them.\n    Slack: default channel = #general → social proof of where conversation happens\n    VS Code: default extensions for common file types → reduces initial setup barrier\n    Good default ≠ lazy default. It's the highest-leverage UX decision in the product.\n\n  Pre-populated state:\n    Use what you know: pre-fill from account data, prior behavior, import from elsewhere.\n    GitHub: detects language → suggests .gitignore → reduces setup to one click.\n    Reduces decision count; lets user confirm rather than create from scratch.\n\n  Commitment and progress:\n    Progress bars → Zeigarnik effect: incomplete tasks are mentally open.\n    LinkedIn profile completeness meter → users feel compelled to finish.\n    \"You're 80% of the way there\" → sunk cost triggers completion.\n    Used beneficially: accelerates users toward setup that genuinely serves them.\n\n  Presumptive enrollment (medical analogy applied to products):\n    \"I've started your trial\" → completion rates higher than \"Would you like to try?\"\n    Works for beneficial defaults; becomes a dark pattern when the default harms user.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### Smart Defaults for Accessibility",
+      "confidence": "candidate",
+      "text": "ACCESSIBILITY + BEHAVIORAL DESIGN OVERLAP:\n  Users with disabilities often cannot easily navigate away from defaults.\n  For this population, defaults are not a starting point — they are the product.\n  Smart defaults reduce discrimination by not requiring configuration for basic access.\n\nEXAMPLES:\n  Font size default: Windows 125% default (post-2012) vs 100%\n    Most users benefit from larger default; those who don't easily change it.\n    Changed default improved accessibility without requiring user action.\n\n  High-contrast mode on/off detection:\n    Respect system-level accessibility settings → product inherits user's preference.\n    Behavioral design: don't add a decision; use the signal already available.\n\n  Color choice in data visualization:\n    Default to colorblind-safe palettes (e.g., ColorBrewer viridis).\n    Majority of users are not colorblind; 8% of men are.\n    Default to inclusive; let 92% change if they prefer aesthetically.\n    Power BI / Tableau: moved to improved default palettes in recent versions.\n\n  Captions on video:\n    Default to captions-on for new content discovery contexts.\n    TikTok: auto-captions default on → increased by deaf/hard-of-hearing access\n    AND benefits users in loud/quiet environments → net positive for most users.\n\n  Cognitive load reduction through reduced option counts:\n    For users with cognitive disabilities: fewer choices = lower decision cost.\n    \"Simple\" / \"advanced\" mode split: sensible default = simple mode.\n    Windows 11 simplified Start menu: controversy with power users, but\n    lower cognitive load for majority of non-power users.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### Commitment Devices in Health and Finance Apps",
+      "confidence": "candidate",
+      "text": "PROBLEM: Present bias creates intention-action gaps.\n  Users intend to exercise, save, take medication, eat well.\n  At the moment of action, System 1 preferences dominate → intention not executed.\n  Behavioral solution: help users commit their future selves.\n\nCOMMITMENT DEVICE DESIGN PRINCIPLES:\n  1. Triggered at a moment of high motivation (not mid-action)\n  2. Future-dated (exploits present bias: resistance is low for future commitments)\n  3. Penalty or cost for reneging (stakes make commitment credible)\n  4. Easy to set, harder (but not impossible) to undo → bypass impulsive reversal\n\nHEALTH APP EXAMPLES:\n\n  Habit streak mechanics (beneficial form):\n    Duolingo streak: sunk cost + loss aversion → maintains daily learning habit.\n    Key design: streak freeze available (prevents catastrophic failure → gives up entirely)\n    The same mechanism as negative attention capture; used beneficially when\n    the underlying behavior (learning a language) serves the user's stated goal.\n\n  Scheduled activity commitment:\n    \"Book your class now\" → implementation intention created automatically.\n    Peloton: schedule a ride → commit to specific time slot → 40% higher completion\n    vs. open-ended \"work out sometime this week.\"\n    If miss: re-schedule in one tap (low friction to recover; high friction to abandon).\n\n  Weight loss commitment contracts:\n    StickK.com: user sets goal, names referee, stakes money on failure.\n    Anti-charity commitment: money to an organization user dislikes if goal missed.\n    Loss aversion amplified: not just losing money, but helping an opponent.\n    Empirical: commitment contracts increase weight loss, smoking cessation, exercise\n    by 15-40% vs. simple goal-setting.\n\nFINANCE APP EXAMPLES:\n\n  Round-up saving (Acorns, Chime, Monzo):\n    Round purchases to nearest dollar → auto-invest the spare change.\n    Exploits payment decoupling (spending feels the same; small amounts not salient).\n    Users save without active effort or attention. Net positive: users save more\n    than they would otherwise; amounts are small enough not to cause hardship.\n\n  Visual goal tracking:\n    \"Your vacation fund is 73% funded\" with progress visualization.\n    Reduces abstraction of saving → concrete goal → motivated reasoning.\n    Users with named, visualized savings goals save 2-3× more than generic accounts.\n    Used in: Monzo pots, Marcus by Goldman Sachs, YNAB.\n\n  Auto-escalation (SMarT plan — Thaler & Benartzi):\n    Pre-commit to increase savings rate with each future raise.\n    Works because: commitment is future-dated (present bias allows it),\n    increase comes from raise (doesn't feel like a pay cut),\n    inertia works FOR you once enrolled.\n    Average savings rate: 3.5% → 11.6% over 4 years.\n\n  DESIGN PRINCIPLE FOR COMMITMENT DEVICES:\n    Transparent: user understands the commitment they're making.\n    Voluntary: user initiates; not hidden default escalation.\n    Reversible with friction: opt out is possible but requires deliberate action.\n    Aligned with stated user goals: the commitment serves what the user said they want.\n    These criteria distinguish beneficial commitment devices from dark patterns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Social Proof and FOMO Engineering",
+      "confidence": "candidate",
+      "text": "SOCIAL PROOF (Cialdini 1984):\n  Humans infer appropriate behavior from others' behavior.\n  \"If many people are doing X, X is probably the right thing.\"\n  Adaptive in social environments; exploitable in product design.\n\nPRODUCT IMPLEMENTATIONS:\n  1. REAL-TIME SOCIAL PROOF:\n     \"47 people viewing this now\" (hotel booking)\n     \"Only 3 left in stock! [X people have this in their cart]\"\n     → Creates urgency + social validation signal\n     Problem: many are fabricated or manipulated counts (see Dark Patterns).\n     FTC enforcement: fake real-time counts = deceptive advertising.\n\n  2. AGGREGATE SOCIAL PROOF:\n     \"Trusted by 10M+ companies\" (SaaS landing pages)\n     \"Join 500K professionals\" (LinkedIn-style)\n     Amazon star ratings → cascade effect (early ratings drive perception).\n     → Provides genuine information signal; less directly manipulative.\n\n  3. CELEBRITY/EXPERT SOCIAL PROOF:\n     Authority + social proof combined.\n     Requires genuine endorsement; paid endorsement must be disclosed (FTC).\n     Celebrity endorsement → affect heuristic transfer (positive affect → risk perceived lower).\n\n  4. FRIEND ACTIVITY (social network proof):\n     \"3 of your friends use this\" → strongest form of social proof.\n     Requires permission to access social graph.\n     Privacy implications: using social graph for conversion = trading privacy for sales.\n\nFOMO (Fear of Missing Out):\n  Anxiety that others are having rewarding experiences without you.\n  Closely related to: availability heuristic (others' experiences are salient),\n  social comparison, loss aversion (missing out = loss).\n  Product design to amplify FOMO:\n    Stories/ephemeral content (Snapchat, Instagram Stories): disappears → missing out risk.\n    Limited-time offers with real countdowns.\n    Event notifications: \"Your friend just joined X\" when you're not on the platform.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

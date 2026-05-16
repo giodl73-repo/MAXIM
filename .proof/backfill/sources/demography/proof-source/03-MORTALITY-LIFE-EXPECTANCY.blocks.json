@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "demography\\03-MORTALITY-LIFE-EXPECTANCY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Mortality Analysis Framework",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    MORTALITY ANALYSIS FRAMEWORK                             │\n│                                                                             │\n│  DATA:                    MEASURES:               MODELS:                   │\n│  Vital registration        Age-specific death rate  Gompertz-Makeham        │\n│  Census + survey           Standardized rate        Lee-Carter              │\n│  Verbal autopsy            Life expectancy          Logistic hazard         │\n│  SRS (Sample Reg System)   Years of life lost       Compression models      │\n│                            Survivorship curve                               │\n│                            Cause-of-death decomp.                           │\n│                                                                             │\n│  PERIOD vs. COHORT:                                                         │\n│  Period life table: snapshot of current conditions (synthetic cohort)       │\n│  Cohort life table: follows actual birth cohort through time                │\n│  Cross-sectional: bias when mortality changes fast (period underestimates)  │\n│    actual cohort survival when mortality is improving)                      │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 46,
+      "heading_context": "## The Life Table — Full Specification",
+      "confidence": "candidate",
+      "text": "LIFE TABLE COLUMNS:\n\n  x:   Exact age at start of interval\n  n:   Width of interval (1 year for complete, 5 years for abridged)\n\n  nqx: Probability of dying in interval [x, x+n) given alive at x\n       = conditional death probability\n       nqx = nDx / Nx   (from observed data; adjusted for person-time)\n\n  lx:  Number surviving to exact age x from radix l₀\n       Radix l₀ = 100,000 (conventional)\n       l(x+n) = lx × (1 − nqx)\n\n  ndx: Deaths in interval [x, x+n)\n       ndx = lx − l(x+n) = lx × nqx\n\n  nLx: Person-years lived in interval [x, x+n)\n       nLx ≈ n × (lx + l(x+n)) / 2    (for non-infant)\n       Exception: 1L0 uses special factor a₀ to account for early-year deaths\n       a₀ = average fraction of year lived by those who die in year 0\n           ≈ 0.1-0.15 in high-mortality settings; ≈ 0.3 in low-mortality\n\n  Tx:  Total person-years lived beyond age x\n       Tx = Σ nLj for j ≥ x\n\n  ex:  Complete expectation of life at age x\n       ex = Tx / lx\n       e₀ = T₀ / l₀ = life expectancy at birth\n\nEXAMPLE (abridged, modern low-mortality population):\n  x    lx       nqx      ndx    nLx      Tx      ex\n  0    100,000  0.0040   400    99,680   8,370,000  83.7\n  1    99,600   0.0010   100    398,200  8,270,320  83.0\n  5    99,500   0.0005    50    497,375  7,872,120  79.1\n  ...\n  80   50,000   0.15    7,500  228,750   720,000   14.4\n  85+  25,000   1.000  25,000  170,000   170,000    6.8",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## The Gompertz Model of Mortality",
+      "confidence": "candidate",
+      "text": "GOMPERTZ (1825):\n  Force of mortality (hazard) increases exponentially with age:\n  μ(x) = α × e^{βx}\n  where α = baseline mortality level, β = rate of aging (senescence rate)\n\n  This is also written as:\n  μ(x) = a × b^x   (equivalent form)\n  where a = initial mortality level, b = e^β\n\n  BIOLOGICAL INTERPRETATION:\n  β reflects rate of physiological deterioration with age.\n  Remarkably stable across species — β ≈ 0.08/year for humans\n  (mortality roughly doubles every 8.7 years from age 30-85).\n\n  GOMPERTZ-MAKEHAM MODIFICATION:\n  μ(x) = α × e^{βx} + γ\n  γ = age-independent mortality component (accidents, infections)\n  Better fit at young adult ages where accidents dominate.\n\n  SURVIVORSHIP FUNCTION (Gompertz):\n  S(x) = exp[-(α/β)(e^{βx} - 1)]\n\n  FIT RANGE: Excellent for ages 30-85.\n  Breaks down:\n  - Below 30: accidents/exogenous mortality dominate; not exponential rise\n  - Above 90-95: mortality deceleration (mortality plateau) observed\n    → logistic hazard fits better at very old ages\n\nMORTALITY DECELERATION AT EXTREME AGE:\n  Observed in most populations: μ(x) growth slows above age 95.\n  Hypotheses:\n  1. Selection: frailest individuals die early; survivors are hardier (heterogeneity)\n  2. Biological repair mechanisms maintain competitively at very old age\n  3. Data quality: age misreporting at extreme ages (common in LMICs)\n  Evidence: primarily selection + data quality; true biological plateau debated.\n  Maximum recorded lifespan: Jeanne Calment (France), 122 years 164 days.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## The Lee-Carter Model",
+      "confidence": "candidate",
+      "text": "LEE-CARTER MODEL (1992):\n  ln(μ(x,t)) = αₓ + βₓ × κₜ + εₓₜ\n\n  where:\n  μ(x,t) = central death rate at age x in year t\n  αₓ      = age-specific average mortality level\n  βₓ      = age-specific sensitivity to temporal change\n  κₜ      = time index capturing overall mortality change\n  εₓₜ     = error term\n\n  METHOD: Singular value decomposition (SVD) of the matrix\n  of log death rates − their age averages → extracts dominant\n  temporal trend κₜ and associated age pattern βₓ.\n\n  FORECASTING:\n  Project κₜ as a random walk with drift: κ(t+1) = κ(t) + d + σε\n  Convert projected κₜ → age-specific rates → life table → e₀\n\n  STRENGTHS: Parsimonious; data-driven; uncertainty quantification natural\n  WEAKNESSES: Extrapolates trends; doesn't account for structural breaks\n    (cohort effects, medical advances, behavioral changes)\n  EXTENSIONS: Lee-Miller, Booth-Maindonald-Smith, Cairns-Blake-Dowd (CBD for old-age)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Cause-of-Death Analysis and Decomposition",
+      "confidence": "candidate",
+      "text": "CAUSE-OF-DEATH CLASSIFICATION:\n  ICD (International Classification of Diseases) — WHO maintained.\n  Currently ICD-11 (2022 implementation).\n  Underlying cause of death: the disease/injury that initiated\n  the chain of events leading to death.\n\n  UNDERLYING vs. MULTIPLE CAUSES:\n  Death certificate: underlying cause + contributing causes\n  Diabetes may cause death via CVD → underlying = diabetes or CVD depending\n  on how the chain is coded.\n\nARRIAGA DECOMPOSITION (1984):\n  Decomposes difference in life expectancy between two populations\n  (or same population at two time points) into contributions by age.\n\n  ΔLE = e₀^A − e₀^B = Σₓ (δₓ_direct + δₓ_indirect)\n\n  where δₓ_direct: contribution from mortality change at age x\n        δₓ_indirect: contribution from downstream survival effects\n\n  EXAMPLE — US vs. Japan ΔLE ≈ 5 years:\n  Age 0-14:     +0.2 yr  (US slightly worse infant mortality)\n  Age 15-49:    +0.8 yr  (US drug overdoses, accidents dominate)\n  Age 50-74:    +2.1 yr  (US CVD, obesity, diabetes)\n  Age 75+:      +1.9 yr  (US CVD, cancer at old age)\n  Total:         +5.0 yr\n\nCAUSE-OF-DEATH DECOMPOSITION:\n  Extends Arriaga to decompose by cause:\n  Which causes of death account for ΔLE between groups?\n\n  US-Japan gap decomposed:\n    Drug overdoses: ~0.8 yr\n    Cardiovascular disease: ~1.8 yr\n    Diabetes: ~0.5 yr\n    Obesity-related cancers: ~0.4 yr\n    Homicide/violence: ~0.3 yr\n    → All preventable causes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 203,
+      "heading_context": "## Survivorship Curves and Mortality Patterns",
+      "confidence": "candidate",
+      "text": "THREE MAIN SURVIVORSHIP CURVE TYPES:\n\n  TYPE I (Convex — humans in rich countries):\n  l(x) stays near 100K until old age, then drops sharply\n  l(x)\n  100K|████████████████████\n      |                   ██████\n      |                        ████\n      |                            ██\n      |                              ████\n   0  |_______________________________|___ age\n                                          ~80-85\n\n  TYPE II (Linear — birds, some mammals):\n  Constant mortality rate through life\n  l(x) = l₀ × e^{-dx}\n\n  TYPE III (Concave — most fish, invertebrates, plants):\n  Very high early mortality (most die young); survivors persist\n  l(x) drops rapidly early then flattens\n\n  HUMAN TRAJECTORY OVER HISTORY:\n  High-mortality historical populations: Type II-ish (constant high mortality)\n  Modern populations: Type I (nearly rectangular — \"rectangular\" survivorship)\n  Rectangularization trend: increasing survival through adulthood → sharp terminal drop",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Compression of Morbidity vs. Expansion",
+      "confidence": "candidate",
+      "text": "COMPRESSION OF MORBIDITY HYPOTHESIS (Fries 1980):\n  As populations age and medicine improves:\n  → Life expectancy reaches biological limit (~85 years)\n  → Chronic disease onset shifts later in life\n  → Period of morbidity/disability \"compresses\" near end of life\n  → Healthy lifespan ≈ total lifespan (die healthy, then quickly)\n\n  EXPANSION OF MORBIDITY HYPOTHESIS (Gruenberg 1977 / Kramer 1980):\n  Medical progress extends life by treating disease but not curing it.\n  → More people live longer WITH disability and chronic disease\n  → Morbidity period EXPANDS relative to total lifespan\n\n  DYNAMIC EQUILIBRIUM HYPOTHESIS (Manton 1982):\n  Neither pure compression nor pure expansion.\n  Disease prevalence rises but severity is reduced by medical management.\n  Period with some disability constant; severe disability decreasing.\n\n  EMPIRICAL EVIDENCE (US, UK):\n  Self-reported disability in late life: mixed trends\n  Some conditions improving (severe functional limitation): consistent with compression\n  Some expanding (multi-morbidity, dementia): consistent with expansion\n  HALE vs. LE trends: HALE growing slower than LE in many countries → mild expansion\n  No consensus; country- and condition-specific",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## Mortality Trends and COVID-19 Impact",
+      "confidence": "candidate",
+      "text": "LONG-RUN TRENDS:\n  Global life expectancy:\n  1950: ~48 years\n  2000: ~67 years\n  2019: ~73.4 years\n  Growth rate ~0.5 years per calendar year (roughly)\n\n  MAJOR GAINS FROM:\n  Infant/child mortality: vaccines, antibiotics, nutrition, sanitation\n  Cardiovascular disease: statins, antihypertensives, smoking reduction\n  Cancer: earlier detection, better treatment\n  HIV/AIDS: antiretroviral therapy (ART) from 1996 → huge gains in SSA\n\nCOVID-19 IMPACT ON MORTALITY:\n  2020-2021: Largest setback in global life expectancy since WWII\n  Global LE fell ~1.8 years (2019 to 2021) by WHO estimates\n  US: LE fell from 78.8 (2019) to 76.4 (2021) — 2.4 year decline\n  Russia: ~5 year decline\n  Excess mortality vs. reported COVID deaths:\n    Excess mortality estimates: 15-18M globally (vs. 6M reported)\n    Model: compare observed deaths 2020-21 to predicted from pre-pandemic trends\n\nEXCESS MORTALITY:\n  Excess mortality = observed deaths − expected deaths (counterfactual)\n  Avoids problems with variable COVID testing/attribution across countries\n  The Economist, WHO, IHME all published competing estimates (methodology varies)\n  Convergent finding: actual mortality impact 2-3× reported COVID death count",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

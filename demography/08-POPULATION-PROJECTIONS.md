@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:population-projections
+kind: guide
+module: demography
+section: demography
+title: Population Projections
+status: source-custody
+source_custody: partial
+current_path: demography/08-POPULATION-PROJECTIONS.md
+canonical_path: demography/08-POPULATION-PROJECTIONS.md
+backsource_ids: [proof-backfill:demography:08-population-projections, git-history:demography:08-population-projections]
+concepts: [population, projections]
+root_concepts: [population, projections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Population Projections
 
 ## Projection Framework
@@ -16,7 +35,7 @@
 │                                Uncertainty intervals     simplifications    │
 │                                                                             │
 │  COHORT-COMPONENT MODEL: Standard method for all serious projection         │
-│  - Projects each age-sex cohort forward using fertility, mortality, migration │
+│  - Projects cohorts forward using fertility, mortality, migration           │
 │  - Leslie matrix formulation                                                │
 │  - Requires assumptions for each demographic component                      │
 └─────────────────────────────────────────────────────────────────────────────┘

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "behavioral-economics\\03-HEURISTICS-BIASES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    HEURISTICS LANDSCAPE                                     │\n│                                                                             │\n│  TVERSKY & KAHNEMAN (1974) \"Science\" paper:                                 │\n│  Three heuristics: Representativeness, Availability, Anchoring              │\n│  These are cognitive shortcuts for making probability judgments.            │\n│  Under most conditions: fast, adequate.                                     │\n│  Under certain conditions: systematic, predictable errors.                  │\n│                                                                             │\n│  KEY DISTINCTION:                                                           │\n│  K-T view: Heuristics are error-prone shortcuts                             │\n│  Gigerenzen view: Heuristics are ecologically rational tools                │\n│  BOTH are empirically supported in their domains.                           │\n│                                                                             │\n│  MODERN SYNTHESIS:                                                          │\n│  Heuristics work well when:                                                 │\n│    - Environment has regularities matching heuristic structure              │\n│    - Task is familiar, domain expertise is present                          │\n│    - Decision speed matters more than precision                             │\n│  Heuristics fail when:                                                      │\n│    - Environment is decontextualized (lab tasks)                            │\n│    - Statistical reasoning required (base rates, conditional probability)   │\n│    - Incentives conflict with heuristic defaults                            │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Representativeness Heuristic",
+      "confidence": "candidate",
+      "text": "MECHANISM:\n  Judge the probability of event A given information B by asking:\n  \"How much does B resemble/represent the typical A?\"\n  Substitute \"how similar is this to the prototype?\" for \"what is the probability?\"\n\nCLASSIC DEMONSTRATION — LINDA PROBLEM (Tversky & Kahneman 1983):\n  \"Linda is 31 years old, single, outspoken, and very bright. She majored in\n   philosophy. As a student, she was deeply concerned with issues of\n   discrimination and social justice, and also participated in antinuclear\n   demonstrations.\"\n\n  Rank in order of probability:\n  A. Linda is a bank teller.\n  B. Linda is a bank teller AND is active in the feminist movement.\n\n  85-90% of subjects rank B > A — the CONJUNCTION FALLACY.\n  P(A ∩ B) ≤ P(A) always (by probability theory).\n  The conjunction cannot be more probable than either constituent.\n  But B \"represents\" the description better → judged more probable.\n\nBASE RATE NEGLECT:\n  When given:\n  - Prior probability (base rate): P(H) = 0.01 (1% of population has disease X)\n  - Likelihood: P(positive test | H) = 0.95, P(positive test | not H) = 0.05\n\n  Correct answer by Bayes: P(H | positive) = 0.95×0.01 / (0.95×0.01 + 0.05×0.99)\n                          = 0.00950 / (0.00950 + 0.04950) = 0.161\n\n  Most people ignore the 1% base rate and respond ~95%.\n  The representativeness heuristic: \"the test is 95% accurate → positive result\n  means ~95% chance of disease.\" Base rate is discarded.\n\n  KAHNEMAN-TVERSKY FINDING: When case description is vivid and specific,\n  base rates are discounted. When no description is given, base rates are used.\n\nGAMBLER'S FALLACY:\n  \"The roulette has come up red 5 times in a row → black is due.\"\n  Representativeness: a sequence of random coin flips should \"look random\"\n  (alternating). A long run of heads doesn't represent randomness.\n  Therefore: perceive that tails is more likely after heads.\n  WRONG: each flip is independent; past outcomes don't affect future.\n\nHOT HAND FALLACY (opposite direction):\n  \"He's made 6 shots in a row — he's on a hot hand. Pass to him.\"\n  Opposite error: past runs of success predict future success.\n  Gilovich, Vallone & Tversky (1985): no statistical hot hand in basketball.\n  BUT: Miller & Sanjurjo (2018) found a statistical artifact in GVT's test.\n  Current evidence: weak hot hand may exist in some sports contexts.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## Anchoring and Adjustment",
+      "confidence": "candidate",
+      "text": "MECHANISM:\n  When making an estimate under uncertainty, start from an initial value\n  (the \"anchor\") and adjust toward a final estimate.\n  Adjustment is typically INSUFFICIENT → final estimates remain biased\n  toward the initial anchor.\n\nANCHORING WITH ARBITRARY NUMBERS:\n  Tversky & Kahneman (1974) wheel experiment:\n  Spin a rigged wheel that stops at 10 or 65 (randomly assigned to subjects).\n  Then ask: \"What percentage of African countries are in the UN?\"\n  Median answer: 25 (wheel 10) vs. 45 (wheel 65).\n  The wheel number (completely irrelevant) shifts estimates by 20 points.\n\nANCHORING IN REAL CONTEXTS:\n  Salary negotiation:\n    First offer serves as anchor; final settlement tracks first offer.\n    Evidence: whichever party makes the first offer does better.\n    Implication: make the first offer; make it specific (rounded numbers\n    invite counter-anchoring; precise numbers signal information).\n  Legal damages:\n    Judges given random sentencing suggestions anchor to those suggestions.\n    Experienced professionals, not just naive subjects.\n  Real estate:\n    Listing price is the anchor; buyers' offers track listing prices.\n  Product pricing:\n    \"Was $99 — now $69!\" → $99 is the anchor; $69 feels like a deal.\n    \"Suggested retail price: $149 — your price: $79\"\n\nCROSS-ANCHORING IN NEGOTIATIONS:\n  Both parties set anchors. The party whose anchor was accepted as the\n  reference point has the structural advantage.\n  High anchor + information about why: better than just high anchor.\n  Defensible anchors are more credible than arbitrary ones.\n  But credibility isn't required for the anchoring effect to occur\n  (the wheel experiment used obviously arbitrary numbers).\n\nADJUSTMENT MECHANISM:\n  Why is adjustment insufficient?\n  1. Adjustment terminates when an acceptable value is reached (satisficing).\n  2. The anchor determines the direction of search; search stops at first\n     acceptable value in that direction → biased.\n  3. Anchor activates semantically related information; adjustment is\n     anchored in the semantic field of the initial value.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Affect Heuristic",
+      "confidence": "candidate",
+      "text": "MECHANISM:\n  Judgments and decisions are influenced by the overall emotional valence\n  (good/bad feeling) associated with an object or action.\n  Substitute \"how do I feel about this?\" for \"what is the probability/value?\"\n\nDISCOVERED BY: Slovic, Finucane, Peters & MacGregor (2002).\n  Builds on earlier \"somatic marker hypothesis\" (Damasio) — emotions guide\n  decision by providing fast signals.\n\nRISK-BENEFIT AFFECT LINK:\n  In reality: risk and benefit of activities often positively correlated\n    (nuclear power: high potential benefit AND high risk).\n  In perception: risk and benefit judgments are negatively correlated.\n  If people have positive affect toward X: low risk, high benefit.\n  If negative affect toward X: high risk, low benefit.\n  Information that changes affect (positive story about nuclear power)\n  SIMULTANEOUSLY reduces perceived risk AND increases perceived benefit.\n  → Single underlying dimension (affect) drives both.\n\nPRACTICAL IMPLICATIONS:\n  Brand reputation affects risk tolerance: \"Microsoft product\" vs. \"generic\n  product\" — same feature, different risk perception due to affect.\n  Prior relationships affect contract negotiation risk perception.\n  User trust in a product affects tolerance for UX friction.\n  Leader trust: low-affect leader's risky proposal → higher resistance than\n  high-affect leader's identical proposal.\n\nAFFECT HEURISTIC AND EXPERT JUDGMENT:\n  Experts are not immune. Experts show affect heuristic effects in their\n  domain expertise areas. The heuristic affects both novices and experts,\n  though experts may have more calibrated base affects.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "## Ecological Rationality — When Heuristics Win",
+      "confidence": "candidate",
+      "text": "GIGERENZEN'S FAST-AND-FRUGAL HEURISTICS:\n\n  TAKE-THE-BEST HEURISTIC:\n  Task: Choose between two options on some criterion (which city is larger?)\n  Strategy:\n  1. List cues ordered by validity (correlation with criterion).\n  2. Check the most valid cue first. Does it discriminate (one option yes, other no)?\n     If yes → choose the option that cue favors. STOP.\n     If no (both yes or both no) → move to next cue.\n  3. Continue until discriminating cue found.\n\n  PERFORMANCE:\n  Take-the-best vs. multiple regression on 20+ data sets:\n  Out-of-sample prediction: Take-the-best equals or beats regression in ~63% of cases.\n  Why? Regression overfits in small-N settings. Take-the-best uses fewer parameters\n  → less sampling error → better generalization.\n  This is the bias-variance tradeoff from statistical learning: simpler models\n  can generalize better than complex ones when data is scarce.\n  Connection to statistics-applied/: L1 regularization (Lasso) is the formal\n  version of \"use fewer predictors\" — same principle.\n\n  RECOGNITION HEURISTIC:\n  \"If you recognize option A but not option B, infer that A scores higher\n  on the criterion.\"\n  Performance: can outperform much more complex models in environments\n  where recognition correlates with the criterion.\n  Example: German city populations — American students, knowing less about\n  Germany, use recognition heuristic → outperform Germans (who know more\n  cities but must reason more carefully).\n  Counter-intuitive: less knowledge → better judgment in this environment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

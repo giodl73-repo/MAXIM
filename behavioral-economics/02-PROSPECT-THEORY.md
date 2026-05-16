@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:prospect-theory
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Prospect Theory
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/02-PROSPECT-THEORY.md
+canonical_path: behavioral-economics/02-PROSPECT-THEORY.md
+backsource_ids: [proof-backfill:behavioral-economics:02-prospect-theory, git-history:behavioral-economics:02-prospect-theory]
+concepts: [prospect, theory]
+root_concepts: [prospect, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Prospect Theory
 
 ## The Big Picture

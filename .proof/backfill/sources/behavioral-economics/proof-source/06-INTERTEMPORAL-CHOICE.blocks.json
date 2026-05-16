@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "behavioral-economics\\06-INTERTEMPORAL-CHOICE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Discounting Problem",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    INTERTEMPORAL CHOICE FRAMEWORK                           │\n│                                                                             │\n│  STANDARD MODEL (DU — Discounted Utility, Samuelson 1937):                  │\n│  V = Σ_t U(c_t) × δ^t   where δ = discount factor = 1/(1+r)                 │\n│  Constant discount rate r per period. Exponential discounting.              │\n│  Preferences are DYNAMICALLY CONSISTENT.                                    │\n│                                                                             │\n│  BEHAVIORAL REALITY:                                                        │\n│  People discount the near future MUCH more steeply than the far future.     │\n│  Hyperbolic discounting: D(t) = 1/(1+kt) for parameter k                    │\n│  Present bias: immediate rewards get disproportionate weight.               │\n│  Dynamic inconsistency: plans made for the future are abandoned             │\n│  when the future arrives and becomes the present.                           │\n│                                                                             │\n│  APPLICATIONS:                                                              │\n│  Retirement savings, dieting, exercise, debt management                     │\n│  Technical debt in software (delayed pain → discounted)                     │\n│  Org. change (future benefit discounted; immediate disruption salient)      │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Exponential vs. Hyperbolic Discounting",
+      "confidence": "candidate",
+      "text": "EXPONENTIAL DISCOUNTING (standard economics):\n  D(t) = δ^t = e^{-rt}\n  Discount factor at time t is exponential in t.\n  Constant instantaneous discount rate r.\n\n  Property: DYNAMICALLY CONSISTENT.\n  If I prefer $100 in year 2 to $110 in year 1 today,\n  I will still prefer $100 in year 2 when I'm sitting in year 1.\n  My preference order between future options doesn't change as time passes.\n\nHYPERBOLIC DISCOUNTING (empirical):\n  D(t) = 1/(1 + k×t)\n  Discount factor falls slowly at first but rapidly near t=0.\n  Instantaneous discount rate = dD/dt / D(t) = k / (1+kt) → falls with t.\n\n  Property: HIGH IMMEDIATE DISCOUNT RATE, LOW LONG-RUN DISCOUNT RATE.\n  Near-term: discount rate very high (sacrifice a lot to get it NOW)\n  Far-future: discount rate lower (patient about far-future tradeoffs)\n\nGRAPHICAL COMPARISON:\n\n  D(t) │\n  1.0  │●\n  0.9  │ ●\n  0.8  │  ●         Exponential\n  0.7  │   ●● ───────────────────────── (straight on log scale)\n  0.6  │    ●●●\n  0.5  │    ●●●●    Hyperbolic\n  0.4  │       ●●●●●\n  0.3  │           ●●●●●●●●\n  0.2  │                   ●●●●●●●●\n  0.1  │                           ●●●●●\n       └─────────────────────────────────── t\n         0   1   2   3   4   5   6   7   8\n\n  KEY DIFFERENCE: Near t=0, hyperbolic falls much faster than exponential.\n  The \"immediacy effect\": the present moment has a qualitatively special status.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## Quasi-Hyperbolic Discounting (β-δ Model)",
+      "confidence": "candidate",
+      "text": "β-δ MODEL (Laibson 1994, O'Donoghue & Rabin 1999):\n  A tractable approximation to hyperbolic discounting.\n\n  V(c₀, c₁, c₂, ...) = U(c₀) + β × Σ_{t=1}^∞ δ^t × U(cₜ)\n\n  β = present bias parameter (0 < β < 1)\n  δ = standard exponential discount factor (0 < δ < 1)\n  Both β and δ apply to ALL future periods; only β creates the discontinuity at t=0.\n\n  WHEN β = 1: reduces to standard exponential (δU₁ + δ²U₂ + ...)\n  WHEN β < 1: extra discount on all future periods relative to present.\n    Present gets U₀ (no discounting).\n    Period 1 gets β×δ×U₁ (double-discounted).\n    Period 2 gets β×δ²×U₂.\n    Period t gets β×δ^t×U_t.\n\n  INTERPRETATION:\n  δ captures long-run patience (how much people value the future generally).\n  β captures present bias (how much more they favor the present over the future).\n\n  Empirical estimates:\n  β ≈ 0.7-0.9 (most estimates; varies by context)\n  δ ≈ 0.95-0.99 per year\n\n  EXAMPLE:\n  β = 0.8, δ = 0.95/year\n  Trade $100 now for $x in 1 year: x such that 100 = 0.8 × 0.95 × x\n  x = 100 / 0.76 ≈ $131.6 (requires 31.6% premium for 1-year delay)\n  Trade $100 in 10 years for $y in 11 years: 0.8×0.95^10 × 100 = 0.8×0.95^11 × y\n  0.95^10 × 100 = 0.95^11 × y → y = 100/0.95 ≈ $105.3 (only 5.3% for same delay)\n  DRAMATIC DIFFERENCE: 31.6% for NOW→1yr vs. 5.3% for 10yr→11yr.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Commitment Devices",
+      "confidence": "candidate",
+      "text": "COMMITMENT DEVICE:\n  Action taken in advance that constrains future choice to align with\n  long-run preferences.\n  \"Binding the future self.\"\n\nEXAMPLES:\n  Personal:\n    Illiquid savings accounts (Christmas clubs, 401k early withdrawal penalty)\n    Pre-commitment to social/public declarations (\"I'm quitting smoking today\")\n    Automatic savings transfers on payday (before discretionary spending)\n    Meal prep (remove future decision about healthy eating)\n    Removing junk food from home (make temptation unavailable)\n    Gym enrollment with non-refundable fee (sunk cost as commitment device!)\n\n  Medical:\n    Disulfiram (Antabuse) for alcoholism: take drug that makes alcohol toxic\n    → commitment device against future drinking\n    Naltrexone implant: blocks opioid receptors → commitment against relapse\n\n  Financial:\n    Annuities: commit future self to spend down wealth slowly\n    Defined contribution with vesting schedule: golden handcuffs = commitment\n    Target date funds: removes future asset allocation decisions (good for naïve)\n\n  Organizational:\n    Sprint commitments: commit team to deliverable in fixed period\n    Milestone-triggered funding: next tranche only on hitting objective\n    Public roadmaps: visible commitment to external stakeholders\n    Pre-mortems: imagine project failed → reduce planning fallacy bias\n    Killswitch criteria: pre-commit to cancel if X happens (removes sunk cost)\n\n  Policy:\n    Automatic enrollment in retirement savings (default commitment; see 07-NUDGE)\n    Save More Tomorrow (SMarT, Thaler & Benartzi 1999):\n      Employees commit in advance to increase savings rate with each future raise.\n      Key insight: commitment is in the future (present bias doesn't resist it);\n        increases are framed as foregone gains, not losses.\n      Outcome: savings rates increased dramatically vs. control groups.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "## Technical Debt as Hyperbolic Discounting",
+      "confidence": "candidate",
+      "text": "TECHNICAL DEBT AND PRESENT BIAS:\n\n  The decision to take on technical debt is a discounted intertemporal choice:\n  Option A: Spend extra time now doing it right → cost = developer time now,\n             benefit = future maintainability / avoided refactoring\n  Option B: Quick fix now → immediate shipping, future refactoring cost\n\n  Under exponential discounting: if future cost > present cost, choose A.\n  Under hyperbolic discounting: future cost is heavily discounted → choose B more often.\n\n  β < 1: future refactoring cost is discounted by β relative to present shipping goal.\n  δ: future is discounted per period.\n  Combined: future debt payment feels small relative to immediate shipping gain.\n\n  MANIFESTATION:\n  \"We'll refactor after the launch.\"\n  \"We'll add tests next sprint.\"\n  \"We'll clean this up in Q4.\"\n  → These are naïve plans that future-self (pressured by new deadlines) abandons.\n  → Technical debt compounds (interest accrues) while present bias recurs.\n\n  COMMITMENT DEVICE SOLUTIONS:\n  1. Definition of Done: include code quality standards in DoD (pre-commitment)\n  2. Tech debt sprints: scheduled regular debt reduction (structural commitment)\n  3. 20% time for quality: committed allocation (not optional after-thought)\n  4. Visible debt metrics: tech debt dashboard makes future costs salient NOW\n     (reduce psychological distance; make future cost feel present)\n  5. Architecture review boards: external constraint on future-self's decisions\n\n  MEASUREMENT MAKES FUTURE COSTS SALIENT:\n  \"This module has a maintainability index of 12 and 8% test coverage.\n   The expected refactoring cost if not addressed: 200 engineer-hours.\"\n  Making future costs explicit and specific reduces their psychological discounting.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

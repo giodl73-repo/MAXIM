@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:aging
+kind: guide
+module: demography
+section: demography
+title: Population Aging
+status: source-custody
+source_custody: partial
+current_path: demography/06-AGING.md
+canonical_path: demography/06-AGING.md
+backsource_ids: [proof-backfill:demography:06-aging, git-history:demography:06-aging]
+concepts: [aging]
+root_concepts: [aging]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Population Aging
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:intertemporal-choice
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Intertemporal Choice
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/06-INTERTEMPORAL-CHOICE.md
+canonical_path: behavioral-economics/06-INTERTEMPORAL-CHOICE.md
+backsource_ids: [proof-backfill:behavioral-economics:06-intertemporal-choice, git-history:behavioral-economics:06-intertemporal-choice]
+concepts: [intertemporal, choice]
+root_concepts: [intertemporal, choice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Intertemporal Choice
 
 ## The Discounting Problem
@@ -21,7 +40,7 @@
 │  APPLICATIONS:                                                              │
 │  Retirement savings, dieting, exercise, debt management                     │
 │  Technical debt in software (delayed pain → discounted)                     │
-│  Organizational change (future benefit discounted; immediate disruption not) │
+│  Org. change (future benefit discounted; immediate disruption salient)      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

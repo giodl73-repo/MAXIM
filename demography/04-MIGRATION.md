@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:migration
+kind: guide
+module: demography
+section: demography
+title: Migration
+status: source-custody
+source_custody: partial
+current_path: demography/04-MIGRATION.md
+canonical_path: demography/04-MIGRATION.md
+backsource_ids: [proof-backfill:demography:04-migration, git-history:demography:04-migration]
+concepts: [migration]
+root_concepts: [migration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Migration
 
 ## The Big Picture

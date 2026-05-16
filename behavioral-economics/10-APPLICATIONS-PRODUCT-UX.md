@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:applications-product-ux
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Behavioral Economics in Product and UX
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md
+canonical_path: behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md
+backsource_ids: [proof-backfill:behavioral-economics:10-applications-product-ux, git-history:behavioral-economics:10-applications-product-ux]
+concepts: [applications, product, ux]
+root_concepts: [applications, product]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Behavioral Economics in Product and UX
 
 ## The Product Design Spectrum: From Helpful to Harmful
@@ -12,17 +31,17 @@
 │  BENEFICIAL DEFAULTS     PERSUASIVE DESIGN       MANIPULATIVE     DECEPTIVE │
 │  User genuinely          Works through            Exploits         Outright │
 │  benefits; would         cognitive shortcuts      cognitive        false    │
-│  choose same             but serves user          weaknesses       information│
-│  if fully informed       AND product goals        against user     or design  │
+│  choose same             but serves user          weaknesses       info     │
+│  if fully informed       AND product goals        against user     design   │
 │                                                   interest                  │
 │                                                                             │
 │  Example: Netflix pause  Example: Social proof   Example: Variable Example: │
 │  suggestions at end      "X people watching       reward → infinite Fake    │
-│  of season               this right now"          scroll           countdowns │
+│  of season               this right now"          scroll           timer    │
 │                                                                             │
 │  THE CRITICAL DISTINCTION:                                                  │
 │  Nudge: guides toward outcome user would choose if attentive and informed.  │
-│  Dark pattern: guides toward outcome that benefits product at user's expense.│
+│  Dark pattern: guides toward outcome that benefits product over user.       │
 │  Same technical mechanism (cognitive shortcuts); different alignment.       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

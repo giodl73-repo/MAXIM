@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:social-preferences
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Social Preferences
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/05-SOCIAL-PREFERENCES.md
+canonical_path: behavioral-economics/05-SOCIAL-PREFERENCES.md
+backsource_ids: [proof-backfill:behavioral-economics:05-social-preferences, git-history:behavioral-economics:05-social-preferences]
+concepts: [social, preferences]
+root_concepts: [social, preferences]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Preferences
 
 ## The Big Picture

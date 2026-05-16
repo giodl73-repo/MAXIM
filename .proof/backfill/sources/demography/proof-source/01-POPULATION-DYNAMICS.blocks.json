@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "demography\\01-POPULATION-DYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Balancing Equation as a Dynamical System",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    POPULATION CHANGE MECHANICS                              │\n│                                                                             │\n│  P(t+1) = P(t) + B(t) − D(t) + IM(t) − EM(t)                                │\n│                                                                             │\n│  Components:                                                                │\n│  B(t)  = Births in period t → t+1        determined by ASFR × women_x       │\n│  D(t)  = Deaths in period t → t+1        determined by ASDR × N_x           │\n│  IM(t) = In-migrants in period            driven by econ/political forces   │\n│  EM(t) = Out-migrants in period           selective, age/skill-structured   │\n│                                                                             │\n│  NATURAL INCREASE:  NI = B − D                                              │\n│  NET MIGRATION:     NM = IM − EM                                            │\n│  GROWTH:            ΔP = NI + NM                                            │\n│                                                                             │\n│  Population growth rate: r = ΔP/P = (NI + NM)/P                             │\n│  ≈ CBR − CDR + Net migration rate                                           │\n│                                                                             │\n└─────────────────────────────────────────────────────────────────────────────┘\n\nContinuous form (closed population, no migration):\n  dP/dt = (b(t) − d(t)) × P(t)\n  where b(t) = birth rate per person, d(t) = death rate per person\n\nIf b − d = r is constant:\n  P(t) = P(0) × e^{rt}\n  Exponential growth (Malthusian model)\n\nDoubling time: t₂ = ln(2)/r ≈ 0.693/r\n  r = 0.03 (3% growth) → t₂ ≈ 23 years\n  r = 0.01 (1% growth) → t₂ ≈ 69 years  (Rule of 70)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Rates — Crude vs. Age-Specific",
+      "confidence": "candidate",
+      "text": "CRUDE BIRTH RATE (CBR):\n  CBR = B / P_mid × 1000\n  P_mid = midyear population\n  Units: live births per 1,000 population per year\n  Typical range: 8-15 (low fertility countries) to 35-50 (high fertility countries)\n\nCRUDE DEATH RATE (CDR):\n  CDR = D / P_mid × 1000\n  Typical range: 6-10 (most countries) to 15+ (extremely old or high-mortality populations)\n  Paradox: CDR often LOW in high-mortality LMICs because age structure is young\n  Japan CDR > Bangladesh CDR even though Japanese health is far better\n\nRATE OF NATURAL INCREASE (RNI):\n  RNI = (CBR − CDR) / 1000\n  = proportional annual growth from natural increase only\n  Global 2023: CBR ≈ 17.7, CDR ≈ 7.7 → RNI ≈ 1.0%\n\nAGE-SPECIFIC DEATH RATE (ASDR):\n  ASDR_x = D_x / N_x × 1000\n  where D_x = deaths at age x, N_x = population at age x\n\nAGE-SPECIFIC FERTILITY RATE (ASFR):\n  ASFR_x = B_x / W_x × 1000\n  where B_x = births to women aged x, W_x = women aged x\n  Summed across reproductive ages (15-49) → General Fertility Rate\n  Weighted appropriately → TFR (see 02-FERTILITY)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Population Momentum",
+      "confidence": "candidate",
+      "text": "POPULATION MOMENTUM:\n  Even after fertility drops to EXACTLY replacement level (NRR = 1),\n  population continues to grow for generations.\n\n  MECHANISM:\n  A young population has more women in reproductive ages than a\n  stable population with the same age-specific fertility.\n  Even at replacement fertility, these extra women produce more births\n  than the relatively small elderly cohort's deaths.\n  Net: population grows until age structure normalizes.\n\n  QUANTIFICATION:\n  Momentum factor M = P_ultimate / P_current\n  M = e0 × NRR_current / (T × P_current/B)\n  (roughly: M ≈ 1 + (1/r) × change in NRR when at NRR>1)\n\n  PRACTICAL ESTIMATES:\n  India (2020): If fertility dropped to replacement today → population\n    grows ~25% before stabilizing (from ~1.38B to ~1.7B)\n  Sub-Saharan Africa: momentum factor ~1.5-2.0\n    Population would roughly double even with immediate replacement fertility\n\n  POLICY IMPLICATION:\n  Demographic momentum means interventions take decades to affect population size.\n  Fertility programs started today change population size in 2050-2070.\n  The window to affect Africa's 2050-2100 population size is NOW.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## The Lotka-Leslie Framework",
+      "confidence": "candidate",
+      "text": "CONTINUOUS STABLE POPULATION (LOTKA 1907):\n  Stable population characterized by intrinsic rate r, satisfying:\n\n  1 = ∫₀^∞ e^{-rx} × l(x) × m(x) dx        (Euler-Lotka equation)\n\n  l(x) = survivorship (life table) to age x\n  m(x) = age-specific maternity function (ASFR for females)\n\n  Stable age distribution: c(x) = b × l(x) × e^{-rx}\n  where b = 1 / ∫₀^∞ l(x) e^{-rx} dx\n\nDISCRETE LESLIE MATRIX (1945):\n  Projects age-structured population one period at a time.\n\n  n(t+1) = A × n(t)\n\n  where n(t) = vector of population by age class [n₁, n₂, ..., nₖ]\n\n  A = Leslie matrix:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  F₁   F₂   F₃  ...  Fₙ  ← fertilities (weighted by survival)    │\n  │  P₁   0    0   ...  0   ← P₁ = survival prob from age 1 to 2    │\n  │  0    P₂   0   ...  0   ← P₂ = survival from age 2 to 3         │\n  │  0    0    P₃  ...  0                                           │\n  │  :                  :                                           │\n  │  0    0    0   ...  Pₙ  ← final class: open interval (P=Pₙ)     │\n  └─────────────────────────────────────────────────────────────────┘\n\n  Fᵢ = ½ × (fᵢ + fᵢ₊₁ × Pᵢ) × (P₀/2)    (births in age class i)\n  Pᵢ = nᵢ(x+1) / nᵢ(x)                   (survival fraction)\n\n  EIGENVALUE ANALYSIS:\n  Dominant eigenvalue λ₁ = e^r = finite rate of increase per period\n  λ₁ > 1: growing  λ₁ = 1: stationary  λ₁ < 1: declining\n\n  Stable age distribution: dominant right eigenvector of A\n  Reproductive value: dominant left eigenvector of A\n  (reproductive value = expected future contribution to population from a\n  given age class, relative to a newborn — Fisher 1930)\n\n  Sensitivity analysis:\n  ∂λ/∂aᵢⱼ = vᵢ × wⱼ / (v · w)\n  (sensitivity of growth rate to matrix element = left eigenvector × right)\n\n  ELASTICITY: proportional sensitivity = (aᵢⱼ/λ) × ∂λ/∂aᵢⱼ\n  Elasticities sum to 1 → can compare relative importance of vital rates.\n  For most long-lived species (including humans): elasticity of survival >> fertility\n  For r-strategists (high fertility): fertility elasticity dominates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 228,
+      "heading_context": "## Decomposing Population Change",
+      "confidence": "candidate",
+      "text": "### Country Decomposition of Growth (approx. 2020s)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

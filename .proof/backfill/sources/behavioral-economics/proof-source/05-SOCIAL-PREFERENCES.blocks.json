@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "behavioral-economics\\05-SOCIAL-PREFERENCES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    SOCIAL PREFERENCES LANDSCAPE                             │\n│                                                                             │\n│  STANDARD MODEL: U_i(x) = f(x_i)  — utility depends only on OWN payoff      │\n│                                                                             │\n│  SOCIAL PREFERENCES: U_i(x) = f(x_i, x_{-i}, context, history)              │\n│  Utility depends on:                                                        │\n│    - Own payoff x_i                                                         │\n│    - Others' payoffs x_{-i}  (inequity aversion)                            │\n│    - Whether payoff was fairly obtained  (procedural fairness)              │\n│    - Whether others cooperated  (reciprocity)                               │\n│    - Identity/group membership  (in-group favoritism)                       │\n│    - Social norms in context  (what's appropriate here?)                    │\n│                                                                             │\n│  EXPERIMENTAL METHODS:                                                      │\n│  Ultimatum Game, Dictator Game, Trust Game, Public Goods Game,              │\n│  Prisoner's Dilemma variants — all run with real money stakes               │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 49,
+      "heading_context": "## Classical Game Theory vs Behavioral Game Theory",
+      "confidence": "candidate",
+      "text": "GAME             STANDARD GT PREDICTION        EMPIRICAL REALITY            MECHANISM\n───────────────  ───────────────────────────   ─────────────────────────   ───────────────────────\nUltimatum        Proposer: offer $1            Modal offer: 40-50%         Inequity aversion\n                 Responder: accept any         Rejection rate <20%: ~60%   Costly punishment\n                 positive offer               Both sacrifice money\n\nDictator         Proposer: keep everything     Mean transfer: 20-30%       Altruism (unconditional)\n                 (no strategic reason to give) Some give 50%               Social norms\n\nTrust game       Sender: send $0               Mean sent: ~50%             Positive reciprocity\n                 (Receiver returns nothing)    Receiver returns ~30-40%    Trust + gift exchange\n\nPublic goods     All contribute $0             Round 1: ~50% contribution  Conditional cooperation\n                 (dominant strategy to free    Declines with repetition    Negative reciprocity\n                 ride)                         Recovers with punishment    Social norms\n\nCentipede        P1 takes at node 1            Cooperate for many rounds   Altruism, reputation\n                 (backward induction)          then take                   Limited CKR\n\nWHY BACKWARD INDUCTION FAILS IN THESE EXPERIMENTS:\n  SPE requires: (1) each player maximizes own payoff at each node,\n                (2) common knowledge that everyone is doing (1).\n  Violations occur because:\n  a) Players have utility that includes others' payoffs (Fehr-Schmidt)\n  b) Players care about procedural fairness / intentions (Rabin reciprocity)\n  c) Players have limited depth of backward induction (typically 1-2 steps)\n\nBEHAVIORAL UTILITY GENERALIZATIONS:\n  Standard:    U_i(x) = x_i                  (own payoff only)\n  Fehr-Schmidt: U_i = x_i − αᵢmax(xⱼ−xᵢ,0) − βᵢmax(xᵢ−xⱼ,0)\n  Rabin:        U_i depends on perceived kindness of j's intentions\n  Charness-Rabin: weighted sum of own payoff + min payoff (Rawlsian) + total surplus\n  All are parameterized; empirically estimated from experiments.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Reciprocity",
+      "confidence": "candidate",
+      "text": "RECIPROCITY — TYPES:\n  POSITIVE RECIPROCITY: If X does something nice for Y → Y wants to reciprocate.\n    Warm glow from helping someone who helped you.\n  NEGATIVE RECIPROCITY: If X does something mean to Y → Y wants to punish X.\n    Anger from being mistreated → costly punishment.\n\nEXPERIMENTAL EVIDENCE — PUBLIC GOODS GAME:\n  N players each given $100.\n  Each can contribute 0-100 to a public pool.\n  Pool doubles and is equally divided.\n  Pure self-interest: contribute $0 (Nash equilibrium).\n  Nash prediction: free riding → public goods underprovision.\n\n  EMPIRICAL FINDING:\n  Round 1: average contribution ~50% of endowment.\n  Successive rounds (without communication): contributions DECLINE toward zero.\n  Why? Non-contributors (free riders) observed → contributers reduce contributions\n  in anger at being exploited.\n  With punishment option: contributors punish free riders (even at personal cost).\n  With punishment: contributions stay high (conditional cooperation maintained).\n\n  CONDITIONAL COOPERATION: Most people are conditional cooperators.\n  They contribute if others contribute; reduce contribution if others free ride.\n  This is NOT pure altruism — it's reciprocal.\n  A small fraction (<30%) are unconditional free riders; they bring down cooperation.\n\nRABIN'S FORMAL RECIPROCITY MODEL (1993):\n  Fairness equilibrium: strategy is justified by the belief that the other\n  player intends kindness/unkindness toward you.\n  Kind intent → reciprocate kindly; unkind intent → punish.\n  This creates multiple equilibria: full cooperation if everyone believes\n  everyone else will cooperate; full defection if everyone believes defection.\n  The belief → self-fulfilling prophecy.\n  Social context and shared expectations determine which equilibrium is reached.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## Trust Game (Berg, Dickhaut & McCabe 1995)",
+      "confidence": "candidate",
+      "text": "TRUST GAME:\n  Two players, Sender and Receiver.\n  Sender given $10. Can send 0-10 to Receiver.\n  Amount sent is TRIPLED (by experimenter).\n  Receiver can send any amount back to Sender.\n\n  STANDARD PREDICTION: Sender sends $0 (Receiver will return nothing).\n  EMPIRICAL REALITY:\n    Mean amount sent: ~$5 (50% of endowment)\n    Mean amount returned: ~$3-4 (less than tripled amount, but positive)\n\n  INTERPRETATION:\n  Senders trust Receivers to return value → trust is placed.\n  Receivers reciprocate trust → social equilibrium above Nash.\n  Economic theory of trust: credible commitment + punishment + reputation.\n  Experimental finding: trust and reciprocity operate even without these.\n\n  WITHIN-ORGANIZATION TRUST:\n  Managers who extend autonomy and trust to employees:\n  → Employees reciprocate with higher effort and commitment (positive reciprocity).\n  → This is NOT based on incentive contracts but on the trust itself.\n  \"Gift exchange\" (Akerlof 1982): employers offer above-market wages as \"gift\"\n  → employees reciprocate with above-minimum effort.\n  Evidence: above-market wages predict higher productivity, lower shirking.\n  Efficiency wages: paying more than the market-clearing wage is rational\n  if it elicits reciprocal effort that exceeds the wage premium.\n\n  ORGANIZATIONAL TRUST DAMAGE:\n  Betrayal aversion (Bohnet & Zeckhauser 2004):\n  Loss from betrayal by a trusted person > same loss from an impersonal mechanism.\n  Layoffs, broken promises, surveillance of trusted employees →\n  destroys reciprocity more than the immediate cost suggests.\n  Trust is asymmetric to build and destroy: slow to build, fast to destroy.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## Social Norms and Cooperation",
+      "confidence": "candidate",
+      "text": "INJUNCTIVE vs. DESCRIPTIVE NORMS:\n  Injunctive: what people OUGHT to do (moral prescription)\n  Descriptive: what people ACTUALLY do (observed behavior)\n\n  Cialdini et al. (1990): both influence behavior but in different ways.\n  Descriptive norm (\"Most guests reuse their towels\") → conformity.\n  Injunctive norm (\"Please help us save the environment by reusing\") → weaker effect.\n  Descriptive norms leverage social proof / conformity.\n\n  NORM CONFLICT:\n  When injunctive and descriptive norms diverge: \"Don't litter\" (injunctive) in\n  a heavily littered environment → descriptive norm (littering is normal here)\n  can INCREASE littering relative to a clean environment.\n  Implication: keeping an environment clean is its own positive externality.\n\n  ORGANIZATIONAL NORMS:\n  \"This is how we do things here\" = injunctive + descriptive norm bundled.\n  New employees rapidly adopt team norms (descriptive conformity).\n  When the norm is \"ship on time\" or \"don't cut corners\" → self-enforcing.\n  When the norm is \"it's okay to miss deadlines\" → also self-enforcing.\n  Leadership shapes norms through visible behavior (you are the descriptive norm\n  for your organization — what you do, not what you say, is the norm).\n\n  SOCIAL SANCTIONING:\n  Norms sustained by:\n  1. Internalization: people believe the norm is right.\n  2. Shame/guilt: anticipated negative self-evaluation.\n  3. Social sanction: others will punish deviance.\n  All three operate in real organizations; relative weight varies by culture.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
