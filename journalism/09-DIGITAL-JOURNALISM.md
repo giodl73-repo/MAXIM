@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:digital-journalism
+kind: guide
+module: journalism
+section: journalism
+title: Digital Journalism: Social Media, Newsletters, Podcast, Platform Dependence
+status: source-custody
+source_custody: partial
+current_path: journalism/09-DIGITAL-JOURNALISM.md
+canonical_path: journalism/09-DIGITAL-JOURNALISM.md
+backsource_ids: [proof-backfill:journalism:09-digital-journalism, git-history:journalism:09-digital-journalism]
+concepts: [digital, journalism]
+root_concepts: [digital, journalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Journalism: Social Media, Newsletters, Podcast, Platform Dependence
 
 ## The Big Picture

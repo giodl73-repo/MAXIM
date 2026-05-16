@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:memory-techniques
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Memory Techniques: Method of Loci, Formulaic Memory, Oral vs. Literate Mind
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/03-MEMORY-TECHNIQUES.md
+canonical_path: oral-tradition/03-MEMORY-TECHNIQUES.md
+backsource_ids: [proof-backfill:oral-tradition:03-memory-techniques, git-history:oral-tradition:03-memory-techniques]
+concepts: [memory, techniques]
+root_concepts: [memory, techniques]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Memory Techniques: Method of Loci, Formulaic Memory, Oral vs. Literate Mind
 
 ## The Big Picture

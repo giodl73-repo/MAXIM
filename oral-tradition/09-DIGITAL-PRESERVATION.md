@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:digital-preservation
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Digital Preservation: Recording, Archives, Language Revitalization
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/09-DIGITAL-PRESERVATION.md
+canonical_path: oral-tradition/09-DIGITAL-PRESERVATION.md
+backsource_ids: [proof-backfill:oral-tradition:09-digital-preservation, git-history:oral-tradition:09-digital-preservation]
+concepts: [digital, preservation]
+root_concepts: [digital, preservation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Preservation: Recording, Archives, Language Revitalization
 
 ## The Big Picture

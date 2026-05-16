@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:press-freedom
+kind: guide
+module: journalism
+section: journalism
+title: Press Freedom: First Amendment, Shield Laws, Autocratic Suppression
+status: source-custody
+source_custody: partial
+current_path: journalism/06-PRESS-FREEDOM.md
+canonical_path: journalism/06-PRESS-FREEDOM.md
+backsource_ids: [proof-backfill:journalism:06-press-freedom, git-history:journalism:06-press-freedom]
+concepts: [press, freedom]
+root_concepts: [press, freedom]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Press Freedom: First Amendment, Shield Laws, Autocratic Suppression
 
 ## The Big Picture

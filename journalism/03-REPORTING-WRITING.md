@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:reporting-writing
+kind: guide
+module: journalism
+section: journalism
+title: Reporting and Writing: Inverted Pyramid, Narrative, Data Journalism
+status: source-custody
+source_custody: partial
+current_path: journalism/03-REPORTING-WRITING.md
+canonical_path: journalism/03-REPORTING-WRITING.md
+backsource_ids: [proof-backfill:journalism:03-reporting-writing, git-history:journalism:03-reporting-writing]
+concepts: [reporting, writing]
+root_concepts: [reporting, writing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reporting and Writing: Inverted Pyramid, Narrative, Data Journalism
 
 ## The Big Picture

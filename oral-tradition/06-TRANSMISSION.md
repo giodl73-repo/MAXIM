@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:transmission
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Transmission and Variation: Drift, Version, Censorship, Community Control
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/06-TRANSMISSION.md
+canonical_path: oral-tradition/06-TRANSMISSION.md
+backsource_ids: [proof-backfill:oral-tradition:06-transmission, git-history:oral-tradition:06-transmission]
+concepts: [transmission]
+root_concepts: [transmission]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Transmission and Variation: Drift, Version, Censorship, Community Control
 
 ## The Big Picture

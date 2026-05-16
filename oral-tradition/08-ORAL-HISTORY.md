@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:oral-history
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Oral History as Method: Interview Technique, Archive, Reliability
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/08-ORAL-HISTORY.md
+canonical_path: oral-tradition/08-ORAL-HISTORY.md
+backsource_ids: [proof-backfill:oral-tradition:08-oral-history, git-history:oral-tradition:08-oral-history]
+concepts: [oral, history]
+root_concepts: [oral, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Oral History as Method: Interview Technique, Archive, Reliability
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:performance
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Performance Context: Griot, Skald, Guslar - Occasion and Audience
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/07-PERFORMANCE.md
+canonical_path: oral-tradition/07-PERFORMANCE.md
+backsource_ids: [proof-backfill:oral-tradition:07-performance, git-history:oral-tradition:07-performance]
+concepts: [performance]
+root_concepts: [performance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Performance Context: Griot, Skald, Guslar — Occasion and Audience
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:world-epic
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: World Epic Traditions: Comparative Table and Analysis
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/04-WORLD-EPIC.md
+canonical_path: oral-tradition/04-WORLD-EPIC.md
+backsource_ids: [proof-backfill:oral-tradition:04-world-epic, git-history:oral-tradition:04-world-epic]
+concepts: [world, epic]
+root_concepts: [world, epic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Epic Traditions: Comparative Table and Analysis
 
 ## The Big Picture
