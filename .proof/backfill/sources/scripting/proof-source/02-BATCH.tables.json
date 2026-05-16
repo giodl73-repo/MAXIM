@@ -1,0 +1,525 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\02-BATCH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 94,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "Windows only (cmd.exe)"
+        ],
+        [
+          "Extension",
+          "`.bat`, `.cmd`"
+        ],
+        [
+          "Shebang",
+          "None (cmd.exe is implicit)"
+        ],
+        [
+          "Paradigm",
+          "Imperative, sequential, GOTO-based"
+        ],
+        [
+          "Typing",
+          "Strings only (`SET /A` for integer arithmetic)"
+        ],
+        [
+          "Execution",
+          "cmd.exe interpreter; no compilation"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 496,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Unix analog",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`FINDSTR`",
+          "`grep`",
+          "Limited POSIX-ish regex; `-R` for recursive"
+        ],
+        [
+          "`FIND`",
+          "`grep -F`",
+          "Fixed-string search; simpler than FINDSTR"
+        ],
+        [
+          "`XCOPY`",
+          "`cp -r`",
+          "Recursive copy with filtering"
+        ],
+        [
+          "`ROBOCOPY`",
+          "`rsync`",
+          "Mirror, retry, bandwidth throttle — powerful"
+        ],
+        [
+          "`SORT`",
+          "`sort`",
+          "Sort stdin/file"
+        ],
+        [
+          "`WHERE`",
+          "`which`",
+          "Find executable on PATH"
+        ],
+        [
+          "`TIMEOUT`",
+          "`sleep`",
+          "Wait N seconds"
+        ],
+        [
+          "`CHOICE`",
+          "(none)",
+          "Interactive keypress menu"
+        ],
+        [
+          "`WMIC`",
+          "(none)",
+          "WMI queries — deprecated Win11; use PS"
+        ],
+        [
+          "`REG`",
+          "(none)",
+          "Registry CRUD from command line"
+        ],
+        [
+          "`SCHTASKS`",
+          "`cron`",
+          "Task Scheduler management"
+        ],
+        [
+          "`SC`",
+          "`systemctl`",
+          "Service control"
+        ],
+        [
+          "`NET`",
+          "(none)",
+          "User/share/service management"
+        ],
+        [
+          "`TASKLIST` / `TASKKILL`",
+          "`ps` / `kill`",
+          "Process enumeration/termination"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 517,
+      "heading_context": "## Gotchas and Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "Spaces in `SET`",
+          "`SET name = hello` stores `name ` (with space) as key",
+          "`SET \"name=hello\"` — always quote the whole assignment"
+        ],
+        [
+          "`%ERRORLEVEL%` in IF block",
+          "Expanded before IF executes; reads stale value",
+          "Use `IF ERRORLEVEL n` form, or `(CALL)` trick to force re-read"
+        ],
+        [
+          "`EXIT` vs `EXIT /B`",
+          "Bare `EXIT` terminates the cmd.exe process/window",
+          "Always `EXIT /B` in scripts and subroutines"
+        ],
+        [
+          "Delayed expansion off",
+          "`!var!` inside FOR loop reads stale `%var%`",
+          "`SETLOCAL ENABLEDELAYEDEXPANSION` at script top"
+        ],
+        [
+          "`!` literals with delayed expansion",
+          "Literal `!` treated as variable delimiter",
+          "Escape as `^^!` or use `SETLOCAL DISABLEDELAYEDEXPANSION` around that block"
+        ],
+        [
+          "`%%` vs `%` for loop vars",
+          "In .bat files: `%%i`; in interactive cmd: `%i`",
+          "Always `%%i` in scripts"
+        ],
+        [
+          "Paths with spaces in FOR",
+          "`FOR %%f IN (*.txt)` breaks on `my file.txt`",
+          "Always quote expansion: `\"%%f\"` and use `%%~f` to strip quotes"
+        ],
+        [
+          "`ECHO.` vs `ECHO `",
+          "`ECHO ` (trailing space) may echo \"ECHO is on\"",
+          "Always `ECHO.` for blank line"
+        ],
+        [
+          "Octal trap in `SET /A`",
+          "`SET /A x=010` → 8 (octal) not 10",
+          "Strip leading zeros from user-supplied numbers"
+        ],
+        [
+          "`ERRORLEVEL` semantics",
+          "`IF ERRORLEVEL 1` is `>= 1`, catches 1,2,3,...",
+          "Check from highest to lowest for specific code testing"
+        ],
+        [
+          "Nested parentheses",
+          "`(` and `)` in variable values break IF/FOR blocks",
+          "Quote values: `SET \"val=a(b)\"` and use delayed expansion"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 670,
+      "heading_context": "## Bridge: Batch → PowerShell Migration",
+      "headers": [
+        "Concept",
+        "Batch",
+        "PowerShell"
+      ],
+      "rows": [
+        [
+          "**Variables**",
+          "",
+          ""
+        ],
+        [
+          "Assign",
+          "`SET \"name=value\"`",
+          "`$name = \"value\"`"
+        ],
+        [
+          "Expand",
+          "`%name%`",
+          "`$name`"
+        ],
+        [
+          "Env var set",
+          "`SET \"FOO=bar\"` + `SETLOCAL`",
+          "`$env:FOO = \"bar\"`"
+        ],
+        [
+          "Env var read",
+          "`%FOO%`",
+          "`$env:FOO`"
+        ],
+        [
+          "Arithmetic",
+          "`SET /A x=x+1`",
+          "`$x++` or `$x += 1`"
+        ],
+        [
+          "Unset",
+          "`SET \"var=\"`",
+          "`Remove-Variable var` or `$var = $null`"
+        ],
+        [
+          "**Control flow**",
+          "",
+          ""
+        ],
+        [
+          "If/else",
+          "`IF \"%x%\"==\"a\" (…) ELSE (…)`",
+          "`if ($x -eq \"a\") { } else { }`"
+        ],
+        [
+          "File exists",
+          "`IF EXIST file.txt`",
+          "`if (Test-Path \"file.txt\")`"
+        ],
+        [
+          "Not defined",
+          "`IF NOT DEFINED var`",
+          "`if ($null -eq $var)`"
+        ],
+        [
+          "GOTO",
+          "`GOTO label`",
+          "(no equivalent; use structured flow)"
+        ],
+        [
+          "Exit on failure",
+          "`IF ERRORLEVEL 1 GOTO err`",
+          "`$ErrorActionPreference=\"Stop\"` or `if ($LASTEXITCODE -ne 0) { throw }`"
+        ],
+        [
+          "**Loops**",
+          "",
+          ""
+        ],
+        [
+          "FOR over list",
+          "`FOR %%i IN (a b c) DO`",
+          "`foreach ($i in @('a','b','c'))`"
+        ],
+        [
+          "FOR /L numeric",
+          "`FOR /L %%i IN (1,1,10) DO`",
+          "`1..10 \\| ForEach-Object { $_ }` or `for ($i=1; $i-le10; $i++)`"
+        ],
+        [
+          "FOR /F command",
+          "`FOR /F %%a IN ('cmd') DO`",
+          "`$result = cmd; foreach ($line in $result)`"
+        ],
+        [
+          "FOR /F CSV",
+          "`FOR /F \"tokens=1,2 delims=,\" %%a IN (file.csv)`",
+          "`Import-Csv file.csv \\| ForEach-Object { $_.col1 }`"
+        ],
+        [
+          "FOR /R recursive",
+          "`FOR /R \"C:\\dir\" %%f IN (*.txt)`",
+          "`Get-ChildItem -Recurse -Filter \"*.txt\"`"
+        ],
+        [
+          "While (simulated)",
+          "`:loop … GOTO loop`",
+          "`while ($condition) { }`"
+        ],
+        [
+          "**Functions**",
+          "",
+          ""
+        ],
+        [
+          "Subroutine",
+          "`CALL :label` / `EXIT /B`",
+          "`function Verb-Noun { param(…) }`"
+        ],
+        [
+          "Arguments",
+          "`%1 %2 %*`",
+          "`param([string]$Name, [int]$Count)`"
+        ],
+        [
+          "Return value",
+          "`SET result=…` (global side effect)",
+          "`return $value` or last expression"
+        ],
+        [
+          "**I/O**",
+          "",
+          ""
+        ],
+        [
+          "Print stdout",
+          "`ECHO text`",
+          "`Write-Output \"text\"` or bare expression"
+        ],
+        [
+          "Print stderr",
+          "`ECHO text >&2`",
+          "`Write-Error \"msg\"`"
+        ],
+        [
+          "Discard output",
+          "`cmd > NUL`",
+          "`cmd \\| Out-Null` or `> $null`"
+        ],
+        [
+          "Read file",
+          "`FOR /F \"delims=\" %%l IN (file)`",
+          "`Get-Content file.txt \\| ForEach-Object { }`"
+        ],
+        [
+          "**Exit codes**",
+          "",
+          ""
+        ],
+        [
+          "Set exit code",
+          "`EXIT /B 0`",
+          "`exit 0`"
+        ],
+        [
+          "Check external exit code",
+          "`%ERRORLEVEL%` / `IF ERRORLEVEL 1`",
+          "`$LASTEXITCODE` / `if ($LASTEXITCODE -ne 0)`"
+        ],
+        [
+          "ERRORLEVEL semantics",
+          "`IF ERRORLEVEL 1` = \">= 1\"",
+          "`if ($LASTEXITCODE -ne 0)` = \"not exactly 0\""
+        ],
+        [
+          "Check cmdlet success",
+          "n/a",
+          "`$?` (bool: True/False)"
+        ],
+        [
+          "**Paths**",
+          "",
+          ""
+        ],
+        [
+          "Script's own directory",
+          "`%~dp0`",
+          "`$PSScriptRoot`"
+        ],
+        [
+          "Script's full path",
+          "`%~f0`",
+          "`$PSCommandPath`"
+        ],
+        [
+          "Combine paths",
+          "`%~dp0config.ini`",
+          "`Join-Path $PSScriptRoot \"config.ini\"`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 774,
+      "heading_context": "## Bridge to Unix/Bash",
+      "headers": [
+        "Batch",
+        "Bash",
+        "PowerShell"
+      ],
+      "rows": [
+        [
+          "`%var%`",
+          "`$var`",
+          "`$var`"
+        ],
+        [
+          "`SET var=val`",
+          "`var=val`",
+          "`$var = val`"
+        ],
+        [
+          "`ECHO %ERRORLEVEL%`",
+          "`echo $?`",
+          "`$LASTEXITCODE`"
+        ],
+        [
+          "`FOR /F %%i IN ('cmd')`",
+          "`for i in $(cmd)`",
+          "`foreach ($i in (cmd))`"
+        ],
+        [
+          "`IF EXIST file`",
+          "`[[ -f file ]]`",
+          "`Test-Path file`"
+        ],
+        [
+          "`IF EXIST \"dir\\\"`",
+          "`[[ -d dir ]]`",
+          "`Test-Path dir -PathType Container`"
+        ],
+        [
+          "`> NUL`",
+          "`> /dev/null`",
+          "`> $null` or `\\| Out-Null`"
+        ],
+        [
+          "`2>&1`",
+          "`2>&1`",
+          "`2>&1`"
+        ],
+        [
+          "`EXIT /B 0`",
+          "`exit 0`",
+          "`exit 0`"
+        ],
+        [
+          "`%~dp0`",
+          "`$(dirname \"$0\")`",
+          "`$PSScriptRoot`"
+        ],
+        [
+          "`CALL :func`",
+          "`func_name`",
+          "`function Func { }`"
+        ],
+        [
+          "`SETLOCAL`",
+          "subshell `( )` or `local`",
+          "(scoped by default)"
+        ],
+        [
+          "`GOTO label`",
+          "(no equivalent)",
+          "(no equivalent)"
+        ],
+        [
+          "`SET /A x=x+1`",
+          "`(( x++ ))` or `x=$((x+1))`",
+          "`$x++`"
+        ],
+        [
+          "`FINDSTR /I \"pat\" file`",
+          "`grep -i \"pat\" file`",
+          "`Select-String -Pattern \"pat\"`"
+        ],
+        [
+          "`ROBOCOPY src dst /MIR`",
+          "`rsync -av --delete src/ dst/`",
+          "`Robocopy` (still available in PS)"
+        ],
+        [
+          "`FOR /R %%f IN (*.txt)`",
+          "`find . -name \"*.txt\"`",
+          "`Get-ChildItem -Recurse -Filter \"*.txt\"`"
+        ],
+        [
+          "`%%~dpf` modifiers",
+          "`$(dirname ...)` / `$(basename ...)`",
+          "`Split-Path`, `[IO.Path]::Get*`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 799,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use Batch when...",
+        "Use something else when..."
+      ],
+      "rows": [
+        [
+          "Legacy `.bat` scripts already exist and must not change",
+          "Anything new on Windows — prefer PowerShell"
+        ],
+        [
+          "Calling environment guarantees cmd.exe only, no PS",
+          "Need float math, real arrays, or structured error handling"
+        ],
+        [
+          "Simple `.bat` launcher that bootstraps a PS/Python script",
+          "Need to process JSON, XML, or structured data"
+        ],
+        [
+          "CI/CD agent where only cmd.exe is available",
+          "Need portability beyond Windows"
+        ],
+        [
+          "Quick file ops: copy, move, delete, call exe",
+          "Script complexity exceeds ~20 lines"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "04-BASH.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:scripting:bash
 kind: guide

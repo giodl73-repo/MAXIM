@@ -1,0 +1,259 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\01-CHEATSHEET.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# Universal Scripting Cheat Sheet",
+      "confidence": "candidate",
+      "text": "SCRIPTING TOOL LANDSCAPE — TWO-AXIS MAP\n═══════════════════════════════════════════════════════════════════════════════\n\n                        SCRIPTING / AUTOMATION POWER\n                                    ▲\n                                    │\n                         Perl ──────┤──────── PowerShell\n                    (full lang,     │         (full lang,\n                     text DSL,      │          .NET objects,\n                     CPAN)          │          cmdlet pipe)\n                                    │\n              AWK ──────────────────┼──────────────── Python (ref)\n         (text DSL,                 │                 (general purpose;\n          record model)             │                  not covered here)\n                                    │\n              sed ──────────────────┤\n         (stream editor,            │\n          line regex)               │\n                                    │\n               sh ──────────────────┤── Bash ─────────────────── Zsh\n         (POSIX min,                │   (superset,           (superset+,\n          Alpine/Docker)            │    arrays, [[]])        interactive++)\n                                    │\n                        Batch ──────┤\n                   (Windows legacy; │\n                    no real power)  │\n                                    │\n◄───────────────────────────────────┼────────────────────────────────────────►\n SCRIPT-ONLY                        │                            INTERACTIVE\n (not interactive REPLs)            │                            (great REPL\n                                    │                             experience)\n                                    │\n                                    │──────────────────────────── Fish\n                                    │                      (interactive-first,\n                                    │                       non-POSIX, modern UX)\n                                    ▼\n                        LOW SCRIPTING POWER / NARROW SCOPE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 186,
+      "heading_context": "# Part A — Comparison Tables",
+      "confidence": "candidate",
+      "text": "### Topic 1: File Extension & Invocation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 201,
+      "heading_context": "### Topic 1: File Extension & Invocation",
+      "confidence": "candidate",
+      "text": "### Topic 2: Variables — Declare, Assign, Expand",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 218,
+      "heading_context": "### Topic 2: Variables — Declare, Assign, Expand",
+      "confidence": "candidate",
+      "text": "### Topic 3: String Quoting & Interpolation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 233,
+      "heading_context": "### Topic 3: String Quoting & Interpolation",
+      "confidence": "candidate",
+      "text": "### Topic 4: Arrays / Lists",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 248,
+      "heading_context": "### Topic 4: Arrays / Lists",
+      "confidence": "candidate",
+      "text": "### Topic 5: Arithmetic",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 263,
+      "heading_context": "### Topic 5: Arithmetic",
+      "confidence": "candidate",
+      "text": "### Topic 6: if / else Conditionals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 388,
+      "heading_context": "# Postfix form (Perl specialty):",
+      "confidence": "candidate",
+      "text": "### Topic 7: case / switch",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "### Topic 7: case / switch",
+      "confidence": "candidate",
+      "text": "my %actions = (\n    'start' => sub { start_service() },\n    'stop'  => sub { stop_service()  },\n);\nmy $fn = $actions{$cmd} // sub { die \"unknown: $cmd\" };\n$fn->();",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 423,
+      "heading_context": "### Topic 7: case / switch",
+      "confidence": "candidate",
+      "text": "### Topic 8: Loops — for, while, break/continue",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 447,
+      "heading_context": "### Topic 8: Loops — for, while, break/continue",
+      "confidence": "candidate",
+      "text": "foreach ($item in $collection) { Write-Output $item }\nfor ($i = 0; $i -lt 10; $i++) { Write-Output $i }\nwhile ($condition) { ... }\ndo { ... } while ($condition)         # do-while\ndo { ... } until ($condition)         # do-until (rare)\n1..10 | ForEach-Object { $_ }         # pipeline loop; $_ = current item\n$collection | ForEach-Object { $_.Name }\n# break and continue work inside all loop types",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 459,
+      "heading_context": "# break and continue work inside all loop types",
+      "confidence": "candidate",
+      "text": "for item in a b c; do echo \"$item\"; done\nfor (( i=0; i<10; i++ )); do echo $i; done   # C-style; bash-only\nfor file in *.txt; do process \"$file\"; done  # glob expansion\nwhile [[ condition ]]; do ...; done\nuntil [[ condition ]]; do ...; done          # until = while not\nwhile IFS= read -r line; do                 # read file line by line (canonical)\n    process \"$line\"\ndone < file.txt\nbreak     # exit loop\ncontinue  # next iteration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 522,
+      "heading_context": "# do-while",
+      "confidence": "candidate",
+      "text": "foreach my $item (@array) { print \"$item\\n\" }\nfor my $item (@array) { ... }              # same as foreach\nfor (my $i=0; $i<10; $i++) { ... }        # C-style\nwhile ($condition) { ... }\nuntil ($condition) { ... }\ndo { ... } while ($condition);\n# Loop control:\nnext;  # continue (skip to next iteration)\nlast;  # break (exit loop)\nredo;  # redo current iteration without re-evaluating condition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 537,
+      "heading_context": "# Loop control:",
+      "confidence": "candidate",
+      "text": "### Topic 9: Functions / Subroutines",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 623,
+      "heading_context": "# Note: Fish functions can't return values via $() — use set + output capture:",
+      "confidence": "candidate",
+      "text": "function square(n,    local_var) {   # extra params = local variables (AWK trick)\n    local_var = n * n\n    return local_var\n}\nBEGIN {\n    print square(5)    # → 25\n}\n{\n    print square($1)   # called per record\n}\n# AWK has no closures, no first-class functions\n# \"Local variable\" trick: extra params in signature initialized to \"\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 657,
+      "heading_context": "# Prototype (rarely needed):",
+      "confidence": "candidate",
+      "text": "### Topic 10: I/O — Output, Input, Redirection, Pipes",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 681,
+      "heading_context": "### Topic 10: I/O — Output, Input, Redirection, Pipes",
+      "confidence": "candidate",
+      "text": "### Topic 11: Exit Codes & Error Handling",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 719,
+      "heading_context": "# Robust error handler pattern:",
+      "confidence": "candidate",
+      "text": "### Topic 12: Script Arguments",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 753,
+      "heading_context": "# Called as: .\\script.ps1 -Target prod -Port 443 -Verbose",
+      "confidence": "candidate",
+      "text": "### Topic 13: Trap / Signal Handling — Cleanup on Exit",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 759,
+      "heading_context": "### Topic 13: Trap / Signal Handling — Cleanup on Exit",
+      "confidence": "candidate",
+      "text": "Script starts\n  │\n  ├── Register cleanup handler (at the top of the script)\n  │\n  ├── ... do work ...\n  │\n  ├── Exit normally (exit 0)\n  │     │\n  │     └── cleanup handler runs\n  │\n  └── Exit abnormally (error, signal, Ctrl+C)\n        │\n        └── cleanup handler STILL runs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "ascii_table_candidate",
+      "line": 1048,
+      "heading_context": "### PowerShell Quick Card",
+      "confidence": "candidate",
+      "text": "#!/usr/bin/env pwsh\nSet-StrictMode -Version Latest      # catches unset vars, method calls on null\n$ErrorActionPreference = \"Stop\"     # throw on cmdlet errors (like set -e for cmdlets)\n\n# Variables\n$name = \"hello\"\n[string]$typed = \"typed\"\n[int]$num = 42\n$arr = @(1, 2, 3)\n$hash = @{ key = \"val\"; other = 2 }\n\n# Strings\n\"interpolates $name and $($name.ToUpper())\"\n'literal — no $expansion'\n@\"\nmultiline\ninterpolating $name heredoc\n\"@\n$s = \"hello\"; $s.Length; $s.ToUpper(); $s.Replace(\"h\",\"H\")\n\"hello\" -match \"^hel\"              # regex test; $Matches populated\n\"hello\" -like \"hel*\"               # wildcard\n\n# Arrays\n$a = @(1, 2, 3)       # or just: $a = 1, 2, 3\n$a[0]; $a[-1]          # first; last\n$a.Count\n$a += 4                # append (creates new array)\n$a | Where-Object { $_ -gt 1 }\n$a | ForEach-Object { $_ * 2 }\n$a[1..3]               # slice\n\n# Hashtable\n$h = @{ name = \"alice\"; age = 30 }\n$h.name; $h[\"age\"]\n$h.Keys; $h.Values\n$h.ContainsKey(\"name\")\n\n# Arithmetic\n$x = 2 + 3 * 4         # standard precedence\n$x++; $x--; $x += 5\n[Math]::Pow(2, 10)\n[Math]::Round(3.7)\n\n# if/else\nif ($x -eq 5)      { \"equal\" }\nelseif ($x -gt 5)  { \"greater\" }\nelse               { \"less\" }\n# Operators: -eq -ne -gt -lt -ge -le -like -match -contains -in\n# File: Test-Path, (Get-Item $path) -is [System.IO.FileInfo]\n\n# switch\nswitch ($x) {\n    1       { \"one\" }\n    { $_ -gt 10 } { \"big\" }   # scriptblock condition\n    default { \"other\" }\n}\nswitch -Regex ($str) { \"^[0-9]+\" { \"number\" } }\n\n# Loops\nforeach ($item in $collection) { $item }\nfor ($i = 0; $i -lt 10; $i++) { $i }\nwhile ($condition) { }\ndo { } while ($condition)\n1..10 | ForEach-Object { $_ }\n$collection | Where-Object { $_.Active } | ForEach-Object { $_.Name }\n\n# Functions\nfunction Get-Value {\n    [CmdletBinding()]\n    param([Parameter(Mandatory)][string]$Name, [int]$Default = 0)\n    return $Name.Length + $Default\n}\n$r = Get-Value -Name \"test\" -Default 5\n\n# I/O\nWrite-Output \"to pipeline\"\nWrite-Host \"to terminal only (not captured)\"\nWrite-Error \"to error stream\"\n$input = Read-Host \"Enter value\"\nGet-Content file.txt | ForEach-Object { $_ }\nSet-Content file.txt \"content\"\nAdd-Content file.txt \"append\"\n\"text\" | Out-File file.txt\n\n# Exit codes\n$LASTEXITCODE                      # external process exit code\n$?                                  # last cmdlet success (bool)\nexit 1\n\n# Error handling\ntry {\n    Get-Item \"nonexistent\" -ErrorAction Stop\n} catch [System.IO.FileNotFoundException] {\n    Write-Error \"Not found: $_\"\n} catch {\n    Write-Error \"Error: $_\"\n} finally {\n    # cleanup\n}\n\n# Arguments\nparam([string]$Target, [int]$Port = 8080, [switch]$DryRun)\n# or ad-hoc: $args[0], $args.Count",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "ascii_table_candidate",
+      "line": 1570,
+      "heading_context": "### AWK Quick Card",
+      "confidence": "candidate",
+      "text": "#!/usr/bin/awk -f\n# Run: awk -f script.awk file.txt\n# Or inline: awk '{ print $1 }' file.txt\n# Or with -F: awk -F, '{ print $2 }' file.csv\n\n# Program structure:\n# BEGIN  { ... }      # runs once before first record\n# /pattern/ { ... }  # runs on records matching pattern\n# { ... }            # runs on every record (no pattern = all)\n# END    { ... }     # runs once after last record\n\n# Special variables\n# NR  = record number (line count so far)\n# NF  = number of fields in current record\n# $0  = entire current record\n# $1..$NF = individual fields\n# FS  = field separator (default: any whitespace)\n# OFS = output field separator (default: space)\n# RS  = record separator (default: newline)\n# ORS = output record separator (default: newline)\n# FILENAME = current input file name\n\nBEGIN {\n    FS = \",\"      # set CSV input (or use -F, on command line)\n    OFS = \"\\t\"    # tab-separated output\n    count = 0\n}\n\n/^#/ { next }     # skip comment lines (next = continue to next record)\n\nNF == 0 { next }  # skip empty lines\n\n{\n    count++\n    print $1, $2  # print fields 1 and 2 (OFS between them)\n    printf \"%s: %d\\n\", $1, $2 + 0  # C-style printf\n}\n\nEND {\n    print \"Total records:\", count > \"/dev/stderr\"\n    print count    # to stdout\n}\n\n# Variables — no declaration; spring into existence\n# Dual type: string or number depending on context\n# \"007\" + 0  → 7  (numeric context)\n# \"007\" \"\"   → \"007\" (string context)\n\n# Arithmetic\n{ result = ($1 + $2) / 2; print result }\n{ if ($3 > 100) print $0 }\n\n# String operations\n{ print length($1) }        # string length\n{ print toupper($1) }       # uppercase\n{ print tolower($1) }       # lowercase\n{ if ($1 ~ /^[0-9]+/) ... } # regex match with ~\n{ if ($1 !~ /error/) ... }  # negated regex\n\n# Associative arrays\n{ count[$1]++ }             # count occurrences of field 1\nEND { for (k in count) print k, count[k] }\n\n# Functions\nfunction max(a, b,    local_tmp) {  # extra params = local vars (AWK trick)\n    return (a > b) ? a : b\n}\n{ print max($1, $2) }\n\n# Control flow\n{ if ($1 > 100) print \"big\"\n  else print \"small\" }\n\n{ for (i = 1; i <= NF; i++) printf \"%s \", $i; print \"\" }\n\n{ while ($1 > 0) { print $1; $1-- } }\n\n# Getline\n{ while ((getline line < \"other.txt\") > 0) print line }\n\n# Multi-file processing\nFNR == 1 { print \"--- File:\", FILENAME }  # FNR resets per file; NR is global\n\n# Output redirection inside AWK\n{ print $0 > \"output.txt\" }   # write (once-open, append for subsequent)\n{ print $0 >> \"output.txt\" }  # always append\n{ print $0 | \"sort\" }          # pipe to command\n\n# Common one-liners (run from shell)\n# awk '{print NR, $0}' file             # add line numbers\n# awk 'NR%2==0' file                    # print even lines\n# awk '{sum+=$1} END{print sum}' file   # sum column 1\n# awk -F, '{print $2}' file.csv         # extract CSV column 2\n# awk '!seen[$0]++' file                # deduplicate (order-preserving)\n# awk 'NR==5' file                      # print line 5\n# awk '/start/,/end/' file              # print between patterns (range)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "ascii_table_candidate",
+      "line": 1673,
+      "heading_context": "### Perl Quick Card",
+      "confidence": "candidate",
+      "text": "#!/usr/bin/perl\nuse strict;     # require variable declarations (my/our/local)\nuse warnings;   # warn on suspicious constructs\nuse 5.010;      # or: use feature 'say';  enables say, given/when, etc.\n\n# Variables — sigils indicate access mode\nmy $scalar = \"hello\";     # scalar: string, number, reference\nmy @array  = (1, 2, 3);   # array (ordered list)\nmy %hash   = (a => 1, b => 2);  # hash (associative)\n\n# Scalar\n$scalar = 42;\n$scalar = \"string\";\n$scalar = 3.14;\nprint length($scalar), \"\\n\";\nprint uc($scalar), \"\\n\";       # uppercase\nprint lc($scalar), \"\\n\";       # lowercase\n\n# String operators (NOT the same as numeric!)\n\"ab\" eq \"ab\"    # string equality (NOT ==)\n\"ab\" ne \"cd\"    # string inequality\n\"ab\" lt \"cd\"    # string less-than\n\"abc\" . \"def\"   # string concatenation\n\"x\" x 3         # repetition: \"xxx\"\n# Numeric operators: == != > < >= <= + - * / % **\n\n# String interpolation\nmy $name = \"world\";\nprint \"Hello, $name!\\n\";          # interpolates\nprint 'Hello, $name!\\n';          # literal (no interpolation, \\n is literal)\nprint qq(Hello, $name!\\n);        # like \"...\"\nprint q(Hello, $name!\\n);         # like '...'\nmy @words = qw(one two three);    # quoted word list: (\"one\",\"two\",\"three\")\n\n# Context system — IMPORTANT\nmy @arr = (1, 2, 3);\nmy $count = @arr;         # scalar context: count → 3\nmy @copy  = @arr;         # list context: copy\nprint scalar @arr, \"\\n\";  # force scalar context\n\n# Array operations\npush @arr, 4;             # append\nmy $last = pop @arr;      # remove last\nunshift @arr, 0;          # prepend\nmy $first = shift @arr;   # remove first\nmy @slice = @arr[1..2];   # slice\nmy @sorted = sort @arr;\nmy @reversed = reverse @arr;\nmy @filtered = grep { $_ > 1 } @arr;\nmy @mapped = map { $_ * 2 } @arr;\n\n# Hash operations\n$hash{key} = \"value\";\nmy $val = $hash{key};\ndelete $hash{key};\nexists $hash{key};\nkeys %hash;               # list of keys\nvalues %hash;             # list of values\nwhile (my ($k, $v) = each %hash) { print \"$k=$v\\n\" }\n\n# Arithmetic\n$x = 2 ** 10;             # exponentiation (2^10 = 1024)\n$x++;  $x--;  $x += 5;\n\n# if/else\nif ($x == 5)      { print \"equal\\n\" }\nelsif ($x > 5)    { print \"greater\\n\" }\nelse              { print \"less\\n\" }\nunless ($x)       { print \"falsy\\n\" }         # unless = if not\nprint \"yes\\n\" if $x > 0;                       # postfix form\nprint \"no\\n\"  unless $x;                       # postfix unless\n\n# Regex\nif ($str =~ /^hello/i) { print \"matched\\n\" }   # /i = case-insensitive\nif ($str !~ /error/)   { ... }                  # negated match\n$str =~ s/old/new/g;                            # substitute (in-place)\n$str =~ s/(\\w+)/uc($1)/ge;                      # substitute with code /e\nmy @matches = ($str =~ /(\\d+)/g);               # extract all matches\n\n# Loops\nforeach my $item (@arr) { print \"$item\\n\" }\nfor my $item (@arr) { ... }                     # same\nfor (my $i=0; $i<10; $i++) { ... }             # C-style\nwhile ($condition) { ... }\nuntil ($condition) { ... }\ndo { ... } while ($condition);\nnext;    # continue (skip to next iteration)\nlast;    # break (exit loop)\nredo;    # redo current iteration\n\n# Functions\nsub my_func {\n    my ($arg1, $arg2) = @_;     # @_ = argument list\n    my $result = $arg1 . $arg2;\n    return $result;\n}\nmy $r = my_func(\"hello\", \"world\");\n\n# Anonymous subs / closures\nmy $double = sub { return $_[0] * 2 };\n$double->(5);    # → 10; note -> dereference operator\n\n# References\nmy $aref = \\@arr;           # reference to array\nmy $href = \\%hash;          # reference to hash\nmy $sref = \\$scalar;        # reference to scalar\nmy $cref = sub { ... };     # code reference (anonymous sub)\n\n# Dereference\n@{$aref};  $aref->[0];     # array deref\n%{$href};  $href->{key};   # hash deref\n${$sref};                   # scalar deref\n$cref->();                  # code deref\n\n# I/O\nprint \"stdout\\n\";\nsay \"stdout with newline\";    # say = print + \\n (use 5.010+)\nprint STDERR \"error\\n\";\nmy $line = <STDIN>;\nchomp $line;                  # remove trailing newline\nwhile (my $line = <STDIN>) { chomp $line; ... }\nopen(my $fh, '<', 'file.txt') or die \"Can't open: $!\";\nwhile (<$fh>) { chomp; print \"$_\\n\" }\nclose $fh;\nopen(my $out, '>', 'out.txt') or die $!;\nprint $out \"text\\n\";\n\n# One-liners (run from shell)\n# perl -e 'print \"hello\\n\"'\n# perl -p -e 's/foo/bar/g' file.txt        # sed-like: print each line\n# perl -n -e 'print if /pattern/' file.txt # grep-like: no auto-print\n# perl -i -p -e 's/foo/bar/g' file.txt     # in-place edit (like sed -i)\n# perl -i.bak -p -e 's/foo/bar/g' file.txt # in-place with backup\n\n# Exit codes\nexit 0;\nexit 1;\nmy $rc = system(\"git status\");   # system() returns exit code * 256\n$rc >> 8;                        # actual exit code\n$rc == 0 or die \"git failed: $!\";\n\n# Error handling\nuse autodie;                     # die on failed open/system/etc. automatically\neval { die \"something\\n\" };\nif ($@) { print \"caught: $@\" }  # $@ = last exception\n\n# Common modules\nuse File::Basename;   # dirname, basename\nuse File::Path;       # make_path, remove_tree\nuse Cwd;              # getcwd, abs_path\nuse POSIX;            # floor, ceil, strftime\nuse List::Util qw(sum min max first reduce);\nuse Scalar::Util qw(looks_like_number blessed reftype);\nuse Data::Dumper;     # debug: print Dumper(\\@arr);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

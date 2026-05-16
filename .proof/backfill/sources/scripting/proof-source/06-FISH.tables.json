@@ -1,0 +1,342 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\06-FISH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 110,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "macOS, Linux, Windows (WSL)"
+        ],
+        [
+          "Extension",
+          "`.fish`"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/env fish`"
+        ],
+        [
+          "Paradigm",
+          "Interactive-first; scripting with non-POSIX syntax"
+        ],
+        [
+          "Typing",
+          "Strings (all values); no separate numeric type"
+        ],
+        [
+          "Execution",
+          "Interpreted; no POSIX compatibility"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 172,
+      "heading_context": "## POSIX Incompatibility: The Boundary You Must Internalize",
+      "headers": [
+        "POSIX / Bash",
+        "Fish equivalent"
+      ],
+      "rows": [
+        [
+          "`export VAR=value`",
+          "`set -gx VAR value`"
+        ],
+        [
+          "`source file.sh`",
+          "`source file.fish` (only works on Fish files)"
+        ],
+        [
+          "`if [ condition ]`",
+          "`if test condition`"
+        ],
+        [
+          "`$(command)`",
+          "`(command)`"
+        ],
+        [
+          "`$?`",
+          "`$status`"
+        ],
+        [
+          "`$@` / `$*`",
+          "`$argv`"
+        ],
+        [
+          "`export -f funcname`",
+          "Functions don't export across processes in Fish"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 264,
+      "heading_context": "## Universal Variables: Fish's Persistent Store",
+      "headers": [
+        "Scope",
+        "Flag",
+        "Use for"
+      ],
+      "rows": [
+        [
+          "Local",
+          "`-l`",
+          "Temp var inside a function"
+        ],
+        [
+          "Global",
+          "`-g`",
+          "Session-duration state; cleared on shell exit"
+        ],
+        [
+          "Exported",
+          "`-x`",
+          "Passing env vars to child processes"
+        ],
+        [
+          "Universal",
+          "`-U`",
+          "Personal config (EDITOR, GOPATH, etc.) — replaces ~/.bashrc exports"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 693,
+      "heading_context": "## Abbreviations vs Aliases vs Functions",
+      "headers": [
+        "",
+        "`abbr`",
+        "`alias`",
+        "`function`"
+      ],
+      "rows": [
+        [
+          "Expansion",
+          "Inline text",
+          "Function call",
+          "Function call"
+        ],
+        [
+          "History shows",
+          "Expanded form",
+          "Alias name",
+          "Function name + args"
+        ],
+        [
+          "Multi-line logic",
+          "No",
+          "No",
+          "Yes"
+        ],
+        [
+          "Arguments (`$argv`)",
+          "No (static text)",
+          "No (simple wrapper)",
+          "Yes"
+        ],
+        [
+          "Persisted with",
+          "`abbr --add` (auto-saved)",
+          "`funcsave`",
+          "`funcsave`"
+        ],
+        [
+          "Interactive benefit",
+          "High (readable history)",
+          "Low",
+          "N/A"
+        ],
+        [
+          "Best for",
+          "Git shortcuts, common commands",
+          "Compatibility shims",
+          "Real tooling"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 777,
+      "heading_context": "## Plugin Managers: Fisher and Oh My Fish",
+      "headers": [
+        "Plugin",
+        "What it does"
+      ],
+      "rows": [
+        [
+          "`PatrickF1/fzf.fish`",
+          "Fuzzy file/history/directory search — replaces Ctrl-R with fzf"
+        ],
+        [
+          "`jethrokuan/z`",
+          "`z projectname` jumps to most-visited matching dir"
+        ],
+        [
+          "`edc/bass`",
+          "Lets you run bash scripts inside Fish: `bass source .env`"
+        ],
+        [
+          "`jorgebucaran/nvm.fish`",
+          "Node version management without bash dependency"
+        ],
+        [
+          "`jorgebucaran/autopair.fish`",
+          "Auto-closes `(`, `[`, `\"` as you type"
+        ],
+        [
+          "`IlanCosman/tide`",
+          "Prompt: shows git status, node version, last command time, etc."
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 792,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Fisher",
+          "Plugin manager (`fisher install jorgebucaran/autopair.fish`)"
+        ],
+        [
+          "Oh My Fish (OMF)",
+          "Alternative plugin manager (older)"
+        ],
+        [
+          "`fzf.fish`",
+          "fzf integration for Ctrl-R, Ctrl-T"
+        ],
+        [
+          "`z` / `zoxide`",
+          "Smart directory jumping (`z proj`)"
+        ],
+        [
+          "`tide` / `pure`",
+          "Prompt themes"
+        ],
+        [
+          "`fish_config`",
+          "Built-in web UI for themes/functions"
+        ],
+        [
+          "`fish_update_completions`",
+          "Regenerate completions from man pages"
+        ],
+        [
+          "`functions/`",
+          "`~/.config/fish/functions/*.fish` — auto-loaded"
+        ],
+        [
+          "`conf.d/`",
+          "`~/.config/fish/conf.d/*.fish` — sourced at startup"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 808,
+      "heading_context": "## Gotchas & Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "`$?` doesn't exist",
+          "Fish uses `$status`",
+          "Use `$status` or `if cmd; ...`"
+        ],
+        [
+          "No `export`",
+          "`export VAR=val` is not native",
+          "`set -gx VAR val` or `set -x VAR val`"
+        ],
+        [
+          "`set var=value`",
+          "Wrong: creates var named \"var=value\"",
+          "`set var value` (no = !)"
+        ],
+        [
+          "`()` vs `$()`",
+          "Command sub is `(cmd)` not `$(cmd)`",
+          "Fish: `set x (cmd)`"
+        ],
+        [
+          "No POSIX compat",
+          "Bash scripts don't run in Fish",
+          "Don't `source` bash scripts in Fish"
+        ],
+        [
+          "No `&&` / `||` (Fish <3.0)",
+          "Old Fish used `; and` / `; or`",
+          "Update to Fish 3.0+"
+        ],
+        [
+          "`if/else/end` not `fi`",
+          "Shell muscle memory",
+          "`end` terminates all blocks"
+        ],
+        [
+          "Universal vars persist",
+          "`set -U x 1` persists forever",
+          "Clean up with `set -eU x`"
+        ],
+        [
+          "No `~/.fishrc`",
+          "Config is `~/.config/fish/config.fish`",
+          "XDG convention"
+        ],
+        [
+          "Word-split in `()`",
+          "`for x in (cmd)` splits on whitespace",
+          "Fish has no workaround (use file or null-sep)"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 849,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use Fish when...",
+        "Don't use Fish when..."
+      ],
+      "rows": [
+        [
+          "Your interactive terminal shell",
+          "CI/CD scripts (no /bin/fish guaranteed)"
+        ],
+        [
+          "Developer UX: autosuggestions, completions",
+          "Scripts others will run"
+        ],
+        [
+          "macOS or Linux daily driver",
+          "POSIX compatibility required"
+        ],
+        [
+          "Personal automation scripts",
+          "Docker/container scripts"
+        ],
+        [
+          "Want web config UI (`fish_config`)",
+          "Team uses bash"
+        ]
+      ]
+    }
+  ]
+}

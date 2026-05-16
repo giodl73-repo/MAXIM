@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\09-PERL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# Scripting: Perl",
+      "confidence": "candidate",
+      "text": "SCRIPTING LANGUAGE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Unix text tools          Perl                   Modern successors\n  ─────────────────        ──────────────────────  ─────────────────────────────\n  sed  awk  sh             \"Swiss Army chainsaw\"   Python    Ruby    Node.js\n  ─────────────────        ──────────────────────  ─────────────────────────────\n  single-purpose tools     ate the entire left     data science, web, async\n  line-at-a-time           column in one language  explicit OOP, readable\n  no data structures       regex-native grammar    large ecosystems\n  no CPAN                  BioPerl, DBI, Moose     pip/npm vs CPAN\n  1970s–1980s              1987–present            1991–present\n\n  Perl's three modes — spatially:\n  ┌───────────────────────────────────────────────────────────────────────────┐\n  │                                                                           │\n  │  ONE-LINER             SCRIPT FILE             MODULE / OOP               │\n  │  ─────────────────     ──────────────────────  ───────────────────────    │\n  │  perl -e 'code'        #!/usr/bin/perl          package My::Module;       │\n  │  perl -n -e '...'      use strict;              use Moose;                │\n  │  perl -p -e '...'      use warnings;            has 'attr' => (...);      │\n  │  perl -i -e '...' f    # full program           method dispatch, roles    │\n  │                        # file I/O, CPAN         CPAN-deployable           │\n  │  ← replaces sed/awk →  ← replaces shell  →     ← replaces Java beans →    │\n  │                                                                           │\n  │  Language surface:                                                        │\n  │    $scalar  @array  %hash                 ← data                          │\n  │    =~  s///  tr///  qr//                  ← regex (grammar, not library)  │\n  │    map grep sort reverse                  ← functional list ops           │\n  │    open / close / <$fh> / print           ← I/O                           │\n  │    eval / die / $@                        ← error handling                │\n  │    use Module / CPAN                      ← ecosystem                     │\n  └───────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Bridge: Typed Language → Perl Data Structures",
+      "confidence": "candidate",
+      "text": "TYPED LANGUAGE          PERL EQUIVALENT         NOTES\n──────────────────────  ──────────────────────  ────────────────────────────────────────────\nstring / int / float    $scalar                 No type distinction at runtime. \"42\" and 42\nobject                                          are the same thing in different contexts.\nnull / nil / None       undef                   The absence of a value. Warns under\n                                                'use warnings' if used without check.\nT?? / null coalescing   // defined-or operator  $x = $val // \"default\";\n                                                // is undef-safe; || fires on 0 and \"\"\nList<T> / ArrayList     @array                  Ordered, resizable, 0-indexed.\n                                                push/pop/shift/unshift/splice.\nDictionary<K,V>         %hash                   Unordered key-value. Keys are strings.\nHashMap<K,V>            $href = {k => v}        Anonymous hash ref for nesting.\nT[]  / new T[]{...}     [1, 2, 3]               Anonymous array ref — a reference (pointer).\nstring[]  literal       qw(foo bar baz)         Whitespace-delimited string list.\n                                                Equivalent to ('foo', 'bar', 'baz').\npointer / reference     \\@array  \\%hash  \\$x    Reference to existing container.\n                        $aref = [...]           Anonymous array ref — like new T[]{...}\n                        $href = {...}           Anonymous hash ref — like new Map<>()\nlambda / delegate       sub { ... }             Anonymous subroutine — a code reference.\n                        $cref = \\&func_name\ncaller context          wantarray()             No typed-language equivalent.\n                                                Returns true in list context, false in scalar.\n                                                Perl functions can change their return shape\n                                                based on how the caller receives the value.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 415,
+      "heading_context": "## Regex Bridge: PCRE → Perl",
+      "confidence": "candidate",
+      "text": "FEATURE                PCRE (common denominator)       Perl-specific behavior\n─────────────────────  ──────────────────────────────  ──────────────────────────────────────\nMatch                  m.match(str) / str.match(pat)   $str =~ /pattern/\nNon-match              (negate result)                 $str !~ /pattern/\nSubstitution           re.sub / str.replaceAll         $str =~ s/pattern/replacement/\nPositional captures    $1 $2 (most tools)              $1 $2 — same\nNamed captures         (?P<name>...) Python            (?<name>...) — same as .NET / JS\n                       (?<name>...) .NET, JS, PCRE2\nNamed cap access       group dict / Groups[\"name\"]     $+{name}\nNon-greedy             .*? .+? .{n,m}?                 .*? .+? — same\nFlags: case-insensitive /i or RegexOptions.Ignorecase  /i — same position, suffix\nFlags: global          re.sub replaces all             /g on s/// or =~ in list context\nFlags: multiline       re.MULTILINE / (?m)             /m — ^ and $ match per line, same\nFlags: dotall          re.DOTALL / (?s)                /s — . matches \\n, same\nFlags: verbose         re.VERBOSE / (?x)               /x — same; inline comments\nNon-destructive        re.sub returns new string       /r modifier: $new = $str =~ s/a/b/r\n                       (original unchanged)            returns modified copy; $str unchanged\nEval replacement       no equivalent                   /e: s/(\\d+)/$1*2/e (eval as code)\n\\K keep / reset-start  not in most PCREs               \\K: resets start of match; no lookbehind\n                                                        needed for \"replace after prefix\" patterns\n\\b word boundary        \\b — same                      \\b — same\nPrecompile             re.compile(pat)                 qr/pattern/ — compiled regex object",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 477,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "# if / elsif / else\nif ($x > 0) {\n    print \"positive\\n\";\n} elsif ($x == 0) {\n    print \"zero\\n\";\n} else {\n    print \"negative\\n\";\n}\n\n# unless — negated if (use sparingly; double negatives kill readability)\nunless ($error) { do_thing() }\n\n# Postfix form — very idiomatic Perl; reads like English\nprint \"positive\\n\"  if     $x > 0;\ndo_thing()          unless $error;\n$x++                while  $x < 10;\nprint \"$_\\n\"        for    @array;\n\n# Ternary\nmy $msg = $x > 0 ? \"positive\" : \"non-positive\";\n\n# Hash dispatch table (preferred over given/when which is experimental)\nmy %dispatch = (\n    add => sub { $_[0] + $_[1] },\n    sub => sub { $_[0] - $_[1] },\n    mul => sub { $_[0] * $_[1] },\n);\nmy $result = $dispatch{$op}->($a, $b)\n    if exists $dispatch{$op};",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 643,
+      "heading_context": "### Error Handling",
+      "confidence": "candidate",
+      "text": "# die / warn\nopen(my $fh, '<', $file) or die \"Can't open $file: $!\";  # $! = OS errno string\nwarn \"suspicious value: $x\\n\";   # like die but does not exit\n\n# eval {} — try block\neval {\n    risky_operation();\n    die \"something went wrong\";   # die with string\n};\nif ($@) {                         # $@ = caught exception (empty string if none)\n    print \"Caught: $@\\n\";\n}\n\n# die with object (structured exceptions)\neval {\n    die { code => 404, message => \"not found\" };\n};\nif (ref $@) {\n    printf \"Error %d: %s\\n\", $@->{code}, $@->{message};\n}\n\n# Trailing \\n on die suppresses \" at file line N\" annotation\ndie \"fatal\\n\";           # just \"fatal\"\ndie \"fatal\";             # \"fatal at script.pl line 42.\"\n\n# use autodie — system calls die automatically on failure\nuse autodie;\nopen(my $fh, '<', $file);    # dies on failure; no 'or die' needed\n\n# Carp — report errors from caller's perspective (for module authors)\nuse Carp;\ncroak   \"error (reported at caller)\";    # like die\nconfess \"error (with stack trace)\";      # die + full stack trace\ncarp    \"warning (at caller)\";           # like warn\ncluck   \"warning (with stack trace)\";",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 685,
+      "heading_context": "### One-Liner Mode",
+      "confidence": "candidate",
+      "text": "# -e: execute code string\nperl -e 'print \"hello\\n\"'\n\n# -n: implicit while(<>){ ... } loop — reads stdin or @ARGV files\nperl -ne 'print if /pattern/'            # grep equivalent\nperl -ne 'print if $. >= 10 && $. <= 20' # lines 10-20 ($. = line number)\n\n# -p: like -n but also prints $_ after each loop body\nperl -pe 's/foo/bar/g'                   # sed s/// replacement — cross-platform!\nperl -pe 's/foo/bar/gi'                  # case-insensitive\n\n# -i: in-place edit (like sed -i but portable)\nperl -i.bak -pe 's/foo/bar/g' file.txt  # with .bak backup\nperl -i     -pe 's/foo/bar/g' file.txt  # no backup (dangerous)\n\n# -a: autosplit each line into @F (like awk's field splitting)\nperl -ane 'print $F[1], \"\\n\"'            # print second field (default split on whitespace)\nperl -F: -ane 'print \"$F[0]\\n\"'          # split on : (-F sets separator)\n\n# -l: auto-chomp input lines; auto-append \\n to print output\nperl -lne 'print length($_)'             # print line lengths cleanly\n\n# -0777: slurp entire file as one string (null record separator)\nperl -0777 -pe 's/pattern/replace/gs'   # whole-file regex (. matches \\n with /s)\n\n# Practical one-liners\nperl -ne  'print if /ERROR/'                             # grep\nperl -pe  's/\\bfoo\\b/bar/g'                             # word-boundary replace\nperl -ane 'print if $F[2] > 100'                        # filter by column value\nperl -ne  'print unless /^#/ || /^\\s*$/'                # strip comments + blanks\nperl -ne  '!$seen{$_}++ and print'                      # uniq (preserve order)\nperl -e   'print join \"\\n\", sort <>'                    # sort all input lines\nperl -MList::Util=sum -ane '$t += $F[0]; END{print \"$t\\n\"}' # column sum\nperl -pe  's/(\\w+)/ucfirst(lc $1)/ge'                   # title-case words\nperl -ne  'print if $. == 42'                           # print specific line",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 727,
+      "heading_context": "## References and Data Structures",
+      "confidence": "candidate",
+      "text": "# References: the mechanism for complex data structures\nmy $sref = \\$scalar;      # scalar ref\nmy $aref = \\@array;       # array ref\nmy $href = \\%hash;        # hash ref\nmy $cref = \\&sub_name;    # code ref\n\n# Anonymous constructors\nmy $aref = [1, 2, 3];             # anonymous array ref\nmy $href = { name => \"Alice\" };   # anonymous hash ref\nmy $cref = sub { $_[0] * 2 };    # anonymous sub ref\n\n# Dereference\n$$sref                     # scalar\n@{$aref}  or  @$aref       # array\n%{$href}  or  %$href       # hash\n$aref->[0]                 # array element via ->\n$href->{name}              # hash value via ->\n$cref->()                  # call code ref\n\n# Nested structures\nmy %config = (\n    db => {\n        host => \"localhost\",\n        port => 5432,\n        creds => [\"admin\", \"secret\"],\n    },\n    cache => {\n        ttl  => 300,\n        keys => [qw(a b c)],\n    },\n);\n\n$config{db}{host}          # hash of hashes: nested -> optional at top level\n$config{db}{creds}[0]      # hash → hash → array\npush @{ $config{db}{creds} }, \"extra\";  # push onto nested array ref\n\n# Array of hashes (very common pattern)\nmy @users = (\n    { name => \"Alice\", age => 42 },\n    { name => \"Bob\",   age => 30 },\n);\nfor my $user (@users) {\n    printf \"%s is %d\\n\", $user->{name}, $user->{age};\n}\nmy @adults = grep { $_->{age} >= 18 } @users;\nmy @names  = map  { $_->{name} } @users;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 833,
+      "heading_context": "## What Makes Perl Distinct",
+      "confidence": "candidate",
+      "text": "TMTOWTDI — \"There's More Than One Way To Do It\"\n  Perl's explicit design philosophy. Contrast with Python's TOOWTDI.\n  Consequence: Perl written by different people looks like different languages.\n\nRegex as first-class syntax:\n  Most languages:  import re; re.sub(pattern, repl, string)\n  Perl:            $str =~ s/pattern/replacement/g;\n  Flags are suffix characters. $1 $2 $& are automatic. qr// precompiles.\n  This is not a library call — it is grammar-level syntax.\n\nContext-sensitivity — same expression, different results:\n  scalar @arr     → count\n  my @copy = @arr → elements\n  localtime()     → string in scalar context, 9-element list in list context\n  This is the single biggest conceptual leap for people coming from typed languages.\n\nDefault variable $_ — implicit iteration:\n  for (@arr)  { print }          # $_ is each element; print prints $_\n  s/foo/bar/                     # operates on $_ if no =~ binding\n  Powerful shorthand; makes code terse (sometimes too terse).\n\nSigil shift on access — the classic confusion source:\n  @arr is the array\n  $arr[0] accesses ONE element → scalar → uses $\n  @arr[0,1] accesses a SLICE  → multiple values → uses @\n  The sigil reflects the return TYPE, not the container type.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

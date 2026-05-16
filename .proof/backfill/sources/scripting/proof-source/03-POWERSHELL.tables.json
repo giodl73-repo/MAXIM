@@ -1,0 +1,355 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\03-POWERSHELL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 76,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "Windows built-in: PS 5.1 (`powershell.exe`) / Cross-platform: PS 7 (`pwsh`)"
+        ],
+        [
+          "Extension",
+          "`.ps1`"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/env pwsh` (Linux/Mac only; Windows ignores it)"
+        ],
+        [
+          "Paradigm",
+          "Object-oriented, pipeline-first, imperative"
+        ],
+        [
+          "Typing",
+          "Dynamic with optional .NET type annotations; full CLR type system"
+        ],
+        [
+          "Execution",
+          "Compiled to CIL, run on .NET CLR — not text-interpreted like Bash/Batch"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 1134,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Area",
+        "Tool / Module",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Module registry",
+          "PSGallery",
+          "`Install-Module` / `Find-Module`"
+        ],
+        [
+          "Azure management",
+          "`Az` module",
+          "Full ARM / resource management"
+        ],
+        [
+          "Active Directory",
+          "`ActiveDirectory` module",
+          "AD/LDAP from PS"
+        ],
+        [
+          "Windows mgmt",
+          "`CimInstance`, `Get-WmiObject`",
+          "WMI successor (CIM/DCOM)"
+        ],
+        [
+          "Testing",
+          "Pester",
+          "BDD-style; `Describe`/`It`/`Should`; like xUnit"
+        ],
+        [
+          "Linting",
+          "PSScriptAnalyzer",
+          "Verb-Noun conventions, common bugs"
+        ],
+        [
+          "Remoting",
+          "`Invoke-Command`, `Enter-PSSession`",
+          "WinRM or SSH transport"
+        ],
+        [
+          "Secrets",
+          "`SecretManagement` module",
+          "Vault abstraction (KeePass, Azure Key Vault, etc.)"
+        ],
+        [
+          "REST API",
+          "`Invoke-RestMethod`",
+          "Auto-deserializes JSON/XML responses"
+        ],
+        [
+          "DSC",
+          "PowerShell DSC",
+          "Declarative system configuration; push/pull modes"
+        ],
+        [
+          "Package mgmt",
+          "`winget`, `choco`, `scoop`",
+          "All have PS wrappers or are PS-native"
+        ],
+        [
+          "CI/CD",
+          "GitHub Actions, Azure Pipelines",
+          "Both have first-class PS task support"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1153,
+      "heading_context": "## Gotchas and Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "`Write-Host` vs `Write-Output`",
+          "`Write-Host` bypasses pipeline — `$x = Write-Host \"hi\"` captures nothing",
+          "Use `Write-Output` (or bare expression) for data; `Write-Host` only for interactive messages"
+        ],
+        [
+          "`$?` after external commands",
+          "`$?` is TRUE if PS launched the process, regardless of exit code",
+          "Check `$LASTEXITCODE -ne 0` after git/node/etc."
+        ],
+        [
+          "Function returns ALL output",
+          "Every expression that emits goes into the return value",
+          "Assign unwanted output to `$null` or pipe to `Out-Null`"
+        ],
+        [
+          "Case-insensitive by default",
+          "`-eq \"Hello\"` matches \"HELLO\"",
+          "Use `-ceq` for case-sensitive; document if you rely on insensitivity"
+        ],
+        [
+          "`$null` on left in comparisons",
+          "`$arr -eq $null` iterates array, returning matching elements",
+          "Always: `$null -eq $var`"
+        ],
+        [
+          "`foreach` memory",
+          "`foreach ($x in Get-ChildItem -Recurse)` buffers everything",
+          "Use `Get-ChildItem -Recurse | ForEach-Object` to stream"
+        ],
+        [
+          "`$a += item` performance",
+          "Recreates entire array every time — O(n) per append",
+          "`[System.Collections.ArrayList]` for frequent appends"
+        ],
+        [
+          "ExecutionPolicy",
+          "PS blocks `.ps1` by default on Windows",
+          "`Set-ExecutionPolicy RemoteSigned` (user) or `-ExecutionPolicy Bypass` in CI"
+        ],
+        [
+          "`powershell` vs `pwsh`",
+          "`powershell` = 5.1 (built-in); `pwsh` = 7.x (installed separately)",
+          "Ternary, `??`, `??=`, `-Parallel` require `pwsh`"
+        ],
+        [
+          "Encoding PS 5.1",
+          "Default output encoding is UTF-16 LE — breaks Unix tools",
+          "`Out-File -Encoding utf8` or `$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'`"
+        ],
+        [
+          "`switch` fall-through",
+          "All matching cases run — unlike C#",
+          "Add `break` after each case if you want C#-style exclusive matching"
+        ],
+        [
+          "`[int]` overflow",
+          "`[int]::MaxValue` is 2,147,483,647 — easy to overflow with bytes/timestamps",
+          "Use `[long]` or `[int64]` for large numbers"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1172,
+      "heading_context": "## Bridge to Bash",
+      "headers": [
+        "PowerShell",
+        "Bash",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`$var = \"value\"`",
+          "`var=value`",
+          "PS has spaces around `=`; Bash must NOT have spaces"
+        ],
+        [
+          "`$?` (bool)",
+          "`$?` (int, 0=success)",
+          "Different semantics entirely"
+        ],
+        [
+          "`$LASTEXITCODE`",
+          "`$?`",
+          "PS separates cmdlet success from external exit code"
+        ],
+        [
+          "`foreach ($x in $a)`",
+          "`for x in \"${a[@]}\"`",
+          "Both iterate arrays"
+        ],
+        [
+          "`$a.Count`",
+          "`${#a[@]}`",
+          ""
+        ],
+        [
+          "`\"$($obj.Prop)\"`",
+          "`\"$(cmd)\"`",
+          "PS: property in string; Bash: command substitution"
+        ],
+        [
+          "`Test-Path $p`",
+          "`[[ -e $p ]]`",
+          ""
+        ],
+        [
+          "`Test-Path $p -PathType Leaf`",
+          "`[[ -f $p ]]`",
+          ""
+        ],
+        [
+          "`Test-Path $p -PathType Container`",
+          "`[[ -d $p ]]`",
+          ""
+        ],
+        [
+          "`-like \"foo*\"`",
+          "`[[ $x == foo* ]]`",
+          "Both glob-style wildcard"
+        ],
+        [
+          "`-match \"regex\"`",
+          "`[[ $x =~ regex ]]`",
+          "Both populate match groups"
+        ],
+        [
+          "`\\| Out-Null`",
+          "`> /dev/null`",
+          ""
+        ],
+        [
+          "`$null = cmd`",
+          "`cmd > /dev/null`",
+          ""
+        ],
+        [
+          "`$PSScriptRoot`",
+          "`$(dirname \"$0\")` or `$BASH_SOURCE`",
+          ""
+        ],
+        [
+          "`try { } catch { }`",
+          "`trap` / `|| { handle; }`",
+          "PS: full structured; Bash: limited"
+        ],
+        [
+          "`-ErrorAction Stop`",
+          "`set -e`",
+          "Makes non-terminating errors terminating"
+        ],
+        [
+          "`Get-ChildItem -Recurse`",
+          "`find .`",
+          ""
+        ],
+        [
+          "`Select-String -Pattern \"x\"`",
+          "`grep \"x\"`",
+          ""
+        ],
+        [
+          "`Where-Object { $_ -gt 5 }`",
+          "`awk '$1 > 5'`",
+          "PS has object properties; Bash needs awk for fields"
+        ],
+        [
+          "`ForEach-Object { $_ * 2 }`",
+          "`awk '{print $1 * 2}'`",
+          ""
+        ],
+        [
+          "`ConvertFrom-Json`",
+          "`jq`",
+          "PS built-in; Bash needs jq tool"
+        ],
+        [
+          "`Invoke-RestMethod`",
+          "`curl \\| jq`",
+          "PS deserializes automatically"
+        ],
+        [
+          "`&&` / `\\|\\|` (PS 7+)",
+          "`&&` / `\\|\\|`",
+          "Same semantics; PS 7+ only"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1351,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use PowerShell when...",
+        "Use Bash when..."
+      ],
+      "rows": [
+        [
+          "Windows administration (AD, services, registry)",
+          "Linux/Mac native environment"
+        ],
+        [
+          "Azure / M365 / Entra management via SDK",
+          "Docker/Kubernetes scripting (Linux containers)"
+        ],
+        [
+          "Working with .NET objects and types",
+          "POSIX portability required"
+        ],
+        [
+          "Structured data without string parsing",
+          "Team uses Linux/Mac dev environments"
+        ],
+        [
+          "Complex error handling (try/catch)",
+          "Shell script lives alongside Linux tooling"
+        ],
+        [
+          "Remoting / DSC / desired state",
+          "`awk`/`sed`/`grep` pipelines are natural"
+        ],
+        [
+          "CI/CD on Windows agents",
+          "Open-source project conventions favor Bash"
+        ],
+        [
+          "Calling existing .NET libraries directly",
+          ""
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-scripting-batch",
+  "source": "../../scripting",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-BATCH.md#000",
+      "path": [
+        "02-BATCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:scripting:02-batch, git-history:scripting:02-batch]",
+        "canonical_path": "scripting/02-BATCH.md",
+        "concepts": "[batch]",
+        "current_path": "scripting/02-BATCH.md",
+        "id": "maxim:scripting:batch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[batch]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scripting: Batch (CMD)",
+        "updated": "null"
+      },
+      "text": "# Scripting: Batch (CMD)"
+    },
+    {
+      "id": "02-BATCH.md#001",
+      "path": [
+        "02-BATCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:scripting:02-batch, git-history:scripting:02-batch]",
+        "canonical_path": "scripting/02-BATCH.md",
+        "concepts": "[batch]",
+        "current_path": "scripting/02-BATCH.md",
+        "id": "maxim:scripting:batch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[batch]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scripting: Batch (CMD)",
+        "updated": "null"
+      },
+      "text": "> Windows' original automation language. Ugly, fragile, irreplaceable in some Windows contexts. Knowing the traps is 80% of knowing Batch."
+    },
+    {
+      "id": "02-BATCH.md#002",
+      "path": [
+        "02-BATCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:scripting:02-batch, git-history:scripting:02-batch]",
+        "canonical_path": "scripting/02-BATCH.md",
+        "concepts": "[batch]",
+        "current_path": "scripting/02-BATCH.md",
+        "id": "maxim:scripting:batch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[batch]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scripting: Batch (CMD)",
+        "updated": "null"
+      },
+      "text": "```\nWINDOWS SCRIPTING ECOSYSTEM\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "02-BATCH.md#003",
+      "path": [
+        "02-BATCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:scripting:02-batch, git-history:scripting:02-batch]",
+        "canonical_path": "scripting/02-BATCH.md",
+        "concepts": "[batch]",
+        "current_path": "scripting/02-BATCH.md",
+        "id": "maxim:scripting:batch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[batch]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scripting: Batch (CMD)",
+        "updated": "null"
+      },
+      "text": "Evolution (left = older, right = newer):"
+    },
+    {
+      "id": "02-BATCH.md#004",
+      "path": [
+        "02-BATCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:scripting:02-batch, git-history:scripting:02-batch]",
+        "canonical_path": "scripting/02-BATCH.md",
+        "concepts": "[batch]",
+        "current_path": "scripting/02-BATCH.md",
+        "id": "maxim:scripting:batch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[batch]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scripting: Batch (CMD)",
+        "updated": "null"
+      },
+      "text": "COMMAND.COM        cmd.exe          PowerShell 1–5.1      pwsh 7+\n  (MS-DOS, 1981)  (NT 3.1, 1993)    (Windows, 2006)     (cross-platform, 2019)\n       │                │                   │                    │\n       │           .bat / .cmd         .ps1 scripts         .ps1 scripts\n       │           scripting           verb-noun cmdlets     same + new APIs\n       │           (this guide)        .NET Framework CLR    .NET 5+ CLR\n       │                │                   │                    │\n       │           runs in            runs in               runs in\n       │           cmd.exe            powershell.exe        pwsh.exe\n       │           process            process               process\n       │\n       └── Parallel lineage (1996):\n               wscript.exe / cscript.exe  (Windows Scripting Host)\n               ├── VBScript (.vbs)        ← deprecated; removed Win11+\n               └── JScript (.js)          ← deprecated; removed Win11+"
+    }
+  ],
+  "refs": [
+    "02-BATCH.md"
+  ]
+}

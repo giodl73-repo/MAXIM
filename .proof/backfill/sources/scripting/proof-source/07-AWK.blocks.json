@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\07-AWK.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Text-Processing Tool Landscape",
+      "confidence": "candidate",
+      "text": "Unix text-processing tool space — by capability level:\n\n  grep          cut/tr         AWK            sed           Perl/Python\n  ────────       ──────────     ──────────     ──────────    ──────────\n  Find lines     Simple         Field          Stream        Full\n  by pattern     field          processing     transfor-     language\n                 extraction     + arithmetic   mation\n                                + arrays\n\n  awk '/ERROR/'  cut -f2        awk '          sed 's/       python\n                 file.tsv       {sum+=$3}      foo/bar/g'    script.py\n                                END{print      file\n                                sum}' file\n\n  ← simpler, faster for narrow task ──────────────── more powerful →\n\n  AWK's niche: \"structured record processing\"\n    - Input has rows and columns (delimited text, logs, CSVs, TSVs)\n    - You need: filter rows + extract/transform fields + aggregate\n    - Too much logic for cut/grep; not enough to justify Python\n\n  When AWK loses to adjacent tools:\n    grep:   just finding lines (AWK works but overkill)\n    cut:    just extracting columns from clean TSV/CSV (AWK works but verbose)\n    sed:    complex in-place stream substitution on unstructured text\n    jq:     actual JSON with nesting, arrays, escaping\n    Python: stateful multi-pass, data structures, libraries, HTTP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "## Execution Model",
+      "confidence": "candidate",
+      "text": "AWK processing pipeline:\n\n  input file/stream\n       │\n       ▼\n  ┌─────────────────────────────────────────────────────┐\n  │  BEGIN { }    <- runs once before first record      │\n  │                                                     │\n  │  for each record (line by default):                 │\n  │    split record into fields: $1 $2 ... $NF          │\n  │    for each rule:                                   │\n  │      if pattern matches (or no pattern):            │\n  │        execute action { }                           │\n  │                                                     │\n  │  END { }      <- runs once after last record        │\n  └─────────────────────────────────────────────────────┘\n       │\n       ▼\n  output (print/printf go to stdout by default)\n\nAWK is a compiled program, not an interpreter:\n  awk 'program' file\n  -> awk parses+compiles 'program' to internal bytecode\n  -> streams file through compiled program\n  -> exit\n  Much faster than equivalent Perl/Python for simple column ops.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## SQL → AWK: The Strongest Mental Model",
+      "confidence": "candidate",
+      "text": "SQL concept          AWK equivalent           Notes\n───────────────────────────────────────────────────────────────────\nSELECT col1, col2    { print $1, $2 }         $1..$NF = columns\nFROM file            awk '...' file            file = the table\nWHERE condition      condition { action }      pattern = row filter\nGROUP BY key         count[$1]++               associative arrays\n  + SUM(col)         total[$1] += $2           accumulate in array\n  + output           END { for k in arr... }   flush in END block\nORDER BY col         ... | \"sort -k2 -rn\"      pipe to sort\nLIMIT n              NR > n { exit }\nOFFSET n             NR <= n { next }\nROW_NUMBER()         NR                        total rows processed\n  (per partition)    FNR                       rows in current file\nColumn delimiter     FS (field separator)      default: whitespace\nColumn count         NF                        changes per row",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "# AWK equivalent (assuming: $1=region, $2=product, $3=revenue)",
+      "confidence": "candidate",
+      "text": "# AWK equivalent: NR==FNR trick loads first file into memory\nawk '\n  NR == FNR { mgr[$1] = $2; next }  # load departments (file1): id → manager\n  $3 in mgr { print $0, mgr[$3] }   # join employees (file2) on dept_id=$3\n' departments.txt employees.txt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## Power Query M → AWK Bridge",
+      "confidence": "candidate",
+      "text": "Power Query M                AWK equivalent\n──────────────────────────────────────────────────────────────────\nTable.TransformRows(          pattern { action }\n  tbl, each ...)              AWK's implicit loop over records\n\neach _                        $0 (the whole current record)\n\n[ColumnName]                  $1 / $2 / $NF (positional field)\n  (column access)             or named via: split($0, f, FS)\n\nTable.SelectRows(             pattern before { action }\n  tbl, each [Col] > 100)      $2 > 100 { print }\n\nTable.Group(                  count[$1]++; total[$2] += $3\n  tbl, \"key\", ...)            + END { for k in arr ... }\n\nTable.AddColumn(              { $0 = $0 OFS ($2 * $3); print }\n  tbl, \"new\", each ...)       (rebuild $0 with new field)\n\nSplitter.SplitText            FS (field separator)\n  ByDelimiter(\",\")            -F, or BEGIN { FS=\",\" }\n\nTable.Skip(tbl, n)            NR <= n { next }\nTable.FirstN(tbl, n)          NR > n { exit }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 276,
+      "heading_context": "### Variables, Types, Arithmetic",
+      "confidence": "candidate",
+      "text": "# Variables: auto-initialized to \"\" or 0; no declaration\ntotal = 0\ncount = 0\nname = \"Alice\"\n\n# AWK dual-type: same value is string or number depending on context\nx = \"42\"\ny = x + 0        # -> 42 (numeric context)\nz = x \"hello\"    # -> \"42hello\" (string context — concatenation by juxtaposition!)\n# NOTE: no + for string concat — adjacent values/strings concatenate\n\n# Arithmetic: full C-style\n+  -  *  /  %  ^     # (^ = exponent, not **)\n++x  x++  --x  x--\nx += 5   x -= 3   x *= 2   x /= 4   x %= 3   x ^= 2\nint(3.9)           # -> 3 (truncate to integer)\nsqrt(16)           # -> 4\nlog(2.718)         # -> 1\nexp(1)             # -> 2.718...\nsin(0)  cos(0)  atan2(1,1)   # trig\nrand()             # -> random float [0,1)\nsrand(seed)        # seed random number generator",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 503,
+      "heading_context": "### Functions",
+      "confidence": "candidate",
+      "text": "function square(n) {\n    return n * n\n}\n\nfunction max(a, b) {\n    return (a > b) ? a : b\n}\n\n# Local variables: extra parameters with leading spaces (AWK convention)\nfunction count_words(str,    words, n) {   # words,n are locals (extra params)\n    n = split(str, words, \" \")\n    return n\n}\n\nBEGIN {\n    print square(5)         # -> 25\n    print max(3, 7)         # -> 7\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 555,
+      "heading_context": "## Practical One-Liners (The Real Value)",
+      "confidence": "candidate",
+      "text": "# Print specific columns\nawk '{print $2, $4}' file\nawk '{print $NF}' file                     # last field\nawk '{print $(NF-1)}' file                 # second-to-last field\n\n# CSV with comma separator\nawk -F, '{print $1, $3}' file.csv\nawk 'BEGIN{FS=\",\"; OFS=\"\\t\"} {print $1,$2,$3}' file.csv  # reformat CSV to TSV\n\n# Filter lines\nawk '/ERROR/' file                         # lines containing ERROR\nawk '!/^#/' file                           # non-comment lines\nawk '$3 > 100' file                        # where field 3 > 100\nawk 'NF > 0' file                          # non-blank lines\nawk 'NR >= 10 && NR <= 20' file            # lines 10-20\n\n# Print between markers\nawk '/START/,/END/' file                   # inclusive range\nawk '/START/{found=1} found; /END/{found=0}' file  # START to END\n\n# Sum / stats\nawk '{sum += $1} END {print sum}' file\nawk '{sum+=$1; n++} END {print sum/n}' file  # mean\nawk 'BEGIN{max=-999} $1>max{max=$1} END{print max}' file\n\n# Count occurrences / frequency\nawk '{count[$1]++} END {for(k in count) print k, count[k]}' file\nawk '{count[$1]++} END {for(k in count) print count[k], k}' file | sort -rn\n\n# Deduplicate (preserve order)\nawk '!seen[$0]++'  file                    # print if not seen before\n\n# Remove/keep columns\nawk '{$2=$4=\"\"; print}' file              # blank out fields 2 and 4\nawk '{$2=\"\"; $1=$1; print}' file          # remove field 2, re-join with OFS\n\n# In-place field edit\nawk '{$3 = toupper($3); print}' file      # uppercase field 3\nawk '{gsub(/foo/, \"bar\", $2); print}' file  # replace in field 2\n\n# Add line numbers\nawk '{print NR, $0}' file\nawk '{printf \"%4d  %s\\n\", NR, $0}' file   # padded\n\n# Header + data\nawk 'NR==1{print; next} $3>100' file      # keep header, filter data rows\n\n# Join two files (match on field 1)\nawk 'NR==FNR{a[$1]=$2; next} $1 in a {print $0, a[$1]}' file1.txt file2.txt\n# NR==FNR is true only while reading the FIRST file\n\n# Reformat / transpose\nawk '{for(i=1;i<=NF;i++) a[i][NR]=$i} END{for(i=1;i<=NF;i++){for(j=1;j<=NR;j++) printf \"%s%s\",a[i][j],(j<NR?OFS:ORS)}}' file\n\n# Print unique values of a column\nawk '!seen[$1]++ {print $1}' file\n\n# Word count (like wc -w)\nawk '{w+=NF} END{print w}' file\n\n# Process JSON fields (simple flat JSON only)\n# (for real JSON use jq instead)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 653,
+      "heading_context": "## What Makes AWK Distinct",
+      "confidence": "candidate",
+      "text": "AWK's mental model is not \"write a program\", it's \"define a transformation\":\n\n  SQL analogy:\n    SELECT col1, col2        ->  { print $1, $2 }\n    FROM file                ->  awk '...' file\n    WHERE condition          ->  condition { ... }\n    GROUP BY key             ->  count[key]++; END { for k in count }\n    ORDER BY col             ->  ... | sort\n    LIMIT n                  ->  NR > n { exit }\n\n  AWK excels at:\n    - Extracting/reformatting columns from text tables\n    - Aggregating (sum, count, avg, frequency)\n    - Joining two text files on a key\n    - Filtering rows by condition\n    - Simple text transformations per-line\n\n  AWK does NOT excel at:\n    - Complex string parsing (use Perl or Python)\n    - Binary data\n    - Real JSON/XML/CSV with escaping (use jq/xmllint)\n    - Stateful multi-pass processing (use Python)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 684,
+      "heading_context": "## AWK Implementation Comparison",
+      "confidence": "candidate",
+      "text": "Implementation portability matrix:\n\n  Feature              gawk    mawk    nawk    busybox  POSIX?\n  ─────────────────────────────────────────────────────────────\n  Core AWK              YES     YES     YES     YES      YES\n  printf / sprintf      YES     YES     YES     YES      YES\n  Associative arrays    YES     YES     YES     YES      YES\n  getline               YES     YES     YES     YES      YES\n  Regex intervals       YES     YES*    NO      NO       NO\n    (/x{2,4}/)         (4.0+)  (limited)\n  switch/case           YES     NO      NO      NO       NO\n  BEGINFILE/ENDFILE     YES     NO      NO      NO       NO\n  nextfile              YES     NO      NO      NO       NO\n  True multidim arrays  YES     NO      NO      NO       NO\n    (a[1][2])          (4.0+)\n  @include              YES     NO      NO      NO       NO\n  PROCINFO array        YES     NO      NO      NO       NO\n  delete array          YES     YES     YES     SOME     YES\n  length(array)         YES     YES     YES     NO       NO\n  gensub() function     YES     NO      NO      NO       NO\n\n  * mawk supports basic regex intervals inconsistently",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 721,
+      "heading_context": "## AWK Implementation Comparison",
+      "confidence": "candidate",
+      "text": "Q: Will this script run in a container or CI where I don't control the AWK version?\n   → Write POSIX AWK only. No BEGINFILE, no nextfile, no gensub, no @include.\n   → Test with: awk --posix '...' or mawk '...'\n\nQ: This is my personal machine / I control the environment?\n   → Use gawk explicitly: #!/usr/bin/gawk -f\n   → Install: brew install gawk (macOS); apt install gawk (Debian)\n   → Unlock: BEGINFILE, nextfile, true multidim arrays, switch/case\n\nQ: I'm on macOS and just want to run a one-liner?\n   → /usr/bin/awk is nawk — POSIX-only.\n   → For gawk features: gawk '...' (if installed via Homebrew)\n   → For portability: stick to POSIX patterns\n\nQ: Writing AWK for Alpine-based Docker images?\n   → busybox awk. Treat it as strict POSIX minus some edge cases.\n   → Add gawk to your Dockerfile if you need extensions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

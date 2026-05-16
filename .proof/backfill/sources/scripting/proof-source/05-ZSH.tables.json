@@ -1,0 +1,392 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\05-ZSH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 77,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "macOS (default since 10.15), Linux (available), Windows (WSL)"
+        ],
+        [
+          "Extension",
+          "`.zsh`"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/env zsh`"
+        ],
+        [
+          "Paradigm",
+          "Interactive shell + scripting; POSIX-mostly-compatible"
+        ],
+        [
+          "Typing",
+          "Untyped strings; `typeset -i` for integer; native float in `(( ))`"
+        ],
+        [
+          "Execution",
+          "Interpreted; fork/exec model like bash"
+        ],
+        [
+          "Version",
+          "macOS ships 5.8.1 (stuck on GPL v2); Homebrew gives 5.9+"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 786,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Oh My Zsh",
+          "Plugin/theme framework",
+          "Most popular; slows startup if not trimmed"
+        ],
+        [
+          "Prezto",
+          "Lighter OMZ alternative",
+          "More opinionated defaults"
+        ],
+        [
+          "Zinit / Antidote",
+          "Fast plugin managers",
+          "Lazy-loading; measurable startup improvement"
+        ],
+        [
+          "Starship",
+          "Cross-shell prompt",
+          "Works in Zsh, Bash, Fish, PowerShell"
+        ],
+        [
+          "`fzf` + zsh integration",
+          "Fuzzy history/file search",
+          "Ctrl-R (history), Ctrl-T (files), Alt-C (dirs)"
+        ],
+        [
+          "`z` / `zoxide`",
+          "Jump to frequent directories",
+          "`z proj` → `cd ~/dev/myproject`"
+        ],
+        [
+          "`zsh-autosuggestions`",
+          "Fish-like history suggestions",
+          "Shows ghost text from history"
+        ],
+        [
+          "`zsh-syntax-highlighting`",
+          "Live syntax coloring at prompt",
+          "Red for invalid commands"
+        ],
+        [
+          "`zmv`",
+          "Bulk rename via glob patterns",
+          "`autoload -U zmv`"
+        ],
+        [
+          "`zcalc`",
+          "Interactive calculator",
+          "`autoload -U zcalc`; supports float"
+        ],
+        [
+          "`compinit`",
+          "Initialize completion system",
+          "Required in .zshrc for tab completion"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 804,
+      "heading_context": "## Gotchas and Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "**1-indexed arrays**",
+          "`$a[0]` is empty; `$a[1]` is first",
+          "Always use 1-based indexing in Zsh"
+        ],
+        [
+          "Porting Bash arrays",
+          "`${a[0]}` in Zsh = empty string, not first element",
+          "Search-replace `[0]` → `[1]` when porting"
+        ],
+        [
+          "`=` in `[[ ]]`",
+          "`=` is pattern match, not just equality",
+          "Use `==` for unambiguous string equality"
+        ],
+        [
+          "No word-splitting on arrays",
+          "`$a` in Zsh vs Bash behave differently",
+          "Code that works in one may not in the other"
+        ],
+        [
+          "Startup file ordering",
+          "`.zshrc` not sourced for scripts",
+          "Use `.zshenv` for env vars needed in scripts"
+        ],
+        [
+          "`autoload` for builtins",
+          "`zmv`, `zcalc`, `zed` not available by default",
+          "`autoload -Uz zmv zcalc` in `.zshrc`"
+        ],
+        [
+          "Wrong shebang",
+          "`#!/bin/sh` invokes dash, not Zsh",
+          "`#!/usr/bin/env zsh` for Zsh features"
+        ],
+        [
+          "macOS ships old Zsh",
+          "`/bin/zsh` = 5.8.1 (2020, stuck on GPL v2)",
+          "`brew install zsh` + add to `/etc/shells` + `chsh`"
+        ],
+        [
+          "Oh My Zsh startup time",
+          "Large plugin set → slow terminal open",
+          "`zprof` to profile; use lazy loading"
+        ],
+        [
+          "`SHARE_HISTORY` collisions",
+          "Fast typing can get wrong completions from another terminal",
+          "Expected behavior; use Ctrl-R to be precise"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 821,
+      "heading_context": "## Bridge: Bash to Zsh",
+      "headers": [
+        "Bash",
+        "Zsh",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`${a[0]}`",
+          "`$a[1]`",
+          "First element — INDEX SHIFT"
+        ],
+        [
+          "`${a[-1]}`",
+          "`$a[-1]`",
+          "Last element — same"
+        ],
+        [
+          "`${#a[@]}`",
+          "`${#a}` or `$#a`",
+          "Length"
+        ],
+        [
+          "`for x in \"${a[@]}\"`",
+          "`for x in \"${a[@]}\"` or `for x in $a`",
+          "Both work in Zsh"
+        ],
+        [
+          "`declare -A h`",
+          "`typeset -A h`",
+          "Assoc array; both work"
+        ],
+        [
+          "`${!h[@]}`",
+          "`${(k)h}`",
+          "Keys of assoc array"
+        ],
+        [
+          "`${h[@]}`",
+          "`${(v)h}`",
+          "Values"
+        ],
+        [
+          "`tr '[:upper:]' '[:lower:]'`",
+          "`${(L)var}`",
+          "Lowercase"
+        ],
+        [
+          "`shopt -s globstar`",
+          "built-in",
+          "`**` always works in Zsh"
+        ],
+        [
+          "`shopt -s nullglob`",
+          "`setopt NULL_GLOB`",
+          ""
+        ],
+        [
+          "`shopt -s extglob`",
+          "`setopt EXTENDED_GLOB`",
+          ""
+        ],
+        [
+          "`set -e`",
+          "`set -e` or `setopt ERR_EXIT`",
+          "Both work"
+        ],
+        [
+          "`source file`",
+          "`source file` or `. file`",
+          "Both work"
+        ],
+        [
+          "`echo -e \"tab:\\t\"`",
+          "`print \"tab:\\t\"`",
+          "`print` is reliable"
+        ],
+        [
+          "`mapfile -t a < f`",
+          "`a=( ${(f)\"$(< f)\"} )`",
+          "Read file lines into array"
+        ],
+        [
+          "`${str,,}` lowercase",
+          "`${(L)str}`",
+          "Parameter flag syntax"
+        ],
+        [
+          "`${str^^}` uppercase",
+          "`${(U)str}`",
+          ""
+        ],
+        [
+          "`BASH_REMATCH[1]`",
+          "`match[1]`",
+          "Regex capture groups"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 896,
+      "heading_context": "## Bridge: Bash to Zsh",
+      "headers": [
+        "Construct",
+        "Safe in both?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`set -euo pipefail`",
+          "yes",
+          "identical behavior"
+        ],
+        [
+          "`[[ ]]` tests",
+          "yes",
+          "same syntax and semantics"
+        ],
+        [
+          "Process substitution `<()`",
+          "yes",
+          "both support it"
+        ],
+        [
+          "Here-docs",
+          "yes",
+          "identical"
+        ],
+        [
+          "`while IFS= read -r`",
+          "yes",
+          "standard line reading"
+        ],
+        [
+          "`declare -A` / `typeset -A`",
+          "yes",
+          "both keywords work in both shells"
+        ],
+        [
+          "`${a[0]}` first element",
+          "NO",
+          "Bash:first, Zsh:empty"
+        ],
+        [
+          "`${(f)...}` flags",
+          "NO",
+          "Zsh-only syntax"
+        ],
+        [
+          "Glob qualifiers `*(.)`",
+          "NO",
+          "Zsh-only"
+        ],
+        [
+          "`print` builtin",
+          "NO",
+          "Zsh builtin; not in Bash"
+        ],
+        [
+          "`repeat N { }`",
+          "NO",
+          "Zsh-only loop"
+        ],
+        [
+          "`for x (list) { }`",
+          "NO",
+          "Zsh-only syntax"
+        ],
+        [
+          "Bare `$array` in for",
+          "NO",
+          "Zsh doesn't word-split; Bash does"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 979,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use Zsh when...",
+        "Use Bash instead when..."
+      ],
+      "rows": [
+        [
+          "Your interactive shell on macOS/Linux",
+          "Writing scripts for CI/CD pipelines"
+        ],
+        [
+          "Developer experience: completions, plugins, prompt",
+          "Portability across Linux environments"
+        ],
+        [
+          "Extended globbing interactively (`**`, qualifiers)",
+          "Docker `RUN` commands"
+        ],
+        [
+          "Float arithmetic needed in shell",
+          "Team expects Bash; script will run on servers"
+        ],
+        [
+          "Writing personal `.zshrc` automation",
+          "You don't control the target shell"
+        ],
+        [
+          "zmv for bulk file renaming",
+          "GitHub Actions, Alpine containers"
+        ],
+        [
+          "You're on macOS and not writing shared scripts",
+          "Anything that might run on a minimal Linux"
+        ]
+      ]
+    }
+  ]
+}

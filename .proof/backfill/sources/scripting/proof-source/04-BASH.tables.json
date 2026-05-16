@@ -1,0 +1,465 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\04-BASH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 74,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "Linux (default), macOS (available), Windows (WSL/Git Bash/MSYS2)"
+        ],
+        [
+          "Extension",
+          "`.sh` (convention, not enforced)"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/env bash` (portable) or `#!/bin/bash` (specific)"
+        ],
+        [
+          "Paradigm",
+          "Imperative, command-centric, POSIX superset"
+        ],
+        [
+          "Typing",
+          "Untyped strings; `declare -i` for integer"
+        ],
+        [
+          "Execution",
+          "Fork/exec model; commands are processes"
+        ],
+        [
+          "Version",
+          "Bash 5.x on modern Linux; macOS ships 3.2 (GPL) — upgrade via Homebrew"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 866,
+      "heading_context": "## POSIX sh Portability: Bash-Only vs Portable",
+      "headers": [
+        "Feature",
+        "Bash",
+        "POSIX sh",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`[[ ]]`",
+          "Yes",
+          "No",
+          "Use `[ ]` for sh portability"
+        ],
+        [
+          "Indexed arrays",
+          "Yes",
+          "No",
+          "No arrays in POSIX sh"
+        ],
+        [
+          "`declare -A` assoc arrays",
+          "Yes",
+          "No",
+          "Bash 4+ only"
+        ],
+        [
+          "`$(( ))` arithmetic",
+          "Yes",
+          "Yes",
+          "POSIX"
+        ],
+        [
+          "`(( ))` arithmetic",
+          "Yes",
+          "No",
+          "Bash-only"
+        ],
+        [
+          "`local` keyword",
+          "Yes",
+          "Mostly",
+          "Non-POSIX but universal in practice"
+        ],
+        [
+          "`$'...'` ANSI-C quoting",
+          "Yes",
+          "No",
+          ""
+        ],
+        [
+          "Process substitution `<()`",
+          "Yes",
+          "No",
+          ""
+        ],
+        [
+          "`mapfile` / `readarray`",
+          "Yes",
+          "No",
+          "Bash 4+"
+        ],
+        [
+          "`source` / `.`",
+          "Both",
+          "`.` only",
+          ""
+        ],
+        [
+          "`${var,,}` case conversion",
+          "Yes",
+          "No",
+          "Bash 4+"
+        ],
+        [
+          "`read -a` into array",
+          "Yes",
+          "No",
+          ""
+        ],
+        [
+          "`**` recursive glob",
+          "Yes",
+          "No",
+          "Requires `shopt -s globstar`"
+        ],
+        [
+          "`;&` fallthrough in `case`",
+          "Yes",
+          "No",
+          "Bash 4+"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 891,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Role",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`shellcheck`",
+          "Static linter — catches quoting traps, unbound vars",
+          "Run in CI; VSCode extension available"
+        ],
+        [
+          "`shfmt`",
+          "Formatter",
+          "Consistent indentation and style"
+        ],
+        [
+          "`jq`",
+          "JSON processing in shell",
+          "`curl api | jq '.data[].name'`"
+        ],
+        [
+          "`yq`",
+          "YAML/JSON/XML processing",
+          "Like jq for YAML"
+        ],
+        [
+          "`fzf`",
+          "Fuzzy interactive selection",
+          "History search, file picker, menu UI"
+        ],
+        [
+          "`bats`",
+          "Bash automated testing",
+          "TAP-compliant test framework for shell"
+        ],
+        [
+          "`envsubst`",
+          "Env var substitution in templates",
+          "Kubernetes manifest injection"
+        ],
+        [
+          "`xargs`",
+          "Build commands from stdin",
+          "`find . -name \"*.log\" | xargs rm`"
+        ],
+        [
+          "`parallel`",
+          "Parallel command execution",
+          "GNU parallel — N-way fan-out"
+        ],
+        [
+          "`direnv`",
+          "Per-directory `.envrc` auto-loading",
+          "Dev environment management"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 908,
+      "heading_context": "## Gotchas and Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "Spaces around `=`",
+          "`x = 5` calls a command named \"x\" with args",
+          "`x=5` — no spaces"
+        ],
+        [
+          "Unquoted `$var`",
+          "Word splitting and glob expansion surprise you",
+          "Always `\"$var\"`"
+        ],
+        [
+          "`$@` vs `$*`",
+          "`\"$*\"` joins all args; `\"$@\"` preserves them",
+          "Always `\"$@\"`"
+        ],
+        [
+          "`set -e` with `\\|\\|`",
+          "`failing_cmd \\|\\| true` silently disables -e for that line",
+          "`if ! failing_cmd; then true; fi`"
+        ],
+        [
+          "`set -u` + empty array",
+          "`${arr[@]}` is unbound if array is empty",
+          "`${arr[@]+\"${arr[@]}\"}` guard"
+        ],
+        [
+          "`[[ ]]` vs `[ ]`",
+          "`[ ]` needs quotes everywhere; uses `=` not `==`; no regex",
+          "Use `[[ ]]` in bash scripts"
+        ],
+        [
+          "Subshell variable leak",
+          "`while read; done \\| cmd` runs loop in subshell",
+          "Use `while ... done < <(cmd)` process substitution"
+        ],
+        [
+          "`cd` failure",
+          "`cd /path` fails; script may continue if not caught",
+          "`cd /path \\|\\| { echo \"cd failed\" >&2; exit 1; }`"
+        ],
+        [
+          "Glob with no match",
+          "`for f in *.txt` → `f=\"*.txt\"` literally if no files",
+          "`shopt -s nullglob` or `[[ -f \"$f\" ]]` guard"
+        ],
+        [
+          "`source` vs `./script`",
+          "`./script` is subshell — env changes are lost",
+          "`source script` to propagate env changes"
+        ],
+        [
+          "Arithmetic zero",
+          "`(( x = 0 ))` returns exit code 1 — triggers `set -e`",
+          "`x=0` or `(( x = 0 )) \\|\\| true`"
+        ],
+        [
+          "`echo -e` portability",
+          "`-e` behavior varies across shells and distros",
+          "Use `printf` instead"
+        ],
+        [
+          "Uninitialized var typo",
+          "`echo $PTAH` silently expands to empty",
+          "`set -u` catches this"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 928,
+      "heading_context": "## Bridge: PowerShell to Bash",
+      "headers": [
+        "PowerShell",
+        "Bash",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`$var = \"value\"`",
+          "`var=value`",
+          "No spaces; no `$` on left side"
+        ],
+        [
+          "`$?` (boolean)",
+          "`$?` (integer)",
+          "PS: True/False; Bash: 0=success, 1+=error"
+        ],
+        [
+          "`$LASTEXITCODE`",
+          "`$?`",
+          "Bash only has one exit code variable"
+        ],
+        [
+          "`@(\"a\",\"b\",\"c\")`",
+          "`a=(\"a\" \"b\" \"c\")`",
+          "0-indexed in Bash"
+        ],
+        [
+          "`$a.Count`",
+          "`${#a[@]}`",
+          ""
+        ],
+        [
+          "`$a[0]`",
+          "`${a[0]}`",
+          "Both 0-indexed"
+        ],
+        [
+          "`foreach ($x in $a)`",
+          "`for x in \"${a[@]}\"`",
+          ""
+        ],
+        [
+          "`if (Test-Path $p)`",
+          "`if [[ -f \"$p\" ]]`",
+          "`-d` for directory"
+        ],
+        [
+          "`> $null`",
+          "`> /dev/null`",
+          "Discard output"
+        ],
+        [
+          "`> $null 2>&1`",
+          "`&> /dev/null`",
+          "Discard all output"
+        ],
+        [
+          "`try { } catch { }`",
+          "`if ! cmd; then; fi` or `trap`",
+          "No try/catch in bash"
+        ],
+        [
+          "`-ErrorAction Stop`",
+          "`set -euo pipefail`",
+          "Script-level; not per-command"
+        ],
+        [
+          "`$PSScriptRoot`",
+          "`$(dirname \"$(realpath \"$0\")\")`",
+          "Script's own directory"
+        ],
+        [
+          "`Write-Error \"msg\"`",
+          "`echo \"msg\" >&2`",
+          "Write to stderr"
+        ],
+        [
+          "`Write-Host \"msg\"`",
+          "`echo \"msg\"`",
+          "Write to stdout"
+        ],
+        [
+          "`Read-Host \"prompt\"`",
+          "`read -rp \"prompt: \" var`",
+          ""
+        ],
+        [
+          "`$env:VAR`",
+          "`$VAR`",
+          "Just the name; `export VAR=val` to set"
+        ],
+        [
+          "`-like \"foo*\"`",
+          "`[[ \"$x\" == foo* ]]`",
+          "Glob match"
+        ],
+        [
+          "`-match \"regex\"`",
+          "`[[ \"$x\" =~ regex ]]`",
+          "Regex match"
+        ],
+        [
+          "`$matches[1]`",
+          "`${BASH_REMATCH[1]}`",
+          "Regex capture groups"
+        ],
+        [
+          "`Set-Location path`",
+          "`cd path`",
+          ""
+        ],
+        [
+          "`Get-ChildItem *.txt`",
+          "`ls *.txt` or `find . -name \"*.txt\"`",
+          ""
+        ],
+        [
+          "`Get-Content file`",
+          "`cat file`",
+          ""
+        ],
+        [
+          "`Select-Object -First 5`",
+          "`head -5`",
+          ""
+        ],
+        [
+          "`Where-Object { $_.prop -eq val }`",
+          "`grep`, `awk`, `jq`",
+          "No objects — text streams"
+        ],
+        [
+          "`$_.PropertyName`",
+          "Column in `awk`, key in `jq`",
+          "Bash works with text, not objects"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 1090,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Use Bash when...",
+        "Use sh when...",
+        "Use PowerShell when..."
+      ],
+      "rows": [
+        [
+          "CI/CD scripts (GitHub Actions, GitLab CI)",
+          "Docker `RUN` commands",
+          "Windows automation"
+        ],
+        [
+          "Linux server automation",
+          "Alpine/minimal container scripts",
+          "Azure resource management"
+        ],
+        [
+          "Calling Unix tools natively (find, grep, sed, awk)",
+          "Init scripts / boot scripts",
+          "Working with .NET objects"
+        ],
+        [
+          "Scripting alongside Makefiles",
+          "Maximum POSIX portability",
+          "Structured object pipelines"
+        ],
+        [
+          "Developer environment scripts on Linux/macOS",
+          "Embedded systems / IoT",
+          "Team that lives in Windows"
+        ],
+        [
+          "When the target machine has bash",
+          "When you don't know the shell",
+          "Azure PowerShell / Az module"
+        ]
+      ]
+    }
+  ]
+}

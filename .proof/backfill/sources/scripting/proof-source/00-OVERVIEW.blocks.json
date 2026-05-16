@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## 0. Object Pipeline → Text Stream: The Fundamental Shift",
+      "confidence": "candidate",
+      "text": "OBJECT PIPELINE vs TEXT STREAM — THE CORE MENTAL MODEL\n═══════════════════════════════════════════════════════════════════════════════\n\nObject Pipeline (PowerShell, NuShell)\n─────────────────────────────────────\n  Get-Process | Where-Object { $_.CPU -gt 100 } | Select-Object Name, CPU\n       │                    │                           │\n   returns                 receives                 receives\n   [Process[]]          [Process]               [Process]\n   (.NET objects)       access .CPU              access .Name, .CPU\n                        (typed property)         (typed properties)\n\n  ┌──────────────────────────────────────────────────────┐\n  │  Objects flow through pipes. Properties are typed.   │\n  │  No parsing. No delimiter assumptions. No ambiguity. │\n  └──────────────────────────────────────────────────────┘\n\nText Stream (Bash, Zsh, Fish, sh)\n──────────────────────────────────\n  ps aux | awk '$3 > 10 { print $1, $3 }' | sort -k2 -rn\n     │           │                               │\n  prints       receives text,               receives text,\n  lines of     splits on whitespace,        sorts as text\n  text         compares column 3            by column 2\n\n  ┌──────────────────────────────────────────────────────┐\n  │  Strings flow through pipes. Everything is text.     │\n  │  You parse structure out of strings at each stage.   │\n  │  Field position, delimiter, quoting — all manual.    │\n  └──────────────────────────────────────────────────────┘\n\nThe consequence:\n  - PS:   pipeline stages NEVER need to parse — they query properties\n  - Bash: pipeline stages ALWAYS need to parse — grep/awk/cut/sed are parsers\n  - PS:   structured data is first-class (objects, hashtables)\n  - Bash: structured data is emergent (you impose structure via tools)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### The Quoting Shift",
+      "confidence": "candidate",
+      "text": "PowerShell quoting:\n  'literal — no $expansion'          → single = literal always\n  \"interpolates $var and $($expr)\"   → double = interpolates\n  ` (backtick)                       → escape character (NOT backslash)\n  @' ... '@                          → here-string (literal)\n  @\" ... \"@                          → here-string (interpolating)\n\nBash quoting:\n  'no $expansion whatsoever'         → single = literal always (same)\n  \"$var expands, \\n escapes\"         → double = interpolates (same idea)\n  \\ (backslash)                      → escape character (different from PS backtick)\n  <<EOF                              → heredoc (interpolating by default)\n  <<'EOF'                            → heredoc (literal, like @' '@)\n  $'tab\\there\\nnewline'             → ANSI-C quoting (bash-only, no PS equiv)\n\nThe trap: PS uses backtick as escape; Bash uses backslash.\n  PS:    Write-Host \"column1`tcolumn2\"     # tab\n  Bash:  echo -e \"column1\\tcolumn2\"        # tab (echo -e or printf)\n  Both:  printf \"column1\\tcolumn2\\n\"       # portable (printf is both PS and Unix)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## 1. The Landscape",
+      "confidence": "candidate",
+      "text": "SCRIPTING LANGUAGE GENEALOGY\n═══════════════════════════════════════════════════════════════════════════════\n\nBranch 1 — Windows scripting lineage\n─────────────────────────────────────\n  COMMAND.COM / CMD.EXE\n  (1981 DOS)\n       │\n       ├─→  AUTOEXEC.BAT, batch files (.bat)\n       │    (simple sequential scripts, no real control flow until DOS 6)\n       │\n       ├─→  Windows Scripting Host (1996)\n       │        ├─→ VBScript (.vbs)  — COM automation, IE scripting\n       │        └─→ JScript (.js)    — JS-like, COM automation\n       │\n       └─→  PowerShell 1.0 (2006, Monad)\n                ├── .NET Framework CLR, compiled to CIL\n                ├── Object pipeline (not text streams — revolutionary departure)\n                ├── verb-noun cmdlet naming\n                ├── PowerShell 2.0–5.1 (Windows-only, .NET Framework)\n                └─→  PowerShell 7+ (2019, .NET Core / .NET 5+)\n                         ├── Cross-platform (Windows / macOS / Linux)\n                         ├── Open source (GitHub: PowerShell/PowerShell)\n                         └── pwsh binary (distinct from Windows powershell.exe)\n\nBranch 2 — Unix/POSIX shell lineage\n─────────────────────────────────────\n  Thompson shell — /bin/sh (1971, Ken Thompson, V1 Unix)\n       │  Basic I/O redirection, pipes, sequential execution\n       │\n       ├─→  Bourne sh (1979, Steve Bourne, Unix V7)\n       │        ├── Variables, control flow, functions\n       │        ├── The definitive POSIX ancestor\n       │        └─→  POSIX.1 sh standard (1988, IEEE Std 1003.1)\n       │                   ↓ spec, not implementation\n       │\n       ├─→  C shell / csh (1978, Bill Joy, BSD)\n       │        ├── C-like syntax (if/foreach/while)\n       │        ├── History expansion (!!)\n       │        ├── Job control\n       │        └─→  tcsh (1981) — extended csh (still used on BSDs)\n       │\n       ├─→  Korn shell / ksh (1983, David Korn, AT&T)\n       │        ├── Superset of Bourne sh\n       │        ├── Associative arrays, arithmetic (( ))\n       │        └─→  ksh93, mksh (MirOS ksh, used on Android)\n       │\n       ├─→  Bash — Bourne Again SHell (1989, Brian Fox, GNU Project)\n       │        ├── POSIX superset + bash extensions\n       │        ├── [[ ]] test construct, arrays, process substitution\n       │        ├── Default shell: macOS <10.15, most Linux distros\n       │        └── macOS 10.15+: zsh default (Apple GPL avoidance)\n       │\n       ├─→  Zsh — Z Shell (1990, Paul Falstad)\n       │        ├── POSIX + Bash extensions + additional power\n       │        ├── Spelling correction, glob qualifiers, themes\n       │        ├── Oh My Zsh ecosystem (2009)\n       │        └── macOS 10.15+ default shell\n       │\n       └─→  Fish — Friendly Interactive SHell (2005, Axel Liljencrantz)\n                ├── NOT POSIX compatible (intentional design choice)\n                ├── Autosuggestions, syntax highlighting built-in\n                ├── Simpler variable model (set name value, no $( ) quoting hell)\n                └── Scripting works but rarely used for portability\n\nBranch 3 — Text-processing DSLs\n─────────────────────────────────────\n  ed — line editor (1971, Ken Thompson / Dennis Ritchie)\n  (address + command model; the grandfather of regex-based editing)\n       │\n       ├─→  sed — stream editor (1974, Lee McMahon, Bell Labs)\n       │        ├── Single-pass, line-oriented\n       │        ├── Compiled per-invocation to simple state machine\n       │        ├── Address ranges, substitution, deletion, branching\n       │        └── POSIX standard; GNU sed adds extensions\n       │\n       ├─→  AWK (1977, Aho / Weinberger / Kernighan, Bell Labs)\n       │        ├── Pattern-action model: /regex/ { action }\n       │        ├── Automatic record splitting (FS, OFS, RS, NR, NF)\n       │        ├── Built-in arithmetic, associative arrays, printf\n       │        ├── Compiled per-invocation (like a micro-compiler)\n       │        └── gawk (GNU AWK), mawk (fast), nawk (new AWK = original)\n       │\n       └─→  Perl (1987, Larry Wall)\n                ├── \"Practical Extraction and Report Language\"\n                ├── Superset of AWK + sed + sh concepts\n                ├── Full language: OOP, refs, closures, modules (CPAN)\n                ├── Compiled to bytecode, interpreted by perlc\n                ├── Sigil-based scalar/array/hash distinction\n                └── The dominant text/sysadmin language before Python\n\nBranch 4 — Scripting-capable general-purpose (context only; not covered here)\n──────────────────────────────────────────────────────────────────────────────\n  Python (1991) — replaced Perl as \"glue language\" of choice\n  Ruby (1995)   — elegant OOP scripting; Chef/Puppet infra tooling\n  Lua (1993)    — embeddable, tiny runtime; Neovim config, game scripting\n  Node.js (2009)— JavaScript as scripting; common in CI/npm scripts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## 2. Three-Category Taxonomy",
+      "confidence": "candidate",
+      "text": "SCRIPTING CATEGORY TAXONOMY\n═══════════════════════════════════════════════════════════════════════════════\n\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  INTERACTIVE SHELLS                                                         │\n│  Designed for human use (REPL), also script-first capable                   │\n│  Bash ● Zsh ● Fish ● PowerShell                                             │\n└─────────────────────────────────────────────────────────────────────────────┘\n         ▲ readline/libedit integration, history, tab-complete, prompts\n\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  SCRIPT-FIRST                                                               │\n│  Automation-oriented; not designed for interactive use                      │\n│  Batch/CMD ● sh (POSIX) ● Perl                                              │\n└─────────────────────────────────────────────────────────────────────────────┘\n         ▲ No fancy prompt, minimal interactive editing, designed to be invoked\n\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  TEXT-PROCESSING DSLs                                                       │\n│  Pipeline-oriented; pattern-action or stream-transformation model           │\n│  sed ● AWK                                                                  │\n└─────────────────────────────────────────────────────────────────────────────┘\n         ▲ Always invoked via shell pipeline; not interactive shells at all",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## 3. Execution Model Comparison",
+      "confidence": "candidate",
+      "text": "EXECUTION MODELS\n═══════════════════════════════════════════════════════════════════════════════\n\nBatch / CMD\n─────────────────────────────────────────────────────────────────────────────\n  script.bat ──→ cmd.exe ──→ direct interpretation, line by line\n                              No shebang (cmd.exe is hardcoded)\n                              No subprocess isolation — runs in current cmd\n                              CALL launches child cmd.exe\n                              Windows registry file association: .bat/.cmd → cmd.exe\n  Execution: purely interpreted, no bytecode, no JIT\n  Environment: %ERRORLEVEL%, %PATH%, %COMSPEC%\n\nPowerShell\n─────────────────────────────────────────────────────────────────────────────\n  script.ps1 ──→ pwsh.exe ──→ lexer → parser → AST → compiled to CIL\n                                                       ↓\n                                                 .NET CLR (JIT to native)\n  Pipeline: NOT text streams\n            ┌─────────┐     ┌─────────┐     ┌─────────┐\n            │ Cmdlet  │ ──→ │ .NET    │ ──→ │ Cmdlet  │\n            │ outputs │     │ objects │     │ receives│\n            └─────────┘     └─────────┘     └─────────┘\n  ExecutionPolicy: security gate before script runs (Bypass, RemoteSigned, etc.)\n  Profiles: $PROFILE loaded on interactive start (~/.bashrc equivalent)\n\nBash / sh / Zsh\n─────────────────────────────────────────────────────────────────────────────\n  ./script.sh ──→ kernel exec() reads shebang ──→ /bin/bash\n                                                    ↓\n                                             line-by-line interpretation\n                                             (parsing + execution interleaved)\n  Pipeline: text streams\n            ┌─────────┐     ┌──────┐     ┌─────────┐\n            │ cmd A   │ ──→ │ pipe │ ──→ │ cmd B   │\n            │ stdout  │     │ (fd) │     │ stdin   │\n            └─────────┘     └──────┘     └─────────┘\n  subprocess: fork() + exec() for each external command\n  builtins: cd, echo, test, [ ] executed without fork\n  Execution: interpreted; some shells compile to internal bytecode (zsh, ksh)\n  Env vars: exported vars (export FOO) visible to child processes only\n\nFish\n─────────────────────────────────────────────────────────────────────────────\n  ./script.fish ──→ fish interpreter ──→ AST-based evaluation\n  Universal variables: persist across sessions (stored in ~/.config/fish/)\n  Universal env: set -U FOO bar (no equivalent in Bash/sh)\n  NOT fork-based for builtins; different scoping rules\n  Autoloads functions from ~/.config/fish/functions/name.fish\n\nAWK\n─────────────────────────────────────────────────────────────────────────────\n  awk 'program' file ──→ awk compiler ──→ internal bytecode ──→ execution\n                          (per-invocation, like a micro-compiler)\n  Record model:\n            ┌─────────────────────────────────────────────┐\n            │  Input stream                               │\n            │  ┌─────────────────────┐                    │\n            │  │ Record (RS)         │ → $0 (whole record) │\n            │  │ default: newline)   │ → $1 $2 $3...      │\n            │  └─────────────────────┘   (FS-delimited)   │\n            └─────────────────────────────────────────────┘\n  Pattern-action: /regex/ { action }   ← matches per record\n                  BEGIN  { action }   ← before first record\n                  END    { action }   ← after last record\n\nsed\n─────────────────────────────────────────────────────────────────────────────\n  sed 'script' file ──→ compiled to state machine ──→ line-by-line execution\n  Address + command model:\n            address  command\n            3        d          ← delete line 3\n            /regex/  s/a/b/g    ← substitute on matching lines\n            1,10     p          ← print lines 1–10\n  Hold space (h/H/g/G/x) = the one \"register\" available\n\nPerl\n─────────────────────────────────────────────────────────────────────────────\n  perl script.pl ──→ perl compiler ──→ op-tree (bytecode) ──→ interpreter\n                      (full compilation before execution; syntax errors caught upfront)\n  Optional JIT: B::C, Inline::C, or experimental Perl JIT backends\n  One-liner mode: perl -e 'code'\n                  perl -p -e 'code' ← per-line sed-like (prints each line)\n                  perl -n -e 'code' ← per-line, no auto-print\n                  perl -i -e 'code' ← in-place edit (like sed -i)\n  Context system: scalar context vs list context — not a type system,\n                  a runtime dispatch mechanism (explained in section 6)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 386,
+      "heading_context": "## 5. POSIX Compliance Spectrum",
+      "confidence": "candidate",
+      "text": "POSIX COMPLIANCE SPECTRUM\n═══════════════════════════════════════════════════════════════════════════════\n\n Strict POSIX ◄─────────────────────────────────────────────────────► Non-POSIX\n\n /bin/sh      bash          zsh          ksh93       Perl        Fish   Batch  PowerShell\n (dash/ash)   (superset)    (mostly)     (mostly)    (own world)\n     │             │            │             │           │          │      │       │\n     │             │            │             │           │          │      │       │\n  IEEE Std      POSIX +      POSIX +      POSIX +    AWK/sed    Intentionally Windows\n  1003.1        bash-isms    zsh-isms     ksh-isms   inspired   breaks POSIX  object\n  only          (arrays,     (1-indexed   (typeset)  but not    for UX       pipeline\n                [[ ]], etc)  arrays, etc) assoc arr) POSIX sh   reasons      model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 467,
+      "heading_context": "## 6. Binding & Type Theory Note",
+      "confidence": "candidate",
+      "text": "TYPE / BINDING MODELS ACROSS SCRIPTING LANGUAGES\n═══════════════════════════════════════════════════════════════════════════════\n\nLanguage     Type model              Binding time     Analogy\n─────────────────────────────────────────────────────────────────────────────\nBash/sh/Zsh  Strings + integers      Runtime          Untyped lambda calculus\n             (everything is a string; arithmetic coerces)\n             declare -i x: weak type annotation (still a string internally)\n\nFish         Strings + lists         Runtime          Similar to Bash; cleaner\n             (all vars are strings; arrays are first-class, not string hacks)\n\nAWK          Dual: string ↔ number   Context-dependent  Like eval() in JS\n             Same cell: if used in arithmetic context → number\n                        if used in string context → string\n             \"007\" + 0 → 7 (numeric)\n             \"007\" \"\" → \"007\" (string)\n             This is NOT a type system; it's a coercion-dispatch system.\n             Comparable to untyped λ-calculus with semantic coercion functions.\n\nPerl         Scalar context /        Context-dispatch  More complex than AWK\n             List context            at runtime        \"context polymorphism\"\n             $x = @array;           ← scalar context: count of array\n             @x = @array;           ← list context: copy of array\n             Sigils ($, @, %) are NOT types; they're access-mode indicators.\n             $foo[0] vs @foo[0..2] vs %foo{key} — same underlying structure,\n             different access mode (context dispatch, not type dispatch)\n\nPowerShell   .NET types at runtime   Runtime (late     Dynamic but richer\n             [string], [int], [bool] binding) with     than bash\n             Optional type          optional early     $x = [int]\"42\" ← parse\n             annotations            annotation         Get-Member shows types\n\nBatch/CMD    Everything is a string  Runtime           Pure untyped\n             SET /A is the only arithmetic mode; even then stored as string",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 509,
+      "heading_context": "## 6. Binding & Type Theory Note",
+      "confidence": "candidate",
+      "text": "JIT TIER COMPARISON (from 22-COMPILERS.md)\n                                        ┌──────────────────────────────────┐\nBash line: name=value                   │ No compilation; eval at runtime  │\n           echo \"$name\"                 └──────────────────────────────────┘\n                    ↓ equivalent tier:  V8 Ignition (bytecode interpreter)\n\nPowerShell: pwsh compiles to CIL        ┌──────────────────────────────────┐\n            .NET CLR JITs to native     │ Like V8 Maglev/Turbofan on hot   │\n                                        │ paths — but not adaptive, always  │\n                                        └──────────────────────────────────┘\n\nAWK/sed: compiled per-invocation        ┌──────────────────────────────────┐\n         to internal bytecode           │ Like tsc/esbuild ahead-of-time;  │\n                                        │ entire program compiled before    │\n                                        │ first record processed            │\n                                        └──────────────────────────────────┘\n\nPerl: full compile to op-tree           ┌──────────────────────────────────┐\n      before execution starts           │ Like Java javac → bytecode;      │\n                                        │ syntax errors caught upfront      │\n                                        └──────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 544,
+      "heading_context": "### Perl's Context System — A Formal Look",
+      "confidence": "candidate",
+      "text": "PERL CONTEXT DISPATCH — FORMAL MODEL\n═══════════════════════════════════════════════════════════════════════════════\n\nStandard type dispatch (C#, Go, Rust):\n  The TYPE of the VALUE determines which operation runs.\n  int x = 5;   // x's type determines what + means\n\nPerl context dispatch:\n  The CONTEXT OF THE CALL SITE determines how a value is evaluated.\n  The expression itself doesn't change — the caller's expectation does.\n\n  my @arr = (1, 2, 3);\n\n  Scalar context (caller wants one thing):\n    my $n = @arr;          → 3      (count of elements)\n    if (@arr)              → true   (truthy if non-empty)\n    print \"len=\" . @arr;  → \"len=3\" (stringifies to count)\n\n  List context (caller wants a list):\n    my @copy = @arr;       → (1, 2, 3)   (all elements)\n    my ($a, $b) = @arr;    → $a=1, $b=2  (destructuring)\n    push @other, @arr;     → appends all three elements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 636,
+      "heading_context": "## 7. Decision Tree",
+      "confidence": "candidate",
+      "text": "WHICH SCRIPTING APPROACH?\n═══════════════════════════════════════════════════════════════════════════════\n\nStart\n  │\n  ▼\nMust run on Windows without WSL?\n  ├─ YES ──→ Complex logic / object manipulation?\n  │           ├─ YES ──→ PowerShell (pwsh 7 or Windows PowerShell)\n  │           └─ NO  ──→ Batch (only if legacy environment forces it)\n  │                       └── If you have a choice: PowerShell anyway\n  │\n  └─ NO ──→ Must be portable across any Linux/Docker/CI?\n             ├─ YES ──→ Alpine or minimal containers?\n             │           ├─ YES ──→ sh (POSIX) — safest bet\n             │           └─ NO  ──→ bash (GitHub Actions default; ubuntu base images)\n             │\n             └─ NO ──→ Developer workstation only?\n                         ├─ YES ──→ Interactive experience priority?\n                         │           ├─ YES ──→ Zsh (macOS default; Oh My Zsh ecosystem)\n                         │           │          Fish (if you want truly modern UX + non-POSIX)\n                         │           └─ NO  ──→ Bash (most compatible, widely documented)\n                         │\n                         └─ NO ──→ What's the data shape?\n                                     │\n                                     ├─ Structured text / CSV / TSV / logs?\n                                     │   ├─ Simple field extraction / aggregation ──→ AWK\n                                     │   └─ Complex transforms + CPAN libs     ──→ Perl\n                                     │\n                                     ├─ In-place file editing (find/replace)?\n                                     │   ├─ Simple patterns       ──→ sed\n                                     │   └─ Complex patterns      ──→ Perl -i\n                                     │\n                                     ├─ Complex OOP / modules / web scraping?\n                                     │   └── Python or Perl (CPAN)\n                                     │\n                                     └─ Piped one-liners in shell?\n                                         ├─ Field-based (columns, CSV) ──→ AWK one-liner\n                                         ├─ Line-based (substitute)    ──→ sed one-liner\n                                         └─ Arbitrary parsing          ──→ perl -pe / -ne",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 752,
+      "heading_context": "# Bash",
+      "confidence": "candidate",
+      "text": "- `date -v +1d` (macOS BSD date) vs `date -d \"+1 day\"` (GNU date)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

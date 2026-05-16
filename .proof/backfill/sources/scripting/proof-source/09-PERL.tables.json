@@ -1,0 +1,223 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\09-PERL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 64,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "All Unix/Linux/macOS (built-in on most distros); Windows via Strawberry Perl"
+        ],
+        [
+          "Extension",
+          "`.pl` (scripts), `.pm` (modules)"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/perl` or `#!/usr/bin/env perl`"
+        ],
+        [
+          "Paradigm",
+          "Imperative + OOP + functional; regex-native"
+        ],
+        [
+          "Typing",
+          "Dynamic; context-sensitive (scalar vs list)"
+        ],
+        [
+          "Execution",
+          "Compiled to op-tree, then interpreted (not bytecode files like Java)"
+        ],
+        [
+          "Version",
+          "5.38 current; 5.10+ for `//`, `say`, `state`; 5.36+ for signatures"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 813,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Area",
+        "Module / Tool"
+      ],
+      "rows": [
+        [
+          "Package manager",
+          "CPAN; `cpanm` (cpanminus); `Carton` (like Bundler — lockfile)"
+        ],
+        [
+          "HTTP client",
+          "`LWP::UserAgent`, `HTTP::Tiny` (core), `Mojo::UserAgent`"
+        ],
+        [
+          "Database",
+          "`DBI` (universal adapter) + `DBD::Pg`, `DBD::mysql`, `DBD::SQLite`"
+        ],
+        [
+          "JSON",
+          "`JSON::XS`, `Cpanel::JSON::XS`, `Mojo::JSON`"
+        ],
+        [
+          "OOP system",
+          "`Moose` (full-featured), `Moo` (lighter), `Mouse` (faster load)"
+        ],
+        [
+          "Web framework",
+          "`Mojolicious` (modern, async), `Dancer2`, `Plack/PSGI`"
+        ],
+        [
+          "Regex tools",
+          "`Regexp::Common`, `Text::CSV` (proper CSV — never hand-parse CSV)"
+        ],
+        [
+          "File handling",
+          "`Path::Tiny` (modern path API), `File::Find`, `File::Temp`"
+        ],
+        [
+          "Testing",
+          "`Test::More`, `Test::Exception`, `Test2::Suite`"
+        ],
+        [
+          "Template",
+          "`Template::Toolkit` (TT2), `Text::Template`"
+        ],
+        [
+          "Linter / format",
+          "`Perl::Critic` (PBP compliance), `perltidy` (formatter)"
+        ],
+        [
+          "Debugger",
+          "`perl -d script.pl`; `Devel::NYTProf` (profiler)"
+        ],
+        [
+          "Bioinformatics",
+          "BioPerl ecosystem — the dominant use of Perl today"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 866,
+      "heading_context": "## Gotchas & Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "`$arr[0]` not `@arr[0]` for single element",
+          "Sigil reflects return type, not container",
+          "Remember: one element → `$`; multiple → `@`"
+        ],
+        [
+          "`eq` vs `==`",
+          "`==` is numeric, `eq` is string comparison",
+          "`\"5\" == \"5.0\"` → true; `\"5\" eq \"5.0\"` → false"
+        ],
+        [
+          "Missing `chomp`",
+          "`<$fh>` includes trailing `\\n`",
+          "Always `chomp` after read, unless you want the newline"
+        ],
+        [
+          "`.` for concatenation",
+          "`\"a\" + \"b\"` → 0 (numeric!), not `\"ab\"`",
+          "Use `.`: `\"a\" . \"b\"`"
+        ],
+        [
+          "`@_` is aliased",
+          "`$_[0] = \"new\"` modifies the CALLER's variable",
+          "Always unpack: `my ($a) = @_`"
+        ],
+        [
+          "Forgetting `my` / `use strict`",
+          "Typo in variable name silently creates new global",
+          "`use strict;` makes this a compile error"
+        ],
+        [
+          "`||` vs `//` for defaults",
+          "`$x = $val || \"default\"` fires on `0` and `\"\"`",
+          "Use `//`: `$x = $val // \"default\"`"
+        ],
+        [
+          "`die` appends location",
+          "`die \"msg\"` → `\"msg at file line N\\n\"`",
+          "`die \"msg\\n\"` — trailing `\\n` suppresses the location"
+        ],
+        [
+          "`$@` cleared by eval",
+          "Nested `eval` clobbers `$@`",
+          "Save `my $err = $@` immediately after `eval {}`"
+        ],
+        [
+          "Hash in list context",
+          "`%h` flattens to `(k,v,k,v,...)` — order not guaranteed",
+          "Use `keys %h` explicitly; never rely on hash order"
+        ],
+        [
+          "`sort` is lexicographic by default",
+          "`sort (10, 9, 100)` → `(10, 100, 9)`",
+          "Always provide comparator: `sort { $a <=> $b }`"
+        ],
+        [
+          "`local` vs `my`",
+          "`local` is DYNAMIC scope (affects called functions); `my` is lexical",
+          "Use `my` unless you explicitly need dynamic scope"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 885,
+      "heading_context": "## Perl vs Python Decision Cheat Sheet",
+      "headers": [
+        "Use Perl when...",
+        "Use Python when..."
+      ],
+      "rows": [
+        [
+          "Complex regex with substitution (`s///e`)",
+          "Data science / ML (numpy, pandas, sklearn)"
+        ],
+        [
+          "One-liners replacing sed/awk",
+          "Web APIs and HTTP client work"
+        ],
+        [
+          "Legacy Perl codebase maintenance",
+          "Team already knows Python"
+        ],
+        [
+          "Bioinformatics (BioPerl, BLAST scripts)",
+          "Structured data (JSON/YAML heavy processing)"
+        ],
+        [
+          "In-place file edits (`perl -i`)",
+          "Long-term maintainability in a team"
+        ],
+        [
+          "Sysadmin on older Linux where Perl is guaranteed",
+          "New greenfield projects"
+        ],
+        [
+          "Cross-platform `s///` without sed BSD/GNU differences",
+          "When readability matters more than terseness"
+        ],
+        [
+          "Need DBI (best Perl DB interface)",
+          "Async / web framework work"
+        ]
+      ]
+    }
+  ]
+}
