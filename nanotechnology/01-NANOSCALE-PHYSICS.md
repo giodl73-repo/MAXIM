@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:nanoscale-physics
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Nanoscale Physics: Quantum Confinement, Surface-to-Volume, van der Waals
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/01-NANOSCALE-PHYSICS.md
+canonical_path: nanotechnology/01-NANOSCALE-PHYSICS.md
+backsource_ids: [proof-backfill:nanotechnology:01-nanoscale-physics, git-history:nanotechnology:01-nanoscale-physics]
+concepts: [nanoscale, physics]
+root_concepts: [nanoscale, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanoscale Physics: Quantum Confinement, Surface-to-Volume, van der Waals
 
 ## The Big Picture

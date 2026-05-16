@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:overview
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Nanotechnology - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/00-OVERVIEW.md
+canonical_path: nanotechnology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:nanotechnology:00-overview, git-history:nanotechnology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanotechnology — Landscape Overview
 
 ## The Big Picture
@@ -22,11 +41,11 @@ SIZE SCALE: WHERE NANOTECHNOLOGY LIVES
           |
 +----------------------------------------------------------+
 | 100 nm   Virus, EUV lithography nodes                    |
-|           <- NANOTECHNOLOGY BEGINS HERE                   |
+|           <- NANOTECHNOLOGY BEGINS HERE                  |
 | 10 nm    Modern transistor gate length (5nm node)        |
 |          Protein complexes, DNA helix width = 2 nm       |
 | 1 nm     Atoms, quantum dots (CdSe ~2-8 nm)              |
-|           <- NANOTECHNOLOGY ENDS HERE                     |
+|           <- NANOTECHNOLOGY ENDS HERE                    |
 +----------------------------------------------------------+
           |
 0.1 nm    Atomic bond length (~1 angstrom)
@@ -167,26 +186,25 @@ NANOTECHNOLOGY FIELD MAP
      Casimir effect              Surface functionalization  Viral capsids
      Phonon confinement          ALD, CVD, MBE              Cell membrane nano
            |                           |                          |
-           +-------------+-------------+                          |
+           *-------------*-------------*                          |
                          |                                        |
-                  +------+------+                                 |
-                  | FABRICATION |                                 |
-                  |             |                                 |
+                  [ FABRICATION ]                                |
+                    /          \                                |
               Top-down       Bottom-up                           |
             (lithography)  (self-assembly)                       |
-                  +------+------+                                 |
+                    \          /                                |
                          |                                        |
-           +-------------+----------+------------+               |
+           *-------------*----------*------------*               |
            |             |          |            |               |
-        MEMS/NEMS  NANOELECTRONICS NANOMATERIALS BIONANOTECHNOLOGY <--+
+        MEMS/NEMS  NANOELECTRONICS NANOMATERIALS BIONANOTECHNOLOGY
         (sensors,  (transistors,   (quantum dots,(drug delivery,
         actuators) molecular elec) nanotubes,    biosensors,
                                    graphene)     theranostics)
            |             |          |            |
-           +-------------+----------+------------+
+           *-------------*----------*------------*
                                 |
                           APPLICATIONS
-                  +--------------+---------------+
+                  *--------------*---------------*
                   |              |               |
              Semiconductors   Energy         Medicine
              (transistors,    (batteries,    (drug delivery,

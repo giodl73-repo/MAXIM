@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\08-COST-OPTIMIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FINOPS FRAMEWORK (CNCF FinOps Foundation)\n\nPRINCIPLES:\n  Teams need to collaborate (finance, engineering, business units)\n  Everyone takes ownership of their cloud usage\n  FinOps reports should be accessible and timely\n  A centralized team drives FinOps practice\n  Decisions driven by business value of cloud\n\nTHREE PHASES (continuous cycle):\n\n  +-------------------+\n  |  INFORM           |\n  |  Cost allocation  |\n  |  Reporting        |\n  +-------------------+\n    Visibility: what are we spending and why?\n    Tagging, cost analysis, unit economics.\n          |\n          v\n  +-------------------+\n  |  OPTIMIZE         |\n  |  Rightsizing      |\n  |  Reservations     |\n  +-------------------+\n    Reduce waste: rightsizing, reservations, spot.\n    Idle resources, unused licenses, oversized.\n          |\n          v\n  +-------------------+\n  |  OPERATE          |\n  |  Budgets          |\n  |  Anomaly detect   |\n  +-------------------+\n    Continuous improvement: budgets, alerts, culture.\n    Engineering accountability, governance.\n          |\n          (feeds back to Inform)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Azure Hybrid Benefit",
+      "confidence": "candidate",
+      "text": "AZURE HYBRID BENEFIT:\n  Use existing on-premises Windows Server or SQL Server licenses in Azure\n  Windows Server with SA (Software Assurance):\n    → Dual use: run on-prem AND in Azure\n    → D4s VM (Windows): normally $0.21/hr OS + $0.19/hr compute = $0.40/hr\n       with Hybrid Benefit: $0.19/hr compute only (0.21/hr OS waived)\n  SQL Server with SA:\n    → Azure SQL DB, SQL MI, SQL VM: SQL license included at no extra cost\n    → Massive savings for SQL Server workloads (SQL licenses are expensive)\n\nSAVINGS PLANS (Azure):\n  Like a Reserved Instance but flexible across instance types\n  Commit to spend $X per hour\n  Applies to: VMs, Container Apps, AKS, Functions Premium, App Service\n  Discount: up to 65% vs. pay-as-you-go\n  Trade-off vs. RI: less discount than RI, but applies to any VM size/family\n  Use: when you need flexibility (don't know exact VM mix 1-3 years out)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "## Spot Instances / Spot VMs",
+      "confidence": "candidate",
+      "text": "AZURE SPOT VMs:\n  Azure's excess capacity at 60-90% discount\n  Eviction: 30-second notice when Azure needs capacity back\n  Eviction policy options:\n    Stop/Deallocate: VM stops, disk preserved, IP lost\n    Delete: VM and disk deleted\n  Eviction rate varies by region, VM family, time of day\n  Check eviction rates: Azure Portal → Spot Pricing History\n\nWHEN TO USE SPOT:\n  Batch processing with checkpointing\n  CI/CD agents (build fail → retry next agent)\n  ML training with checkpoint saves\n  Rendering, simulation (retryable tasks)\n  AKS spot node pools (pods evicted → scheduler reschedules)\n\nWHEN NOT TO USE:\n  Production web APIs (eviction causes downtime)\n  Databases without DR/failover\n  Any stateful workload without recovery logic\n\nAKS SPOT NODE POOL PATTERN:\n  Taint: kubernetes.azure.com/scalesetpriority=spot:NoSchedule\n  Toleration in workload: tolerates this taint\n  Fallback: on-demand node pool for non-spot-tolerant pods\n  Budget: spot nodes for 80% of batch workload, on-demand for 20% overhead",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "## Right-Sizing Methodology",
+      "confidence": "candidate",
+      "text": "RIGHT-SIZING PROCESS:\n\n1. COLLECT METRICS (7-30 day window):\n   CPU: average, p95, peak\n   Memory: average usage\n   Disk IOPS: peak sustained\n   Network: egress/ingress peak\n\n2. IDENTIFY CANDIDATES:\n   Azure Advisor: automatically flags underutilized VMs\n   Criteria: CPU avg < 5% AND memory < 50% over 14 days\n   Cost: potential savings shown per recommendation\n\n3. ANALYZE HEADROOM:\n   Current: D8s_v5 (8 vCPU, 32GB RAM)\n   Actual usage: CPU avg 12%, peak 40%; Memory avg 28%, peak 55%\n   Target: D4s_v5 (4 vCPU, 16GB RAM) with 20% headroom\n   Risk: none (peak CPU 40% → on D4s = 80%, still within limits)\n\n4. TEST AND MONITOR:\n   Change in dev/test first\n   Monitor for 1 week: any performance degradation?\n   Promote to production\n   Monitor for 2 weeks\n\n5. REPEAT QUARTERLY:\n   Workloads change; right-sizing is not one-time\n   New Azure VM generations often offer better price/perf\n   (D5s → D5s_v5: same price, ~20% better performance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## Autoscaling as Cost Control",
+      "confidence": "candidate",
+      "text": "AUTOSCALING FOR COST:\n  Scale out during peak → scale in during off-peak\n  Pay only for capacity actually needed\n\n  Web API: VMSS / AKS HPA\n    Scale out: CPU > 70% for 3 minutes\n    Scale in: CPU < 30% for 10 minutes (scale-in delay prevents thrash)\n    Min instances: 2 (HA), Max: 20\n\n  Development environments:\n    Scale to zero at end of day\n    VMSS: scheduled scaling (scale to 0 at 8pm, scale to 5 at 8am)\n    AKS: dev cluster scaled down, or auto-shutdown VM nodes overnight\n\n  Synapse Dedicated SQL Pool:\n    Pause when not in use (pause = $0, no data loss)\n    Auto-pause after 1 hour of inactivity (built-in)\n    Resume: ~5 minutes (plan for this in pipeline scheduling)\n\n  Azure Functions (Consumption):\n    Scale to zero by default → zero cost when idle\n    Premium plan: min instances > 0 → cost even when idle\n    Choose based on cold start tolerance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "## Tagging Governance",
+      "confidence": "candidate",
+      "text": "TAGGING STRATEGY\n\nRECOMMENDED MINIMUM TAG SET:\n  Application: the product or system (e.g., \"payment-service\")\n  Environment: dev / staging / prod\n  Team / CostCenter: which team owns it (e.g., \"payments-team\")\n  Owner: email of tech lead (for alerting)\n  BusinessUnit: which org unit (e.g., \"core-banking\")\n\nENFORCEMENT:\n  Azure Policy: deny resource creation without required tags\n    Built-in policy: \"Require tag and its value\"\n    Audit mode first → Deny mode after teams are compliant\n  Azure Blueprints: apply tag policy + RBAC + resource groups as a unit\n  Infrastructure as Code: enforce in Bicep/Terraform templates\n\nINHERITANCE LIMITATION:\n  Azure tags do NOT inherit from resource group to resources by default\n  Solution 1: Policy to inherit RG tags to resources automatically\n  Solution 2: Apply tags in IaC at both RG and resource level\n\nCOST ALLOCATION VIEWS:\n  Azure Cost Management + Billing → Cost Analysis → Group By Tag\n  Filter: last 30 days, by Application=\"payment-service\"\n  Export: send cost data to Storage → query with Power BI / Synapse\n\nCHARGEBACK vs. SHOWBACK:\n  Showback: show each team what they're spending (informational)\n  Chargeback: actually invoice teams for their usage (financial)\n  Most organizations start with showback; mature FinOps → chargeback",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

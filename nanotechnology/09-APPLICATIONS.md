@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:applications
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Nanotechnology Applications: Nanocomposites, Coatings, Catalysis, Energy
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/09-APPLICATIONS.md
+canonical_path: nanotechnology/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:nanotechnology:09-applications, git-history:nanotechnology:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanotechnology Applications: Nanocomposites, Coatings, Catalysis, Energy
 
 ## The Big Picture

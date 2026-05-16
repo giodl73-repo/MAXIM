@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\07-DATA-PLATFORMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Medallion Architecture (Bronze/Silver/Gold)",
+      "confidence": "candidate",
+      "text": "RAW DATA SOURCES → [Bronze] → [Silver] → [Gold] → CONSUMERS\n\nBRONZE LAYER (raw, immutable):\n  Exact copy of source data, as received\n  No transformation, no cleaning\n  Format: often Parquet or Delta (preserves source schema)\n  Append-only: never overwrite, never delete\n  Use: reprocessing from scratch when logic changes\n  Location: ADLS Gen2 / bronze container\n\nSILVER LAYER (cleansed, conformed):\n  Validated, cleaned, deduped data\n  Common data types, column names normalized\n  Joins across source systems (e.g., customer from CRM + from ERP)\n  Filtering of invalid records\n  PII tokenization applied\n  Format: Delta Lake (ACID, schema enforcement, time travel)\n  Location: ADLS Gen2 / silver container\n\nGOLD LAYER (business-ready, aggregated):\n  Star schema or flat aggregates for specific use cases\n  Pre-computed metrics (daily sales by region, weekly user cohort)\n  Optimized for query performance (partitioning, Z-ordering, clustering)\n  Multiple gold tables for different domains (Marketing Gold, Finance Gold)\n  Consumed by: Power BI, Synapse dedicated pool, ML feature stores\n  Format: Delta Lake\n\nPIPELINE FLOW:\n  ADF ingests from source → writes Bronze\n  Databricks/Synapse Spark job → reads Bronze, cleans → writes Silver\n  Databricks/Synapse → aggregates Silver → writes Gold\n  Power BI / Synapse dedicated pool → reads Gold",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "### Compute Engines in Synapse",
+      "confidence": "candidate",
+      "text": "SYNAPSE ENGINES\n\n1. DEDICATED SQL POOL (formerly SQL DW):\n   Massively Parallel Processing (MPP) SQL engine\n   Data: stored in Synapse-managed distributed storage (not ADLS)\n   Architecture: 60 distributions (shards) across DWUs\n   Best for: complex analytical queries over large structured datasets\n   Pricing: pay per DWU-hour (pause when idle!)\n   Scale: 100 DWUs to 30,000 DWUs\n   Limitations: no ACID (no row-level locks), batch loads only,\n                not Spark-compatible natively\n\n2. SERVERLESS SQL POOL (built-in, always on):\n   Query ADLS Gen2 files directly with SQL (no data loading)\n   Supports: Parquet, Delta (preview→GA), CSV, JSON\n   Pricing: per TB scanned\n   Best for: ad hoc exploration, schema discovery, light analytics\n   Limitations: no updates/deletes, reads from lake only\n   Use: \"show me the schema of this parquet file\" or \"what's in this folder\"\n\n3. APACHE SPARK POOL:\n   Managed Spark clusters (auto-start, auto-terminate)\n   Spark 3.x, Delta Lake support\n   Languages: Scala, PySpark, Spark SQL, .NET Spark\n   Use: data transformation (Bronze→Silver), ML, streaming\n   vs. Databricks: Synapse Spark has tighter Azure integration;\n     Databricks has more features (MLflow native, Unity Catalog, DLT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Azure Databricks",
+      "confidence": "candidate",
+      "text": "DATABRICKS ARCHITECTURE\n\nWORKSPACE:\n  Notebooks (collaborative, like Jupyter, with revision history)\n  Jobs: scheduled notebook or JAR execution\n  Clusters: interactive (notebooks) or job (automated)\n  Libraries: shared libraries per cluster or per notebook\n\nCLUSTER TYPES:\n  All-purpose: interactive development, collaborative notebooks\n  Job: automated, isolated, terminated after job completion\n  SQL Warehouse: Databricks SQL endpoint for BI tools (JDBC/ODBC)\n\nDELTA LIVE TABLES (DLT):\n  Declarative pipeline framework (like DBT but for Spark)\n  Define: @dlt.table decorator + transformation SQL/Python\n  DLT manages: ordering, retry, schema evolution, data quality\n  Medallion enforcement: declare table quality expectations as constraints\n\nUNITY CATALOG:\n  Centralized governance for all Databricks assets\n  Catalogs → Schemas → Tables (3-level namespace)\n  Cross-workspace access: one catalog, multiple workspaces\n  Column-level security, row-level security, data lineage\n  vs. Synapse: Purview for governance (different product)\n\nMLFLOW INTEGRATION:\n  Experiment tracking: log params, metrics, artifacts per run\n  Model registry: version models, promote to staging/production\n  Auto-logging: sklearn, TF, PyTorch auto-log hyperparams + metrics\n  Azure ML can use MLflow as tracking server",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## Delta Lake",
+      "confidence": "candidate",
+      "text": "DELTA LAKE FEATURES\n\nACID TRANSACTIONS:\n  Write-ahead log (_delta_log/ directory)\n  Each commit = JSON file listing file additions + deletions\n  Readers always see a consistent snapshot\n  Concurrent writers: optimistic concurrency, conflict resolution\n\nTIME TRAVEL:\n  SELECT * FROM table TIMESTAMP AS OF '2024-01-01'\n  SELECT * FROM table VERSION AS OF 42\n  Each version = a snapshot of the table at that commit\n  Retention: configurable (default 7 days of logs preserved)\n  Use: auditing, reproducing historical model training data, debugging\n\nSCHEMA ENFORCEMENT:\n  Inserts with extra/missing columns → rejected by default\n  Schema evolution: MERGE SCHEMA option to evolve when needed\n  DDL changes logged: ALTER TABLE ADD COLUMN tracked in log\n\nUPSERT (MERGE):\n  MERGE INTO target USING source ON condition\n  WHEN MATCHED THEN UPDATE\n  WHEN NOT MATCHED THEN INSERT\n  Full SQL MERGE support (not available in plain Parquet/CSV lakes)\n\nZ-ORDER (OPTIMIZE):\n  OPTIMIZE table ZORDER BY (date, user_id)\n  Co-locates related data in same files\n  Reduces data scan for filters on those columns\n  Equivalent: clustering in traditional DW\n  Should run periodically (daily/weekly) on large tables\n\nDELETION VECTORS:\n  Delta 3.0: soft-delete (mark deleted rows without rewriting files)\n  Faster DELETEs and UPDATEs on large tables",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

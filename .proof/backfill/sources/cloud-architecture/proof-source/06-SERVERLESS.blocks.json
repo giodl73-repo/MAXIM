@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\06-SERVERLESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 51,
+      "heading_context": "### Trigger Types",
+      "confidence": "candidate",
+      "text": "TRIGGER TYPES AND USE CASES\n+----------------------------------------------------------+\n| HTTP Trigger         | REST API endpoint, webhook        |\n|                      | Input: HTTP request               |\n|                      | Output: HTTP response             |\n+----------------------------------------------------------+\n| Timer Trigger        | Scheduled execution (cron)        |\n|                      | Input: timer info                 |\n|                      | Use: nightly reports, cleanup     |\n+----------------------------------------------------------+\n| Blob Trigger         | Fire when blob created/updated    |\n|                      | Input: blob content               |\n|                      | Use: image processing, ETL        |\n+----------------------------------------------------------+\n| Queue Trigger        | Process Azure Storage Queue msg   |\n|                      | At-least-once delivery            |\n|                      | Use: background work items        |\n+----------------------------------------------------------+\n| Service Bus Trigger  | Process Service Bus queue/topic   |\n|                      | Sessions supported, DLQ           |\n+----------------------------------------------------------+\n| Event Hub Trigger    | Process event streams (batched)   |\n|                      | Consumer group per function app   |\n|                      | Use: telemetry, IoT, streaming    |\n+----------------------------------------------------------+\n| Cosmos DB Trigger    | Change feed: new/updated docs     |\n|                      | Use: real-time sync, projections  |\n+----------------------------------------------------------+\n| Event Grid Trigger   | React to Azure events             |\n+----------------------------------------------------------+\n| Durable Trigger      | Orchestrator + activity starters  |\n|                      | (see Durable Functions section)   |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### Hosting Plans: The Critical Decision",
+      "confidence": "candidate",
+      "text": "CONSUMPTION PLAN:\n  Scale to zero: no cost when idle\n  Scale out: automatically, up to 200 instances\n  Cold start: first invocation after idle → ~200ms-1s warmup\n  Timeout: 5 minutes default, 10 minutes max\n  VNet: NOT supported (can outbound via VNet Integration, but limited)\n  Cost: per execution + GB-seconds\n  Use: variable workloads, event-driven, dev/test\n\nELASTIC PREMIUM PLAN (Recommended for production):\n  Pre-warmed instances: 1+ always-warm instances → no cold start\n  Scale out: rapid elastic scale like Consumption\n  Timeout: unlimited\n  VNet Integration: full inbound and outbound VNet connectivity\n  Private endpoints: can restrict inbound to VNet only\n  Premium hardware: faster instances\n  Cost: per vCPU-second (higher base cost, but warm instances)\n  Use: production APIs, VNet-connected functions, no cold start requirement\n\nDEDICATED (APP SERVICE PLAN):\n  Runs on VMs you provision (not serverless)\n  Always on: no cold start, no scale to zero\n  Timeout: unlimited\n  VNet: full support\n  Cost: fixed per VM hour (pay whether idle or not)\n  Use: when you have spare App Service Plan capacity; predictable,\n       constant-load functions; running alongside App Service apps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "### Cold Start Explained",
+      "confidence": "candidate",
+      "text": "COLD START:\n  Function app has been idle → no instance running\n  First request → trigger instance creation:\n    Pull container image (or use cached layer)\n    Start host process\n    Load .NET / Node / Python runtime\n    Load function code\n    Handle request\n  Time: 200ms (Node.js) to 1s+ (.NET with large dependencies)\n\nCOLD START MITIGATIONS:\n  Elastic Premium: pre-warmed instances eliminate cold start\n  Always Ready Instances (Container Apps): minimum instance count\n  Keep-alive: timer trigger pings function every 2-4 min (hacky, costs money)\n  Minimize dependencies: smaller packages = faster startup\n  .NET NativeAOT: pre-compile to native, faster startup\n  Container Functions (Premium): bring your own container image\n\nLANGUAGES RANKED BY COLD START SPEED:\n  JavaScript/TypeScript → fastest\n  Python               → fast\n  Java                 → slower (JVM startup)\n  .NET isolated worker → moderate (improved in .NET 8 with NativeAOT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "#### Fan-Out / Fan-In",
+      "confidence": "candidate",
+      "text": "[Orchestrator] → [Activity1A] → |\n               → [Activity1B] → +→ [Aggregate] → result\n               → [Activity1C] → |\n\n// Process 100 items in parallel, wait for all:\nconst tasks = items.map(item => context.callActivity(\"Process\", item));\nconst results = yield context.Task.all(tasks);\nconst aggregate = results.reduce(...);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "#### Async HTTP API (Long-Running Polling)",
+      "confidence": "candidate",
+      "text": "POST /start-job\n  → Creates orchestration instance\n  → Returns HTTP 202 with status endpoint URL\n\nGET /status/{instanceId}\n  → Returns: Running / Completed / Failed + output\n  → Caller polls until done\n  → No timeouts: orchestration can run for days/months\n\nUSE: Long-running operations that exceed HTTP timeout\n     Client polls for status (or use webhooks/Event Grid to notify)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "#### Human Interaction (Approval Workflow)",
+      "confidence": "candidate",
+      "text": "[Orchestrator]\n  → Send approval email (activity)\n  → Wait for external event with timeout:\n       event = yield context.waitForExternalEvent(\"Approved\", timeout=3days)\n  → If event received: continue\n  → If timeout: escalate\n\nEXTERNAL EVENT SENT BY:\n  Approval API endpoint (someone clicks \"Approve\" in email link)\n  → POST /runtime/webhooks/durabletask/instances/{id}/raiseEvent/Approved\n  → Orchestrator resumes\n\nUSE: Approval workflows, human-in-the-loop processes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "### Durable Functions Internals",
+      "confidence": "candidate",
+      "text": "HOW DURABLE FUNCTIONS MAINTAINS STATE:\n\nTask Hub = Azure Storage Account:\n  + Orchestration instances table\n  + History table (event log per instance)\n  + Work item queue (pending activities)\n  + Control queue (orchestrator coordination)\n\nREPLAY MECHANISM:\n  Orchestrator function is replayed from scratch on each wakeup\n  Uses event history to \"fast-forward\" past completed activities\n  → Second invocation \"calls\" Activity1 → sees it's complete in history\n    → returns cached result immediately (no actual call)\n  → Continues to next yield\n\nCONSTRAINT: Orchestrator code must be deterministic\n  NO: DateTime.Now, Random, Guid.NewGuid() inside orchestrator\n      (these give different values on replay)\n  YES: context.currentUtcDateTime, context.newGuid()\n  → Side effects (calls to external services, I/O) belong in activities",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "## State Management in Stateless Functions",
+      "confidence": "candidate",
+      "text": "STATE MANAGEMENT PATTERNS\n\nSESSION/USER STATE:\n  Azure Cache for Redis → per-user session data\n  Cosmos DB → user profile, preferences\n  → Look up by user ID on each invocation\n\nDISTRIBUTED LOCKS:\n  Redis SETNX + TTL → lock acquisition/release\n  Azure Blob leases → leader election, distributed lock\n  Use: prevent concurrent processing of same item\n\nIDEMPOTENCY:\n  Store processed message IDs in Redis / Cosmos DB\n  Before processing: check if ID already processed\n  After processing: record ID\n  → Safe to deliver at-least-once, process exactly-once\n\nAGGREGATION STATE (event sourcing):\n  Store events in Cosmos DB / Table Storage\n  Compute aggregate on read (or maintain projection)\n  Event store is the source of truth\n\nDURABLE ENTITIES (new pattern):\n  Stateful \"actors\" managed by Durable Functions\n  Each entity has its own state in Task Hub\n  Operations are serialized (no concurrent calls to same entity)\n  Use: virtual actor model, counters, aggregates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:bionanotechnology
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Bionanotechnology: Drug Delivery, Biosensors, and Theranostics
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/08-BIONANOTECHNOLOGY.md
+canonical_path: nanotechnology/08-BIONANOTECHNOLOGY.md
+backsource_ids: [proof-backfill:nanotechnology:08-bionanotechnology, git-history:nanotechnology:08-bionanotechnology]
+concepts: [bionanotechnology]
+root_concepts: [bionanotechnology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bionanotechnology: Drug Delivery, Biosensors, and Theranostics
 
 ## The Big Picture

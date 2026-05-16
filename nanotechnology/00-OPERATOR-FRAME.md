@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:operator-frame
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Volume 8 - The Operator's Frame
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/00-OPERATOR-FRAME.md
+canonical_path: nanotechnology/00-OPERATOR-FRAME.md
+backsource_ids: [proof-backfill:nanotechnology:00-operator-frame, git-history:nanotechnology:00-operator-frame]
+concepts: [operator, frame]
+root_concepts: [operator, frame]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Volume 8 — The Operator's Frame
 
 ## The Operator's Thesis

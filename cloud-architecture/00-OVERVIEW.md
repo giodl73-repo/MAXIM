@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:overview
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Cloud Architecture: Models, Patterns, and Trade-offs - Landscape
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/00-OVERVIEW.md
+canonical_path: cloud-architecture/00-OVERVIEW.md
+backsource_ids: [proof-backfill:cloud-architecture:00-overview, git-history:cloud-architecture:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cloud Architecture: Models, Patterns, and Trade-offs — Landscape
 
 ## Sentinel Context

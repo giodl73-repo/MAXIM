@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\02-COMPUTE-PATTERNS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMPUTE DECISION HIERARCHY\n\nWHAT IS YOUR WORKLOAD?\n        |\n   +----+----+----+----+\n   |    |    |    |    |\n  Web  Batch Job  ML  Legacy\n  API  Process Schedule Train  App\n   |    |    |    |    |\n   v    v    v    v    v\nAKS/  Container AKS/  AKS + VM with\nApp   Apps/ACI  Jobs  GPU   specific\nSvc              /ACI  N-   config\n                       series\n\nCOST MODEL?\n        |\n   +----+----+----+\n   |    |    |    |\nAlways Always Fault-\n  on  on but tolerant\n      variable workload\n        |    |    |\n   Reserved  On-  Spot\n   instances demand (70-90%\n             (base) discount)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "## VM Generations and Series (Azure)",
+      "confidence": "candidate",
+      "text": "GENERAL PURPOSE\n+----------------------------------------------------------+\n| D-series (Dv5, Dav5, Dlsv5)                              |\n|   Balanced CPU:memory (1:4 ratio)                        |\n|   Most common: web servers, dev/test, databases          |\n|   Standard_D4s_v5: 4 vCPU, 16 GB RAM                     |\n+----------------------------------------------------------+\n\nMEMORY OPTIMIZED\n+----------------------------------------------------------+\n| E-series (Ev5, Eas_v5)                                   |\n|   High memory ratio (1:8 ratio)                          |\n|   Large relational databases, in-memory caches           |\n|   Standard_E8s_v5: 8 vCPU, 64 GB RAM                     |\n+----------------------------------------------------------+\n\nCOMPUTE OPTIMIZED\n+----------------------------------------------------------+\n| F-series (Fv2, FX)                                       |\n|   High CPU ratio (1:2 ratio)                             |\n|   Batch processing, web servers, high-CPU analytics      |\n|   Standard_F8s_v2: 8 vCPU, 16 GB RAM                     |\n+----------------------------------------------------------+\n\nGPU / ML\n+----------------------------------------------------------+\n| N-series                                                 |\n|   NC: NVIDIA V100/A100, ML training                      |\n|   ND: NVIDIA A100, deep learning                         |\n|   NV: NVIDIA T4, visualization                           |\n+----------------------------------------------------------+\n\nBURSTABLE (B-series)\n+----------------------------------------------------------+\n| B-series (Bsv2, Basv2)                                   |\n|   Accumulate credits when below baseline CPU usage       |\n|   Burst above baseline using accumulated credits         |\n|   Dev/test, small web apps, low baseline with peaks      |\n|   Standard_B2ms: 2 vCPU, 8 GB RAM, 40% baseline CPU      |\n|   Cheapest general-purpose option for intermittent load  |\n+----------------------------------------------------------+\n\nHIGH PERFORMANCE COMPUTE\n+----------------------------------------------------------+\n| H-series, HB-series (HBv3, HBv4)                         |\n|   AMD EPYC, high memory bandwidth                        |\n|   InfiniBand 200 Gbit/s for MPI workloads                |\n|   Molecular dynamics, finite element analysis, CFD       |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Pricing Models: Reserved vs. Spot vs. On-Demand",
+      "confidence": "candidate",
+      "text": "ON-DEMAND PRICING:\n  Pay per second of usage\n  No commitment\n  Full price (most expensive per unit)\n  Use: variable workloads, dev/test, burst capacity\n\nRESERVED INSTANCES:\n  Commit to 1 or 3 years\n  Pay upfront or monthly\n  Discount: 1-year = ~40% off; 3-year = ~70% off (approximate)\n  Instance size flexibility: applies to same family/region\n  Azure Hybrid Benefit: add Windows Server / SQL Server license discount\n    → 3-year RI + Hybrid Benefit: up to 80% discount vs. on-demand\n  Savings Plans (Azure): flexible RI — any VM size/family, fixed hourly spend commitment\n    Not as deep discount as RI, but flexible across instance types\n  Use: stable, predictable workloads\n\nSPOT INSTANCES (Azure Spot VMs):\n  Spare capacity at 60-90% discount\n  Azure can preempt with 30-second notice\n  NOT guaranteed availability\n  Use: fault-tolerant batch workloads, CI/CD agents, non-critical processing\n  AKS: spot node pools → jobs tolerate node disappearance\n  Pattern: use checkpointing + restart logic; jobs are idempotent\n\nCOMPARISON:\n  Stable production workload (web API): Reserved (1 or 3 year)\n  Dev/test environment (business hours): Scheduled shutdown + on-demand\n  ML training job (can restart): Spot\n  Burst traffic (holiday sales): On-demand or Spot fallback",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Containers vs. VMs: Overhead Comparison",
+      "confidence": "candidate",
+      "text": "VM OVERHEAD:\n  Full OS: kernel, filesystem, networking stack, init system\n  Memory: 512MB–2GB just for OS overhead\n  Boot time: minutes\n  Image size: 10–100GB\n  Isolation: hardware virtualization (hypervisor)\n\nCONTAINER OVERHEAD:\n  Shares host OS kernel (namespace + cgroup isolation)\n  Memory overhead: minimal (no OS duplication)\n  Start time: seconds (milliseconds for warm containers)\n  Image size: 50MB–1GB (base layer shared between containers)\n  Isolation: kernel namespaces (weaker than VMs — same kernel)\n\nWHEN CONTAINERS ARE NOT ENOUGH:\n  Windows containers cannot share Linux kernel → Windows VM required\n  High-security multi-tenant: different kernel per tenant → VMs\n  Legacy applications requiring full OS control → VM\n  Kernel module requirements → VM\n\nWHEN VMs ARE NOT ENOUGH:\n  Extreme density requirements → containers (1000s per node)\n  Fast scaling (seconds, not minutes) → containers\n  Immutable infrastructure, GitOps → containers + K8s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

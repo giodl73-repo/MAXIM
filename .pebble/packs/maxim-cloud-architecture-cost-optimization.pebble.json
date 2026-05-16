@@ -1,0 +1,209 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-cloud-architecture-cost-optimization",
+  "source": "../../cloud-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-COST-OPTIMIZATION.md#000",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "# Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging"
+    },
+    {
+      "id": "08-COST-OPTIMIZATION.md#001",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-COST-OPTIMIZATION.md#002",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "Cloud cost management is a continuous engineering discipline, not a one-time exercise. The FinOps framework provides the vocabulary and process."
+    },
+    {
+      "id": "08-COST-OPTIMIZATION.md#003",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "```\nFINOPS FRAMEWORK (CNCF FinOps Foundation)"
+    },
+    {
+      "id": "08-COST-OPTIMIZATION.md#004",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "PRINCIPLES:\n  Teams need to collaborate (finance, engineering, business units)\n  Everyone takes ownership of their cloud usage\n  FinOps reports should be accessible and timely\n  A centralized team drives FinOps practice\n  Decisions driven by business value of cloud"
+    },
+    {
+      "id": "08-COST-OPTIMIZATION.md#005",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "THREE PHASES (continuous cycle):"
+    },
+    {
+      "id": "08-COST-OPTIMIZATION.md#006",
+      "path": [
+        "08-COST-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]",
+        "canonical_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "concepts": "[cost, optimization]",
+        "current_path": "cloud-architecture/08-COST-OPTIMIZATION.md",
+        "id": "maxim:cloud-architecture:cost-optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cost, optimization]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging",
+        "updated": "null"
+      },
+      "text": "+-------------------+\n  |  INFORM           |\n  |  Cost allocation  |\n  |  Reporting        |\n  +-------------------+\n    Visibility: what are we spending and why?\n    Tagging, cost analysis, unit economics.\n          |\n          v\n  +-------------------+\n  |  OPTIMIZE         |\n  |  Rightsizing      |\n  |  Reservations     |\n  +-------------------+\n    Reduce waste: rightsizing, reservations, spot.\n    Idle resources, unused licenses, oversized.\n          |\n          v\n  +-------------------+\n  |  OPERATE          |\n  |  Budgets          |\n  |  Anomaly detect   |\n  +-------------------+\n    Continuous improvement: budgets, alerts, culture.\n    Engineering accountability, governance.\n          |\n          (feeds back to Inform)\n```"
+    }
+  ],
+  "refs": [
+    "08-COST-OPTIMIZATION.md"
+  ]
+}

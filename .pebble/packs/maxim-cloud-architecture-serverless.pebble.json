@@ -1,0 +1,1945 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-cloud-architecture-serverless",
+  "source": "../../cloud-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-SERVERLESS.md#000",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "# Serverless: Azure Functions, Durable Functions, Cold Start, State Management"
+    },
+    {
+      "id": "06-SERVERLESS.md#001",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-SERVERLESS.md#002",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "Serverless means you write function code; the platform handles provisioning, scaling, and lifecycle. You pay per execution, not per hour of idle time."
+    },
+    {
+      "id": "06-SERVERLESS.md#003",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nAZURE SERVERLESS SPECTRUM"
+    },
+    {
+      "id": "06-SERVERLESS.md#004",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "STATELESS COMPUTE — Azure Functions (code-first):\n    Triggers: HTTP, Timer, Queue, Blob, Event Hub, Cosmos, etc.\n    Hosting plans: Consumption, Elastic Premium, Dedicated (ASP)."
+    },
+    {
+      "id": "06-SERVERLESS.md#005",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "STATEFUL WORKFLOWS — Durable Functions (orchestrator + activities):\n    Patterns: function chaining, fan-out/fan-in, async HTTP API,\n              monitor, human interaction.\n    Storage: Azure Storage queues + Table (Durable task framework)."
+    },
+    {
+      "id": "06-SERVERLESS.md#006",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "INTEGRATION — Logic Apps (low-code, 200+ connectors):\n    Designer: visual flow canvas."
+    },
+    {
+      "id": "06-SERVERLESS.md#007",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "CONTAINER APPS:\n    KEDA-based scale-to-zero containers.\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#008",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-SERVERLESS.md#009",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## Azure Functions: Core Model"
+    },
+    {
+      "id": "06-SERVERLESS.md#010",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "### Trigger Types"
+    },
+    {
+      "id": "06-SERVERLESS.md#011",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nTRIGGER TYPES AND USE CASES\n+----------------------------------------------------------+\n| HTTP Trigger         | REST API endpoint, webhook        |\n|                      | Input: HTTP request               |\n|                      | Output: HTTP response             |\n+----------------------------------------------------------+\n| Timer Trigger        | Scheduled execution (cron)        |\n|                      | Input: timer info                 |\n|                      | Use: nightly reports, cleanup     |\n+----------------------------------------------------------+\n| Blob Trigger         | Fire when blob created/updated    |\n|                      | Input: blob content               |\n|                      | Use: image processing, ETL        |\n+----------------------------------------------------------+\n| Queue Trigger        | Process Azure Storage Queue msg   |\n|                      | At-least-once delivery            |\n|                      | Use: background work items        |\n+----------------------------------------------------------+\n| Service Bus Trigger  | Process Service Bus queue/topic   |\n|                      | Sessions supported, DLQ           |\n+----------------------------------------------------------+\n| Event Hub Trigger    | Process event streams (batched)   |\n|                      | Consumer group per function app   |\n|                      | Use: telemetry, IoT, streaming    |\n+----------------------------------------------------------+\n| Cosmos DB Trigger    | Change feed: new/updated docs     |\n|                      | Use: real-time sync, projections  |\n+----------------------------------------------------------+\n| Event Grid Trigger   | React to Azure events             |\n+----------------------------------------------------------+\n| Durable Trigger      | Orchestrator + activity starters  |\n|                      | (see Durable Functions section)   |\n+----------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#012",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "### Hosting Plans: The Critical Decision"
+    },
+    {
+      "id": "06-SERVERLESS.md#013",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nCONSUMPTION PLAN:\n  Scale to zero: no cost when idle\n  Scale out: automatically, up to 200 instances\n  Cold start: first invocation after idle → ~200ms-1s warmup\n  Timeout: 5 minutes default, 10 minutes max\n  VNet: NOT supported (can outbound via VNet Integration, but limited)\n  Cost: per execution + GB-seconds\n  Use: variable workloads, event-driven, dev/test"
+    },
+    {
+      "id": "06-SERVERLESS.md#014",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "ELASTIC PREMIUM PLAN (Recommended for production):\n  Pre-warmed instances: 1+ always-warm instances → no cold start\n  Scale out: rapid elastic scale like Consumption\n  Timeout: unlimited\n  VNet Integration: full inbound and outbound VNet connectivity\n  Private endpoints: can restrict inbound to VNet only\n  Premium hardware: faster instances\n  Cost: per vCPU-second (higher base cost, but warm instances)\n  Use: production APIs, VNet-connected functions, no cold start requirement"
+    },
+    {
+      "id": "06-SERVERLESS.md#015",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "DEDICATED (APP SERVICE PLAN):\n  Runs on VMs you provision (not serverless)\n  Always on: no cold start, no scale to zero\n  Timeout: unlimited\n  VNet: full support\n  Cost: fixed per VM hour (pay whether idle or not)\n  Use: when you have spare App Service Plan capacity; predictable,\n       constant-load functions; running alongside App Service apps\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#016",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "### Cold Start Explained"
+    },
+    {
+      "id": "06-SERVERLESS.md#017",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nCOLD START:\n  Function app has been idle → no instance running\n  First request → trigger instance creation:\n    Pull container image (or use cached layer)\n    Start host process\n    Load .NET / Node / Python runtime\n    Load function code\n    Handle request\n  Time: 200ms (Node.js) to 1s+ (.NET with large dependencies)"
+    },
+    {
+      "id": "06-SERVERLESS.md#018",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "COLD START MITIGATIONS:\n  Elastic Premium: pre-warmed instances eliminate cold start\n  Always Ready Instances (Container Apps): minimum instance count\n  Keep-alive: timer trigger pings function every 2-4 min (hacky, costs money)\n  Minimize dependencies: smaller packages = faster startup\n  .NET NativeAOT: pre-compile to native, faster startup\n  Container Functions (Premium): bring your own container image"
+    },
+    {
+      "id": "06-SERVERLESS.md#019",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "LANGUAGES RANKED BY COLD START SPEED:\n  JavaScript/TypeScript → fastest\n  Python               → fast\n  Java                 → slower (JVM startup)\n  .NET isolated worker → moderate (improved in .NET 8 with NativeAOT)\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#020",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-SERVERLESS.md#021",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## Durable Functions"
+    },
+    {
+      "id": "06-SERVERLESS.md#022",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "Durable Functions is a stateful workflow extension on top of Azure Functions. It uses the Task Hub (Azure Storage) to persist orchestration state."
+    },
+    {
+      "id": "06-SERVERLESS.md#023",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "### Core Patterns"
+    },
+    {
+      "id": "06-SERVERLESS.md#024",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "#### Function Chaining"
+    },
+    {
+      "id": "06-SERVERLESS.md#025",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\n[Orchestrator] → Activity1 → Activity2 → Activity3 → result"
+    },
+    {
+      "id": "06-SERVERLESS.md#026",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "Orchestrator code:\n  async function* orchestrator(context) {\n    const result1 = yield context.callActivity(\"Activity1\", input);\n    const result2 = yield context.callActivity(\"Activity2\", result1);\n    const result3 = yield context.callActivity(\"Activity3\", result2);\n    return result3;\n  }"
+    },
+    {
+      "id": "06-SERVERLESS.md#027",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "Key: orchestrator is deterministic (can replay to reconstruct state)\n     if it crashes mid-way, it replays from the beginning using stored event history\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#028",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "#### Fan-Out / Fan-In"
+    },
+    {
+      "id": "06-SERVERLESS.md#029",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\n[Orchestrator] → [Activity1A] → |\n               → [Activity1B] → +→ [Aggregate] → result\n               → [Activity1C] → |"
+    },
+    {
+      "id": "06-SERVERLESS.md#030",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "// Process 100 items in parallel, wait for all:\nconst tasks = items.map(item => context.callActivity(\"Process\", item));\nconst results = yield context.Task.all(tasks);\nconst aggregate = results.reduce(...);\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#031",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "#### Async HTTP API (Long-Running Polling)"
+    },
+    {
+      "id": "06-SERVERLESS.md#032",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nPOST /start-job\n  → Creates orchestration instance\n  → Returns HTTP 202 with status endpoint URL"
+    },
+    {
+      "id": "06-SERVERLESS.md#033",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "GET /status/{instanceId}\n  → Returns: Running / Completed / Failed + output\n  → Caller polls until done\n  → No timeouts: orchestration can run for days/months"
+    },
+    {
+      "id": "06-SERVERLESS.md#034",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "USE: Long-running operations that exceed HTTP timeout\n     Client polls for status (or use webhooks/Event Grid to notify)\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#035",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "#### Human Interaction (Approval Workflow)"
+    },
+    {
+      "id": "06-SERVERLESS.md#036",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\n[Orchestrator]\n  → Send approval email (activity)\n  → Wait for external event with timeout:\n       event = yield context.waitForExternalEvent(\"Approved\", timeout=3days)\n  → If event received: continue\n  → If timeout: escalate"
+    },
+    {
+      "id": "06-SERVERLESS.md#037",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "EXTERNAL EVENT SENT BY:\n  Approval API endpoint (someone clicks \"Approve\" in email link)\n  → POST /runtime/webhooks/durabletask/instances/{id}/raiseEvent/Approved\n  → Orchestrator resumes"
+    },
+    {
+      "id": "06-SERVERLESS.md#038",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "USE: Approval workflows, human-in-the-loop processes\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#039",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "### Durable Functions Internals"
+    },
+    {
+      "id": "06-SERVERLESS.md#040",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nHOW DURABLE FUNCTIONS MAINTAINS STATE:"
+    },
+    {
+      "id": "06-SERVERLESS.md#041",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "Task Hub = Azure Storage Account:\n  + Orchestration instances table\n  + History table (event log per instance)\n  + Work item queue (pending activities)\n  + Control queue (orchestrator coordination)"
+    },
+    {
+      "id": "06-SERVERLESS.md#042",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "REPLAY MECHANISM:\n  Orchestrator function is replayed from scratch on each wakeup\n  Uses event history to \"fast-forward\" past completed activities\n  → Second invocation \"calls\" Activity1 → sees it's complete in history\n    → returns cached result immediately (no actual call)\n  → Continues to next yield"
+    },
+    {
+      "id": "06-SERVERLESS.md#043",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "CONSTRAINT: Orchestrator code must be deterministic\n  NO: DateTime.Now, Random, Guid.NewGuid() inside orchestrator\n      (these give different values on replay)\n  YES: context.currentUtcDateTime, context.newGuid()\n  → Side effects (calls to external services, I/O) belong in activities\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#044",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-SERVERLESS.md#045",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## State Management in Stateless Functions"
+    },
+    {
+      "id": "06-SERVERLESS.md#046",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "By design, function instances are stateless. State must be externalized:"
+    },
+    {
+      "id": "06-SERVERLESS.md#047",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nSTATE MANAGEMENT PATTERNS"
+    },
+    {
+      "id": "06-SERVERLESS.md#048",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "SESSION/USER STATE:\n  Azure Cache for Redis → per-user session data\n  Cosmos DB → user profile, preferences\n  → Look up by user ID on each invocation"
+    },
+    {
+      "id": "06-SERVERLESS.md#049",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "DISTRIBUTED LOCKS:\n  Redis SETNX + TTL → lock acquisition/release\n  Azure Blob leases → leader election, distributed lock\n  Use: prevent concurrent processing of same item"
+    },
+    {
+      "id": "06-SERVERLESS.md#050",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "IDEMPOTENCY:\n  Store processed message IDs in Redis / Cosmos DB\n  Before processing: check if ID already processed\n  After processing: record ID\n  → Safe to deliver at-least-once, process exactly-once"
+    },
+    {
+      "id": "06-SERVERLESS.md#051",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "AGGREGATION STATE (event sourcing):\n  Store events in Cosmos DB / Table Storage\n  Compute aggregate on read (or maintain projection)\n  Event store is the source of truth"
+    },
+    {
+      "id": "06-SERVERLESS.md#052",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "DURABLE ENTITIES (new pattern):\n  Stateful \"actors\" managed by Durable Functions\n  Each entity has its own state in Task Hub\n  Operations are serialized (no concurrent calls to same entity)\n  Use: virtual actor model, counters, aggregates\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#053",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-SERVERLESS.md#054",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## Azure Logic Apps vs. Functions"
+    },
+    {
+      "id": "06-SERVERLESS.md#055",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "```\nLOGIC APPS:\n  Low-code integration platform\n  200+ built-in connectors: Office 365, Salesforce, SAP, ServiceNow, etc.\n  Visual designer (drag-and-drop)\n  Built-in triggers: recurrence, HTTP, Event Grid, Service Bus, etc.\n  When to use:\n    Integrations with SaaS applications\n    Line-of-business workflows\n    Non-developer built automations\n    Connector ecosystem value exceeds code flexibility need"
+    },
+    {
+      "id": "06-SERVERLESS.md#056",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "AZURE FUNCTIONS:\n  Code-first (C#, JavaScript, Python, Java, PowerShell, Go, Rust custom handler)\n  Full programming model\n  When to use:\n    Complex business logic\n    Custom algorithms\n    Libraries not available in Logic Apps connectors\n    High performance, sub-second latency"
+    },
+    {
+      "id": "06-SERVERLESS.md#057",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "BOTH together:\n  Logic Apps for orchestration + connector fan-out\n  Functions as custom steps within Logic App (\"Call Azure Function\" action)\n  Common pattern: Logic App handles SAP/Salesforce integration;\n                  Function handles custom calculation/transformation\n```"
+    },
+    {
+      "id": "06-SERVERLESS.md#058",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-SERVERLESS.md#059",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "06-SERVERLESS.md#060",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "**\"Consumption plan is always cheapest\"**\nConsumption is cheapest at low volume (pay per execution). At high sustained volume, Dedicated (App Service) plan may be cheaper (fixed cost, no per-execution charge). Model both before deciding."
+    },
+    {
+      "id": "06-SERVERLESS.md#061",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "**\"Durable Functions = Azure Service Bus\"**\nDurable Functions is a workflow orchestrator with state persistence. Service Bus is a message broker. They solve different problems. Durable Functions uses Storage Queues internally for coordination — it is a higher-level abstraction."
+    },
+    {
+      "id": "06-SERVERLESS.md#062",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "**\"Serverless is stateless\"**\nServerless functions are stateless (no persistent memory across invocations). But serverless architectures manage state externally (Cosmos DB, Redis, Durable Functions entity). \"Stateless execution model\" does not mean \"no state in the system.\""
+    },
+    {
+      "id": "06-SERVERLESS.md#063",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "**\"Cold starts only happen once\"**\nCold starts happen whenever a function has been idle long enough that instances scale to zero (Consumption plan). A function with occasional traffic can cold-start multiple times per day. Elastic Premium eliminates this with pre-warmed instances."
+    },
+    {
+      "id": "06-SERVERLESS.md#064",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-SERVERLESS.md#065",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "06-SERVERLESS.md#066",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "- `cloud-architecture/02-COMPUTE-PATTERNS.md` — compute-pattern comparison class.\n- `cloud-architecture/05-MICROSERVICES.md` — service decomposition before function decomposition.\n- `distributed-systems/03-CONSENSUS.md` — state and coordination constraints in event systems."
+    },
+    {
+      "id": "06-SERVERLESS.md#067",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "06-SERVERLESS.md#068",
+      "path": [
+        "06-SERVERLESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:06-serverless, git-history:cloud-architecture:06-serverless]",
+        "canonical_path": "cloud-architecture/06-SERVERLESS.md",
+        "concepts": "[serverless]",
+        "current_path": "cloud-architecture/06-SERVERLESS.md",
+        "id": "maxim:cloud-architecture:serverless",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serverless]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Serverless: Azure Functions, Durable Functions, Cold Start, State Management",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether variable event traffic should be consumption-based | Functions Consumption | Cold start and execution limits matter for latency-sensitive paths. |\n| Whether an HTTP API cannot tolerate cold starts | Functions Elastic Premium | Premium reduces latency risk but changes the cost model toward reserved capacity. |\n| Whether work lasts minutes to days | Durable Functions orchestration | Durable state is event-sourced; activities must be idempotent. |\n| Whether a dataset needs fan-out/fan-in | Durable Functions fan-out pattern | Fan-out requires throttling and failure aggregation, not just parallelism. |\n| Whether humans participate in the workflow | Durable Functions human interaction pattern | Human latency changes timeout, compensation, and audit requirements. |\n| Whether SaaS connectors are the main value | Logic Apps | Connector convenience can hide error-handling and versioning semantics. |\n| Whether a recurring job is sufficient | Functions Timer trigger | Schedules need idempotency because retries and missed windows happen. |\n| Whether a container should scale to zero | Container Apps with KEDA | Scale-to-zero fits stateless or externally stateful workloads best. |\n| Whether entity state belongs in serverless actors | Durable Entities | Actor-style state simplifies local coordination but can become a throughput bottleneck. |"
+    }
+  ],
+  "refs": [
+    "06-SERVERLESS.md"
+  ]
+}

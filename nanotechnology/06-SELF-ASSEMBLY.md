@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:self-assembly
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Self-Assembly: DNA Origami, Block Copolymers, Colloidal Assembly
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/06-SELF-ASSEMBLY.md
+canonical_path: nanotechnology/06-SELF-ASSEMBLY.md
+backsource_ids: [proof-backfill:nanotechnology:06-self-assembly, git-history:nanotechnology:06-self-assembly]
+concepts: [self, assembly]
+root_concepts: [self, assembly]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Self-Assembly: DNA Origami, Block Copolymers, Colloidal Assembly
 
 ## The Big Picture

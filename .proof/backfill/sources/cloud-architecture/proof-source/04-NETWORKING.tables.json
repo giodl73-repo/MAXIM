@@ -1,0 +1,78 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\04-NETWORKING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 343,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether regional HTTP/S needs WAF and path routing",
+          "Application Gateway v2 WAF tier",
+          "Regional ingress is not CDN or global failover."
+        ],
+        [
+          "Whether global HTTP/S needs edge routing",
+          "Azure Front Door Standard/Premium",
+          "Front Door is HTTP-centric; private regional ingress may still need Application Gateway."
+        ],
+        [
+          "Whether TCP/UDP traffic needs regional load balancing",
+          "Azure Load Balancer Standard",
+          "Layer 4 balancing has no URL or WAF semantics."
+        ],
+        [
+          "Whether global non-HTTP routing can be DNS-based",
+          "Azure Traffic Manager",
+          "DNS routing is coarse and client/cache dependent."
+        ],
+        [
+          "Whether two same-region VNets should connect directly",
+          "VNet Peering",
+          "Peering is non-transitive; hub routing needs explicit design."
+        ],
+        [
+          "Whether cross-region VNets should connect directly",
+          "Global VNet Peering",
+          "Latency, egress cost, and failure-domain boundaries still matter."
+        ],
+        [
+          "Whether on-prem connectivity can use encrypted internet",
+          "VPN Gateway",
+          "VPN is faster to start but less predictable than dedicated circuits."
+        ],
+        [
+          "Whether on-prem connectivity needs dedicated bandwidth",
+          "ExpressRoute",
+          "ExpressRoute improves private connectivity but does not replace routing/security design."
+        ],
+        [
+          "Whether Azure-hosted public zones are enough",
+          "Azure DNS",
+          "Public DNS does not solve private name resolution."
+        ],
+        [
+          "Whether private resources need internal names",
+          "Private DNS Zones",
+          "Split-horizon and linked VNet governance become operational concerns."
+        ],
+        [
+          "Whether a PaaS service should lose its public IP",
+          "Private Endpoint",
+          "Private endpoints change DNS and network paths; plan resolution before cutover."
+        ],
+        [
+          "Whether many VNets and branches need a managed hub",
+          "Azure Virtual WAN",
+          "Virtual WAN simplifies scale but imposes platform conventions and cost structure."
+        ]
+      ]
+    }
+  ]
+}

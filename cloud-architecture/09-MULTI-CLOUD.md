@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:multi-cloud
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Multi-Cloud and Hybrid: Azure Arc, Anthos, Outposts - Trade-offs and Governance
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/09-MULTI-CLOUD.md
+canonical_path: cloud-architecture/09-MULTI-CLOUD.md
+backsource_ids: [proof-backfill:cloud-architecture:09-multi-cloud, git-history:cloud-architecture:09-multi-cloud]
+concepts: [multi, cloud]
+root_concepts: [multi, cloud]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Multi-Cloud and Hybrid: Azure Arc, Anthos, Outposts — Trade-offs and Governance
 
 ## The Big Picture

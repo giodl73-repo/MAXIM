@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nanotechnology\\02-NANOFABRICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "### Resolution Limit: Rayleigh Criterion",
+      "confidence": "candidate",
+      "text": "RAYLEIGH RESOLUTION LIMIT\n===========================\n\n  R = k1 * lambda / NA\n\nwhere:\n  R   = minimum resolvable feature (half-pitch)\n  k1  = process factor (theoretical minimum 0.25, practical ~0.28)\n  lambda = exposure wavelength\n  NA  = numerical aperture (n * sin(theta))\n\nWAVELENGTH PROGRESSION:\n  g-line:   436 nm -> R ~ 350 nm (1980s)\n  i-line:   365 nm -> R ~ 250 nm (1990s)\n  KrF DUV:  248 nm -> R ~ 180 nm (late 1990s)\n  ArF DUV:  193 nm -> R ~ 130 nm dry (early 2000s)\n  ArF immersion: 193 nm, NA=1.35 -> R ~ 38 nm (with k1~0.27)\n  EUV:      13.5 nm, NA=0.33 -> R ~ 13 nm, NA=0.55 -> R ~ 8 nm\n\nTRICKS TO BEAT THE RAYLEIGH LIMIT:\n  Immersion lithography: water (n=1.44) between lens and wafer\n    Effective lambda = 193/1.44 = 134 nm -- bought another generation\n  Phase shift masks (PSM): modify phase to enhance contrast\n  Off-axis illumination: dipole, quadrupole, annular\n  Optical proximity correction (OPC): pre-distort mask to correct diffraction\n  Multipatterning: pattern same layer 2-4 times (LELE, SADP, SAQP)\n    SADP: single lithography -> spacer deposition -> etch spacer -> removes\n          original, leaving spacer features at half the pitch\n    Cost: 2-4x process steps per layer; complexity, overlay errors",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 102,
+      "heading_context": "### Resolution Limit: Rayleigh Criterion",
+      "confidence": "candidate",
+      "text": "### EUV Lithography (13.5 nm)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 143,
+      "heading_context": "## Electron Beam Lithography (EBL)",
+      "confidence": "candidate",
+      "text": "EBL SYSTEM OVERVIEW\n====================\n\nPrinciple:\n  Focused electron beam (10-100 keV) directly writes resist\n  No mask -- pattern defined by deflection control\n  Serial writing: beam moves point to point\n\nResolution:\n  Forward scattering: beam broadens in resist (~1-5 nm)\n  Backscattering from substrate: electrons scatter back (range ~10 um)\n  Point spread function: sharp core + broad tail\n  Minimum feature: ~10 nm (forward scattering dominated)\n  Demonstrated sub-5 nm in research labs (on thin membranes)\n\nPROXIMITY EFFECT:\n  +------------------+        +------------------+\n  |  isolated dot    |        |  dense array     |\n  |  (low dose)      |        | (high dose)      |\n  |                  |        | from backscatter |\n  |    *             |        |  **   **   **    |\n  |                  |        |  dose overlap    |\n  +------------------+        +------------------+\n\n  Solution: Proximity effect correction (PEC) -- modify dose at each pixel\n  based on pattern environment. Computationally expensive.\n\nSpeed:\n  Writing 1 cm^2 at 10 nm pixels: ~1 cm^2 / (10e-9)^2 = 10^14 pixels\n  At 10 MHz writing rate: 10^7 seconds = not feasible\n  Typical: write only features, not entire wafer area\n  Practical write time: hours to days for full chip -- research only\n\nEquipment:\n  Raith EBPG5000+: 100 keV, sub-10 nm\n  JEOL JBX-9500FS: 100 keV, high throughput variant\n  Modified SEMs: 10-30 keV, 30-50 nm resolution (cheap, educational)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "## Focused Ion Beam (FIB)",
+      "confidence": "candidate",
+      "text": "FIB OPERATIONS\n===============\n\nMILLING (subtractive):\n  Ga+ at 30 keV, current 1 pA - 20 nA\n  Sputter rate: ~1-10 um^3/min depending on material\n  Resolution: ~10 nm (Ga+), ~2 nm (He+)\n  Damage layer: ~20 nm Ga implantation (Ga+ FIB)\n\nDEPOSITION (additive):\n  Inject precursor gas (organometallic: W(CO)6, Pt(PF3)4)\n  FIB cracks gas -> deposits Pt, W, C on surface\n  Used for: circuit edit (connect/sever metal lines on IC)\n            TEM sample prep (protective cap before sectioning)\n\nDUAL-BEAM (FIB + SEM):\n  FIB mills cross-section, SEM images it simultaneously\n  3D tomography: slice and image sequentially\n  TEM lamella preparation: extract 100 nm thin slice from specific location\n\nApplications:\n  Circuit edit: modify IC after fabrication (add/remove connections)\n  TEM prep: standard method for cross-sectional TEM of semiconductor devices\n  Failure analysis: expose and image defect sites\n  Rapid prototyping: custom nanostructures for research",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 265,
+      "heading_context": "## Bottom-Up: Chemical Vapor Deposition (CVD)",
+      "confidence": "candidate",
+      "text": "CVD PROCESS TYPES\n==================\n\nTHERMAL CVD:\n  Precursor gas + heat -> decomposition -> deposition\n  SiH4 -> Si + 2H2  (polysilicon deposition, 620 C)\n  TEOS -> SiO2      (silicon dioxide, 650 C)\n  TMGa + AsH3 -> GaAs (III-V growth, 650-750 C)\n\nPLASMA-ENHANCED CVD (PECVD):\n  Plasma breaks bonds at lower temperature (~300 C vs. 600+ C thermal)\n  Critical for: depositing on already-processed devices (thermal budget)\n  SiH4 + NH3 + plasma -> Si3N4 (nitride passivation)\n\nMETALORGANIC CVD (MOCVD / MOVPE):\n  Metalorganic precursors (TMGa, TMAl, TEIn) + hydrides (AsH3, PH3)\n  Growth of III-V compound semiconductors (GaAs, InGaAs, GaN)\n  Used for: LED epitaxy (GaN LEDs), high-electron-mobility transistors (HEMT)\n  Growth rate: 0.1-10 um/hour; thickness control ~1% with rate control\n\nCNT GROWTH (CVD):\n  Fe or Co catalyst nanoparticles on substrate\n  CH4 or C2H2 + H2 at 700-900 C\n  Carbon dissolves into catalyst, CNT grows from catalyst tip\n  SWCNT: ~1 nm diameter; MWCNT: 5-50 nm diameter\n  Diameter controlled by catalyst NP size\n  Chirality (electronic type): currently not well-controlled -- random mixture",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 302,
+      "heading_context": "## Bottom-Up: Atomic Layer Deposition (ALD)",
+      "confidence": "candidate",
+      "text": "ALD CYCLE (example: Al2O3 from TMA + H2O)\n==========================================\n\nCycle step 1: PULSE A (trimethylaluminum, TMA)\n  Al(CH3)3 gas enters chamber\n  Reacts with -OH surface groups: -OH + Al(CH3)3 -> -O-Al(CH3)2 + CH4\n  All surface -OH sites react (self-limiting)\n  Excess TMA evacuated\n\nCycle step 2: PURGE\n  N2 purge removes unreacted TMA and byproducts\n\nCycle step 3: PULSE B (water vapor, H2O)\n  H2O reacts with surface -Al(CH3) groups\n  -O-Al(CH3)2 + 2H2O -> -O-Al(OH)2 + 2CH4\n  Surface covered with -OH again (self-limiting)\n\nCycle step 4: PURGE\n  N2 purge removes unreacted H2O and CH4\n\nONE CYCLE = ONE MONOLAYER (~0.1 nm of Al2O3)\n\nRESULT:\n  Thickness = (cycles) x (growth per cycle, ~0.1 nm)\n  Uniformity: <1% across 300 mm wafer\n  Conformality: coats deep trenches with aspect ratio 100:1\n  No pinholes: self-limiting prevents incomplete coverage\n\nKEY ALD APPLICATIONS:\n  HfO2 high-k gate dielectric (Intel 45nm node 2007, all CMOS since)\n    ALD HfO2 replaced SiO2 -- same k*thickness, less tunneling leakage\n  Al2O3 encapsulant for OLEDs (moisture barrier, 1 cycle = 0.1 nm)\n  TiN barrier in Cu interconnects\n  Conformal coating of 3D NAND flash storage (100+ layers)\n  ZnO seed layer for nanowire growth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## Bottom-Up: Molecular Beam Epitaxy (MBE)",
+      "confidence": "candidate",
+      "text": "MBE SYSTEM\n===========\n\nUltra-high vacuum: 10^-10 to 10^-11 torr\n  (Base pressure lower than lunar surface atmosphere)\n\nEffusion cells (Knudsen cells):\n  Elemental sources (Ga, Al, In, As, P...) heated to evaporation temp\n  Shutters control on/off of each beam\n  Flux controlled by temperature -> growth rate\n\nRHEED (in-situ monitor):\n  Reflection High Energy Electron Diffraction\n  Electron beam grazes surface; diffraction pattern on fluorescent screen\n  Oscillations: each oscillation = 1 monolayer grown\n  Real-time thickness control to 0.1 monolayer precision\n\nGROWTH RATES AND CONTROL:\n  GaAs: ~1 um/hr = ~3 monolayers/second\n  Shutter speed: ~0.1 s -> 0.3 monolayer uncertainty\n  Interface abruptness: 1-2 monolayers (0.3-0.6 nm) routinely achievable\n\nEPITAXIAL STRUCTURES MADE BY MBE:\n  Quantum wells: GaAs (10 nm) / AlGaAs (50 nm) repeating stack\n  HEMT: AlGaAs/InGaAs (high-electron-mobility transistor -- RF, mm-wave)\n  Quantum cascade laser: 200+ layers, each 3-20 nm, precise thickness\n  Modulation-doped structures: dopants in barrier, carriers in well\n\nWHY MBE OVER MOCVD?\n  MBE: better interface abruptness, in-situ characterization, no H-bearing gas\n  MOCVD: higher throughput, lower vacuum requirements, scale-up to manufacturing\n  Research: MBE; Production: MOCVD",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
