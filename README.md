@@ -80,6 +80,15 @@ Every file follows the format established in [`computing/01-PACKAGE.md`](computi
 
 No guide assumes you're a beginner. No guide assumes you already know the topic. Details in [`CLAUDE.md`](CLAUDE.md).
 
+### BANISH gamepack reference gate
+
+BANISH game seeds may use MAXIM as reference grounding when they name the
+concepts, mechanisms, materials, or confusion points that need library support.
+A seed is not MAXIM-ready if it only borrows theme language. It becomes
+MAXIM-ready when it can say what concepts must be researched, what mechanism is
+being compared, and which old-world/new-world bridge would keep the scenario
+legible.
+
 ---
 
 ## Review System
