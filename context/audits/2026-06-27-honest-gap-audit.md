@@ -39,7 +39,16 @@ full confidence and no flag — the worst failure mode for a reader who trusts a
 figure *because* everything around it is correct. The "reviewed and clean" sweep
 was a structural/style pass, **not** a domain fact-check.
 
-## Gap 3 — Headline counts inflated by ~99 empty stub files
+## Gap 3 — Headline counts inflated by ~99 empty stub files — RESOLVED
+
+> **RESOLVED (2026-06-27).** All 99 orphan stub files were deleted across the 12
+> People modules, and each module's source-corpus footprint (PROOF sources, CROP
+> views, PEBBLE packs, FLETCH registry, module record) was wiped and regenerated
+> from the remaining canonical guides only — round-trip 0 failures, every
+> canonical guide has its corpus, no orphan artifacts remain. Verified that all 99
+> deletions were in the known orphan list and that no canonical guide was touched
+> (the stub names appeared in no STATUS.md or nav; the only cross-references were
+> basename collisions with canonical guides in sibling directories).
 
 The People section carries **99 orphan stub files** (22-line frontmatter-only
 `> Stub` files, e.g. `mathematicians-logicians/01-ANCIENT-FOUNDATIONS.md`), an
