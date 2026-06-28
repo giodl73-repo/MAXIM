@@ -84,8 +84,8 @@ capacity from symptoms. Everything below is that reverse-engineering.
 ## AIMD — The Stability Law
 
 The foundational algorithm is **AIMD (Additive Increase, Multiplicative
-Decrease)**, from the original work by Van Jacobson (1988) after the Internet
-suffered real congestion collapses. The rule:
+Decrease)**, analyzed by Chiu and Jain (1989) and deployed in TCP by Van
+Jacobson (1988) after the Internet suffered real congestion collapses. The rule:
 
 ```
    ADDITIVE INCREASE:        every RTT with no loss, cwnd += 1 (a constant)

@@ -92,8 +92,8 @@ source — so the first time you reach a vertex is via a fewest-edges path.
   Graph (undirected):        BFS from s, queue trace:
                              ----------------------------------------
        s --- a --- d        dequeue  discovers   dist set
-      / \         /         s        a, b        a=1, b=1
-     b   c ------+          a        d           d=2
+       |           |        s        a, b        a=1, b=1
+       b --- c ----+        a        d           d=2
                             b        c           c=2
                             c        (a,b seen)  -
                             d        (a seen)    -

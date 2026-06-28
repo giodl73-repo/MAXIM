@@ -128,7 +128,7 @@ The **Markov property** is the key assumption: the next state depends only on th
 |  VALUE ITERATION                                                    |
 |    repeat:  V(s) <- max_a [ R(s,a) + gamma sum P(s'|s,a) V(s') ]    |
 |    converges geometrically (rate gamma) to V*; then extract pi*.   |
-|    error bound: ||V_k - V*|| <= gamma^k ||V_0 - V*|| / (1-gamma)    |
+|    error bound: ||V_k - V*|| <= gamma^k ||V_0 - V*||                |
 |                                                                      |
 |  POLICY ITERATION                                                   |
 |    repeat:                                                          |

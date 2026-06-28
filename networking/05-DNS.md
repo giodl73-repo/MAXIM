@@ -127,7 +127,7 @@ A DNS zone holds typed records. The ones you actually need:
 
 ```
    CNAME GOTCHA: a CNAME cannot coexist with other records at the SAME name,
-   and you cannot CNAME the zapex (example.com itself) per the spec. That's
+   and you cannot CNAME the zone apex (example.com itself) per the spec. That's
    why providers invented "ALIAS"/"ANAME"/flattened-CNAME records for apex
    pointing at a load balancer (08).
 

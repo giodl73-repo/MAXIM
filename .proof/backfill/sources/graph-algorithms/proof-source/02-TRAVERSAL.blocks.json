@@ -19,7 +19,7 @@
       "line": 85,
       "heading_context": "## BFS — Layer by Layer",
       "confidence": "candidate",
-      "text": "  Graph (undirected):        BFS from s, queue trace:\n                             ----------------------------------------\n       s --- a --- d        dequeue  discovers   dist set\n      / \\         /         s        a, b        a=1, b=1\n     b   c ------+          a        d           d=2\n                            b        c           c=2\n                            c        (a,b seen)  -\n                            d        (a seen)    -\n                            => order s,a,b,c,d ; dist[d]=2 via s-a-d\n\n  LAYERS:   L0 = {s}   L1 = {a, b}   L2 = {c, d}",
+      "text": "  Graph (undirected):        BFS from s, queue trace:\n                             ----------------------------------------\n       s --- a --- d        dequeue  discovers   dist set\n       |           |        s        a, b        a=1, b=1\n       b --- c ----+        a        d           d=2\n                            b        c           c=2\n                            c        (a,b seen)  -\n                            d        (a seen)    -\n                            => order s,a,b,c,d ; dist[d]=2 via s-a-d\n\n  LAYERS:   L0 = {s}   L1 = {a, b}   L2 = {c, d}",
       "notes": [
         "fenced visual/source block"
       ]

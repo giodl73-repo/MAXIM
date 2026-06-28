@@ -225,7 +225,7 @@ Server's `SNAPSHOT`, and most engines' snapshot mode — does not. Guide 05 is t
    MySQL/InnoDB        MVCC snapshot         row + GAP locks (Repeatable Read default)
    SQL Server (default)2PL locking reads     2PL write locks (blocking, deadlocks)
    SQL Server RCSI     MVCC (version store)  2PL write locks
-   SQL Server SNAPSHOT MVCC snapshot         optimistic; first-committer-wins (5xxx error)
+   SQL Server SNAPSHOT MVCC snapshot         optimistic; first-committer-wins (error 3960)
    SQLite              coarse db/page locks   single-writer (WAL mode allows readers + 1 writer)
 ```
 
