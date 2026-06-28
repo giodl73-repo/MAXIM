@@ -107,9 +107,9 @@ QUIPU STRUCTURE
   ENCODING SYSTEM:
   ┌──────────────────────────────────────────────────────────────────┐
   │  KNOT TYPE encodes numeric value:                                │
-  │  Single overhand knot = "1" (or single digit)                    │
-  │  Long knot (multiple loops) = 2–9 (number of loops = value)      │
-  │  Figure-8 knot = "10"                                            │
+  │  Figure-8 knot = "1" in the UNITS position only                  │
+  │  Single (long) knots encode the tens-and-higher digits,          │
+  │  with loops/clusters giving the digit at each decimal place      │
   │  Position on pendant = decimal place (top = high value,          │
   │                                        bottom = ones)            │
   │                                                                  │
@@ -247,10 +247,10 @@ WIRE ROPE INTRODUCTION
         (small iron wires twisted together for mining hoist)
 
   ROEBLING ERA:
-  1841: John A. Roebling — patent on wire rope manufacturing process
+  1842: John A. Roebling — patent on wire rope manufacturing process
         Roebling's first wire bridge: Allegheny Aqueduct (1844)
-        Brooklyn Bridge (1883): 5,282 wire rope cables,
-        each cable containing 5,434 wires of cold-drawn steel
+        Brooklyn Bridge (1883): 4 main cables,
+        each containing 5,434 wires of cold-drawn steel
 
   WHY WIRE REPLACED HEMP FOR HEAVY LIFTING:
   ┌──────────────────────────────────────────────────────────────────┐

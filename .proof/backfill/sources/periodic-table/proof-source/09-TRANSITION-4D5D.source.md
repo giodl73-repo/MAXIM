@@ -313,7 +313,7 @@ RHODIUM:
   Price volatility: Rh hit $29,000/oz in 2021 (supply disruption + catalytic converter demand)
 
 IRIDIUM:
-  Densest element: 22.56 g/cm³ (Os is marginally denser at 22.59)
+  Second-densest element: 22.56 g/cm³ (Os is densest at 22.59)
   Hardest naturally occurring element; most corrosion-resistant metal known
   Melting point: 2446°C
   Iridium anomaly (K-Pg boundary): Alvarez hypothesis (1980) — thin iridium-rich clay layer

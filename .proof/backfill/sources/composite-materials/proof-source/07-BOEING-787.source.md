@@ -224,7 +224,7 @@ together at final assembly.
 ### Battery Fires (2013)
 
 Lithium-ion battery system caused fires on two 787s in January 2013 → worldwide
-fleet grounding (50 aircraft, 99 days).
+fleet grounding (50 aircraft, ~4 months).
 
 ```
    DIRECT RELEVANCE TO COMPOSITES:
@@ -239,7 +239,7 @@ fleet grounding (50 aircraft, 99 days).
    BROADER IMPLICATION:
    ─────────────────────
    Composite structures: different response to fire than metal
-   Emergency: burning CFRP → HCN (acrylonitrile origin) + other toxics
+   Emergency: burning CFRP → HCN (hydrogen cyanide) + other toxics
    FAA/EASA: specific flammability requirements for composite interiors and structure
 ```
 

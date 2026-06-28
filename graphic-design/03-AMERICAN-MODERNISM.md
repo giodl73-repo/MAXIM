@@ -172,7 +172,7 @@ FILM TITLES AS DESIGN BREAKTHROUGH
   Psychological dread established in 2 minutes
 
 "Psycho" (1960)   [Alfred Hitchcock]
-  Horizontal lines fragment and reassemble text
+  Vertical bars fragment and reassemble text
   Nervous energy, fragmentation = film's theme
   Text as subject, not label
 
@@ -192,7 +192,7 @@ BASS METHOD:
 ```
 BASS LOGO WORK
 --------------
-AT&T "globe" logo        1984    Still in use (updated 2005, 2016)
+AT&T "globe" logo        1983    Still in use (updated 2005, 2016)
 United Airlines          1974    "Tulip" motif
 Quaker Oats             1969    Simplified Quaker figure
 Kleenex                 1955

@@ -215,7 +215,7 @@ MEISNER (Sanford Meisner, 1905-1997; Neighborhood Playhouse)
     observation to each other, responding to HOW it is said
     not what (content eventually abandoned; the exercise
     trains pure responsiveness)
-  → Associated with: James Gandolfini, Grace Kelly, Steve McQueen,
+  → Associated with: James Gandolfini, Robert Duvall, Sydney Pollack,
     Jeff Goldblum, Diane Keaton
 ```
 

@@ -344,7 +344,7 @@ Team:
   Magic Johnson       Michael Jordan      Larry Bird
   Charles Barkley     Patrick Ewing       John Stockton
   Karl Malone         Clyde Drexler       Scottie Pippen
-  Chris Mullin        Chris Webber [replaced by Laettner]
+  Chris Mullin        Christian Laettner (only college player)
   Christian Laettner  (last "amateur" on the roster — Duke)
 
 Context:

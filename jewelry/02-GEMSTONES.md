@@ -80,7 +80,7 @@ Orthorhombic      a≠b≠c, all 90°       Topaz, tanzanite (when classified
                                         here), peridot
                                         → anisotropic
 
-Hexagonal         a=b=c≠d, 120°/90°    Beryl (emerald, aquamarine),
+Hexagonal         a=b≠c, 120°/90°       Beryl (emerald, aquamarine),
                                         apatite
                                         → uniaxial
 

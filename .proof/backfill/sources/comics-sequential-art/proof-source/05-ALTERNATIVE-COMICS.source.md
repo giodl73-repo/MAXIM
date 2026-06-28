@@ -234,7 +234,7 @@ THE MEMOIR BOOM (2000s)
   After Maus, personal and political memoir became the dominant
   literary comics form.
 
-  PERSEPOLIS (Mariane Satrapi, 2000-2003)
+  PERSEPOLIS (Marjane Satrapi, 2000-2003)
   Iranian childhood; Islamic Revolution; exile in Europe
   Black and white; graphic novel format; published by L'Association (FR)
   English translation: Pantheon (2003-2004)

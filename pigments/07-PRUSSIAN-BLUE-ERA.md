@@ -167,7 +167,7 @@ GENERAL CHROME YELLOW INSTABILITY:
 ```
 SCHEELE'S GREEN: copper arsenite (CuHAsO₃ or Cu(AsO₂)₂)
   Discoverer: Carl Wilhelm Scheele (Swedish chemist, 1742-1786)
-  Also discovered: chlorine (Cl₂), oxygen (O₂), manganese, barium,
+  Also discovered: chlorine (Cl₂), oxygen (O₂), manganese,
                    molybdenum, tungsten, nitrogen... died at 43
   Probably died of his own discoveries (mercury, lead, hydrofluoric acid)
 
@@ -302,7 +302,7 @@ TIMELINE: 1798-1900, each decade adds major pigments:
 1856: Mauveine (Perkin) - first coal tar dye
 1862: Magenta (rosaniline) - second generation
 1869: Synthetic alizarin -> destroys madder agriculture
-1874: Industrial synthetic indigo via Baeyer route
+1880: Baeyer's lab synthesis of indigo (industrial production 1897, BASF)
 1897: BASF industrial indigo -> destroys natural indigo
 
 CORPORATE EMERGENCE:

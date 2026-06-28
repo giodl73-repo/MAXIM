@@ -331,7 +331,7 @@ PASCAL'S DESIGN PRINCIPLES
 **Wirth's influence on the field**:
 - **Pascal**: taught structured programming to a generation; Turbo Pascal made fast compiled programs accessible on PCs
 - **Modula-2**: first widespread language with explicit modules and separate compilation — directly influenced Ada, and conceptually influenced Java packages, .NET namespaces
-- **Oberon**: influenced Go (Wirth's ETH colleague Ken Nygaard influenced Go's authors; Rob Pike studied under Thompson, and Pike was at Bell Labs — but Wirth's minimalism is cited as an inspiration for Go's design philosophy)
+- **Oberon**: Wirth's minimalism (Oberon/Pascal) is cited as an inspiration for Go's design philosophy (Rob Pike et al.).
 - **PL/0, Lola**: pedagogical compilers still used for teaching compiler construction
 
 ---

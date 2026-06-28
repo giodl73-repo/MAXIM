@@ -225,7 +225,7 @@ picture requires honest numbers, not industry marketing.
    Writing/printing paper: ~1.3–2.0 t CO2eq/t (cradle-to-grave)
    Steel sheet: ~1.5–2.5 t CO2eq/t
    Aluminum sheet: ~8–12 t CO2eq/t
-   PET bottle: ~3.5–5.0 t CO2eq/kg (very high vs. paper packaging)
+   PET bottle: ~3.5–5.0 t CO2eq/t (very high vs. paper packaging)
 ```
 
 ---

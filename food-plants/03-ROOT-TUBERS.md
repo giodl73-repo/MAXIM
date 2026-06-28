@@ -48,7 +48,7 @@ The trade-off: lower protein content, higher water content, less storage life.
 ```
 POTATO DIVERSITY IN THE ANDES
 ──────────────────────────────────────────────────────────────────────────────
-Wild ancestor:  Solanum tuberosum (multiple wild relatives across Andes)
+Wild ancestor:  Solanum brevicaule complex (wild relatives across Andes)
                 Andes from Venezuela to Argentina, sea level to 4,500m
 
 Domestication:  ~8,000 BP, Lake Titicaca region (Peru/Bolivia border)

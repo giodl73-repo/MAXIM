@@ -104,7 +104,7 @@ CONFIRMATION:
 
   Scandium (Sc) discovered 1879 — eka-boron.
   Germanium (Ge) discovered 1886 — eka-silicon.
-    Meyer himself said Mendeleev's eka-silicon prediction for Ge
+    Winkler (germanium's discoverer) said Mendeleev's eka-silicon prediction for Ge
     was "the most striking confirmation of the periodic law."
 ```
 

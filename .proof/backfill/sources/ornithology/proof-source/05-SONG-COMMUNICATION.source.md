@@ -113,7 +113,7 @@ THREE GROUPS OF VOCAL LEARNERS:
 
 SONGBIRD BRAIN CIRCUITS (best studied, in Taeniopygia guttata -- zebra finch):
 
-  POSTERIOR VOCAL LEARNING PATHWAY (AFP -- Anterior Forebrain Pathway):
+  ANTERIOR FOREBRAIN PATHWAY (AFP):
     Necessary for song acquisition and modification
     Not needed for production of learned song in adults
     +----------+     +-----------+     +----------+

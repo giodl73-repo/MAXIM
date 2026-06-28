@@ -39,7 +39,7 @@ THE ABSTRACTION TRAJECTORY
         Art + craft + technology integration
         Closed 1933 by Nazis; faculty disperse to US, UK
                       |
-  1924  Bauhaus moves to Dessau (Gropius building)
+  1925  Bauhaus moves to Dessau (Gropius building)
                       |
   1933  Bauhaus closes (Nazi pressure)
         Albers → Black Mountain College (US)

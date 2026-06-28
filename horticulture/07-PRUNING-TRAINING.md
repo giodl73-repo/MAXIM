@@ -145,7 +145,7 @@ PRUNING WOUND TIMING AND PATHOGENS:
   Avoid pruning in wet weather (disease spores spread in water).
   Prunus (cherry, plum): do NOT prune in fall (bacterial canker risk).
     Best in midsummer (rapid wound closure + dry conditions).
-  Oak: do NOT prune March–July in oak wilt zones (Ceratocystis quercus risk).
+  Oak: do NOT prune March–July in oak wilt zones (Bretziella fagacearum risk).
     Best in winter.
   Most other species: dormant season is standard and safe.
 ```

@@ -98,7 +98,7 @@ TIMELINE
 1858: Born in Toba, Japan; noodle and rice cake vendor's son
 1878: Begins oyster farming (natural pearl fishing was overharvested)
 1893: First successful hemispherical (mabe) cultured pearl
-1896: First round cultured pearl; Japanese patent
+1896: Mikimoto's cultured (mabe/blister) pearl patent; first fully round ~1905
 1908: Mass production begins on Mikimoto's oyster farms
 1920s: Natural pearl market collapses; Basra/Persian Gulf merchants
         lose fortunes as cultured pearls flood market

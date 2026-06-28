@@ -101,7 +101,7 @@ ETHANOL-WATER PHASE DIAGRAM
 The liquid and vapor curves meet at 95.6% ABV (78.15 degrees C)
 -> At this point, vapor composition = liquid composition
 -> Boiling the mixture does not change composition
--> Cannot exceed 95.6% ABV (189.1 proof) by simple distillation
+-> Cannot exceed 95.6% ABV (191.2 proof) by simple distillation
 ```
 
 **How to get above 95.6% ABV:**

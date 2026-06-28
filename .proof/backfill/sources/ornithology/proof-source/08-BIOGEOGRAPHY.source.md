@@ -339,8 +339,8 @@ Nesting behavior   Ground nesting more common     No mammalian predators (oceani
 Plumage            Less elaborate (some spp)      Reduced conspecific competition?
 
 GIGANTISM EXAMPLES:
-  Dodo (Rodrigues, Mauritius): Raphus cucullatus ~20 kg from pigeon-sized ancestor
-  Giant flightless rails: Apatornithidae; worldwide (often extinct post-contact)
+  Dodo (Mauritius): Raphus cucullatus ~20 kg from pigeon-sized ancestor
+  Giant flightless rails: Rallidae; worldwide (often extinct post-contact)
 
 DWARFISM:
   Dwarf mammoths on Mediterranean islands

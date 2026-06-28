@@ -68,7 +68,7 @@ TIMELINE:
 
   1900  — Ernest Rutherford identifies radon as a radioactive emanation from radium decay
 
-  2002  — Oganesson (Og, Z=118) synthesized at JINR Dubna; named 2016 for Yuri Oganessian
+  2006  — Oganesson (Og, Z=118) synthesized at JINR Dubna; named 2016 for Yuri Oganessian
 ```
 
 ---
@@ -250,7 +250,7 @@ MITIGATION: sub-slab depressurization (pipe from under foundation → exterior v
 
 ```
 SYNTHESIS:
-  ²⁴⁸Cm + ⁴⁸Ca → ²⁹⁴Og + 4n   (JINR Dubna, 2002)
+  ²⁴⁹Cf + ⁴⁸Ca → ²⁹⁴Og + 3n   (JINR Dubna, 2006)
   Only 5 atoms observed; t½ ≈ 0.69 ms (decays by α → Livermorium-290)
 
 PREDICTED PROPERTIES:

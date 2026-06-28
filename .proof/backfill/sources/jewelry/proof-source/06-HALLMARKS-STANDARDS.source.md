@@ -105,7 +105,7 @@ UK HALLMARK COMPONENTS
    London:     Leopard's head (head, no body — since 1300)
    Birmingham: Anchor (1773)
    Edinburgh:  Castle (1457)
-   Sheffield:  York rose (1773)
+   Sheffield:  Rose (1773)
    Dublin:     Hibernia (historically, though Ireland independent)
    Others closed: Chester (1962), Glasgow, Newcastle, Exeter
 

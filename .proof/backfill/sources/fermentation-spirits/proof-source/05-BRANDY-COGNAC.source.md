@@ -148,7 +148,7 @@ LEGAL REQUIREMENT: Must be in copper Charentais still
 ```
 COGNAC AGING
 
-OAK: Limousin (Quercus petraea, wider grain, more tannin)
+OAK: Limousin (Quercus robur, wider grain, more tannin)
      Tronçais (tight grain, less tannin, more elegant)
      New or old oak
 

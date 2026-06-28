@@ -159,7 +159,7 @@ CHADWICK (1932):
   Electric charge: 0
 
   From conservation of energy and momentum in:
-    ¹⁹Be + α → ¹²C + n
+    ⁹Be + α → ¹²C + n
 
   Chadwick measured the mass, proving a new particle.
 ```

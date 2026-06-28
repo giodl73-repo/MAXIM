@@ -227,7 +227,7 @@ British women had been organizing for suffrage since the 1860s. By 1903, after d
   1913  Pankhurst imprisoned and released 11 times in one year
   1914  WWI: WSPU suspends campaign; Pankhurst supports war
 
-  WWII: Women doing war work → political case for suffrage
+  WWI: Women doing war work → political case for suffrage
         becomes unanswerable
   1918: Women 30+ with property vote
   1928: Equal Franchise Act: women on same terms as men

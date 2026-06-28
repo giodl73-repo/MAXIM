@@ -246,7 +246,7 @@ Later mechanical variants: TMP (thermo-mechanical pulp, ~1970s), CTMP
 
 ### Chemical Pulping: The Critical Step
 
-**Hugues Burgess and Charles Watt** (1851): alkali process (soda process)
+**Hugh Burgess and Charles Watt** (1851): alkali process (soda process)
 — cook wood in sodium hydroxide solution.
 
 **Benjamin Tilghman** (1866): sulfite process — cook wood in calcium bisulfite.

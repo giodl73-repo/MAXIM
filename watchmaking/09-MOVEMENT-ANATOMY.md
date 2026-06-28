@@ -175,7 +175,7 @@ POWER RESERVE:
 The going train is the gear reduction chain from the barrel to the escape wheel. It reduces the barrel's slow rotation (~one revolution per 8 hours in a 48h movement) to the escape wheel's rapid stepping (~6–10 Hz).
 
 ```
-GOING TRAIN — TYPICAL RATIOS (28,800 vph = 8 Hz movement)
+GOING TRAIN — TYPICAL RATIOS (28,800 vph = 4 Hz movement)
 
 WHEEL          TEETH   PINION   RATIO    PERIOD
 ─────────────────────────────────────────────────────────────────

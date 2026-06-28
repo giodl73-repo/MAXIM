@@ -315,7 +315,7 @@ CNC EVOLUTION:
 
   NC (1950s): MIT Servomechanism Lab + US Air Force
     Punched tape; 2–3 axis; no computer → hard-wired logic
-    → First CNC machine: MIT 1952 milling machine
+    → First NC machine: MIT 1952 milling machine
 
   CNC (1970s): dedicated mini-computer in each machine
     Magnetic tape, then floppy disk

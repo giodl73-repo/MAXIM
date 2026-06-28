@@ -152,7 +152,7 @@ Sergei Diaghilev (impresario, not choreographer)
 WORKS THAT CHANGED EVERYTHING:
   The Firebird (1910)       -- Fokine; Russian fairy tale
   Petrushka (1911)          -- Fokine; tragedy, puppet as human
-  Afternoon of a Faun (1912)-- Nijinsky; 2D Egyptian profile pose
+  Afternoon of a Faun (1912)-- Nijinsky; 2D ancient-Greek profile pose
                                Erotic scandal at premiere
   Rite of Spring (1913)     -- Nijinsky/Stravinsky
                                RIOT AT PREMIERE (May 29, 1913)

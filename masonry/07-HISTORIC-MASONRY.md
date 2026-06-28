@@ -43,7 +43,7 @@ MASONRY HISTORY TIMELINE
   1200 CE  ──── Islamic geometric ornament peaks (Alhambra, Mamluk Cairo)
   1420 CE  ──── Brunelleschi's Florence Cathedral dome (without centering)
   1590 CE  ──── St. Peter's dome completed (iron chain tension ring)
-  1824 CE  ──── Portland cement patent (William Aspdin)
+  1824 CE  ──── Portland cement patent (Joseph Aspdin)
   1890 CE  ──── Chicago frame — masonry becomes enclosure, not structure
   1950 CE  ──── Reinforced CMU system fully codified
 ```

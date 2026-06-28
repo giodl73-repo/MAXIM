@@ -120,7 +120,7 @@ SLING TYPE COMPARISON (ASME B30.9, ASME B30.10)
 | Vertical (single leg) | 1.0 × WLL | Baseline |
 | Choker | 0.75 × WLL | Reduced — choke radius reduces capacity |
 | Basket (two legs, 90°) | 2.0 × WLL | Both legs load |
-| Two-leg bridle, 60° included angle | 2.0 × WLL | Same as basket |
+| Two-leg bridle, 60° included angle | 1.73 × WLL | cos(30°) factor |
 | Two-leg bridle, 90° included angle | 1.41 × WLL | Angle penalty |
 | Two-leg bridle, 120° included angle | 1.0 × WLL | Same as single |
 | Spreader bar (parallel legs) | 2.0 × WLL | Spreader eliminates angle |

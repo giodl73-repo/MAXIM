@@ -308,7 +308,7 @@ PROBLEM: ~500,000 children/year go blind from Vitamin A deficiency
 
 SOLUTION: Express beta-carotene synthesis genes in rice endosperm
   Wild-type rice: endosperm has no carotenoids (bleached white)
-  Golden Rice 1 (1999 Ye et al.): 2 genes (daffodil psy + E. coli crtl)
+  Golden Rice 1 (2000 Ye et al.): 2 genes (daffodil psy + Erwinia uredovora crtI)
     Produced ~1.6 μg/g (insufficient)
   Golden Rice 2 (2005 Paine et al.): maize psy + E. coli crtI
     Produced ~37 μg/g (sufficient for dietary needs)

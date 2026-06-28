@@ -301,7 +301,7 @@ DIPTERA -- ~125,000 SPECIES
     Remove halteres -> immediate loss of flight control
 
   MOUTHPARTS: diverse radiations
-    Cyclorrhapha: sponging (Musca) or piercing (Stomoxys, Culex)
+    Cyclorrhapha: sponging (Musca) or piercing (Stomoxys, Glossina)
     Nematocera: cutting mouthparts (Aedes) or non-biting
 
   SUBORDERS:

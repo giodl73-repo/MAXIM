@@ -318,7 +318,7 @@ CUCKOOS (Cuculidae):
     Cuckoo nestling call mimics multiple chicks; begging frequency very high
     Serotonin theory: cuckoo call triggers extraordinary feeding response
 
-COWBIRDS (Molothrus atteratus):
+COWBIRDS (Molothrus ater):
   Brown-headed cowbird: N. America; >200 host species
   Generalist (vs cuckoo specialist): lay in any suitable nest
   No egg mimicry (generalist can't mimic all hosts)

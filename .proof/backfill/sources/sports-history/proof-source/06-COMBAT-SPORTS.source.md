@@ -347,9 +347,9 @@ UFC TIMELINE:
 
   ROYCE GRACIE (UFC 1):
   -- Won 3 fights in one night
-  -- Defeated Gerard Gordeau (Dutch kickboxer),
-     Kevin Rosier (kickboxer), Genki Sudo's
-     predecessor in final vs. Ken Shamrock
+  -- Defeated Art Jimmerson (boxer), then Ken
+     Shamrock (semifinal), then Gerard Gordeau
+     (Dutch kickboxer) in the final
   -- Techniques: takedowns, guard, chokes
   -- Audience: had never seen ground fighting
      -- "He's in trouble!" commentators said

@@ -494,7 +494,7 @@ TUBE IN TUBE (Fazlur Khan):
   Outer tube: closely-spaced perimeter columns + deep spandrel beams
   Inner tube: concrete elevator/stair core
   Outer tube acts like a hollow box beam → very efficient
-  Used: World Trade Center (1970, structural engineer Fazlur Khan)
+  Used: World Trade Center (1970, structural engineer Leslie Robertson)
   John Hancock Center, Chicago uses X-bracing on exterior tube
 
 BUNDLED TUBE (Fazlur Khan):

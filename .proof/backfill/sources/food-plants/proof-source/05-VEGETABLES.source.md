@@ -212,8 +212,8 @@ A. tuberosum       Garlic chives  East Asia       Flat leaves, garlic flavor
 ALLIUM PUNGENCY MECHANISM
 ──────────────────────────────────────────────────────────────────────────────
 INTACT CELL:
-  Precursor: alliin / S-allylcysteine sulfoxide stored in cytoplasm
-  Enzyme: alliinase stored in vacuole — PHYSICALLY SEPARATED
+  Precursor: alliin / S-allylcysteine sulfoxide stored in the vacuole
+  Enzyme: alliinase stored in the cytoplasm — PHYSICALLY SEPARATED
 
 CELL DAMAGED (cutting, crushing):
   Alliin + alliinase → allicin + other thiosulfinates

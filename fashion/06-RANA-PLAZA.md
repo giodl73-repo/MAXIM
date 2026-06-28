@@ -258,7 +258,7 @@ TRIANGLE SHIRTWAIST FACTORY FIRE (March 25, 1911)
   Frances Perkins witnessed the fire from the street
   -> Became the first female US Secretary of Labor (1933)
   -> Helped pass New Deal labor protections
-  Fire inspector: Rose Schneiderman: "We have tried you good people
+  Labor organizer Rose Schneiderman: "We have tried you good people
   of the public and we have found you wanting"
   Result: New York Factory Investigating Commission
   -> Over 30 new labor laws in NY within 3 years

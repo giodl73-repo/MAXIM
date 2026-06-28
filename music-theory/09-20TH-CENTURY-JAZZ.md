@@ -224,7 +224,7 @@ PROCESS:
   4. Use the overtone series relationship as the harmonic basis of the piece
 
 KEY COMPOSERS:
-  Gérard Grisey: "Partiels" (1975) — cello low E spectrum used for entire piece
+  Gérard Grisey: "Partiels" (1975) — trombone low E spectrum used for entire piece
     Opening: spectrum of one pitch spread across the orchestra
     Development: "time-stretched" attack of the cello note over 8 minutes
     Each section = different phase of the original sound's life: attack, sustain, decay

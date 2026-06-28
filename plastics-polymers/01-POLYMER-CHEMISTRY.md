@@ -87,7 +87,7 @@ water removal.
 | PET | Terephthalic acid + ethylene glycol | H2O |
 | Nylon 66 | Adipic acid + hexamethylenediamine | H2O |
 | Polycarbonate | BPA + phosgene | HCl |
-| Silicone | Dichlorosilane hydrolysis | HCl |
+| Silicone | Dichlorodimethylsilane hydrolysis | HCl |
 
 ---
 

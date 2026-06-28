@@ -121,7 +121,7 @@ APICAL EXTENSION MODEL:
     → Colony morphology on agar plates reflects branching pattern
 
   GROWTH RATES:
-    Neurospora crassa (bread mold): up to 5 cm/hr
+    Neurospora crassa (bread mold): up to 5 mm/hr
     Arbuscular mycorrhizal fungi: much slower
     Growth rate = measure of metabolic activity and carbon supply
 ```
@@ -259,7 +259,7 @@ MATING TYPES:
   Not "male" and "female" — mating type genes control compatibility
   Two-mating-type system: most Ascomycetes
   Multiple mating types: some Basidiomycetes
-    Coprinopsis cinerea (ink cap): 23,000 mating types
+    Schizophyllum commune (split gill): ~23,000 mating types
     → Any individual can mate with almost any other individual
   Self-fertile (homothallic) vs. obligate outcrossing (heterothallic)
 

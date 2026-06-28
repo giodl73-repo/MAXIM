@@ -327,7 +327,7 @@ Port de bras          Arms independent of body; extreme speed
 KEY WORK: "In the Middle, Somewhat Elevated" (1987)
   -- Created for Paris Opera Ballet
   -- Aggressive, off-balance, fast
-  -- Electronic music (Willems/Bausch)
+  -- Electronic music (Thom Willems)
   -- Pointe shoes + completely non-classical movement
   -- The paradox: looks wrong by classical rules yet requires
      classical training to execute

@@ -309,8 +309,8 @@ INDIGO:
 
 PRUSSIAN BLUE:
   Named for Prussia (where it was accidentally synthesized in 1704)
-  Berlin dye-maker Diesbach and paint-maker Zahn
-  Liebermann's laboratory (actually probably Diesbach's accidental contamination)
+  Berlin dye-maker Diesbach, working in Dippel's laboratory
+  Diesbach's accidental contamination (potash tainted by Dippel's animal oil)
   First synthetic pigment? No — Egyptian blue is 3000 BCE
   But: first ACCIDENTALLY discovered pigment; first modern laboratory synthesis
 

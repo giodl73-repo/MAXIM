@@ -292,7 +292,7 @@ Wipe with isopropyl alcohol before application.
 
 ## 6. PVA Drywall Primer
 
-Polyvinyl alcohol (PVA) sealer — specific to new, uncoated drywall.
+Polyvinyl acetate (PVA) sealer — specific to new, uncoated drywall.
 
 ### Why New Drywall Is Different
 

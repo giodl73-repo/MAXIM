@@ -293,7 +293,7 @@ KITTY HAWK FIRST FLIGHTS — THE DATA
   Weather: 27 mph winds (headwind component helps low-speed liftoff).
   Engine: 12 HP, 200 lbs. Custom-built because no automobile engine
   was light enough (weight/power ratio too poor).
-  The four witnesses: five locals, mostly from a nearby lifesaving station.
+  The witnesses: five locals, mostly from a nearby lifesaving station.
 
   THE WORLD'S REACTION (initially):
     Not much. The Associated Press report was rejected or ignored by most papers.
@@ -308,7 +308,7 @@ KITTY HAWK FIRST FLIGHTS — THE DATA
 
 ### Bio Snapshot
 
-English RAF officer. Son of a mechanic. Excelled at mathematics. RAF officer cadet at 16. Designed his first turbojet concept in a thesis paper at RAF College, Cranwell in 1928. His supervisor told him it was impractical. He pursued it anyway. Patent filed 1930. He received no government support for six years. Received Turing Award — no, Turing Award is computing; Whittle received a knighthood in 1948 and the Order of Merit.
+English RAF officer. Son of a mechanic. Excelled at mathematics. RAF officer cadet at 16. Designed his first turbojet concept in a thesis paper at RAF College, Cranwell in 1928. His supervisor told him it was impractical. He pursued it anyway. Patent filed 1930. He received no government support for six years. Whittle received a knighthood in 1948 and the Order of Merit.
 
 ### The Turbojet Engine
 

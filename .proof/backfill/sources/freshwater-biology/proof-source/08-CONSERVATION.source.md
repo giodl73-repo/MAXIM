@@ -113,7 +113,7 @@ The definitive case study of introduced predator causing mass extinction:
 
 ```
   INTRODUCTION HISTORY:
-  ~1950s: Introduced to Lake Haplochromis Estates (Uganda side) by British colonizers
+  ~1950s: Introduced to Lake Victoria (Uganda side) by British colonizers
           for food/sport fishing; exact date disputed
   1960s–1970s: Population expansion; spread through lake
   1980s: Fishery boom (now largest freshwater fishery by mass in the world)
@@ -288,7 +288,7 @@ Environmental flows (e-flows) are the quantity, timing, and quality of water flo
   White Salmon River (WA): Condit Dam removed 2012
   --> Coho salmon detected upstream within 1 month
 
-  Penobscot River (Maine): Edwards Dam removed 1999
+  Kennebec River (Maine): Edwards Dam removed 1999
   --> 9 species of anadromous fish re-established
   --> Some species recovery of 1,700+ miles of upstream habitat
 ```

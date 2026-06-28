@@ -128,7 +128,7 @@ Hull House was not charity in the traditional sense — it was community infrast
 
 ### What She Did
 
-Teresa Bojaxhiu was born in Albania, joined the Sisters of Loreto (Irish missionary order), was sent to India, and spent 17 years as a conventional teaching nun in Calcutta before her "call within a call" (1946): leave the convent, live among the poorest of the poor.
+Teresa Bojaxhiu was born in Skopje (present-day North Macedonia) to an ethnic Albanian family, joined the Sisters of Loreto (Irish missionary order), was sent to India, and spent 17 years as a conventional teaching nun in Calcutta before her "call within a call" (1946): leave the convent, live among the poorest of the poor.
 
 She founded the Missionaries of Charity in 1950. Their work: die with dignity. Homes for the dying (Nirmal Hriday, Kalighat); homes for abandoned children; leper colonies; AIDS hospices. By her death, the Missionaries of Charity had 4,500 sisters in 133 countries running 610 missions.
 

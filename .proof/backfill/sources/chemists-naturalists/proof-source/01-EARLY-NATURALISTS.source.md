@@ -48,9 +48,9 @@ SOLUTION REQUIRED:
 
 THE CLASSIFIERS:
   Aristotle (~350 BCE): first systematic zoology; hierarchy of life
-  John Ray (1686–1704): first rigorous definition of species
+  John Ray (1627–1705): first rigorous definition of species
   Buffon (1749–1788): biogeography; questioned fixed species
-  Linnaeus (1735–1778): binomial nomenclature, hierarchical classification
+  Linnaeus (1707–1778): binomial nomenclature, hierarchical classification
 ```
 
 ---

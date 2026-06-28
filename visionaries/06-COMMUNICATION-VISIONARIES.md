@@ -153,7 +153,7 @@ McLuhan's ideas have been widely quoted, widely misunderstood, and frequently di
      - "Global village": electric media reconnect people
        into a tribal pattern of simultaneous awareness
      - The telephone is "cool" (requires participation)
-     - Television is "hot" (high definition; passive reception)
+     - Television is "cool" (low definition; high participation)
 
   HOT vs. COOL:
   HOT MEDIA: high definition; one sense; little participation

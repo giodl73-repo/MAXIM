@@ -244,7 +244,7 @@ CHRISTIAN DIOR (1905-1957)
   First female creative director at Dior
 
 COCO CHANEL (1883-1971)
-  Liberating women from corsets; jersey as fashion fabric (WWII)
+  Liberating women from corsets; jersey as fashion fabric (WWI)
   The "little black dress" (1926)
   Chanel No. 5 fragrance (1921) -- established luxury fragrance market
   Chanel suit: jacket + skirt in boucle tweed; collarless; gold buttons

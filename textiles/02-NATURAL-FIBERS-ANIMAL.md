@@ -175,7 +175,7 @@ FELTING (the failure mode):
 ```
 MERINO:
   Origin: Iberian Peninsula; Spain banned export under death penalty
-          until late 18th century (flock smuggled to Prussia, later
+          until late 18th century (flock exported to Saxony, later
           to Australia/New Zealand)
   Current: Australia (~80% of ultrafine Merino world supply)
   Range: 15.5–22 μm; 17.5 μm is typical "fine" Merino knitwear

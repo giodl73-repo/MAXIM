@@ -82,7 +82,7 @@ Paper is cellulose in fiber form. Understanding the fiber is everything.
 ### Wood Fibers — Softwood vs. Hardwood
 
 ```
-   SOFTWOOD (conifers: pine, spruce, fir, eucalyptus in some contexts)
+   SOFTWOOD (conifers: pine, spruce, fir, larch, hemlock)
    ─────────────────────────────────────────────────────────────────────
    Fiber length: 2–4 mm (tracheid cells)
    High bonding strength, high tear resistance
@@ -235,7 +235,7 @@ CONTINUOUS PROCESS CONTROL LAYER:
              efficiency lever
 
 POLYMER CHEMISTRY LAYER:
-  Cellulose = (C6H10O5)n, a linear beta-1,4-glucose polymer, DP 300–3,500
+  Cellulose = (C6H10O5)n, a linear beta-1,4-glucose polymer, DP ~1,000–10,000
   Same polymer physics as synthetic fibers: chain length → tensile strength;
   crystallinity → stiffness vs flexibility; hydrogen bonding → inter-fiber
   network strength (the H-bond network IS the paper's structural basis)

@@ -305,7 +305,7 @@ The secular trend in athletic performance is unambiguous. Confounders: training 
 |---|---|---|---|---|
 | 100m sprint | World record | 10.6s (1912) | 9.58s (Bolt, 2009) | -9.6% |
 | High jump | World record | 1.97m (1912) | 2.45m (Sotomayor, 1993) | +24% |
-| Marathon | World record | 2:55:18 (1908) | 2:00:35 (Kipchoge, 2023) | -31% |
+| Marathon | World record | 2:55:18 (1908) | 2:00:35 (Kiptum, 2023) | -31% |
 | NFL linemen | Average weight | ~95kg (1920s) | ~145kg (2010s) | +53% |
 | Shot put | World record | 15.34m (1909) | 23.37m (Barnes, 1990) | +52% |
 
@@ -564,7 +564,7 @@ These systems changed competitive strategy: tennis players now target lines more
 2019         Rugby World Cup Japan; US Women soccer equal pay fight
 2021         Biles withdrawal; Osaka mental health; NIL legalized
 2022         Qatar World Cup; Messi wins; Russia excluded
-2023         Kipchoge marathon 2:00:35; Mbappe transfer saga
+2023         Kiptum marathon 2:00:35; Mbappe transfer saga
 2024         Paris Olympics; Simone Biles returns with gold
 ```
 

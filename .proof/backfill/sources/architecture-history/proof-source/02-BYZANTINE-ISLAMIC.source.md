@@ -329,7 +329,7 @@ MOSQUE FUNCTIONAL REQUIREMENTS
 
 1. ORIENTATION: The entire congregation must face the qibla
    (direction of Mecca). In Spain: nearly due east.
-   In Iran: nearly due west. In Bangladesh: nearly due west.
+   In Iran: nearly due southwest. In Bangladesh: nearly due west.
 
 2. SCALE: Must accommodate Friday congregational prayer —
    potentially thousands at once in a major mosque.
@@ -491,7 +491,7 @@ MATHEMATICAL BASIS:
   Some muqarnas compositions are quasi-crystalline —
   non-repeating tilings (like Penrose tiles) that were
   used in Persian architecture by the 12th century,
-  predating Western mathematical discovery by 700 years
+  predating Western mathematical discovery by roughly 500 years
   (Peter Lu and Paul Steinhardt, 2007 paper in Science)
   Mathematical note: 5-fold rotational symmetry is
   forbidden in periodic crystals (a provable result from

@@ -161,7 +161,7 @@ COMPOSITION:
 
 PROPERTIES:
  Refractive index: ~1.56 (vs 1.52 soda-lime)
- Dispersion (Abbe): lower than soda-lime → more "fire" in cut facets
+ Dispersion: higher than soda-lime (lower Abbe number) → more "fire" in cut facets
  Density: ~3.1 g/cm³ (vs 2.5 soda-lime) → heavier feel
  Hardness: Mohs ~5.5 (softer than soda-lime ~6) → easier hand cutting
  Ringing sound: resonant when tapped — acoustic quality from density

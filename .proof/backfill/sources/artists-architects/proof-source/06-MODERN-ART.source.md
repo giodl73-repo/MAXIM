@@ -170,7 +170,7 @@ At the 1905 Salon d'Automne, Matisse and his circle (Derain, Vlaminck) exhibited
     that Matisse felt expressed the presence and vitality of the figure.
   ─ A collector (Leo Stein) bought it with deep reluctance; a young man
     at the opening called it the ugliest painting he'd ever seen.
-    The young man was Ernest Hemingway.
+    The speaker's identity is not reliably recorded.
 ```
 
 ### The Great Decoration

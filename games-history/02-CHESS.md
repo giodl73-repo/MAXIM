@@ -253,7 +253,7 @@ KEY CONCEPTS INTRODUCED/FORMALIZED:
   King centralization in the endgame: king is active piece
 ```
 
-Steinitz's student Emanuel Lasker held the title 27 years (1894–1921) — the longest reign ever. Lasker was a mathematician (PhD from Erlangen, proved Lasker's theorem in algebra) who treated chess as a psychological battle as much as a technical one.
+Steinitz's student Emanuel Lasker held the title 27 years (1894–1921) — the longest reign ever. Lasker was a mathematician (PhD from Erlangen, proved the Lasker–Noether theorem in algebra) who treated chess as a psychological battle as much as a technical one.
 
 José Raúl Capablanca (Cuba, champion 1921-1927) exemplified positional clarity to the extreme — effortless simplicity, the "chess machine." He lost only 34 games in his career.
 

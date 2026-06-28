@@ -48,7 +48,7 @@ The Braun-Rams design vocabulary (1955-1995) is the most influential body of ind
 |  Cylindrical speaker            Cylindrical, single aperture top     |
 |  simple perforated face                                              |
 |                                                                      |
-|  ET44 calculator (1977)  -->    iPhone/iPad calculator app (2007)    |
+|  ET66 calculator (1977)  -->    iPhone/iPad calculator app (2007)    |
 |  Grid layout, flat keys,        Pixel-perfect recreation in pixels   |
 |  neutral colors                                                      |
 +----------------------------------------------------------------------+
@@ -186,10 +186,10 @@ iPOD COMPARISON (2001):
   Ive acknowledged the influence directly; considered it homage, not copying
 ```
 
-### ET44 Calculator (1977)
+### ET66 Calculator (1977)
 
 ```
-ET44 POCKET CALCULATOR (Braun, 1977)
+ET66 POCKET CALCULATOR (Braun, 1977)
 Dietrich Lubs (under Rams)
 
 FEATURES:
@@ -202,7 +202,7 @@ FEATURES:
 
 iPHONE CALCULATOR APP COMPARISON:
   The original iPhone calculator app (2007):
-  -- Pixel-perfect recreation of the ET44 layout
+  -- Pixel-perfect recreation of the ET66 layout
   -- Same button color logic
   -- Same grid proportions
   -- The only difference: screen at top vs bottom

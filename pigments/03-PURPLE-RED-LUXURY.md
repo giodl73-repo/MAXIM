@@ -83,14 +83,14 @@ ARCHAEOLOGICAL EVIDENCE:
 
   INDIGOTIN vs 6,6'-DIBROMOINDIGO:
   Indigotin absorption: ~610 nm -> blue
-  Dibromoindigo absorption: ~580 nm (shifted hypsochromically)
+  Dibromoindigo absorption: ~590 nm (shifted bathochromically — red-shifted)
   -> More of the orange-red retained -> red-purple perceived
 
   WHY BROMINE SHIFTS THE COLOR:
   Bromine = electron-withdrawing substituent on the indole ring
   -> Withdraws electron density from π system
   -> Changes HOMO-LUMO gap -> absorption wavelength shifts
-  -> 30 nm blueshift in absorption = significant perceptual shift
+  -> 30 nm redshift in absorption = significant perceptual shift
      from blue toward red-purple
 
 LIGHTFASTNESS:

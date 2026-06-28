@@ -318,7 +318,7 @@ COSC-certified movements are labeled "Chronometer" on the dial.
 ~3% of Swiss watches produced carry this certification.
 ```
 
-**What ±4 sec/day means as engineering:** A 28,800 vph (8 Hz) watch makes 1,382,400 individual escapement release events per day. Each event involves a pallet releasing an escape wheel tooth, transferring an impulse to the balance, and catching the next tooth — all in microseconds, with ~20 µm tolerances, using components that may be 50+ years old with degraded lubricants. Achieving ±4/86,400 = ±46 ppm over all those events is genuinely impressive.
+**What ±4 sec/day means as engineering:** A 28,800 vph (4 Hz) watch makes 1,382,400 individual escapement release events per day. Each event involves a pallet releasing an escape wheel tooth, transferring an impulse to the balance, and catching the next tooth — all in microseconds, with ~20 µm tolerances, using components that may be 50+ years old with degraded lubricants. Achieving ±4/86,400 = ±46 ppm over all those events is genuinely impressive.
 
 ---
 

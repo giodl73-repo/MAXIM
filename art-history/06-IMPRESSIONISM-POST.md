@@ -222,7 +222,7 @@ makes them systematic:
 SEURAT'S POINTILLIST SYSTEM
 ==============================
 
-  BASIS: Helmholtz and Rood's color theory (optical mixing
+  BASIS: Chevreul and Rood's color theory (optical mixing
   vs pigment mixing)
 
   PIGMENT MIXING (subtractive):

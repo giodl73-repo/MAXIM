@@ -367,7 +367,7 @@ MYCORRHIZAL TYPES:
   Ectomycorrhizal fungi:
     Form mantle around root; grow between cortex cells (Hartig net).
     ~3% of plant species but important: forest trees (pine, oak, beech, birch).
-    Many are edible (chanterelle, truffle, porcini, fly agaric).
+    Many are edible (chanterelle, truffle, porcini, matsutake).
 
 AMF BENEFITS:
   Phosphorus: AMF hyphae explore 100–1,000× more soil volume than roots.

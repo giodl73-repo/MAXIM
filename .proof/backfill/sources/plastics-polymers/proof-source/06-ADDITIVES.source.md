@@ -321,7 +321,7 @@ electrical/electronic, building, automotive, textile sectors.
    ──────────────────
    ATH (aluminium trihydrate) and MDH (magnesium dihydroxide)
    Mechanism: endothermic dehydration, dilution with steam
-   Al(OH)3 → Al2O3 + 3H2O  (absorbs 280 kJ/mol — at ~210°C)
+   2 Al(OH)3 → Al2O3 + 3H2O  (absorbs ~280 kJ/mol — at ~200°C)
    High loading needed: 40–65 wt% → reduces mechanical properties
    Halogen-free, low smoke — required for cable/wire in transit
 ```

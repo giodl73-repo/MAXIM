@@ -72,7 +72,7 @@ START: What is this piece for?
 | **Poplar** | 540 | Straight, fine | Excellent | Low | Painted furniture, secondary wood |
 | **Soft Maple** | 700–950 | Straight | Good | Med-Low | Furniture (painted or light stain) |
 | **White Pine** | 380 | Straight | Very easy | Low | Painted furniture, millwork, boxes |
-| **Cedar** (red) | 350 | Straight, aromatic | Very easy | Med | Chests, closets, outdoor (natural rot resistance) |
+| **Cedar** (red) | 900 | Straight, aromatic | Very easy | Med | Chests, closets, outdoor (natural rot resistance) |
 | **Douglas Fir** | 620 | Straight, prominent rings | Good | Low | Construction, rustic furniture |
 
 **Janka hardness** = force to embed a 0.444" steel ball to half its diameter, in lbf. Above ~1,000 lbf = good furniture hardwood.

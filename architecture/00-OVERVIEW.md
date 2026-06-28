@@ -21,7 +21,7 @@ updated: null
 
 ## The Big Picture
 
-Architecture sits at the intersection of three domains that rarely collaborate well. The tension between them is the discipline.
+Architecture sits at the intersection of four domains that rarely collaborate well. The tension between them is the discipline.
 
 ```
   ARCHITECTURE sits at the intersection of four domains:
@@ -85,7 +85,7 @@ The triad has not been improved on in 2,000 years because it is complete: remove
 
 ---
 
-## The Five Actors
+## The Six Actors
 
 Every building project involves the same five roles regardless of scale.
 

@@ -150,7 +150,7 @@ ADHESIVE BOND MECHANISMS:
   └──────────────────────────────────────────────────────────────┘
 
   WHY IT BONDS SKIN SO FAST:
-    Skin: naturally slightly basic (pH 4.5-5.5 but higher
+    Skin: naturally slightly acidic (pH 4.5-5.5 but higher
     moisture than wood)
     High moisture + amino acids on skin → rapid polymerization
     Medical tissue adhesive: octyl cyanoacrylate (Dermabond,

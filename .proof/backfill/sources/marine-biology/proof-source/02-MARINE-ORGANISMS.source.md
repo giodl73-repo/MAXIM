@@ -219,7 +219,7 @@ Synapomorphies: pentaradial symmetry, water vascular system
 
 | Class | Examples | Notes |
 |-------|----------|-------|
-| Cephalopoda | Octopus, squid, nautilus | Largest invertebrate brain; 600+ million neurons in octopus; Humboldt squid at 2 m; Architeuthis (giant squid) at 13 m |
+| Cephalopoda | Octopus, squid, nautilus | Largest invertebrate brain; ~500 million neurons in octopus; Humboldt squid at 2 m; Architeuthis (giant squid) at 13 m |
 | Bivalvia | Clams, oysters, mussels, scallops | Filter feeders; bioindicators; bivalve reefs as fish nurseries |
 | Gastropoda | Sea snails, nudibranchs, sea hares | Nudibranchs: aposematic; kleptoplasty (sea slugs steal chloroplasts) |
 | Polyplacophora | Chitons | 8 articulating plates; intertidal grazer on algae |

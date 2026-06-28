@@ -258,7 +258,7 @@ THE ALCHEMICAL SEARCH:
   Most obsessive European porcelain collector of the period
   His "Japanisches Palais" in Dresden = entire palace for display
   The Dragon Vases: traded 600 Saxon dragoon soldiers to King
-  of Prussia for 151 pieces of Chinese blue-and-white vases (1717)
+  of Prussia for 117 pieces of Chinese blue-and-white vases (1717)
   = 1 dragoon per vase (dragoons = elite cavalry = very expensive soldiers)
 
  Assigned Johann Friedrich Böttger (1682-1719) to find formula

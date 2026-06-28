@@ -308,7 +308,7 @@ DEFECTIONS AS POLITICAL EVENTS:
     -- Defection framed as: choosing freedom over tyranny
 
   Mikhail Baryshnikov: defected Toronto 1974
-    -- Bolshoi tour; left during intermission
+    -- Kirov tour; left during intermission
     -- Joined American Ballet Theatre; then NYCB (Balanchine)
     -- Symbol of artistic freedom vs state control
 
@@ -327,7 +327,7 @@ DANCE UNDER FASCISM
 
 NAZI GERMANY:
   Rudolf Laban (creator of Labanotation) initially collaborated:
-    -- Designed mass movement spectacles for 1936 Nuremberg rally
+    -- Designed a mass movement spectacle for the 1936 Berlin Olympics (banned by Goebbels)
     -- His "movement choirs" -- community dance events -- appealed
        to Nazi ideology of collective physical expression
     -- But: his work was then suppressed; called "degenerate"

@@ -415,7 +415,7 @@ THE COMPARISON TO CHEKHOV:
 | **Achebe** | Nigerian | Things Fall Apart | Founded African literature in English; the colonial gaze made visible |
 | **Morrison** | American | Beloved | Haunting as historical argument; trauma structure in fiction; African American oral tradition |
 | **Rushdie** | Indian/British | Midnight's Children | Postcolonial magical realism; the body as national allegory; unreliable narrator |
-| **Gordimer** | South African | July's People, Disgrace | Witness to apartheid; liberalism under pressure; psychological realism |
+| **Gordimer** | South African | July's People, None to Accompany Me | Witness to apartheid; liberalism under pressure; psychological realism |
 | **Coetzee** | South African | Disgrace, Waiting for the Barbarians | The fable mode; moral reckoning without didacticism; literary-philosophical argument |
 | **Pamuk** | Turkish | My Name Is Red, Snow | Cultural border identity; multiple narrators; the city memoir |
 | **Munro** | Canadian | "The Bear Came Over the Mountain" | Short story as major form; temporal compression; the re-contextualizing turn |

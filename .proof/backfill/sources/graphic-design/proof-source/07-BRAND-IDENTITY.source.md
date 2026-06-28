@@ -340,10 +340,10 @@ LESSON: The best-designed solution is the one users accept.
         Design serves communication, not the designer's preferences.
 ```
 
-### Apple (Chermayeff & Geismar, 1977 -> 1984 -> 1998 -> present)
+### Apple (Rob Janoff, 1977 -> 1998 -> present)
 
 ```
-1976: First Apple logo (Newton under apple tree -- Rob Janoff + Jobs
+1976: First Apple logo (Newton under apple tree -- Ronald Wayne; Jobs
       said "too detailed, too intellectual")
 
 1977: Rainbow Apple (Rob Janoff)

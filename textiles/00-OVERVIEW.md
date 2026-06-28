@@ -184,7 +184,7 @@ MANUFACTURED FIBERS
   FIXED LENGTH SYSTEMS (direct — higher number = heavier/thicker yarn)
   ┌──────────────┬────────────────────────────────────────────────┐
   │ tex          │ mass (g) per 1000 m — SI system                │
-  │ denier (dtex)│ mass (g) per 9000 m — hosiery/filament         │
+  │ denier       │ mass (g) per 9000 m — hosiery/filament         │
   └──────────────┴────────────────────────────────────────────────┘
 
   Conversion: tex = 590.5 / Ne = 1000 / Nm

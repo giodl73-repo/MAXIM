@@ -136,7 +136,7 @@ failure — used in flip-top caps everywhere.
 ### The Chlorine Complication
 
 Repeat unit: –(CH2–CHCl)n–
-35% chlorine by mass. Atactic (amorphous). Tg ~ 80°C — rigid at room temperature.
+~57% chlorine by mass. Atactic (amorphous). Tg ~ 80°C — rigid at room temperature.
 The chlorine makes it inherently flame-retardant and resistant to weathering.
 
 **The plasticizer story**:

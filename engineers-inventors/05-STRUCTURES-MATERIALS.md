@@ -206,7 +206,7 @@ WIRE ROPE — ROEBLING'S DESIGN
     MACHINE-SPINNING process → consistent quality
     SUSPENSION BRIDGE cable: parallel wire bundle (not twisted)
     → wires side by side → individual tension → more efficient
-    Brooklyn Bridge cables: each 15.75 inches diameter, 3,578 parallel wires.
+    Brooklyn Bridge cables: each 15.75 inches diameter, 5,434 parallel wires.
 ```
 
 ### The Brooklyn Bridge
@@ -230,7 +230,7 @@ BROOKLYN BRIDGE — ENGINEERING CHALLENGES
      20+ workers died. Washington Roebling was permanently disabled.
 
   2. WIRE CABLES:
-     Each cable: 5,282 parallel galvanized steel wires.
+     Each cable: 5,434 parallel galvanized steel wires.
      Wire strung back and forth across the span (not pre-twisted).
      Air-spinning method: haul one wire at a time across → bundle.
      This method (Roebling's invention) is still used for large suspension bridges.

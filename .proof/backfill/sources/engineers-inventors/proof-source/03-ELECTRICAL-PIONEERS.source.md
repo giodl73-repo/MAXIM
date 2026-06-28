@@ -277,7 +277,7 @@ WAR OF CURRENTS: TECHNICAL vs. POLITICAL
 
 ### Bio Snapshot
 
-American entrepreneur and engineer. Inverted the railway air brake at 22 (1869) — awarded the patent, founded Westinghouse Air Brake Company. Made a fortune. Used it to bet on AC electricity. Founded Westinghouse Electric (1886). Licensed Tesla's AC patents. Built Niagara power station. Later went bankrupt (1907 panic) despite the AC win.
+American entrepreneur and engineer. Invented the railway air brake at 22 (1869) — awarded the patent, founded Westinghouse Air Brake Company. Made a fortune. Used it to bet on AC electricity. Founded Westinghouse Electric (1886). Licensed Tesla's AC patents. Built Niagara power station. Later went bankrupt (1907 panic) despite the AC win.
 
 ### The Railway Air Brake (1869)
 

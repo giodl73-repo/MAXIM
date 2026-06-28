@@ -285,7 +285,7 @@ Wind blade disposal has driven regulatory attention:
    >95% glass fiber (GFRP), not carbon
    GFRP: lower value to recycle than CFRP
    Blade length: 50–80+ m → transport logistics
-   Landfill: banned in Germany since 2003, EU trend
+   Landfill: banned in Germany since 2005, EU trend
    Incineration: CO2 emission, fiber not recovered
    Current practice (USA): mostly landfill (~90%)
 

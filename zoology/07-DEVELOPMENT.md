@@ -310,7 +310,7 @@ Drosophila melanogaster:
 
 Xenopus laevis / tropicalis:
   Large eggs (1mm); easy microinjection; organizer transplantation
-  Spemann organizer (1924 Nobel); gastrulation mechanics
+  Spemann organizer (Nobel 1935); gastrulation mechanics
   Tadpole -> frog metamorphosis; thyroid hormone regulation
 
 Caenorhabditis elegans:

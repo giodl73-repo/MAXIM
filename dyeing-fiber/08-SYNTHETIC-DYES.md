@@ -28,7 +28,7 @@ THE SYNTHETIC DYE REVOLUTION: TIMELINE
 
   1856: Perkin discovers mauveine accidentally
   1857: First commercial synthetic dye factory (Greenford Green, England)
-  1869: Baeyer synthesizes alizarin -- destroys madder industry
+  1869: Graebe and Liebermann synthesize alizarin -- destroys madder industry
   1871: BASF and Hoechst begin alizarin production
   1880: Congo Red (first direct dye for cotton, no mordant)
   1881: Bismarck Brown, first azo dye (Germany dominates)
@@ -101,7 +101,7 @@ GERMANY'S ADVANTAGE
 
   HOECHST (Farbwerke Hoechst, 1863):
     Alizarin (1869, Graebe and Liebermann synthesis -- patented one day before Perkin)
-    Congo Red (1884): first direct dye for cotton without mordant
+    Congo Red (1883, Paul Böttiger): first direct dye for cotton without mordant
 
   STRUCTURE OF ADVANTAGE:
     1. University-industry collaboration (Justus von Liebig's tradition)
@@ -173,7 +173,7 @@ ANTHRAQUINONE STRUCTURE
   Substituents at 1,2,3,4,5,6,7,8 positions control color and application
 
 SYNTHETIC ALIZARIN (1869):
-  Graebe and Liebermann (Bayer labs):
+  Graebe and Liebermann (academic chemists; process commercialized by BASF):
     Alizarin structure confirmed by synthesis from anthracene
     Anthracene -> anthraquinone -> 1,2-dichloroanthroquinone -> alizarin
     Published: June 25, 1869

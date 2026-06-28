@@ -415,7 +415,7 @@ GRETZKY CAREER STATISTICS:
   Gretzky's ASSISTS ALONE (1,963) are more than
   any other player's total POINTS (goals + assists)
   in NHL history.
-  2nd on all-time points list: Jaromir Jagr (1,921)
+  3rd on all-time points list: Jaromir Jagr (1,921)
 
   Comparisons:
   -- In 1983-84: 87 goals, 118 assists = 205 points

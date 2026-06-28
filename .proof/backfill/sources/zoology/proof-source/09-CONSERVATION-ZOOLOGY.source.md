@@ -546,7 +546,7 @@ REWILDING
 
 DEFINITION AND TYPES:
   PLEISTOCENE REWILDING (Donlan et al. 2006):
-    Introduce proxies for Pleistocene megafauna (extinct since ~11,000 Mya)
+    Introduce proxies for Pleistocene megafauna (extinct since ~11,000 years ago)
     Rationale: restore ecological processes lost with megafauna
     Proposal: African megafauna (lions, cheetahs, elephants) to N. America
     Controversy: introduced exotics; ecological naivete about trophic context

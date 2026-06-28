@@ -28,7 +28,7 @@ Industrial design as a named discipline is roughly 100 years old, though its con
 |           INDUSTRIAL DESIGN MOVEMENTS TIMELINE                       |
 |                                                                      |
 |  1750  Industrial Revolution begins (UK)                             |
-|  1830  Crystal Palace Exhibition: industrial products on display     |
+|  1851  Crystal Palace Exhibition: industrial products on display     |
 |  1851  Henry Cole / Owen Jones: reform through good taste            |
 |  1880  Arts and Crafts Movement: William Morris                      |
 |  1907  Deutscher Werkbund: design + industry synthesis               |

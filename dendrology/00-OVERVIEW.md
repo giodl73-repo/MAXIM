@@ -265,7 +265,7 @@ CLIMATE SCIENCE <-----> DENDROCLIMATOLOGY
 |--------|-------|---------|
 | Oldest living individual tree | ~5,000 yr | Methuselah, *Pinus longaeva*, White Mtns CA |
 | Oldest clonal stand | ~80,000 yr | Pando aspen colony, Utah |
-| Tallest living tree | 115.7 m | *Sequoia sempervirens*, Hyperion, CA |
+| Tallest living tree | 115.9 m | *Sequoia sempervirens*, Hyperion, CA |
 | Largest by volume | ~1,487 m³ | General Sherman, giant sequoia |
 | Annual global wood harvest | ~3.8 billion m³ | ~50% fuelwood, ~50% industrial |
 | Global forest cover | ~31% of land surface | ~4.06 billion ha |

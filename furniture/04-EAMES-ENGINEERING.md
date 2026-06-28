@@ -115,7 +115,7 @@ WARTIME CONTEXT (1942–45):
   Eames and Ray designed for the US Navy:
   - Molded plywood leg splints (1942): complex curved plywood
     to immobilize wounded soldiers' legs during evacuation.
-    75,000 splints produced.
+    150,000 splints produced.
   - Molded plywood stretchers
   - Nose cone for gliders (Waco CG-4)
 

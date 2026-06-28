@@ -143,7 +143,7 @@ THE FRAM DRIFT
     Drifted: slowly westward across the Arctic Ocean.
     Maximum latitude of ship: 85°57'N — new Furthest North record.
 
-  NANSEN'S SKI DASH (March–August 1896):
+  NANSEN'S SKI DASH (March 1895–August 1896):
     The drift would not pass close enough to Pole.
     Nansen and Hjalmar Johansen left the Fram on skis and dogsleds.
     Reached 86°13.6'N — new Furthest North record (April 8, 1895).

@@ -290,7 +290,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │  At steel/zinc interface: intermetallic layers form          │
   │                                                              │
   │  From steel outward:                                         │
-  │  Steel → Gamma (FeZn₃) → Delta (FeZn₇) → Zeta (FeZn₁₃)       │
+  │  Steel → Gamma (Fe₃Zn₁₀) → Delta (FeZn₇) → Zeta (FeZn₁₃)     │
   │         → Eta (pure zinc outer layer)                        │
   │                                                              │
   │  These are actual iron-zinc alloy phases, NOT just zinc      │

@@ -254,7 +254,7 @@ WORK                    CREATOR         YEARS       SIGNIFICANCE
 Astro Boy               Tezuka          1952-68     Foundational; manga language defined
 Akira                   Otomo           1982-90     Cyberpunk; visual revolution; first
                                                     major manga translated in US
-Ghost in the Shell      Shirow          1989-91     AI; identity; influenced The Matrix
+Ghost in the Shell      Shirow          1989-90     AI; identity; influenced The Matrix
 Dragon Ball             Toriyama        1984-95     Template for all shonen power escalation
 Sailor Moon             Takeuchi        1991-97     Global spread of manga; magical girl
 Nausicaa of the         Miyazaki        1982-94     Eco-fantasy; Ghibli director's manga

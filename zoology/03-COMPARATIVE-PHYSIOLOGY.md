@@ -369,7 +369,7 @@ SINGLE DORSAL NERVE CORD (Chordata):
   Neocortex (mammals): new addition; planning, language, social complexity
 
 DISTRIBUTED INTELLIGENCE (Octopus example):
-  Octopus vulgaris: 500 million neurons (vs 71 billion in human)
+  Octopus vulgaris: 500 million neurons (vs ~86 billion in human)
   2/3 are in arms (not central brain)
   Arms show semi-autonomous behavior: arm can learn conditioned responses
     even after surgical removal from body

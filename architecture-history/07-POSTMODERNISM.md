@@ -588,7 +588,7 @@ fragmented geometry expresses philosophical uncertainty, not nostalgia.
 **"The Bilbao effect proves starchitecture works"**
 The Bilbao Guggenheim was exceptional, not typical. The formula (commission famous
 architect + unusual building = tourist revenue) has not reliably worked elsewhere.
-The Guggenheim Las Vegas (2001, Gehry) and Guggenheim Las Vegas (2001, Koolhaas) both
+The Guggenheim Hermitage Museum and the Guggenheim Las Vegas (both 2001, Koolhaas/OMA) both
 closed. The "starchitect as regeneration" strategy usually underperforms Bilbao's
 results.
 

@@ -139,7 +139,7 @@ LINEAR PERSPECTIVE vs INVERSE PERSPECTIVE
 
   Also: multiple viewpoints in one image (a throne shown
   from slightly above AND from the side simultaneously)
-  = Panofsky's "oblique axiometry" = pre-modern spatial logic
+  = "oblique axonometry" = pre-modern spatial logic
 ```
 
 ### Icon Theology and the Iconoclasm Controversy (726–843)

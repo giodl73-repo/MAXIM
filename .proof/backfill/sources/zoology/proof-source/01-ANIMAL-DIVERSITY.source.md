@@ -95,7 +95,7 @@ ECOLOGY:
   Symbiosis: harbor ~50% body mass as microbes (bacteria, archaea, cyanobacteria)
   Chemical ecology: produce diverse secondary metabolites
     -> anti-fouling, anti-predator, antimicrobial
-    -> source of pharmaceutical leads (cyclosporin-related, discodermolide)
+    -> source of pharmaceutical leads (e.g., discodermolide, halichondrin/eribulin)
 ```
 
 ---

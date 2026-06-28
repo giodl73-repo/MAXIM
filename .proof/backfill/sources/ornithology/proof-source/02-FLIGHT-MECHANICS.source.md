@@ -83,7 +83,7 @@ ANGLE OF ATTACK (AoA):
   Increase AoA -> more lift (to a point)
   Critical AoA (~15-20 deg): flow separates -> STALL
     Lift drops suddenly; turbulent wake
-  Birds avoid stall: by alastair [slotting] or by reducing speed
+  Birds avoid stall: by alula deployment (slotting) or by reducing speed
 
 ALULA (bastard wing):
   Small feathers on leading edge at wrist

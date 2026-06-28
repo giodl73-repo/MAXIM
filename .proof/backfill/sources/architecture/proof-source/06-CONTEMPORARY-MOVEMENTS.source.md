@@ -602,7 +602,7 @@ The design implication: environments that reference natural patterns, processes,
                     (felt, perlite, coconut fiber)
                     Plants rooted in panels.
                     Irrigation + drainage system built in.
-                    Fernand Braudel, Patrick Blanc (pioneer).
+                    Patrick Blanc (pioneer).
 
   BENEFITS:
   Thermal insulation (air layer + plant mass)

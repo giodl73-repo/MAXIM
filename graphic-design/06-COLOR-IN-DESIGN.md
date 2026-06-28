@@ -267,7 +267,7 @@ EXAMPLE ARCHITECTURE:
 BRAND         COLOR           RATIONALE
 -----         -----           ---------
 Coca-Cola     PMS 485         Red = excitement, energy, warmth
-              (specific red)  Established 1887; now owns the red in its category
+              (specific red)  Established 1886; now owns the red in its category
 
 IBM           IBM Blue        Reliability, corporate authority, technology
               PMS 2718C       "Nobody ever got fired for buying IBM"

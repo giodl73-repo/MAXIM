@@ -67,7 +67,7 @@ BAROQUE (Rome + Europe, 1600–1750)
 
 ## The Context: Vitruvius and the Classical Revival
 
-In 1414, the humanist Poggio Bracciolini found a complete manuscript of Vitruvius's
+In 1416, the humanist Poggio Bracciolini found a complete manuscript of Vitruvius's
 "De Architectura" (c. 15 BCE) in a monastery in Switzerland. This was the only
 surviving ancient architectural treatise — and it became the theoretical foundation
 for Renaissance architecture.

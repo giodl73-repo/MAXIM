@@ -87,7 +87,7 @@ UNIQUE OPTICAL PROPERTY:
 
 ```
 EGYPTIAN USE (~3100-350 BCE):
-  Tutankhamun's death mask (lapis lazuli substitution)
+  Egyptian tomb wall paintings (lapis lazuli substitution)
   Painted funerary objects, wall paintings, figurines
   Manufactured at specific production centers (Tell el-Amarna)
 
@@ -269,7 +269,7 @@ REALGAR: As₄S₄ (arsenic sulfide)
   Converts to yellow/white pararealgar (As₄S₄ polymorph) on light exposure
   -> Even less stable than orpiment
   Used in Chinese and Indian painting/decoration
-  Indian Yellow Realgar = Chinese paintings
+  Realgar (As4S4) = Chinese painting/decoration
   Most realgar areas in old paintings have shifted to pale yellow/white
 
 DECLINE:

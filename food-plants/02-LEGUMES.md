@@ -317,7 +317,7 @@ MENDEL'S EXPERIMENTS (1856–1863):
     → Easily cross-pollinated manually (remove anthers, apply foreign pollen)
   Seven traits studied → discovered particulate inheritance (genes, called "factors")
   Results published 1866 → ignored until rediscovered 1900 by de Vries, Correns, von Tschermak
-  Mendel's peas directly established the chromosome theory of inheritance
+  Mendel's peas established the particulate theory of inheritance (chromosome theory came later, Sutton & Boveri c. 1902)
 
 CULINARY FORMS:
   Garden peas (shelling peas): eaten fresh or frozen; high sugar (converts to starch rapidly)

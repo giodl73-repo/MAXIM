@@ -70,7 +70,7 @@ The backbone of the orchestra — provide homogeneous, blending texture:
 INSTRUMENT   RANGE (concert pitch)    STRINGS        TECHNIQUE NOTE
 ───────────────────────────────────────────────────────────────────
 Violin I/II  G₃ – A₇ (practical ~E₇)  G D A E       highest, most agile
-Viola        C₃ – E₆                   C G D A       alto clef (B clef)
+Viola        C₃ – E₆                   C G D A       alto clef (C clef)
 Cello        C₂ – G₅                   C G D A       tenor+bass clef, singing tone
 Double Bass  E₁ – G₄                   E A D G       sounds 8va lower than written
                                         (5-string: low C₁)
@@ -362,6 +362,6 @@ LATE ROMANTIC (~1860–1910):
 
 **Horn in F: the most commonly confused transposer:** Horn sounds a perfect fifth BELOW what's written. If you want concert G₄, write D₅ in the horn part. Horns were historically "natural" (no valves), built in specific keys — this legacy is why the F transposition persists.
 
-**Violas read alto clef:** The middle line of the staff = C₄ (middle C). Not treble, not bass. Alto clef is the B♭ (B-natural) clef positioning. Violists know it fluently; string players from violin don't.
+**Violas read alto clef:** The middle line of the staff = C₄ (middle C). Not treble, not bass. Alto clef is a C clef positioned on the middle line. Violists know it fluently; string players from violin don't.
 
 **"Brass section" balance:** Brass instruments are dramatically louder than woodwinds and strings in their normal playing range. A single forte trumpet can drown out 8 violins. Orchestrators must mark brass dynamics at least one level below the desired relative balance, and mark strings/woodwinds higher.

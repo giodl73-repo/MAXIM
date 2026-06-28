@@ -262,7 +262,7 @@ INSECT EVOLUTIONARY TIMELINE
 =====================================================
 
 ~480 Mya --- Hexapod divergence from crustacean ancestor
-             (Cambrian; molecular clock estimate)
+             (Ordovician; molecular clock estimate)
 
 ~410 Mya --- First definitive insect fossils (Devonian)
              Collembola-like hexapods

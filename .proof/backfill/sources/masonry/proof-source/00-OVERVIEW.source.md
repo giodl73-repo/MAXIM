@@ -125,7 +125,7 @@ STRESS DIAGRAM: UNREINFORCED MASONRY WALL
 - Gothic is the engineering answer to: "How tall can unreinforced masonry go?"
 
 ### Phase 4: Industrial Brick and Portland Cement (1800–1950)
-- William Aspdin patents Portland cement (1824): reliable, high-strength, hydraulic
+- Joseph Aspdin patents Portland cement (1824): reliable, high-strength, hydraulic
 - Machine-made brick replaces hand-molded: uniform size, repeatable quality
 - Structural clay tile, hollow CMU: reduce dead load, create air spaces
 - Chicago frame (1880s): steel skeleton takes gravity loads, masonry becomes enclosure only

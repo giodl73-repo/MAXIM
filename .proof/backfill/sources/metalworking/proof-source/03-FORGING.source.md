@@ -201,7 +201,7 @@ FLASH ROLE:
 ```
 COMPARISON:
 
-DROP HAMMER (gravity + gravity + steam/pneumatic assisted):
+DROP HAMMER (gravity + steam/pneumatic assisted):
   Energy stored in falling ram mass (50–5000 kg at 3–7 m/s)
   Impact: instantaneous force at high velocity
   Energy: typically 5–500 kJ per blow; multiple blows needed

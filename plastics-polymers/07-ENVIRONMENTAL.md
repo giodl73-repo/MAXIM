@@ -202,7 +202,7 @@ Microplastics in deep sea sediment: up to 1.9 million fibers/m²
 
    HUMAN TISSUE DETECTIONS:
    ─────────────────────────
-   Blood (2022 study, van Dijk et al.): PET, PS, PE in 77% of donors
+   Blood (2022 study, Leslie et al.): PET, PS, PE in ~80% of donors
    Placentas (2020): MP detected in fetal side
    Lungs: MP fibers in 87% of surgical samples (multiple studies)
    Colon/intestine: MPs detected via endoscopy

@@ -121,7 +121,7 @@ CAPSAICIN'S EVOLUTIONARY FUNCTION:
 
 ## TRPV1 — The Molecular Target
 
-The 2021 Nobel Prize in Physiology or Medicine went to David Julius for discovering TRPV1:
+The 2021 Nobel Prize in Physiology or Medicine was shared by David Julius (TRPV1) and Ardem Patapoutian (PIEZO):
 
 ```
 TRPV1 (Transient Receptor Potential Vanilloid 1):

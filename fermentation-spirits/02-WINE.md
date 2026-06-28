@@ -132,7 +132,7 @@ ice wine)          freeze conc.)
 
 | Measurement | What It Measures | Units | Why It Matters |
 |-------------|-----------------|-------|----------------|
-| Brix | Dissolved solids (mostly sugar) | Degrees Brix | Predicts final ABV: Brix / 56 x 100 = approx % ABV |
+| Brix | Dissolved solids (mostly sugar) | Degrees Brix | Predicts final ABV: Brix x 0.55 = approx % ABV |
 | pH | Hydrogen ion activity | pH 3.0-3.8 | Microbial stability, color, tartness perception |
 | TA (titratable acidity) | Total acid concentration | g/L as tartaric | Balance, freshness, aging potential |
 | Malic acid | Pre-MLF malic acid level | g/L | Determines whether MLF is needed/desired |
@@ -255,7 +255,7 @@ EXTRACTION FACTORS:
 MALOLACTIC FERMENTATION
 
 Bacterium: Oenococcus oeni (lactic acid bacterium)
-Reaction:  Malic acid (2 carbons, 2 COOH) -> Lactic acid (1 COOH) + CO2
+Reaction:  Malic acid (4 carbons, 2 COOH) -> Lactic acid (1 COOH) + CO2
 
 +-----------------------------------------------------------+
 |           BEFORE MLF              AFTER MLF               |
