@@ -1,0 +1,181 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\09-MOLECULAR-AND-REGULATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## Second Messengers and the Amplification Cascade",
+      "headers": [
+        "Second messenger",
+        "Made from / by",
+        "Typical effect"
+      ],
+      "rows": [
+        [
+          "**cAMP**",
+          "ATP, by adenylyl cyclase",
+          "activates PKA (broad metabolic switch)"
+        ],
+        [
+          "**Ca2+**",
+          "released from ER/extracellular",
+          "muscle contraction, secretion, signaling"
+        ],
+        [
+          "**IP3 / DAG**",
+          "membrane lipid (PIP2), by phospholipase C",
+          "release Ca2+ / activate PKC"
+        ],
+        [
+          "**cGMP**",
+          "GTP, by guanylyl cyclase",
+          "vision, smooth-muscle relaxation (e.g., NO)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 221,
+      "heading_context": "## Hormones — The Body-Wide Control Loop",
+      "headers": [
+        "Hormone",
+        "Released when",
+        "Net message",
+        "Pathways turned on"
+      ],
+      "rows": [
+        [
+          "**Insulin**",
+          "blood glucose high",
+          "\"store fuel\"",
+          "glycolysis, glycogen/fat synthesis"
+        ],
+        [
+          "**Glucagon**",
+          "blood glucose low",
+          "\"release fuel\"",
+          "glycogenolysis, gluconeogenesis, ketogenesis"
+        ],
+        [
+          "**Adrenaline**",
+          "acute stress",
+          "\"fight/flight: mobilize now\"",
+          "glycogen breakdown, fast glucose release"
+        ],
+        [
+          "**Cortisol**",
+          "sustained stress",
+          "\"long-term mobilize\"",
+          "gluconeogenesis (slow, via gene expression)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 268,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        "Software / systems concept",
+        "Signaling concept"
+      ],
+      "rows": [
+        [
+          "Control plane vs data plane",
+          "Signaling vs metabolism"
+        ],
+        [
+          "Async message passing / event bus",
+          "Hormone -> receptor -> second messenger"
+        ],
+        [
+          "Event listener registered on a port",
+          "Receptor bound to a specific ligand"
+        ],
+        [
+          "Broadcast channel / pub-sub",
+          "Second messenger (cAMP, Ca2+) spreading inside"
+        ],
+        [
+          "Multi-stage gain amplifier",
+          "Kinase cascade (each catalytic stage multiplies)"
+        ],
+        [
+          "Pipeline of handlers",
+          "GPCR -> cyclase -> PKA -> phosphorylase"
+        ],
+        [
+          "Reset / dispose to handle next event",
+          "Termination (phosphodiesterase, phosphatase)"
+        ],
+        [
+          "Antagonistic controllers on a setpoint",
+          "Insulin vs glucagon (push/pull)"
+        ],
+        [
+          "Desensitized / dropped subscriber",
+          "Insulin resistance (type 2 diabetes)"
+        ],
+        [
+          "Fast trigger flag (near-binary)",
+          "Ca2+ spike from a normally near-zero baseline"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 285,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Why do cascades amplify",
+          "Each catalytic stage multiplies (gain stages stacked)"
+        ],
+        [
+          "Water-soluble signal -> receptor where",
+          "Cell surface (can't cross the membrane)"
+        ],
+        [
+          "Lipid-soluble signal -> receptor where",
+          "Inside the cell (diffuses through membrane)"
+        ],
+        [
+          "Biggest receptor family / drug target",
+          "GPCRs (~1/3 of drugs target them)"
+        ],
+        [
+          "Classic second messenger",
+          "cAMP (made from ATP by adenylyl cyclase)"
+        ],
+        [
+          "The fast \"trigger\" messenger",
+          "Ca2+ (kept near-zero, so spikes are sharp)"
+        ],
+        [
+          "Insulin's message",
+          "\"Store fuel\" (glucose high)"
+        ],
+        [
+          "Glucagon's message",
+          "\"Release fuel\" (glucose low)"
+        ],
+        [
+          "What ties glycolysis/gluconeogenesis to hormones",
+          "Fructose-2,6-bisphosphate (file 05)"
+        ],
+        [
+          "Where signaling cascades end",
+          "Transcription factors -> gene expression"
+        ],
+        [
+          "Where replication/transcription/translation live",
+          "`biology/` (central dogma)"
+        ]
+      ]
+    }
+  ]
+}

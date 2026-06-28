@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\02-PROTEIN-STRUCTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# Protein Structure — From Sequence to Machine",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|        FOUR LEVELS OF PROTEIN STRUCTURE (compile pipeline)             |\n|                                                                        |\n|  PRIMARY        SECONDARY        TERTIARY         QUATERNARY           |\n|  (sequence)     (local folds)    (whole chain)    (assembly)           |\n|                                                                        |\n|  M-A-G-K-L...   .-> alpha helix  .--> compact     .--> multi-subunit   |\n|  amino-acid     '-> beta sheet   '    3D shape     '   complex         |\n|  string                          (one polypeptide) (>1 polypeptide)    |\n|                                                                        |\n|  \"source        \"local           \"linked +         \"linked binary\"     |\n|   code\"          structures\"      optimized exe\"                       |\n|                                                                        |\n|  bonds:         bonds:           bonds:            bonds:              |\n|  peptide        backbone         R-group           same as tertiary,   |\n|  (covalent)     H-bonds          interactions:     between chains      |\n|                                  H-bond, ionic,                        |\n|                                  hydrophobic,                          |\n|                                  disulfide                             |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 80,
+      "heading_context": "## Level 1: Primary Structure — The Sequence",
+      "confidence": "candidate",
+      "text": "   N-terminus                                         C-terminus\n   H2N--[AA1]--[AA2]--[AA3]-- ... --[AAn]--COOH\n        |      |      |              |\n        R1     R2     R3             Rn      <- side chains stick out",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "## Level 2: Secondary Structure — Local Patterns",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------+\n|   ALPHA HELIX                          BETA SHEET                       |\n|   -----------                          ----------                       |\n|   backbone coils into a right-hand     strands lie side by side,        |\n|   spiral; H-bond from each C=O to       H-bonding across to neighbors   |\n|   the N-H 4 residues ahead              (parallel or antiparallel)      |\n|                                                                         |\n|     .-.                                  =====>  strand 1               |\n|    (   ) coil                            <===== strand 2 (antiparallel) |\n|     '-'  ~3.6 residues/turn              =====>  strand 3               |\n|      |   side chains point outward       (a pleated sheet)              |\n|                                                                         |\n|   FOUND IN: keratin, many cores        FOUND IN: silk, barrels, sheets  |\n+-------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 150,
+      "heading_context": "## Level 3: Tertiary Structure — The Folded Chain",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   FORCES THAT HOLD A TERTIARY FOLD (weakest -> strongest)              |\n|                                                                        |\n|   HYDROPHOBIC EFFECT  nonpolar side chains cluster in the core,        |\n|     (dominant)        away from water — the main folding driver        |\n|                                                                        |\n|   HYDROGEN BONDS      polar side chains pair up                        |\n|                                                                        |\n|   IONIC (salt bridge) + charged (Lys/Arg) attracts - charged (Asp/Glu) |\n|                                                                        |\n|   DISULFIDE BOND      Cys-Cys covalent staple — the only covalent      |\n|     (covalent)        side-chain cross-link; locks the fold            |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 186,
+      "heading_context": "## Level 4: Quaternary Structure — Multi-Subunit Assemblies",
+      "confidence": "candidate",
+      "text": "   HEMOGLOBIN (a2 b2)\n   +--------+   +--------+\n   | alpha1 |---| beta1  |\n   +--------+   +--------+\n       |             |\n   +--------+   +--------+\n   | beta2  |---| alpha2 |\n   +--------+   +--------+\n   4 subunits, 4 O2-binding sites, COOPERATIVE binding",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 211,
+      "heading_context": "## Folding, Chaperones, and Misfolding",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   NASCENT CHAIN (just translated, unfolded, sticky)                    |\n|        |                                                               |\n|        v                                                               |\n|   CHAPERONES (e.g., Hsp70, GroEL/chaperonins)                          |\n|   - prevent premature aggregation                                      |\n|   - give the chain protected time/space to find its fold               |\n|   - they do NOT add information — they prevent wrong paths             |\n|        |                                                               |\n|        +--> FOLDED correctly -> functional protein                     |\n|        |                                                               |\n|        '--> MISFOLDED -> refold attempt -> or degrade (proteasome)     |\n|                          -> or AGGREGATE -> disease                    |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 243,
+      "heading_context": "## Motifs and Domains — Reusable Units",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   MOTIF        small recurring fold pattern                            |\n|                e.g., helix-turn-helix (DNA binding),                   |\n|                      beta-hairpin, coiled-coil, zinc finger            |\n|                = a common \"idiom\"                                      |\n|                                                                        |\n|   DOMAIN       a larger, independently folding/functioning unit;       |\n|                a protein can be built from several domains             |\n|                = a reusable \"module / library\"                         |\n|                                                                        |\n|   Example: a signaling protein might have a kinase domain (does        |\n|   the chemistry) + an SH2 domain (recognizes a phospho-tyrosine)       |\n|   + a regulatory domain — three modules, one polypeptide.              |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

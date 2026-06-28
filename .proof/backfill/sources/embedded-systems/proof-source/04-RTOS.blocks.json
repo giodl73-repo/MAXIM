@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\04-RTOS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                        AN RTOS AT WORK                                |\n|                                                                       |\n|  TASKS (each = own stack, priority, state)                            |\n|  .----------.  .----------.  .----------.  .----------.               |\n|  | Control  |  | Comms    |  | Logger   |  | Idle     |               |\n|  | prio 5   |  | prio 3   |  | prio 1   |  | prio 0   |               |\n|  | RUNNING  |  | READY    |  | BLOCKED  |  | READY    |               |\n|  '----------'  '----------'  '----------'  '----------'               |\n|       |             |             |             |                     |\n|       v             v             v             v                     |\n|  .------------------------------------------------------------.       |\n|  |               SCHEDULER (fixed-priority preemptive)         |      |\n|  |  \"run the highest-priority READY task. Always.\"             |      |\n|  |  driven by SysTick + events (sem give, queue post)          |      |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  |  PRIMITIVES: semaphores, mutexes, queues, event groups,    |       |\n|  |  software timers, notifications                            |       |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  ONE Cortex-M core   +   ISRs preempting EVERYTHING above             |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 87,
+      "heading_context": "### Task states",
+      "confidence": "candidate",
+      "text": "            create\n              |\n              v\n        +-----------+   highest ready    +-----------+\n        |  READY    |------------------->|  RUNNING  |\n        |           |<-------------------|           |\n        +-----+-----+   preempted/yield  +-----+-----+\n              ^                                |\n   event /    |                                | block on\n   timeout    |                                | sem/queue/delay\n              |          +-----------+         |\n              +----------|  BLOCKED  |<--------+\n                         '-----------'\n                               ^\n                               v\n                         .-----------.\n                         | SUSPENDED | (explicitly paused)\n                         '-----------'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 121,
+      "heading_context": "## The Scheduler — Fixed-Priority Preemptive",
+      "confidence": "candidate",
+      "text": "  PREEMPTION TIMELINE\n  prio 5 (Control)  ........####............####........\n  prio 3 (Comms)    ....####....####....####....####....\n  prio 1 (Logger)   ##........##........##........##....\n                    ^   ^      ^\n                    |   |      Comms ready -> preempts Logger\n                    |   Control's tick fires -> preempts Comms\n                    Logger runs only when nothing higher is ready\n\n  '#' = running    '.' = ready-but-waiting or blocked",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 156,
+      "heading_context": "## Rate-Monotonic Scheduling — Priorities From Math",
+      "confidence": "candidate",
+      "text": "  RATE-MONOTONIC PRIORITY ASSIGNMENT\n  +------------------------------------------------------------+\n  | Task     Period T   ->   Priority (shorter period = higher)|\n  | A         2 ms             HIGHEST                         |\n  | B         5 ms             middle                          |\n  | C        10 ms             LOWEST                          |\n  +------------------------------------------------------------+\n  \"Fastest cadence wins the CPU.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 167,
+      "heading_context": "## Rate-Monotonic Scheduling — Priorities From Math",
+      "confidence": "candidate",
+      "text": "### The utilization bound (~0.693)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### The utilization bound (~0.693)",
+      "confidence": "candidate",
+      "text": "  n\n  SUM (C_i / T_i)  <=  n * (2^(1/n) - 1)\n  i=1\n\n  n=1 -> 1.000      As n -> infinity, the bound -> ln(2) = 0.6931...\n  n=2 -> 0.828\n  n=3 -> 0.780\n  n=4 -> 0.757\n  n=5 -> 0.743\n  ...\n  n=inf-> 0.693     <- the famous ~69% RM utilization bound",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 243,
+      "heading_context": "## Priority Inversion — and the Mars Pathfinder",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                   UNBOUNDED PRIORITY INVERSION                        |\n|                                                                       |\n|  H (high)   ...wants the mutex L holds... B  L  O  C  K  E  D  ...... |\n|                                            ^                          |\n|  M (medium) ......................########################........... |\n|                                   ^ M preempts L (M doesn't need      |\n|                                     the mutex) and runs a LONG time   |\n|  L (low)    ....####[takes mutex]##..........................[done]## |\n|                                                                       |\n|  Result: H -- the MOST urgent task -- is blocked for as long as M     |\n|  chooses to run. The priorities are INVERTED. Deadline missed.        |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 264,
+      "heading_context": "## Priority Inversion — and the Mars Pathfinder",
+      "confidence": "candidate",
+      "text": "### Mars Pathfinder (1997)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 290,
+      "heading_context": "## Priority Inheritance and Priority Ceiling — The Fixes",
+      "confidence": "candidate",
+      "text": "  PRIORITY INHERITANCE\n  +------------------------------------------------------------+\n  | When H blocks on a mutex held by L,                        |\n  | L TEMPORARILY INHERITS H's priority.                       |\n  | Now M cannot preempt L (L is effectively high).            |\n  | L finishes its critical section fast, releases, drops back.|\n  | H proceeds. Blocking is bounded by L's critical section.   |\n  +------------------------------------------------------------+\n\n  before:  H blocked while M runs (unbounded)\n  after:   L runs at H's priority -> M waits -> L releases -> H runs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 304,
+      "heading_context": "## Priority Inheritance and Priority Ceiling — The Fixes",
+      "confidence": "candidate",
+      "text": "  PRIORITY CEILING\n  +------------------------------------------------------------+\n  | Each mutex has a CEILING = priority of the highest task    |\n  | that can ever take it. A task taking the mutex is raised   |\n  | to the ceiling immediately. Prevents deadlock AND          |\n  | bounds inversion to ONE critical section. Stronger;        |\n  | needs static knowledge of who uses what.                   |\n  +------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 343,
+      "heading_context": "## Choosing and Configuring an RTOS",
+      "confidence": "candidate",
+      "text": "                  DO I NEED AN RTOS?\n                        |\n        .---------------+----------------.\n        | <= 2-3 timed activities, no    |  -> super-loop + timers (02/03)\n        | blocking I/O, simple           |\n        +--------------------------------'\n        | many tasks, blocking waits,    |  -> RTOS\n        | independent rates, priorities  |\n        '---------------+----------------'\n                        |\n            +-----------+-----------+-----------+\n            v           v           v           v\n        FreeRTOS    Zephyr      ThreadX     safety-cert\n        ubiquitous  Linux-      Azure RTOS  (SafeRTOS,\n        tiny, free  Foundation, (commercial, integrity)\n                    driver-rich  small)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 371,
+      "heading_context": "## Choosing and Configuring an RTOS",
+      "confidence": "candidate",
+      "text": "worst-case call depth + the ~8-word interrupt frame + any nested-ISR depth.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 403,
+      "heading_context": "### \"I'm using a binary semaphore as a lock — fine, right?\"",
+      "confidence": "candidate",
+      "text": "### \"RM caps me at 69% CPU — that seems wasteful\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\07-REAL-TIME-CONSTRAINTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                THE REAL-TIME CORRECTNESS STACK                        |\n|                                                                       |\n|  CLASSIFY: how costly is a miss?                                      |\n|     hard  -> catastrophe (airbag, motor)                              |\n|     firm  -> result useless if late, but no disaster                  |\n|     soft  -> degraded quality (dropped video frame)                   |\n|           |                                                           |\n|           v                                                           |\n|  BOUND: WCET -- worst-case execution time of each task                |\n|     C_i = the longest the code can EVER take                          |\n|           |                                                           |\n|           v                                                           |\n|  PROVE: schedulability -- does the whole task set meet deadlines?     |\n|     utilization bound (quick) OR response-time analysis (exact)       |\n|           |                                                           |\n|           v                                                           |\n|  MINIMIZE: jitter -- keep the actual timing tight around the ideal    |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## Hard vs Firm vs Soft Real-Time",
+      "confidence": "candidate",
+      "text": "  UTILITY of a result vs TIME (the deadline at D)\n  ----------------------------------------------------\n  HARD:   utility +-----------+        a miss = system failure.\n                  |           |        Value drops to negative\n                  |           +---___  (catastrophic) after D.\n                  +-----------|------- D\n  FIRM:   utility +-----------+        a miss = result worthless,\n                  |           |        but no harm. Value = 0 after D.\n                  +-----------+======  (drop it, move on)\n                              D\n  SOFT:   utility +-----------+        a miss = degraded value that\n                  |           +\\___    decays gracefully after D.\n                  +-----------+----\\-- D  (late is still somewhat useful)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## WCET — Worst-Case Execution Time",
+      "confidence": "candidate",
+      "text": "  THE WCET DISTRIBUTION\n  frequency\n     |        .-.\n     |       /   \\      <- typical (what you usually measure)\n     |      /     \\\n     |     /       \\________\n     |    /                 \\____  rare slow paths\n     +---|-------------------|----|--------> execution time\n        BCET              measured  WCET (true bound -- you may\n        (best case)        max       never have OBSERVED it)\n                                      ^ this is what must fit the deadline",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 164,
+      "heading_context": "## Schedulability — Proving the Task Set Fits",
+      "confidence": "candidate",
+      "text": "### Level 1: the utilization bound (quick, sufficient)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Level 1: the utilization bound (quick, sufficient)",
+      "confidence": "candidate",
+      "text": "  n\n  SUM (C_i / T_i)  <=  n * (2^(1/n) - 1)     -> 0.693 as n grows\n  i=1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 179,
+      "heading_context": "### Level 1: the utilization bound (quick, sufficient)",
+      "confidence": "candidate",
+      "text": "### Level 2: response-time analysis (exact, necessary-and-sufficient)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 198,
+      "heading_context": "### Level 2: response-time analysis (exact, necessary-and-sufficient)",
+      "confidence": "candidate",
+      "text": "  R_C^(0) = C_C = 2\n  R_C^(1) = 2 + ceil(2/2)*0.5 + ceil(2/5)*1\n          = 2 + 1*0.5 + 1*1 = 3.5\n  R_C^(2) = 2 + ceil(3.5/2)*0.5 + ceil(3.5/5)*1\n          = 2 + 2*0.5 + 1*1 = 4.0\n  R_C^(3) = 2 + ceil(4.0/2)*0.5 + ceil(4.0/5)*1\n          = 2 + 2*0.5 + 1*1 = 4.0   <- converged\n  R_C = 4.0 ms <= D_C = 10 ms.  Task C meets its deadline. Schedulable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 232,
+      "heading_context": "## Jitter — The Variance Enemy",
+      "confidence": "candidate",
+      "text": "  IDEAL (no jitter)        JITTERY\n  every 1.000 ms           1.02, 0.97, 1.05, 0.94 ms ...\n  |   |   |   |   |         |    |  |     |   |\n  +---+---+---+---+         +----+--+-----+---+\n  metronome-steady         varies -> control noise, sampling error",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 261,
+      "heading_context": "## Putting It Together — A Real-Time Design Checklist",
+      "confidence": "candidate",
+      "text": "  +------------------------------------------------------------+\n  | 1. List every periodic/aperiodic timed activity.           |\n  | 2. Classify each: hard / firm / soft.                      |\n  | 3. Bound each one's WCET (C_i) -- defensibly.              |\n  | 4. Assign priorities: rate-monotonic for periodic (04).    |\n  | 5. Quick check: utilization <= n(2^(1/n)-1)?               |\n  | 6. If above the bound, run response-time analysis.         |\n  | 7. Add blocking terms for shared mutexes (priority         |\n  |    inheritance to bound them, 04).                         |\n  | 8. Drive jitter-sensitive actions from hardware timers.    |\n  | 9. Leave headroom -- never design to 100% on hard RT.      |\n  +------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 295,
+      "heading_context": "### \"I measured the max execution time — that's my WCET, right?\"",
+      "confidence": "candidate",
+      "text": "### \"My utilization is 60% — am I definitely fine?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

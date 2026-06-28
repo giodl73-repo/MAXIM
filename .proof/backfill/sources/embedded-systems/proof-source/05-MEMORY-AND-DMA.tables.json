@@ -1,0 +1,189 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\05-MEMORY-AND-DMA.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 67,
+      "heading_context": "## Flash vs RAM — Two Very Different Memories",
+      "headers": [
+        "Property",
+        "Flash (NOR, on-chip)",
+        "SRAM"
+      ],
+      "rows": [
+        [
+          "Volatility",
+          "Non-volatile (keeps state off-power)",
+          "Volatile (lost at power-off)"
+        ],
+        [
+          "Holds",
+          "Code, constants, config",
+          "Variables, stack, heap, buffers"
+        ],
+        [
+          "Read",
+          "Fast, random, byte-addressable",
+          "Fast, random"
+        ],
+        [
+          "Write",
+          "**Slow, special sequence**",
+          "Fast, normal store"
+        ],
+        [
+          "Erase",
+          "**Whole sector at a time**, then write",
+          "N/A (just overwrite)"
+        ],
+        [
+          "Endurance",
+          "~10k–100k erase cycles per sector",
+          "Effectively unlimited"
+        ],
+        [
+          "Wait states",
+          "Yes at high clock (needs prefetch/cache)",
+          "Usually zero-wait"
+        ],
+        [
+          "Size",
+          "Larger (KBs–MBs)",
+          "Smaller (KBs–hundreds of KB)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 146,
+      "heading_context": "## Stack and Heap — The Constrained Pair",
+      "headers": [
+        "Allocation strategy",
+        "Determinism",
+        "Fragmentation",
+        "When"
+      ],
+      "rows": [
+        [
+          "Static / global",
+          "Total",
+          "None",
+          "Default for real-time"
+        ],
+        [
+          "Stack (automatic)",
+          "Total (bounded depth)",
+          "None",
+          "Locals; watch depth"
+        ],
+        [
+          "Memory pool (fixed-block)",
+          "High",
+          "None (fixed blocks)",
+          "When dynamic-ish behavior needed"
+        ],
+        [
+          "General heap (malloc)",
+          "**Low**",
+          "**Yes**",
+          "Avoid in real-time paths"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 196,
+      "heading_context": "## DMA — Moving Data Without the CPU",
+      "headers": [
+        "DMA concept",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Channel / stream",
+          "One independent transfer path (peripheral ↔ memory)"
+        ],
+        [
+          "Source / destination",
+          "Addresses; either can auto-increment"
+        ],
+        [
+          "Transfer count",
+          "How many items to move before stopping/wrapping"
+        ],
+        [
+          "Trigger",
+          "What starts a transfer (peripheral event, software)"
+        ],
+        [
+          "Circular mode",
+          "Wrap to start automatically — continuous streaming"
+        ],
+        [
+          "Half/full IRQ",
+          "Fire at 50% and 100% — enables **double-buffering**"
+        ],
+        [
+          "Burst",
+          "Move several items per bus arbitration grant"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 317,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Store code and constants",
+          "Flash (.text/.rodata, XIP)"
+        ],
+        [
+          "Store variables, stacks, buffers",
+          "SRAM"
+        ],
+        [
+          "Keep memory use deterministic",
+          "Static allocation / fixed-block pools"
+        ],
+        [
+          "Avoid fragmentation and malloc nondeterminism",
+          "No general heap in real-time paths"
+        ],
+        [
+          "Detect a stack overflow without an MMU",
+          "Stack painting + high-water, or MPU guard"
+        ],
+        [
+          "Sandbox a task / mark a guard region",
+          "MPU (permissions, not translation)"
+        ],
+        [
+          "Move a data stream without the CPU",
+          "DMA (circular + half/full IRQ ping-pong)"
+        ],
+        [
+          "Offload a big memory copy",
+          "Memory-to-memory DMA"
+        ],
+        [
+          "Use DMA on a cached core (M7)",
+          "Clean before TX, invalidate after RX, align buffers"
+        ],
+        [
+          "Skip cache maintenance on DMA buffers",
+          "Non-cacheable MPU region"
+        ],
+        [
+          "Save settings to flash at runtime",
+          "Wear-leveled / emulated-EEPROM library"
+        ]
+      ]
+    }
+  ]
+}

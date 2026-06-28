@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\04-METABOLISM-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# Metabolism Overview — The Flux Network",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                METABOLISM = ONE BIG DATAFLOW GRAPH                     |\n|                                                                        |\n|   CATABOLISM (break down)            ANABOLISM (build up)              |\n|   energy-releasing, deltaG<0         energy-requiring, deltaG>0        |\n|                                                                        |\n|   big molecules                      small precursors                  |\n|       |                                  ^                             |\n|       v                                  |                             |\n|   oxidize, release e- and energy     reduce, consume energy            |\n|       |                                  ^                             |\n|       v                                  |                             |\n|   .----------------------------------------------------.               |\n|   |   SHARED CURRENCY POOL                              |              |\n|   |   ATP  (energy)    NADH (catabolic e-)              |              |\n|   |   NADPH (anabolic reducing power)                   |              |\n|   '----------------------------------------------------'               |\n|       |                                  ^                             |\n|       '-- catabolism CHARGES the pool ---'                             |\n|       .-- anabolism SPENDS the pool ------.                            |\n|                                                                        |\n|   The pool COUPLES the two halves. Energy is a shared resource budget. |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 70,
+      "heading_context": "## Energy Coupling — The Central Trick",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|   UNFAVORABLE alone:   glucose + Pi -> G6P + H2O   deltaG = +13.8 kJ/mol |\n|   ATP hydrolysis:      ATP + H2O -> ADP + Pi       deltaG = -30.5 kJ/mol |\n|   ---------------------------------------------------------------------  |\n|   COUPLED (one step):  glucose + ATP -> G6P + ADP  deltaG = -16.7 kJ/mol |\n|                                                                          |\n|   The enzyme does BOTH in one active site so the energy never escapes    |\n|   as heat between steps. Net deltaG < 0 -> it runs.                      |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 98,
+      "heading_context": "## The Carriers — Reusable Currency (Recap + Detail)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   CARRIER     CHARGED   SPENT     CARRIES         USED MOSTLY IN       |\n|   -------     -------   -----     -------         -------------        |\n|   ATP/ADP     ATP       ADP+Pi    phosphoryl /    everywhere (energy)  |\n|                                   free energy                          |\n|   NAD+/NADH   NADH      NAD+      2e- + H+         CATABOLISM          |\n|                                                   (feeds ETC -> ATP)   |\n|   NADP+/NADPH NADPH     NADP+     2e- + H+         ANABOLISM           |\n|                                                   (biosynthesis)       |\n|   FAD/FADH2   FADH2     FAD       2e- + 2H+        TCA, beta-oxidation |\n|   FMN, CoQ,...                    e- relay        electron transport   |\n|                                                                        |\n|   Coenzyme A (CoA-SH): carries ACYL groups (e.g., acetyl-CoA),         |\n|   the activated 2-carbon unit at the hub of the whole map.             |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## The Shape of the Map — Convergence and Divergence",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   CATABOLISM CONVERGES        ANABOLISM DIVERGES                       |\n|                                                                        |\n|   many fuels                   few precursors                          |\n|     \\  |  /                       /  |  \\                              |\n|      \\ | /                       / | | \\                               |\n|   carbs fats proteins         (acetyl-CoA, pyruvate, etc.)             |\n|       \\ | /                       / | | \\                              |\n|        \\|/                       /  |  \\                               |\n|     acetyl-CoA  <--- HUB --->   thousands of products                  |\n|         |                       (lipids, amino acids, nucleotides...)  |\n|         v                                                              |\n|    TCA + ETC                                                           |\n|                                                                        |\n|   FUNNEL IN to a few hubs       FAN OUT from a few hubs                |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Three Stages of Catabolism",
+      "confidence": "candidate",
+      "text": "   STAGE 1: DIGESTION         polymers -> monomers (hydrolysis)\n            proteins -> amino acids, carbs -> sugars, fats -> FA+glycerol\n                 |\n                 v\n   STAGE 2: TO ACETYL-CoA     monomers -> a few central intermediates\n            glycolysis (05), beta-oxidation (07), amino acid catabolism (07)\n            -> pyruvate -> ACETYL-CoA      (some NADH/ATP captured here)\n                 |\n                 v\n   STAGE 3: OXIDATION         acetyl-CoA -> CO2; reducing power -> ATP\n            TCA cycle (06) + electron transport / ox-phos (06)\n            -> the BULK of ATP is made here",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 197,
+      "heading_context": "## Regulation — The Scheduler",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   MECHANISM            SPEED         ANALOGY                           |\n|   ---------            -----         -------                           |\n|   1. ALLOSTERIC        milliseconds  runtime flag flips a hot path     |\n|      (binding)         - seconds     (e.g., ATP inhibits PFK-1)        |\n|                                                                        |\n|   2. COVALENT MOD      seconds -      config patch via signal cascade  |\n|      (phosphorylation) minutes       (hormones -> kinases, file 09)    |\n|                                                                        |\n|   3. GENE EXPRESSION   minutes -      recompile: make more/less enzyme |\n|      (enzyme amount)   hours          (transcription, biology/)        |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## Regulation — The Scheduler",
+      "confidence": "candidate",
+      "text": "                 [ATP] + 1/2 [ADP]\n  energy charge = ------------------------     (ranges 0 to 1; cells hold ~0.85-0.95)\n                 [ATP] + [ADP] + [AMP]\n\n  HIGH charge (plenty of ATP)  -> inhibit catabolism, allow anabolism\n  LOW charge  (ATP depleted)   -> fire up catabolism to refill the pool",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

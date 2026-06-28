@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\08-POWER-MANAGEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                 THE DUTY-CYCLE OF A LOW-POWER NODE                    |\n|                                                                       |\n|  current                                                              |\n|    |                                                                  |\n|  ACTIVE  |####|                    |####|                |####|       |\n|  (mA)    |    |                    |    |                |    |       |\n|          |    |                    |    |                |    |       |\n|  SLEEP   .    .--------------------.    .----------------.    .---    |\n|  (uA)    measure  <----- sleep ---->  measure  <-sleep->              |\n|          + send                                                       |\n|                                                                       |\n|  Average current ~= (I_active * t_active + I_sleep * t_sleep)         |\n|                     / (t_active + t_sleep)                            |\n|  -> dominated by how LITTLE time you spend awake, and how LOW         |\n|     the sleep floor is.                                               |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "## Sleep Modes — The Power/Wake-Time Trade",
+      "confidence": "candidate",
+      "text": "              SLEEP DEPTH LADDER (deeper = less power, slower wake)\n  +-----------------------------------------------------------------+\n  | RUN       | full speed         | mA       | everything on       |\n  +-----------------------------------------------------------------+\n  | SLEEP     | CPU clock stopped, | mA -> sub | wake on any IRQ     |\n  | (WFI)     | peripherals run    | mA       | fast (~cycles)      |\n  +-----------------------------------------------------------------+\n  | STOP/     | clocks off, RAM    | uA       | wake on RTC/EXTI;   |\n  | low-power | retained, regulator| (single  | wake ~us-ms; RAM    |\n  |           | in low-power mode  |  digits) | + registers KEPT    |\n  +-----------------------------------------------------------------+\n  | STANDBY/  | most of chip off,  | sub-uA   | wake = ~RESET;      |\n  | deep      | RAM mostly LOST,   | to nA    | only RTC/wake pin/  |\n  |           | RTC + wake logic on|          | small backup RAM    |\n  +-----------------------------------------------------------------+\n  | SHUTDOWN/ | everything off but | nA       | wake = full reset,  |\n  | off       | a wake pin         |          | all state lost      |\n  +-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## Clock Gating and Dynamic Frequency — Power Below Sleep",
+      "confidence": "candidate",
+      "text": "  CMOS DYNAMIC POWER (the governing relation)\n  +------------------------------------------------------------+\n  |   P_dynamic  ~  C * V^2 * f                                |\n  |                                                            |\n  |   C = switched capacitance (the silicon, fixed)            |\n  |   V = supply voltage   <- SQUARED: huge lever              |\n  |   f = clock frequency  <- linear                           |\n  |                                                            |\n  | Halve f    -> ~half the dynamic power (but work is slower) |\n  | Drop V 20% -> ~0.64x power -- voltage dominates            |\n  | Plus P_static (leakage) which sleep modes attack instead.  |\n  +------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 167,
+      "heading_context": "## Energy Budgeting — Making the Battery Math Real",
+      "confidence": "candidate",
+      "text": "  WORKED ENERGY BUDGET (periodic sensor node)\n  +------------------------------------------------------------+\n  | Wake every 10 s, awake 5 ms (sense + BLE send), else sleep.|\n  |                                                            |\n  |   I_active = 8 mA    for t_active = 5 ms                   |\n  |   I_sleep  = 2 uA    for t_sleep  = 9995 ms                |\n  |                                                            |\n  |   charge per cycle = 8mA*5ms + 0.002mA*9995ms              |\n  |                    = 40 uA*s ... let's use mA*h directly:  |\n  |   avg current = (8mA * 0.005s + 0.002mA * 9.995s) / 10s    |\n  |              = (0.040 + 0.01999) mA*s / 10 s               |\n  |              = 0.0600 mA*s / 10 s ... per-second avg:      |\n  |   avg I ~= 8mA*(0.005/10) + 2uA*(9.995/10)                 |\n  |         ~= 0.004 mA + 0.002 mA = 0.006 mA = 6 uA           |\n  |                                                            |\n  |   life = 225 mAh / 0.006 mA = 37,500 h ~= 4.3 YEARS        |\n  |   (before derating for self-discharge, temperature, etc.)  |\n  +------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 218,
+      "heading_context": "## The Watchdog — Reliability, and a Power Footnote",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                       THE WATCHDOG PATTERN                            |\n|                                                                       |\n|  watchdog counts down from T...                                       |\n|     firmware healthy:  kick! kick! kick!  (reload before it hits 0)   |\n|         |     |     |     |                                           |\n|     ----.-----.-----.-----.----  counter never reaches 0              |\n|                                                                       |\n|  firmware HANGS:                                                      |\n|     kick! kick! ......(hung, no more kicks)......                     |\n|         |     |                          |                            |\n|     ----.-----.--------------------------X--> RESET                   |\n|                                          counter hit 0 -> reboot      |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

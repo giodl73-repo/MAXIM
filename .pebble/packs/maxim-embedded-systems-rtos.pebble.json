@@ -1,0 +1,2001 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-embedded-systems-rtos",
+  "source": "../../embedded-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-RTOS.md#000",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "# RTOS — Tasks, Schedulers, Rate-Monotonic, Priority Inversion"
+    },
+    {
+      "id": "04-RTOS.md#001",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-RTOS.md#002",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "A real-time operating system is a small scheduler plus synchronization\nprimitives that lets multiple tasks share one core while *meeting deadlines*.\nIt is not Linux shrunk down — it is a different design point. Linux optimizes\nthroughput and fairness; an RTOS optimizes *predictability*. The whole kernel\nmight be 5–20 KB. You already know processes, threads, mutexes, and scheduling\nin the abstract; this guide is about the embedded specialization — fixed\npriorities, preemption, and the deadline math that makes \"real-time\" a\nprovable property rather than a marketing word."
+    },
+    {
+      "id": "04-RTOS.md#003",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                        AN RTOS AT WORK                                |\n|                                                                       |\n|  TASKS (each = own stack, priority, state)                            |\n|  .----------.  .----------.  .----------.  .----------.               |\n|  | Control  |  | Comms    |  | Logger   |  | Idle     |               |\n|  | prio 5   |  | prio 3   |  | prio 1   |  | prio 0   |               |\n|  | RUNNING  |  | READY    |  | BLOCKED  |  | READY    |               |\n|  '----------'  '----------'  '----------'  '----------'               |\n|       |             |             |             |                     |\n|       v             v             v             v                     |\n|  .------------------------------------------------------------.       |\n|  |               SCHEDULER (fixed-priority preemptive)         |      |\n|  |  \"run the highest-priority READY task. Always.\"             |      |\n|  |  driven by SysTick + events (sem give, queue post)          |      |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  |  PRIMITIVES: semaphores, mutexes, queues, event groups,    |       |\n|  |  software timers, notifications                            |       |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  ONE Cortex-M core   +   ISRs preempting EVERYTHING above             |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-RTOS.md#004",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "**Read top-down.** Tasks are at the top; the scheduler in the middle decides\nwho runs; primitives let tasks coordinate. ISRs (`03`) sit *above* the whole\nRTOS — no task can preempt an ISR, but an ISR can wake a task."
+    },
+    {
+      "id": "04-RTOS.md#005",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#006",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Task vs Thread vs Process — Mapping Your Mental Model"
+    },
+    {
+      "id": "04-RTOS.md#007",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "| Concept you know | RTOS analogue | Difference |\n|------------------|---------------|------------|\n| Process | (none) | No address-space isolation — one flat memory |\n| Thread | **Task** | Own stack + priority; shares all memory |\n| Thread priority (dynamic) | Task priority (**fixed**) | No aging/fairness; you set it, it stays |\n| Context switch (µs–ms) | Context switch (**~1 µs**) | Tiny — just save/restore registers + SP |\n| OS scheduler (CFS, fair) | Fixed-priority preemptive | Highest-ready-task-wins, no fairness |\n| `pthread_mutex` | Mutex (with inheritance) | Adds priority-inheritance for real-time |\n| Virtual memory per process | One physical space (MPU at most) | A task can scribble another's memory |"
+    },
+    {
+      "id": "04-RTOS.md#008",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "The defining shift: **tasks share one address space with no protection** (an\noptional MPU can sandbox stacks, but there's no MMU/virtual memory). A wild\npointer in one task corrupts another. This is the price of the RTOS's tiny\nsize and speed. Discipline replaces hardware isolation."
+    },
+    {
+      "id": "04-RTOS.md#009",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### Task states"
+    },
+    {
+      "id": "04-RTOS.md#010",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n            create\n              |\n              v\n        +-----------+   highest ready    +-----------+\n        |  READY    |------------------->|  RUNNING  |\n        |           |<-------------------|           |\n        +-----+-----+   preempted/yield  +-----+-----+\n              ^                                |\n   event /    |                                | block on\n   timeout    |                                | sem/queue/delay\n              |          +-----------+         |\n              +----------|  BLOCKED  |<--------+\n                         '-----------'\n                               ^\n                               v\n                         .-----------.\n                         | SUSPENDED | (explicitly paused)\n                         '-----------'\n```"
+    },
+    {
+      "id": "04-RTOS.md#011",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "A task is RUNNING (one at a time on a single core), READY (wants the CPU),\nBLOCKED (waiting on a primitive or delay), or SUSPENDED (parked). The scheduler\nonly ever runs the highest-priority READY task. A blocked task consumes zero\nCPU — the whole point of an RTOS over a polling super-loop."
+    },
+    {
+      "id": "04-RTOS.md#012",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#013",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## The Scheduler — Fixed-Priority Preemptive"
+    },
+    {
+      "id": "04-RTOS.md#014",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "The dominant RTOS scheduling policy. Two rules: (1) always run the\nhighest-priority READY task; (2) the instant a higher-priority task becomes\nREADY (an ISR gives it a semaphore, a delay expires), preempt the current task."
+    },
+    {
+      "id": "04-RTOS.md#015",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  PREEMPTION TIMELINE\n  prio 5 (Control)  ........####............####........\n  prio 3 (Comms)    ....####....####....####....####....\n  prio 1 (Logger)   ##........##........##........##....\n                    ^   ^      ^\n                    |   |      Comms ready -> preempts Logger\n                    |   Control's tick fires -> preempts Comms\n                    Logger runs only when nothing higher is ready"
+    },
+    {
+      "id": "04-RTOS.md#016",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "'#' = running    '.' = ready-but-waiting or blocked\n```"
+    },
+    {
+      "id": "04-RTOS.md#017",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "Higher-priority work always wins the core immediately — that's what makes\nlatency bounded. The cost is that a runaway high-priority task can *starve*\neverything below it (no fairness), and that you, the engineer, must assign\npriorities correctly. That assignment is not guesswork — it has theory."
+    },
+    {
+      "id": "04-RTOS.md#018",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "| Policy | Rule | RTOS reality |\n|--------|------|--------------|\n| Fixed-priority preemptive | Highest-priority ready task runs | The default everywhere |\n| Round-robin (within a priority) | Time-slice equal-priority tasks | Optional, for fairness among peers |\n| Cooperative | Tasks yield voluntarily | Smallest, but one bad task hangs all |\n| EDF (dynamic) | Earliest deadline runs | Rare in commercial RTOS; theoretically optimal |"
+    },
+    {
+      "id": "04-RTOS.md#019",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#020",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Rate-Monotonic Scheduling — Priorities From Math"
+    },
+    {
+      "id": "04-RTOS.md#021",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "For periodic tasks, you don't have to guess priorities. **Rate-Monotonic (RM)**\nassigns priority by *rate*: the task with the shortest period gets the highest\npriority. It is the provably optimal *fixed-priority* assignment for periodic\ntasks (Liu & Layland, 1973) — if any fixed-priority assignment can meet all\ndeadlines, RM can."
+    },
+    {
+      "id": "04-RTOS.md#022",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  RATE-MONOTONIC PRIORITY ASSIGNMENT\n  +------------------------------------------------------------+\n  | Task     Period T   ->   Priority (shorter period = higher)|\n  | A         2 ms             HIGHEST                         |\n  | B         5 ms             middle                          |\n  | C        10 ms             LOWEST                          |\n  +------------------------------------------------------------+\n  \"Fastest cadence wins the CPU.\"\n```"
+    },
+    {
+      "id": "04-RTOS.md#023",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### The utilization bound (~0.693)"
+    },
+    {
+      "id": "04-RTOS.md#024",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "RM comes with a schedulability test. Let each task i have worst-case execution\ntime C_i and period T_i; its utilization is U_i = C_i / T_i. For n periodic\ntasks, RM **guarantees** all deadlines are met if total utilization satisfies:"
+    },
+    {
+      "id": "04-RTOS.md#025",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  n\n  SUM (C_i / T_i)  <=  n * (2^(1/n) - 1)\n  i=1"
+    },
+    {
+      "id": "04-RTOS.md#026",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "n=1 -> 1.000      As n -> infinity, the bound -> ln(2) = 0.6931...\n  n=2 -> 0.828\n  n=3 -> 0.780\n  n=4 -> 0.757\n  n=5 -> 0.743\n  ...\n  n=inf-> 0.693     <- the famous ~69% RM utilization bound\n```"
+    },
+    {
+      "id": "04-RTOS.md#027",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "So RM *guarantees* schedulability up to roughly **69% CPU utilization** for\nmany tasks. This is a **sufficient, not necessary** condition: above 69% it\n*may* still be schedulable, you just need the exact test (response-time\nanalysis, `07`) to prove it. The lost ~31% is the price of using a simple\nfixed-priority scheme instead of a dynamic one."
+    },
+    {
+      "id": "04-RTOS.md#028",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "**Worked example.** Three tasks: A (C=0.5 ms, T=2 ms), B (C=1 ms, T=5 ms),\nC (C=2 ms, T=10 ms). Utilizations: 0.25 + 0.20 + 0.20 = **0.65**. The n=3 bound\nis 0.780. Since 0.65 ≤ 0.780, RM **guarantees** all three meet their deadlines.\nAssign A highest priority (shortest period), then B, then C."
+    },
+    {
+      "id": "04-RTOS.md#029",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#030",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## EDF — Earliest Deadline First"
+    },
+    {
+      "id": "04-RTOS.md#031",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "EDF is the *dynamic-priority* alternative: at every scheduling instant, run the\ntask whose absolute deadline is nearest. Priorities aren't fixed — they shift\nas deadlines approach."
+    },
+    {
+      "id": "04-RTOS.md#032",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  RM (fixed)                          EDF (dynamic)\n  ----------                          -------------\n  priority = f(period), set once      priority = f(time-to-deadline), changes\n  bound ~0.693 (n large)              bound = 1.00 (full utilization!)\n  simple, cheap to implement          must track deadlines, more overhead\n  predictable under overload          unpredictable under overload (domino)\n  ubiquitous in commercial RTOS       rare; used where 100% util is needed\n```"
+    },
+    {
+      "id": "04-RTOS.md#033",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "| Property | Rate-Monotonic | EDF |\n|----------|----------------|-----|\n| Priority type | Static | Dynamic |\n| Utilization bound | n(2^(1/n)-1) → 0.693 | **1.000** |\n| Overhead | Low | Higher (deadline tracking) |\n| Overload behavior | Lower-priority tasks fail predictably | Domino effect, hard to predict |\n| Implementation | Trivial | Needs deadline-aware scheduler |\n| Commercial use | Dominant | Niche |"
+    },
+    {
+      "id": "04-RTOS.md#034",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "EDF is **theoretically optimal** — it can schedule any task set up to 100%\nutilization that *any* algorithm could. So why isn't it everywhere? Because RM's\n*predictability under overload* is worth more than EDF's extra ~31% headroom.\nWhen an RM system is overloaded, the lowest-priority task misses first —\npredictable, you know who suffers. When an EDF system overloads, it can cascade\n(\"domino\"): one missed deadline pushes the next, and the failure is hard to\nbound. For safety-critical embedded, predictable degradation beats peak\nutilization."
+    },
+    {
+      "id": "04-RTOS.md#035",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#036",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Priority Inversion — and the Mars Pathfinder"
+    },
+    {
+      "id": "04-RTOS.md#037",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "Here is the famous failure mode that every real-time engineer must understand.\nA high-priority task gets *blocked by a low-priority task* holding a shared\nresource — inverting the priority order. If a medium-priority task then\npreempts the low one, the high-priority task waits indefinitely."
+    },
+    {
+      "id": "04-RTOS.md#038",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                   UNBOUNDED PRIORITY INVERSION                        |\n|                                                                       |\n|  H (high)   ...wants the mutex L holds... B  L  O  C  K  E  D  ...... |\n|                                            ^                          |\n|  M (medium) ......................########################........... |\n|                                   ^ M preempts L (M doesn't need      |\n|                                     the mutex) and runs a LONG time   |\n|  L (low)    ....####[takes mutex]##..........................[done]## |\n|                                                                       |\n|  Result: H -- the MOST urgent task -- is blocked for as long as M     |\n|  chooses to run. The priorities are INVERTED. Deadline missed.        |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-RTOS.md#039",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "The chain: L takes a mutex → H needs the same mutex, blocks on L → M (which\nneeds nothing) preempts L because M > L → L can't run to release the mutex → H\nstays blocked the entire time M runs. H's blocking time is bounded only by M's\nruntime, not L's critical section. That is **unbounded** priority inversion."
+    },
+    {
+      "id": "04-RTOS.md#040",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### Mars Pathfinder (1997)"
+    },
+    {
+      "id": "04-RTOS.md#041",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "This exact bug nearly lost the **Mars Pathfinder** mission in July 1997. The\nSojourner rover's lander used VxWorks. A high-priority `bc_dist` task (bus\nmanagement) shared a mutex-protected information bus with a low-priority\n`ASI/MET` (meteorological) task. A medium-priority, long-running communications\ntask sat between them in priority. The classic inversion occurred: the\nmeteorological task held the mutex, the comms task preempted it, and the\nhigh-priority bus task blocked long enough that a **watchdog timer** (`08`)\ndetected the bus task hadn't completed and triggered a **system reset** — over\nand over, on Mars."
+    },
+    {
+      "id": "04-RTOS.md#042",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "The fix was already available in VxWorks: **priority inheritance** on the mutex,\nwhich had been disabled. JPL diagnosed it by reproducing the fault on an\nidentical ground unit with tracing enabled, then uploaded a patch that flipped\nthe mutex's inheritance flag on. The rover recovered. The lesson burned into\nthe field: *priority inversion is not a corner case — it is the default\nbehavior of a naive mutex, and it will find you.*"
+    },
+    {
+      "id": "04-RTOS.md#043",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#044",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Priority Inheritance and Priority Ceiling — The Fixes"
+    },
+    {
+      "id": "04-RTOS.md#045",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "Two protocols bound the inversion so a high-priority task waits only for the\n*critical section*, never for unrelated medium tasks."
+    },
+    {
+      "id": "04-RTOS.md#046",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  PRIORITY INHERITANCE\n  +------------------------------------------------------------+\n  | When H blocks on a mutex held by L,                        |\n  | L TEMPORARILY INHERITS H's priority.                       |\n  | Now M cannot preempt L (L is effectively high).            |\n  | L finishes its critical section fast, releases, drops back.|\n  | H proceeds. Blocking is bounded by L's critical section.   |\n  +------------------------------------------------------------+"
+    },
+    {
+      "id": "04-RTOS.md#047",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "before:  H blocked while M runs (unbounded)\n  after:   L runs at H's priority -> M waits -> L releases -> H runs\n```"
+    },
+    {
+      "id": "04-RTOS.md#048",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  PRIORITY CEILING\n  +------------------------------------------------------------+\n  | Each mutex has a CEILING = priority of the highest task    |\n  | that can ever take it. A task taking the mutex is raised   |\n  | to the ceiling immediately. Prevents deadlock AND          |\n  | bounds inversion to ONE critical section. Stronger;        |\n  | needs static knowledge of who uses what.                   |\n  +------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-RTOS.md#049",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "| Protocol | Mechanism | Bounds inversion? | Prevents deadlock? | Cost |\n|----------|-----------|-------------------|--------------------|------|\n| Naive mutex | None | **No** (unbounded) | No | — |\n| Priority inheritance | Holder inherits blocker's priority | Yes (to crit. section) | No | Low, dynamic |\n| Priority ceiling | Holder raised to mutex ceiling | Yes | **Yes** | Needs static analysis |"
+    },
+    {
+      "id": "04-RTOS.md#050",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "**Practical rule.** Use a mutex *with priority inheritance* (FreeRTOS\n`xSemaphoreCreateMutex` does this; a plain binary semaphore does **not**) for\nany resource shared across priority levels. Never use a plain binary semaphore\nas a lock between tasks of different priority — that is exactly the Pathfinder\nsetup."
+    },
+    {
+      "id": "04-RTOS.md#051",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### Old world → RTOS sync bridge"
+    },
+    {
+      "id": "04-RTOS.md#052",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n  You know...                          RTOS...\n  ----------                           ------\n  pthread_mutex (PI optional)          Mutex with priority inheritance\n  Semaphore (counting)                 Counting semaphore (signaling)\n  Condition variable                   Event group / task notification\n  Blocking queue                       Queue (the RTOS message-passing core)\n  Lock-free for low latency            Critical section (disable IRQ) for ISRs\n```"
+    },
+    {
+      "id": "04-RTOS.md#053",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#054",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Choosing and Configuring an RTOS"
+    },
+    {
+      "id": "04-RTOS.md#055",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "```\n                  DO I NEED AN RTOS?\n                        |\n        .---------------+----------------.\n        | <= 2-3 timed activities, no    |  -> super-loop + timers (02/03)\n        | blocking I/O, simple           |\n        +--------------------------------'\n        | many tasks, blocking waits,    |  -> RTOS\n        | independent rates, priorities  |\n        '---------------+----------------'\n                        |\n            +-----------+-----------+-----------+\n            v           v           v           v\n        FreeRTOS    Zephyr      ThreadX     safety-cert\n        ubiquitous  Linux-      Azure RTOS  (SafeRTOS,\n        tiny, free  Foundation, (commercial, integrity)\n                    driver-rich  small)\n```"
+    },
+    {
+      "id": "04-RTOS.md#056",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "| RTOS | Footprint | Niche |\n|------|-----------|-------|\n| FreeRTOS | ~5–10 KB | The default; huge ecosystem, AWS-backed |\n| Zephyr | Larger | Rich drivers, networking, Linux Foundation governance |\n| ThreadX (Azure RTOS) | Tiny | Deterministic, certified variants |\n| embOS / RTX | Small | Commercial, IDE-integrated |\n| SafeRTOS / INTEGRITY | Varies | Safety-certified (DO-178, IEC 61508) |"
+    },
+    {
+      "id": "04-RTOS.md#057",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "Sizing pitfall unique to RTOS: **each task needs its own stack**, sized to its\nworst-case call depth + the ~8-word interrupt frame + any nested-ISR depth.\nUnder-size a task stack and it silently overflows into the next task's\nmemory — a top cause of mysterious RTOS crashes. Use the RTOS's stack\nhigh-water-mark API to measure real usage."
+    },
+    {
+      "id": "04-RTOS.md#058",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#059",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "04-RTOS.md#060",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### \"Is an RTOS just a small Linux?\""
+    },
+    {
+      "id": "04-RTOS.md#061",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "No — different goals. Linux maximizes throughput and fairness with a dynamic,\naging scheduler and full memory isolation. An RTOS maximizes *predictability*\nwith fixed priorities, preemption, and (usually) no memory protection. An RTOS\nkernel is kilobytes; it makes timing analyzable, which Linux does not (without\nthe PREEMPT_RT patches and great care, covered in `os/`)."
+    },
+    {
+      "id": "04-RTOS.md#062",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### \"Why give a low-priority task the high task's priority — isn't that backwards?\""
+    },
+    {
+      "id": "04-RTOS.md#063",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "Priority inheritance is temporary and surgical: only while the low task *holds a\nlock the high task needs*, and only for the critical section. It exists to stop\nunrelated medium tasks from indefinitely delaying the high task. The instant the\nlock is released, the low task drops back. It's a fix for inversion, not a\npriority change in spirit."
+    },
+    {
+      "id": "04-RTOS.md#064",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### \"I'm using a binary semaphore as a lock — fine, right?\""
+    },
+    {
+      "id": "04-RTOS.md#065",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "Dangerous across priority levels. A binary semaphore has no notion of an owner,\nso it can't implement priority inheritance — it's exactly the Pathfinder setup.\nUse a **mutex** (which has an owner and inheritance) for mutual exclusion;\nreserve semaphores for *signaling* (ISR-to-task, producer-consumer counts)."
+    },
+    {
+      "id": "04-RTOS.md#066",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "### \"RM caps me at 69% CPU — that seems wasteful\""
+    },
+    {
+      "id": "04-RTOS.md#067",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "The 69% is a *guarantee* (sufficient condition), not a ceiling. Many real task\nsets schedule fine well above it; you just need the exact response-time test\n(`07`) instead of the simple bound to prove it. If you genuinely need\nguaranteed 100% utilization, that's EDF's domain — at the cost of unpredictable\noverload behavior."
+    },
+    {
+      "id": "04-RTOS.md#068",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-RTOS.md#069",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-RTOS.md#070",
+      "path": [
+        "04-RTOS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:embedded-systems:04-rtos, git-history:embedded-systems:04-rtos]",
+        "canonical_path": "embedded-systems/04-RTOS.md",
+        "concepts": "[rtos, scheduling, rate-monotonic, edf, priority inversion, priority inheritance]",
+        "current_path": "embedded-systems/04-RTOS.md",
+        "id": "maxim:embedded-systems:rtos",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rtos]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "RTOS - Tasks, Schedulers, Rate-Monotonic, Priority Inversion",
+        "updated": "null"
+      },
+      "text": "| I need to... | Reach for |\n|---|---|\n| Run many independent periodic tasks | RTOS, fixed-priority preemptive |\n| Assign priorities to periodic tasks | Rate-Monotonic (shortest period = highest) |\n| Prove deadlines are met (quick test) | RM utilization bound ≤ n(2^(1/n)-1) |\n| Prove deadlines above the RM bound | Exact response-time analysis (`07`) |\n| Squeeze 100% utilization | EDF (accept unpredictable overload) |\n| Protect a resource shared across priorities | Mutex **with priority inheritance** |\n| Prevent both inversion and deadlock | Priority-ceiling protocol |\n| Signal a task from an ISR | Counting semaphore / notification (`...FromISR`) |\n| Pass messages between tasks | Queue |\n| Avoid a Pathfinder-style hang | Never lock across priorities with a bare binary semaphore |\n| Diagnose a mystery RTOS crash | Check per-task stack high-water marks |\n| Decide RTOS vs super-loop | Many blocking, multi-rate tasks → RTOS, else loop |"
+    }
+  ],
+  "refs": [
+    "04-RTOS.md"
+  ]
+}

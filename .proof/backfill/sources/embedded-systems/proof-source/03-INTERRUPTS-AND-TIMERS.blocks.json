@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\03-INTERRUPTS-AND-TIMERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                  ANATOMY OF AN INTERRUPT                              |\n|                                                                       |\n|  main loop running...                                                 |\n|       |                                                               |\n|       |   <==== peripheral asserts IRQ line (e.g. timer overflow)     |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  | NVIC: is this IRQ enabled? higher priority than current?   |       |\n|  |   yes -> request the core take the exception               |       |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  | CORE (hardware, automatic):                                |       |\n|  |   push R0-R3,R12,LR,PC,xPSR onto current stack             |       |\n|  |   load handler address from vector table                  |        |\n|  |   start executing the ISR  (latency ~12 cycles)           |        |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  | YOUR ISR: do the minimum, clear the interrupt flag         |       |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  | EXC_RETURN: hardware pops the stacked registers, resumes  |        |\n|  | main loop EXACTLY where it left off                        |       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "## The NVIC — Nested Vectored Interrupt Controller",
+      "confidence": "candidate",
+      "text": "  +-------------+----------------------------------------------------+\n  | NESTED      | A higher-priority IRQ can preempt a running ISR.   |\n  |             | ISRs stack like function calls -> \"nested.\"        |\n  +-------------+----------------------------------------------------+\n  | VECTORED    | Each IRQ has its OWN handler address in the vector |\n  |             | table. No software dispatch -- hardware jumps      |\n  |             | straight to the right ISR. (Fast, deterministic.)  |\n  +-------------+----------------------------------------------------+\n  | CONTROLLER  | Enables/disables, prioritizes, latches pending     |\n  |             | IRQs. One register interface for all interrupts.   |\n  +-------------+----------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "### Priority — counterintuitive numbering",
+      "confidence": "candidate",
+      "text": "  Priority field (e.g. 4 implemented bits):\n  +----------------+----------------+\n  | preemption     | sub-priority   |\n  | (can preempt?) | (tie-break)    |\n  +----------------+----------------+\n  Split point set by NVIC_SetPriorityGrouping().\n\n  Example:\n    SysTick   prio 0   -- highest, the RTOS tick\n    motor PWM prio 1   -- preempts comms\n    UART RX   prio 2\n    button    prio 3   -- lowest, can be preempted by all above",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 185,
+      "heading_context": "## ISR Discipline — Rules That Are Not Optional",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                       ISR COMMANDMENTS                                |\n|                                                                       |\n|  DO                              DO NOT                               |\n|  --                              ------                               |\n|  Keep it short (us, not ms)      Call blocking functions              |\n|  Clear the interrupt flag        Busy-wait / poll / delay()           |\n|  Read/stash data, set a flag     malloc / free (heap, nondeterm.)     |\n|  Use ISR-safe RTOS API          Call normal RTOS API (use ...FromISR) |\n|  Defer real work to mainline     printf (slow, may block/reenter)     |\n|  Mark shared vars volatile       Long loops over data                 |\n|  Re-enter? design for it         Assume single-entry without nesting  |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## ISR Discipline — Rules That Are Not Optional",
+      "confidence": "candidate",
+      "text": "  TOP HALF (ISR)            BOTTOM HALF (mainline / task)\n  --------------            -----------------------------\n  byte = UART->DR;          while(buffer_has_data){\n  ringbuf_push(byte);   ->     parse_message();\n  clear RXNE flag;             dispatch();\n  // <2 us, returns          }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 234,
+      "heading_context": "## Timers — Manufacturing Time",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                       HOW A TIMER COUNTS                              |\n|                                                                       |\n|  system clock (e.g. 84 MHz)                                           |\n|        |                                                              |\n|        v                                                              |\n|  .-----------.   divides clock    .------------.                      |\n|  | PRESCALER |------------------->| COUNTER    | counts 0..ARR        |\n|  | (PSC)     |   tick = clk/(PSC+1)| (CNT)     | then overflows       |\n|  '-----------'                    '-----'------'                      |\n|                                         |                             |\n|                            reaches ARR  v                             |\n|                            .------------------------.                 |\n|                            | UPDATE EVENT -> IRQ    |                 |\n|                            | (and/or reload to 0)   |                 |\n|                            '------------------------'                 |\n|                                                                       |\n|  period = (PSC+1) * (ARR+1) / f_clk                                   |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 288,
+      "heading_context": "## PWM — Driving the Analog World Digitally",
+      "confidence": "candidate",
+      "text": "  100% duty   ____________________  full power\n              |                  |\n   75% duty   ______      ______    3/4 average\n              |    |______|    |__\n   50% duty   ___    ___    ___     half average\n              | |___| |___| |___\n   25% duty   _    _    _           1/4 average\n              |_|__|_|__|_|__\n\n  duty = CCR / (ARR+1)        period fixed by ARR, level set by CCR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

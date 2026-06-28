@@ -1,0 +1,224 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\08-POWER-MANAGEMENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 85,
+      "heading_context": "## Sleep Modes — The Power/Wake-Time Trade",
+      "headers": [
+        "Mode",
+        "CPU",
+        "Peripherals",
+        "RAM",
+        "Wake source",
+        "Wake time",
+        "Current"
+      ],
+      "rows": [
+        [
+          "Run",
+          "On",
+          "On",
+          "—",
+          "—",
+          "—",
+          "mA"
+        ],
+        [
+          "Sleep (WFI)",
+          "Clock off",
+          "On",
+          "Kept",
+          "Any interrupt",
+          "~cycles",
+          "sub-mA"
+        ],
+        [
+          "Stop / LP",
+          "Off",
+          "Off (clocks gated)",
+          "**Retained**",
+          "RTC, EXTI pin",
+          "µs–ms",
+          "single µA"
+        ],
+        [
+          "Standby / deep",
+          "Off",
+          "Off",
+          "**Mostly lost**",
+          "RTC, wake pin",
+          "~reset",
+          "sub-µA"
+        ],
+        [
+          "Shutdown",
+          "Off",
+          "Off",
+          "Lost",
+          "Wake pin",
+          "full reset",
+          "nA"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 138,
+      "heading_context": "## Clock Gating and Dynamic Frequency — Power Below Sleep",
+      "headers": [
+        "Lever",
+        "Mechanism",
+        "Effect"
+      ],
+      "rows": [
+        [
+          "**Clock gating**",
+          "Turn off the clock to *unused* peripherals (RCC)",
+          "Removes their dynamic power; off = free"
+        ],
+        [
+          "**Dynamic frequency**",
+          "Run the core only as fast as the work needs",
+          "Linear power saving"
+        ],
+        [
+          "**Voltage scaling (DVFS)**",
+          "Lower core voltage at lower frequency",
+          "Quadratic saving (the big one)"
+        ],
+        [
+          "**Peripheral power domains**",
+          "Power off whole blocks (radio, ADC)",
+          "Removes their static + dynamic draw"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 194,
+      "heading_context": "## Energy Budgeting — Making the Battery Math Real",
+      "headers": [
+        "Budget factor",
+        "Typical concern"
+      ],
+      "rows": [
+        [
+          "Sleep floor (µA)",
+          "Dominates for low duty cycles — read it carefully"
+        ],
+        [
+          "Active current (mA)",
+          "Radio TX is often the biggest spike"
+        ],
+        [
+          "Wake/settle time",
+          "Crystal startup, regulator settle waste energy"
+        ],
+        [
+          "Self-discharge",
+          "Battery loses charge even unused (% per year)"
+        ],
+        [
+          "Temperature",
+          "Cold raises battery internal resistance, cuts usable mAh"
+        ],
+        [
+          "Peak current",
+          "Radio TX bursts may exceed coin-cell rating → need a cap"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 235,
+      "heading_context": "## The Watchdog — Reliability, and a Power Footnote",
+      "headers": [
+        "Watchdog rule",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Kick from one well-understood place",
+          "Kicking everywhere defeats the purpose"
+        ],
+        [
+          "Don't kick inside a hung loop",
+          "Then the loop survives — kick from the main flow"
+        ],
+        [
+          "Set the timeout to your loop's worst case + margin",
+          "Too short → false resets"
+        ],
+        [
+          "Use a **windowed** watchdog where available",
+          "Detects *too-fast* kicks too (runaway code)"
+        ],
+        [
+          "Independent clock (IWDG) for the critical one",
+          "Survives a main-clock failure"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 294,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Idle a few microseconds between bytes",
+          "Sleep mode (WFI) — wake on any IRQ"
+        ],
+        [
+          "Idle seconds between samples, keep state",
+          "Stop / low-power mode + RTC alarm"
+        ],
+        [
+          "Idle long, can re-init on wake",
+          "Standby / deep sleep + RTC or wake pin"
+        ],
+        [
+          "Lowest possible off current",
+          "Shutdown (wakes via full reset)"
+        ],
+        [
+          "Wake on a schedule",
+          "RTC alarm (32.768 kHz low-power domain)"
+        ],
+        [
+          "Wake on an external event",
+          "Wake pin / EXTI interrupt"
+        ],
+        [
+          "Cut a peripheral's power while unused",
+          "Clock gate it (RCC) / power off its domain"
+        ],
+        [
+          "Big run-mode power win",
+          "Voltage scaling (DVFS) — quadratic in V"
+        ],
+        [
+          "Decide run-slow vs race-to-idle",
+          "Compare against the sleep floor; measure energy"
+        ],
+        [
+          "Estimate battery life",
+          "avg current = duty-weighted; life = mAh / avg I"
+        ],
+        [
+          "Recover an unattended hang",
+          "Watchdog timer (independent, low-power clock)"
+        ],
+        [
+          "Keep a watchdog from resetting in sleep",
+          "IWDG that halts in LP mode, or feed on wake"
+        ]
+      ]
+    }
+  ]
+}

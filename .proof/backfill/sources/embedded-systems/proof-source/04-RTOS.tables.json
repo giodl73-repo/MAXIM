@@ -1,0 +1,258 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\04-RTOS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## Task vs Thread vs Process — Mapping Your Mental Model",
+      "headers": [
+        "Concept you know",
+        "RTOS analogue",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "Process",
+          "(none)",
+          "No address-space isolation — one flat memory"
+        ],
+        [
+          "Thread",
+          "**Task**",
+          "Own stack + priority; shares all memory"
+        ],
+        [
+          "Thread priority (dynamic)",
+          "Task priority (**fixed**)",
+          "No aging/fairness; you set it, it stays"
+        ],
+        [
+          "Context switch (µs–ms)",
+          "Context switch (**~1 µs**)",
+          "Tiny — just save/restore registers + SP"
+        ],
+        [
+          "OS scheduler (CFS, fair)",
+          "Fixed-priority preemptive",
+          "Highest-ready-task-wins, no fairness"
+        ],
+        [
+          "`pthread_mutex`",
+          "Mutex (with inheritance)",
+          "Adds priority-inheritance for real-time"
+        ],
+        [
+          "Virtual memory per process",
+          "One physical space (MPU at most)",
+          "A task can scribble another's memory"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 139,
+      "heading_context": "## The Scheduler — Fixed-Priority Preemptive",
+      "headers": [
+        "Policy",
+        "Rule",
+        "RTOS reality"
+      ],
+      "rows": [
+        [
+          "Fixed-priority preemptive",
+          "Highest-priority ready task runs",
+          "The default everywhere"
+        ],
+        [
+          "Round-robin (within a priority)",
+          "Time-slice equal-priority tasks",
+          "Optional, for fairness among peers"
+        ],
+        [
+          "Cooperative",
+          "Tasks yield voluntarily",
+          "Smallest, but one bad task hangs all"
+        ],
+        [
+          "EDF (dynamic)",
+          "Earliest deadline runs",
+          "Rare in commercial RTOS; theoretically optimal"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 216,
+      "heading_context": "## EDF — Earliest Deadline First",
+      "headers": [
+        "Property",
+        "Rate-Monotonic",
+        "EDF"
+      ],
+      "rows": [
+        [
+          "Priority type",
+          "Static",
+          "Dynamic"
+        ],
+        [
+          "Utilization bound",
+          "n(2^(1/n)-1) → 0.693",
+          "**1.000**"
+        ],
+        [
+          "Overhead",
+          "Low",
+          "Higher (deadline tracking)"
+        ],
+        [
+          "Overload behavior",
+          "Lower-priority tasks fail predictably",
+          "Domino effect, hard to predict"
+        ],
+        [
+          "Implementation",
+          "Trivial",
+          "Needs deadline-aware scheduler"
+        ],
+        [
+          "Commercial use",
+          "Dominant",
+          "Niche"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 315,
+      "heading_context": "## Priority Inheritance and Priority Ceiling — The Fixes",
+      "headers": [
+        "Protocol",
+        "Mechanism",
+        "Bounds inversion?",
+        "Prevents deadlock?",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Naive mutex",
+          "None",
+          "**No** (unbounded)",
+          "No",
+          "—"
+        ],
+        [
+          "Priority inheritance",
+          "Holder inherits blocker's priority",
+          "Yes (to crit. section)",
+          "No",
+          "Low, dynamic"
+        ],
+        [
+          "Priority ceiling",
+          "Holder raised to mutex ceiling",
+          "Yes",
+          "**Yes**",
+          "Needs static analysis"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 362,
+      "heading_context": "## Choosing and Configuring an RTOS",
+      "headers": [
+        "RTOS",
+        "Footprint",
+        "Niche"
+      ],
+      "rows": [
+        [
+          "FreeRTOS",
+          "~5–10 KB",
+          "The default; huge ecosystem, AWS-backed"
+        ],
+        [
+          "Zephyr",
+          "Larger",
+          "Rich drivers, networking, Linux Foundation governance"
+        ],
+        [
+          "ThreadX (Azure RTOS)",
+          "Tiny",
+          "Deterministic, certified variants"
+        ],
+        [
+          "embOS / RTX",
+          "Small",
+          "Commercial, IDE-integrated"
+        ],
+        [
+          "SafeRTOS / INTEGRITY",
+          "Varies",
+          "Safety-certified (DO-178, IEC 61508)"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 415,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Run many independent periodic tasks",
+          "RTOS, fixed-priority preemptive"
+        ],
+        [
+          "Assign priorities to periodic tasks",
+          "Rate-Monotonic (shortest period = highest)"
+        ],
+        [
+          "Prove deadlines are met (quick test)",
+          "RM utilization bound ≤ n(2^(1/n)-1)"
+        ],
+        [
+          "Prove deadlines above the RM bound",
+          "Exact response-time analysis (`07`)"
+        ],
+        [
+          "Squeeze 100% utilization",
+          "EDF (accept unpredictable overload)"
+        ],
+        [
+          "Protect a resource shared across priorities",
+          "Mutex **with priority inheritance**"
+        ],
+        [
+          "Prevent both inversion and deadlock",
+          "Priority-ceiling protocol"
+        ],
+        [
+          "Signal a task from an ISR",
+          "Counting semaphore / notification (`...FromISR`)"
+        ],
+        [
+          "Pass messages between tasks",
+          "Queue"
+        ],
+        [
+          "Avoid a Pathfinder-style hang",
+          "Never lock across priorities with a bare binary semaphore"
+        ],
+        [
+          "Diagnose a mystery RTOS crash",
+          "Check per-task stack high-water marks"
+        ],
+        [
+          "Decide RTOS vs super-loop",
+          "Many blocking, multi-rate tasks → RTOS, else loop"
+        ]
+      ]
+    }
+  ]
+}

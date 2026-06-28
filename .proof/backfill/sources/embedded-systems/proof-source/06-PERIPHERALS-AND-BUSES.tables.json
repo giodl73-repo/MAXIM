@@ -1,0 +1,249 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\06-PERIPHERALS-AND-BUSES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 79,
+      "heading_context": "## UART — The Simplest Serial Link",
+      "headers": [
+        "UART parameter",
+        "Meaning",
+        "Common value"
+      ],
+      "rows": [
+        [
+          "Baud rate",
+          "Bits/sec; both ends MUST match",
+          "9600, 115200"
+        ],
+        [
+          "Data bits",
+          "Bits per frame",
+          "8"
+        ],
+        [
+          "Parity",
+          "Error-check bit",
+          "None (N) usually"
+        ],
+        [
+          "Stop bits",
+          "Frame terminator",
+          "1"
+        ],
+        [
+          "Flow control",
+          "RTS/CTS handshake",
+          "Often none"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 129,
+      "heading_context": "## SPI — Fast, Full-Duplex, Master-Driven",
+      "headers": [
+        "SPI knob",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Clock polarity (CPOL)",
+          "Idle clock level (high/low)"
+        ],
+        [
+          "Clock phase (CPHA)",
+          "Sample on first or second edge"
+        ],
+        [
+          "Mode 0–3",
+          "The four CPOL/CPHA combinations; both ends MUST match"
+        ],
+        [
+          "Chip select",
+          "One line per slave; assert (low) to talk to that slave"
+        ],
+        [
+          "Bit order",
+          "MSB-first (usual) or LSB-first"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 178,
+      "heading_context": "## I2C — Two Wires, Many Devices",
+      "headers": [
+        "I2C feature",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Wires",
+          "2 (SDA, SCL) + pull-ups, shared by all"
+        ],
+        [
+          "Addressing",
+          "7-bit (128 addrs) or 10-bit; in-band"
+        ],
+        [
+          "Speeds",
+          "100 kHz (standard), 400 kHz (fast), 1 MHz (fast+), 3.4 MHz (HS)"
+        ],
+        [
+          "ACK/NACK",
+          "Receiver pulls SDA low to acknowledge each byte"
+        ],
+        [
+          "Multi-master",
+          "Supported, with bus arbitration"
+        ],
+        [
+          "Clock stretching",
+          "A slow slave can hold SCL low to pause the master"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 241,
+      "heading_context": "## CAN — The Robust Multi-Drop Bus",
+      "headers": [
+        "CAN property",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Wires",
+          "2 differential (CANH, CANL) + termination"
+        ],
+        [
+          "Topology",
+          "Multi-drop, no master, message-addressed"
+        ],
+        [
+          "Arbitration",
+          "Non-destructive, by ID (lower ID wins)"
+        ],
+        [
+          "Speed",
+          "Classic up to 1 Mbps; CAN FD to ~8 Mbps"
+        ],
+        [
+          "Robustness",
+          "Differential + CRC + auto-retransmit + error states"
+        ],
+        [
+          "Message",
+          "ID + up to 8 (classic) / 64 (FD) data bytes"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 307,
+      "heading_context": "## ADC and DAC — Crossing the Analog Boundary",
+      "headers": [
+        "Converter spec",
+        "Meaning",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Resolution",
+          "Bits (e.g. 12) → 2^N codes",
+          "Smallest distinguishable step"
+        ],
+        [
+          "Reference (Vref)",
+          "Full-scale voltage",
+          "Sets the volts-per-code"
+        ],
+        [
+          "Sample rate",
+          "Conversions/sec",
+          "Must satisfy Nyquist (`signal-processing/`)"
+        ],
+        [
+          "LSB size",
+          "Vref / 2^N",
+          "The quantization step (e.g. 3.3V/4096 ≈ 0.8 mV)"
+        ],
+        [
+          "Sampling time",
+          "Charge time of sample-hold cap",
+          "Too short → wrong reading"
+        ],
+        [
+          "ENOB",
+          "Effective number of bits",
+          "Real resolution after noise"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 373,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Simplest point-to-point serial link",
+          "UART"
+        ],
+        [
+          "Console / log output from the MCU",
+          "UART (or USB CDC)"
+        ],
+        [
+          "Fast link to a display / flash / SD card",
+          "SPI"
+        ],
+        [
+          "Many slow sensors on 2 pins",
+          "I2C"
+        ],
+        [
+          "Long-cable, multi-drop industrial link",
+          "RS-485 or CAN"
+        ],
+        [
+          "Robust, prioritized vehicle/industrial net",
+          "CAN (CAN FD for more data)"
+        ],
+        [
+          "Appear as a COM port to a PC",
+          "USB CDC-ACM"
+        ],
+        [
+          "Appear as a USB drive",
+          "USB MSC"
+        ],
+        [
+          "Flash firmware over USB",
+          "USB DFU (`09`)"
+        ],
+        [
+          "Read a voltage / sensor",
+          "ADC (mind Vref, resolution, Nyquist)"
+        ],
+        [
+          "Output an analog voltage",
+          "DAC"
+        ],
+        [
+          "Stream sensor data at high rate",
+          "ADC → DMA → circular ping-pong buffer (`05`)"
+        ],
+        [
+          "Avoid I2C address collisions",
+          "Address-select pins, or move a device to SPI"
+        ]
+      ]
+    }
+  ]
+}

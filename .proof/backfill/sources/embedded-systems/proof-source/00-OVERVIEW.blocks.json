@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 34,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                     THE EMBEDDED STACK                                |\n|                                                                       |\n|  APPLICATION FIRMWARE                                                 |\n|  control loops, protocol stacks, device logic (C, C++, Rust)          |\n|           |                                                           |\n|           v                                                           |\n|  .-----------------------.    .-----------------------.               |\n|  | RTOS  (optional)      | OR | SUPER-LOOP / BARE     |               |\n|  | FreeRTOS, Zephyr,     |    | METAL                 |               |\n|  | ThreadX, embOS        |    | while(1){ poll; act } |               |\n|  | tasks, scheduler,     |    | + interrupts          |               |\n|  | priorities, mutexes   |    | no scheduler          |               |\n|  '-----------------------'    '-----------------------'               |\n|           |                            |                              |\n|           v                            v                              |\n|  .-------------------------------------------------------.            |\n|  | HAL / DRIVERS / CMSIS                                 |            |\n|  | register maps, peripheral init, vector table          |            |\n|  '-------------------------------------------------------'            |\n|           |                                                           |\n|           v                                                           |\n|  .-------------------------------------------------------.            |\n|  | SILICON: CPU core + on-chip peripherals + memory      |            |\n|  | Cortex-M core | NVIC | timers | UART/SPI/I2C/CAN      |            |\n|  | flash | SRAM  | ADC/DAC | DMA | clock tree | power    |            |\n|  '-------------------------------------------------------'            |\n|           |                                                           |\n|           v                                                           |\n|  PHYSICAL WORLD: sensors, actuators, motors, radios, the plant        |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "## MCU vs MPU vs SoC — The Hardware Tiers",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                                                                       |\n|  MCU (Microcontroller Unit)                                           |\n|  .-------------------------------------------.                        |\n|  |  CPU core (Cortex-M)  +  FLASH  +  SRAM    |   ALL ON ONE DIE      |\n|  |  +  timers + UART/SPI/I2C + ADC + GPIO     |   Runs from internal  |\n|  |  No external memory needed. Boots alone.   |   flash. No MMU.      |\n|  '-------------------------------------------'                        |\n|                                                                       |\n|  MPU (Microprocessor Unit)                                            |\n|  .-------------------------------------------.                        |\n|  |  CPU core (Cortex-A) + MMU + caches        |   Needs EXTERNAL      |\n|  |  NO on-chip program memory worth running   |   DRAM + flash.       |\n|  |  an OS from. Pairs with DDR + NAND/eMMC.    |   Runs Linux.        |\n|  '-------------------------------------------'                        |\n|                                                                       |\n|  SoC (System on Chip)                                                 |\n|  .-------------------------------------------.                        |\n|  |  One or more MPU cores + GPU + radios +    |   A whole computer.   |\n|  |  NPU + memory controllers + MCU \"islands\"  |   Phone/Pi class.     |\n|  |  Often INCLUDES MCUs as subsystems.        |                       |\n|  '-------------------------------------------'                        |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 227,
+      "heading_context": "## Module Map — How These Guides Layer",
+      "confidence": "candidate",
+      "text": "                       00-OVERVIEW  (you are here)\n                            |\n        +-------------------+-------------------+\n        v                                       v\n  01-MICROCONTROLLERS                     07-REAL-TIME-CONSTRAINTS\n  (the chip, memory map)                  (WCET, schedulability, jitter)\n        |                                       ^\n        v                                       |\n  02-BARE-METAL  ----> 03-INTERRUPTS-AND-TIMERS-+\n  (registers, GPIO)    (NVIC, ISR, latency)     |\n        |                     |                 |\n        |                     v                 |\n        |               04-RTOS  ---------------+\n        |               (tasks, scheduling, priority inversion)\n        v                     |\n  05-MEMORY-AND-DMA  <--------+\n  (flash/RAM, DMA, cache)\n        |\n        v\n  06-PERIPHERALS-AND-BUSES   08-POWER-MANAGEMENT   09-DEBUG-AND-TOOLCHAIN\n  (UART/SPI/I2C/CAN/USB)     (sleep, clocks)        (JTAG/SWD, HAL, OTA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

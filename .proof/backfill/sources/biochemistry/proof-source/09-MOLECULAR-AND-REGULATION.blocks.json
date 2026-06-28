@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\09-MOLECULAR-AND-REGULATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# Signaling and Molecular Regulation — The Control Plane",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------+\n|        CELL SIGNALING = A MESSAGE BUS WITH AMPLIFICATION                |\n|                                                                         |\n|   SIGNAL          RECEPTOR         TRANSDUCTION       RESPONSE          |\n|   (the message)   (the listener)   (the routing)      (the action)      |\n|                                                                         |\n|   hormone   --->  receptor   --->  second        --->  enzymes flip,    |\n|   (e.g.,          on cell           messenger          genes turn on,   |\n|   adrenaline)     surface           cascade           metabolism shifts |\n|                                     (amplifies!)                        |\n|                                                                         |\n|   ONE hormone molecule  ->  millions of product molecules               |\n|   (each step multiplies the signal: a cascade is a gain stage)          |\n|                                                                         |\n|   This is the CONTROL PLANE sitting on top of metabolism's DATA PLANE.  |\n+-------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "## The Canonical Signaling Pathway",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   1. SIGNAL (first messenger) arrives at the cell surface              |\n|        e.g., adrenaline (epinephrine), glucagon, insulin               |\n|              |                                                         |\n|              v                                                         |\n|   2. RECEPTOR binds it (a membrane protein, ligand-specific)           |\n|        - water-soluble signals CAN'T cross the membrane ->             |\n|          they need a surface receptor                                  |\n|              |                                                         |\n|              v                                                         |\n|   3. TRANSDUCTION: receptor activates an intracellular relay           |\n|        - G protein, or receptor's own kinase domain                    |\n|              |                                                         |\n|              v                                                         |\n|   4. SECOND MESSENGER spreads the signal inside (cAMP, Ca2+, etc.)     |\n|        - AMPLIFIES: one receptor -> many messenger molecules           |\n|              |                                                         |\n|              v                                                         |\n|   5. RESPONSE: kinases flip enzymes on/off (covalent mod, file 03),    |\n|        and/or transcription factors change gene expression             |\n|              |                                                         |\n|              v                                                         |\n|   6. TERMINATION: messengers degraded, phosphates removed -> reset     |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 100,
+      "heading_context": "## Receptor Types — Where the Signal Lands",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   SURFACE RECEPTORS (for water-soluble signals that can't enter)       |\n|                                                                        |\n|   GPCR (G-protein-coupled)   ligand -> G protein -> enzyme -> 2nd msgr |\n|     7-transmembrane; the     (the biggest receptor family; ~1/3 of     |\n|     largest drug target class drugs target GPCRs -> pharmacology/)     |\n|                                                                        |\n|   RTK (receptor tyrosine     ligand -> receptor dimerizes ->           |\n|   kinase)                    auto-phosphorylates -> recruits relays    |\n|     e.g., insulin, growth    (RAS/MAPK cascade -> growth, division)    |\n|     factors                                                            |\n|                                                                        |\n|   ION-CHANNEL receptors      ligand -> channel opens -> ions flow      |\n|     fast (e.g., synapses)    (millisecond electrical signaling)        |\n|                                                                        |\n+------------------------------------------------------------------------+\n|   INTRACELLULAR RECEPTORS (for lipid-soluble signals that CAN enter)   |\n|                                                                        |\n|   NUCLEAR receptors          steroid/thyroid hormone crosses the       |\n|     e.g., cortisol,          membrane -> binds receptor INSIDE ->      |\n|     estrogen, testosterone   acts directly as a transcription factor   |\n|     (lipid-soluble)          (slow, lasting; changes gene expression)  |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 145,
+      "heading_context": "## Second Messengers and the Amplification Cascade",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   GAIN STAGES (each multiplies the signal)                             |\n|                                                                        |\n|   1 adrenaline binds 1 receptor                                        |\n|        |  receptor activates many G proteins        x ~10              |\n|        v                                                               |\n|   G protein activates adenylyl cyclase                                 |\n|        |  each cyclase makes MANY cAMP molecules     x ~100            |\n|        v                                                               |\n|   cAMP (second messenger) activates Protein Kinase A (PKA)             |\n|        |  each PKA phosphorylates MANY target enzymes x ~100           |\n|        v                                                               |\n|   PKA activates phosphorylase kinase                                   |\n|        |  -> activates glycogen phosphorylase         x ~1000          |\n|        v                                                               |\n|   GLYCOGEN BREAKDOWN -> millions of glucose molecules released         |\n|                                                                        |\n|   NET: 1 hormone molecule -> ~10^6+ glucose molecules. Huge gain.      |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 193,
+      "heading_context": "## Hormones — The Body-Wide Control Loop",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------+\n|       BLOOD GLUCOSE HOMEOSTASIS (negative feedback, setpoint ~90 mg/dL) |\n|                                                                         |\n|   blood glucose HIGH (after a meal)                                     |\n|        |  pancreas releases INSULIN                                     |\n|        v                                                                |\n|   INSULIN says \"STORE\": cells take up glucose; build glycogen, fat;     |\n|        run glycolysis; STOP gluconeogenesis    -> glucose falls         |\n|                                                                         |\n|   ----------------- setpoint ~90 mg/dL -----------------                |\n|                                                                         |\n|   GLUCAGON says \"RELEASE\": break down glycogen; run gluconeogenesis;    |\n|        burn fat; make ketones                  -> glucose rises         |\n|        ^                                                                |\n|        |  pancreas releases GLUCAGON                                    |\n|   blood glucose LOW (fasting)                                           |\n+-------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "## Bridge to the Information Plane (biology/)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   THIS DIRECTORY (biochemistry/)        biology/ (central dogma)       |\n|   --------------------------------      -----------------------------  |\n|   signal -> receptor -> cascade ->      DNA --transcription--> RNA     |\n|   transcription factor activated        RNA --translation----> protein |\n|        |                                     ^                         |\n|        '--- the cascade's ENDPOINT ----------'                         |\n|                                                                        |\n|   We cover: how the SIGNAL reaches the transcription factor (control). |\n|   biology/ covers: how the transcription factor changes gene output    |\n|   (the actual replication/transcription/translation machinery).        |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

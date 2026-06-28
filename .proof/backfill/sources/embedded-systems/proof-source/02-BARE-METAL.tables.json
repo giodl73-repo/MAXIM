@@ -1,0 +1,89 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\02-BARE-METAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 144,
+      "heading_context": "## `volatile` — The Most Important Keyword in Embedded",
+      "headers": [
+        "Situation",
+        "volatile?",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Any MMIO register pointer",
+          "**Yes**",
+          "Hardware changes it; reads/writes have side effects"
+        ],
+        [
+          "Variable shared with an ISR",
+          "**Yes**",
+          "ISR mutates it asynchronously"
+        ],
+        [
+          "Buffer filled by DMA",
+          "**Yes**",
+          "DMA engine writes it, CPU didn't"
+        ],
+        [
+          "Plain local computation",
+          "No",
+          "Pure CPU state, compiler reasoning is valid"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 374,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Do this"
+      ],
+      "rows": [
+        [
+          "Read/write a hardware register",
+          "Typed `volatile` MMIO via CMSIS struct"
+        ],
+        [
+          "Stop the compiler eliding a register read",
+          "Make the pointer `volatile`"
+        ],
+        [
+          "Set/clear one GPIO bit without a race",
+          "Write `BSRR` (atomic set/reset register)"
+        ],
+        [
+          "Share a variable with an ISR",
+          "`volatile` + critical section for RMW"
+        ],
+        [
+          "Initialize globals before main()",
+          "Startup `.data` copy + `.bss` zero"
+        ],
+        [
+          "Place a function in RAM for speed",
+          "Linker section attribute (`.RamFunc`)"
+        ],
+        [
+          "Fit code into flash / data into RAM",
+          "Tune linker script MEMORY lengths"
+        ],
+        [
+          "Sleep until the next interrupt",
+          "`__WFI()` in the super-loop"
+        ],
+        [
+          "First thing when a peripheral is dead",
+          "Check its clock is enabled in RCC"
+        ],
+        [
+          "Replace printf debugging on bare metal",
+          "Semihosting or SWO/ITM trace (`09`)"
+        ]
+      ]
+    }
+  ]
+}

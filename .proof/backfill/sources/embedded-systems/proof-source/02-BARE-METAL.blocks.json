@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\02-BARE-METAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                  LIFE OF A BARE-METAL PROGRAM                         |\n|                                                                       |\n|  POWER ON / RESET                                                     |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  | 1. Hardware loads SP from vector[0], PC from vector[1]      |      |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  | 2. Reset_Handler (startup.s / startup.c)                    |      |\n|  |    - copy .data  flash -> SRAM                              |      |\n|  |    - zero .bss                                              |      |\n|  |    - set clocks (PLL), enable FPU if present                |      |\n|  |    - call __libc_init / C++ static ctors                    |      |\n|  '------------------------------------------------------------'       |\n|       |                                                               |\n|       v                                                               |\n|  .------------------------------------------------------------.       |\n|  | 3. main()                                                   |      |\n|  |    - init peripherals (write registers)                     |      |\n|  |    - for(;;){ poll; compute; act; }   <- super-loop         |      |\n|  |    - interrupts fire ON TOP of this                         |      |\n|  '------------------------------------------------------------'       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## `volatile` — The Most Important Keyword in Embedded",
+      "confidence": "candidate",
+      "text": "  WITHOUT volatile                     WITH volatile\n  ----------------                     -------------\n  uint32_t *r = (uint32_t*)0x40020010; volatile uint32_t *r = ...;\n\n  while ((*r & FLAG) == 0) {}          while ((*r & FLAG) == 0) {}\n\n  Compiler: \"*r never changes in       Compiler: \"*r is volatile -- I must\n  this loop, so read it ONCE.\"         re-read it from the address EVERY\n  -> reads once, loops FOREVER on      iteration.\"\n     the stale value. DEADLOCK.        -> reads hardware each pass. Works.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "## `volatile` — The Most Important Keyword in Embedded",
+      "confidence": "candidate",
+      "text": "being a single aligned store, but `flag++` on a volatile is read-modify-write —",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 168,
+      "heading_context": "## GPIO — The Hello World of Bare Metal",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              BLINKING AN LED ON PA5 (register sequence)               |\n|                                                                       |\n|  1. ENABLE THE CLOCK to GPIOA                                         |\n|     RCC->AHB1ENR |= (1 << 0);   // ungate GPIOA's clock               |\n|     (A peripheral with no clock is DEAD -- writes silently no-op.)    |\n|                                                                       |\n|  2. SET PIN MODE to output                                            |\n|     GPIOA->MODER &= ~(3 << (5*2));  // clear 2 mode bits for pin 5    |\n|     GPIOA->MODER |=  (1 << (5*2));  // 01 = general purpose output    |\n|                                                                       |\n|  3. DRIVE THE PIN                                                     |\n|     GPIOA->ODR |=  (1 << 5);   // high  -> LED on                     |\n|     GPIOA->ODR &= ~(1 << 5);   // low   -> LED off                    |\n|     -- or atomically via the set/reset register --                    |\n|     GPIOA->BSRR = (1 << 5);        // atomic SET pin 5                |\n|     GPIOA->BSRR = (1 << (5+16));   // atomic RESET pin 5              |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 198,
+      "heading_context": "## GPIO — The Hello World of Bare Metal",
+      "confidence": "candidate",
+      "text": "  GPIO pin drive modes (configured via OTYPER/PUPDR):\n  +----------------+---------------------------------------------+\n  | push-pull      | actively drives HIGH and LOW. Normal output |\n  | open-drain     | drives LOW only; HIGH = released (needs     |\n  |                | a pull-up). Required for I2C, shared lines  |\n  | input + pullup | reads pin, internal resistor to VCC         |\n  | input + pulldn | reads pin, internal resistor to GND         |\n  | analog         | disconnects digital buffer (for ADC pins)   |\n  +----------------+---------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 222,
+      "heading_context": "## Startup Code and the C Runtime — What Runs Before main()",
+      "confidence": "candidate",
+      "text": "  RESET_HANDLER responsibilities (the \"crt0\" for MCUs)\n  +----------------------------------------------------------+\n  | 1. Set up the stack pointer (HW already loaded vector[0])|\n  | 2. Copy .data: initialized globals from FLASH to SRAM    |\n  |       for (s=_sdata; s<_edata;) *s++ = *flashsrc++;      |\n  | 3. Zero .bss: uninitialized globals                      |\n  |       for (b=_sbss; b<_ebss;) *b++ = 0;                  |\n  | 4. (optional) configure clocks / PLL  SystemInit()       |\n  | 5. (optional) enable FPU (CPACR), enable caches (M7)     |\n  | 6. Call C++ static constructors (__libc_init_array)      |\n  | 7. Branch to main()                                      |\n  | 8. If main returns: spin in a while(1) trap              |\n  +----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 288,
+      "heading_context": "## The Linker Script — Placing Code and Data in the Map",
+      "confidence": "candidate",
+      "text": "  KEY CONCEPT: VMA vs LMA\n  +--------------------------------------------------------------+\n  | .data has TWO addresses:                                     |\n  |   LMA (Load address)   = in FLASH (where the initializer     |\n  |                          is stored)                          |\n  |   VMA (Virtual/run addr)= in RAM  (where the variable lives  |\n  |                          at runtime)                         |\n  | The \"AT> FLASH\" directive sets the LMA. Startup copies       |\n  | LMA -> VMA. This is what \">RAM AT>FLASH\" encodes.            |\n  +--------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

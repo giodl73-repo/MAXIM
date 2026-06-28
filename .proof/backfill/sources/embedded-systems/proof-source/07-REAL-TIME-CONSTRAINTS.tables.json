@@ -1,0 +1,213 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\07-REAL-TIME-CONSTRAINTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## Hard vs Firm vs Soft Real-Time",
+      "headers": [
+        "Class",
+        "A missed deadline means...",
+        "Example",
+        "Design budget"
+      ],
+      "rows": [
+        [
+          "**Hard**",
+          "System failure, possible harm",
+          "Airbag fire, motor commutation, brake-by-wire",
+          "Provable worst case; certification"
+        ],
+        [
+          "**Firm**",
+          "This result is useless; discard it",
+          "Sensor frame in a control loop you can skip",
+          "Bound, but tolerate rare misses"
+        ],
+        [
+          "**Soft**",
+          "Quality degrades, value decays",
+          "Video/audio frame, UI responsiveness",
+          "Best-effort, statistical targets"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 131,
+      "heading_context": "## WCET — Worst-Case Execution Time",
+      "headers": [
+        "Source of variability",
+        "Effect",
+        "Mitigation for analyzability"
+      ],
+      "rows": [
+        [
+          "Input-dependent paths",
+          "Different branches → different time",
+          "Analyze the longest path"
+        ],
+        [
+          "Loops with data-dependent bounds",
+          "Variable iteration count",
+          "Cap iterations; bound them"
+        ],
+        [
+          "**Caches**",
+          "Hit vs miss = 1 vs ~100 cycles",
+          "Lock cache, or run from SRAM, or count all-miss"
+        ],
+        [
+          "Branch prediction",
+          "Misprediction stalls",
+          "Pessimistic assumption"
+        ],
+        [
+          "Flash wait states",
+          "Fetch stalls at high clock",
+          "Account in the bound"
+        ],
+        [
+          "Pipeline state",
+          "Depends on prior instructions",
+          "Conservative modeling"
+        ],
+        [
+          "**Interrupts preempting**",
+          "Add ISR time to the path",
+          "Count interference (see schedulability)"
+        ],
+        [
+          "**DMA bus contention**",
+          "Stalls CPU memory access",
+          "Budget bus interference"
+        ],
+        [
+          "Dynamic allocation",
+          "malloc time varies / fragments",
+          "Forbid it (static, `05`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 216,
+      "heading_context": "## Schedulability — Proving the Task Set Fits",
+      "headers": [
+        "Test",
+        "Type",
+        "Cost",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Utilization bound",
+          "Sufficient",
+          "Trivial",
+          "Quick sanity check"
+        ],
+        [
+          "Response-time analysis",
+          "Exact",
+          "Iterative per task",
+          "Prove a tight system"
+        ],
+        [
+          "+ blocking term",
+          "Exact + resources",
+          "Adds B_i",
+          "When tasks share mutexes"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 240,
+      "heading_context": "## Jitter — The Variance Enemy",
+      "headers": [
+        "Jitter source",
+        "Cause",
+        "Reduce by"
+      ],
+      "rows": [
+        [
+          "Release jitter",
+          "Scheduler granularity, tick alignment",
+          "Hardware-timer-triggered tasks, not software delays"
+        ],
+        [
+          "Interrupt latency variance",
+          "Critical sections of varying length",
+          "Keep critical sections short and uniform"
+        ],
+        [
+          "Preemption by higher priority",
+          "Higher task runs at varying times",
+          "Give the jitter-sensitive task high priority"
+        ],
+        [
+          "Bus/DMA contention",
+          "Variable memory access time",
+          "Separate SRAM banks, bound DMA"
+        ],
+        [
+          "Cache/branch effects",
+          "Hit/miss variation",
+          "Run-from-SRAM, lock cache"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 316,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Decide how strict a deadline is",
+          "Classify hard / firm / soft"
+        ],
+        [
+          "Justify the engineering budget",
+          "Hard → prove; soft → optimize statistically"
+        ],
+        [
+          "Get each task's C_i for scheduling",
+          "WCET — static analysis (safety) or measure+margin"
+        ],
+        [
+          "Quick check if a task set fits",
+          "Utilization ≤ n(2^(1/n)-1) (RM bound)"
+        ],
+        [
+          "Prove a set above the util bound",
+          "Response-time analysis (iterate to fixed point)"
+        ],
+        [
+          "Account for shared-mutex blocking",
+          "Add blocking term B_i to R_i (bound via inheritance)"
+        ],
+        [
+          "Reduce timing variance",
+          "Drive critical actions from hardware timers"
+        ],
+        [
+          "Protect a jitter-sensitive task",
+          "High priority + short, uniform critical sections"
+        ],
+        [
+          "Choose a CPU for certifiability",
+          "Prefer deterministic timing over peak speed"
+        ],
+        [
+          "Stay safe on hard real-time",
+          "Leave headroom; never design to the bound"
+        ]
+      ]
+    }
+  ]
+}

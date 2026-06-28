@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\09-DEBUG-AND-TOOLCHAIN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                  THE HOST / TARGET DEVELOPMENT LOOP                   |\n|                                                                       |\n|  HOST (your PC)                          TARGET (the MCU board)       |\n|  .-------------------------.             .------------------------.   |\n|  | cross-compiler          |             | Cortex-M core          |   |\n|  | arm-none-eabi-gcc       |  .elf/.bin  | flash + SRAM           |   |\n|  | linker + linker script  |------------>| your firmware runs     |   |\n|  | gdb (host side)         |             | (no OS, no shell)      |   |\n|  '-----------.-------------'             '-----------.------------'   |\n|              |                                       ^                |\n|              |        .-------------------.          | SWD/JTAG       |\n|              +------->|  DEBUG PROBE       |----------+ (2-5 wires)   |\n|              gdb      |  ST-Link/J-Link/   |  flash, halt, step,      |\n|              remote   |  CMSIS-DAP         |  read memory/registers   |\n|                       '-------------------'                           |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "## Cross-Compilation — Building for a Machine You're Not On",
+      "confidence": "candidate",
+      "text": "  ANATOMY OF THE TARGET TRIPLE: arm-none-eabi-gcc\n  +----------------------------------------------------------+\n  | arm   | target architecture (ARM)                        |\n  | none  | no OS (\"bare metal\" -- no Linux/vendor kernel)   |\n  | eabi  | Embedded Application Binary Interface            |\n  +----------------------------------------------------------+\n  Contrast: arm-linux-gnueabihf  = ARM + Linux + glibc (an MPU/SoC,\n  not bare metal). The \"none\" is what says \"there is no OS here.\"\n\n  BUILD PIPELINE\n  .c/.cpp ---compile---> .o ---link(+linker script)---> .elf\n                                                          |\n                              objcopy --> .bin / .hex (raw image to flash)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 156,
+      "heading_context": "## The HAL — Taming Vendor Registers",
+      "confidence": "candidate",
+      "text": "  THE ABSTRACTION LADDER (high -> low)\n  +------------------------------------------------------------+\n  | Application firmware                                       |\n  +------------------------------------------------------------+\n  | RTOS / middleware (FreeRTOS, lwIP, USB stack)              |\n  +------------------------------------------------------------+\n  | HAL  (vendor: STM32 HAL, nRF SDK; or Zephyr's device API)  |\n  |   HAL_UART_Transmit(&huart1, buf, len, timeout);           |\n  +------------------------------------------------------------+\n  | CMSIS  (ARM-standard core + peripheral register structs)  |\n  |   USART1->DR = byte;   NVIC_EnableIRQ(USART1_IRQn);        |\n  +------------------------------------------------------------+\n  | Registers / silicon  (the actual MMIO addresses)           |\n  +------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 196,
+      "heading_context": "## Testing Embedded Code — Without (Mostly) the Hardware",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                  THE EMBEDDED TEST PYRAMID                            |\n|                                                                       |\n|        /\\        HIL: a few tests on real hardware                    |\n|       /  \\       (timing, peripherals, the actual chip)               |\n|      /----\\                                                           |\n|     /      \\     ON-TARGET: run test firmware on the board/           |\n|    /        \\    QEMU/Renode emulator (some integration)              |\n|   /----------\\                                                        |\n|  /            \\  HOST UNIT TESTS: pure logic compiled for the         |\n| /              \\ host, hardware mocked behind interfaces              |\n| /--------------\\  <- put MOST of your logic here                      |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 239,
+      "heading_context": "## Bootloaders and OTA — Updating Firmware in the Field",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              FLASH LAYOUT FOR SAFE OTA (A/B / dual-bank)              |\n|                                                                       |\n|  .----------------.  bootloader: tiny, immutable, verifies + swaps    |\n|  | BOOTLOADER     |  runs first; never updated OTA (or rarely)        |\n|  |----------------|                                                   |\n|  | SLOT A (active)|  current firmware -- running now                  |\n|  |----------------|                                                   |\n|  | SLOT B (spare) |  new image is written HERE while A runs           |\n|  |----------------|                                                   |\n|  | metadata/      |  version, CRC/signature, \"boot which slot\" flag   |\n|  | rollback flag  |                                                   |\n|  '----------------'                                                   |\n|                                                                       |\n|  UPDATE FLOW:                                                         |\n|  1. download new image into SLOT B (A keeps running -> no downtime)   |\n|  2. verify B's signature + CRC                                        |\n|  3. set boot flag -> B; reset                                         |\n|  4. bootloader validates B; if it fails to confirm healthy,           |\n|     ROLL BACK to A. Power loss anytime = still a valid A or B.        |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

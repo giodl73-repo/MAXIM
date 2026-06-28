@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\06-TCA-AND-OXIDATIVE-PHOSPHORYLATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# TCA Cycle and Oxidative Phosphorylation — Where the ATP Is Made",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|        THE OXIDATIVE ENGINE (inside the mitochondrion)                 |\n|                                                                        |\n|   acetyl-CoA (2C)                                                      |\n|       |                                                                |\n|       v                                                                |\n|   .-------------------.   per turn produces:                           |\n|   |   TCA / CITRIC    |   3 NADH + 1 FADH2 + 1 GTP + 2 CO2             |\n|   |   ACID CYCLE      |   (the cycle's real product is REDUCING POWER) |\n|   '-------------------'                                                |\n|       |  NADH, FADH2 carry electrons ->                                |\n|       v                                                                |\n|   .-------------------------------------------.                        |\n|   | ELECTRON TRANSPORT CHAIN (Complexes I-IV) |                        |\n|   | electrons flow downhill to O2;            |                        |\n|   | energy PUMPS PROTONS across the membrane  |                        |\n|   '-------------------------------------------'                        |\n|       |  builds a PROTON GRADIENT (proton-motive force)                |\n|       v                                                                |\n|   .-------------------.                                                |\n|   |   ATP SYNTHASE    |   protons flow back through it ->              |\n|   |  (Complex V)      |   the flow SPINS a rotor that makes ATP        |\n|   '-------------------'                                                |\n|                                                                        |\n|   NET: this stage makes ~26 of the ~30-32 ATP per glucose.             |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 73,
+      "heading_context": "## Step 0: Pyruvate -> Acetyl-CoA (The Link Reaction)",
+      "confidence": "candidate",
+      "text": "   pyruvate (3C) + NAD+ + CoA  ->  acetyl-CoA (2C) + NADH + CO2\n\n   PER GLUCOSE (2 pyruvate):  2 acetyl-CoA + 2 NADH + 2 CO2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "## The TCA Cycle — One Turn",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   acetyl-CoA (2C) + oxaloacetate (4C)                                  |\n|        |  citrate synthase                                             |\n|        v                                                               |\n|   CITRATE (6C)                                                         |\n|        |                                                               |\n|        v   (2 oxidations release 2 CO2, capture 2 NADH)                |\n|   isocitrate -> alpha-ketoglutarate  [+NADH +CO2]  (isocitrate DH)     |\n|        |                                                               |\n|        v   alpha-KG -> succinyl-CoA  [+NADH +CO2]  (alpha-KG DH)       |\n|        |                                                               |\n|        v   succinyl-CoA -> succinate [+GTP]   (substrate-level!)       |\n|        |                                                               |\n|        v   succinate -> fumarate     [+FADH2] (succinate DH = Cx II)   |\n|        |                                                               |\n|        v   fumarate -> malate -> OXALOACETATE [+NADH]                  |\n|        |                                                               |\n|        '---> oxaloacetate regenerated -> cycle repeats                 |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## The Electron Transport Chain — Pumping Protons",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|  INNER MITOCHONDRIAL MEMBRANE (electrons flow LEFT-to-RIGHT, downhill) |\n|                                                                        |\n|   NADH                          FADH2                                  |\n|    |                              |                                    |\n|    v                              v                                    |\n|  [ I ]---> Q --->[ III ]---> cyt c --->[ IV ]---> 1/2 O2 -> H2O        |\n|    |        ^      |                     |                             |\n|    |      [ II ]   |                     |                             |\n|  PUMP H+   (no    PUMP H+              PUMP H+                         |\n|            pump)                                                       |\n|                                                                        |\n|   Complex I  : NADH -> Q       (pumps H+)                              |\n|   Complex II : FADH2 -> Q      (succinate DH; NO pumping)              |\n|   Complex III: Q -> cyt c      (pumps H+)                              |\n|   Complex IV : cyt c -> O2     (pumps H+; O2 is the FINAL acceptor)    |\n|                                                                        |\n|   This is WHY FADH2 yields less ATP than NADH: it enters at Cx II,     |\n|   skipping Complex I's proton pump.                                    |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## The Electron Transport Chain — Pumping Protons",
+      "confidence": "candidate",
+      "text": "  why you breathe. No O2 -> the chain backs up -> NADH can't be reoxidized -> the\n  TCA cycle stalls -> the cell falls back to fermentation. Oxygen's role is to be",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 195,
+      "heading_context": "## Chemiosmosis and ATP Synthase",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   INTERMEMBRANE SPACE (HIGH H+, the filled reservoir)                  |\n|   H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+ H+                |\n|        |                                      | |                      |\n|        | (ETC pumped them up here)            v v  protons flow back   |\n|        |                              .---------------.                |\n|   =================================== |  ATP SYNTHASE |=============== |\n|   inner membrane                      |   (a turbine) |    matrix      |\n|                                       |   c-ring spins|                |\n|                                       '---------------'                |\n|                                              |                         |\n|   MATRIX (low H+)                            v                         |\n|                                       ADP + Pi -> ATP                  |\n|                                                                        |\n|   ~4 protons through the turbine  ->  1 ATP made                       |\n|   (about 3 to spin the rotor + 1 to import Pi/export ATP)              |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## The ATP Ledger — Why ~30–32, Not 36–38",
+      "confidence": "candidate",
+      "text": "   1 NADH  ->  ~2.5 ATP    (older texts said 3)\n   1 FADH2 ->  ~1.5 ATP    (older texts said 2)\n   1 GTP   =   1 ATP       (made directly in the cycle)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 245,
+      "heading_context": "## The ATP Ledger — Why ~30–32, Not 36–38",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   STAGE                  YIELDS              ATP EQUIVALENT            |\n|   -----                  ------              --------------            |\n|   Glycolysis             2 ATP               = 2.0                     |\n|                          2 NADH (cytosolic)  = ~3.0 to 5.0 *           |\n|   Pyruvate -> AcCoA       2 NADH              = 5.0  (2 x 2.5)         |\n|   TCA cycle (x2 turns)   6 NADH              = 15.0 (6 x 2.5)          |\n|                          2 FADH2             = 3.0  (2 x 1.5)          |\n|                          2 GTP               = 2.0                     |\n|   ---------------------------------------------------------------------|\n|   TOTAL                                      = ~30 to 32 ATP           |\n|                                                                        |\n|   * The 2 cytosolic NADH must be SHUTTLED into the mitochondrion.      |\n|     - Glycerol-phosphate shuttle: each becomes FADH2 -> ~1.5 ATP each  |\n|       -> ~3 ATP total -> grand total ~30 ATP                           |\n|     - Malate-aspartate shuttle:   each stays NADH -> ~2.5 ATP each     |\n|       -> ~5 ATP total -> grand total ~32 ATP                           |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 317,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"Is it 36–38 or 30–32 ATP per glucose?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

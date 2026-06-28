@@ -1,0 +1,184 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 79,
+      "heading_context": "## What Makes \"Embedded\" Different",
+      "headers": [
+        "Dimension",
+        "Server / Desktop (you know this)",
+        "Embedded"
+      ],
+      "rows": [
+        [
+          "Goal",
+          "Throughput, average latency",
+          "**Determinism**, worst-case latency"
+        ],
+        [
+          "Memory",
+          "GBs, virtual memory, paging",
+          "KBs–MBs, often **no MMU**, physical addresses"
+        ],
+        [
+          "Scheduler",
+          "Fair, throughput-optimal (CFS)",
+          "**Priority/deadline**, preemptive, no fairness"
+        ],
+        [
+          "Failure",
+          "Restart the process",
+          "Physical consequence; must not fail"
+        ],
+        [
+          "I/O",
+          "Through syscalls + drivers",
+          "**Direct register writes**, memory-mapped"
+        ],
+        [
+          "Concurrency",
+          "Threads + OS primitives",
+          "**Interrupts** + (maybe) tasks"
+        ],
+        [
+          "Power",
+          "Wall power",
+          "Battery / harvested; microamps matter"
+        ],
+        [
+          "Update",
+          "apt/Windows Update",
+          "**OTA** to flash, must be atomic, recoverable"
+        ],
+        [
+          "Time",
+          "\"Eventually\" is fine",
+          "A deadline is a **correctness** constraint"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 146,
+      "heading_context": "## MCU vs MPU vs SoC — The Hardware Tiers",
+      "headers": [
+        "Term",
+        "Core family",
+        "Memory model",
+        "OS",
+        "Example",
+        "\"MMU?\""
+      ],
+      "rows": [
+        [
+          "**MCU**",
+          "Cortex-M, RISC-V, AVR",
+          "On-chip flash+SRAM, physical",
+          "Bare metal / RTOS",
+          "STM32, nRF52, RP2040, ESP32",
+          "No (MPU optional)"
+        ],
+        [
+          "**MPU**",
+          "Cortex-A, x86",
+          "External DRAM, virtual",
+          "Linux / RTOS",
+          "i.MX, Cortex-A53 SoCs",
+          "Yes"
+        ],
+        [
+          "**SoC**",
+          "Mixed",
+          "Both",
+          "Linux + RTOS islands",
+          "Raspberry Pi, phone chips, ESP32-S3",
+          "Yes (on A-cores)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 260,
+      "heading_context": "## Cross-References to the Rest of the Library",
+      "headers": [
+        "When you need...",
+        "Go to"
+      ],
+      "rows": [
+        [
+          "The CPU pipeline / ISA beneath the core",
+          "`computer-architecture/`"
+        ],
+        [
+          "Virtual memory, full OS scheduling, Linux internals",
+          "`os/`"
+        ],
+        [
+          "Motion control, sensors-as-robots, ROS, SLAM",
+          "`robotics/`"
+        ],
+        [
+          "Transistors, op-amps, signal conditioning, PCB",
+          "`electronics/`"
+        ],
+        [
+          "Battery chemistry, energy density, charging",
+          "`energy-storage/`"
+        ],
+        [
+          "Control loops (PID, state-space) the firmware runs",
+          "`robotics/06-CONTROL.md`, `control-theory/`"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 314,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Pick a chip class for a battery sensor node",
+          "**MCU** (Cortex-M0+/M4), bare metal or tiny RTOS"
+        ],
+        [
+          "Run Linux, a display, a network stack",
+          "**MPU/SoC** (Cortex-A) — see `os/`"
+        ],
+        [
+          "Add Wi-Fi/BLE to a small product",
+          "MCU-with-radio SoC (ESP32, nRF52/53)"
+        ],
+        [
+          "Guarantee a control loop never misses",
+          "RTOS with rate-monotonic priorities + WCET analysis"
+        ],
+        [
+          "Keep it dead-simple and provable",
+          "Super-loop + timer interrupt, no RTOS"
+        ],
+        [
+          "Touch hardware directly, no OS overhead",
+          "Bare metal (`02`) — MMIO registers"
+        ],
+        [
+          "Get the lowest possible standby power",
+          "MCU with deep sleep + RTC wake (`08`)"
+        ],
+        [
+          "Move bytes without burning CPU",
+          "DMA (`05`)"
+        ],
+        [
+          "Decide hard vs soft real-time",
+          "`07-REAL-TIME-CONSTRAINTS.md`"
+        ]
+      ]
+    }
+  ]
+}

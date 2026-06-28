@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\06-PERIPHERALS-AND-BUSES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                  THE BUS / PERIPHERAL LANDSCAPE                       |\n|                                                                       |\n|  pins  speed       topology          typical use                      |\n|  ----  -----       --------          -----------                      |\n|  UART   2   ~Mbps   point-to-point   console, GPS, modules            |\n|  SPI   4+   ~10-50M master/multi-slave  flash, displays, fast ADC     |\n|  I2C    2   100k-3.4M  multi-master bus  sensors, EEPROM, config      |\n|  CAN    2   ~1-8Mbps  multi-drop bus    automotive/industrial nets    |\n|  USB   2(+) 12M-5G+  host/device       PC connectivity, mass storage  |\n|                                                                       |\n|  ANALOG BRIDGE                                                        |\n|  ADC: voltage -> number   (sensors in)                                |\n|  DAC: number  -> voltage  (signals out)                               |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## UART — The Simplest Serial Link",
+      "confidence": "candidate",
+      "text": "  UART FRAME (8N1: 8 data, No parity, 1 stop)\n   idle    start   d0 d1 d2 d3 d4 d5 d6 d7   stop   idle\n  HIGH ----+      +--+  +-----+  +--+        +------ HIGH\n           |      |  |  |     |  |  |        |\n           +------+  +--+     +--+  +--------+\n           ^                                ^\n           falling edge = RX starts sampling at the agreed baud rate\n           (LSB first). No clock line -- timing is by baud agreement.\n\n  Wiring (note the CROSS):\n   Device A  TX ------------> RX  Device B\n   Device A  RX <------------ TX  Device B\n   GND ------------------------- GND  (common ground required)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "## SPI — Fast, Full-Duplex, Master-Driven",
+      "confidence": "candidate",
+      "text": "  SPI BUS (one master, two slaves)\n            +-----------------------------------------+\n   MASTER   | SCLK  ----.----------------.----        |\n            | MOSI  ----|----.-----------|----.       |\n            | MISO  ----|----|-----.-----|----|--.    |\n            | CS1   ----'    |     |     |    |  |    |\n            | CS2   ---------|-----|-----'    |  |    |\n            +---------------'|-----|---------'|--|----+\n                            ||     |         ||  |\n                         +--..--+  |      +--..--..-+\n                         |SLAVE1|  |      | SLAVE 2 |\n                         +------+  |      +---------+\n   SCLK = clock (master)   MOSI = master out/slave in\n   MISO = master in/slave out   CSn = chip select (active low, per slave)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## SPI — Fast, Full-Duplex, Master-Driven",
+      "confidence": "candidate",
+      "text": "  ONE SPI BYTE (full-duplex shift)\n  As the master clocks 8 SCLK edges, master and slave SWAP a byte:\n    master's MOSI byte shifts out  --->  into slave\n    slave's  MISO byte shifts out  <---  into master\n  Both directions happen on the SAME clocks. To \"just read,\" the master\n  sends a dummy byte to generate the clocks.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "## I2C — Two Wires, Many Devices",
+      "confidence": "candidate",
+      "text": "  I2C BUS (open-drain, shared, addressed)\n        +Vcc\n         |  |\n        [R][R]   <- pull-up resistors (required!)\n         |  |\n   SDA --+--+----+--------+--------+----  data\n   SCL -----+----+--------+--------+----  clock\n                 |        |        |\n            +----+--+ +---+---+ +--+----+\n            |MASTER | |SENSOR | |EEPROM |\n            |       | | @0x48 | | @0x50 |\n            +-------+ +-------+ +-------+\n   Address selects which device; open-drain lets any pull low.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 168,
+      "heading_context": "## I2C — Two Wires, Many Devices",
+      "confidence": "candidate",
+      "text": "  I2C TRANSACTION\n  START | addr(7) | R/W | ACK | data(8) | ACK | ... | STOP\n   |       |        |     |                            |\n   |       |        |     slave pulls SDA low to ACK   |\n   |       |        read=1 / write=0                   STOP: SDA rises\n   |       which device                                while SCL high\n   START: SDA falls while SCL high (a unique condition)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 194,
+      "heading_context": "## I2C — Two Wires, Many Devices",
+      "confidence": "candidate",
+      "text": "### SPI vs I2C — the recurring choice",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### SPI vs I2C — the recurring choice",
+      "confidence": "candidate",
+      "text": "  SPI                                  I2C\n  ---                                  ---\n  4+ pins (3 + 1 CS per device)        2 pins total (shared)\n  fast (10s of MHz)                    slower (0.1-3.4 MHz)\n  full-duplex                          half-duplex\n  no addressing (chip-select)          7/10-bit addresses\n  no built-in ACK                      per-byte ACK\n  point/star to each slave             multi-drop bus\n  -> displays, flash, fast ADC          -> sensors, EEPROM, config",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 217,
+      "heading_context": "## CAN — The Robust Multi-Drop Bus",
+      "confidence": "candidate",
+      "text": "  CAN BUS (differential pair, multi-drop, terminated)\n  [120R] --- CANH --------+--------+--------+--- [120R]\n              CANL --------+--------+--------+\n                           |        |        |\n                       +---+--+ +---+--+ +---+--+\n                       | ECU1 | | ECU2 | | ECU3 |\n                       +------+ +------+ +------+\n   Differential (CANH-CANL) rejects common-mode noise.\n   120-ohm terminators at BOTH ends prevent reflections.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 267,
+      "heading_context": "## USB — The Host-Centric Universal Bus",
+      "confidence": "candidate",
+      "text": "  USB (host orchestrates everything)\n  .--------.   D+/D-   .-----------------------------.\n  |  HOST  |<--------->|  DEVICE (your MCU)           |\n  |  (PC)  |  differen-|  enumerates -> presents a    |\n  '--------'  tial pair|  CLASS:                       |\n                       |   CDC  = virtual COM port     |\n                       |   HID  = keyboard/mouse       |\n                       |   MSC  = mass storage (disk)  |\n                       |   DFU  = firmware update      |\n                       '-----------------------------'\n   Speeds: Low 1.5M, Full 12M, High 480M, SuperSpeed 5G+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "## ADC and DAC — Crossing the Analog Boundary",
+      "confidence": "candidate",
+      "text": "  ADC: SAMPLE then QUANTIZE\n  analog in  ~~~/\\~~~  -- sample/hold --> | quantize | --> number\n                                          12-bit -> 0..4095\n   Vin = 1.65V, Vref = 3.3V, 12-bit:\n   code = round( Vin / Vref * (2^12 - 1) ) = round(0.5 * 4095) = 2048\n\n  DAC: number -> voltage\n   code 2048, Vref 3.3V, 12-bit:  Vout = 2048/4095 * 3.3V ~= 1.65V",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "## ADC and DAC — Crossing the Analog Boundary",
+      "confidence": "candidate",
+      "text": "  without the CPU servicing every sample. ADC → DMA → ping-pong buffer is the",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 342,
+      "heading_context": "### \"My UART prints garbage\"",
+      "confidence": "candidate",
+      "text": "### \"My whole I2C bus is dead after one sensor misbehaves\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 349,
+      "heading_context": "### \"My whole I2C bus is dead after one sensor misbehaves\"",
+      "confidence": "candidate",
+      "text": "### \"SPI vs I2C — which for a new sensor?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

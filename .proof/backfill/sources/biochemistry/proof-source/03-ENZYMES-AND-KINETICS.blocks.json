@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\03-ENZYMES-AND-KINETICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# Enzymes and Kinetics — Catalysis and Control",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                    WHAT AN ENZYME DOES                                 |\n|                                                                        |\n|   FREE ENERGY                                                          |\n|     ^                                                                  |\n|     |          uncatalyzed                                             |\n|     |            .---.    <- high activation barrier (Ea)              |\n|     |           /     \\                                                |\n|     |          /  .-.  \\   catalyzed (enzyme lowers the barrier)       |\n|     |         /  /   \\  \\                                              |\n|     |   S ---'  /     \\  '--- (same start)                             |\n|     |          /       \\                                               |\n|     |         '         '------- P (same end, SAME deltaG)             |\n|     |                                                                  |\n|     +-------------------------------------> reaction coordinate        |\n|                                                                        |\n|  KEY: enzymes lower ACTIVATION energy (speed), NOT deltaG (direction). |\n|        They change HOW FAST equilibrium is reached, not WHERE it is.   |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 77,
+      "heading_context": "## How Catalysis Works — The Active Site",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   ENZYME (E) + SUBSTRATE (S)  ->  ES complex  ->  E + PRODUCT (P)      |\n|                                                                        |\n|        .-------.                .-------.              .-------.       |\n|       /  active \\   S binds    /  E::S   \\   reaction /  empty  \\      |\n|      |   site    | =========> |  induced  | ========>|  active   |     |\n|       \\  (cleft) /             \\   fit    /            \\  site   /     |\n|        '-------'                '-------'              '-------'       |\n|                                                                        |\n|   The enzyme is UNCHANGED at the end — ready for the next substrate.   |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 112,
+      "heading_context": "## Michaelis-Menten Kinetics — The Core Model",
+      "confidence": "candidate",
+      "text": "              k1        kcat\n   E + S  <======>  ES  -----> E + P\n              k-1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Michaelis-Menten Kinetics — The Core Model",
+      "confidence": "candidate",
+      "text": "   v0\n    ^\n Vmax|- - - - - - - - - .===================  (saturation plateau)\n    |                .-'\n    |             .-'\nVmax/2|- - - - .-+ - - - - - - - -            (half-max at [S] = Km)\n    |       .' :\n    |     .'   :\n    |   .'     :\n    |  /       :\n    +-/--------+---------------------> [S]\n              Km",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "### Lineweaver-Burk — the linearization",
+      "confidence": "candidate",
+      "text": "    1       Km     1        1\n   ---  =  ---- * ---  +  ------\n    v0     Vmax   [S]     Vmax\n\n   plot 1/v0  (y)   vs   1/[S]  (x)   ->  a straight line:\n\n   1/v0\n    ^\n    |        .\n    |      .'\n    |    .'    slope = Km / Vmax\n    |  .'\n    |.'  y-intercept = 1/Vmax\n  --+----------------> 1/[S]\n   /:\n  / : x-intercept = -1/Km",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 211,
+      "heading_context": "## Inhibition — Three Patterns",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   COMPETITIVE          NON-COMPETITIVE        UNCOMPETITIVE            |\n|   -----------          ---------------        -------------            |\n|   binds the ACTIVE     binds ELSEWHERE        binds only the ES        |\n|   SITE; competes with  (allosteric); works    COMPLEX (not free E)     |\n|   substrate            even when S is bound                            |\n|                                                                        |\n|   Km : INCREASES       Km : unchanged         Km : DECREASES           |\n|        (apparent)                                                      |\n|   Vmax: UNCHANGED      Vmax: DECREASES         Vmax: DECREASES         |\n|   (outcompete w/ S)    (can't outrun it)      (both drop together)     |\n|                                                                        |\n|   \"more requests win\"  \"poisoned servers\"     \"traps busy servers\"     |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 252,
+      "heading_context": "## Allostery — Regulation as Feedback Control",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   SIGMOIDAL KINETICS (allosteric, cooperative)                         |\n|                                                                        |\n|   v0                          .===========                             |\n|    ^                       .-'                                         |\n|    |                     .'    <- steep switch region:                 |\n|    |                   .'         small [S] change -> big rate change  |\n|    |                 .'                                                |\n|    |              .-'                                                  |\n|    |   _____...--'   <- low activity until threshold                   |\n|    +-------------------------------> [S]                               |\n|                                                                        |\n|   ACTS LIKE A SWITCH, not a dimmer. Compare hemoglobin O2 binding.     |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 269,
+      "heading_context": "## Allostery — Regulation as Feedback Control",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   FEEDBACK (END-PRODUCT) INHIBITION                                    |\n|                                                                        |\n|   A --[E1]--> B --[E2]--> C --[E3]--> D --[E4]--> END PRODUCT          |\n|   ^                                                   |                |\n|   |                                                   |                |\n|   '----------- inhibits E1 (the committed step) <-----'                |\n|                                                                        |\n|   When END PRODUCT is plentiful, it shuts down the FIRST committed     |\n|   step -> the cell stops making what it already has. Negative          |\n|   feedback. The setpoint is \"enough product.\"                          |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### \"Competitive vs. non-competitive — which can I overpower?\"",
+      "confidence": "candidate",
+      "text": "  COMPETITIVE     fights for the active site  -> add more substrate, you WIN\n                  (Vmax recoverable, Km rises)\n  NON-COMPETITIVE binds elsewhere, no contest -> can't outrun it\n                  (Vmax falls and stays fallen)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

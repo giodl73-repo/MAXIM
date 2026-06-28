@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\01-MICROCONTROLLERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                      A TYPICAL Cortex-M MCU                           |\n|                                                                       |\n|  .----------------.        .-----------------------------------.      |\n|  |  CPU CORE      |        |  NVIC (interrupt controller)      |      |\n|  |  Cortex-M4F    |<------>|  prioritizes + vectors IRQs       |      |\n|  |  + FPU         |        '-----------------------------------'      |\n|  |  + SysTick     |                  ^                                |\n|  '-------'--------'                  | IRQ lines                      |\n|          |  AHB bus                  |                                |\n|  .-------.-------------------------------------------------.          |\n|  |                  BUS MATRIX (AHB/APB)                   |          |\n|  '--'--------'--------'--------'--------'--------'---------'          |\n|     |        |        |        |        |        |         |          |\n|     v        v        v        v        v        v         v          |\n|  .-----. .------. .------. .------. .------. .-----. .---------.      |\n|  |FLASH| | SRAM | | GPIO | | UART | | SPI  | | ADC | |  DMA    |      |\n|  |512KB| |128KB | |ports | | I2C  | | CAN  | | DAC | |engine   |      |\n|  '-----' '------' '------' '------' '------' '-----' '---------'      |\n|                                                                       |\n|  +-----------------------------------------------------------+        |\n|  | CLOCK TREE (PLL, prescalers) | POWER (regulators, modes)  |        |\n|  +-----------------------------------------------------------+        |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "### Old world → MCU bridge",
+      "confidence": "candidate",
+      "text": "  General-purpose CPU you know        MCU\n  ---------------------------         ---\n  RAM is the program's world          FLASH holds code, SRAM holds data\n  Virtual address space               Physical memory map (fixed addresses)\n  \"Where is my code?\" = wherever      Code executes IN-PLACE from flash (XIP)\n  Loader copies exe into RAM          .data copied flash->SRAM at startup\n  Stack grows in mapped pages         Stack is a fixed SRAM region; can overflow\n  Peripherals via /dev + driver       Peripherals are MEMORY ADDRESSES you write",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 107,
+      "heading_context": "## The ARM Cortex-M Family",
+      "confidence": "candidate",
+      "text": "                 CORTEX-M LADDER (low -> high capability)\n  +--------------------------------------------------------------+\n  | M0 / M0+ | ARMv6-M | smallest, ~0.9 DMIPS/MHz | sensor nodes |\n  |          | no/limited divide, 2-3 stage pipe | nRF51, RP2040 |\n  +--------------------------------------------------------------+\n  | M3       | ARMv7-M | full Thumb-2, hw divide   | workhorse   |\n  |          | 3-stage pipe, bit-banding          | STM32F1      |\n  +--------------------------------------------------------------+\n  | M4 / M4F | ARMv7-M + DSP (+ FPU on M4F)        | motor/audio |\n  |          | SIMD-ish DSP instrs, single FPU    | STM32F4      |\n  +--------------------------------------------------------------+\n  | M7       | ARMv7-M | superscalar, caches, dual | high-perf   |\n  |          | -issue, branch predict, I/D cache  | STM32H7      |\n  +--------------------------------------------------------------+\n  | M23/M33  | ARMv8-M | TrustZone-M security      | secure IoT  |\n  |          | M33 adds DSP/FPU                 | nRF53, STM32L5 |\n  +--------------------------------------------------------------+\n  | M55/M85  | ARMv8.1-M | Helium (MVE) vector ML  | edge AI     |\n  +--------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 159,
+      "heading_context": "## The Memory Map — The MCU's Address Space",
+      "confidence": "candidate",
+      "text": "  0xFFFFFFFF .-----------------------------.\n             |  Vendor / system            |\n  0xE0000000 '-----------------------------' <- PRIVATE PERIPHERAL BUS\n             |  Cortex-M internals:        |    (NVIC, SysTick, SCB,\n             |  NVIC, SysTick, SCB, debug  |     debug, MPU registers)\n  0xE0100000 |  -- same on every M core -- |\n             '-----------------------------'\n             |                             |\n  0xA0000000 |  External device            |\n             '-----------------------------'\n  0x60000000 |  External RAM               |\n             '-----------------------------'\n  0x40000000 .-----------------------------. <- PERIPHERALS\n             |  APB/AHB peripheral regs:   |    GPIO, UART, SPI, I2C,\n             |  GPIOA @0x40020000 ...      |    timers, ADC, DMA, RCC\n             |  every peripheral is HERE   |    -- vendor specific --\n             '-----------------------------'\n  0x20000000 .-----------------------------. <- SRAM (your data)\n             |  .data .bss heap stack      |    e.g. 128 KB here\n             |  stack grows DOWN from top  |\n             '-----------------------------'\n  0x00000000 .-----------------------------. <- CODE / FLASH\n             |  vector table @ 0x00000000  |    [0]=initial SP\n             |  then your code (.text)     |    [1]=reset handler\n             |  .rodata, const data        |    XIP: runs in place\n  0x08000000 |  (often aliased here too)   |\n             '-----------------------------'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 202,
+      "heading_context": "## The Memory Map — The MCU's Address Space",
+      "confidence": "candidate",
+      "text": "### Bit-banding (M3/M4 only)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "## What Lives On the Chip — Peripherals at a Glance",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|  ON-CHIP PERIPHERAL CATALOG (typical mid-range MCU)                   |\n|                                                                       |\n|  TIMING            COMMS            ANALOG          SYSTEM            |\n|  ------            -----            ------          ------            |\n|  SysTick (RTOS)    UART x4          ADC (12-bit)    RCC (clocks)      |\n|  General timers    SPI x3           DAC (12-bit)    PWR (power)       |\n|  Advanced timer    I2C x3           comparators     WDG (watchdog)    |\n|  (PWM, encoder)    CAN x2           temp sensor     RTC (calendar)    |\n|  Watchdog timers   USB FS/HS        Vref            CRC unit          |\n|                    + DMA channels                  Flash controller   |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "## Choosing an MCU — The Real Selection Axes",
+      "confidence": "candidate",
+      "text": "                      MCU SELECTION TREE\n                            |\n        .-------------------.-------------------.\n        |                                       |\n   Need radio?                            Need an MMU/Linux?\n    yes |  no                               yes -> that's an MPU/SoC,\n        v   v                                      leave this module\n  .---------.  .-----------------.           no  -> stay MCU\n  | nRF52/53|  | core class?     |\n  | ESP32   |  '--------.--------'\n  | (BLE/   |           |\n  |  Wi-Fi) |   .-------.--------.--------.\n  '---------'   v       v        v        v\n              M0+     M3/M4    M4F/M7   M33/M55\n            (cheap)  (general)(DSP/    (secure/\n                              float)    edge AI)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 291,
+      "heading_context": "### \"Where does my code actually run from — RAM or flash?\"",
+      "confidence": "candidate",
+      "text": "### \"The chip has 128 KB of RAM but a 4 GB address space?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 299,
+      "heading_context": "### \"The chip has 128 KB of RAM but a 4 GB address space?\"",
+      "confidence": "candidate",
+      "text": "### \"Is the flash address 0x00000000 or 0x08000000?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 307,
+      "heading_context": "### \"Is the flash address 0x00000000 or 0x08000000?\"",
+      "confidence": "candidate",
+      "text": "### \"M4 vs M4F — why does it matter for my control loop?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

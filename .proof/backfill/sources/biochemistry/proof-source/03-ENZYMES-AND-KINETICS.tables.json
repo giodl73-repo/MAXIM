@@ -1,0 +1,204 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\03-ENZYMES-AND-KINETICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        "Software / systems concept",
+        "Enzyme concept"
+      ],
+      "rows": [
+        [
+          "Hardware accelerator (GPU, ASIC)",
+          "Enzyme: same result, far faster"
+        ],
+        [
+          "Cache that doesn't change the answer",
+          "Catalysis lowers cost, not outcome"
+        ],
+        [
+          "API contract (specific input type)",
+          "Substrate specificity (active site shape)"
+        ],
+        [
+          "Hot path / bottleneck step",
+          "Rate-limiting (committed) step"
+        ],
+        [
+          "Rate limiter on an endpoint",
+          "Vmax — saturation ceiling on throughput"
+        ],
+        [
+          "Half-saturation tuning point",
+          "Km — substrate level at half-max rate"
+        ],
+        [
+          "Throttle config, feature flag",
+          "Allosteric activator/inhibitor"
+        ],
+        [
+          "Competitive lock contention",
+          "Competitive inhibition (raise input, win)"
+        ],
+        [
+          "Poison pill that can't be outcompeted",
+          "Non-competitive / irreversible inhibition"
+        ],
+        [
+          "Negative feedback control loop",
+          "Feedback (end-product) inhibition"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 146,
+      "heading_context": "## Michaelis-Menten Kinetics — The Core Model",
+      "headers": [
+        "Parameter",
+        "Definition",
+        "Intuition"
+      ],
+      "rows": [
+        [
+          "**Vmax**",
+          "max rate when enzyme is fully saturated",
+          "the throughput ceiling — every enzyme busy"
+        ],
+        [
+          "**Km**",
+          "[S] at which v0 = Vmax/2",
+          "inverse affinity: **low Km = tight binding**"
+        ],
+        [
+          "**kcat**",
+          "turnover number = Vmax / [E]total",
+          "reactions per enzyme per second"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 191,
+      "heading_context": "## Michaelis-Menten Kinetics — The Core Model",
+      "headers": [
+        "Plot feature",
+        "Reads out"
+      ],
+      "rows": [
+        [
+          "y-intercept",
+          "1 / Vmax"
+        ],
+        [
+          "x-intercept",
+          "-1 / Km"
+        ],
+        [
+          "slope",
+          "Km / Vmax"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 228,
+      "heading_context": "## Inhibition — Three Patterns",
+      "headers": [
+        "Type",
+        "Binds",
+        "Effect on Km",
+        "Effect on Vmax",
+        "Beaten by more [S]?"
+      ],
+      "rows": [
+        [
+          "**Competitive**",
+          "active site (vs substrate)",
+          "increases",
+          "unchanged",
+          "yes"
+        ],
+        [
+          "**Non-competitive**",
+          "separate site, E or ES",
+          "unchanged",
+          "decreases",
+          "no"
+        ],
+        [
+          "**Uncompetitive**",
+          "ES complex only",
+          "decreases",
+          "decreases",
+          "no"
+        ],
+        [
+          "**Irreversible**",
+          "covalent, permanent",
+          "—",
+          "kills enzyme",
+          "no"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 310,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Does an enzyme change ΔG / equilibrium?",
+          "No — only the rate (activation energy)"
+        ],
+        [
+          "What is Vmax?",
+          "Throughput ceiling at substrate saturation"
+        ],
+        [
+          "What is Km?",
+          "[S] at half-Vmax; **low Km = high affinity**"
+        ],
+        [
+          "What is kcat?",
+          "Turnover number (reactions/enzyme/sec)"
+        ],
+        [
+          "Best single efficiency measure?",
+          "kcat/Km (catalytic efficiency)"
+        ],
+        [
+          "How to read Vmax/Km off a plot",
+          "Lineweaver-Burk: y-int=1/Vmax, x-int=-1/Km"
+        ],
+        [
+          "Inhibitor beaten by more substrate?",
+          "Competitive only"
+        ],
+        [
+          "Inhibitor that lowers Vmax, leaves Km",
+          "Non-competitive"
+        ],
+        [
+          "How a pathway self-regulates",
+          "Feedback inhibition of the committed step"
+        ],
+        [
+          "Switch-like (sigmoidal) response",
+          "Allosteric cooperativity"
+        ],
+        [
+          "Fast reversible on/off toggle",
+          "Phosphorylation (covalent modification)"
+        ]
+      ]
+    }
+  ]
+}

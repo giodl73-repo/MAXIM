@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\05-MEMORY-AND-DMA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                   THE MCU MEMORY LANDSCAPE                            |\n|                                                                       |\n|  FLASH (non-volatile)            SRAM (volatile)                      |\n|  .-------------------------.     .-------------------------.          |\n|  | vector table            |     | .data (init globals)    | <-copied |\n|  | .text  (code, XIP)      |     | .bss  (zeroed globals)  | from     |\n|  | .rodata (constants)     | --> | HEAP   (grows up)       | flash    |\n|  | .data INITIALIZERS      |     |   ...free...            | at boot  |\n|  | config / NVM region     |     | STACK  (grows DOWN)     |          |\n|  '-------------------------'     '-------------------------'          |\n|   slow writes, byte reads,        fast R/W, lost on power-off         |\n|   erase-by-sector, wear-limited   tiny (KBs)                          |\n|                                                                       |\n|         ^                                  ^                          |\n|         |  CPU fetches code                |  CPU + DMA both access   |\n|         |                                  |                          |\n|  .------.----------------------------------.-------------------.      |\n|  |              BUS MATRIX                   .---------.       |      |\n|  |                                           |  DMA    |       |      |\n|  |  CPU <-> bus <-> SRAM/flash/peripherals   | engine  |-------+      |\n|  |                                           '---------' moves data   |\n|  '-------------------------------------------------------------'      |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## Flash vs RAM — Two Very Different Memories",
+      "confidence": "candidate",
+      "text": "  WRITING A PARAMETER TO FLASH AT RUNTIME\n  1. unlock flash controller\n  2. ERASE the target sector (all -> 0xFF)   <- slow, blocks, ms\n  3. PROGRAM the new bytes (1 -> 0 only)\n  4. lock flash controller\n  -> during erase/program, code can't usually execute from that bank\n     (read-while-write limits) -- a real-time hazard. Plan around it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 111,
+      "heading_context": "## Stack and Heap — The Constrained Pair",
+      "confidence": "candidate",
+      "text": "  high addr  +-------------------+ <- _estack (top of SRAM)\n             |  STACK            |\n             |  grows DOWN  |    |\n             |              v    |\n             |                   |\n             |   ...free RAM...  | <- collision = silent corruption\n             |                   |\n             |              ^    |\n             |  grows UP    |    |\n             |  HEAP             |\n             +-------------------+ <- end of .bss\n             |  .bss / .data     |\n  low addr   +-------------------+ <- 0x20000000",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 127,
+      "heading_context": "## Stack and Heap — The Constrained Pair",
+      "confidence": "candidate",
+      "text": "  STACK OVERFLOW (no guard page!)\n  +------------------------------------------------------------+\n  | On a desktop, overflowing the stack hits an unmapped guard |\n  | page -> clean SIGSEGV. On an MCU there is NO guard page.   |\n  | The stack just keeps growing DOWN into .bss/.data/heap and |\n  | SILENTLY corrupts whatever is there. The bug appears far   |\n  | from its cause. This is the #1 hardest MCU bug class.      |\n  +------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 176,
+      "heading_context": "## DMA — Moving Data Without the CPU",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|             POLLED/IRQ COPY vs DMA TRANSFER                           |\n|                                                                       |\n|  WITHOUT DMA (CPU copies each byte)                                   |\n|    ADC -> IRQ -> CPU reads reg -> CPU writes SRAM -> repeat x1000     |\n|    CPU is busy the entire time. 1000 interrupts. Cycles burned.       |\n|                                                                       |\n|  WITH DMA                                                             |\n|    ADC -> DMA -> SRAM buffer (engine moves each sample)               |\n|    CPU sleeps or works. ONE interrupt when the buffer is full.        |\n|    .-------.   trigger   .-------.   bus    .----------.              |\n|    |  ADC  |------------>|  DMA  |--------->|  SRAM buf |             |\n|    '-------'             '-------'          '----------'              |\n|                              | done                                   |\n|                              v                                        |\n|                          IRQ (half / full)                            |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## DMA — Moving Data Without the CPU",
+      "confidence": "candidate",
+      "text": "  CIRCULAR DMA + HALF/FULL IRQ (ping-pong)\n  buffer: [ ---- half A ---- | ---- half B ---- ]\n  DMA fills A  ---> half IRQ ---> CPU processes A while DMA fills B\n  DMA fills B  ---> full IRQ ---> CPU processes B while DMA fills A\n  ...forever. CPU never copies, never blocks on I/O.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 248,
+      "heading_context": "## Cache Coherence on MCUs — The DMA Trap",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              THE CACHE/DMA COHERENCE HAZARD (Cortex-M7)               |\n|                                                                       |\n|  CASE 1: CPU writes a TX buffer, then starts DMA                      |\n|    CPU writes land in the D-CACHE, not yet in SRAM (write-back).      |\n|    DMA reads SRAM -> gets STALE old data. Garbage transmitted.        |\n|    FIX: SCB_CleanDCache_by_Addr(buf) BEFORE starting DMA              |\n|         (flush cache -> SRAM so DMA sees fresh data)                  |\n|                                                                       |\n|  CASE 2: DMA fills an RX buffer in SRAM, then CPU reads it            |\n|    CPU reads from D-CACHE -> gets STALE pre-DMA data.                 |\n|    FIX: SCB_InvalidateDCache_by_Addr(buf) AFTER DMA completes         |\n|         (drop cached copy -> CPU re-reads fresh SRAM)                 |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 285,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"My code worked on the M4 but corrupts data on the M7\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

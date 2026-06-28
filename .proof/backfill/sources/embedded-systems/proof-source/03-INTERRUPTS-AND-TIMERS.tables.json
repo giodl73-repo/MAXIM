@@ -1,0 +1,145 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\03-INTERRUPTS-AND-TIMERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 155,
+      "heading_context": "## Interrupt Latency — The Number That Matters",
+      "headers": [
+        "Factor",
+        "Effect on latency",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "HW stacking",
+          "~12 cycles fixed",
+          "Deterministic on M-profile"
+        ],
+        [
+          "Longest atomic instruction",
+          "Adds its remaining cycles",
+          "LDM/STM can be interrupted/restarted on some cores"
+        ],
+        [
+          "Disabled interrupts (critical section)",
+          "Adds the full masked duration",
+          "**You** control this — keep critical sections short"
+        ],
+        [
+          "Higher-priority ISR in flight",
+          "You wait for it",
+          "Priority design problem"
+        ],
+        [
+          "Flash wait states / no cache",
+          "Adds fetch stalls",
+          "Run ISR from SRAM to cut this"
+        ],
+        [
+          "Tail-chaining",
+          "*Removes* an unstack+stack",
+          "Back-to-back ISRs skip redundant stacking"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 262,
+      "heading_context": "## Timers — Manufacturing Time",
+      "headers": [
+        "Timer mode",
+        "What it does",
+        "Used for"
+      ],
+      "rows": [
+        [
+          "Periodic / update",
+          "IRQ every N ticks",
+          "RTOS tick, control-loop rate"
+        ],
+        [
+          "Output compare",
+          "Toggle/pulse a pin at a count",
+          "Waveform generation"
+        ],
+        [
+          "PWM",
+          "Duty-cycle a pin",
+          "Motor/LED/power control"
+        ],
+        [
+          "Input capture",
+          "Latch CNT on a pin edge",
+          "Measure frequency/pulse width"
+        ],
+        [
+          "Encoder",
+          "Count quadrature edges",
+          "Read motor shaft position"
+        ],
+        [
+          "One-shot",
+          "Fire once, then stop",
+          "Timeouts, debounce"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 348,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Run something every N microseconds",
+          "Timer in periodic/update mode → IRQ"
+        ],
+        [
+          "Drive the RTOS scheduler tick",
+          "SysTick (built into every M core)"
+        ],
+        [
+          "Vary motor speed / LED brightness",
+          "Timer in PWM mode (set CCR)"
+        ],
+        [
+          "Measure an input pulse width/frequency",
+          "Timer input-capture mode"
+        ],
+        [
+          "Read a quadrature encoder",
+          "Timer encoder mode"
+        ],
+        [
+          "React instantly to a pin change",
+          "EXTI (external) interrupt + GPIO"
+        ],
+        [
+          "Make a critical handler never wait",
+          "Highest priority = lowest number"
+        ],
+        [
+          "Keep ISR latency low",
+          "Short ISRs, short critical sections, ISR in SRAM"
+        ],
+        [
+          "Do real work triggered by an interrupt",
+          "Defer: ISR sets flag/gives sem, task acts"
+        ],
+        [
+          "Call RTOS API from an ISR",
+          "Use the `...FromISR` variant only"
+        ],
+        [
+          "Stop an interrupt storm",
+          "Clear the peripheral's flag in the ISR"
+        ]
+      ]
+    }
+  ]
+}

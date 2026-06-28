@@ -1,0 +1,251 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\09-DEBUG-AND-TOOLCHAIN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 80,
+      "heading_context": "## Cross-Compilation — Building for a Machine You're Not On",
+      "headers": [
+        "Tool",
+        "Role"
+      ],
+      "rows": [
+        [
+          "`arm-none-eabi-gcc`",
+          "Cross-compiler (host → Cortex-M)"
+        ],
+        [
+          "`arm-none-eabi-ld`",
+          "Linker (places sections per linker script, `02`)"
+        ],
+        [
+          "`arm-none-eabi-objcopy`",
+          ".elf → raw .bin/.hex for flashing"
+        ],
+        [
+          "`arm-none-eabi-gdb`",
+          "Host-side debugger, talks to the probe"
+        ],
+        [
+          "`newlib` / `newlib-nano`",
+          "Slimmed C library for tiny targets"
+        ],
+        [
+          "CMSIS",
+          "ARM's standard core/peripheral definitions (`01`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 116,
+      "heading_context": "## JTAG and SWD — The Debug Window",
+      "headers": [
+        "Capability",
+        "JTAG",
+        "SWD"
+      ],
+      "rows": [
+        [
+          "Wires",
+          "4–5",
+          "2 (+1 for trace)"
+        ],
+        [
+          "Flash the chip",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Halt / step / breakpoint",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Read/write memory + registers live",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Multi-device daisy-chain",
+          "Yes",
+          "No (point-to-point)"
+        ],
+        [
+          "Trace output (SWO/ITM)",
+          "Via extra pins",
+          "SWO single-wire"
+        ],
+        [
+          "Dominant on Cortex-M",
+          "Supported",
+          "**Preferred** (pin-efficient)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 173,
+      "heading_context": "## The HAL — Taming Vendor Registers",
+      "headers": [
+        "Layer",
+        "What it gives you",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Bare registers (`02`)",
+          "Total control, smallest, fastest",
+          "Verbose, vendor-locked, error-prone"
+        ],
+        [
+          "CMSIS",
+          "Portable core access, typed register structs",
+          "Still register-level"
+        ],
+        [
+          "Vendor HAL",
+          "\"Configure peripheral\" API, portability within vendor",
+          "Larger, sometimes slow/heavy"
+        ],
+        [
+          "RTOS HAL (Zephyr)",
+          "Cross-vendor device API + drivers",
+          "Bigger footprint"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 212,
+      "heading_context": "## Testing Embedded Code — Without (Mostly) the Hardware",
+      "headers": [
+        "Technique",
+        "Where it runs",
+        "Catches"
+      ],
+      "rows": [
+        [
+          "Host unit tests",
+          "Your PC (logic compiled native)",
+          "Algorithms, state machines, parsers"
+        ],
+        [
+          "Hardware mocking",
+          "Host (fake register layer)",
+          "Driver logic without the chip"
+        ],
+        [
+          "Emulation (QEMU, **Renode**)",
+          "Host (simulated MCU + peripherals)",
+          "Integration, even multi-node, in CI"
+        ],
+        [
+          "On-target tests",
+          "The board",
+          "Real peripheral + timing behavior"
+        ],
+        [
+          "Hardware-in-the-loop (HIL)",
+          "Board + signal rigs",
+          "End-to-end, analog, timing margins"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 263,
+      "heading_context": "## Bootloaders and OTA — Updating Firmware in the Field",
+      "headers": [
+        "OTA requirement",
+        "Why it's non-negotiable"
+      ],
+      "rows": [
+        [
+          "**Atomic swap** (A/B slots)",
+          "Power loss mid-write must not leave a half-image"
+        ],
+        [
+          "**Rollback**",
+          "A bad update must fall back to the last good image"
+        ],
+        [
+          "**Integrity** (CRC)",
+          "Detect a corrupted download before booting it"
+        ],
+        [
+          "**Authenticity** (signature)",
+          "Only run images signed by you (secure boot)"
+        ],
+        [
+          "**Versioning / anti-rollback**",
+          "Prevent downgrade to a vulnerable old image"
+        ],
+        [
+          "**Watchdog confirmation**",
+          "New image must prove it boots/runs before commit"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 331,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Build firmware for a Cortex-M",
+          "`arm-none-eabi-gcc` cross-toolchain"
+        ],
+        [
+          "Turn an .elf into a flashable image",
+          "`objcopy` → .bin / .hex"
+        ],
+        [
+          "Flash and debug a chip with no console",
+          "SWD probe (ST-Link/J-Link) + host gdb"
+        ],
+        [
+          "Use minimal debug pins on Cortex-M",
+          "SWD (2 wires) over JTAG"
+        ],
+        [
+          "Get printf without a UART",
+          "SWO/ITM trace or SEGGER RTT"
+        ],
+        [
+          "Bring up a peripheral fast, portably",
+          "Vendor HAL"
+        ],
+        [
+          "Squeeze size / control timing exactly",
+          "Hand-written register code (`02`)"
+        ],
+        [
+          "Test most of the firmware logic",
+          "Host unit tests + mocked hardware"
+        ],
+        [
+          "Run integration tests in CI without boards",
+          "Renode / QEMU emulation"
+        ],
+        [
+          "Verify real timing and analog behavior",
+          "On-target / hardware-in-the-loop"
+        ],
+        [
+          "Update firmware in the field safely",
+          "Bootloader + A/B slots + sign + rollback"
+        ],
+        [
+          "Ensure only your firmware runs",
+          "Signature check / secure boot (`cryptography/`, M33)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biochemistry\\05-GLYCOLYSIS-AND-GLUCONEOGENESIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# Glycolysis and Gluconeogenesis — Splitting and Rebuilding Glucose",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|        GLYCOLYSIS: glucose (6C) -> 2 pyruvate (3C each)                |\n|                                                                        |\n|   GLUCOSE  (6 carbons)                                                 |\n|      |  INVESTMENT PHASE: spend 2 ATP to prime the molecule            |\n|      |  (steps 1-5)                                                    |\n|      v                                                                 |\n|   fructose-1,6-bisphosphate                                            |\n|      |  SPLIT into two 3-carbon pieces                                 |\n|      v                                                                 |\n|   2x glyceraldehyde-3-phosphate (G3P)                                  |\n|      |  PAYOFF PHASE: each 3C piece yields 2 ATP + 1 NADH              |\n|      |  (steps 6-10)                                                   |\n|      v                                                                 |\n|   2x PYRUVATE  (3 carbons each)                                        |\n|                                                                        |\n|   LEDGER (per glucose):  gross 4 ATP - 2 ATP invested = NET 2 ATP      |\n|                          + 2 NADH  + 2 pyruvate                        |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Two Phases",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   PHASE 1: ENERGY INVESTMENT (steps 1-5)        deltaATP = -2          |\n|                                                                        |\n|   1. glucose --[HEXOKINASE]--> G6P        spend 1 ATP  (irreversible)  |\n|   2. G6P -> fructose-6-phosphate (F6P)    isomerize                    |\n|   3. F6P --[PFK-1]--> F1,6BP              spend 1 ATP (COMMITTED STEP) |\n|   4. F1,6BP -> split into DHAP + G3P      aldolase cleaves 6C -> 3C+3C |\n|   5. DHAP <-> G3P                         now have 2x G3P              |\n|                                                                        |\n|   PHASE 2: ENERGY PAYOFF (steps 6-10, x2 because two G3P)              |\n|                                                                        |\n|   6. G3P -> 1,3-BPG          + NADH       capture electrons (x2)       |\n|   7. 1,3-BPG -> 3-PG         + ATP        substrate-level phos. (x2)   |\n|   8. 3-PG -> 2-PG                         isomerize                    |\n|   9. 2-PG -> PEP                          dehydrate                    |\n|  10. PEP --[PYRUVATE KINASE]--> pyruvate  + ATP (x2, irreversible)     |\n|                                                                        |\n|   Payoff: 4 ATP + 2 NADH produced (each step 6/7/10 happens twice)     |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "## Three Irreversible (Regulated) Steps",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   STEP   ENZYME            WHY REGULATED                               |\n|   ----   ------            ------------                                |\n|   1      HEXOKINASE        traps glucose in the cell (G6P can't leave) |\n|   3      PFK-1             THE committed step; the main throttle       |\n|   10     PYRUVATE KINASE   final commitment to pyruvate                |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 140,
+      "heading_context": "## After Pyruvate — Three Fates",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                          PYRUVATE                                      |\n|                   .---------+---------.                                |\n|        AEROBIC    |         |         |   ANAEROBIC                    |\n|        (O2 present)         |         (no O2)                          |\n|        v                    v         v                                |\n|   ACETYL-CoA          (alanine, etc.) FERMENTATION                     |\n|   -> TCA cycle (06)   biosynthesis    regenerate NAD+                  |\n|   -> ox-phos                          to keep glycolysis going         |\n|   -> ~30-32 ATP total                                                  |\n|                                       LACTATE (animals, muscle)        |\n|                                       ETHANOL + CO2 (yeast)            |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 158,
+      "heading_context": "## After Pyruvate — Three Fates",
+      "confidence": "candidate",
+      "text": "   LACTATE fermentation:   pyruvate + NADH -> lactate + NAD+\n   ETHANOL fermentation:   pyruvate -> acetaldehyde + CO2;\n                           acetaldehyde + NADH -> ethanol + NAD+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 182,
+      "heading_context": "## Gluconeogenesis — Rebuilding Glucose",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   GLUCONEOGENESIS = glycolysis run backward, BUT bypassing the 3       |\n|   irreversible steps with DIFFERENT enzymes.                           |\n|                                                                        |\n|   glucose  <--- glucose-6-phosphatase ------------ G6P                 |\n|     ^                                               ^                  |\n|     |  (bypass hexokinase)                          |                  |\n|     |                                          F6P  |                  |\n|     |  fructose-1,6-bisphosphatase ---<-------- F1,6BP                 |\n|     |  (bypass PFK-1)                                ^                 |\n|     |                                               |                  |\n|     |  PEP <-- PEP carboxykinase <-- oxaloacetate <-- pyruvate         |\n|     |          + pyruvate carboxylase (bypass pyruvate kinase)         |\n|                                                                        |\n|   COST: ~6 ATP equivalents per glucose (it is NOT free reversal)       |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 223,
+      "heading_context": "## Reciprocal Regulation — Don't Run Both at Once",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|   SIGNAL            GLYCOLYSIS (PFK-1)   GLUCONEOGENESIS (F1,6BPase)   |\n|   ------            ------------------   ---------------------------   |\n|   AMP (low energy)  ACTIVATE             INHIBIT                       |\n|   F2,6BP (fed)      ACTIVATE             INHIBIT                       |\n|   ATP / citrate     inhibit              (allow)                       |\n|   high              (fasting)                                          |\n|                                                                        |\n|   ONE signal pushes the two pathways in OPPOSITE directions ->         |\n|   only one runs at a time. (Mutual exclusion via shared signal.)       |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 279,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"Is glycolysis 2 ATP or 4 ATP?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

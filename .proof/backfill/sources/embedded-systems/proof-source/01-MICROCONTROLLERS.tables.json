@@ -1,0 +1,294 @@
+{
+  "schema_version": "1",
+  "source_markdown": "embedded-systems\\01-MICROCONTROLLERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 69,
+      "heading_context": "## Restating MCU vs MPU vs SoC Precisely",
+      "headers": [
+        "Property",
+        "MCU",
+        "MPU",
+        "SoC"
+      ],
+      "rows": [
+        [
+          "Program memory",
+          "On-chip flash",
+          "External (NOR/NAND/eMMC)",
+          "External"
+        ],
+        [
+          "Working memory",
+          "On-chip SRAM (KBs)",
+          "External DRAM (GBs)",
+          "External DRAM"
+        ],
+        [
+          "Address translation",
+          "None (physical)",
+          "MMU (virtual)",
+          "MMU on A-cores"
+        ],
+        [
+          "Boots",
+          "From reset vector in flash",
+          "Multi-stage bootloader → kernel",
+          "Boot ROM → SPL → U-Boot → kernel"
+        ],
+        [
+          "Typical core",
+          "Cortex-M, RISC-V, AVR",
+          "Cortex-A, x86",
+          "Mixed A + M islands"
+        ],
+        [
+          "Runs an OS?",
+          "Bare metal or RTOS",
+          "Linux / RTOS",
+          "Linux + RTOS islands"
+        ],
+        [
+          "Power floor",
+          "µA in deep sleep",
+          "mW class minimum",
+          "mW–W"
+        ],
+        [
+          "You write",
+          "The whole firmware image",
+          "App on top of an OS",
+          "Both, per subsystem"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 129,
+      "heading_context": "## The ARM Cortex-M Family",
+      "headers": [
+        "Core",
+        "Architecture",
+        "FPU",
+        "DSP",
+        "Cache",
+        "Notable feature"
+      ],
+      "rows": [
+        [
+          "M0/M0+",
+          "ARMv6-M",
+          "No",
+          "No",
+          "No",
+          "Tiny, cheap, low power"
+        ],
+        [
+          "M3",
+          "ARMv7-M",
+          "No",
+          "No",
+          "No",
+          "Bit-banding, hardware divide"
+        ],
+        [
+          "M4",
+          "ARMv7-M",
+          "Optional (M4F)",
+          "Yes",
+          "No",
+          "DSP for audio/control"
+        ],
+        [
+          "M7",
+          "ARMv7-M",
+          "Double",
+          "Yes",
+          "I+D cache",
+          "Superscalar, fastest classic M"
+        ],
+        [
+          "M23",
+          "ARMv8-M base",
+          "No",
+          "No",
+          "No",
+          "TrustZone-M, low power"
+        ],
+        [
+          "M33",
+          "ARMv8-M main",
+          "Optional",
+          "Optional",
+          "No",
+          "TrustZone-M + DSP/FPU"
+        ],
+        [
+          "M55/M85",
+          "ARMv8.1-M",
+          "Yes",
+          "Helium MVE",
+          "Optional",
+          "Vector ML inference"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 189,
+      "heading_context": "## The Memory Map — The MCU's Address Space",
+      "headers": [
+        "Region",
+        "Base (ARM-defined)",
+        "Holds",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Code",
+          "0x00000000",
+          "Vector table, .text, .rodata",
+          "Often aliased to flash @0x08000000"
+        ],
+        [
+          "SRAM",
+          "0x20000000",
+          ".data, .bss, heap, stack",
+          "Bit-band region on M3/M4"
+        ],
+        [
+          "Peripheral",
+          "0x40000000",
+          "All peripheral registers",
+          "Vendor-specific layout"
+        ],
+        [
+          "External RAM",
+          "0x60000000",
+          "Off-chip SDRAM/SRAM",
+          "Via FSMC/FMC if present"
+        ],
+        [
+          "External device",
+          "0xA0000000",
+          "QSPI flash, memory-mapped devices",
+          ""
+        ],
+        [
+          "Private peripheral",
+          "0xE0000000",
+          "NVIC, SysTick, SCB, MPU, debug",
+          "**Identical across all M cores**"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 262,
+      "heading_context": "## Choosing an MCU — The Real Selection Axes",
+      "headers": [
+        "Axis",
+        "Question",
+        "Drives"
+      ],
+      "rows": [
+        [
+          "Flash size",
+          "Code + constants fit?",
+          "Part variant"
+        ],
+        [
+          "SRAM size",
+          "Buffers + stack(s) + heap fit?",
+          "Part variant"
+        ],
+        [
+          "Core/clock",
+          "Compute headroom, FPU/DSP needed?",
+          "M-class"
+        ],
+        [
+          "Peripherals",
+          "Right count of UART/SPI/I2C/CAN/ADC?",
+          "Vendor + part"
+        ],
+        [
+          "Power",
+          "Sleep current budget (`08`)?",
+          "Family (e.g. STM32L)"
+        ],
+        [
+          "Radio",
+          "Wi-Fi/BLE/Thread on-die?",
+          "nRF, ESP32, etc."
+        ],
+        [
+          "Security",
+          "Secure boot, TrustZone, crypto?",
+          "M23/M33, secure elements"
+        ],
+        [
+          "Ecosystem",
+          "HAL, RTOS ports, debugger support",
+          "Vendor maturity"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 319,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Pick the smallest/cheapest 32-bit core",
+          "Cortex-M0+"
+        ],
+        [
+          "General-purpose workhorse MCU",
+          "Cortex-M3 / M4"
+        ],
+        [
+          "Float-heavy control or audio DSP",
+          "Cortex-M4F (FPU)"
+        ],
+        [
+          "Highest classic-M performance + cache",
+          "Cortex-M7"
+        ],
+        [
+          "Hardware security / secure boot",
+          "Cortex-M23 / M33 (TrustZone-M)"
+        ],
+        [
+          "On-device ML inference",
+          "Cortex-M55/M85 (Helium MVE)"
+        ],
+        [
+          "Find a peripheral's registers",
+          "Memory map @ 0x40000000 region"
+        ],
+        [
+          "Find NVIC / SysTick / MPU registers",
+          "0xE0000000 (same on all M cores)"
+        ],
+        [
+          "Set one GPIO bit atomically (M3/M4)",
+          "Bit-band alias write"
+        ],
+        [
+          "Decide MCU vs MPU",
+          "MMU/Linux needed? → MPU/SoC, else MCU"
+        ],
+        [
+          "Size SRAM",
+          "Peak buffers + sum of task stacks + margin"
+        ]
+      ]
+    }
+  ]
+}
