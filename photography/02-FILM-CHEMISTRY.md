@@ -68,7 +68,7 @@ SILVER BROMIDE CRYSTAL STRUCTURE:
 
 GRAIN EVOLUTION (by annealing history during manufacture):
   Cubic crystals: slow emulsions, fine grain
-  Tabular grains (T-grains, Kodak 1982 innovation):
+  Tabular grains (T-grains, Kodak 1980s innovation):
     High aspect ratio plates (width/thickness > 5:1)
     Same AgBr mass but larger surface area
     → Better light absorption per grain
@@ -354,7 +354,7 @@ KEY DIFFERENCE FROM NEGATIVE:
 ISO/ASA FILM SPEED:
   Based on the exposure (H, in lux-seconds) needed to produce a defined density
   ISO 400: needs 1/4 the light of ISO 100 for same density
-  Technical definition: ISO 100 → H = 1/100 lux·s at the defined point
+  Technical definition: ISO 100 → H = 0.8/100 ≈ 0.008 lux·s at the defined point
 
 SPEED-GRAIN-SHARPNESS TRADEOFF:
   Higher ISO = larger crystals = less resolution + more visible grain

@@ -101,7 +101,7 @@ To react, an atom must:
 
 ## Noble Gas Compounds — They Do Exist
 
-The canonical "completely unreactive" claim died in 1962. Neil Bartlett reacted XeF₂ after noticing
+The canonical "completely unreactive" claim died in 1962. Neil Bartlett reacted Xe after noticing
 that PtF₆ (which had oxidized O₂ to O₂⁺) should also be able to oxidize Xe (since IE(Xe) < IE(O₂)).
 
 ```
@@ -118,7 +118,7 @@ XENON CHEMISTRY:
     XeOF₄  square pyramidal
 
   Cations:
-    Xe₂⁺, Xe⁺ in XeF⁺[AsF₆]⁻ (Bartlett's 1962 compound)
+    Xe₂⁺, Xe⁺ in Xe⁺[PtF₆]⁻ (Bartlett's 1962 compound)
 
 KRYPTON:
   KrF₂ exists — linear, decomposes at room temp slowly

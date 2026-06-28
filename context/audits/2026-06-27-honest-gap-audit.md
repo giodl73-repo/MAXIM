@@ -132,6 +132,41 @@ checkout: the helper shells out to a PROOF binary at `C:\src\proof\Cargo.toml`,
 which does not exist here (PROOF lives at `repos/tools-infra/proof`). Wire that
 path up, then regenerate the 11 modules and revalidate before snapshotting.
 
+## Wave 2 — fact-check sweep across under-sampled sections (15 more fixes)
+
+Six more reviewers read ~30 additional guides across Technology, Mechanics,
+Natural World / Earth-Space, Material Culture, Arts/Language, and Social/History.
+**Most guides were clean** — the error rate is real but concentrated, not
+pervasive. 15 verified fixes applied:
+
+| File | Was | Now |
+|---|---|---|
+| `telecommunications/09-CHANNEL-CODING.md` | Shannon limit "for rate R = 1" = −1.59 dB | "as rate R → 0" (−1.59 dB is the R→0 limit) |
+| `nuclear/02-REACTOR-PHYSICS.md` | U-233 thermal η "2.11" | 2.29 (Pu-239 → 2.11) |
+| `aeronautics/01-AERODYNAMICS.md` | flaps "↓ nose-up moment" | nose-down moment |
+| `astronomy/03-CELESTIAL-MECHANICS.md` | Io "exceeds Earth's total geothermal output ×35" | mean surface heat flux (per area) ×35 |
+| `periodic-table/02-NOBLE-GASES.md` | "Bartlett reacted XeF₂" | reacted Xe |
+| `periodic-table/02-NOBLE-GASES.md` | "XeF⁺[AsF₆]⁻ (1962 compound)" | Xe⁺[PtF₆]⁻ |
+| `mycology/05-TOXIC-FUNGI.md` | phalloidin "actin polymerization inhibitor" | stabilizes F-actin, blocks depolymerization |
+| `pigments/07-PRUSSIAN-BLUE-ERA.md` | cerulean "Hoppfner (1805)" | Höpfner (1789); timeline → 1860 marketed |
+| `pigments/07-PRUSSIAN-BLUE-ERA.md` | "Nicolas Vauquelin" | Louis-Nicolas Vauquelin |
+| `pigments/07-PRUSSIAN-BLUE-ERA.md` | Prussian blue "17th–21st century" | 18th–21st |
+| `typography/02-GUTENBERG-MOVEABLE-TYPE.md` | "1477 Bruges" (self-contradictory) | 1473 Bruges, reordered before London |
+| `photography/02-FILM-CHEMISTRY.md` | ISO 100 "H = 1/100 lux·s" | H = 0.8/100 ≈ 0.008 lux·s (ISO 6 standard) |
+| `photography/02-FILM-CHEMISTRY.md` | T-grains "Kodak 1982" | Kodak 1980s |
+| `psychology/05-PERSUASION-INFLUENCE.md` | "Firehose of Falsehood (RAND Cordesman 2015)" | RAND, Paul & Matthews 2016 |
+
+**Deliberately NOT changed** (discipline — a contestable "fix" is worse than the
+flag): Scheele "nitrogen" → fluorine (Scheele has a legitimate independent claim
+to nitrogen, ~1772); Subiaco "1464" (defensible as press-establishment year vs.
+1465 first dated imprint); cerulean timeline date nuance (synthesis 1789 vs.
+marketed 1860). These are noted, not silently rewritten.
+
+**Cumulative: 29 verified factual fixes across two waves**, ~55 guides read
+(~2.2% of the library). The pattern held in every cluster: strong content,
+periodically undermined by a confidently-stated wrong number, name, or formula —
+confirming the "reviewed and clean" sweep never fact-checked the specifics.
+
 ## Recommended order
 
 1. Re-scope / relabel the Gold registry (cheap, high-integrity).

@@ -97,7 +97,7 @@ PRUSSIAN BLUE AS PHARMACEUTICAL:
   -> FDA approved: "Berlin Blue" / "Radiogardase" for Cs-137 and Tl poisoning
   Given after Chernobyl (1986) and Goiânia (1987, Brazil - Cs-137 source)
   The same compound serves as:
-  -> Pigment (17th-21st century)
+  -> Pigment (18th-21st century)
   -> Nuclear accident treatment (21st century)
 ```
 
@@ -109,7 +109,7 @@ PRUSSIAN BLUE AS PHARMACEUTICAL:
 
 ```
 LEAD CHROMATE: PbCrO₄ (and PbCr₀.₈S₀.₂O₄ = chrome orange)
-  Discovered: Nicolas Vauquelin (French chemist, 1798)
+  Discovered: Louis-Nicolas Vauquelin (French chemist, 1798)
     Vauquelin also discovered chromium itself that year
     Lead chromate was his first notable chromium compound
 
@@ -271,7 +271,7 @@ COBALT BLUE: CoAl₂O₄ (cobalt aluminate)
   Industrial applications: ceramics glazes, glass coloring
 
 CERULEAN BLUE: CoO·nSnO₂ (cobaltous stannate approximation)
-  Hoppfner (1805), commercially available by 1860
+  Höpfner (1789), commercially available by 1860
   Name: from Latin caeruleum (sky blue)
   Color: distinctly sky blue, slightly greenish
   Lower tinting strength than cobalt blue
@@ -294,7 +294,7 @@ TIMELINE: 1798-1900, each decade adds major pigments:
 
 1798: Chromium discovered (Vauquelin) -> chrome yellow
 1802: Cobalt blue (Thénard)
-1805: Cerulean blue (Hoppfner)
+1860: Cerulean blue marketed (Höpfner, synth. 1789)
 1817: Cadmium discovered (Stromeyer) -> cadmium yellow (1840s)
 1826: Synthetic ultramarine (Guimet + Gmelin)
 1835: Zinc white commercially available

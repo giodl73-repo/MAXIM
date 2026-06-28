@@ -7,7 +7,18 @@ enters Gold only after mechanical proof, Da Vinci protection where applicable,
 Gold Rubric scoring, adversarial review, and reader-task checks agree. Proof,
 Da Vinci invariants, and Cross-References are prerequisites, not certification.
 
-## Current Certified Gold Guides
+## Batch Gold Table — Candidate-Hardened (NOT individually panel-certified)
+
+> **Honesty banner (2026-06-27 audit).** This table is mislabeled by its old
+> heading "Current Certified Gold Guides." It does **not** meet the Certified Gold
+> tier defined in *Quality Claim Tiers* below. Evidence: **1,696 of its 1,711 rows
+> carry the identical score 4.6**, the rows are backed by only **258 panel docs**
+> (~6.6 guides per panel — batch wave scores, not per-guide adversarial review),
+> and the table contains **duplicate entries**. Per this registry's own *Reset
+> Audit Summary*, only the **2 pilot-rescore guides** have differentiated,
+> panel-backed Certified Gold evidence; the remainder are **Candidate-Hardened
+> pending panel**. The rows are retained for provenance, not as certification.
+> See `context/audits/2026-06-27-honest-gap-audit.md`.
 
 Certification is frozen to panel-backed claims until the Gold Factory backlog is
 re-audited. A factory wave, cohort wave, proof-clean result, or cross-link polish

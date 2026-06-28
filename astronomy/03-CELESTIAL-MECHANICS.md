@@ -578,7 +578,7 @@ Forced orbital eccentricity → varying tidal deformation → viscous dissipatio
   Europa's resonance forces Io's eccentricity to e≈0.004
   → Io's shape oscillates by ~100 m per orbit (1.77 days)
   → Dissipated power ≈ 6×10¹³ W (Io's interior heat flux ~2 W/m²)
-  → Exceeds Earth's total geothermal output by factor ~35
+  → Exceeds Earth's mean surface heat flux (per unit area) by factor ~35
   → 400+ active volcanoes; sulfur dioxide plains
   ─────────────────────────────────────────────────────────────────────
   Power formula:

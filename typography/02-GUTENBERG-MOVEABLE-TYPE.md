@@ -273,8 +273,8 @@ PRINTING PRESS DIFFUSION (1450–1500)
 1469  Venice (quickly became the center of European printing)
 1470  Paris
 1471  Milan, Florence
+1473  Bruges (Caxton — first English-language printing, before moving to London)
 1476  London (Caxton at Westminster)
-1477  Bruges (Caxton earlier, 1473 — first English-language printing)
 1480  Oxford, Toledo, Lubeck
 1483  Cracow
 1490s  Eastern Europe, Spain, Portugal

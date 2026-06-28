@@ -351,7 +351,7 @@ TOTAL CL_max:
 | Reynolds number | ↑ Re → ↑ skin friction; ↓ separation | Re = ρVL/μ |
 | Mach number | ↑ M → ↑ CL (Prandtl-Glauert); above Mcrit: wave drag | CL ∝ 1/√(1-M²) |
 | Wing sweep | ↑ Λ → ↑ Mcrit; ↓ effective CLα | Mcrit ∝ 1/cos Λ (approx) |
-| Flaps deployed | ↑ CL_max; ↑ CD; ↓ nose-up moment | ΔCL_max ≈ 0.3-2.0 depending on type |
+| Flaps deployed | ↑ CL_max; ↑ CD; nose-down moment | ΔCL_max ≈ 0.3-2.0 depending on type |
 
 ---
 
