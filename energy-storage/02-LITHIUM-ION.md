@@ -326,7 +326,7 @@ MECHANISM 3: PARTICLE CRACKING (cathode, silicon anode)
   Cracked particles: expose fresh surface -> more electrolyte decomposition
   Also: isolated particle fragments lose electrical contact -> capacity loss
   NMC particles: cracking at grain boundaries (polycrystalline -> single crystal NMC)
-  Silicon: catastrophic cracking unless nanostructured (see 09-APPLICATIONS.md)
+  Silicon: catastrophic cracking unless nanostructured (see 09-FUTURE.md)
 
 MECHANISM 4: MANGANESE DISSOLUTION (LMO, some NMC)
   Mn3+ disproportionates: 2Mn3+ -> Mn4+ + Mn2+ (at elevated temperature)

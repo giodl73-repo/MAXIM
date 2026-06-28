@@ -188,7 +188,7 @@ Na vs. Li:
     -> Na cell voltage ~0.3-0.4 V lower than comparable Li cell
   Na+ ionic radius: 1.02 Angstrom (vs. Li+ 0.76 Angstrom)
     -> Na+ needs larger host lattice sites -> harder to find good materials
-  Theoretical specific capacity: Na/g = 23.4 mAh/g lower than Li/g = 26.2 mAh/g
+  Theoretical specific capacity: Na metal = 1166 mAh/g, lower than Li metal = 3862 mAh/g
     (by mole, similar; by mass, Na is 23/7 = 3.3x heavier)
 
 Bottom line: Na-ion is structurally disadvantaged on gravimetric energy density

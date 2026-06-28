@@ -437,7 +437,7 @@ path conditions (constraints on the symbols) along each execution path.
   4. KLEE generates: test cases for each path, error reports
 
   KLEE results (original paper):
-  - Coreutils (GNU utilities): found 56 bugs in 96 programs
+  - Coreutils (GNU utilities): found 56 bugs in 89 programs
   - Busybox: found 21 crashes
   - Generated test suites with higher coverage than existing tests
 

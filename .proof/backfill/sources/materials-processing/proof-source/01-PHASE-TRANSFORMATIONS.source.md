@@ -61,7 +61,7 @@ KEY TEMPERATURES (approximate for plain carbon steel)
 ──────────────────────────────────────────────────────────────────
 1538°C  Melting point of pure iron
 1495°C  Peritectic (δ-Fe + liquid → γ)
-1153°C  Eutectic temperature (γ ↔ iron + cementite ledeburite)
+1153°C  Eutectic temperature (Liquid ↔ γ-austenite + Fe₃C, ledeburite)
  912°C  A3 — γ↔α+γ boundary (for hypoeutectoid steels, varies with %C)
  723°C  A1 — eutectoid temperature (pearlite ↔ austenite)
          Always 723°C for Fe-C binary (0.76 wt% C = eutectoid)

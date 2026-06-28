@@ -271,8 +271,8 @@ INITIATING EVENT (software):
   Operators: unaware of developing problems for 1 hour+
 
 PHYSICAL CASCADE:
-  12:15 PM: Stuart-Atlanta 345kV line trips (fault -> relay operated)
-  12:45 PM: Hanna-Juniper 345kV trips (overloaded after Stuart-Atlanta)
+   2:02 PM: Stuart-Atlanta 345kV line trips (fault -> relay operated)
+   3:32 PM: Hanna-Juniper 345kV trips (overloaded, sagged into tree)
    1:31 PM: Star-South Canton 138kV trips
    3:05 PM: Perry nuclear power plant trips (overloaded)
    3:32 PM: Sammis-Star 345kV line sags into tree (high load -> heat -> sag -> flashover)

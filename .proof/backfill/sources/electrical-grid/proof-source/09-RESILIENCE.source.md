@@ -164,16 +164,16 @@ The most thoroughly studied grid failure in history. Every grid engineer has rea
 **Background:** Extreme heat in the Midwest and Great Lakes; peak demand day. All utilities were operating at high loads. Several units already offline for maintenance.
 
 ```
-08:02 EDT: FirstEnergy's Eastlake Unit 5 (677 MW, coal) trips offline
+13:31 EDT: FirstEnergy's Eastlake Unit 5 (597 MW, coal) trips offline
   Voltage in NE Ohio / SE Michigan begins to decline
   FirstEnergy import flows increase
 
-10:14 EDT: FE's Chamberlin-Harding 345 kV line trips
+15:05 EDT: FE's Harding-Chamberlin 345 kV line trips
   Contact with tree in unpruned ROW (catenary sag + tree growth)
   Redistributes ~700 MW to other 345 kV lines and 138 kV network
   Should be flagged as N-1 violation — but alarm system fails
 
-12:15 EDT: FE's EMS (GE XA/21) alarm processor crashes
+14:14 EDT: FE's EMS (GE XA/21) alarm processor crashes
   RACE CONDITION in multi-threaded code:
     Alarm processor thread and display update thread compete for a data structure
     One thread acquired lock; other thread corrupted the structure

@@ -230,7 +230,7 @@ wheels/tracks/legs
 | MIT CSAIL / Leg Lab | Legged, manipulation | Cheetah, mini cheetah; Russ Tedrake group (Drake) |
 | Stanford Robotics | Manipulation, HRI | PUMA heritage, Pinocchio toolkit |
 | CMU Robotics | Mobile, manipulation | SLAM heritage, Red Whittaker, field robotics |
-| ETH Zurich | Legged, learning | ANYmal; Julian Floreano aerial |
+| ETH Zurich | Legged, learning | ANYmal; Davide Scaramuzza aerial |
 | UC Berkeley | RL, manipulation | Pieter Abbeel, Sergey Levine; RT-series collaboration |
 | Google DeepMind | Foundation models | RT-1, RT-2, SayCan, Gemini Robotics |
 | Boston Dynamics | Legged, agility | BigDog, Spot, Atlas |

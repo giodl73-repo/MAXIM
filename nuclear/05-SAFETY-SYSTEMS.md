@@ -490,7 +490,7 @@ Physics:
   → Operating staff had NO awareness of positive scram effect (classified information)
 
 Releases: ~5 million Ci I-131; 70 million Ci noble gases
-  27 acute radiation deaths (first responders); 28 early deaths
+  28 acute radiation deaths (first responders); 30 early deaths (incl. 2 from the explosion)
   ~6,000 thyroid cancers in children (mostly treatable); 15 deaths
   WHO estimate: ~4,000 excess cancer deaths total (upper range; uncertain)
   Liquidator radiation exposure: ~600,000 workers, varying doses

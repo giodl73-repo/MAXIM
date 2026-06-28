@@ -284,7 +284,7 @@ RESIDENTIAL SUPPLY SYSTEM OVERVIEW
       HPWH saves ~70% vs resistance electric
       Requirement: ~700 ft³ surrounding air space; works best above 50°F
       ambient; cools and dehumidifies surrounding space (useful in warm climates)
-      IRA (Inflation Reduction Act 2022): $300 federal tax credit for HPWH
+      IRA (Inflation Reduction Act 2022): 25C credit, 30% of cost up to $2,000 for HPWH
 ```
 
 ### Temperature Settings: The Legionella Dilemma

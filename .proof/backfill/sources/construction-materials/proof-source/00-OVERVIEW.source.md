@@ -469,7 +469,7 @@ CARBON BUDGET SHIFT: OPERATIONAL vs EMBODIED
 | Density | kg/m³ | 7,850 | 2,400 | 500 | 2,500 | 480 | 1,550 |
 | Thermal cond. λ | W/mK | 50 | 1.7 | 0.12 | 1.0 | 0.13 | 2–10 |
 | Thermal exp. | ×10⁻⁶/°C | 12 | 11 | 4 | 9 | 5 | 0–3 |
-| Density × c_p | kJ/m³K | 3,836 | 2,112 | 850 | 2,200 | 816 | — |
+| Density × c_p | kJ/m³K | 3,847 | 2,112 | 850 | 2,200 | 816 | — |
 | Embodied C | kgCO₂e/kg | 1.5–2.8 | 0.13 | 0.4 | 0.85 | 30–60 | — |
 | Recyclability | — | High | Low | Bio | Partial | Bio | Low |
 

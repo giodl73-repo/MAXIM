@@ -410,7 +410,7 @@ FTIR is a Michelson interferometer-based spectrometer. Instead of dispersing lig
 
   Radial velocity technique for exoplanets:
   Star wobbles due to orbiting planet -> periodic Doppler shift
-  Earth causes ~0.09 m/s wobble on the Sun (requires R = 10^8 resolution)
+  Earth causes ~0.09 m/s wobble on the Sun (requires R = c/v ~ 3×10^9 resolution)
   51 Peg b (first hot Jupiter, 1995): ~56 m/s wobble -> R ~ 100,000 sufficient
 ```
 

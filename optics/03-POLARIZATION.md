@@ -167,7 +167,7 @@ For **fully polarized** light only. Works with complex amplitude, so it handles 
 |  [sin(theta)cos(theta)   sin^2(theta)  ]                         |
 |                                                                  |
 |  Half-wave plate (fast axis at 0):                               |
-|  [1  0]  (QWP: retardation = pi/2 between slow and fast axes)    |
+|  [1  0]  (HWP: retardation = pi between slow and fast axes)      |
 |  [0 -1]                                                          |
 |                                                                  |
 |  Quarter-wave plate (fast axis at 0):                            |

@@ -124,7 +124,7 @@ equation.
   For divalent ion (Ca2+): slope = 30.7 mV/decade
 
   pH electrode (glass pH electrode):
-  Special glass membrane (LaFeSi2O6) selectively permeable to H+
+  Special glass membrane (hydrated alkali-silicate glass) selectively permeable to H+
   -> Nernstian response to pH, slope ~59 mV/pH at 25°C
 
   FET-BASED (ISFET — Ion Sensitive FET):

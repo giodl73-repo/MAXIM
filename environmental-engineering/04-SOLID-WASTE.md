@@ -317,9 +317,9 @@ Subtitle D sanitary landfill is the engineering design standard for MSW disposal
   ┌──────────────┬─────────────────────────────────────────────────┐
   │ Use          │ Notes                                           │
   ├──────────────┼─────────────────────────────────────────────────┤
-  │ Flare        │ Baseline; destroys CH₄ (21× GWP) → CO₂;      │
+  │ Flare        │ Baseline; destroys CH₄ (~28× GWP, AR5) → CO₂;      │
   │              │ EPA NSPS requires flare or energy recovery      │
-  │              │ for ≥34 Mg/hr NMOC emission rate               │
+  │              │ for ≥34 Mg/yr NMOC emission rate               │
   ├──────────────┼─────────────────────────────────────────────────┤
   │ Direct power │ Engine-generator sets at landfill;              │
   │ generation   │ 30–35% electrical efficiency; can supply grid   │

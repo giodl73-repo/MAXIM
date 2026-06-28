@@ -101,7 +101,7 @@ HYDROPOWER EQUATION:
 
   Three Gorges (China):
   V ≈ 22 km³ usable, H_avg ≈ 80 m, η = 0.90
-  E = 1000 × 9.81 × 22×10⁹ × 80 × 0.90 = 15.5 × 10¹² J = 4,300 GWh
+  E = 1000 × 9.81 × 22×10⁹ × 80 × 0.90 = 1.55 × 10¹⁶ J = 4,300 GWh
   For context: ~6 months of the plant's own output stored in the reservoir.
 
   SPECIFIC SPEED:

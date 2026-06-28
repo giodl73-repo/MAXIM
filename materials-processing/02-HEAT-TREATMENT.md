@@ -150,7 +150,7 @@ Result:
   Spherical Fe₃C particles in ferrite matrix
   Softest possible microstructure for high-carbon steels
   Excellent cold formability
-  ~150–180 HV for 1.0%C steel (vs ~280 HV spheroidized)
+  ~150–180 HV for spheroidized 1.0%C steel (vs ~280 HV lamellar pearlite)
 
 Applications:
   High-carbon steel wire before cold drawing
@@ -526,4 +526,4 @@ ATMOSPHERE CONTROL:
 
 **Aluminum "T" designations**: The temper code includes the processing history. T3 ≠ T4 ≠ T6 ≠ T73 even for the same alloy. Substituting T6 for T73 on a structural fitting in a corrosive environment can cause SCC failure. Always verify the correct temper for the application.
 
-**Induction hardening frequency determines depth**: High frequency (kHz) = shallow case. Low frequency (Hz) = deep case. The skin depth δ = √(ρ/πfμ). Doubling frequency quarters skin depth. The coil and power supply must be matched to the required case depth — you cannot use a high-frequency induction heater for deep shaft hardening.
+**Induction hardening frequency determines depth**: High frequency (kHz) = shallow case. Low frequency (Hz) = deep case. The skin depth δ = √(ρ/πfμ). Doubling frequency reduces skin depth by √2 (~29%). The coil and power supply must be matched to the required case depth — you cannot use a high-frequency induction heater for deep shaft hardening.

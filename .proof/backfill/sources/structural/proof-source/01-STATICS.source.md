@@ -124,7 +124,7 @@ x̄ = ∫₀^L x w(x) dx / F_R   (centroid of area)
 | Rectangle (b × h) | bh | b/2 |
 | Right triangle (base b) | bh/2 | 2b/3 from vertex, b/3 from base |
 | Semicircle (r) | πr²/2 | 4r/(3π) from diameter |
-| Parabola (concave up) | 2bh/3 | 3b/8 from curved side |
+| Parabola (concave up) | bh/3 | 3b/8 from curved side |
 
 ---
 

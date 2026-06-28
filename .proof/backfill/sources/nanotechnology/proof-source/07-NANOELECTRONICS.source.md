@@ -400,7 +400,7 @@ Structure:
   Qubit: spin up = |0>, spin down = |1>
 
 ADVANTAGES OF SPIN QUBITS:
-  Long coherence: Si is free of nuclear spins (^28Si isotope, 95.3% natural, 0 nuclear spin)
+  Long coherence: Si is free of nuclear spins (^28Si isotope, 92.2% natural, 0 nuclear spin)
   Use ^28Si enriched to 99.9995%: T2* > 30 ms demonstrated (T2 > 1 s with CPMG)
   Small: quantum dot 20-50 nm; can leverage semiconductor fab technology
   High temperature operation: single spin qubits demonstrated at 1-4 K

@@ -464,11 +464,11 @@ TIMELINE (all times EDT, August 14, 2003):
 13:31 PM: Chamberlin-Harding 345 kV line trips (contacts overgrown tree — ROW not maintained)
           → Redistributes 345 kV flows
 
-14:02 PM: FirstEnergy's EMS alarm processor crashes (GE XA/21 EMS system software bug)
+14:14 PM: FirstEnergy's EMS alarm processor crashes (GE XA/21 EMS system software bug)
           → Race condition: alarm processor hangs; backup doesn't detect
           → Operators see no new alarms for 90 MINUTES despite system distress
 
-14:14 PM: Harding-Chamberlin (different segment) 345 kV trips (same reason — tree)
+15:05 PM: Harding-Chamberlin 345 kV trips (tree contact — different segment)
 
 14:27 PM: Quarry-Hazel 345 kV trips (another FirstEnergy line)
 

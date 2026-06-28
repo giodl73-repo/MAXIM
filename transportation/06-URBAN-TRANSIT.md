@@ -97,7 +97,7 @@ To increase capacity: (1) lengthen trains, (2) reduce headway, (3) add platforms
 
 ### Random Utility Theory
 
-McFadden (1974 Nobel Prize) formalized mode choice as utility maximization with unobserved heterogeneity. Each mode has an indirect utility — the traveler chooses the mode with highest utility — but since the analyst cannot observe all factors, the choice appears probabilistic.
+McFadden (1974 foundational work; 2000 Nobel Prize) formalized mode choice as utility maximization with unobserved heterogeneity. Each mode has an indirect utility — the traveler chooses the mode with highest utility — but since the analyst cannot observe all factors, the choice appears probabilistic.
 
 ```
   UTILITY OF MODE j FOR TRAVELER i:

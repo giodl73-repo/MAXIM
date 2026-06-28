@@ -34,10 +34,10 @@ SYSML vs UML
 ──────────────────────────────────────────────────────────────────
 UML (Unified Modeling Language):
   Designed for software systems modeling
-  13 diagram types, software-centric
+  14 diagram types, software-centric
 
 SysML (subset + extensions of UML):
-  Reuses 7 of UML's 13 diagrams (with modifications)
+  Reuses 7 of UML's 14 diagrams (with modifications)
   Adds 2 new diagram types (Requirements, Parametric)
   Designed for systems (hardware, software, humans, procedures)
 

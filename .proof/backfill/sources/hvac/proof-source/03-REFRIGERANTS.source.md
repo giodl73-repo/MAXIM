@@ -171,7 +171,7 @@ the formula, but understanding the naming helps decode the letter prefixes:
 
   - The original Freon. Dominated household refrigeration and car AC 1930s–1990s
   - Excellent properties: low boiling point, stable, zero flammability
-  - CFC → catalytic ozone destruction discovered by Molina & Rowland (1974 Nobel)
+  - CFC → catalytic ozone destruction discovered by Molina & Rowland (1974 paper; 1995 Nobel)
   - Montreal Protocol 1987: production phaseout mandate
   - Developed nations: R-12 production ended 1996
   - Car AC retrofit target: R-134a (drop-in with oil change)

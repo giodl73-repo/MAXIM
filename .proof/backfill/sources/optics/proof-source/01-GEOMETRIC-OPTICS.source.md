@@ -108,7 +108,7 @@ When light goes from a dense medium (n1 > n2) to a less dense one, there exists 
     Used in: fiber optics, prism reflectors, TIR microscopy.
 ```
 
-TIR is the physical mechanism behind optical fiber waveguiding, corner-cube retroreflectors, and the brilliance of diamond (theta_c = 24.4 deg — far steeper than glass, so most rays TIR internally).
+TIR is the physical mechanism behind optical fiber waveguiding, corner-cube retroreflectors, and the brilliance of diamond (theta_c = 24.4 deg — far smaller than glass's 41.8 deg, so most rays exceed it and TIR internally).
 
 ---
 
@@ -391,8 +391,8 @@ Refractive index varies with wavelength (dispersion). Two types:
     M_eye = 250mm / f_eye  (250mm = "near point")
 
   Resolution (Abbe limit for coherent illumination):
-    d_min = lambda / (2 * NA)
-    d_min = lambda / (n * NA)  (for incoherent: Rayleigh criterion)
+    d_min = lambda / NA
+    d_min = lambda / (2 * NA)  (for incoherent: Rayleigh criterion)
 
   Numerical aperture:
     NA = n * sin(theta_max)

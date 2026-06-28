@@ -174,7 +174,7 @@ LIQUEFACTION:
 LANDSLIDE AND ROCKFALL:
   Triggered by: earthquake, heavy rain, saturation
   Infrastructure at risk: mountain roads, railways, pipelines, powerlines
-  Washington state SR 530 (Oso mudslide, 2014): 43 deaths, US 2 highway buried
+  Washington state SR 530 (Oso mudslide, 2014): 43 deaths, SR 530 highway buried
 
 CHEMICAL PLANT EARTHQUAKE:
   Puerto Rico (2020): multiple earthquakes + power outages -> chemical plant issues

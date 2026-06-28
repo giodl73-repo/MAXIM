@@ -156,7 +156,7 @@ RETICLE LIMIT:
   Maximum single die: reticle field = 26 mm × 33 mm = 8.58 cm²
   Larger dies: use stitching (seams visible) — not standard for logic
   Intel Ponte Vecchio: >50 cm² equivalent via chiplets (not monolithic)
-  Cerebras WSE-3: ~8,400 cm² — the entire 300 mm wafer as one chip
+  Cerebras WSE-3: ~462 cm² — nearly the entire 300 mm wafer as one chip
 
 AREA EFFICIENCY:
   Not all die area is active — bond pads, power rings, guard rings, PHY

@@ -244,7 +244,7 @@ Apply BCs: y(0)=0 and y(L)=0 for simply supported beam
 | Simply supported, UDL w | 5wL⁴/384EI | midspan | wL³/24EI |
 | Cantilever, end load P | PL³/3EI | free end | PL²/2EI |
 | Cantilever, UDL w | wL⁴/8EI | free end | wL³/6EI |
-| Simply supported, moment M at end | ML²/9√3 EI | x=L/√3 | ML/6EI |
+| Simply supported, moment M at end | ML²/9√3 EI | x=L/√3 | ML/3EI |
 
 Superposition: δ_total = Σδ_i for each load acting alone (valid only in linear elastic range).
 

@@ -217,10 +217,10 @@ Actual hole center:   X = 1.008, Y = 1.005
 Deviation: ΔX = 0.008, ΔY = 0.005
 
 Diametral deviation = 2 × √(ΔX² + ΔY²)
-                    = 2 × √(0.064 + 0.025)
-                    = 2 × √(0.089)
-                    = 2 × 0.0082
-                    = 0.0164" (the diametral position error)
+                    = 2 × √(0.000064 + 0.000025)
+                    = 2 × √(0.000089)
+                    = 2 × 0.0094
+                    = 0.0189" (the diametral position error)
 
 If tolerance = ⌀0.020", this hole PASSES (0.0164 < 0.020).
 If tolerance were ±0.010" (square zone), it would FAIL

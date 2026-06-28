@@ -90,7 +90,7 @@ k∞ = η · ε · p · f
   ≈ 1.03–1.08 depending on fuel enrichment and lattice geometry
   Increases with fuel-to-moderator ratio
 
-p (rho) = resonance escape probability
+p (p) = resonance escape probability
   = fraction of neutrons that slow down past resonance region without capture
   Dominates in U-238 (many large resonances 6–200 eV)
   p ≈ exp(−N_U A_r / ξ Σ_s)  where A_r = resonance integral, ξ = lethargy gain

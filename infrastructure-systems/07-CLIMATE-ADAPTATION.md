@@ -252,7 +252,7 @@ INFRASTRUCTURE HEAT EFFECTS:
     Air conditioning load: positive feedback loop -- heat -> more AC -> more load
 
   RAILWAYS:
-    Rail thermal expansion: steel rail expands 12 mm per 1°C per 100m (or: 1.2 mm per 1°C per 10m)
+    Rail thermal expansion: steel rail expands ~1.2 mm per 1°C per 100m (or: ~0.12 mm per 1°C per 10m)
     Thermal neutral temperature (TNT): rail is stress-free at TNT (typically 25-35°C depending on region)
     Above TNT: compression -> buckling ("sun kink" or "thermal misalignment")
       Buckling causes derailment: historic UK speed restrictions when temp >30°C

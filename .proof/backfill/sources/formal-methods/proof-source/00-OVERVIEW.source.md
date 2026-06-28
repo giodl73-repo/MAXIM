@@ -112,7 +112,7 @@ You already know the theory from MIT. Here is where the practical tooling came f
                    Process algebra — formal model of concurrent computation.
                    Later: Pi-calculus (1992) — mobile processes, name passing.
 
-1985  Bryant        Binary Decision Diagrams — canonical boolean functions,
+1986  Bryant        Binary Decision Diagrams — canonical boolean functions,
                    enabling symbolic model checking at scale.
 
 1992  Holzmann      SPIN released — LTL verification of concurrent protocols.
@@ -304,7 +304,7 @@ You construct a machine-checked mathematical proof. High effort, maximum assuran
   F/A-18 aircraft (Boeing), seL4 Foundation (Linux Foundation)
 
   Cost: 11 person-years for initial proof.
-  Verification effort roughly equals implementation effort.
+  Verification effort was roughly 4–8× the implementation effort.
 ```
 
 ### Airbus: B-Method and DO-178C Level A

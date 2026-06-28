@@ -343,7 +343,7 @@ APPLICATIONS:
   Hyundai NEXO, Honda Clarity, GM/Honda hydrogen truck programs
   Forklift trucks: established market (Plug Power)
   Stationary backup power: telecom towers, data centers
-  Marine: Alstom H2-powered commuter train (Coradia iLint), German operations
+  Rail: Alstom H2-powered commuter train (Coradia iLint), German operations
 ```
 
 ---

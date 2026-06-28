@@ -312,7 +312,7 @@ PEX          ~2000s–present   Crimp, clamp,   Dominant new
   │         Slightly stiffer; slightly less flexible            │
   │         Crimp or clamp ring fittings                        │
   │         Most widely available; lower cost                   │
-  │         Brand: Rehau; widely available at home centers      │
+  │         Brand: Apollo; widely available at home centers     │
   ├─────────────────────────────────────────────────────────────┤
   │  PEX-c  Electron beam cross-linking, different process      │
   │         Less common; crimp or clamp fittings                │

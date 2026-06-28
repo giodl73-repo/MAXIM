@@ -123,7 +123,7 @@ IMU COMPONENTS:
 MEMS ACCELEROMETER:
   A proof mass suspended by springs on a chip.
   Acceleration deflects the mass; measured by capacitance change.
-  Measures: specific force = a_true + g
+  Measures: specific force = a_true - g
             (cannot separate true acceleration from gravity!)
   Noise model: white noise + bias + scale factor error.
 

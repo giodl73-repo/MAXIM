@@ -135,7 +135,7 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
   EXAMPLE: GE 3-MW turbine, rotor diameter 130 m:
     A = π × (65)² = 13,273 m²
     At v = 12 m/s, Cp = 0.48:
-    P = ½ × 1.225 × 13,273 × 12³ × 0.48 = ~3.0 MW ✓ (rated power)
+    P = ½ × 1.225 × 13,273 × 12³ × 0.48 = ~6.7 MW (aerodynamic power at 12 m/s; pitch control caps electrical output at the 3 MW rated value)
 ```
 
 ---
@@ -228,7 +228,7 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
     2010: 2.0 MW, ~90m rotor
     2020: 5-6 MW, ~150-170m rotor
     2024: 14-16 MW offshore, ~220-240m rotor (Vestas V236, SGRE SG 14-236 DD)
-    IEC 62600: turbines >15 MW under development (GE Haliade, Siemens Gamesa)
+    IEC 61400: turbines >15 MW under development (GE Haliade-X, Siemens Gamesa)
 ```
 
 ---

@@ -315,7 +315,7 @@ PRESSING:
   High pressure: 150–400 MPa
 
 LIQUID-PHASE SINTERING:
-  Sintering at 1370–1450°C (above Co melting, Co liquid at 1495°C in WC-Co)
+  Sintering at 1370–1450°C (above the WC-Co eutectic; liquid forms ~1320°C, below pure Co's 1495°C mp)
   Co melts, wets WC → liquid phase sintering → fast densification
   WC grains dissolve in Co, reprecipitate → grain rounding, bonding
   Final density: 99.9%+

@@ -172,7 +172,7 @@ Legacy — remove       Galvanized      N/A             N/A      Replace if foun
   ┌─────────────────────────────────────────────────────────────────┐
   │ Property        │ PEX-a         │ PEX-b         │ PEX-c         │
   ├─────────────────┼───────────────┼───────────────┼───────────────┤
-  │ Cross-link      │ Peroxide      │ Silane (Sievert│ Electron     │
+  │ Cross-link      │ Peroxide      │ Silane (Sioplas│ Electron     │
   │ method          │ (Engel)       │ method) or    │ beam         │
   │                 │               │ electron beam │               │
   ├─────────────────┼───────────────┼───────────────┼───────────────┤

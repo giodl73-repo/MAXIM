@@ -434,7 +434,7 @@ APOLLO 1 FIRE (1967) — Where SE was weak:
   No abort procedure for launch pad fire
   → 3 astronauts killed
   → Led to full safety review, FMEA methodology expansion
-  → Apollo 7 flew 18 months later, all missions successful after
+  → Apollo 7 flew ~21 months later, all missions successful after
 ```
 
 ---
@@ -552,6 +552,6 @@ Ongoing challenges:
 
 **Certified = safe is false**: Therac-25 was reviewed and approved. Ariane 4 software was certified. 737 MAX was certified by FAA. Certification processes can be fooled by honest mistakes or bad-faith gaming. Certification demonstrates adherence to a process; it does not guarantee safety. The process must be appropriate for the risk.
 
-**Complexity ≠ inevitable failure**: The Apollo program, ISS, and the Space Shuttle (183 successful missions before two losses) show that extremely complex systems can work reliably when SE is applied rigorously. Complexity increases risk — SE processes manage that risk without eliminating it.
+**Complexity ≠ inevitable failure**: The Apollo program, ISS, and the Space Shuttle (135 total missions, 2 lost — Challenger the 25th flight, Columbia the 113th) show that extremely complex systems can work reliably when SE is applied rigorously. Complexity increases risk — SE processes manage that risk without eliminating it.
 
 **"Works on previous system" is not a safety argument for new system**: Ariane 5 and 737 MAX both failed because validated behavior on a previous system was assumed to apply on the new system. Context change requires new analysis. "It worked before" is a starting point for investigation, not a conclusion.

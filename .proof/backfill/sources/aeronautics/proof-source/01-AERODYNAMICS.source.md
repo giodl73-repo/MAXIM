@@ -337,7 +337,7 @@ TOTAL CL_max:
   Clean wing: CL_max ≈ 1.2-1.5
   Takeoff flaps: CL_max ≈ 2.0-2.5
   Landing flaps + slats: CL_max ≈ 2.5-3.2
-  V_stall = √(2W / (ρ S CL_max)) → 1.23 V_stall = V₂ (takeoff safety speed)
+  V_stall = √(2W / (ρ S CL_max)) → 1.2 V_stall = V₂ (takeoff safety speed)
 ```
 
 ---

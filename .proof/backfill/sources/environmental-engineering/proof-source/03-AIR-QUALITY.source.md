@@ -335,7 +335,7 @@ This is directly operational for Microsoft data centers.
 
   CO₂:
   ├── Outdoor: ~420 ppm (2024, rising)
-  ├── ASHRAE 62.1: 15 cfm/person minimum OA rate (the actual standard)
+  ├── ASHRAE 62.1: 5 cfm/person + 0.06 cfm/ft² OA rate (office; the actual standard)
   ├── 1000 ppm common target (≈600 ppm above outdoor = ventilation proxy)
   ├── >2500 ppm: cognitive effects measurable (Harvard study)
   └── Data centers: very low occupancy → CO₂ rarely limiting

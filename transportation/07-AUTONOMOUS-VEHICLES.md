@@ -514,7 +514,7 @@ The system must predict what surrounding objects will do next. This is the harde
   AV TRUCKING:
 
   Aurora (Aurora Driver):
-  Launched commercial driverless trucking April 2024 (Texas I-45)
+  Launched commercial driverless trucking 2025 (Texas I-45, Dallas–Houston)
   Volvo, PACCAR (Kenworth/Peterbilt) partners
   First true L4 commercial freight operation in US
   ODD: Texas highways, daytime, good weather initially

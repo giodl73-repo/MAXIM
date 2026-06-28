@@ -287,7 +287,7 @@ DOLPHINS AND TOOTHED WHALES (Odontoceti):
 BALEEN WHALES (Mysticeti):
 • Blue whale: 15–30 Hz (infrasound), SL ≈ 180–190 dB re 1 µPa at 1 m
   Audible across ocean basins via SOFAR channel
-• Fin whale: 20 Hz pulses (now considered loudest animal sound)
+• Fin whale: 20 Hz pulses (among the loudest sustained animal sounds)
 • Humpback whale: complex songs (20 Hz – 8 kHz), used for reproduction
 
 OCEAN NOISE IMPACT:

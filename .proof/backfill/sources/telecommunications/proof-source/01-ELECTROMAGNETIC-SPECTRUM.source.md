@@ -105,7 +105,7 @@ FSPL(dB) = 20·log₁₀(d) + 20·log₁₀(f) + 20·log₁₀(4π/c)
 EXAMPLES:
 Cellular (900 MHz, 1 km):   32.45 + 20 + 59.1 = 91.6 dB
 Cellular (1800 MHz, 1 km):  32.45 + 20 + 65.1 = 97.6 dB  (+6 dB for 2× freq)
-Satellite (Ku 12 GHz, 36000 km): 32.45 + 91.1 + 141.6 = 205 dB!
+Satellite (Ku 12 GHz, 36000 km): 32.45 + 91.1 + 81.6 = 205 dB!
 WiFi (2.4 GHz, 100m):        32.45 + 40 + 67.6 = 80 dB
 
 Key: FSPL increases +20 dB per decade of distance and +20 dB per decade of frequency.
@@ -213,7 +213,7 @@ Rx antenna gain:       Gr   = +0 dBi (phone)
 Received power:        Pr  = 33 + 15 - 120 - 15 + 0 = -87 dBm
 
 Noise floor:
-  Thermal noise density: N₀ = -174 dBm/Hz (kT at 300K)
+  Thermal noise density: N₀ = -174 dBm/Hz (kT at 290K)
   Bandwidth: B = 20 MHz → noise power = -174 + 10·log₁₀(20×10⁶) = -101 dBm
   Receiver noise figure: NF = 7 dB
   Noise floor = -101 + 7 = -94 dBm

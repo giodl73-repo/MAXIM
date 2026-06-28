@@ -131,7 +131,7 @@ COPPER DAMASCENE PROCESS
 
 WHY COPPER?
   Al (original BEOL metal): ρ_Al = 2.7 µΩ·cm, prone to electromigration at high J
-  Cu (since ~1998, IBM 180 nm): ρ_Cu = 1.68 µΩ·cm (37% lower), 5× better EM resistance
+  Cu (since ~1998, IBM 220 nm): ρ_Cu = 1.68 µΩ·cm (37% lower), 5× better EM resistance
   Couldn't be dry-etched (CuClₓ not volatile at room temp) → invented Damascene
 
 SINGLE DAMASCENE (metal layer only):

@@ -113,7 +113,7 @@ The key mental model: **every imaging system is a low-pass filter**. Objects wit
 ```
   CRITERION          FORMULA           INTERPRETATION
   ---------          -------           --------------
-  Rayleigh           d = 1.22*lambda/NA Just-resolved: first zero of one
+  Rayleigh           d = 0.61*lambda/NA Just-resolved: first zero of one
                                         Airy pattern at center of other
 
   Abbe (coherent)    d = lambda/NA      For coherent illumination
@@ -126,7 +126,7 @@ The key mental model: **every imaging system is a low-pass filter**. Objects wit
                                         (most permissive criterion)
 
   For a 100x oil immersion objective (NA=1.4) at lambda=500nm:
-  Rayleigh: d = 1.22 * 500nm / 1.4 = 435nm (diffraction limit)
+  Rayleigh: d = 0.61 * 500nm / 1.4 = 218nm (diffraction limit)
   Abbe (incoherent): d = 500nm / (2 * 1.4) = 178nm
   With 405nm UV excitation: d = 145nm
 

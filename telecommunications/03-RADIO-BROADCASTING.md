@@ -250,5 +250,5 @@ which adds 2.15 dB to make the number look smaller. A "5 dBd" antenna = 7.15 dBi
 Watch for this in WiFi and amateur radio antenna specs.
 
 **FM 50 dBuV threshold**: The standard FM threshold is expressed in microvolts at the antenna
-terminals into 75 Ω. Convert: V = 50 dBuV = 316 µV. Power = V²/R = (316e-6)²/75 = 1.3×10⁻⁹ W = -88.9 dBm.
-So the FM threshold of ~-89 dBm is consistent with your link budget.
+terminals into 75 Ω. Convert: V = 50 dBuV = 316 µV. Power = V²/R = (316e-6)²/75 = 1.3×10⁻⁹ W = -58.8 dBm.
+So the FM threshold computed here (~-59 dBm at the 75 Ω terminals) reconciles with the link-budget threshold via antenna/system gain.
