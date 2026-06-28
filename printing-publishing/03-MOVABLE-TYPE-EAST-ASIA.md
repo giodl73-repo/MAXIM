@@ -32,7 +32,7 @@ EAST ASIAN MOVABLE TYPE TIMELINE
           Set in iron frame with wax/resin adhesive
           PROBLEM: ceramic fragile, characters irregular
 
-~1190 CE  Wang Zhen (China)
+~1298 CE  Wang Zhen (China)
           Wooden movable type (~60,000 types cut)
           Also designed revolving typecases (circular tables)
           to manage character lookup

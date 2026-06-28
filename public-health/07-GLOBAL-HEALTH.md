@@ -184,7 +184,7 @@ PEPFAR (President's Emergency Plan for AIDS Relief):
   CONTROVERSIES:
   - PEPFAR's ABC approach ("Abstinence, Be faithful, use Condoms") —
     A and B mandated to receive portion of prevention funding → diversion from
-    proven condom promotion; lifted under Obama, reinstated under Bush/Trump
+    proven condom promotion; instituted under Bush (2003 PEPFAR), relaxed under Obama
   - Generic vs. branded ARVs: Bush initially restricted to brand-name drugs;
     generic ARV use eventually approved dramatically reducing per-patient cost
   - Prostitution pledge: recipients could not support legalization of sex work

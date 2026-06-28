@@ -262,7 +262,7 @@ EASTMANCOLOR (KODAK, 1950):
   Much cheaper, much easier to use
   Initially: slightly inferior color saturation and stability
   By 1955: good enough + economic advantage = Technicolor obsolete commercially
-  Last US three-strip production: Rear Window (1954) disputed; by 1955 complete transition
+  Last US three-strip Technicolor features: mid-1950s (Foxfire, 1955); single-strip Eastmancolor took over by 1955
 ```
 
 ---

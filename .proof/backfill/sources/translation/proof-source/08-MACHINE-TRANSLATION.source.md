@@ -188,7 +188,7 @@ WORD ALIGNMENT EXAMPLE
 
   IBM Models 1-5 (from simple word alignment to fully
   parametric models) learned to handle:
-  • Reordering (verb-final German → English SOV)
+  • Reordering (verb-final German → English SVO)
   • Fertility (one source word → multiple target words or vice versa)
   • NULL alignment (some words have no counterpart)
 ```

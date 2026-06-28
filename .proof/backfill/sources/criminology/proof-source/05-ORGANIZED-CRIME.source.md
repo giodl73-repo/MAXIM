@@ -232,7 +232,7 @@ Modern criminology uses social network analysis to map criminal organizations wi
   DECLINE MECHANISMS (1980s-2000s):
   - RICO prosecutions: enterprise liability made it
     possible to convict bosses for subordinates' crimes
-  - Informants: Sammy Gravano, Henry Hill, Jimmy Hoffa
+  - Informants: Sammy Gravano, Henry Hill, Joseph Valachi
     testimony. Omerta (silence code) eroded
   - FBI surveillance: Appalachin meeting (1957) tipped
     off FBI to national organization

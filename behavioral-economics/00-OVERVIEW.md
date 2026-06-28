@@ -110,7 +110,7 @@ TIMELINE:
 
 SCHOOLS:
   Heuristics and Biases program (K-T): systematic mapping of cognitive errors
-  Ecological rationality (Gigerenzen): heuristics as adaptive tools, not errors
+  Ecological rationality (Gigerenzer): heuristics as adaptive tools, not errors
   Behavioral finance (Shiller, Thaler): asset pricing anomalies from behavior
   Mechanism design / behavioral economics: policy applications
 ```
@@ -179,7 +179,7 @@ SIMON'S CONTRIBUTION (1955, 1957, 1978 Nobel Prize — Economics):
   - Information processing bottlenecks = the key constraint on org. performance
 ```
 
-## Ecological Rationality (Gigerenzen's Counter-View)
+## Ecological Rationality (Gigerenzer's Counter-View)
 
 ```
 GIGERENZEN'S CHALLENGE TO THE HEURISTICS-AND-BIASES PARADIGM:
@@ -187,12 +187,12 @@ GIGERENZEN'S CHALLENGE TO THE HEURISTICS-AND-BIASES PARADIGM:
   K-T/Kahneman view: heuristics are shortcuts that PRODUCE ERRORS.
   The lab experiments reveal biases — systematic deviations from rationality.
 
-  Gigerenzen's view: heuristics are ECOLOGICALLY RATIONAL.
+  Gigerenzer's view: heuristics are ECOLOGICALLY RATIONAL.
   They evolved/developed because they work well in natural environments.
   The K-T lab tasks are decontextualized, stripped of natural cues.
 
   FAST AND FRUGAL HEURISTICS:
-  Gigerenzen's ABC research group identified families of heuristics:
+  Gigerenzer's ABC research group identified families of heuristics:
     Take-the-best: rank cues by validity; use the first discriminating cue.
     Recognition heuristic: recognize one option but not another → choose recognized.
     Tallying (equal weighting): count positives; ignore cue validity differences.
@@ -208,12 +208,12 @@ GIGERENZEN'S CHALLENGE TO THE HEURISTICS-AND-BIASES PARADIGM:
   Classic result: equal weighting (1/N) beats Markowitz mean-variance
   portfolio optimization out-of-sample in most financial datasets.
 
-  RESOLUTION: The K-T and Gigerenzen programs are complementary.
+  RESOLUTION: The K-T and Gigerenzer programs are complementary.
   K-T identifies conditions where heuristics fail (systematic biases).
-  Gigerenzen identifies conditions where heuristics succeed (natural environments).
+  Gigerenzer identifies conditions where heuristics succeed (natural environments).
   Both are empirically valid. The policy implications differ:
   K-T: design institutions to compensate for biases.
-  Gigerenzen: design environments to match heuristic capabilities.
+  Gigerenzer: design environments to match heuristic capabilities.
 ```
 
 ## System 1 / System 2 Framework
@@ -241,7 +241,7 @@ DUAL PROCESS THEORY (Kahneman "Thinking, Fast and Slow"):
   MOST BEHAVIORAL ECONOMIC BIASES = System 1 dominates
   in situations where System 2 should be engaged.
 
-  CAVEAT (Gigerenzen again): System 1 is not simply "dumb."
+  CAVEAT (Gigerenzer again): System 1 is not simply "dumb."
   Expert intuition is System 1 operating with deep pattern matching.
   A chess grandmaster's instant move evaluation is System 1;
   it is often correct. A cardiologist's clinical intuition is System 1;

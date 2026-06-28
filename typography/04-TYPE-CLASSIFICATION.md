@@ -262,7 +262,7 @@ VARIANTS:
 
 Key faces:     Rockwell (Monotype, 1934 — geometric slab)
                Clarendon (Besley, 1845; Linotype revival)
-               Memphis (Rudolf Weiss, 1929)
+               Memphis (Rudolf Wolf, 1929)
                Serifa (Adrian Frutiger, 1967 — humanist slab)
                Archer (Hoefler&Co, 2001 — rounded slab; literary feel)
                Roboto Slab (Google, 2012 — screen-optimized)

@@ -98,7 +98,7 @@ NEOGRAMMARIAN HYPOTHESIS:
 | **Dissimilation** | Sound becomes less like neighbor | Latin *anima* → *alma* in Spanish (via dissimilation) |
 | **Epenthesis** | Sound inserted | Old English *thrum* → Modern English *thumb* |
 | **Metathesis** | Sounds reordered | Old English *brid* → Modern English *bird* |
-| **Apocope** | Word-final loss | Latin *canem* → Spanish *can* → French *chien* |
+| **Apocope** | Word-final loss | Latin *amāre* → Spanish *amar* (final -e lost) |
 
 ---
 
@@ -162,7 +162,7 @@ PIE *pater → should give English *fader (p→f, t→θ)
 But we have "father" (p→f, t→d)
 
 PIE *bhrāter → "brother" (bh→b, t→d)
-PIE *swekrū → "sweher" (OE) → "father-in-law"
+PIE *swéḱuros → "sweor" (OE) → "father-in-law"
 
 VERNER (1875) discovered:
   The "exceptions" were REGULAR — conditioned by PIE ACCENT position.

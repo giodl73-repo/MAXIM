@@ -263,7 +263,7 @@ SATISFICING:
   A job candidate seen second looks better/worse relative to one seen first.
   The reference point = current aspiration level.
 
-ADAPTIVE TOOLBOX (Gigerenzen):
+ADAPTIVE TOOLBOX (Gigerenzer):
   Humans use different heuristics adapted to different domains.
   The "toolbox" of heuristics is selected based on:
   - Social (norms, imitation) learning

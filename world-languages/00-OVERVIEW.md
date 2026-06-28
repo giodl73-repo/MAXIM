@@ -189,7 +189,7 @@ that determine how "different" a language feels to an English speaker.
 |                   | (mostly), Mandarin,       | relationships.                   |
 |                   | Turkish (postpositions)   |                                  |
 +-------------------+---------------------------+----------------------------------+
-| 4-case            | German, Latin (actually 5)| NOM/ACC/DAT/GEN                  |
+| 4-case            | German, Latin (actually 6)| NOM/ACC/DAT/GEN                  |
 +-------------------+---------------------------+----------------------------------+
 | 6-case            | Russian, Polish           | NOM/ACC/DAT/GEN/INS/PREP         |
 +-------------------+---------------------------+----------------------------------+

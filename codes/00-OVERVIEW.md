@@ -69,7 +69,7 @@ Human symbolic communication layers over four physical channels. Every code in t
  200 BCE   Polybius square — first matrix encoding of letters (checkerboard)
 1794 CE    Chappe optical telegraph — mechanized semaphore, France
 1837       Morse/Vail electric telegraph — wire-speed text transmission
-1821       Braille — tactile code for blind readers (Louis Braille, age 15)
+1824       Braille — tactile code for blind readers (Louis Braille, age 15)
 1865       International Morse standardized (ITU predecessor)
 1891       Semaphore flags standardized for maritime
 1850s-1900 Various flag code books → International Code of Signals

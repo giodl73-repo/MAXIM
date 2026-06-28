@@ -214,7 +214,7 @@ then φᵢ(v) = φⱼ(v) whenever i and j are symmetric
   the last unit when C arrives.
 
   By symmetry of marginal contributions across orderings:
-  φ_A = 1 (A always costs 1 in any ordering)
+  φ_A = 1/3 (A contributes 1 only when it arrives first; 0 otherwise)
   φ_B - φ_A = 1 allocated to "medium category" users = B only
   φ_C - φ_B = 1 allocated to "large category" users = C only
 

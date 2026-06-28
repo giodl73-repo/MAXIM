@@ -274,7 +274,7 @@ CORE FINDING:
   - "Do your best" (vague)
   - No goal
   - Specific + easy goals (more effort than easy; less than hard)
- Effect size: d ≈ 0.68 (Schmidt & Hunter meta-analysis — strong effect)
+ Effect size: d ≈ 0.68 (Locke & Latham meta-analysis — strong effect)
 
 MECHANISMS (why goals work):
  Direction: attention focused on goal-relevant activities

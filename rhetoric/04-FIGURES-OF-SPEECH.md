@@ -55,7 +55,7 @@ Figures of speech are departures from ordinary language use — ways of arrangin
 |--------|-----------|---------|--------|
 | Anaphora | Repetition of a word/phrase at the start of successive clauses | "We shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields..." (Churchill) | Builds intensity; creates rhythm; signals determination |
 | Epistrophe (Antistrophe) | Repetition at the END of successive clauses | "Government of the people, by the people, for the people." (Lincoln) | Creates emphasis through reinforcement; final word most stressed |
-| Symploce | Anaphora + epistrophe combined | "When you call it a tax, they say no. When you explain that it's a fee, they say no." | Maximum structural emphasis |
+| Symploce | Anaphora + epistrophe combined | "When you call it a tax, they say no. When you call it a fee, they say no." | Maximum structural emphasis |
 | Anadiplosis | End of one clause = start of next | "Fear leads to anger. Anger leads to hate. Hate leads to suffering." | Creates chain of causation; momentum |
 | Epanalepsis | Clause begins and ends with the same word | "The king is dead, long live the king." | Creates circular closure; the word "frames" the content |
 | Diacope | Repetition of a word/phrase with a few words between | "Bond. James Bond." | Emphasis through separation and return |

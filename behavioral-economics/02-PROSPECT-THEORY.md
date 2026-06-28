@@ -99,7 +99,7 @@ VALUE FUNCTION v(x):
 ```
 LOSS AVERSION COEFFICIENT (λ):
   The ratio of marginal disutility of losses to marginal utility of gains.
-  λ ≈ 1.5 to 2.5 across meta-analyses (Kahneman 1979 estimated ~2.25).
+  λ ≈ 1.5 to 2.5 across meta-analyses (Tversky & Kahneman 1992 estimated ~2.25).
   Practical interpretation: losing $1 feels about as bad as gaining $2 feels good.
 
 THE BASIC DEMONSTRATION:

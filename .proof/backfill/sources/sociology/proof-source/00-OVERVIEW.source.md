@@ -81,11 +81,11 @@ Suicide (1897) — the paradigm case of sociological method:
   Protestant vs Catholic, married vs single, peacetime vs war
   → explained by social integration and moral regulation, not individual pathology
 
-  ┌────────────────────┬────────────────────────────────────────┐
-  │                    │  LOW REGULATION     HIGH REGULATION    │
-  ├────────────────────┼────────────────────┬───────────────────┤
-  │  HIGH INTEGRATION  │  Altruistic         │  Fatalistic       │
-  │  LOW INTEGRATION   │  Egoistic           │  Anomic           │
+  ┌────────────────────┬────────────────────┬───────────────────┐
+  │                    │  LOW               │  HIGH             │
+  ├────────────────────┼────────────────────┼───────────────────┤
+  │  INTEGRATION       │  Egoistic          │  Altruistic       │
+  │  REGULATION        │  Anomic            │  Fatalistic       │
   └────────────────────┴────────────────────┴───────────────────┘
 
 Division of Labor: pre-industrial = mechanical solidarity (shared beliefs)

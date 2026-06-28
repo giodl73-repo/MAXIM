@@ -362,7 +362,7 @@ Quintilian's "good man skilled in speaking" is not a moral lecture. It is a clai
 The four types of stasis (conjectural, definitional, qualitative, translative) map directly onto modern professional disagreements. Most engineering debates have an implicit stasis problem: people argue at different levels without noticing. Asking "What is the actual stasis here?" often resolves arguments faster than more argumentation.
 
 **Rhetorica ad Herennium (c. 86–82 BCE)**
-The most widely-read rhetoric textbook of the medieval period — and its author is unknown. Long attributed to Cicero (hence "Cicero" was the medieval world's rhetoric authority), the attribution was definitively rejected by Lorenzo Valla in 1491. The author is labeled "auctor ad Herennium" in modern scholarship.
+The most widely-read rhetoric textbook of the medieval period — and its author is unknown. Long attributed to Cicero (hence "Cicero" was the medieval world's rhetoric authority), the attribution was definitively rejected by Lorenzo Valla (c. 1440). The author is labeled "auctor ad Herennium" in modern scholarship.
 
 ```
 RHETORICA AD HERENNIUM — KEY CONTRIBUTIONS

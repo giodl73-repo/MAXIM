@@ -107,7 +107,7 @@ Every position in philosophy of language is an answer to some combination of the
        |
 1905  Russell: "On Denoting" — theory of definite descriptions
        |
-1913  Russell: logical atomism — world = atomic facts
+1918  Russell: logical atomism — world = atomic facts
        |
 1921  Wittgenstein: Tractatus Logico-Philosophicus
        Picture theory of meaning; logic as scaffolding
@@ -121,7 +121,7 @@ Every position in philosophy of language is an answer to some combination of the
 1945+ Austin: Oxford ordinary language philosophy
        speech acts, "How to Do Things with Words"
        |
-1950  Quine: "Two Dogmas of Empiricism" — analyticity attacked
+1951  Quine: "Two Dogmas of Empiricism" — analyticity attacked
        Word and Object (1960): radical translation indeterminacy
        |
 1953  Wittgenstein: Philosophical Investigations (posthumous)
@@ -329,4 +329,4 @@ This one distinction reappears throughout philosophy of language and in type the
 
 **Possible worlds ≠ science fiction**: Possible worlds in Kripke/Lewis are a semantic device for evaluating modal statements. "Necessarily P" = P is true in all accessible worlds. It is model theory for modal logic, nothing more exotic.
 
-**Analytic/synthetic distinction**: Quine's "Two Dogmas" (1950) attacked the idea that there are sentences true purely by meaning (analytic). This is central to understanding what Carnap and the Vienna Circle were doing and why Quine rejected it.
+**Analytic/synthetic distinction**: Quine's "Two Dogmas" (1951) attacked the idea that there are sentences true purely by meaning (analytic). This is central to understanding what Carnap and the Vienna Circle were doing and why Quine rejected it.

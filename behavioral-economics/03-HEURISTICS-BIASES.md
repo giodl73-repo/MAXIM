@@ -33,7 +33,7 @@ updated: null
 │                                                                             │
 │  KEY DISTINCTION:                                                           │
 │  K-T view: Heuristics are error-prone shortcuts                             │
-│  Gigerenzen view: Heuristics are ecologically rational tools                │
+│  Gigerenzer view: Heuristics are ecologically rational tools                │
 │  BOTH are empirically supported in their domains.                           │
 │                                                                             │
 │  MODERN SYNTHESIS:                                                          │
@@ -364,4 +364,4 @@ REPLICATION OF HEURISTICS/BIASES FINDINGS:
 
 **Base rate neglect is not universal**: People use base rates when no case-specific information is available. They neglect base rates when given vivid case descriptions. The heuristic is applied when both base rate AND case description are available; the case description captures attention. The bias is context-specific.
 
-**Gigerenzen is not pro-irrationality**: He argues heuristics are rational in natural environments. He fully accepts that heuristics can produce errors in decontextualized lab tasks. His target is the overgeneralization of lab findings to real-world decision-making, not the existence of cognitive limitations.
+**Gigerenzer is not pro-irrationality**: He argues heuristics are rational in natural environments. He fully accepts that heuristics can produce errors in decontextualized lab tasks. His target is the overgeneralization of lab findings to real-world decision-making, not the existence of cognitive limitations.

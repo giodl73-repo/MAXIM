@@ -287,7 +287,7 @@ CHORUS FUNCTIONS
 | Playwright | Dates | Surviving | Key Features |
 |-----------|-------|-----------|--------------|
 | Aeschylus | c. 525–456 BCE | 7 tragedies | Introduced 2nd actor; trilogy form (Oresteia); austere language; cosmic theology |
-| Sophocles | c. 497–405 BCE | 7 tragedies | 3rd actor; reduced chorus from 50 to 15; psychological focus; Oedipus Rex as model tragedy |
+| Sophocles | c. 497–405 BCE | 7 tragedies | 3rd actor; increased chorus from 12 to 15; psychological focus; Oedipus Rex as model tragedy |
 | Euripides | c. 484–406 BCE | 18 tragedies | Realistic characters; psychological complexity; women as protagonists; challenged divine justice |
 
 ---

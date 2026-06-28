@@ -118,7 +118,7 @@ aligns with social optimality?
 1982  Rubinstein — alternating offers bargaining with discounting
       Non-cooperative foundation for Nash bargaining solution.
 
-1982  Fudenberg + Maskin — Folk Theorem (rigorous statement)
+1986  Fudenberg + Maskin — Folk Theorem (rigorous statement)
       Infinitely repeated games sustain cooperation under patience.
 
 1983  Kreps + Wilson — Sequential Equilibrium

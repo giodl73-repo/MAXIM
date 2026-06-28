@@ -259,7 +259,7 @@ SECURITIZATION — THE PROCESS
 
 Mainstream IR theory (realism, liberalism, constructivism) was developed by Euro-American scholars and reflects Euro-American assumptions. Postcolonial IR critiques this:
 
-- Jill Tickner, Arlene Tickner, Pinar Bilgin: IR theory assumes the state as natural unit, ignores how colonial history created particular types of states
+- J. Ann Tickner, Arlene Tickner, Pinar Bilgin: IR theory assumes the state as natural unit, ignores how colonial history created particular types of states
 - Amitav Acharya (*The End of American World Order*, 2014): "Global IR" — multiple world orders, not a single liberal order. ASEAN, African Union, etc. have their own normative frameworks.
 - The "standard of civilization" concept (Gong): 19th-century IR included explicit criteria for which polities qualified as "civilized" and thus entitled to sovereignty. Non-Western states were "tutored" by colonial powers before being admitted to the club. This history shapes present-day asymmetries.
 

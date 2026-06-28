@@ -333,8 +333,8 @@ values over intervals where they decrease).
   For U[0,1]: 2r* - 1 = 0  →  r* = 1/2
 
   With n=1 bidder: post price r* = 1/2. Sell iff bidder's value ≥ 1/2.
-  Expected revenue = ∫_{1/2}^1 v · dF + r* · (1-F(r*))
-                   = 1/4 + 1/4 = 1/2.  (vs 0 with no reserve)
+  Expected revenue = r* · (1-F(r*)) = (1/2)(1/2)
+                   = 1/4.  (vs 0 with no reserve)
 ```
 
 ---

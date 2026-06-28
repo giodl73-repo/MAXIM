@@ -35,7 +35,7 @@ Syntax is the study of how words combine into phrases, clauses, and sentences �
 |                                                                  |
 |  BINDING THEORY                WORD ORDER                        |
 |  (how NPs refer and            (universals + parameters          |
-|   corefer — reflexives,        SOV/SVO/VSO/OVS/OVS/VOS)          |
+|   corefer — reflexives,        SOV/SVO/VSO/OVS/OSV/VOS)          |
 |   pronouns, R-expressions)                                       |
 |                                                                  |
 |  FROM GENERATIVE GRAMMAR:                                        |
@@ -409,7 +409,7 @@ BASIC WORD ORDER FREQUENCIES:
   SVO  — subject, verb, object       ~35%  (English, Mandarin, French, Swahili)
   VSO  — verb, subject, object       ~9%   (Classical Arabic, Irish, Welsh)
   OVS  — object, verb, subject       ~3%   (Hixkaryana)
-  OVS  — (same)
+  OSV  — object, subject, verb (rarest; some Amazonian languages)
   VOS  — rare (Malagasy)
   Free — Russian, Finnish (case-marked → order expressive)
 ```

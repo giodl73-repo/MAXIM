@@ -195,7 +195,7 @@ BANDWIDTH (FM):
   f_max: max audio frequency (FM broadcast: 15 kHz)
   BW = 2(75 + 15) = 180 kHz ≈ 200 kHz
   US FM channel spacing: 200 kHz
-  FM band: 87.8 - 108.0 MHz (VHF band II)
+  FM band: 88.0 - 108.0 MHz (VHF band II)
   Number of FM channels: ~100 channels
 
 NOISE ADVANTAGE:
@@ -353,7 +353,7 @@ PATH LOSS:
 | Question | Answer |
 |----------|--------|
 | What is AM? | Amplitude Modulation; audio varies carrier amplitude; 540-1700 kHz (US MF band); simple detection, noise-susceptible |
-| What is FM? | Frequency Modulation; audio varies carrier frequency; 87.8-108 MHz (VHF); amplitude-noise immune, wider bandwidth |
+| What is FM? | Frequency Modulation; audio varies carrier frequency; 88-108 MHz (VHF); amplitude-noise immune, wider bandwidth |
 | What is ground wave? | LF/MF propagation along Earth's surface; hundreds to thousands km range; AM stations' primary mode |
 | What is sky wave? | HF propagation reflecting off ionosphere; thousands of km range; variable, day/night dependent |
 | What is LOS propagation? | VHF/UHF line-of-sight; limited to horizon; FM, TV use this; requires tall towers for range |

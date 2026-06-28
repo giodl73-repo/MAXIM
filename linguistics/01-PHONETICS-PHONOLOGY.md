@@ -174,7 +174,7 @@ Tone 0: neutral/atonal   — ma (question)  unstressed
 
 **Contour tone** (Mandarin, Vietnamese, Cantonese): pitch trajectory across syllable.
 
-**Tonal languages:** ~70% of the world's languages have tone. Indo-European languages (except Latvian, Lithuanian, Serbo-Croatian pitch accent) mostly don't. This is typologically unusual — European perspective is the outlier.
+**Tonal languages:** ~40-50% of the world's languages have tone. Indo-European languages (except Latvian, Lithuanian, Serbo-Croatian pitch accent) mostly don't. This is typologically unusual — European perspective is the outlier.
 
 ### Suprasegmentals
 

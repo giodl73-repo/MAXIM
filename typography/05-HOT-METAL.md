@@ -161,7 +161,7 @@ LINOTYPE MACHINE — SYSTEM ARCHITECTURE
                     ┌──────────────────────────────┐
                     │ Matrices pressed against     │
                     │ steel mold                   │
-                    │ Molten lead (~326°F/163°C)   │
+                    │ Molten metal (~285°C/545°F)  │
                     │ injected under pressure      │
                     │ Metal solidifies in seconds  │
                     │ Slug (SLUGA) ejected         │
@@ -349,7 +349,7 @@ KEY HOT METAL ERA TYPEFACES
 1927  Futura (Paul Renner, Bauer)
 1928  Gill Sans (Eric Gill, Monotype)
 1929  Perpetua (Eric Gill, Monotype)
-1929  Memphis (Rudolf Weiss, Stempel) — geometric slab
+1929  Memphis (Rudolf Wolf, Stempel) — geometric slab
 1930  Times New Roman begun (Stanley Morison; launched 1932)
 1932  Times New Roman (Monotype/Linotype) — Stanley Morison for The Times
       Goal: set 7pt body text readable on newsprint

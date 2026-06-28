@@ -151,7 +151,7 @@ HOMER TRANSLATIONS — COMPARATIVE
   Free verse; contemporary idiom; dramatic
   Most-read; criticized for over-dramatizing
 
-  EMILY WILSON (2017) — first woman to translate Homer
+  EMILY WILSON (2017) — first woman to publish an English translation of the Odyssey
   Deliberately plain style; 12,110 lines (same count as Greek)
   Attention to gender: rendered woman words more precisely
   "Tell me about a complicated man" (first line) —

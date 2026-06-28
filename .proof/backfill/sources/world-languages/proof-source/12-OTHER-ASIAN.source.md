@@ -214,7 +214,7 @@ Bệnh viện / Sân bay / Khách sạn — Hospital/Airport/Hotel
 |        |        | high      |                  |
 +--------+--------+-----------+------------------+
 
-Thai tones are DETERMINED by 3 factors:
+Thai tones are DETERMINED by 4 factors:
   1. Class of the initial consonant (high/mid/low class)
   2. Tone mark (or absence of one)
   3. Vowel length (long vs short)

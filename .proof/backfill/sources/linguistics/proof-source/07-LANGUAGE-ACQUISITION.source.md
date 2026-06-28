@@ -128,7 +128,7 @@ RULE OVERGENERALIZATION:
 | 1 month | Discriminates all phoneme contrasts cross-linguistically |
 | 4–7 months | Canonical babbling begins |
 | 6 months | Perceptual attunement to native language begins |
-| 9 months | Statistical word segmentation (transition probabilities in Saffran et al.) |
+| 8 months | Statistical word segmentation (transition probabilities in Saffran et al.) |
 | 12 months | First words; native-language phoneme contrasts sharpened |
 | 18 months | Vocabulary spurt; fast-mapping; ~50 words |
 | 24 months | Two-word combinations; telegraphic speech |
