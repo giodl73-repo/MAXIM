@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\03-PROPULSION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE PROPULSION CHAIN — FUEL TO FORWARD MOTION\n===============================================================================\n\n   FUEL  ->  PRIME MOVER  ->  TRANSMISSION  ->  SHAFT  ->  PROPELLER  ->  THRUST\n   (HFO/   (diesel/turbine/  (gearbox or     (line   (screw turns   (force that\n    LNG/    electric)         direct drive)   shaft)  torque into    overcomes\n    diesel) burns fuel,       reduces RPM     spins   axial flow)    R_total)\n            makes torque      to prop speed\n   |--------|----------------|---------------|--------|--------------|----------|\n   chemical  brake power      delivered       shaft    converts to    must equal\n   energy    PB               power PD        torque   open-water     ship drag\n                                                       thrust T       at speed V\n\n   MATCHING PROBLEM: engine torque-RPM curve must meet propeller\n   torque-RPM demand at the design point. Mis-match = lost efficiency,\n   over-revving, or engine lugging.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Layer 1: How a Propeller Makes Thrust",
+      "confidence": "candidate",
+      "text": "TWO VIEWS OF THE SAME PROPELLER\n===============================================================================\n\n   MOMENTUM (actuator disk) view:          BLADE-ELEMENT view:\n   accelerate water aft, react forward     each blade = a rotating wing\n\n      inflow V                                       lift L\n   ====>  |  ====> V + dV (faster aft)             (perpendicular\n          |                                  ___    to inflow)\n        [ DISK ]  <- pressure jump          /   \\    \\\n          |                                | sec |----> thrust component\n   <==== thrust reaction                    \\___/    \\\n                                          rotation    drag (torque)\n   T = m_dot x dV (rate of momentum added) T = sum(L cos - D sin) over blades",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## Layer 2: Propeller Performance — The Open-Water Curves",
+      "confidence": "candidate",
+      "text": "OPEN-WATER DIAGRAM (the propeller datasheet)\n===============================================================================\n\n  value |\n  0.8 - |K_Q (x10)\n        |---___                              eta_o (efficiency)\n  0.6 - |      ---___                    ...........\n        |K_T         ---___          .'''           ''. <- peak eta_o\n  0.4 - |---___            ---___  .'                   '. (design J here)\n        |      ---___            X'                       \\\n  0.2 - |            ---___    .'  ---___                  \\\n        |                  --'        K_T -> 0 here         \\\n  0.0 - +-------------------------------------------'--------\\----> J\n        0      0.2     0.4     0.6     0.8     1.0    1.2\n              low J = heavily loaded     high J = lightly loaded -> windmills\n\n   Read it: pick the J where eta_o peaks, then size D and n to put the\n   propeller THERE at the ship's design speed. Thrust falls to zero at the\n   J where the blade angle of attack -> zero (the \"windmilling\" point).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 159,
+      "heading_context": "## Layer 3: Hull-Propeller Interaction — Where Efficiency Hides",
+      "confidence": "candidate",
+      "text": "THE THREE INTERACTION FACTORS\n===============================================================================\n\n  +------------------------------------------------------------------------+\n  | WAKE FRACTION  w : the hull drags water along, so the propeller sees   |\n  |   a slower inflow than the ship speed.                                 |\n  |        V_a = V (1 - w)        (advance speed < ship speed)             |\n  |   GOOD: a slow inflow means the prop recovers some hull-wake energy.   |\n  +------------------------------------------------------------------------+\n  | THRUST DEDUCTION  t : the working propeller lowers pressure at the     |\n  |   stern, ADDING to hull resistance. So thrust must exceed resistance:  |\n  |        T (1 - t) = R        ->   T = R / (1 - t)                       |\n  +------------------------------------------------------------------------+\n  | RELATIVE ROTATIVE EFFICIENCY  eta_R : the propeller behaves slightly   |\n  |   differently in the non-uniform hull wake than in open water          |\n  |   (usually ~0.98-1.05).                                                |\n  +------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 207,
+      "heading_context": "## Layer 4: Cavitation — The Hard Physical Limit",
+      "confidence": "candidate",
+      "text": "CAVITATION — WATER BOILING ON THE BLADE\n===============================================================================\n\n   Bernoulli on the blade back: fast flow -> LOW pressure.\n   If local pressure  p < p_vapor, water flashes to vapor:\n\n        + low pressure here on suction side\n        |        .oOo.   <- vapor bubbles form (\"cavities\")\n        |       (      )\n   ===> | BLADE  '.oOo.'      then sweep aft into higher pressure ...\n        |        section                  |\n        +                                 v\n                                      *IMPLODE* -> microjets, shock,\n                                      ~1000s of atmospheres locally\n\n   THE CAVITATION NUMBER (does it cavitate?):\n        sigma = (p_local - p_vapor) / (0.5 rho V^2)\n        low sigma -> cavitation likely.  High V or shallow depth -> low sigma.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 259,
+      "heading_context": "## Layer 5: Prime Movers — What Turns the Shaft",
+      "confidence": "candidate",
+      "text": "+----------------------+------------------+----------------+------------------+\n| PRIME MOVER          | Efficiency       | Power density  | Typical use      |\n|----------------------|------------------|----------------|------------------|\n| Low-speed 2-stroke   | HIGHEST (~50%+   | low (huge,     | merchant ships   |\n|   diesel             | thermal)         | heavy, slow)   | (tankers,bulkers,|\n|   (~70-250 rpm)      | burns HFO        | direct-drive   | container)       |\n|----------------------|------------------|----------------|------------------|\n| Medium-speed         | high (~45%)      | medium         | ferries, smaller |\n|   4-stroke diesel    | needs gearbox    |                | ships, gensets   |\n|----------------------|------------------|----------------|------------------|\n| Gas turbine          | lower (~35-40%)  | HIGHEST        | warships, fast   |\n|                      | thirsty          | light, compact | ferries          |\n|----------------------|------------------|----------------|------------------|\n| Diesel-electric /    | flexible         | medium         | cruise ships,    |\n|   integrated         | (engines run at  |                | icebreakers,     |\n|   electric           | best point)      |                | DP vessels,subs  |\n|----------------------|------------------|----------------|------------------|\n| LNG / dual-fuel      | high, low-CO2    | medium         | new-build,       |\n|                      | low SOx/NOx      |                | emissions-driven |\n+----------------------+------------------+----------------+------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

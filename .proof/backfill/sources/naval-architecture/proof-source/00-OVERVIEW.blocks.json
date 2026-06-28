@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NAVAL ARCHITECTURE — FULL LANDSCAPE\n===============================================================================\n\n  GOVERNING TENSION: Float upright + Resist loads + Move cheaply + Carry payload\n  (each pulls the design in a different direction; the naval architect arbitrates)\n\n+-------------------------------------------------------------------------------+\n|  WILL IT FLOAT AND STAY UPRIGHT?            ........ HYDROSTATICS / STABILITY |\n|    Archimedes, displacement, GM, GZ curve   ........ [01]                     |\n+-------------------------------------------------------------------------------+\n|  WHAT SHAPE, AND HOW MUCH DOES IT DRAG?     ........ HULL FORM / RESISTANCE   |\n|    coefficients, Froude scaling, R = Rf+Rw  ........ [02]                     |\n+-------------------------------------------------------------------------------+\n|  HOW IS IT PUSHED THROUGH THE WATER?        ........ PROPULSION               |\n|    propeller thrust, cavitation, engines    ........ [03]                     |\n+-------------------------------------------------------------------------------+\n|  WILL THE HULL HOLD TOGETHER?               ........ SHIP STRUCTURES          |\n|    hull girder, hogging/sagging, scantlings ........ [04]                     |\n+-------------------------------------------------------------------------------+\n|  HOW DOES IT BEHAVE IN A SEAWAY?            ........ SEAKEEPING               |\n|    6-DOF motions, RAOs, slamming, stabilizers ...... [05]                     |\n+-------------------------------------------------------------------------------+\n|  WHAT MAKES IT RUN AS A MACHINE?            ........ MARINE SYSTEMS           |\n|    power, steering, ballast, HVAC, electrical ...... [06]                     |\n+-------------------------------------------------------------------------------+\n|  HOW IS IT ACTUALLY BUILT AND CERTIFIED?    ........ SHIPBUILDING             |\n|    blocks, welding, classification societies ....... [07]                     |\n+-------------------------------------------------------------------------------+\n|  WHAT KINDS OF SHIPS EXIST?                 ........ SHIP TYPES               |\n|    cargo, tanker, container, passenger, naval ...... [08]                     |\n+-------------------------------------------------------------------------------+\n|  WHAT ABOUT STRUCTURES THAT DO NOT SAIL?    ........ OFFSHORE ENGINEERING     |\n|    platforms, station-keeping, subsea, wind ........ [09]                     |\n+-------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Where This Module Sits Relative to Its Neighbors",
+      "confidence": "candidate",
+      "text": "  fluid-dynamics/  ---->  WATER as a medium\n    Navier-Stokes, boundary layers, free-surface waves\n    THIS MODULE borrows: drag laws, wave theory, the Froude/Reynolds split\n    THIS MODULE adds:    resistance decomposition for hulls, propeller flow\n\n  structural/      ---->  the HULL as a beam\n    beam bending, stress, buckling, material mechanics\n    THIS MODULE borrows: M = stress x section modulus, Euler buckling\n    THIS MODULE adds:    the ship as a box girder, hogging/sagging from waves\n\n  mechanical/      ---->  the SHIP as a machine\n    thermodynamic cycles, gears, shafts, bearings\n    THIS MODULE borrows: diesel/turbine cycles, shaft design\n    THIS MODULE adds:    matching engine to propeller to hull (the power train)\n\n  materials/       ---->  what the hull is MADE of\n    steel metallurgy, aluminium alloys, composites, corrosion\n    THIS MODULE borrows: yield strength, fatigue, galvanic series\n    THIS MODULE adds:    marine-grade selection, cathodic protection of hulls\n\n  transportation/  ---->  the SHIP in a SYSTEM\n    logistics, intermodal containers, ports, supply chains\n    THIS MODULE borrows: the demand that sizes a ship\n    THIS MODULE adds:    the vessel that the logistics network assumes exists",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## The Three Founding Ideas",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  1. ARCHIMEDES (c. 250 BC) — buoyancy                                     |\n|     A floating body displaces its own weight in water.                    |\n|     Weight = Displacement.  This sizes every ship ever built.             |\n|     -> guide [01]                                                         |\n+---------------------------------------------------------------------------+\n|  2. THE METACENTER (Bouguer / Euler, 1740s) — stability                   |\n|     A floating body rights itself if the metacenter M is above the        |\n|     centre of gravity G. Stability is geometry, not luck.                 |\n|     -> guide [01]                                                         |\n+---------------------------------------------------------------------------+\n|  3. FROUDE'S LAW (William Froude, 1860s-70s) — scaling                    |\n|     Wave-making resistance scales by Froude number, not Reynolds.         |\n|     This is why you can test a model and predict the full ship.           |\n|     -> guide [02]                                                         |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 176,
+      "heading_context": "## The Design Spiral — How a Ship Actually Gets Designed",
+      "confidence": "candidate",
+      "text": "THE DESIGN SPIRAL (read inward; each loop refines the same variables)\n===============================================================================\n\n         MISSION / REQUIREMENTS  (carry X tonnes at Y knots over Z range)\n                       |\n                       v\n   .------------------ ESTIMATE displacement & main dimensions (L,B,T,Cb)\n   |                            |\n   |                            v\n   |   .--------------- HYDROSTATICS & STABILITY  (does GM check out?) [01]\n   |   |                        |\n   |   |                        v\n   |   |   .----------- RESISTANCE & POWER  (how much thrust needed?) [02]\n   |   |   |                    |\n   |   |   |                    v\n   |   |   |   .------- PROPULSION  (pick engine + propeller) [03]\n   |   |   |   |                |\n   |   |   |   |                v\n   |   |   |   |   .--- STRUCTURE  (scantlings, weight estimate) [04]\n   |   |   |   |   |            |\n   |   |   |   |   |            v\n   |   |   |   |   |    WEIGHT & COST estimate\n   |   |   |   |   |            |\n   |   |   |   |   |   does weight = displacement? does cost close?\n   |   |   |   |   |            |\n   |   |   |   |   |        NO -> loop again (tighter) ------.\n   |   |   |   |   |            |                            |\n   |   |   |   |   '----<-------+----------------------------'\n   |   |   |   '--------<-------'\n   |   |   '------------<-------'\n   |   '----------------<-------'\n   '--------------------<-------'\n                       |\n                  YES -> CONVERGED feasible design -> detailed engineering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 233,
+      "heading_context": "## The Two Dimensionless Numbers That Run Everything",
+      "confidence": "candidate",
+      "text": "+----------------------------------+-----------------------------------+\n|  REYNOLDS NUMBER  Re = VL/nu     |  FROUDE NUMBER  Fn = V/sqrt(gL)   |\n|  ratio: inertia / viscosity      |  ratio: inertia / gravity         |\n|----------------------------------|---------------------------------- |\n|  governs: FRICTIONAL resistance  |  governs: WAVE-MAKING resistance  |\n|  (skin friction on wetted hull)  |  (energy lost making waves)       |\n|----------------------------------|---------------------------------- |\n|  a full ship has Re ~ 10^9       |  a ship cruises near Fn ~ 0.2-0.3 |\n|  (deeply turbulent boundary lyr) |  (the \"hull speed\" regime)        |\n|----------------------------------|---------------------------------- |\n|  CANNOT match Re in a small      |  CAN match Fn in a small model:   |\n|  model AND the real ship at once |  scale speed by sqrt(scale).      |\n+----------------------------------+-----------------------------------+\n        |                                          |\n        '------------------+-----------------------'\n                           v\n        FROUDE'S INSIGHT: you cannot match both at model scale,\n        so SPLIT the resistance. Scale wave-making by Froude (the\n        model gives it directly); compute friction separately from\n        a flat-plate formula at each scale. Detail in guide [02].",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

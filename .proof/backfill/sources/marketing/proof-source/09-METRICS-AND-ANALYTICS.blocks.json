@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "marketing\\09-METRICS-AND-ANALYTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------+\n|                    THE MARKETING ECONOMICS STACK                        |\n|                                                                         |\n|  SPEND            -> ACQUISITION    -> VALUE        -> VERDICT          |\n|  -----               -----------       -----           -------          |\n|  marketing $         CAC               LTV             LTV : CAC        |\n|  + sales $           (cost to          (value a        ratio + payback  |\n|                       acquire one)      customer        period          |\n|                                         returns)                        |\n|     |                    |                  |              |            |\n|     v                    v                  v              v            |\n|  .--------.          .--------.         .--------.    .-------------.   |\n|  | ROAS   |          | FUNNEL |         | COHORT |    | ATTRIBUTION |   |\n|  | revenue|          | per-   |         | retain |    | which spend |   |\n|  | per $  |          | stage  |         | by     |    | gets credit?|   |\n|  | spent  |          | yield  |         | cohort |    | MMM vs MTA  |   |\n|  '--------'          '--------'         '--------'    '-------------'   |\n|                                                            |            |\n|                                                            v            |\n|                                                    .---------------.    |\n|                                                    | INCREMENTALITY |   |\n|                                                    | what spend     |   |\n|                                                    | CAUSED (A/B)   |   |\n|                                                    '---------------'    |\n|                                                                         |\n|  The whole stack answers: are we acquiring customers profitably?        |\n+-------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 112,
+      "heading_context": "## LTV: Customer Lifetime Value",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------+\n|                  WHAT DRIVES LTV                                |\n|                                                                 |\n|  ARPA up       -> upsell, cross-sell, price (04)                |\n|  MARGIN up     -> cost to serve down                            |\n|  CHURN down    -> retention is the BIGGEST lever (1/churn       |\n|                   is nonlinear: halving churn DOUBLES lifetime) |\n|  EXPANSION     -> negative net churn (existing accounts grow    |\n|                   faster than they leave) -> LTV can be huge    |\n+-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## The LTV:CAC Ratio and Payback Period",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------+\n|              LTV : CAC  AND  PAYBACK                            |\n|                                                                 |\n|  LTV : CAC RATIO     how much value you get per $ of            |\n|                      acquisition.                               |\n|                                                                 |\n|     < 1 : 1   losing money on every customer (stop)             |\n|     ~ 1 : 1   break-even, no margin for ops/profit              |\n|     ~ 3 : 1   the common HEALTHY benchmark for SaaS             |\n|     > 5 : 1   possibly UNDER-investing in growth (spend more!)  |\n|                                                                 |\n|  CAC PAYBACK PERIOD  months to recover CAC from gross-margin    |\n|                      contribution.                              |\n|                                                                 |\n|              CAC                                                |\n|     = -----------------------------                             |\n|        ARPA x gross margin (monthly)                            |\n|                                                                 |\n|     Healthy SaaS rule of thumb: < 12 months.                    |\n|     Long payback strains cash even if LTV:CAC looks great.      |\n+-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## ROAS: Return on Ad Spend",
+      "confidence": "candidate",
+      "text": "                 revenue attributable to the ads\n   ROAS  =  ----------------------------------------\n                 cost of the ads\n\n   ROAS = 4 (or \"400%\")  ->  $4 revenue per $1 spent.\n\n   BREAK-EVEN ROAS depends on MARGIN, not revenue:\n     break-even ROAS = 1 / gross margin %\n     (50% margin -> need ROAS > 2 just to break even on COGS;\n      and that's BEFORE the ad cost itself)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 218,
+      "heading_context": "## Funnel and Cohort Analysis",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------+\n|         FUNNEL (cross-section)   vs   COHORT (longitudinal)     |\n|                                                                 |\n|  FUNNEL = conversion by STAGE    COHORT = behavior over TIME    |\n|  ------------------------------  ------------------------------ |\n|   visit    100,000               group users by SIGNUP MONTH:   |\n|     |  10%                                                      |\n|   signup    10,000               cohort  m0   m1   m2   m3      |\n|     |  20%                       Jan     100%  60%  45%  40%    |\n|   activate   2,000               Feb     100%  65%  50%  47%    |\n|     |  15%                       Mar     100%  70%  58%  ...    |\n|   pay          300                                              |\n|                                  -> is RETENTION improving      |\n|   where is the bottleneck        cohort over cohort?            |\n|   STAGE? -> fix the worst        -> does the curve FLATTEN      |\n|   per-stage yield                (a retained core) or -> 0?     |\n+-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 258,
+      "heading_context": "## Attribution: Who Gets the Credit?",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------+\n|              ATTRIBUTION MODELS                                 |\n|              (journey: display -> search -> email -> BUY)       |\n|                                                                 |\n|  LAST-TOUCH     100% to the LAST touch (email).                 |\n|                 Simple; over-credits bottom-funnel.             |\n|                                                                 |\n|  FIRST-TOUCH    100% to the FIRST touch (display).              |\n|                 Over-credits top-funnel awareness.              |\n|                                                                 |\n|  LINEAR         equal credit to all touches (25% each).         |\n|                                                                 |\n|  TIME-DECAY     more credit to touches NEARER the conversion.   |\n|                                                                 |\n|  POSITION-BASED 40% first, 40% last, 20% middle (U-shaped).     |\n|                                                                 |\n|  DATA-DRIVEN    model-estimated credit (e.g. Shapley-value      |\n|                 style) from many journeys. Best, data-hungry.   |\n|                                                                 |\n|  THE PROBLEM: these are RULES, not truth. They distribute a     |\n|  fixed credit by assumption -> different budgets, same data.    |\n+-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 304,
+      "heading_context": "## MMM vs MTA vs Incrementality",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------+\n|         MMM   vs   MTA   vs   INCREMENTALITY                    |\n|                                                                 |\n|  MMM (marketing mix modeling)                                   |\n|   top-down regression: model SALES ~ spend by channel +         |\n|   price + seasonality + macro, on aggregate time-series.        |\n|   + privacy-proof (no user tracking), captures offline +        |\n|     long-term/brand effects                                     |\n|   - coarse, can't do user-level, correlational (confounds)      |\n|                                                                 |\n|  MTA (multi-touch attribution)                                  |\n|   bottom-up: stitch USER-LEVEL touch journeys, assign credit.   |\n|   + granular, per-channel/creative                              |\n|   - needs cross-site tracking (DYING, see 08), still            |\n|     correlational                                               |\n|                                                                 |\n|  INCREMENTALITY (experiments)                                   |\n|   randomized holdout / geo test: show ads to A, not to B,       |\n|   measure the LIFT.                                             |\n|   + CAUSAL - the real \"did it work\"                             |\n|   - costs forgone exposure, needs scale + design                |\n|                                                                 |\n|  GOLD STANDARD: experiments. MMM + MTA inform; experiments      |\n|  CONFIRM. As tracking dies (08), MMM + experiments rise.        |\n+-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

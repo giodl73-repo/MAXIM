@@ -1,0 +1,133 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\06-ARCHIVES-AND-PRESERVATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 135,
+      "heading_context": "## The Preservation Threat Model",
+      "headers": [
+        "",
+        "Migration",
+        "Emulation"
+      ],
+      "rows": [
+        [
+          "Strategy",
+          "Convert the file to a current format",
+          "Recreate the old environment to run the old file"
+        ],
+        [
+          "Analogy",
+          "Port the code to a new platform",
+          "Run it in a VM/container of the old platform"
+        ],
+        [
+          "Risk",
+          "Each conversion may lose fidelity",
+          "Emulator complexity; legal/licensing of old software"
+        ],
+        [
+          "Best for",
+          "Documents, images (open, simple formats)",
+          "Software, games, complex interactive objects"
+        ],
+        [
+          "Cumulative",
+          "Yes — migrate again each format cycle",
+          "No — emulate the original once"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 198,
+      "heading_context": "## Old World → New World",
+      "headers": [
+        "Archival concept",
+        "Software equivalent"
+      ],
+      "rows": [
+        [
+          "Provenance (respect des fonds)",
+          "Partition by source; never merge tenants"
+        ],
+        [
+          "Original order",
+          "Insertion order preserved as data"
+        ],
+        [
+          "Fixity / checksum",
+          "Content hash (SHA-256), integrity verification"
+        ],
+        [
+          "Authenticity chain",
+          "Immutable audit log / signed lineage"
+        ],
+        [
+          "Migration",
+          "Porting to a new format/platform"
+        ],
+        [
+          "Emulation",
+          "Running legacy software in a VM/container"
+        ],
+        [
+          "AIP (self-describing package)",
+          "Content-addressed artifact with embedded metadata"
+        ],
+        [
+          "OAIS SIP/AIP/DIP",
+          "Ingest / store / deliver pipeline with transforms"
+        ],
+        [
+          "Preservation planning",
+          "Obsolescence monitoring + remediation runbook"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 214,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Approach"
+      ],
+      "rows": [
+        [
+          "Organizing one creator's unique records",
+          "Respect provenance — keep them together"
+        ],
+        [
+          "Tempted to re-sort records \"logically\"",
+          "Don't — preserve original order"
+        ],
+        [
+          "Detecting silent corruption",
+          "Schedule fixity (checksum) verification"
+        ],
+        [
+          "A file format is going obsolete (simple doc)",
+          "Migrate to a current open format"
+        ],
+        [
+          "A complex interactive object is obsolete",
+          "Emulate the original environment"
+        ],
+        [
+          "Designing a trusted digital repository",
+          "Follow OAIS (ISO 14721)"
+        ],
+        [
+          "Describing a large body of records",
+          "Hierarchical: fonds -> series -> file -> item (EAD)"
+        ],
+        [
+          "Proving a record is unaltered",
+          "Verified fixity + provenance chain"
+        ]
+      ]
+    }
+  ]
+}

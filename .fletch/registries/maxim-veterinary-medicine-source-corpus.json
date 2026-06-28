@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-veterinary-medicine-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.veterinary-medicine.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-veterinary-medicine-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-source-corpus.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-overview.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.comparative-anatomy.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-comparative-anatomy.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-comparative-anatomy.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.comparative-anatomy.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-comparative-anatomy.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.comparative-anatomy.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-comparative-anatomy.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-comparative-anatomy.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.comparative-anatomy.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/01-COMPARATIVE-ANATOMY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.comparative-anatomy.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/01-COMPARATIVE-ANATOMY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.comparative-anatomy.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/01-COMPARATIVE-ANATOMY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.comparative-anatomy.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/01-COMPARATIVE-ANATOMY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.comparative-anatomy.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/01-COMPARATIVE-ANATOMY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.comparative-anatomy.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/01-COMPARATIVE-ANATOMY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/01-COMPARATIVE-ANATOMY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.animal-physiology.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-animal-physiology.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-animal-physiology.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.animal-physiology.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-animal-physiology.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.animal-physiology.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-animal-physiology.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-animal-physiology.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.animal-physiology.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/02-ANIMAL-PHYSIOLOGY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.animal-physiology.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/02-ANIMAL-PHYSIOLOGY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.animal-physiology.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/02-ANIMAL-PHYSIOLOGY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.animal-physiology.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/02-ANIMAL-PHYSIOLOGY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.animal-physiology.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/02-ANIMAL-PHYSIOLOGY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.animal-physiology.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/02-ANIMAL-PHYSIOLOGY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/02-ANIMAL-PHYSIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.infectious-disease.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-infectious-disease.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-infectious-disease.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.infectious-disease.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-infectious-disease.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.infectious-disease.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-infectious-disease.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-infectious-disease.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.infectious-disease.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/03-INFECTIOUS-DISEASE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.infectious-disease.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/03-INFECTIOUS-DISEASE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.infectious-disease.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/03-INFECTIOUS-DISEASE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.infectious-disease.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/03-INFECTIOUS-DISEASE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.infectious-disease.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/03-INFECTIOUS-DISEASE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.infectious-disease.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/03-INFECTIOUS-DISEASE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/03-INFECTIOUS-DISEASE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.zoonoses-and-one-health.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-zoonoses-and-one-health.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-zoonoses-and-one-health.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.zoonoses-and-one-health.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-zoonoses-and-one-health.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.zoonoses-and-one-health.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-zoonoses-and-one-health.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-zoonoses-and-one-health.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.zoonoses-and-one-health.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/04-ZOONOSES-AND-ONE-HEALTH.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.zoonoses-and-one-health.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/04-ZOONOSES-AND-ONE-HEALTH.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.zoonoses-and-one-health.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/04-ZOONOSES-AND-ONE-HEALTH.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.zoonoses-and-one-health.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/04-ZOONOSES-AND-ONE-HEALTH.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.zoonoses-and-one-health.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/04-ZOONOSES-AND-ONE-HEALTH.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.zoonoses-and-one-health.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/04-ZOONOSES-AND-ONE-HEALTH.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/04-ZOONOSES-AND-ONE-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.companion-animals.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-companion-animals.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-companion-animals.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.companion-animals.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-companion-animals.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.companion-animals.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-companion-animals.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-companion-animals.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.companion-animals.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/05-COMPANION-ANIMALS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.companion-animals.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/05-COMPANION-ANIMALS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.companion-animals.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/05-COMPANION-ANIMALS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.companion-animals.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/05-COMPANION-ANIMALS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.companion-animals.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/05-COMPANION-ANIMALS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.companion-animals.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/05-COMPANION-ANIMALS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/05-COMPANION-ANIMALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.livestock-health.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-livestock-health.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-livestock-health.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.livestock-health.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-livestock-health.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.livestock-health.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-livestock-health.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-livestock-health.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.livestock-health.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/06-LIVESTOCK-HEALTH.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.livestock-health.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/06-LIVESTOCK-HEALTH.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.livestock-health.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/06-LIVESTOCK-HEALTH.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.livestock-health.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/06-LIVESTOCK-HEALTH.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.livestock-health.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/06-LIVESTOCK-HEALTH.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.livestock-health.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/06-LIVESTOCK-HEALTH.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/06-LIVESTOCK-HEALTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.wildlife-and-exotics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-wildlife-and-exotics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-wildlife-and-exotics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.wildlife-and-exotics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-wildlife-and-exotics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.wildlife-and-exotics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-wildlife-and-exotics.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-wildlife-and-exotics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.wildlife-and-exotics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/07-WILDLIFE-AND-EXOTICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.wildlife-and-exotics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/07-WILDLIFE-AND-EXOTICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.wildlife-and-exotics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/07-WILDLIFE-AND-EXOTICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.wildlife-and-exotics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/07-WILDLIFE-AND-EXOTICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.wildlife-and-exotics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/07-WILDLIFE-AND-EXOTICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.wildlife-and-exotics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/07-WILDLIFE-AND-EXOTICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/07-WILDLIFE-AND-EXOTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.pharm-and-surgery.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-pharm-and-surgery.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-pharm-and-surgery.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.pharm-and-surgery.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-pharm-and-surgery.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.pharm-and-surgery.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-pharm-and-surgery.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-pharm-and-surgery.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.pharm-and-surgery.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/08-VETERINARY-PHARM-AND-SURGERY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.pharm-and-surgery.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/08-VETERINARY-PHARM-AND-SURGERY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.pharm-and-surgery.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/08-VETERINARY-PHARM-AND-SURGERY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.pharm-and-surgery.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/08-VETERINARY-PHARM-AND-SURGERY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.pharm-and-surgery.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/08-VETERINARY-PHARM-AND-SURGERY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.pharm-and-surgery.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/08-VETERINARY-PHARM-AND-SURGERY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/08-VETERINARY-PHARM-AND-SURGERY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.public-health-role.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-veterinary-medicine-public-health-role.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-veterinary-medicine-public-health-role.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.public-health-role.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-veterinary-medicine-public-health-role.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.public-health-role.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.veterinary-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-veterinary-medicine-public-health-role.json",
+            "module": "veterinary-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-veterinary-medicine-public-health-role.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.public-health-role.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/09-PUBLIC-HEALTH-ROLE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.public-health-role.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/09-PUBLIC-HEALTH-ROLE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.public-health-role.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/09-PUBLIC-HEALTH-ROLE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.public-health-role.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/09-PUBLIC-HEALTH-ROLE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.veterinary-medicine.public-health-role.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/veterinary-medicine/proof-source/09-PUBLIC-HEALTH-ROLE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.veterinary-medicine.public-health-role.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "veterinary-medicine",
+            "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/veterinary-medicine/proof-source/09-PUBLIC-HEALTH-ROLE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "veterinary-medicine",
+        "guide": "veterinary-medicine/09-PUBLIC-HEALTH-ROLE.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\05-INFORMATION-RETRIEVAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 103,
+      "heading_context": "## Boolean Retrieval",
+      "headers": [
+        "Strength",
+        "Weakness"
+      ],
+      "rows": [
+        [
+          "Exact, transparent, reproducible",
+          "No ranking — 5 or 5,000 hits, all \"equal\""
+        ],
+        [
+          "Expert control over the set",
+          "Feast-or-famine (too many / zero results)"
+        ],
+        [
+          "Auditable (you can prove coverage)",
+          "Requires query-construction skill"
+        ],
+        [
+          "Deterministic",
+          "No notion of \"more relevant\""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 214,
+      "heading_context": "## Precision and Recall — The Core Metrics",
+      "headers": [
+        "Measure",
+        "Question it answers",
+        "When it dominates"
+      ],
+      "rows": [
+        [
+          "**Precision**",
+          "Are my results clean?",
+          "Web search (page 1 must be good)"
+        ],
+        [
+          "**Recall**",
+          "Did I miss anything?",
+          "Legal discovery, systematic reviews, patents"
+        ],
+        [
+          "**F1**",
+          "Balanced single number",
+          "Harmonic mean of P and R"
+        ],
+        [
+          "**P@k**",
+          "Precision in the top k",
+          "Ranked results (what the user sees)"
+        ],
+        [
+          "**MAP**",
+          "Mean Average Precision",
+          "Averaged precision across queries/ranks"
+        ],
+        [
+          "**nDCG**",
+          "Graded relevance, position-discounted",
+          "When relevance is not binary"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 263,
+      "heading_context": "## Old World → New World",
+      "headers": [
+        "IR concept",
+        "Modern equivalent"
+      ],
+      "rows": [
+        [
+          "Inverted index",
+          "Lucene/Elasticsearch index, DB full-text (GIN/FULLTEXT)"
+        ],
+        [
+          "Boolean retrieval",
+          "Database `WHERE` / advanced search filters"
+        ],
+        [
+          "TF-IDF / vector space",
+          "Sparse keyword scoring; ancestor of vector search"
+        ],
+        [
+          "BM25",
+          "Default lexical ranker in production search"
+        ],
+        [
+          "Cosine similarity (sparse)",
+          "Cosine over dense embeddings (`ai-engineering/`)"
+        ],
+        [
+          "Precision / recall",
+          "The same metrics in ML classification"
+        ],
+        [
+          "Test collection / TREC",
+          "Held-out benchmark with labeled judgments"
+        ],
+        [
+          "Relevance feedback",
+          "Click-through learning, learning-to-rank"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 278,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Exact, auditable, expert search (legal/patent)",
+          "Boolean retrieval"
+        ],
+        [
+          "Best-first results for a general user",
+          "Ranked retrieval (BM25)"
+        ],
+        [
+          "Production lexical ranking baseline",
+          "BM25"
+        ],
+        [
+          "Catch every relevant doc (cannot miss any)",
+          "Optimize recall"
+        ],
+        [
+          "Keep results clean (page 1 matters most)",
+          "Optimize precision"
+        ],
+        [
+          "Single balanced metric",
+          "F1"
+        ],
+        [
+          "Score ranked lists with graded relevance",
+          "nDCG"
+        ],
+        [
+          "Compare retrieval systems rigorously",
+          "Test collection / TREC-style eval"
+        ],
+        [
+          "Semantic match beyond keywords",
+          "Add dense vectors (`ai-engineering/`)"
+        ],
+        [
+          "Best of both",
+          "Hybrid: BM25 + vectors, fused"
+        ]
+      ]
+    }
+  ]
+}

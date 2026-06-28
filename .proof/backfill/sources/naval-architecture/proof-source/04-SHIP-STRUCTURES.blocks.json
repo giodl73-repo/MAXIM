@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\04-SHIP-STRUCTURES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE SHIP AS A HULL GIRDER\n===============================================================================\n\n   Forget the details: the whole ship is ONE big beam in bending.\n\n        WEIGHT acts DOWN, unevenly (cargo here, engine there, empty there)\n         |    |       | | |          |      |\n         v    v       v v v          v      v\n   .=======================================================.   <- the hull\n   |                THE HULL = A BOX GIRDER                 |      (a beam)\n   '======================================================='\n         ^    ^   ^      ^      ^   ^     ^      ^    ^\n         |    |   |      |      |   |     |      |    |\n        BUOYANCY acts UP, also unevenly (depends on hull shape + waves)\n\n   Where weight > buoyancy locally -> the beam wants to sag there.\n   Where buoyancy > weight locally -> the beam wants to hog there.\n   The MISMATCH between the weight curve and buoyancy curve = the load\n   that bends the entire ship. Integrate it twice -> bending moment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## Layer 1: Longitudinal Strength — Hogging and Sagging",
+      "confidence": "candidate",
+      "text": "HOGGING vs SAGGING (the two governing wave conditions)\n===============================================================================\n\n   HOGGING: wave CREST amidships          SAGGING: wave TROUGH amidships\n   (extra buoyancy in the middle)         (extra buoyancy at the ends)\n\n        ___---^^^---___  wave crest             wave              wave\n       /               \\                       crest             crest\n   ~~~/~~~~~~~~~~~~~~~~~~\\~~~ surface       ~~~\\~~~~~~~~~~~~~~~~~~/~~~ surface\n   +===================+         +===================+\n   |  hull bends DOWN  |         |  \\  trough   /    |\n   |  at the ends      |         |   \\________/      |\n   +===================+         +===================+\n    ends droop, middle up                  ends up, middle droops\n    DECK in TENSION                         DECK in COMPRESSION\n    BOTTOM in COMPRESSION                   BOTTOM in TENSION",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## Layer 1: Longitudinal Strength — Hogging and Sagging",
+      "confidence": "candidate",
+      "text": "WHY THE STEEL GOES TOP AND BOTTOM (section modulus, applied)\n===============================================================================\n\n   The hull cross-section is a hollow box. Bending stress is\n   PROPORTIONAL TO DISTANCE from the neutral axis. So:\n\n        +=================+  <- STRENGTH DECK: thick plate, far from N.A.\n        |                 |     -> carries the most stress, gets the most steel\n        |                 |\n        | - - - - - - - - |  <- NEUTRAL AXIS (zero bending stress)\n        |                 |\n        |                 |\n        +=================+  <- BOTTOM/KEEL: thick plate, far from N.A.\n                                -> double bottom here (also damage protection)\n\n   Material near the neutral axis does almost nothing for bending strength.\n   So the sides are thinner; the deck and bottom are thick. The whole hull\n   is an I-beam wrapped into a closed box.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## Layer 2: The Structural Hierarchy — Three Scales of Strength",
+      "confidence": "candidate",
+      "text": "THE THREE LEVELS OF STRUCTURAL RESPONSE\n===============================================================================\n\n  +-----------------------------------------------------------------------+\n  | PRIMARY (the whole hull girder)                                       |\n  |   the entire ship as one beam in hogging/sagging.                     |\n  |   Failure mode: the ship breaks in half. Governed by sigma = M/Z.     |\n  +-----------------------------------------------------------------------+\n              | zoom in\n              v\n  +-----------------------------------------------------------------------+\n  | SECONDARY (a panel between bulkheads / decks)                         |\n  |   a stiffened plate panel (e.g. a section of deck or side) bending    |\n  |   under local pressure between its supports.                          |\n  |   Failure mode: panel yields or buckles.                              |\n  +-----------------------------------------------------------------------+\n              | zoom in\n              v\n  +-----------------------------------------------------------------------+\n  | TERTIARY (one plate between stiffeners)                               |\n  |   a single plate \"field\" bending under local water/cargo pressure.    |\n  |   Failure mode: local yield, dishing, or fatigue cracking at welds.   |\n  +-----------------------------------------------------------------------+\n\n   The three stresses SUPERPOSE. A spot on the deck carries primary\n   (hull bending) + secondary (panel bending) + tertiary (plate bending)\n   stress at once. The sum must stay below yield with a margin.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 185,
+      "heading_context": "## Layer 3: Buckling — The Compression Failure That Matters Most",
+      "confidence": "candidate",
+      "text": "BUCKLING — WHY THIN PLATES IN COMPRESSION ARE THE WEAK LINK\n===============================================================================\n\n   push a thin plate edge-on:           critical (Euler-type) stress:\n\n   ====>  | flat |  <====               sigma_cr ~ k x E x (t/b)^2\n          |      |                       t = plate thickness\n          | bows |   ->  buckles         b = unsupported width\n          | out  |       sideways at     E = Young's modulus\n   ====>  |______|  <==== a stress       k = edge-condition factor\n                         BELOW yield\n\n   Defense = STIFFENERS: weld T-bars/angles to break a big panel into\n   many narrow ones. Halving b QUADRUPLES sigma_cr (the (t/b)^2 term).\n\n   +---+---+---+---+---+   each bay is narrow -> high buckling stress\n   |   |   |   |   |   |   the stiffeners carry compression as columns\n   +---+---+---+---+---+   (themselves checked for column buckling)\n   stiffened panel (the universal ship structural element)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "## Layer 4: Framing Systems — How the Grid Is Arranged",
+      "confidence": "candidate",
+      "text": "+--------------------------+--------------------------+\n| TRANSVERSE FRAMING       | LONGITUDINAL FRAMING     |\n|--------------------------|--------------------------|\n| ribs run ACROSS the ship | stiffeners run ALONG it  |\n|   | | | | | | | | |      |   ===============        |\n|   ribs like a rib cage   |   long stringers + few   |\n|   closely spaced frames  |   heavy transverse webs  |\n|--------------------------|--------------------------|\n| simple, good for SHORT   | resists HULL-GIRDER      |\n| ships and local loads    | bending efficiently      |\n| weaker against global    | (steel aligned with the  |\n| bending; more steel for  | primary stress) -> less  |\n| same longitudinal Z      | steel for the same Z     |\n|--------------------------|--------------------------|\n| barges, small craft,     | long ships: tankers,     |\n| ice belts                | bulkers, container ships |\n+--------------------------+--------------------------+\n       |                              |\n       '----------> COMBINED / \"framing system\" <------'\n        Most large ships: longitudinal in deck & bottom (where\n        primary stress lives) + transverse webs + transverse\n        framing in the side shell. Best of both.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## Layer 5: Fatigue and the 25-Year Sea",
+      "confidence": "candidate",
+      "text": "FATIGUE — DEATH BY A HUNDRED MILLION WAVES\n===============================================================================\n\n   S-N curve (stress range vs cycles to failure), log-log:\n\n   stress |\n   range  |\\\n   (S)    | \\                       fatigue is governed by stress RANGE,\n          |  \\                      not peak stress. Each wave = one cycle.\n          |   \\____                 Welds have notches -> stress concentration\n          |        \\____            -> cracks start there.\n          |             \\_______\n          |                     \\________  endurance limit (steel, in air)\n          +------------------------------------> cycles N (log scale)\n          10^4    10^6    10^8\n\n   But SEAWATER removes the endurance limit (corrosion fatigue):\n   cracks keep growing no matter how low S is. Hence: good weld details,\n   grinding weld toes smooth, generous radii at hatch corners, and\n   CORROSION PROTECTION are structural requirements, not finishing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 336,
+      "heading_context": "## Worked Example: Longitudinal Strength Check",
+      "confidence": "candidate",
+      "text": "   GIVEN (amidships section, hogging condition):\n     Still-water bending moment  M_sw = 1.20 x 10^9 N.m  (loading-dependent)\n     Wave bending moment         M_w  = 2.40 x 10^9 N.m  (rule wave, hogging)\n     Section modulus to deck     Z    = 18.0 m^3\n     Steel yield strength        sigma_y = 315 MPa (HT steel)\n\n   STEP 1 -- total design bending moment (still water + wave, same sign):\n     M = M_sw + M_w = 1.20e9 + 2.40e9 = 3.60 x 10^9 N.m\n\n   STEP 2 -- bending stress at the deck:\n     sigma = M / Z = 3.60e9 / 18.0 = 2.00 x 10^8 Pa = 200 MPa\n\n   STEP 3 -- compare to allowable (rule allowable ~ 0.75 sigma_y typical):\n     sigma_allow = 0.75 x 315 = 236 MPa\n     200 MPa < 236 MPa  -> PASS, with ~18% margin.\n\n   STEP 4 -- but the DECK is in TENSION in hogging, so yield governs there;\n     the BOTTOM is in COMPRESSION -> must ALSO check buckling:\n     compare 200 MPa (bottom compressive) against sigma_cr of the bottom\n     stiffened panels. If sigma_cr < 200 MPa, the bottom buckles first ->\n     add stiffeners or thicken plate even though yield was satisfied.\n\n   STEP 5 -- fatigue: take the stress RANGE between hogging and sagging at a\n     hatch corner (a stress-concentration detail) and check against the S-N\n     curve for ~10^8 cycles in seawater. This often governs the DETAIL design\n     even when the primary stress passes comfortably.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 375,
+      "heading_context": "### Hogging and sagging — which way does the deck go?",
+      "confidence": "candidate",
+      "text": "   HOGGING (crest amidships): ship arches UP in the middle\n            -> DECK stretched -> TENSION;  bottom squeezed -> COMPRESSION\n   SAGGING (trough amidships): ship droops in the middle\n            -> DECK squeezed  -> COMPRESSION; bottom stretched -> TENSION",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

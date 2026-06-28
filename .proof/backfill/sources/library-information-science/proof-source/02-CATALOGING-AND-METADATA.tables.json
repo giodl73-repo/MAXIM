@@ -1,0 +1,179 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\02-CATALOGING-AND-METADATA.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 87,
+      "heading_context": "## MARC 21 — The Record Format (1968)",
+      "headers": [
+        "MARC tag",
+        "Field"
+      ],
+      "rows": [
+        [
+          "001",
+          "Control number (record ID)"
+        ],
+        [
+          "020",
+          "ISBN"
+        ],
+        [
+          "100",
+          "Main entry — personal author"
+        ],
+        [
+          "245",
+          "Title statement"
+        ],
+        [
+          "250",
+          "Edition"
+        ],
+        [
+          "260 / 264",
+          "Publication (place, publisher, date)"
+        ],
+        [
+          "300",
+          "Physical description (pages, size)"
+        ],
+        [
+          "650",
+          "Subject — topical (links to a controlled vocabulary, file 03)"
+        ],
+        [
+          "700",
+          "Added entry — additional author/contributor"
+        ],
+        [
+          "856",
+          "Electronic location (URL)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 126,
+      "heading_context": "## AACR2 → RDA — The Content Rules",
+      "headers": [
+        "",
+        "AACR2 (1978)",
+        "RDA (2010)"
+      ],
+      "rows": [
+        [
+          "Worldview",
+          "Card-and-print era",
+          "FRBR/digital, any medium"
+        ],
+        [
+          "Underlying model",
+          "Implicit, flat",
+          "Explicit FRBR entities"
+        ],
+        [
+          "Abbreviations",
+          "Heavy (p., ill., s.l.)",
+          "Spelled out (\"take what you see\")"
+        ],
+        [
+          "\"Rule of three\" authors",
+          "Truncate after 3",
+          "Record all if desired"
+        ],
+        [
+          "Encoding-agnostic",
+          "Tied to print conventions",
+          "Designed for MARC *and* linked data"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 255,
+      "heading_context": "## Dublin Core — The Lightweight Alternative (1995)",
+      "headers": [
+        "",
+        "MARC 21",
+        "Dublin Core"
+      ],
+      "rows": [
+        [
+          "Field count",
+          "Hundreds of tags/subfields",
+          "15 elements"
+        ],
+        [
+          "Audience",
+          "Professional catalogers",
+          "Anyone, web-wide"
+        ],
+        [
+          "Granularity",
+          "Very high",
+          "Coarse, \"good enough\""
+        ],
+        [
+          "Typical use",
+          "Library catalogs, full bibliographic control",
+          "Web resources, repositories, harvesting"
+        ],
+        [
+          "Encoding",
+          "MARC binary / MARCXML",
+          "XML, RDFa, JSON, HTML `<meta>`"
+        ],
+        [
+          "Mindset",
+          "Strict schema, rich description",
+          "Minimal common denominator"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 291,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Exchange full bibliographic records between libraries",
+          "MARC 21"
+        ],
+        [
+          "Follow current cataloging content rules",
+          "RDA (AACR2 is legacy)"
+        ],
+        [
+          "Model why editions/translations share an abstract work",
+          "FRBR / LRM (WEMI)"
+        ],
+        [
+          "Put the catalog on the web as linked data",
+          "BIBFRAME (RDF)"
+        ],
+        [
+          "Describe a web resource with minimal effort",
+          "Dublin Core (15 elements)"
+        ],
+        [
+          "Harvest metadata across many repositories",
+          "Dublin Core via OAI-PMH (file 08)"
+        ],
+        [
+          "Attach a subject to a record",
+          "MARC 650 / FRBR Group 3 + a vocabulary (file 03)"
+        ],
+        [
+          "Distinguish \"the book\" from \"this copy\"",
+          "FRBR Manifestation vs. Item"
+        ]
+      ]
+    }
+  ]
+}

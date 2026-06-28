@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\07-SHIPBUILDING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE SHIPBUILDING PIPELINE — FROM STEEL PLATE TO LAUNCHED SHIP\n===============================================================================\n\n   STEEL          PART            SUB-          BLOCK          ERECTION\n   STOCKYARD  ->  FABRICATION ->  ASSEMBLY  ->  ASSEMBLY  ->   (join blocks\n   plates,        cut, bend,      weld parts    pre-outfit:    in dry dock)\n   profiles       blast, prime    into panels   pipe, cable,        |\n   |              |               + stiffeners  paint, fit out      v\n   |              v               |             |               LAUNCH /\n   |          NC cutting          v             v               FLOAT-OUT\n   |          (plasma/laser)   stiffened      a 3-D hull            |\n   |          robotic welding  panels         section,             v\n   |                                          ~hundreds of    SEA TRIALS\n   |                                          tonnes,         (commissioning,\n   v                                          erected by      speed/turning/\n   the further LEFT you do work, the          giant cranes    endurance) ->\n   CHEAPER it is (flat, low, in a shop).      onto the keel   DELIVERY",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## Layer 1: Why Block Construction Won",
+      "confidence": "candidate",
+      "text": "OLD WAY (slipway, sequential) vs MODERN (block, parallel)\n===============================================================================\n\n  SLIPWAY (serial):                    BLOCK (parallel + pre-outfit):\n  keel -> frames -> plating ->         build ~50 blocks SIMULTANEOUSLY in\n  launch -> outfit afloat              workshops, each fully outfitted, then\n  (one long critical path)             weld blocks together in the dock\n\n  time --->                            time --->\n  [====lay hull====][===outfit===]     [blocks built in parallel][erect][outfit\n                                        \\________ overlap ________/  gaps only]\n\n  WHY BLOCKS WIN:\n   - parallelism: 50 blocks built at once -> short dock occupancy\n   - pre-outfitting: install engines/pipe/paint in an open block on the\n     ground (good access, downhand welding) BEFORE it is closed up\n   - downhand welding: weld flat/down, not overhead -> faster, better quality\n   - the expensive dry dock is occupied only for erection, not the whole build",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 107,
+      "heading_context": "## Layer 2: Welding — The Joining Technology",
+      "confidence": "candidate",
+      "text": "THE MAIN MARINE WELDING PROCESSES\n===============================================================================\n\n  +-----------------+--------------------------+----------------------------+\n  | Process         | How                      | Where used                 |\n  |-----------------|--------------------------|----------------------------|\n  | SMAW (stick)    | consumable coated        | repairs, awkward positions,|\n  |                 | electrode, manual        | erection joints in the dock|\n  |-----------------|--------------------------|----------------------------|\n  | GMAW / FCAW     | continuous wire feed,    | workhorse: panels, blocks; |\n  | (MIG / flux-    | semi-auto, high deposit  | robot-friendly             |\n  |  cored)         |                          |                            |\n  |-----------------|--------------------------|----------------------------|\n  | SAW (submerged  | arc under a flux blanket,| LONG straight seams on flat|\n  |  arc)           | very high deposit, auto  | panels -> hugely productive|\n  |-----------------|--------------------------|----------------------------|\n  | Robotic / one-  | automated GMAW/SAW; weld | high-volume panel lines    |\n  |  side welding   | a panel from one side    | (Korean/Japanese megayards)|\n  +-----------------+--------------------------+----------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Layer 4: Launching and Float-Out",
+      "confidence": "candidate",
+      "text": "GETTING THE HULL WET\n===============================================================================\n\n  DRY DOCK FLOAT-OUT (modern norm):      END / SIDE LAUNCH (older slipways):\n  ship built in a graving dock; flood    ship slides down a greased ramp into\n  the dock, ship floats up, tow out.     the water, stern-first (or sideways\n  Gentle, controlled, no dynamics.       in a narrow river). A dramatic but\n                                         DYNAMICALLY tricky event.\n\n   |~~~~~~~~~~~~~~~~|                     ship -->\\\n   |   ___________  |  flood              ========= \\  greased\n   |  /   SHIP    \\ | -> floats          ==========  \\ ways\n   |  \\___________/ |    up               ----------- \\____ SPLASH\n   |________________|                            ~~~~~~~~~~~~~~~~\n\n   Launch mechanics (for ramp launches): as the stern enters and gains\n   buoyancy, the ship pivots about the fore poppet; the naval architect\n   computes the launching curves to ensure it does NOT (a) tip over the\n   end, (b) drop the bow too hard, or (c) overstress the hull as support\n   shifts from the ways to buoyancy. A genuine transient stability problem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 240,
+      "heading_context": "## Layer 5: Classification Societies and Regulation",
+      "confidence": "candidate",
+      "text": "WHO SAYS THE SHIP IS SAFE? (the certification stack)\n===============================================================================\n\n  +----------------------------------------------------------------------+\n  | IMO (International Maritime Organization, UN body)                   |\n  |   makes the CONVENTIONS: SOLAS (safety), MARPOL (pollution),         |\n  |   Load Line, STCW (crew training), Ballast Water. Treaty law.        |\n  +----------------------------------------------------------------------+\n                       | adopted into national law by ...\n                       v\n  +----------------------------------------------------------------------+\n  | FLAG STATE (the country the ship is registered in)                   |\n  |   legally responsible; often DELEGATES survey/certification to ...   |\n  +----------------------------------------------------------------------+\n                       | delegates technical work to ...\n                       v\n  +-----------------------------------------------------------------------+\n  | CLASSIFICATION SOCIETY (DNV, Lloyd's Register, ABS, BV, ClassNK...)   |\n  |   - publishes the STRUCTURAL RULES (scantlings, [04])                 |\n  |   - approves the design drawings                                      |\n  |   - SURVEYS construction (welds, NDT, tests) and issues CLASS         |\n  |   - re-surveys periodically for the ship's LIFE (annual/5-yr docking) |\n  +-----------------------------------------------------------------------+\n                       | PORT STATE CONTROL inspects in port (a check on all)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Worked Example: Planning a Block Build",
+      "confidence": "candidate",
+      "text": "   STEP 1 -- divide the hull into blocks:\n     Target block size ~ 300-600 t (limited by the dock crane capacity, say\n     900 t cranes in tandem). 22,000 t / ~450 t avg -> ~50 blocks.\n     Place block boundaries at SIMPLE, ACCESSIBLE structure (avoid splitting\n     a complex bracket) so the erection welds are as easy as possible.\n\n   STEP 2 -- maximize PRE-OUTFITTING (move work left/down):\n     In each open block on the ground, install: piping spools, cable trays,\n     ventilation ducts, ladders, foundations, and PAINT -- all with good\n     access and downhand welding, BEFORE the block is closed and erected.\n     Rule of thumb: every hour of outfitting done in the block is worth\n     several hours done later in the closed, erected ship.\n\n   STEP 3 -- build blocks in PARALLEL in workshops:\n     ~50 blocks fabricated concurrently on panel lines and assembly bays.\n     The dry dock sits empty of THIS ship until erection begins -> dock\n     occupancy minimized (the scarce resource is protected).\n\n   STEP 4 -- erect in the dry dock:\n     Lay the keel blocks, then crane successive blocks into place and weld\n     the erection joints (the hard, often-overhead welds). NDT the critical\n     joints to the class society's sampling plan. Fair and align as you go.\n\n   STEP 5 -- float out and finish:\n     Flood the dock, float the ship to the fitting-out quay, complete the\n     systems that cross block boundaries, then SEA TRIALS: measure speed vs\n     power (validating guide [02]/[03]!), turning circle, crash-stop,\n     endurance, and noise -- the design's predictions meet reality here.\n\n   STEP 6 -- deliver under class:\n     Class surveyor signs off the build; flag state issues statutory\n     certificates (SOLAS, Load Line, MARPOL). The ship can now trade.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\01-HYDROSTATICS-AND-STABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 103,
+      "heading_context": "## Layer 1: Archimedes and Vertical Equilibrium",
+      "headers": [
+        "Curve",
+        "Symbol",
+        "What it tells you"
+      ],
+      "rows": [
+        [
+          "Displacement vs draft",
+          "Δ(T)",
+          "How heavy the ship is at each waterline"
+        ],
+        [
+          "Centre of buoyancy (vertical)",
+          "KB",
+          "Height of B above keel"
+        ],
+        [
+          "Centre of buoyancy (long.)",
+          "LCB",
+          "Fore-aft position of B (sets trim)"
+        ],
+        [
+          "Waterplane area",
+          "Aw",
+          "Area of the slice at the waterline"
+        ],
+        [
+          "Tonnes per cm immersion",
+          "TPC",
+          "Weight to push the ship 1 cm deeper"
+        ],
+        [
+          "Metacentric radius",
+          "BM",
+          "How high M sits above B (see Layer 2)"
+        ],
+        [
+          "Moment to change trim 1 cm",
+          "MCT1cm",
+          "Trimming stiffness"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 282,
+      "heading_context": "## Layer 3: The Righting Arm GZ and the Stability Curve",
+      "headers": [
+        "Feature of the curve",
+        "Physical meaning"
+      ],
+      "rows": [
+        [
+          "Initial slope at θ=0",
+          "Equals GM (in radians) — the small-angle stiffness"
+        ],
+        [
+          "Peak value GZ_max",
+          "Largest steady heeling moment the ship can resist"
+        ],
+        [
+          "Angle of GZ_max",
+          "Heel at which righting ability is greatest"
+        ],
+        [
+          "Angle of vanishing stability (AVS)",
+          "Beyond this, GZ < 0 — capsize"
+        ],
+        [
+          "Area under the curve",
+          "**Dynamic stability** — energy to capsize the ship"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 463,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Check if the ship floats at all",
+          "Δ = ρgV (Archimedes)"
+        ],
+        [
+          "Find how much it sinks per tonne added",
+          "TPC = ρ·Aw/100"
+        ],
+        [
+          "Check small-angle stability",
+          "GM = KM − KG > 0"
+        ],
+        [
+          "Get the height of the metacenter",
+          "KM = KB + BM, with BM = I_T/V"
+        ],
+        [
+          "Find the righting arm at small heel",
+          "GZ = GM·sinθ"
+        ],
+        [
+          "Find the actual righting torque",
+          "M = Δ·GZ"
+        ],
+        [
+          "Assess large-angle / capsize safety",
+          "The full GZ curve, AVS, area under it"
+        ],
+        [
+          "Account for partly-full tanks",
+          "Subtract Σ(i/V) from GM (free surface)"
+        ],
+        [
+          "Survive a hull breach",
+          "Damage stability / subdivision (SOLAS index A ≥ R)"
+        ],
+        [
+          "Understand the dynamic (in-waves) response",
+          "See `seakeeping/` [05]"
+        ],
+        [
+          "Review the general second-moment-of-area math",
+          "See `structural/`"
+        ]
+      ]
+    }
+  ]
+}

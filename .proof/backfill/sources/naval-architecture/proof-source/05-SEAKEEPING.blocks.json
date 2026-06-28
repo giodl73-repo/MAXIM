@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\05-SEAKEEPING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SEAKEEPING = A DAMPED, DRIVEN OSCILLATOR (x6 degrees of freedom)\n===============================================================================\n\n   THE SEA (random waves)         THE SHIP (a 6-DOF dynamic system)\n   ----------------------         --------------------------------\n   irregular wave elevation       mass-spring-damper in each mode:\n   = sum of many regular waves      mass  = inertia + added mass\n   (a spectrum S(omega))            spring= buoyancy / metacentric restoring\n        |                           damping= wave radiation + viscous\n        v                                |\n   .----------.      transfer       .----------.      .-------------.\n   | WAVE     | --- function ----> | SHIP     | --->  | MOTIONS:    |\n   | SPECTRUM |     (the RAO)       | DYNAMICS |      | heave,roll, |\n   | S_wave(w)|                     |          |      | pitch ...   |\n   '----------'                     '----------'      '-------------'\n\n   OUTPUT spectrum = |RAO(w)|^2 x INPUT spectrum   (linear superposition)\n   S_motion(w) = |RAO(w)|^2 x S_wave(w)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## Layer 1: The Six Degrees of Freedom",
+      "confidence": "candidate",
+      "text": "THE SIX SHIP MOTIONS (6-DOF)\n===============================================================================\n\n                        z (up)\n                        |   yaw (about z)\n                        |  /\n                        | /\n            roll <------+------> (about x, longitudinal)\n           (about x)   /|\n                      / |\n                 surge  |  y (transverse)\n            x ---------- pitch (about y)\n         (forward)\n\n   +----------+-----------+----------------------------+--------------+\n   | Motion   | Type      | Restoring force?           | Matters for  |\n   |----------|-----------|----------------------------|--------------|\n   | SURGE    | translate | NO (free) - x, fore/aft    | added resist.|\n   | SWAY     | translate | NO (free) - y, sideways    | maneuvering  |\n   | YAW      | rotate z  | NO (free) - heading change | course-keep  |\n   |----------|-----------|----------------------------|--------------|\n   | HEAVE    | translate | YES - buoyancy spring (z)  | comfort,deck |\n   | ROLL     | rotate x  | YES - GM x displacement    | comfort,cargo|\n   | PITCH    | rotate y  | YES - long. GM (huge)      | slamming,bow |\n   +----------+-----------+----------------------------+--------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## Layer 2: Each Motion Is a Mass-Spring-Damper",
+      "confidence": "candidate",
+      "text": "HEAVE AS A DAMPED OSCILLATOR\n===============================================================================\n\n   (m + a) z'' + b z' + c z  =  F(t)\n    \\___/      |     |          |\n   inertia   damping spring   wave forcing\n   + ADDED              \\\n     MASS                c = rho x g x A_w  (waterplane area = the spring rate)\n        \\\n         a = ADDED MASS: water that must be accelerated WITH the hull.\n             A ship heaving drags a slug of surrounding water along; its\n             inertia ADDS to the ship's own. Can be ~the ship's own mass.\n\n   b = RADIATION DAMPING: the ship makes waves as it heaves; that radiated\n       wave energy is lost from the motion -> damping. (Plus viscous damping.)\n\n   Natural frequency:  omega_n = sqrt( c / (m + a) )",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## Layer 3: The Response Amplitude Operator (RAO)",
+      "confidence": "candidate",
+      "text": "A ROLL RAO (transfer function of the ship in roll)\n===============================================================================\n\n  roll\n  amplitude\n  per wave  |\n  slope     |              /\\  <- RESONANCE PEAK at omega = omega_n_roll\n  (deg/m)   |             /  \\    (wave encounter period = roll natural period)\n            |            /    \\   height of peak set by DAMPING (low damping\n            |           /      \\   = tall sharp peak = dangerous)\n            |          /        \\\n            |   ______/          \\________\n            |  /                          \\_____\n            | /                                  ----____\n            +----------------------------------------------> encounter freq w_e\n            0      low freq (long waves):       high freq (short waves):\n                   ship follows the wave        ship can't respond, RAO -> 0\n                   like a cork, RAO -> 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "## Layer 3: The Response Amplitude Operator (RAO)",
+      "confidence": "candidate",
+      "text": "   Encounter frequency (the Doppler shift the ship feels):\n        omega_e = omega - (omega^2 / g) x V x cos(mu)\n        mu = heading angle (0 = following seas, 180 = head seas)\n        -> head seas (mu=180): omega_e INCREASES (waves hit faster)\n        -> following seas (mu=0): omega_e DECREASES (can even go to ~0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Layer 4: From Regular Waves to the Real Sea — Spectra",
+      "confidence": "candidate",
+      "text": "THE SEAKEEPING WORKFLOW (linear, spectral)\n===============================================================================\n\n   WAVE SPECTRUM            RAO (ship transfer fn)        MOTION SPECTRUM\n   S_wave(omega)      x        |RAO(omega)|^2        =    S_motion(omega)\n   (energy vs freq)         (response vs freq)            (motion energy)\n\n      /\\                         /\\                            /\\\n     /  \\  many                 /  \\ resonance               /  \\ motion\n    /    \\ frequencies   --->   /    \\ filter        --->    /    \\ concentrated\n   /______\\ in the sea        _/      \\_                   _/      \\_ near where\n                                                              wave x RAO overlap\n\n   Then INTEGRATE the motion spectrum for statistics:\n     area m0 = variance -> significant motion = 4 x sqrt(m0)\n     (e.g. significant roll amplitude, probability of exceeding a limit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## Layer 5: The Nasty Nonlinear Events — Slamming, Green Water, Parametric Roll",
+      "confidence": "candidate",
+      "text": "THE THREE VIOLENT EVENTS\n===============================================================================\n\n  SLAMMING                 GREEN WATER              PARAMETRIC ROLL\n  --------                 -----------              ---------------\n  bow lifts clear in       a wave boards the        head/following seas, no\n  pitch, then crashes      deck (not spray --        beam wave at all, yet\n  down onto the next       solid \"green\" water)      the ship rolls violently\n  wave: huge impact        sweeping the deck\n\n  bow ___                  wave over the bow         restoring GM PULSATES as\n     \\  out of water       ~~~~~/~~~~ floods         the wave crest/trough moves\n      \\                    over deck                 along the hull -> GM(t).\n   ~~~~\\~~~  SLAM down ->                            If GM oscillates at ~2x the\n        |   #IMPACT#       damages hatches,          roll natural freq, energy\n        v                  containers, fittings      pumps INTO roll -> blow-up\n   peak pressure can                                 (Mathieu-equation instability)\n   exceed 10 bar",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "## Worked Example: Roll Resonance and Tuning Out of It",
+      "confidence": "candidate",
+      "text": "   STEP 1 -- roll radius of gyration:\n     k_xx = 0.38 x 22 = 8.36 m\n\n   STEP 2 -- roll natural period:\n     T_roll = 2 pi x k_xx / sqrt(g x GM)\n            = 2 pi x 8.36 / sqrt(9.81 x 1.2)\n            = 52.5 / sqrt(11.77) = 52.5 / 3.43 = 15.3 s\n\n   STEP 3 -- the threat:\n     A beam swell of period 8 s. In BEAM seas (mu = 90 deg) the ship is not\n     moving relative to the wave crests, so encounter period ~ wave period\n     ~ 8 s. That is well off the 15.3 s natural period -> little roll. Good.\n\n   STEP 4 -- the trap (why heading matters):\n     Suppose instead a long swell of 15 s period in QUARTERING seas. The\n     encounter period could stretch toward T_roll = 15.3 s -> RESONANCE ->\n     violent roll. The fix:\n\n   STEP 5 -- tune out of resonance (operational control):\n     Change HEADING (alter mu) or SPEED (alter V) to shift the encounter\n     period away from 15.3 s:\n        omega_e = omega - (omega^2/g) V cos(mu)\n     Increasing speed or turning toward head seas RAISES omega_e (shortens\n     encounter period), pulling the forcing off the roll resonance.\n\n   STEP 6 -- note on GM (links to [01]):\n     A STIFFER ship (raise GM) shortens T_roll (T ~ 1/sqrt(GM)) -- but a\n     short snappy roll is uncomfortable and high-acceleration. Stability and\n     seakeeping pull GM in OPPOSITE directions: [01] wants enough GM for\n     safety, [05] wants it modest for a long, gentle roll. The design spiral\n     [00] arbitrates.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "### A stiff ship (high GM) is not a comfortable ship",
+      "confidence": "candidate",
+      "text": "   HIGH GM:  short roll period, fast snappy roll, HIGH accelerations\n             -> safe against capsize but miserable and cargo-damaging\n   LOW GM:   long roll period, gentle slow roll, low accelerations\n             -> comfortable but closer to the stability margin",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

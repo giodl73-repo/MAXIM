@@ -1,0 +1,186 @@
+{
+  "schema_version": "1",
+  "source_markdown": "marketing\\09-METRICS-AND-ANALYTICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 77,
+      "heading_context": "## CAC: Customer Acquisition Cost",
+      "headers": [
+        "Subtlety",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "**Fully-loaded vs paid-media-only**",
+          "Include salaries, tools, content — not just ad spend — or CAC flatters"
+        ],
+        [
+          "**Blended vs paid CAC**",
+          "Blended divides by *all* new customers (incl. organic); paid divides by paid-channel customers. Blended hides whether paid is working"
+        ],
+        [
+          "**By channel / cohort**",
+          "Marginal CAC rises as you scale a channel (you exhaust the cheap audience first)"
+        ],
+        [
+          "**Attribution-dependent**",
+          "Which channel gets credited changes per-channel CAC (see attribution below)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 162,
+      "heading_context": "## The LTV:CAC Ratio and Payback Period",
+      "headers": [
+        "Metric",
+        "Formula",
+        "Healthy benchmark",
+        "What it ignores"
+      ],
+      "rows": [
+        [
+          "**LTV:CAC**",
+          "LTV / CAC",
+          "~3:1 (SaaS)",
+          "*When* the cash returns (timing)"
+        ],
+        [
+          "**CAC payback**",
+          "CAC / (ARPA x GM% per period)",
+          "< 12 months",
+          "Total lifetime value beyond payback"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 283,
+      "heading_context": "## Attribution: Who Gets the Credit?",
+      "headers": [
+        "Model",
+        "Credit rule",
+        "Bias"
+      ],
+      "rows": [
+        [
+          "**Last-touch**",
+          "All to final touch",
+          "Over-credits closers (search/email)"
+        ],
+        [
+          "**First-touch**",
+          "All to first touch",
+          "Over-credits awareness"
+        ],
+        [
+          "**Linear**",
+          "Equal to all",
+          "Ignores that touches differ in impact"
+        ],
+        [
+          "**Time-decay**",
+          "More to recent touches",
+          "Still assumption-driven"
+        ],
+        [
+          "**Position-based (U)**",
+          "40/40/20",
+          "Arbitrary weights"
+        ],
+        [
+          "**Data-driven**",
+          "Modeled (Shapley-like)",
+          "Best, but needs lots of journey data"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 332,
+      "heading_context": "## MMM vs MTA vs Incrementality",
+      "headers": [
+        "Approach",
+        "Direction",
+        "Granularity",
+        "Causal?",
+        "Privacy"
+      ],
+      "rows": [
+        [
+          "**MMM**",
+          "Top-down (aggregate regression)",
+          "Channel-level",
+          "No (correlational)",
+          "Robust (no user data)"
+        ],
+        [
+          "**MTA**",
+          "Bottom-up (user journeys)",
+          "Touch-level",
+          "No (correlational)",
+          "Fragile (needs tracking)"
+        ],
+        [
+          "**Incrementality**",
+          "Experiment (holdout/geo)",
+          "Test-level",
+          "**Yes (causal)**",
+          "Robust"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 351,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to know...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Can we acquire profitably?",
+          "LTV:CAC (aim ~3:1) *and* payback (< ~12 mo)"
+        ],
+        [
+          "Is our paid channel actually working?",
+          "Paid + marginal CAC (not blended)"
+        ],
+        [
+          "Where is the funnel leaking?",
+          "Funnel analysis — fix the lowest-yield stage"
+        ],
+        [
+          "Is retention improving?",
+          "Cohort analysis — do curves flatten or decay?"
+        ],
+        [
+          "The biggest lever on LTV",
+          "Reduce churn (lifetime = 1/churn, nonlinear)"
+        ],
+        [
+          "Is a campaign efficient?",
+          "ROAS — but compare to break-even (1/margin), not to 1"
+        ],
+        [
+          "Which channel gets credit?",
+          "Attribution — pick a model, know it's a rule not truth"
+        ],
+        [
+          "Allocate budget across channels (privacy-safe)",
+          "MMM"
+        ],
+        [
+          "Per-touch/creative detail",
+          "MTA (where tracking still exists)"
+        ],
+        [
+          "What spend *actually caused* sales",
+          "Incrementality experiment (the only causal answer)"
+        ]
+      ]
+    }
+  ]
+}

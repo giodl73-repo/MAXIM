@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\02-HULL-FORM-AND-RESISTANCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SHIP RESISTANCE — THE DECOMPOSITION\n===============================================================================\n\n   TOTAL RESISTANCE  R_total\n        |\n        +----------------------------+----------------------------+\n        |                            |                            |\n        v                            v                            v\n  FRICTIONAL  R_f              RESIDUARY  R_r               AIR / APPENDAGE\n  (skin friction)             (everything left)            (above water + rudder)\n        |                            |                       usually small\n  scales with REYNOLDS         +-----+-----+\n  (viscosity)                  |           |\n  ~70-90% at slow speed        v           v\n                          WAVE-MAKING   FORM (viscous\n                            R_w          pressure) R_form\n                            |               |\n                       scales with     scales (mostly)\n                       FROUDE (gravity) with Reynolds\n                       grows steeply        small-ish\n                       near hull speed\n\n   THE TRICK: R_f scales by Reynolds, R_w by Froude. You can't match both\n   at model scale -> split them (Froude's method, detailed below).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "## Layer 1: Describing the Hull Shape",
+      "confidence": "candidate",
+      "text": "THE BLOCK COEFFICIENT Cb (fullness)\n===============================================================================\n\n   Cb = (hull underwater volume) / (L x B x T)\n      = how much of the enclosing box the hull actually fills\n\n   Cb -> 1.0 : BOX-LIKE              Cb -> 0.4 : FINE / SLENDER\n   .-------------------.             .-------------------.\n   |###################|  full       |        ###        |  fine\n   |###################|  bulk       |     #########      |  fast\n   |###################|  carrier    |  ###############   |  warship\n   '-------------------'             '-------------------'\n   slow, lots of cargo               fast, little cargo\n\n   A supertanker:  Cb ~ 0.80-0.85   (a brick — maximize volume)\n   A bulk carrier: Cb ~ 0.80\n   A container ship: Cb ~ 0.60-0.70\n   A frigate:      Cb ~ 0.45-0.50   (a knife — minimize wave drag)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "## Layer 3: Wave-Making Resistance — The Hull's Own Wake",
+      "confidence": "candidate",
+      "text": "THE KELVIN WAKE AND HULL SPEED\n===============================================================================\n\n   A displacement hull makes a bow wave and a stern wave. As speed rises,\n   the wavelength of the ship's own wave grows (lambda = 2 pi V^2 / g).\n   When that wavelength ~ the ship length, the ship sits in a trough of its\n   own making and \"climbs its own bow wave\" -- R_w shoots up.\n\n        bow wave              stern wave\n          /\\                     /\\\n   ~~~~~~/  \\~~~~~~~~~~~~~~~~~~~~/  \\~~~~~~ free surface\n       _/    \\__________________/    \\_\n      / SHIP                          \\\n     /________________________________\\\n     |<---------- L_ship ------------->|\n\n   \"Hull speed\" ~ when wave length = ship length, near Fn ~ 0.4:\n        V_hull (knots) ~ 1.34 x sqrt(L_waterline in feet)\n   Pushing a displacement hull past this needs sharply more power\n   (or you must plane / go semi-displacement -- different regime).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 227,
+      "heading_context": "## Layer 4: Froude's Method — Why Model Testing Works",
+      "confidence": "candidate",
+      "text": "THE INCOMPATIBILITY (and Froude's escape from it)\n===============================================================================\n\n   To match FROUDE:    V_model = V_ship / sqrt(scale)   (slow the model down)\n   To match REYNOLDS:  V_model = V_ship x scale          (speed it WAY up)\n                       -- these disagree by scale^1.5. Impossible together.\n\n   FROUDE'S HYPOTHESIS: total resistance splits into\n        R_total = R_friction(Reynolds) + R_residuary(Froude)\n   and the two are INDEPENDENT. So:\n\n   +------------------------------------------------------------------+\n   | 1. Tow the model at the FROUDE-matched speed.                    |\n   |    -> R_residuary (mostly wave-making) scales correctly by       |\n   |       Froude: same residuary COEFFICIENT model and full scale.   |\n   |                                                                  |\n   | 2. SUBTRACT a computed friction (flat plate, ITTC line) at       |\n   |    MODEL Reynolds to isolate R_residuary of the model.           |\n   |                                                                  |\n   | 3. SCALE residuary up by displacement ratio; ADD BACK a computed |\n   |    friction at FULL-SCALE Reynolds.                              |\n   |                                                                  |\n   | 4. R_ship = R_friction(full) + R_residuary(scaled).              |\n   +------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Layer 5: From Resistance to Power",
+      "confidence": "candidate",
+      "text": "THE POWER CHAIN\n===============================================================================\n\n   R_total  --x speed-->  EFFECTIVE POWER (PE = R x V)   <- power to tow the bare hull\n        |\n        | / quasi-propulsive coefficient (hull-propeller interaction, ~0.65-0.75)\n        v\n   DELIVERED POWER (PD)  <- power the propeller must put into the water\n        |\n        | / shaft & bearing losses (~0.98)\n        v\n   SHAFT POWER (PS)  <- power at the shaft out of the gearbox\n        |\n        | / transmission / gearbox (~0.97)\n        v\n   BRAKE POWER (PB)  <- power the engine produces  -> this sets engine size & fuel",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 375,
+      "heading_context": "### \"Friction or waves — which dominates?\"",
+      "confidence": "candidate",
+      "text": "   SLOW & FULL (tanker, Fn<0.2)   |  FAST & FINE (frigate, Fn~0.4)\n   ----------------------------   |  ----------------------------\n   friction = 80-90% of total     |  wave-making can be 50%+ of total\n   -> fight wetted surface,       |  -> fight wave-making: slenderness,\n      coatings, fouling           |     bulbous bow, length",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

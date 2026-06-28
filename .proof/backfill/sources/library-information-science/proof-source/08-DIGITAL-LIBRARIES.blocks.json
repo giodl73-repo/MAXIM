@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\08-DIGITAL-LIBRARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Digital Libraries — Knowledge Organization on the Network",
+      "confidence": "candidate",
+      "text": "+======================================================================================+\n|                        THE DIGITAL LIBRARY STACK                                     |\n+======================================================================================+\n|                                                                                      |\n|   .-----------------------------------------------------------------.                |\n|   | ACCESS LAYER     discovery UI, search (file 05), APIs           |                |\n|   '-----------------------------------------------------------------'                |\n|                              ^                                                       |\n|   .-----------------------------------------------------------------.                |\n|   | INTEROP LAYER    LINKED DATA (RDF) + SPARQL  |  OAI-PMH harvest  |               |\n|   |                  catalogs join across institutions               |               |\n|   '-----------------------------------------------------------------'                |\n|                              ^                                                       |\n|   .-----------------------------------------------------------------.                |\n|   | IDENTITY LAYER   PERSISTENT IDENTIFIERS  DOI / ARK / Handle      |               |\n|   |                  ORCID (people)  +  resolver indirection         |               |\n|   '-----------------------------------------------------------------'                |\n|                              ^                                                       |\n|   .-----------------------------------------------------------------.                |\n|   | REPOSITORY LAYER  the objects + metadata: DSpace, Fedora, etc.  |                |\n|   |                   (an OAIS-conformant store, file 06)            |               |\n|   '-----------------------------------------------------------------'                |\n+======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 89,
+      "heading_context": "## Persistent Identifiers — Why a URL Is Not a Key",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  URL  (a location -- fragile)                                              |\n|     https://uni.edu/repo/2019/papers/file42.pdf                            |\n|     |__ breaks when the server, path, or org structure changes             |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|  PERSISTENT IDENTIFIER  (an identity -- stable)                            |\n|     doi:10.1000/xyz123                                                     |\n|        |                                                                   |\n|        | RESOLVER (indirection)                                            |\n|        v                                                                   |\n|     https://...current-location...   <- the target can change; the         |\n|                                          PID stays the same forever        |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Linked Data — The Catalog as a Graph",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  THE RDF TRIPLE -- the atom of linked data                                 |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|     SUBJECT  ----  PREDICATE  ---->  OBJECT                                |\n|   <work#1>         dc:creator        <person#42>                           |\n|   <person#42>      orcid:id          \"0000-0002-1825-0097\"                 |\n|   <person#42>      rdfs:label        \"Tolkien, J.R.R.\"                     |\n|                                                                            |\n|   URIs (not local IDs) mean <person#42> can be the SAME node another       |\n|   institution -- or Wikidata -- references. Joins span the web.            |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 193,
+      "heading_context": "## Metadata Harvesting — OAI-PMH",
+      "confidence": "candidate",
+      "text": "   .-----------.   harvest    .-----------.   harvest   .--------------------.\n   | Repo A    |<------------ | AGGREGATOR | ----------->| Repo B, C, D, ...  |\n   | (exposes  |   (OAI-PMH)  | (e.g.      |  (OAI-PMH)  | each exposes        |\n   |  Dublin   |              |  BASE,     |             | Dublin Core via     |\n   |  Core)    | ------------>|  CORE)     |<----------- | the same protocol   |\n   '-----------'   records    '-----------'   records    '--------------------'\n                                   |\n                                   v\n                       one unified search index over all sources",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1077 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-library-information-science-information-retrieval",
+  "source": "../../library-information-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#000",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "# Information Retrieval — Finding and Ranking"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#001",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Everything upstream — classify, describe, control, index — exists so this step can\nwork: take a query, return the documents that satisfy the user's need, best first.\nInformation retrieval (IR) is the information-science half of LIS made quantitative,\nand it is the direct ancestor of the search engine. The two retrieval paradigms split\non one question: does a document **match** (set membership) or **score** (a ranking)?"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#002",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n+========================================================================================+\n|                       TWO RETRIEVAL PARADIGMS                                          |\n+========================================================================================+\n|                                                                                        |\n|   BOOLEAN (exact-match, set)             RANKED (best-first, scored)                   |\n|   --------------------------             ----------------------------                  |\n|                                                                                        |\n|   query: cats AND dogs NOT fish          query: cats dogs                              |\n|        |                                      |                                        |\n|        v                                      v                                        |\n|   .------------------.                  .---------------------------.                  |\n|   | postings sets:   |                  | score every doc by a       |                 |\n|   | cats = {1,4,7}   |                  | similarity/weight model:   |                 |\n|   | dogs = {4,9}     |                  |   TF-IDF, BM25, vector      |                |\n|   | INTERSECT -> {4} |                  | sort DESC, return top-k     |                |\n|   '------------------'                  '---------------------------'                  |\n|                                                                                        |\n|   RESULT: an unordered SET             RESULT: a ranked LIST                           |\n|   (in or out -- no degree)            (every doc has a relevance score)                |\n|                                                                                        |\n|   = set algebra on inverted lists      = a scoring function over the same lists        |\n+========================================================================================+\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#003",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Both paradigms run over the same data structure — the **inverted index** (term ->\npostings list of document IDs), the human-built version of which is file 04. The\ndifference is purely in what you do with the postings: Boolean intersects/unions\nthem into a set; ranked retrieval weights and sums them into a score."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#004",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#005",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "## The Inverted Index"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#006",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "The substrate of all retrieval. For each term, store the list of documents\ncontaining it (the postings list). A query touches only the terms it mentions, not\nthe whole corpus — the reason search is sublinear in collection size."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#007",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n+---------------------------------------------------------------------------+\n|  INVERTED INDEX (term -> postings)                                        |\n+---------------------------------------------------------------------------+\n|   term        postings (docID : term-frequency, positions)                |\n|   --------    --------------------------------------------                |\n|   \"cat\"   ->  [ d1:3 , d4:1 , d7:2 ]                                      |\n|   \"dog\"   ->  [ d4:5 , d9:1 ]                                             |\n|   \"fish\"  ->  [ d2:1 , d7:4 ]                                             |\n+---------------------------------------------------------------------------+\n|   Boolean AND  =  intersect postings sets.                                |\n|   Ranked        =  combine per-term weights across postings.              |\n+---------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#008",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "This is the same structure a search engine, a database full-text index (the GIN\nindex in PostgreSQL, FULLTEXT in MySQL, see `database-systems/`), and a card-catalog\nsubject index all use. The card catalog *was* an inverted index maintained by hand:\none drawer per subject heading, cards (document surrogates) filed under it."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#009",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#010",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "## Boolean Retrieval"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#011",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "The classic library/database model: a query is a logical expression over terms, and\na document either satisfies it or not. Exact, predictable, and the model behind every\nprofessional database search interface (legal, medical, patent)."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#012",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n   Operators:   AND (intersect)   OR (union)   NOT (difference)\n   Proximity:   \"machine NEAR/3 learning\"   (within 3 words)\n   Truncation:  comput*    (computer, computing, computation, ...)\n   Phrase:      \"information retrieval\"     (adjacent, in order)"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#013",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "( cat OR feline ) AND ( disease OR illness ) NOT veterinary\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#014",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "| Strength | Weakness |\n|---|---|\n| Exact, transparent, reproducible | No ranking — 5 or 5,000 hits, all \"equal\" |\n| Expert control over the set | Feast-or-famine (too many / zero results) |\n| Auditable (you can prove coverage) | Requires query-construction skill |\n| Deterministic | No notion of \"more relevant\" |"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#015",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Boolean's fatal flaw at web scale is the lack of ranking: a two-term AND over a\nbillion documents returns millions of equally-ranked hits, which is useless to a\nhuman who reads the first page. That is what ranked retrieval solves."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#016",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#017",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "## Ranked Retrieval and Term Weighting"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#018",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Ranked retrieval scores every document for the query and sorts. The score rests on\ntwo intuitions formalized in the 1970s, combined into **TF-IDF**:"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#019",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------------+\n|  TF-IDF  (the foundational term weight)                                    |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|   TF  Term Frequency        a term appearing more often in a document      |\n|                             signals that document is more about it.        |\n|                                                                            |\n|   IDF Inverse Document       a term appearing in FEW documents is more     |\n|       Frequency             discriminating. \"the\" is in everything ->      |\n|                             near-zero weight. \"quasispecies\" is rare ->    |\n|                             high weight.                                   |\n|                                                                            |\n|   weight(term, doc) = TF * IDF                                             |\n|     -> rare terms that are frequent in THIS doc score highest              |\n+----------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#020",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "In the **vector space model** (Gerard Salton, the SMART system, 1960s-70s) each\ndocument and the query become vectors in term space; relevance is the **cosine\nsimilarity** between them. This is the conceptual grandparent of dense-vector\nsearch — same geometry (vectors, cosine), but sparse term-count dimensions instead\nof learned dense embeddings."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#021",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "The production-standard refinement is **BM25** (Okapi BM25, Robertson and Sparck\nJones, 1990s): TF-IDF with two corrections that matter in practice —"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#022",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n   BM25 fixes two TF-IDF problems:"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#023",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "1. TERM-FREQUENCY SATURATION\n      The 50th occurrence of a word adds less than the 2nd. BM25 caps the TF\n      contribution with a saturating function (parameter k1) instead of letting\n      it grow linearly."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#024",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "2. DOCUMENT-LENGTH NORMALIZATION\n      Long documents trivially contain more term occurrences. BM25 normalizes by\n      length (parameter b) so a long doc is not unfairly favored.\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#025",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "BM25 is still the default lexical ranker in Elasticsearch, OpenSearch, Lucene, and\nmost full-text engines in 2026. It is what \"keyword search\" means in production, and\nit is the baseline every neural retrieval system is measured against."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#026",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n   THE RETRIEVAL LINEAGE (sparse -> dense)"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#027",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Boolean  ->  TF-IDF  ->  BM25  ->  dense / vector retrieval (embeddings)\n   set        weighted    length-     learned semantic similarity\n   match      sum         normalized  (see ai-engineering/)\n              cosine      saturated"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#028",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Modern systems run HYBRID: BM25 for lexical precision + vectors for semantic\n   recall, fused (e.g. reciprocal rank fusion). This file owns everything left\n   of \"dense\"; ai-engineering/ owns the embedding layer.\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#029",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#030",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "## Precision and Recall — The Core Metrics"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#031",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "How good is a retrieval result? Two complementary measures, predating IR theory\n(librarians used them informally for decades), now the standard evaluation of any\nclassifier or retriever you will ever build."
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#032",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------------+\n|  THE RELEVANCE CONFUSION MATRIX                                             |\n+-----------------------------------------------------------------------------+\n|                                                                            |\n|                       |  RELEVANT        |  NOT RELEVANT                    |\n|   ----------------------------------------------------------------------     |\n|   RETRIEVED           |  True Positive   |  False Positive (noise)          |\n|   NOT RETRIEVED       |  False Negative  |  True Negative                   |\n|                       |  (a miss)        |                                  |\n|                                                                            |\n|   PRECISION = TP / (TP + FP)   \"of what I returned, how much was right?\"    |\n|   RECALL    = TP / (TP + FN)   \"of all that was right, how much did I get?\" |\n+-----------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#033",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "```\n   The fundamental tension:"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#034",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "PRECISION up  <-------------------->  RECALL up\n   (return only sure things)            (return everything possibly relevant)"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#035",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "Return ONE perfect doc:   precision = 1.0, recall ~ 0\n   Return the WHOLE corpus:  recall = 1.0, precision ~ 0"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#036",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "You trade one for the other; the operating point is a policy choice.\n```"
+    },
+    {
+      "id": "05-INFORMATION-RETRIEVAL.md#037",
+      "path": [
+        "05-INFORMATION-RETRIEVAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:05-retrieval, git-history:library-information-science:05-retrieval]",
+        "canonical_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "concepts": "[information retrieval, Boolean retrieval, ranked retrieval, precision, recall, relevance, TF-IDF, BM25, inverted index, vector space model]",
+        "current_path": "library-information-science/05-INFORMATION-RETRIEVAL.md",
+        "id": "maxim:library-information-science:information-retrieval",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information retrieval]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Retrieval - Boolean, Ranked, Precision and Recall",
+        "updated": "null"
+      },
+      "text": "| Measure | Question it answers | When it dominates |\n|---|---|---|\n| **Precision** | Are my results clean? | Web search (page 1 must be good) |\n| **Recall** | Did I miss anything? | Legal discovery, systematic reviews, patents |\n| **F1** | Balanced single number | Harmonic mean of P and R |\n| **P@k** | Precision in the top k | Ranked results (what the user sees) |\n| **MAP** | Mean Average Precision | Averaged precision across queries/ranks |\n| **nDCG** | Graded relevance, position-discounted | When relevance is not binary |"
+    }
+  ],
+  "refs": [
+    "05-INFORMATION-RETRIEVAL.md"
+  ]
+}

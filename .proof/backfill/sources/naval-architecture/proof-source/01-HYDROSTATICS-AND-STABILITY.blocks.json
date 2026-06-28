@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\01-HYDROSTATICS-AND-STABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE TWO QUESTIONS OF HYDROSTATICS\n===============================================================================\n\n+---------------------------------------+---------------------------------------+\n|  Q1: DOES IT FLOAT?                   |  Q2: DOES IT STAY UPRIGHT?            |\n|  (vertical equilibrium)               |  (rotational equilibrium)             |\n|                                       |                                       |\n|        weight W (down)                |   tilt by theta, then ask:            |\n|            |                          |   does a RIGHTING torque appear?      |\n|            v                          |                                       |\n|    ~~~~~~~~~~~~~~~~~ waterline        |   ~~~~~~~~/~~~~~~~ heeled waterline   |\n|    '.              .'                 |     '.   M . pivot                    |\n|      '.   hull   .'                   |       '.  /|\\                         |\n|        '.      .'                     |        'G | '.  <- G fixed in ship    |\n|          '.__.'                       |          '. |B' '.  <- B to low side  |\n|            ^                          |            '|    '.                   |\n|            |                          |             '.___ '.                  |\n|     buoyancy Fb (up)                  |      W down vs Fb up = a couple       |\n|                                       |                                       |\n|   FLOATS when  Fb = W                 |   RIGHTS when  M is ABOVE G           |\n+---------------------------------------+---------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 79,
+      "heading_context": "## Layer 1: Archimedes and Vertical Equilibrium",
+      "confidence": "candidate",
+      "text": "PRESSURE INTEGRAL -> BUOYANT FORCE (why Archimedes is exact, not a rule of thumb)\n===============================================================================\n\n   sea surface  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n                 small p here     |     |     small p\n                       \\          v     v          /\n                        .-------------------------.\n   deep -> big p ->  => |        HULL VOLUME      | <= => big p\n                        |     (displaces water)   |\n                        '-------------------------'\n                       /          ^     ^          \\\n                 big p here       |     |       big p here\n                 (net UP because bottom pressure > top pressure)\n\n   Resultant = rho g V, acting up through B (centroid of submerged volume).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "## Layer 2: The Metacenter — Why a Ship Rights Itself",
+      "confidence": "candidate",
+      "text": "THE METACENTER GEOMETRY (small-angle heel)\n===============================================================================\n\n                         . M   <- metacenter: where the new buoyancy\n                        /|\\        line crosses the centerline\n                       / | \\\n                      /  |  \\\n                upright  |   \\\n              buoyancy   |    \\\n                line     G  <- centre of gravity (fixed in the ship)\n                      |  |\\    \\\n                      |  | \\    \\\n                  ~~~~|~~|~~\\~~~~|~~~~ heeled waterline\n                    \\ |  |   \\   |  /\n                     \\|  B    \\ B' <- buoyancy shifts to low side\n                      \\  |     \\| /\n                       \\ +------+ /     KB = height of B above keel K\n                        \\|      |/      BM = height of M above B\n                         +------+       KM = KB + BM\n                            K  <- keel (reference datum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### GM — the stability stiffness",
+      "confidence": "candidate",
+      "text": "   GM > 0   M above G   -> STABLE. Disturbance creates a righting torque.\n   GM = 0   M at G       -> NEUTRAL. Ship sits at any small angle (dangerous).\n   GM < 0   M below G    -> UNSTABLE. Disturbance creates a CAPSIZING torque;\n                            ship \"lolls\" to a heeled angle of equilibrium.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 204,
+      "heading_context": "### GM — the stability stiffness",
+      "confidence": "candidate",
+      "text": "+-------------------+-------------------+-------------------+\n|   STABLE (GM>0)   |  NEUTRAL (GM=0)   |  UNSTABLE (GM<0)  |\n|-------------------|-------------------|-------------------|\n|        M          |                   |        G          |\n|        |          |       M = G       |        |          |\n|        G          |        .          |        M          |\n|     righting      |     no torque     |    overturning    |\n|     returns it    |   stays heeled    |   loll / capsize  |\n+-------------------+-------------------+-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 230,
+      "heading_context": "## Layer 3: The Righting Arm GZ and the Stability Curve",
+      "confidence": "candidate",
+      "text": "THE RIGHTING ARM GZ (the exact, large-angle quantity)\n===============================================================================\n\n                    G------>Z          GZ = horizontal lever between the\n                    |       |                weight line and buoyancy line\n              W down|       |Fb up\n                    v       ^           Righting moment = W x GZ = Delta x GZ\n              ~~~~~~|~~~~~~~|~~~~~~ heeled waterline\n                    |       |\n                    G'      B'\n                  (gravity)(buoyancy)\n\n   Small-angle approximation:   GZ  ~=  GM x sin(theta)\n   (valid only while M is effectively fixed, roughly theta < 7-10 deg)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Layer 3: The Righting Arm GZ and the Stability Curve",
+      "confidence": "candidate",
+      "text": "THE GZ CURVE (curve of statical stability)\n===============================================================================\n\n  GZ\n  (m) |\n 0.8 -|                 ___ GZ_max (peak righting arm)\n      |              .-'   '-.\n 0.6 -|            .'         '.\n      |          .'             '.\n 0.4 -|        .'                 '.\n      |      .'  <- slope here =     '.\n 0.2 -|    .'      GM (deg->rad)       '.\n      |  .'                              '.\n 0.0 -+-'----------------------------------'------> heel angle theta\n      0    10    20    30    40    50    60   70 (deg)\n      |<-- area = dynamic stability (energy) -->|  ^\n                                                   |\n                                  angle of vanishing stability (AVS):\n                                  GZ returns to zero -> ship capsizes beyond this",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 345,
+      "heading_context": "## Layer 5: Damage Stability — Floating After Flooding",
+      "confidence": "candidate",
+      "text": "SUBDIVISION & DAMAGE STABILITY\n===============================================================================\n\n   A long open hold = one breach floods everything = sink.\n   Watertight bulkheads divide the hull into compartments:\n\n   .----+----+----+----+----+----+----+----.\n   | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 |   <- transverse bulkheads\n   '----+----+----+----+----+----+----+----'\n              XXXX  <- C3 holed and flooded\n   The ship sinks deeper and trims, but C2 and C4 bulkheads\n   contain the water. Reserve buoyancy (freeboard) keeps it afloat.\n\n   \"One-compartment ship\": survives ANY single compartment flooded.\n   \"Two-compartment ship\": survives any two adjacent flooded (e.g. passenger).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 450,
+      "heading_context": "### GM, GZ, and the righting moment are three different things",
+      "confidence": "candidate",
+      "text": "   GM  = metacentric height   [length]   -> the SLOPE of stability at zero heel\n   GZ  = righting arm         [length]   -> the LEVER at a given heel\n   M_r = righting moment      [force.length] = Delta x GZ -> the TORQUE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

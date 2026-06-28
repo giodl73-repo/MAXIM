@@ -1,0 +1,405 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-naval-architecture-hull-form-and-resistance",
+  "source": "../../naval-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#000",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "# Hull Form and Resistance"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#001",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#002",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "The water resists every metre a ship moves. That resistance — and the engine power\nneeded to overcome it — is the single biggest driver of fuel cost, emissions, and the\nchoice of hull shape. The crucial discovery, due to William Froude in the 1860s-70s,\nis that ship resistance is not one thing but a *sum of separable components* that obey\n*different scaling laws*. Splitting them is what lets us test a 5-metre model in a tank\nand confidently predict the drag of a 300-metre ship."
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#003",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "```\nSHIP RESISTANCE — THE DECOMPOSITION\n==============================================================================="
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#004",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "TOTAL RESISTANCE  R_total\n        |\n        +----------------------------+----------------------------+\n        |                            |                            |\n        v                            v                            v\n  FRICTIONAL  R_f              RESIDUARY  R_r               AIR / APPENDAGE\n  (skin friction)             (everything left)            (above water + rudder)\n        |                            |                       usually small\n  scales with REYNOLDS         +-----+-----+\n  (viscosity)                  |           |\n  ~70-90% at slow speed        v           v\n                          WAVE-MAKING   FORM (viscous\n                            R_w          pressure) R_form\n                            |               |\n                       scales with     scales (mostly)\n                       FROUDE (gravity) with Reynolds\n                       grows steeply        small-ish\n                       near hull speed"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#005",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "THE TRICK: R_f scales by Reynolds, R_w by Froude. You can't match both\n   at model scale -> split them (Froude's method, detailed below).\n```"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#006",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "The whole guide hangs off this one diagram. Frictional resistance scales by Reynolds\nnumber; wave-making by Froude number; they cannot be matched simultaneously in a model,\nso Froude *separated* them. (For the general physics of skin friction and wave drag, see\n`fluid-dynamics/04-BOUNDARY-LAYERS.md` and `fluid-dynamics/08-HYDRODYNAMICS.md`; this\nguide specializes that physics to the hull-and-free-surface problem.)"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#007",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#008",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "## Layer 1: Describing the Hull Shape"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#009",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "Before resistance, you need a vocabulary for hull geometry. A hull is described by a\nhandful of dimensionless **form coefficients**, each comparing the actual hull to a\nsimple enclosing box or prism. They are the compressed DNA of a hull form."
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#010",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "```\nTHE BLOCK COEFFICIENT Cb (fullness)\n==============================================================================="
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#011",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "Cb = (hull underwater volume) / (L x B x T)\n      = how much of the enclosing box the hull actually fills"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#012",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "Cb -> 1.0 : BOX-LIKE              Cb -> 0.4 : FINE / SLENDER\n   .-------------------.             .-------------------.\n   |###################|  full       |        ###        |  fine\n   |###################|  bulk       |     #########      |  fast\n   |###################|  carrier    |  ###############   |  warship\n   '-------------------'             '-------------------'\n   slow, lots of cargo               fast, little cargo"
+    },
+    {
+      "id": "02-HULL-FORM-AND-RESISTANCE.md#013",
+      "path": [
+        "02-HULL-FORM-AND-RESISTANCE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:naval-architecture:02-hull-form-and-resistance, git-history:naval-architecture:02-hull-form-and-resistance]",
+        "canonical_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "concepts": "[hull form, block coefficient, resistance, froude number, wave-making, model testing]",
+        "current_path": "naval-architecture/02-HULL-FORM-AND-RESISTANCE.md",
+        "id": "maxim:naval-architecture:hull-form-and-resistance",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hull form, ship resistance]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hull Form and Resistance",
+        "updated": "null"
+      },
+      "text": "A supertanker:  Cb ~ 0.80-0.85   (a brick — maximize volume)\n   A bulk carrier: Cb ~ 0.80\n   A container ship: Cb ~ 0.60-0.70\n   A frigate:      Cb ~ 0.45-0.50   (a knife — minimize wave drag)\n```"
+    }
+  ],
+  "refs": [
+    "02-HULL-FORM-AND-RESISTANCE.md"
+  ]
+}

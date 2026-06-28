@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\06-MARINE-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE SHIP AS A SELF-CONTAINED UTILITY (every utility a city has, onboard)\n===============================================================================\n\n   +---------------------------------------------------------------------+\n   | PRIME POWER: main engine(s) + generators  ->  the source of all     |\n   +---------------------------------------------------------------------+\n        |            |             |            |            |\n        v            v             v            v            v\n   .---------. .-----------. .-----------. .---------. .-------------.\n   |PROPULS- | |ELECTRICAL | | STEERING  | | FLUID   | | HABITABIL-  |\n   |ION TRAIN| |GENERATION | | & MANEUV. | | SYSTEMS | | ITY (HVAC,  |\n   |shaft,   | |& DISTRIB. | | rudder,   | |ballast, | | fresh water,|\n   |gearbox  | |gensets,   | | thrusters,| |bilge,   | | sewage,     |\n   |[guide03]| |switchboard| | steering  | |fuel,    | | refrigera-  |\n   |         | |MSB, loads | | gear      | |cooling  | | tion)       |\n   '---------' '-----------' '-----------' '---------' '-------------'\n        |            |             |            |            |\n        +------------+-------------+------------+------------+\n                              |\n                     SAFETY SYSTEMS overlay everything:\n                     fire main, CO2/water mist, lifeboats, bilge alarms,\n                     emergency generator + emergency switchboard (own fuel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 69,
+      "heading_context": "## Layer 1: Shipboard Electrical Power",
+      "confidence": "candidate",
+      "text": "SHIPBOARD ELECTRICAL ARCHITECTURE (an islanded microgrid)\n===============================================================================\n\n   GEN 1   GEN 2   GEN 3   SHAFT GEN        EMERGENCY GEN (own fuel + start)\n     |       |       |        |                       |\n     +-------+-------+--------+                        |\n                     |                                 |\n            .========================.        .================.\n            |   MAIN SWITCHBOARD     |        | EMERGENCY      |\n            |   (MSB) - the \"bus\"    |--tie-->| SWITCHBOARD    |\n            '========================'        '================'\n              |       |       |                   |        |\n              v       v       v                   v        v\n          propulsion  hotel   deck            steering   nav/comms\n          (if D-E)    load    machinery       gear       emergency lighting\n\n   POWER MANAGEMENT SYSTEM (PMS) decides which gensets run, load-shares\n   them, sheds non-essential load on a fault, and starts a standby genset\n   before the bus collapses. A real-time control problem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Layer 2: Steering and Maneuvering",
+      "confidence": "candidate",
+      "text": "HOW A RUDDER TURNS A SHIP (a wing in the propeller race)\n===============================================================================\n\n   propeller wash -->  ====>  ___\n                              /   \\  rudder angled\n                       ====> |     | -> generates SIDE force (lift)\n                              \\___/      |\n                                         v\n   side force aft -> yawing moment about the ship's pivot point\n   -> bow swings the OTHER way -> ship turns.\n\n   The rudder works on the FAST propeller race, so it bites even at\n   modest ship speed -- but at near-zero speed there is no flow over it\n   and it stalls. That is why docking uses thrusters, not the rudder.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 172,
+      "heading_context": "## Layer 3: Ballast, Bilge, and Tank Systems",
+      "confidence": "candidate",
+      "text": "THE FLUID SYSTEMS (a network of tanks, pumps, and valves)\n===============================================================================\n\n   BALLAST: pump seawater IN/OUT of ballast tanks to:\n     - adjust draft (empty ship rides high -> add ballast for propeller\n       immersion and seakeeping)\n     - correct trim and heel (move ballast fore/aft, port/stbd)\n     - maintain stability and limit hull-girder bending (link to [01],[04])\n\n        +----+----+----+----+   double-bottom + wing ballast tanks\n        | WB | WB | WB | WB |   pumped via a ballast main + valves\n        +----+----+----+----+\n\n   BILGE: remove unwanted water (leaks, condensation, washdown) from the\n   bottom of machinery and cargo spaces. Bilge wells -> bilge pumps ->\n   overboard (through an OILY-WATER SEPARATOR, by law, if any oil present).\n\n   FUEL: settling tank -> purifier (centrifuge) -> service tank -> engine.\n   Heavy fuel oil must be HEATED to flow and centrifuged to remove water\n   and sludge before it can be burned.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "## Layer 4: Habitability — Air, Water, Climate",
+      "confidence": "candidate",
+      "text": "THE LIFE-SUPPORT SYSTEMS\n===============================================================================\n\n   HVAC: ventilate, heat, cool, dehumidify. Marine twists:\n     - SALT AIR is corrosive -> filtration and corrosion-resistant coils\n     - machinery spaces need huge ventilation (engine combustion air +\n       heat rejection) -> big intake/exhaust trunks\n     - fire dampers in every duct (a duct is a fire highway)\n     - on cruise ships, HVAC is a major share of the hotel electrical load\n\n   FRESH WATER: a ship MAKES its own water from the sea:\n     - evaporators (use waste engine heat to distill) -- classic, cheap heat\n     - reverse osmosis (RO) -- membranes, electrically driven, now common\n     -> potable water for crew/guests + technical water for the plant\n\n   REFRIGERATION: provisions stores + (on reefer ships) the cargo itself.\n\n   SEWAGE: marine sanitation device (MSD) -- biological/chemical treatment\n     before discharge; black water and grey water handled per MARPOL Annex IV.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Layer 5: Safety Systems",
+      "confidence": "candidate",
+      "text": "THE SAFETY OVERLAY\n===============================================================================\n\n  FIRE:    detection (smoke/heat sensors) + fire main (seawater, always\n           pressurized) + fixed systems:\n             - CO2 flooding or water-mist for machinery spaces\n             - sprinklers for accommodation\n             - inert gas (IG) for tanker cargo tanks (no oxygen -> no fire)\n           + structural fire protection: A/B/C-class boundaries that hold\n             back fire for a rated time (A-60 = 60 min insulation).\n\n  FLOODING: bilge alarms, watertight doors (remote-closable), the damage\n            stability of [01] as the last line.\n\n  ABANDON: lifeboats (often free-fall on cargo ships), liferafts, immersion\n           suits, EPIRBs, the GMDSS distress radio system.\n\n  POWER:   emergency generator + emergency switchboard (own fuel, autostart)\n           keeps steering, navigation lights, comms, and lighting alive\n           through a main-plant blackout.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Worked Example: Sizing the Electrical Plant and a Blackout Recovery",
+      "confidence": "candidate",
+      "text": "   GIVEN electrical demand (the \"electrical load analysis\"):\n     Hotel/accommodation load        ........  900 kW\n     Deck & machinery auxiliaries    ........  700 kW\n     HVAC                            ........  600 kW\n     Bow thruster (intermittent)     ........ 1200 kW (only at maneuvering)\n     Sea-going steady load (no thruster) ~ 2200 kW\n\n   STEP 1 -- pick genset size with N+1 redundancy:\n     Use 3 x 1100 kW gensets. At sea, 2 running carry 2200 kW; 1 is standby.\n     -> any one genset can fail and the ship still meets sea load. N+1. OK.\n\n   STEP 2 -- maneuvering peak (thruster online):\n     2200 + 1200 = 3400 kW. Run all 3 gensets (3300 kW) PLUS shed the bow\n     thruster's full draw via soft-start/limit, or run a 4th set in port.\n     The PMS auto-starts the standby set before the thruster is engaged.\n\n   STEP 3 -- a generator trips at sea (the bad moment):\n     bus frequency starts to droop as the surviving sets overload ->\n       a) PMS sheds non-essential load (some HVAC, deck machinery) in ms\n       b) PMS signals the standby genset to autostart and synchronize\n       c) frequency recovers; shed loads restored. Ship never went dark.\n\n   STEP 4 -- total blackout (all main gensets lost):\n     emergency generator autostarts (within ~45 s per SOLAS), emergency\n     switchboard energizes: STEERING GEAR, nav lights, GMDSS radio,\n     emergency lighting, fire pump. The ship can steer and call for help\n     while the engineers restore the main plant (a \"dead-ship start\"\n     using emergency power + air bottles to relight the main engine).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

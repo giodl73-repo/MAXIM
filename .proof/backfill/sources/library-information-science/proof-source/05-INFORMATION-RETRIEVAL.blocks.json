@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\05-INFORMATION-RETRIEVAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Information Retrieval — Finding and Ranking",
+      "confidence": "candidate",
+      "text": "+========================================================================================+\n|                       TWO RETRIEVAL PARADIGMS                                          |\n+========================================================================================+\n|                                                                                        |\n|   BOOLEAN (exact-match, set)             RANKED (best-first, scored)                   |\n|   --------------------------             ----------------------------                  |\n|                                                                                        |\n|   query: cats AND dogs NOT fish          query: cats dogs                              |\n|        |                                      |                                        |\n|        v                                      v                                        |\n|   .------------------.                  .---------------------------.                  |\n|   | postings sets:   |                  | score every doc by a       |                 |\n|   | cats = {1,4,7}   |                  | similarity/weight model:   |                 |\n|   | dogs = {4,9}     |                  |   TF-IDF, BM25, vector      |                |\n|   | INTERSECT -> {4} |                  | sort DESC, return top-k     |                |\n|   '------------------'                  '---------------------------'                  |\n|                                                                                        |\n|   RESULT: an unordered SET             RESULT: a ranked LIST                           |\n|   (in or out -- no degree)            (every doc has a relevance score)                |\n|                                                                                        |\n|   = set algebra on inverted lists      = a scoring function over the same lists        |\n+========================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 66,
+      "heading_context": "## The Inverted Index",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  INVERTED INDEX (term -> postings)                                        |\n+---------------------------------------------------------------------------+\n|   term        postings (docID : term-frequency, positions)                |\n|   --------    --------------------------------------------                |\n|   \"cat\"   ->  [ d1:3 , d4:1 , d7:2 ]                                      |\n|   \"dog\"   ->  [ d4:5 , d9:1 ]                                             |\n|   \"fish\"  ->  [ d2:1 , d7:4 ]                                             |\n+---------------------------------------------------------------------------+\n|   Boolean AND  =  intersect postings sets.                                |\n|   Ranked        =  combine per-term weights across postings.              |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Ranked Retrieval and Term Weighting",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  TF-IDF  (the foundational term weight)                                    |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|   TF  Term Frequency        a term appearing more often in a document      |\n|                             signals that document is more about it.        |\n|                                                                            |\n|   IDF Inverse Document       a term appearing in FEW documents is more     |\n|       Frequency             discriminating. \"the\" is in everything ->      |\n|                             near-zero weight. \"quasispecies\" is rare ->    |\n|                             high weight.                                   |\n|                                                                            |\n|   weight(term, doc) = TF * IDF                                             |\n|     -> rare terms that are frequent in THIS doc score highest              |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Ranked Retrieval and Term Weighting",
+      "confidence": "candidate",
+      "text": "   THE RETRIEVAL LINEAGE (sparse -> dense)\n\n   Boolean  ->  TF-IDF  ->  BM25  ->  dense / vector retrieval (embeddings)\n   set        weighted    length-     learned semantic similarity\n   match      sum         normalized  (see ai-engineering/)\n              cosine      saturated\n\n   Modern systems run HYBRID: BM25 for lexical precision + vectors for semantic\n   recall, fused (e.g. reciprocal rank fusion). This file owns everything left\n   of \"dense\"; ai-engineering/ owns the embedding layer.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 186,
+      "heading_context": "## Precision and Recall — The Core Metrics",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------------+\n|  THE RELEVANCE CONFUSION MATRIX                                             |\n+-----------------------------------------------------------------------------+\n|                                                                            |\n|                       |  RELEVANT        |  NOT RELEVANT                    |\n|   ----------------------------------------------------------------------     |\n|   RETRIEVED           |  True Positive   |  False Positive (noise)          |\n|   NOT RETRIEVED       |  False Negative  |  True Negative                   |\n|                       |  (a miss)        |                                  |\n|                                                                            |\n|   PRECISION = TP / (TP + FP)   \"of what I returned, how much was right?\"    |\n|   RECALL    = TP / (TP + FN)   \"of all that was right, how much did I get?\" |\n+-----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Precision and Recall — The Core Metrics",
+      "confidence": "candidate",
+      "text": "   The fundamental tension:\n\n   PRECISION up  <-------------------->  RECALL up\n   (return only sure things)            (return everything possibly relevant)\n\n   Return ONE perfect doc:   precision = 1.0, recall ~ 0\n   Return the WHOLE corpus:  recall = 1.0, precision ~ 0\n\n   You trade one for the other; the operating point is a policy choice.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 238,
+      "heading_context": "## Relevance — The Slippery Foundation",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  DIMENSIONS OF RELEVANCE                                                  |\n+---------------------------------------------------------------------------+\n|  TOPICAL     Is it about the subject?        (what TF-IDF/BM25 estimates) |\n|  COGNITIVE   Does it match what THIS user already knows / needs?          |\n|  SITUATIONAL Is it useful for the task at hand, right now?                |\n|  AFFECTIVE   Does it satisfy the user (trust, novelty, format)?           |\n+---------------------------------------------------------------------------+\n|  Algorithms estimate TOPICAL relevance well and the rest poorly --        |\n|  which is why ranking signals (clicks, recency, authority) and learning-  |\n|  to-rank exist: to approximate the dimensions the text alone cannot.      |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 310,
+      "heading_context": "### \"Boolean vs. ranked — is Boolean obsolete?\"",
+      "confidence": "candidate",
+      "text": "### \"Is BM25 obsolete now that we have embeddings?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

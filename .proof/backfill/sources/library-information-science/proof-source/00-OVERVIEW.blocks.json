@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "# Library & Information Science — The Landscape",
+      "confidence": "candidate",
+      "text": "+======================================================================================+\n|                THE INFORMATION LIFECYCLE  (organize -> describe -> retrieve)         |\n+======================================================================================+\n|                                                                                      |\n|   .-----------.   .-----------.   .-----------.   .-----------.   .-----------.      |\n|   | CLASSIFY  |-->| DESCRIBE  |-->|  CONTROL  |-->|   INDEX   |-->| RETRIEVE  |      |\n|   |   (01)    |   |   (02)    |   |   (03)    |   |   (04)    |   |   (05)    |      |\n|   | where on  |   | who/what/ |   | which     |   | subject   |   | query +   |      |\n|   | the shelf |   | when meta |   | words are |   | access    |   | rank by   |      |\n|   | (the tree)|   | (a schema)|   | canonical |   | points    |   | relevance |      |\n|   '-----------'   '-----------'   '-----------'   '-----------'   '-----------'      |\n|        |                |               |               |               |            |\n|        | Dewey/LC/UDC   | MARC/RDA      | LCSH/         | pre- vs       | Boolean/   |\n|        | Colon          | FRBR/         | thesauri/     | post-         | TF-IDF/    |\n|        | (faceted)      | BIBFRAME/DC   | ontologies    | coordination  | BM25       |\n|        '----------------'---------------'---------------'---------------'            |\n|                                       |                                              |\n|        ORTHOGONAL CONCERNS that wrap the whole pipeline:                             |\n|        .------------------.  .------------------.  .------------------.              |\n|        | PRESERVE  (06)   |  | MANAGE   (07)    |  | NETWORK  (08)    |              |\n|        | archives, OAIS,  |  | acquisition,     |  | digital libs,    |              |\n|        | digital pres.    |  | open access      |  | linked data, DOI |              |\n|        '------------------'  '------------------'  '------------------'              |\n|                                       |                                              |\n|        .--------------------------------------------------------------.              |\n|        | LITERACY (09): the user finds, evaluates, and acts ethically |              |\n|        '--------------------------------------------------------------'              |\n+======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 81,
+      "heading_context": "## Ranganathan's Five Laws — The Field's Axioms",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------------+\n|  RANGANATHAN'S FIVE LAWS (1931)                                             |\n+-----------------------------------------------------------------------------+\n|  1. Books are for use.            -> access beats preservation-as-hoarding. |\n|  2. Every reader his/her book.    -> coverage: serve every user's need.     |\n|  3. Every book its reader.        -> findability: each item must surface.   |\n|  4. Save the time of the reader.  -> efficiency: latency is a design goal.  |\n|  5. The library is a growing      -> the system must scale and evolve.      |\n|     organism.                                                               |\n+-----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "## The Two Mental Models: Tree vs. Facet",
+      "confidence": "candidate",
+      "text": "   ENUMERATIVE (a tree)                  FACETED (a composition / cross-product)\n\n   Pre-built hierarchy. Every            Independent axes. Build the class\n   class is a node already in the        on demand by combining facet values.\n   tree. You walk down to a leaf.\n\n        ROOT                             SUBJECT  x  PLACE  x  TIME  x  FORM\n       /    \\                            -------     -----     ----     ----\n   Science  History                      Cooking     India     1900s    Manual\n    /  \\      /  \\                        |           |         |        |\n  Bio  Phys Anc  Mod                      '-----> \"Indian cooking manuals,\n   |                                              early 1900s\" (synthesized)\n  Leaf = call number\n\n   Dewey, LC are mostly enumerative.     Colon Classification, UDC's auxiliaries,\n   Pick the nearest existing node.       and every modern tag system are faceted.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 141,
+      "heading_context": "## The Catalog: From Card to Schema to Graph",
+      "confidence": "candidate",
+      "text": "+----------------+   +----------------+   +----------------+   +----------------+\n|  CARD CATALOG  |-->|   MARC (1968)  |-->|  FRBR / RDA    |-->| BIBFRAME / LD  |\n|  (paper)       |   |  flat record   |   |  entity model  |   |  RDF graph     |\n+----------------+   +----------------+   +----------------+   +----------------+\n| One physical   |   | A fixed-field  |   | Work/Express./ |   | Triples; URIs  |\n| card per entry,|   | binary schema  |   | Manifest./Item |   | for every      |\n| filed by rule. |   | for computers. |   | as an ER model.|   | entity. Joins  |\n|                |   |                |   |                |   | across the web.|\n| = index cards  |   | = a row with   |   | = normalized   |   | = a knowledge  |\n|   in a drawer  |   |   tagged fields |   |   ER schema    |   |   graph        |\n+----------------+   +----------------+   +----------------+   +----------------+\n   1870s-1960s          1968-present         2010s-present       2011-present",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## What This Directory Is — and Is Not",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  THIS DIRECTORY (library-information-science/)                            |\n|  Organizing, describing, retrieving RECORDED KNOWLEDGE.                   |\n|  The human and conceptual systems: schemes, schemas, vocabularies,        |\n|  relevance, preservation, access.                                         |\n+---------------------------------------------------------------------------+\n        |                |                  |                               |\n        | borrows from   | borrows from     | borrows from                  |\n        v                v                  v                   v\n+--------------+ +----------------+ +-----------------+ +------------------ +\n| database-    | | query-         | | ai-engineering/ | | linguistics/      |\n| systems/     | | languages/     | | (vector DBs,    | | (sense/reference, |\n| (B-trees,    | | (SQL, SPARQL   | |  embeddings,    | |  morphology that  |\n| MVCC, the    | |  syntax — the  | |  semantic       | |  vocabularies     |\n| engine)      | |  query layer)  | |  search)        | |  must handle)     |\n+--------------+ +----------------+ +-----------------+ +------------------ +",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 256,
+      "heading_context": "### \"Classification vs. cataloging — which is which?\"",
+      "confidence": "candidate",
+      "text": "### \"Why Ranganathan? He was a librarian from 1931.\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

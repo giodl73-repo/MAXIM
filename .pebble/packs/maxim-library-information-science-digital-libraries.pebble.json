@@ -1,0 +1,993 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-library-information-science-digital-libraries",
+  "source": "../../library-information-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#000",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "# Digital Libraries — Knowledge Organization on the Network"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#001",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "A digital library carries the whole apparatus of the preceding files — classify,\ndescribe, control, retrieve, preserve — onto the network. Three things change at that\nboundary and define this file: content lives in **repositories**, metadata is exposed\nas **linked data** so catalogs join across institutions, and every object needs a\n**persistent identifier** because a raw URL is not a stable key. This is the LIS world\nre-platformed onto the web's primitives."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#002",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "```\n+======================================================================================+\n|                        THE DIGITAL LIBRARY STACK                                     |\n+======================================================================================+\n|                                                                                      |\n|   .-----------------------------------------------------------------.                |\n|   | ACCESS LAYER     discovery UI, search (file 05), APIs           |                |\n|   '-----------------------------------------------------------------'                |\n|                              ^                                                       |\n|   .-----------------------------------------------------------------.                |\n|   | INTEROP LAYER    LINKED DATA (RDF) + SPARQL  |  OAI-PMH harvest  |               |\n|   |                  catalogs join across institutions               |               |\n|   '-----------------------------------------------------------------'                |\n|                              ^                                                       |\n|   .-----------------------------------------------------------------.                |\n|   | IDENTITY LAYER   PERSISTENT IDENTIFIERS  DOI / ARK / Handle      |               |\n|   |                  ORCID (people)  +  resolver indirection         |               |\n|   '-----------------------------------------------------------------'                |\n|                              ^                                                       |\n|   .-----------------------------------------------------------------.                |\n|   | REPOSITORY LAYER  the objects + metadata: DSpace, Fedora, etc.  |                |\n|   |                   (an OAIS-conformant store, file 06)            |               |\n|   '-----------------------------------------------------------------'                |\n+======================================================================================+\n```"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#003",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "Read bottom-up: a repository holds objects, each gets a persistent identifier, the\nmetadata is published as linked data and harvested, and an access layer searches and\nserves it. Each layer maps onto infrastructure a senior engineer already runs."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#004",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#005",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "## Repositories — The Object Store"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#006",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "A **repository** is a managed store of digital objects with their metadata, access\ncontrol, and (ideally) OAIS-conformant preservation (file 06). The dominant kinds:"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#007",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "| Repository type | Holds | Examples |\n|---|---|---|\n| Institutional repository (IR) | An institution's own output (papers, theses, data) | DSpace, EPrints |\n| Disciplinary / preprint | A field's literature | arXiv, bioRxiv, SSRN |\n| Data repository | Research datasets | Zenodo, Dryad, Figshare |\n| Digital asset / object store | Images, A/V, complex objects | Fedora, Samvera, Islandora |"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#008",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "Functionally an IR is a **self-hosted artifact store with metadata, access policy, and\na retention/preservation guarantee** — the same role an internal package registry or\nartifact repository plays for build outputs, applied to scholarship. The collection-\nmanagement value-chain move from file 07 (library as *operator of repositories* rather\nthan mere *buyer of access*) lands here: running an IR is running your own platform\ninstead of consuming a vendor's."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#009",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#010",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "## Persistent Identifiers — Why a URL Is Not a Key"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#011",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "The web's native identifier, the URL, is a *location*. Locations move and die; the\naverage URL rots within years (\"link rot\"). A scholarly or cultural record needs an\nidentifier that is a **stable, resolvable primary key independent of current location**\n— a layer of indirection between \"what this thing is\" and \"where it currently lives.\""
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#012",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------------+\n|  URL  (a location -- fragile)                                              |\n|     https://uni.edu/repo/2019/papers/file42.pdf                            |\n|     |__ breaks when the server, path, or org structure changes             |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|  PERSISTENT IDENTIFIER  (an identity -- stable)                            |\n|     doi:10.1000/xyz123                                                     |\n|        |                                                                   |\n|        | RESOLVER (indirection)                                            |\n|        v                                                                   |\n|     https://...current-location...   <- the target can change; the         |\n|                                          PID stays the same forever        |\n+----------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#013",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "This is a level of indirection — a symbolic name resolved through a registry to the\ncurrent concrete address, exactly like a DNS name in front of a changing IP, or a\nstable artifact coordinate (group:name:version) resolved to whatever URL currently\nserves it. The maintainer updates the *target* when the object moves; the identifier\nnever changes. The major schemes:"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#014",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "| Identifier | For | Resolves via | Governance / note |\n|---|---|---|---|\n| **DOI** | Articles, datasets, objects | doi.org (built on Handle) | Registries: Crossref, DataCite. The scholarly default. |\n| **Handle** | Any digital object | Handle System | The substrate DOIs are built on |\n| **ARK** | Any object (incl. physical) | A NAAN + resolver | Decentralized, free, no central authority; cultural heritage favorite |\n| **ORCID** | Researchers (people) | orcid.org | Disambiguates author identity (an authority record, file 03, for living scholars) |\n| **PURL** | Web resources | A redirect service | Persistent URL via a maintained redirect |"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#015",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "```\n   DOI  vs  ARK -- the same idea, different governance models:"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#016",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "DOI   centralized, registry fees, strong commercial backing, ubiquitous\n         in scholarly publishing (Crossref/DataCite). A managed, paid registry."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#017",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "ARK   decentralized, free, no central registration authority, designed so any\n         institution can mint and resolve its own. Favored by libraries, archives,\n         and museums that want no dependency on a paid central registry."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#018",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "Choosing between them is a governance/control decision, not a technical one --\n   like a managed naming service vs. self-operated naming.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#019",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "**ORCID** deserves its own note: it is authority control (file 03) for *people*,\nsolving the same disambiguation problem (two researchers named J. Smith; one\nresearcher who changed institutions and surnames) with a stable identifier instead of\na name string. It is a canonical-entity ID for humans."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#020",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#021",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "## Linked Data — The Catalog as a Graph"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#022",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "The interoperability layer. Recall from file 02 that BIBFRAME re-expresses catalog\nrecords as **RDF triples**. Linked data is the principle that those triples should use\n**resolvable URIs as identifiers** and **link to each other across institutions**, so\nthe world's catalogs form one queryable graph rather than millions of islands. This is\nthe realization of FRBR's entities and file 03's vocabularies as web-native data."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#023",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------------+\n|  THE RDF TRIPLE -- the atom of linked data                                 |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|     SUBJECT  ----  PREDICATE  ---->  OBJECT                                |\n|   <work#1>         dc:creator        <person#42>                           |\n|   <person#42>      orcid:id          \"0000-0002-1825-0097\"                 |\n|   <person#42>      rdfs:label        \"Tolkien, J.R.R.\"                     |\n|                                                                            |\n|   URIs (not local IDs) mean <person#42> can be the SAME node another       |\n|   institution -- or Wikidata -- references. Joins span the web.            |\n+----------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#024",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "```\n   The four linked-data principles (Berners-Lee):\n   1. Use URIs as names for things.\n   2. Use HTTP URIs so they can be looked up.\n   3. Return useful RDF when someone looks one up.\n   4. Include links to other URIs so they can discover more."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#025",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "= a globally-distributed graph database with HTTP as the access protocol\n     and URIs as foreign keys that work across organizational boundaries.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#026",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "The query language for this graph is **SPARQL** — pattern-matching over triples, the\ngraph analog of SQL. The full syntax lives in `query-languages/`; here SPARQL is\nsimply the read interface to the linked-data catalog. The shared backbone vocabularies\n— **Dublin Core** (file 02), **SKOS** (file 03, for thesauri), **FOAF** (people),\n**schema.org** (general), and **Wikidata** (a vast open identifier hub) — are the\nagreed predicates and entity IDs that make cross-institution joins meaningful. Without\nshared vocabularies, two graphs cannot be joined even if both are RDF; the vocabulary\nis the shared schema."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#027",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#028",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "## Metadata Harvesting — OAI-PMH"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#029",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "How do millions of repositories become collectively searchable without one giant\ncentral database? **OAI-PMH** (Open Archives Initiative Protocol for Metadata\nHarvesting) lets a service provider *pull* (harvest) metadata records from many\nrepositories on a schedule, aggregate them, and offer unified search."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#030",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "```\n   .-----------.   harvest    .-----------.   harvest   .--------------------.\n   | Repo A    |<------------ | AGGREGATOR | ----------->| Repo B, C, D, ...  |\n   | (exposes  |   (OAI-PMH)  | (e.g.      |  (OAI-PMH)  | each exposes        |\n   |  Dublin   |              |  BASE,     |             | Dublin Core via     |\n   |  Core)    | ------------>|  CORE)     |<----------- | the same protocol   |\n   '-----------'   records    '-----------'   records    '--------------------'\n                                   |\n                                   v\n                       one unified search index over all sources\n```"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#031",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "The lowest-common-denominator schema OAI-PMH mandates is unqualified **Dublin Core** —\nprecisely why DC's 15-element minimalism (file 02) matters: a small schema everyone can\nproduce is what makes federation possible. This is incremental metadata replication via\na pull protocol with a shared minimal schema — the pattern behind any feed-aggregation\nor change-data-capture pipeline that unifies heterogeneous sources."
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#032",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#033",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "## Old World → New World"
+    },
+    {
+      "id": "08-DIGITAL-LIBRARIES.md#034",
+      "path": [
+        "08-DIGITAL-LIBRARIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:library-information-science:08-digital, git-history:library-information-science:08-digital]",
+        "canonical_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "concepts": "[digital libraries, institutional repository, linked data, RDF, SPARQL, persistent identifiers, DOI, ARK, ORCID, OAI-PMH]",
+        "current_path": "library-information-science/08-DIGITAL-LIBRARIES.md",
+        "id": "maxim:library-information-science:digital-libraries",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "library-information-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital library]",
+        "section": "language-communication",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Digital Libraries - Repositories, Linked Data, Persistent Identifiers",
+        "updated": "null"
+      },
+      "text": "| Digital-library concept | Infrastructure equivalent |\n|---|---|\n| Institutional repository | Self-hosted artifact/package registry |\n| Persistent identifier (DOI/ARK) | Stable coordinate resolved through a registry |\n| Resolver indirection | DNS-style name -> current address indirection |\n| ORCID | Canonical entity ID for a person |\n| RDF triple store | Graph database |\n| Linked-data URIs | Foreign keys that work across organizations |\n| SPARQL | Graph query language (see `query-languages/`) |\n| Shared vocabularies (DC/SKOS/schema.org) | Agreed schema enabling joins |\n| OAI-PMH harvesting | Pull-based replication / feed aggregation / CDC |"
+    }
+  ],
+  "refs": [
+    "08-DIGITAL-LIBRARIES.md"
+  ]
+}

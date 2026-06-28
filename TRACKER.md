@@ -239,9 +239,13 @@ Each directory has a `STATUS.md` with its full file list.
 | [`embedded-systems/`](embedded-systems/STATUS.md) | 10 | ✅ | 17 |
 | [`biochemistry/`](biochemistry/STATUS.md) | 10 | ✅ | 17 |
 | [`reinforcement-learning/`](reinforcement-learning/STATUS.md) | 10 | ✅ | 18 |
+| [`marketing/`](marketing/STATUS.md) | 10 | ✅ | 19 |
+| [`veterinary-medicine/`](veterinary-medicine/STATUS.md) | 10 | ✅ | 19 |
+| [`library-information-science/`](library-information-science/STATUS.md) | 10 | ✅ | 19 |
+| [`naval-architecture/`](naval-architecture/STATUS.md) | 10 | ✅ | 19 |
 
-**Complete: Batches 1–13 ✅ + Batch 14 (5) + Batch 15 (4) + Batch 16 (2) + Batch 17 (2) + Batch 18 (1) — 231 directories, ~2,310 files**
-**Final target: 231 directories · 13 sections · ~2,310 content files · ~15,000 pages · 52 bound volumes**
+**Complete: Batches 1–13 ✅ + Batches 14–18 (14) + Batch 19 (4, non-computing) — 235 directories, ~2,350 files**
+**Final target: 235 directories · 13 sections · ~2,350 content files · ~15,200 pages · 52 bound volumes**
 *13 × 4 = 52. A deck of cards. People (●) at center. Batches 12–13 complete the deck.*
 
 **Batch 1 agent groups (complete):**

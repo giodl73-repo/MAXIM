@@ -1,0 +1,110 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\02-HULL-FORM-AND-RESISTANCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 95,
+      "heading_context": "## Layer 1: Describing the Hull Shape",
+      "headers": [
+        "Coefficient",
+        "Symbol",
+        "Definition",
+        "What it captures"
+      ],
+      "rows": [
+        [
+          "Block",
+          "Cb",
+          "V ÷ (L·B·T)",
+          "Overall fullness of the underwater body"
+        ],
+        [
+          "Prismatic",
+          "Cp",
+          "V ÷ (Am·L)",
+          "Fore-aft distribution of volume"
+        ],
+        [
+          "Midship",
+          "Cm",
+          "Am ÷ (B·T)",
+          "Fullness of the midship cross-section"
+        ],
+        [
+          "Waterplane",
+          "Cw",
+          "Aw ÷ (L·B)",
+          "Fullness of the waterline slice"
+        ],
+        [
+          "Length/beam",
+          "L/B",
+          "—",
+          "Slenderness (drag vs. manoeuvrability trade)"
+        ],
+        [
+          "Beam/draft",
+          "B/T",
+          "—",
+          "Stability vs. resistance trade"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 410,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Describe how full a hull is",
+          "Block coefficient Cb = V/(L·B·T)"
+        ],
+        [
+          "Predict drag scaling at model scale",
+          "Froude number Fn = V/√(gL)"
+        ],
+        [
+          "Predict skin-friction scaling",
+          "Reynolds number Re = VL/ν"
+        ],
+        [
+          "Estimate friction resistance",
+          "R_f = C_f·½ρSV², ITTC line for C_f"
+        ],
+        [
+          "Reduce skin friction",
+          "Less wetted area, coatings, air lubrication"
+        ],
+        [
+          "Reduce wave-making",
+          "Slender hull, length, bulbous bow"
+        ],
+        [
+          "Predict full-scale R from a model",
+          "Froude's method (split, scale, recombine)"
+        ],
+        [
+          "Get power from resistance",
+          "PE = R·V, then divide by propulsive coeff."
+        ],
+        [
+          "Optimize a hull across many variants",
+          "CFD (`fluid-dynamics/09-CFD.md`)"
+        ],
+        [
+          "Understand boundary layers / wave drag generally",
+          "`fluid-dynamics/` [04],[08]"
+        ],
+        [
+          "Convert thrust to engine power",
+          "guide [03] Propulsion"
+        ]
+      ]
+    }
+  ]
+}

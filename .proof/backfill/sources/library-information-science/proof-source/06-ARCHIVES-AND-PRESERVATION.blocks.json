@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\06-ARCHIVES-AND-PRESERVATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Archives & Preservation — Keeping the Record Authentic",
+      "confidence": "candidate",
+      "text": "+======================================================================================+\n|                  ARCHIVES vs LIBRARIES, AND THE PRESERVATION STACK                   |\n+======================================================================================+\n|                                                                                      |\n|   LIBRARY                              ARCHIVE                                       |\n|   -------                              -------                                       |\n|   published, many copies               unique, unpublished records                   |\n|   item-level description by SUBJECT    aggregate description by PROVENANCE           |\n|   you can re-buy a lost book           a lost record is gone forever                 |\n|                                                                                      |\n|   TWO BEDROCK PRINCIPLES (archival arrangement):                                     |\n|   .---------------------------.   .-----------------------------------.              |\n|   | PROVENANCE                |   | ORIGINAL ORDER                    |              |\n|   | (respect des fonds):      |   | (registraturprinzip):             |              |\n|   | keep one creator's        |   | preserve the order the creator    |              |\n|   | records together, do NOT  |   | kept them in -- the arrangement   |              |\n|   | merge across creators     |   | itself is evidence                |              |\n|   '---------------------------'   '-----------------------------------'              |\n|                                                                                      |\n|   PRESERVATION CONCERNS (orthogonal, apply to both):                                 |\n|   physical decay  |  format obsolescence  |  bit rot  |  authenticity / fixity       |\n+======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## The Two Bedrock Principles",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  PROVENANCE (respect des fonds)                                            |\n+----------------------------------------------------------------------------+\n|   Records are grouped by their CREATOR / source, never merged with         |\n|   records from another creator -- even if they share a subject.            |\n|                                                                            |\n|   Why: the body of records of one creator is itself evidence of that       |\n|   creator's activity. Mixing them destroys that evidential value.          |\n|                                                                            |\n|   = partition by source / tenant; never co-mingle lineages.                |\n+----------------------------------------------------------------------------+\n|                                                                            |\n+----------------------------------------------------------------------------+\n|  ORIGINAL ORDER (registraturprinzip)                                       |\n+----------------------------------------------------------------------------+\n|   Keep records in the sequence/arrangement the creator used. Do NOT        |\n|   re-sort alphabetically or by date for the archivist's convenience.       |\n|                                                                            |\n|   Why: the ORDER encodes information (which memo answered which, what      |\n|   the creator filed together). Re-sorting erases that context.             |\n|                                                                            |\n|   = preserve insertion order / the original sequence as data.              |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 107,
+      "heading_context": "## The Preservation Threat Model",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  THREE THREATS TO A DIGITAL RECORD                                        |\n+---------------------------------------------------------------------------+\n|                                                                           |\n|  1. MEDIA DECAY (the carrier dies)                                        |\n|     magnetic tape demagnetizes, optical discs delaminate, drives fail.    |\n|     Defense: replication + media refresh (copy to new carriers).          |\n|                                                                           |\n|  2. FORMAT OBSOLESCENCE (the reader dies)                                 |\n|     the bits survive but no software can interpret them (WordStar files,  |\n|     a dead codec). Defense: MIGRATION or EMULATION (below).               |\n|                                                                           |\n|  3. BIT ROT / TAMPERING (the bits change)                                 |\n|     silent corruption or alteration. Defense: FIXITY -- checksums         |\n|     verified on a schedule (a record's content hash).                     |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "## OAIS — The Reference Architecture (ISO 14721)",
+      "confidence": "candidate",
+      "text": "+=======================================================================================+\n|                      THE OAIS FUNCTIONAL MODEL (ISO 14721)                            |\n+=======================================================================================+\n|                                                                                       |\n|  PRODUCER                                                          CONSUMER           |\n|     |                                                                 ^               |\n|     | SIP                                                             | DIP           |\n|     v                                                                 |               |\n|  .--------.    .------------.    .-------------.    .--------.    .---------.         |\n|  | INGEST |--->| ARCHIVAL   |--->|  STORAGE    |--->| ACCESS |--->| (deliver|         |\n|  |        |    | STORAGE    |    |  (AIP held) |    |        |    |  to user)|        |\n|  '--------'    '------------'    '-------------'    '--------'    '---------'         |\n|     |               |                  |                |                             |\n|     | validates     | manages          | fixity         | builds the                  |\n|     | the SIP,      | the AIP over      | checks,        | DIP on request             |\n|     | builds AIP    | time              | refresh        |                            |\n|                                                                                       |\n|  Cross-cutting: DATA MANAGEMENT | PRESERVATION PLANNING | ADMINISTRATION              |\n+=======================================================================================+\n|                                                                                       |\n|  THE THREE INFORMATION PACKAGES:                                                      |\n|    SIP  Submission Information Package -- what the producer hands in                  |\n|    AIP  Archival Information Package   -- what is preserved long-term (+ metadata)    |\n|    DIP  Dissemination Information Pkg  -- what the consumer receives                  |\n+=======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

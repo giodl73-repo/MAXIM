@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\03-CONTROLLED-VOCABULARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "# Controlled Vocabularies — A Type System for Subjects",
+      "confidence": "candidate",
+      "text": "+======================================================================================+\n|              THE CONTROLLED-VOCABULARY SPECTRUM (expressiveness ->)                  |\n+======================================================================================+\n|                                                                                      |\n|   CONTROLLED      TAXONOMY          THESAURUS          ONTOLOGY                      |\n|   LIST            (hierarchy)       (semantic net)     (logical model)               |\n|   ----------      -----------       --------------     --------------                |\n|   .--------.      .--------.        .--------.         .------------.                |\n|   | flat   |      |  tree  |        | tree + |         | classes +  |                |\n|   | enum   | ===> | BT/NT  |  ===>  | RT,USE,|  ===>   | properties,|                |\n|   | of legal|     | only   |        | UF, SN |         | axioms,    |                |\n|   | terms  |      |        |        | (ISO   |         | inference  |                |\n|   |        |      |        |        | 25964) |         | (OWL/RDF)  |                |\n|   '--------'      '--------'        '--------'         '------------'                |\n|                                                                                      |\n|   = a string      = an enum with    = a graph of      = a typed schema with          |\n|     enum            a parent FK       semantic edges     relations + reasoner        |\n|                                                                                      |\n|   examples: a      Dewey-as-tree,    LCSH, MeSH,       Schema.org, FOAF,             |\n|   fixed picklist   library taxon.    Getty AAT, ERIC   Wikidata, domain OWL          |\n+======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 72,
+      "heading_context": "## Authority Control — The Master-Data Problem",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  AN AUTHORITY RECORD (master record for one entity)                       |\n+---------------------------------------------------------------------------+\n|  AUTHORIZED FORM:   Twain, Mark, 1835-1910                                |\n|  variants (mapped to the authorized form):                                |\n|     - Clemens, Samuel Langhorne, 1835-1910   (the real name)              |\n|     - Snodgrass, Quintus Curtius              (a pseudonym)               |\n|     - \"Mark Twain\"                                                        |\n+---------------------------------------------------------------------------+\n|  Every catalog record's author field POINTS to this authorized form.      |\n|  Change it once here; every record that references it stays consistent.   |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 104,
+      "heading_context": "## LCSH — Library of Congress Subject Headings",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  LCSH FEATURE 1: SUBDIVISIONS (a heading is a string you build)           |\n+---------------------------------------------------------------------------+\n|   World War, 1939-1945 -- Campaigns -- France -- Normandy                 |\n|   |                       |            |         |                        |\n|   topic                   topical sub  geo sub   geo sub                  |\n|                                                                           |\n|   Subdivision types: --topical  --geographic  --chronological  --form     |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## LCSH — Library of Congress Subject Headings",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  LCSH FEATURE 2: THE REFERENCE STRUCTURE (relationships)                   |\n+----------------------------------------------------------------------------+\n|   Authorized heading:   Cooking                                            |\n|     UF  Cookery            (Use For -- \"Cookery\" is a non-preferred term)  |\n|     BT  Food preparation   (Broader Term -- the parent)                    |\n|     NT  Baking             (Narrower Term -- a child)                      |\n|     RT  Gastronomy         (Related Term -- associative, not hierarchical) |\n|     SN  ...                (Scope Note -- how to apply the term)           |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 147,
+      "heading_context": "## The Thesaurus and ISO 25964",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  THE THREE THESAURUS RELATIONSHIPS (ISO 25964)                             |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|   1. EQUIVALENCE   USE / UF      synonym control                           |\n|      \"automobiles\" USE \"cars\"    one preferred term per concept            |\n|                                                                            |\n|   2. HIERARCHICAL  BT / NT       generic, partitive, or instance           |\n|      vehicles (BT) -> cars (NT)  parent/child (the \"is-a\" / \"part-of\")     |\n|                                                                            |\n|   3. ASSOCIATIVE   RT            related but not hierarchical              |\n|      cars  RT  traffic           \"see also,\" a non-tree cross-link         |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## The Thesaurus and ISO 25964",
+      "confidence": "candidate",
+      "text": "   OLD WORLD -> here\n   USE/UF      ==  an alias / synonym table mapping variants to a canonical key\n   BT/NT       ==  a self-referencing parent_id hierarchy (an enum tree)\n   RT          ==  a many-to-many \"related\" join table (arbitrary cross-links)\n   the whole    ==  a typed property graph over concepts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## Taxonomy vs. Ontology — The Critical Distinction",
+      "confidence": "candidate",
+      "text": "   TAXONOMY (one relationship: is-a)        ONTOLOGY (many typed relations)\n\n       Animal                                Person --worksFor--> Organization\n        |  is-a                                |                       |\n       Mammal                                  | bornIn                | locatedIn\n        |  is-a                                v                       v\n       Dog                                    City  ----partOf---->  Country\n\n   A pure tree of categories.               A graph with NAMED, TYPED edges and\n   You can only ask \"what is X under?\"      axioms a reasoner can chain over.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 224,
+      "heading_context": "## Controlled Vocabulary as Type System (the bridge)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  CONTROLLED VOCABULARY  ==  TYPE SYSTEM FOR SUBJECT TERMS                  |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|   free-text subject       ~  stringly-typed field (any value, no checks)   |\n|   controlled list         ~  enum (closed set of legal values)             |\n|   authority record        ~  canonical instance / interned symbol          |\n|   USE / UF synonym         ~  type alias (two names, one type)             |\n|   BT / NT hierarchy        ~  subtype / supertype relation                 |\n|   RT associative           ~  a related-type reference (non-subtype)       |\n|   scope note (SN)          ~  documentation / contract on the term         |\n|   ontology + reasoner      ~  type system with inference (typeclasses,     |\n|                              constraint solving)                           |\n|                                                                            |\n|   \"uncontrolled keyword\"  ~  a magic string; works until it doesn't        |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

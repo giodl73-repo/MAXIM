@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\09-OFFSHORE-AND-MARINE-ENGINEERING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "OFFSHORE ENGINEERING — THE LANDSCAPE (sorted by water depth)\n===============================================================================\n\n  depth   STRUCTURE TYPE              HOW IT STAYS PUT\n  ----    --------------             ----------------\n   0 m    .--------.\n          | FIXED  | jacket / gravity-base / jack-up\n  ~100 m  | (legs  | -> LEGS to the seabed: it is a fixed structure.\n          |  to    |    Dynamics are like a tall building in waves.\n          | seabed)|\n  ~500 m  '--------'\n          ~~~~~~~~~~ depth limit of fixed legs ~~~~~~~~~~~~~~~~~~~~\n  ~500 m  .--------.\n          |COMPLIANT| TLP (taut tendons), SPAR (deep ballast),\n          | / TAUT  | -> ANCHORED but flexes: it MOVES a little,\n  ~1500 m | MOORED  |    tuned so its natural period dodges the waves.\n          '--------'\n  ~1500 m .--------.\n          | FLOAT-  | semi-submersible / FPSO / drillship\n          |  ING +  | -> MOORING LINES (catenary/taut) or\n  ~3000 m | MOORED  |    DYNAMIC POSITIONING (thrusters, [06]).\n          |  or DP  |    A floating body held by station-keeping.\n          '--------'\n\n   THE TREND: deeper water -> you cannot reach the seabed with legs ->\n   you FLOAT and hold position. Station-keeping replaces foundation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "## Layer 1: Fixed Structures — Building on the Seabed",
+      "confidence": "candidate",
+      "text": "FIXED OFFSHORE STRUCTURES\n===============================================================================\n\n  STEEL JACKET (the classic)       GRAVITY BASE (concrete)     JACK-UP (mobile)\n  a welded steel space-frame       a massive concrete           a barge with 3-4\n  tower piled into the seabed;     structure held down by       legs jacked DOWN\n  the deck (\"topsides\") sits       its own WEIGHT (no piles);   to stand on the\n  on top.                          stores oil in its base.      seabed, hull\n                                                                jacked UP clear\n       __TOPSIDES__                    ___DECK___                of the waves.\n      |   deck    |                   |         |               (drilling rigs)\n      +-----------+                   |  ##### biq                __DECK__\n      /|\\   /|\\   X  <- braced        |  ##### concrete           |      |\n     / | \\ / | \\  X    space frame    |  ##### caisson            |      |\n    /  |  X  |  \\ X                    \\#######/                  =|======|=\n   ~~~~~~~~~~~~~~~~~~ waterline      ~~~~~~~~~~~~~ waterline    leg| leg  |leg\n    |  |  |  |  | piles into           |||||||| sits on            v  v   v\n    v  v  v  v  v the seabed           seabed by weight         on the seabed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Layer 2: Station-Keeping — The Central Offshore Problem",
+      "confidence": "candidate",
+      "text": "THE STATION-KEEPING SPECTRUM\n===============================================================================\n\n  PASSIVE MOORING                 |  ACTIVE (DYNAMIC POSITIONING)\n  -------------------------------- | --------------------------------\n  CATENARY mooring: heavy chains  |  THRUSTERS + DP control system ([06]):\n  hang in a curve; the weight of  |  no anchors. Sensors estimate position,\n  the line provides the restoring |  controller commands thrusters to hold\n  force as the vessel drifts and  |  station against wind/wave/current.\n  lifts more chain off the seabed.|  Used in DEEP water or for vessels that\n                                  |  must move on/off station (drillships).\n  vessel                          |\n    |\\                            |       vessel\n    | \\  chain hangs              |      [<-thrust  thrust->]\n    |  \\   in a catenary          |       continuous control loop:\n    |   \\____                     |       measure -> compute -> actuate\n  ~~~~~~~~~~~~~~~~ seabed          |       (a feedback system; needs power\n   anchor      chain on seabed    |        and redundancy -> DP2/DP3 classes)\n                                  |\n  TAUT mooring: near-straight     |  HYBRID: many deep units combine a mooring\n  lines with elastic (polyester)  |  spread WITH thrust assist.\n  stretch -> smaller footprint,   |\n  for very deep water.            |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Layer 3: Compliant and Floating Production — Dodging the Waves",
+      "confidence": "candidate",
+      "text": "COMPLIANT & FLOATING DEEP-WATER STRUCTURES\n===============================================================================\n\n  TLP (Tension-Leg Platform)   SPAR              SEMI-SUBMERSIBLE / FPSO\n  buoyant hull pulled DOWN by  a long vertical    columns on submerged pontoons;\n  vertical TENDONS in tension; cylinder, deeply   most volume is DEEP, below the\n  heave/pitch/roll are STIFF   ballasted at the   wave action -> low wave\n  (locked by tendons); surge/  bottom -> very low  response. FPSO = a tanker-like\n  sway are soft (slow).        centre of gravity   floating production+storage hull\n                               -> stable, long     moored on station, offloads to\n   __deck__                    heave period.       shuttle tankers.\n  |        |                     __deck__\n  ||      ||  <- tendons         |      |          ___deck (topsides)___\n  ||      ||     in tension      |      |         |  ##  ##  ##  ##     |\n  ||      ||     (taut, vertical)|cyl-  |       ~~|~~()~~~~~~~~~~()~~~~~|~~ w.l.\n  ~~~~~~~~~~~~ w.l.            ~~|inder |~~ w.l.   |__||________||__|   columns\n  ||      ||                     |      |          [==pontoons deep==]  on deep\n  seabed anchors                 |######| ballast  (most buoyancy is DOWN here)\n                                 (deep)            pontoons\n\n   COMMON IDEA: put the buoyancy/mass DEEP and make the WATERPLANE SMALL,\n   so the natural periods (heave especially) are LONG -> outside the wave\n   band -> the structure barely responds to waves. Compliance, not rigidity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 223,
+      "heading_context": "## Layer 4: Subsea Engineering — The Seabed Factory",
+      "confidence": "candidate",
+      "text": "THE SUBSEA PRODUCTION SYSTEM\n===============================================================================\n\n   surface: FPSO / platform (power, control, processing, storage)\n        |  RISER (pipe from seabed to surface) + UMBILICAL (power/control/chem)\n        |\n   ~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ sea\n        |\n        v\n   seabed: +----------+      +----------+      +----------+\n           | WELLHEAD |--+   | MANIFOLD |--+   | SUBSEA   |\n           | (XMAS    |  |   | (gathers |  |   | PUMP /   |\n           |  TREE)   |  +---| flows)   |  +---| COMPRESS |\n           +----------+      +----------+      +----------+\n                |  FLOWLINES + JUMPERS along the seabed\n                v\n        installed and maintained by ROVs (remotely operated vehicles) and\n        AUVs (autonomous underwater vehicles) -- humans never go there.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 271,
+      "heading_context": "## Layer 5: Offshore Renewables — The New Frontier",
+      "confidence": "candidate",
+      "text": "OFFSHORE WIND FOUNDATIONS (the depth ladder again)\n===============================================================================\n\n  shallow         transitional        deep (>~60 m)\n  ----------      -------------        ------------\n  MONOPILE        JACKET               FLOATING\n  one big tube    space-frame (as      a moored floating hull (spar,\n  driven into     Layer 1) for         semi-sub, or barge) carrying the\n  the seabed.     bigger/deeper        turbine -> opens the deep-water\n  Cheap, simple,  turbines.            sites where wind is best but the\n  dominant today.                      seabed is unreachable.\n\n      |T|             |T|                    |T|  turbine\n      | |            /|\\|                     | |\n   ~~~|~|~~~       ~/~|~\\~~                ~~~|_|~~~ floating platform\n      | |          /  |  \\                  \\  |  /  catenary/taut moorings\n   ___|_|___      /___|___\\               ~~~\\_|_/~~~~~\n   monopile      jacket on seabed          anchors on the seabed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "## Worked Example: Why a Spar Barely Moves in Waves",
+      "confidence": "candidate",
+      "text": "   GIVEN (spar in heave):\n     Total mass + added mass   (m + a) = 4.0 x 10^7 kg\n     Waterplane area (slender column)  A_w = 350 m^2  (deliberately SMALL)\n     Seawater rho = 1025 kg/m^3, g = 9.81 m/s^2\n\n   STEP 1 -- the heave restoring stiffness (the \"spring\", from [05]):\n     c = rho x g x A_w = 1025 x 9.81 x 350 = 3.52 x 10^6 N/m\n     (a SMALL waterplane -> a SOFT spring -> a LONG natural period)\n\n   STEP 2 -- heave natural period:\n     T_n = 2 pi x sqrt( (m + a) / c )\n         = 2 pi x sqrt( 4.0e7 / 3.52e6 )\n         = 2 pi x sqrt(11.36) = 2 pi x 3.37 = 21.2 s\n\n   STEP 3 -- compare to the sea:\n     Ocean wind-wave energy is concentrated at periods ~5-15 s.\n     The spar's heave period is ~21 s -- ABOVE the wave band.\n     -> At wave periods the spar is in the \"high-frequency\" regime of its\n        RAO ([05]): the RAO -> 0, so it barely heaves. By design.\n\n   STEP 4 -- contrast with a ship-shaped hull:\n     A normal hull has a LARGE waterplane (big Aw -> stiff spring -> heave\n     period ~8-12 s) -- right IN the wave band -> it heaves a lot. That is\n     fine for a ship (it moves on) but disastrous for a drilling platform\n     (you cannot drill while heaving). Hence the spar's small-waterplane,\n     deep-mass design: push the natural period OUT of the wave band.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\06-MARINE-SYSTEMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 93,
+      "heading_context": "## Layer 1: Shipboard Electrical Power",
+      "headers": [
+        "Feature",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Islanded (no shore grid)",
+          "At sea you ARE the grid; frequency/voltage are yours to hold"
+        ],
+        [
+          "N+1 generator redundancy",
+          "Lose one genset and still meet the load"
+        ],
+        [
+          "IT earthing (isolated neutral)",
+          "First ground fault does not trip the ship dark — a wet, vibrating environment will have ground faults; the ship keeps running and alarms instead"
+        ],
+        [
+          "Emergency switchboard",
+          "Separate board, separate genset, own fuel, autostarts on blackout"
+        ],
+        [
+          "Power Management System (PMS)",
+          "Automated load-sharing, load-shedding, blackout recovery"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 141,
+      "heading_context": "## Layer 2: Steering and Maneuvering",
+      "headers": [
+        "Device",
+        "Speed regime",
+        "Role"
+      ],
+      "rows": [
+        [
+          "Rudder + steering gear",
+          "Steerageway and above",
+          "Primary heading control"
+        ],
+        [
+          "Bow / stern thrusters",
+          "Low speed / docking",
+          "Sideways translation, turning in place"
+        ],
+        [
+          "Azimuth pods (guide [03])",
+          "All",
+          "Vector thrust any direction; no rudder needed"
+        ],
+        [
+          "Dynamic positioning (DP)",
+          "Station-keeping",
+          "Computer holds position against wind/current"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 362,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Power the ship",
+          "Diesel gensets + shaft gen; N+1 redundancy"
+        ],
+        [
+          "Decide which gensets run",
+          "Power Management System (load-share/shed)"
+        ],
+        [
+          "Avoid blacking out on a ground fault",
+          "Isolated (IT) earthing + alarm"
+        ],
+        [
+          "Keep steering alive in a blackout",
+          "Emergency genset + emergency switchboard"
+        ],
+        [
+          "Turn the ship at speed",
+          "Rudder + steering gear (duplicated, SOLAS)"
+        ],
+        [
+          "Maneuver at low speed / dock",
+          "Bow/stern thrusters, azimuth pods"
+        ],
+        [
+          "Hold position without anchoring",
+          "Dynamic positioning (`control-theory/`)"
+        ],
+        [
+          "Set draft, trim, heel",
+          "Ballast system (feeds [01]/[04] checks)"
+        ],
+        [
+          "Make drinking water",
+          "Evaporator (waste heat) or reverse osmosis"
+        ],
+        [
+          "Prevent a cargo-tank fire",
+          "Inert gas system (O₂ below ignition limit)"
+        ],
+        [
+          "Survive total power loss",
+          "Emergency power + dead-ship restart"
+        ],
+        [
+          "Understand the engine driving the gensets",
+          "guide [03] Propulsion / `mechanical/`"
+        ]
+      ]
+    }
+  ]
+}

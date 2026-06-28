@@ -200,6 +200,7 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 16 | 16A–16B | computer-vision, combinatorics | ~20 | 2026-06 |
 | 17 | 17A–17B | embedded-systems, biochemistry | ~20 | 2026-06 |
 | 18 | 18A | reinforcement-learning | ~10 | 2026-06 |
+| 19 | 19A–19D | marketing, veterinary-medicine, library-information-science, naval-architecture (non-computing rebalance) | ~40 | 2026-06 |
 
 ---
 

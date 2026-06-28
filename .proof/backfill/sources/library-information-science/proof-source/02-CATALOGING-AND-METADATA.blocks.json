@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\02-CATALOGING-AND-METADATA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Cataloging & Metadata — Describing the Item",
+      "confidence": "candidate",
+      "text": "+=======================================================================================+\n|                THE CATALOGING STACK: CONTENT RULES vs ENCODING vs MODEL               |\n+=======================================================================================+\n|                                                                                       |\n|   WHAT to record (content rules)        HOW to encode it        Conceptual MODEL      |\n|   ------------------------------        ----------------        ---------------       |\n|                                                                                       |\n|   AACR2 (1978) --> RDA (2010)           MARC 21 (the           FRBR (1998) -->        |\n|   \"rules for choosing & forming         binary serialization)  LRM. Work /            |\n|    the description\"                      |                      Expression /          |\n|        |                                 |                      Manifestation /       |\n|        |    content standard             |   record format     Item entities          |\n|        v                                 v                          |                 |\n|   .---------------------.        .------------------.               v                 |\n|   | which fields, how   |  ==>   | fields 245, 100, |        BIBFRAME (2011)          |\n|   | to transcribe a     |        | 260, 650 ... in  |        re-encodes the model     |\n|   | title, name, date   |        | tagged subfields |        as RDF triples           |\n|   '---------------------'        '------------------'                                 |\n|                                                                                       |\n|   LIGHTWEIGHT ALTERNATIVE:  Dublin Core -- 15 elements, web-native, \"good enough\"     |\n+=======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 70,
+      "heading_context": "## MARC 21 — The Record Format (1968)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  ANATOMY OF A MARC FIELD                                                   |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|   245  1 0  $a The Lord of the Rings / $c J.R.R. Tolkien.                  |\n|   ---  | |  |--------------------------|---------------------|             |\n|    |   | |        subfield $a                  subfield $c                 |\n|    |   | |        (title proper)               (statement of resp.)        |\n|    |   | '--- 2nd indicator (0 = no chars to skip in filing)               |\n|    |   '----- 1st indicator (1 = add a title-added entry)                  |\n|    '--------- TAG 245 = \"Title Statement\"                                  |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## MARC 21 — The Record Format (1968)",
+      "confidence": "candidate",
+      "text": "   OLD WORLD -> here\n   A MARC record is a fixed-schema row with tagged columns and a\n   binary directory at the front pointing to each field's offset.\n   Think: a TLV-serialized struct whose field IDs are three-digit\n   tags and whose nested members are letter-keyed subfields.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "## FRBR — The Entity Model (1998)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  FRBR GROUP 1 ENTITIES (WEMI) -- one diagram, one outer box                |\n+----------------------------------------------------------------------------+\n|                                                                            |\n|   .--------------------.                                                   |\n|   |  WORK              |  the abstract intellectual creation               |\n|   |  \"Hamlet\"          |  (no language, no format yet)                     |\n|   '---------+----------'                                                   |\n|             | is realized through                                          |\n|             v                                                              |\n|   .--------------------.                                                   |\n|   |  EXPRESSION        |  a specific intellectual form                     |\n|   |  \"Hamlet, in       |  (this translation, this edition's text,          |\n|   |   English text\"    |   a particular performance)                       |\n|   '---------+----------'                                                   |\n|             | is embodied in                                               |\n|             v                                                              |\n|   .--------------------.                                                   |\n|   |  MANIFESTATION     |  a published form / edition                       |\n|   |  \"Penguin 2005     |  (this ISBN, this print run)                      |\n|   |   paperback\"       |                                                   |\n|   '---------+----------'                                                   |\n|             | is exemplified by                                            |\n|             v                                                              |\n|   .--------------------.                                                   |\n|   |  ITEM              |  a single physical or digital copy                |\n|   |  \"the copy on      |  (barcode 31234..., this exact object)            |\n|   |   shelf, barcode\"  |                                                   |\n|   '--------------------'                                                   |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "## Dublin Core — The Lightweight Alternative (1995)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  THE 15 DUBLIN CORE ELEMENTS                                               |\n+----------------------------------------------------------------------------+\n|   1. Title         6. Contributor   11. Source                             |\n|   2. Creator       7. Date          12. Language                           |\n|   3. Subject       8. Type          13. Relation                           |\n|   4. Description    9. Format        14. Coverage                          |\n|   5. Publisher    10. Identifier     15. Rights                            |\n+----------------------------------------------------------------------------+\n|   All 15 are OPTIONAL and REPEATABLE. Schema-on-read, not schema-on-write. |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 274,
+      "heading_context": "## The Whole Stack, One View",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------------+\n| Standard           | Layer            | Era                  | Equivalent        |\n+----------------------------------------------------------------------------------+\n| AACR2              | content rules    | 1978                 | print-era style   |\n| RDA                | content rules    | 2010                 | model-aware rules |\n| FRBR / LRM         | conceptual model | 1998 / 2017          | normalized ER     |\n| MARC 21            | encoding         | 1968                 | binary TLV record |\n| BIBFRAME           | encoding         | 2011                 | RDF graph         |\n| Dublin Core        | lightweight all  | 1995                 | 15-key JSON-ish   |\n+----------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

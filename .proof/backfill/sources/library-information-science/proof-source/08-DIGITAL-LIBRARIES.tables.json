@@ -1,0 +1,175 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\08-DIGITAL-LIBRARIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 66,
+      "heading_context": "## Repositories — The Object Store",
+      "headers": [
+        "Repository type",
+        "Holds",
+        "Examples"
+      ],
+      "rows": [
+        [
+          "Institutional repository (IR)",
+          "An institution's own output (papers, theses, data)",
+          "DSpace, EPrints"
+        ],
+        [
+          "Disciplinary / preprint",
+          "A field's literature",
+          "arXiv, bioRxiv, SSRN"
+        ],
+        [
+          "Data repository",
+          "Research datasets",
+          "Zenodo, Dryad, Figshare"
+        ],
+        [
+          "Digital asset / object store",
+          "Images, A/V, complex objects",
+          "Fedora, Samvera, Islandora"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 112,
+      "heading_context": "## Persistent Identifiers — Why a URL Is Not a Key",
+      "headers": [
+        "Identifier",
+        "For",
+        "Resolves via",
+        "Governance / note"
+      ],
+      "rows": [
+        [
+          "**DOI**",
+          "Articles, datasets, objects",
+          "doi.org (built on Handle)",
+          "Registries: Crossref, DataCite. The scholarly default."
+        ],
+        [
+          "**Handle**",
+          "Any digital object",
+          "Handle System",
+          "The substrate DOIs are built on"
+        ],
+        [
+          "**ARK**",
+          "Any object (incl. physical)",
+          "A NAAN + resolver",
+          "Decentralized, free, no central authority; cultural heritage favorite"
+        ],
+        [
+          "**ORCID**",
+          "Researchers (people)",
+          "orcid.org",
+          "Disambiguates author identity (an authority record, file 03, for living scholars)"
+        ],
+        [
+          "**PURL**",
+          "Web resources",
+          "A redirect service",
+          "Persistent URL via a maintained redirect"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 215,
+      "heading_context": "## Old World → New World",
+      "headers": [
+        "Digital-library concept",
+        "Infrastructure equivalent"
+      ],
+      "rows": [
+        [
+          "Institutional repository",
+          "Self-hosted artifact/package registry"
+        ],
+        [
+          "Persistent identifier (DOI/ARK)",
+          "Stable coordinate resolved through a registry"
+        ],
+        [
+          "Resolver indirection",
+          "DNS-style name -> current address indirection"
+        ],
+        [
+          "ORCID",
+          "Canonical entity ID for a person"
+        ],
+        [
+          "RDF triple store",
+          "Graph database"
+        ],
+        [
+          "Linked-data URIs",
+          "Foreign keys that work across organizations"
+        ],
+        [
+          "SPARQL",
+          "Graph query language (see `query-languages/`)"
+        ],
+        [
+          "Shared vocabularies (DC/SKOS/schema.org)",
+          "Agreed schema enabling joins"
+        ],
+        [
+          "OAI-PMH harvesting",
+          "Pull-based replication / feed aggregation / CDC"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 231,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Host an institution's scholarly output",
+          "Institutional repository (DSpace/Fedora)"
+        ],
+        [
+          "Share a research dataset citably",
+          "Data repository (Zenodo) + a DOI"
+        ],
+        [
+          "A stable citation for an article/dataset",
+          "DOI (Crossref / DataCite)"
+        ],
+        [
+          "Identifiers with no central authority / free",
+          "ARK"
+        ],
+        [
+          "Disambiguate a researcher across name changes",
+          "ORCID"
+        ],
+        [
+          "Publish catalog metadata for cross-institution joins",
+          "Linked data (RDF) + shared vocabularies"
+        ],
+        [
+          "Query a linked-data catalog",
+          "SPARQL (`query-languages/`)"
+        ],
+        [
+          "Make a repository's metadata harvestable",
+          "Expose OAI-PMH (unqualified Dublin Core)"
+        ],
+        [
+          "Build a union catalog over many repositories",
+          "Harvest via OAI-PMH into one index"
+        ]
+      ]
+    }
+  ]
+}

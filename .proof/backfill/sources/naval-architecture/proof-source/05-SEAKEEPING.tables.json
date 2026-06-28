@@ -1,0 +1,129 @@
+{
+  "schema_version": "1",
+  "source_markdown": "naval-architecture\\05-SEAKEEPING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 178,
+      "heading_context": "## Layer 3: The Response Amplitude Operator (RAO)",
+      "headers": [
+        "Regime",
+        "Wave vs. ship",
+        "Behavior"
+      ],
+      "rows": [
+        [
+          "Low frequency (long waves)",
+          "Wave ≫ ship period",
+          "Ship rides the wave like a cork; RAO → 1 (it just follows the surface)"
+        ],
+        [
+          "Resonance (ω_e ≈ ω_n)",
+          "Encounter period = natural period",
+          "RAO peaks — the dangerous regime; magnification set by damping"
+        ],
+        [
+          "High frequency (short waves)",
+          "Wave ≪ ship period",
+          "Ship too sluggish to respond; RAO → 0"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 296,
+      "heading_context": "## Layer 6: Stabilization — Fighting Roll",
+      "headers": [
+        "Stabilizer",
+        "How it works",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "Bilge keels",
+          "Long fins along the bilge add viscous damping",
+          "Cheap, passive, always-on; small drag; ~30% roll cut"
+        ],
+        [
+          "Anti-roll tanks",
+          "Water in a tank sloshes out of phase with roll",
+          "Works at zero speed; costs space/weight; tuned to T_roll"
+        ],
+        [
+          "Active fins",
+          "Retractable wings generate counter-moment via lift",
+          "Strong; need forward speed; cost, complexity"
+        ],
+        [
+          "Gyroscopic",
+          "Spinning flywheel precesses to oppose roll",
+          "Good at zero speed (yachts); heavy, power-hungry"
+        ],
+        [
+          "Rudder roll stabilization",
+          "High-speed rudder use induces counter-roll",
+          "Free hardware; couples with steering"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 397,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Model ship motion in waves",
+          "6-DOF; heave/roll/pitch as damped oscillators"
+        ],
+        [
+          "Get a motion's natural frequency",
+          "ω_n = √(c/(m+a)), include added mass"
+        ],
+        [
+          "Get the ship's transfer function",
+          "RAO = motion amplitude per unit wave"
+        ],
+        [
+          "Find what frequency the ship feels",
+          "Encounter frequency ω_e (Doppler)"
+        ],
+        [
+          "Predict motions in a real sea",
+          "S_motion = \\|RAO\\|²·S_wave, then integrate"
+        ],
+        [
+          "Avoid roll resonance",
+          "Change speed/heading to shift ω_e off ω_n_roll"
+        ],
+        [
+          "Reduce roll, passively",
+          "Bilge keels (damping); anti-roll tank (tuned)"
+        ],
+        [
+          "Reduce roll, actively",
+          "Active fins (need speed); gyro (zero speed)"
+        ],
+        [
+          "Guard against bow impact loads",
+          "Slamming check; voluntary speed loss"
+        ],
+        [
+          "Guard against parametric roll",
+          "Mathieu stability check in head/following seas"
+        ],
+        [
+          "Review the GM that sets the roll spring",
+          "guide [01] Hydrostatics & Stability"
+        ],
+        [
+          "Review the hull-girder whipping from slams",
+          "guide [04] Ship Structures"
+        ]
+      ]
+    }
+  ]
+}

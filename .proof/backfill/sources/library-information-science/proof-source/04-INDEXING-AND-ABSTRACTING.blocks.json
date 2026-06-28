@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "library-information-science\\04-INDEXING-AND-ABSTRACTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Indexing & Abstracting — Building the Access Points",
+      "confidence": "candidate",
+      "text": "+======================================================================================+\n|              FROM DOCUMENT TO ACCESS POINTS (the indexing pipeline)                  |\n+======================================================================================+\n|                                                                                      |\n|   .----------.   .------------.   .--------------.   .---------------.               |\n|   | DOCUMENT |-->| ABOUTNESS  |-->| TRANSLATE to |-->| ACCESS POINTS |               |\n|   |          |   | analysis   |   | indexing     |   | (postings)    |               |\n|   | full     |   | \"what is   |   | language     |   | term -> doc   |               |\n|   | text     |   |  this for?\"|   | (the         |   | term -> doc   |               |\n|   |          |   |            |   |  vocabulary) |   | ...           |               |\n|   '----------'   '------------'   '--------------'   '---------------'               |\n|                       |                 |                                            |\n|         two knobs:    | EXHAUSTIVITY    | controlled (file 03) OR derived            |\n|                       | (how many terms)| (extracted from the text itself)           |\n|                       | SPECIFICITY     |                                            |\n|                       | (how precise)   |                                            |\n|                                                                                      |\n|   In parallel:  ABSTRACT  -- a condensed surrogate of the content                    |\n|                 (informative / indicative / structured)                              |\n+======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 88,
+      "heading_context": "## The Two Knobs: Exhaustivity and Specificity",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  EXHAUSTIVITY  (how MANY concepts you index)                              |\n+---------------------------------------------------------------------------+\n|   LOW  ----[ index only the 2-3 main topics ]----  HIGH                   |\n|         index every minor concept the doc touches                         |\n|                                                                           |\n|   High exhaustivity  -> higher RECALL  (more doors into the doc)          |\n|                      -> lower PRECISION (doc surfaces on marginal topics) |\n+---------------------------------------------------------------------------+\n|                                                                           |\n+---------------------------------------------------------------------------+\n|  SPECIFICITY  (how PRECISE each term is)                                  |\n+---------------------------------------------------------------------------+\n|   LOW (broad)  ----[ \"Dogs\" vs \"Border Collies\" ]----  HIGH (narrow)      |\n|                                                                           |\n|   High specificity   -> higher PRECISION (exact-match retrieval)          |\n|                      -> lower RECALL if searcher uses a broader term      |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Pre-Coordination vs. Post-Coordination",
+      "confidence": "candidate",
+      "text": "+======================================================================================+\n|                    PRE-COORDINATION  vs  POST-COORDINATION                           |\n+======================================================================================+\n|                                                                                      |\n|   PRE-COORDINATION (combine at INDEX time)   POST-COORDINATION (combine at SEARCH)   |\n|   ----------------------------------------   --------------------------------------  |\n|                                                                                      |\n|   The indexer builds the compound heading:   The indexer assigns single terms:       |\n|                                                                                      |\n|     \"Children -- Diseases -- Treatment\"        Children                              |\n|     (one ordered string, fixed at index)       Diseases                              |\n|                                                Treatment                             |\n|                                                                                      |\n|   The searcher must enter (or browse to)     The searcher COMBINES them with         |\n|   the heading in the catalog's order.        Boolean AND at query time:              |\n|                                                                                      |\n|     [walk the heading hierarchy]               Children AND Diseases AND Treatment   |\n|                                                                                      |\n|   = a materialized composite key,            = independent indexed columns,          |\n|     order baked in at write time               combined by the query planner         |\n|                                                                                      |\n|   LCSH subdivisions, traditional indexes     UNITERM (Taube, 1950s), Boolean DBs,    |\n|                                              every modern search engine              |\n+======================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Pre-Coordination vs. Post-Coordination",
+      "confidence": "candidate",
+      "text": "   OLD WORLD -> here\n\n   PRE-COORDINATION   ==  a precomputed / materialized composite key.\n                          Fast to look up the exact compound; rigid; the\n                          combinations and their order are fixed at write time.\n                          (Like a covering composite index built for one query\n                          shape -- great if you query that shape, useless otherwise.)\n\n   POST-COORDINATION  ==  separate single-term indexes ANDed/ORed at query time.\n                          Flexible -- any combination the searcher invents -- at the\n                          cost of doing the combination work per query.\n                          (Like indexing each column and letting the optimizer\n                          intersect postings lists on demand.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 189,
+      "heading_context": "## Derived vs. Assigned Indexing",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|  DERIVED (extraction)              |  ASSIGNED (controlled)                |\n+----------------------------------------------------------------------------+\n|  Terms taken FROM the text itself  |  Terms drawn from a controlled        |\n|  (title words, keywords, full      |  vocabulary (LCSH, MeSH) by an        |\n|  text tokenized).                  |  indexer's judgment.                  |\n|                                    |                                       |\n|  Cheap, automatic, scales.         |  Costly, human, precise.              |\n|  Suffers synonymy/homonymy.        |  Resolves synonymy/homonymy.          |\n|                                    |                                       |\n|  = automatic tokenization /        |  = a human assigning enum values      |\n|    keyword extraction              |    after reading for aboutness        |\n+----------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "## Abstracting — The Surrogate",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------------+\n|  TYPES OF ABSTRACT                                                        |\n+---------------------------------------------------------------------------+\n|  INFORMATIVE   Summarizes findings/results -- a substitute for the doc.   |\n|                \"The study found X increased Y by 30%.\"                    |\n|                Used for: experimental/technical reports.                  |\n|                                                                           |\n|  INDICATIVE    Describes scope/topic -- tells you IF you want the doc,    |\n|  (descriptive) not what it concluded. \"This paper examines X.\"            |\n|                Used for: reviews, essays, less structured works.          |\n|                                                                           |\n|  STRUCTURED    Labeled sections (Objective / Methods / Results /          |\n|                Conclusions). Standard in biomedical literature.           |\n|                = a schema-validated surrogate, parseable by machines.     |\n|                                                                           |\n|  CRITICAL      Adds evaluation of the work's quality/significance         |\n|                (rare; closer to a review).                                |\n+---------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
