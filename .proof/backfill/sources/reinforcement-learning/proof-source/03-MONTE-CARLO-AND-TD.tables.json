@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\03-MONTE-CARLO-AND-TD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 231,
+      "heading_context": "## TD(lambda) and Eligibility Traces",
+      "headers": [
+        "Trace type",
+        "Update at revisit",
+        "Effect"
+      ],
+      "rows": [
+        [
+          "Accumulating",
+          "`e(s) += 1`",
+          "repeated visits add up"
+        ],
+        [
+          "Replacing",
+          "`e(s) = 1`",
+          "resets to 1; more stable"
+        ],
+        [
+          "Dutch",
+          "mix (used in true online TD)",
+          "exact equivalence to forward"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 319,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Episodic task, want unbiased estimates",
+          "Monte Carlo"
+        ],
+        [
+          "Continuing task or want to learn online",
+          "TD(0)"
+        ],
+        [
+          "Strongly Markov problem, want speed",
+          "TD (exploits structure)"
+        ],
+        [
+          "Want to tune the bias-variance dial",
+          "n-step or TD(lambda)"
+        ],
+        [
+          "Need online TD with multi-step credit",
+          "TD(lambda) + eligibility traces"
+        ],
+        [
+          "Want stability over speed in traces",
+          "Replacing (not accumulating) traces"
+        ],
+        [
+          "Want the best of both empirically",
+          "n-step (n ~ 4-8) or lambda ~ 0.9"
+        ],
+        [
+          "Moving to control",
+          "Learn `q`, add epsilon-greedy (ch 04)"
+        ]
+      ]
+    }
+  ]
+}

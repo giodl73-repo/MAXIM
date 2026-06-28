@@ -1,0 +1,909 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-reinforcement-learning-model-free-control",
+  "source": "../../reinforcement-learning",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#000",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "# Model-Free Control — SARSA, Q-Learning, Exploration"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#001",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#002",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "Control means *finding the optimal policy*, not just evaluating one. Without a\nmodel we learn the action-value function `q` from samples and act greedily on it.\nTwo algorithms — SARSA and Q-learning — differ in one subtle line, and that line\nis the whole on-policy / off-policy distinction."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#003",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|              MODEL-FREE CONTROL = GPI WITH SAMPLES               |\n|                                                                  |\n|   EVALUATE q from experience  <-->  IMPROVE: epsilon-greedy(q)   |\n|                                                                  |\n|   .----------------------.        .----------------------.       |\n|   |       SARSA          |        |     Q-LEARNING       |       |\n|   |   ON-POLICY          |        |     OFF-POLICY       |       |\n|   |   target uses the    |        |   target uses the    |       |\n|   |   action ACTUALLY    |        |   GREEDY action      |       |\n|   |   taken next (A')    |        |   max_a' Q(S',a')    |       |\n|   '----------------------'        '----------------------'       |\n|         learns q_pi for                learns q_* directly       |\n|         the behavior policy            regardless of behavior    |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#004",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "**The fork**: when forming the bootstrap target at `S'`, SARSA plugs in the action\nthe policy *will actually take*; Q-learning plugs in the *best* action. One word\nof difference, two different fixed points."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#005",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#006",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "## The Exploration-Exploitation Dilemma"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#007",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "To act greedily you must know `q` — but to learn `q` you must try actions that\nlook suboptimal. If you only ever take the current-best action you never discover\na better one. This is the exploration-exploitation trade-off, and it has no\nanalogue in supervised learning."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#008",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|  EXPLOIT                          EXPLORE                        |\n|  -------                          -------                        |\n|  take argmax_a Q(s,a)             try other actions to learn     |\n|  maximize reward NOW              improve Q for the future       |\n|  risk: stuck in a local optimum   risk: wasted reward now        |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#009",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "### Exploration strategies"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#010",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n  epsilon-GREEDY    with prob (1-eps) take argmax; with prob eps act random.\n                    Simple, ubiquitous. Decay eps over time (GLIE)."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#011",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "OPTIMISTIC INIT   set Q high (e.g. all rewards look great initially).\n                    Greedy behavior then explores until disappointed."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#012",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "UCB               pick argmax_a [ Q(s,a) + c sqrt(ln t / N(s,a)) ].\n                    Bonus for under-tried actions; directed, not random."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#013",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "BOLTZMANN         sample a ~ softmax(Q(s,.)/tau). Temperature tau controls\n  (softmax)         exploration; smooth alternative to epsilon-greedy.\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#014",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n  eps-greedy:  undirected (random among all non-greedy actions)\n  UCB:         directed   (explores the most UNCERTAIN actions)\n  optimism:    directed via initialization; explores then settles\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#015",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "**GLIE** (Greedy in the Limit with Infinite Exploration) is the condition for\ntabular convergence to `q_*`: every state-action pair is tried infinitely often,\n*and* the policy becomes greedy in the limit. `epsilon_k = 1/k` satisfies both."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#016",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "> Bridge — bandits and OR: UCB and Thompson sampling come from the multi-armed\n> bandit literature, the stateless special case of RL. The bandit\n> regret-minimization theory (`operations-research/`, decision theory) is the\n> rigorous home of \"explore the uncertain arm.\" RL inherits the dilemma and adds\n> state."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#017",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#018",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "## SARSA: On-Policy TD Control"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#019",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "SARSA updates `Q(S,A)` toward a target built from the *next action the policy\nactually chooses*. Its name is the tuple it uses: **S**tate, **A**ction,\n**R**eward, next **S**tate, next **A**ction."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#020",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|  SARSA  (on-policy)                                              |\n|                                                                  |\n|  observe S, choose A ~ epsilon-greedy(Q)                         |\n|  take A, observe R, S'                                           |\n|  choose A' ~ epsilon-greedy(Q)        <- the SAME policy         |\n|     Q(S,A) <- Q(S,A) + alpha[ R + gamma Q(S',A') - Q(S,A) ]      |\n|  S,A <- S',A'                                                    |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#021",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "The target `R + gamma Q(S',A')` uses `A'`, the action the *behavior* (epsilon-\ngreedy) policy will take. So SARSA learns `q_pi` for the policy it is *actually\nfollowing*, exploration included. It evaluates the policy it executes."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#022",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#023",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "## Q-Learning: Off-Policy TD Control"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#024",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "Q-learning's target uses `max_a' Q(S', a')` — the value of the *greedy* action,\nregardless of what the behavior policy does next."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#025",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|  Q-LEARNING  (off-policy)                                        |\n|                                                                  |\n|  observe S, choose A ~ epsilon-greedy(Q)   (behavior policy)     |\n|  take A, observe R, S'                                           |\n|   Q(S,A) <- Q(S,A) + alpha[ R + gamma max_a' Q(S',a') - Q(S,A) ] |\n|  S <- S'                                                         |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#026",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "The target `max_a' Q(S',a')` is a sampled version of the Bellman *optimality*\noperator. So Q-learning estimates `q_*` directly — the **target policy is greedy**\nwhile the **behavior policy explores**. That separation is exactly what\n\"off-policy\" means."
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#027",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n  behavior policy   = how you ACT and gather data        (epsilon-greedy)\n  target policy     = the policy you are LEARNING about   (greedy, for Q-learning)"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#028",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "on-policy  : behavior == target   (SARSA)\n  off-policy : behavior != target   (Q-learning)\n```"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#029",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#030",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "## SARSA vs Q-Learning, Precisely"
+    },
+    {
+      "id": "04-MODEL-FREE-CONTROL.md#031",
+      "path": [
+        "04-MODEL-FREE-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:04-model-free-control, git-history:reinforcement-learning:04-model-free-control]",
+        "canonical_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "concepts": "[sarsa, q-learning, on-policy, off-policy, exploration, epsilon-greedy, UCB, optimism]",
+        "current_path": "reinforcement-learning/04-MODEL-FREE-CONTROL.md",
+        "id": "maxim:reinforcement-learning:model-free-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[q-learning, on-policy, off-policy]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Free Control - SARSA, Q-Learning, Exploration",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------+--------------------------------+\n|  SARSA                         |  Q-LEARNING                    |\n|  -----                         |  ----------                    |\n|  target: R + g Q(S', A')       |  target: R + g max_a Q(S',a)   |\n|  A' from behavior policy       |  greedy max, any behavior      |\n|  ON-policy                     |  OFF-policy                    |\n|  learns q_pi (behavior incl.   |  learns q_* (optimal,          |\n|     exploration cost)          |     ignores exploration cost)  |\n|  Bellman EXPECTATION backup    |  Bellman OPTIMALITY backup     |\n|  safer near danger             |  optimal but riskier path      |\n+--------------------------------+--------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "04-MODEL-FREE-CONTROL.md"
+  ]
+}

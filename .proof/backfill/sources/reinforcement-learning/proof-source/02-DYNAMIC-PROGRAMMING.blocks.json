@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\02-DYNAMIC-PROGRAMMING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|             GENERALIZED POLICY ITERATION (GPI)                   |\n|                                                                  |\n|        evaluation                   improvement                  |\n|     pi --------------> v_pi    v --------------> greedy(v)       |\n|        (make v match pi)          (make pi greedy wrt v)         |\n|                                                                  |\n|        pi  ===>  v_pi  ===>  pi'  ===>  v_pi'  ===>  ...         |\n|                                                                  |\n|     The two processes pull toward each other; the fixed point    |\n|     of BOTH simultaneously is (pi_*, v_*).                       |\n|                                                                  |\n|     .----------------.                .------------------.       |\n|     | POLICY ITER.   |                | VALUE ITER.      |       |\n|     | full eval then |                | one eval sweep   |       |\n|     | one improve    |                | folded into max  |       |\n|     '----------------'                '------------------'       |\n|        two extremes of the SAME loop                             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## Building Block 1: Policy Evaluation",
+      "confidence": "candidate",
+      "text": "  v_0  --T_pi-->  v_1  --T_pi-->  ...  -->  v_pi\n  ||v_k - v_pi||_inf  <=  gamma^k ||v_0 - v_pi||_inf",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 96,
+      "heading_context": "## Building Block 2: Policy Improvement",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  POLICY IMPROVEMENT THEOREM                                      |\n|                                                                  |\n|  If  q_pi(s, pi'(s))  >=  v_pi(s)   for all s,                   |\n|  then  v_pi'(s)  >=  v_pi(s)        for all s.                   |\n|                                                                  |\n|  Strict at any state => strictly better policy.                  |\n|  If equality everywhere => pi already satisfies Bellman          |\n|  optimality => pi is optimal.                                    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "## Algorithm 1: Policy Iteration",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  POLICY ITERATION                                                |\n|                                                                  |\n|  initialize pi arbitrarily                                       |\n|  loop:                                                           |\n|    1. POLICY EVALUATION:  solve v_pi (to convergence)            |\n|    2. POLICY IMPROVEMENT:  pi' = greedy(v_pi)                    |\n|    3. if pi' == pi: return pi_* = pi                             |\n|       else pi <- pi'                                             |\n+------------------------------------------------------------------+\n\n   pi_0 -> v_{pi_0} -> pi_1 -> v_{pi_1} -> ... -> pi_* -> v_*\n        E          I        E          I       E",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Algorithm 2: Value Iteration",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  VALUE ITERATION                                                 |\n|                                                                  |\n|  initialize v arbitrarily                                        |\n|  repeat until ||v_{k+1} - v_k||_inf < theta:                     |\n|  v_{k+1}(s) = max_a [ r(s,a) + gamma sum_{s'} p(s'|s,a) v_k(s')] |\n|  then extract:  pi(s) = argmax_a [ r(s,a) + gamma sum p v(s') ]  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 166,
+      "heading_context": "### Policy Iteration vs Value Iteration",
+      "confidence": "candidate",
+      "text": "+--------------------------------+--------------------------------+\n|  POLICY ITERATION              |  VALUE ITERATION               |\n|  ----------------              |  ---------------               |\n|  full eval to convergence,     |  one sweep (max) per step      |\n|  then one greedy step          |  no separate policy            |\n|  few iterations, each costly   |  many cheap iterations         |\n|  exact policy each round       |  policy emerges at the end     |\n|  uses T_pi then greedy         |  uses T* directly              |\n+--------------------------------+--------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## The Unifying View: Generalized Policy Iteration",
+      "confidence": "candidate",
+      "text": "                       v_*, pi_*   (joint fixed point)\n                          *\n                         /|\n       greedy(v)        / | evaluation\n       improvement     /  | v -> v_pi\n                      /   |\n              pi ----*    |\n                     \\    |\n                      \\   |\n        the two lines  \\  |\n        meet only at    \\ |\n        optimality       \\|\n                          *",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 225,
+      "heading_context": "## Worked Example: Gridworld Value Iteration",
+      "confidence": "candidate",
+      "text": "  Sweep 1 (each state takes max over left/right):\n    v(2) = 0 + 0.9 * v(3=terminal->1 on entry) ... entering 3 gives +1\n    v(2) = 1 + 0.9*0 = 1.0      (move right into goal)\n    v(1) = 0 + 0.9*v(2)=0   (v(2) still 0 this sweep if synchronous)\n  Sweep 2:\n    v(2) = 1.0\n    v(1) = 0 + 0.9*1.0 = 0.9\n  Sweep 3:\n    v(0) = 0 + 0.9*0.9 = 0.81",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Worked Example: Gridworld Value Iteration",
+      "confidence": "candidate",
+      "text": "  state:   0      1      2      3(goal)\n  v_*:    0.81   0.9    1.0     -\n  pi_*:   ->     ->     ->      -      (always move toward the goal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 255,
+      "heading_context": "## Efficiency and Asynchronous DP",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  PROBLEM: full sweeps over all states are impossible at scale.   |\n|                                                                  |\n|  ESCAPE 1: ASYNCHRONOUS DP                                       |\n|    update states in any order, even repeatedly; still converges  |\n|    if every state is updated infinitely often.                   |\n|                                                                  |\n|  ESCAPE 2: SAMPLE instead of sweep     -> Monte Carlo / TD (ch3) |\n| ESCAPE 3: APPROXIMATE v instead of tabulate -> func approx (ch5) |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

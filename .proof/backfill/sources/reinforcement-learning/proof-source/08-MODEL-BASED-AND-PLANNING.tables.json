@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\08-MODEL-BASED-AND-PLANNING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 306,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Have a perfect simulator, discrete moves",
+          "MCTS"
+        ],
+        [
+          "Two-player perfect-information game, learn from scratch",
+          "AlphaZero (MCTS + self-play)"
+        ],
+        [
+          "Same, but no access to the rules / dynamics",
+          "MuZero (learned latent model)"
+        ],
+        [
+          "Want to amplify scarce real data, model-free core",
+          "Dyna-Q (+ prioritized sweeping)"
+        ],
+        [
+          "Continuous control, extreme sample efficiency",
+          "World models / Dreamer"
+        ],
+        [
+          "Model is unreliable / long horizons",
+          "Stay model-free (ch 04-07)"
+        ],
+        [
+          "Large branching factor, anytime decisions",
+          "MCTS (UCT)"
+        ],
+        [
+          "Want planning to improve a learned policy",
+          "MCTS as a policy-improvement operator"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\07-DEEP-RL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              TWO LINEAGES OF DEEP POLICY OPTIMIZATION            |\n|                                                                  |\n|   ON-POLICY (trust region)        OFF-POLICY (deterministic /    |\n|   ---------------------            max-entropy actor-critic)     |\n|                                   ---------------------------    |\n|   constrain step size so the      reuse a replay buffer; learn   |\n|   new policy stays CLOSE to old   a Q-critic + an actor          |\n|                                                                  |\n|   TRPO  -> PPO                    DDPG -> TD3 -> SAC             |\n|   (KL trust region -> clip)       (det. PG -> twin-Q -> entropy) |\n|                                                                  |\n|   stable, simple, sample-hungry   sample-efficient, fiddly       |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|   ALL share the ch 06 core:  grad J = E[ grad log pi * A ]       |\n|   They differ ONLY in how they CONTROL the update.               |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "## The Problem: Policy Collapse",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  WHY VANILLA POLICY GRADIENT IS FRAGILE                          |\n|  -------------------------------------                           |\n|  - the gradient is in PARAMETER space, but we care about         |\n|    POLICY space; a small theta step can be a HUGE policy change  |\n|  - one over-large step -> policy collapses to garbage            |\n|  - collapsed policy generates garbage data -> no recovery        |\n|  (the closed feedback loop has no fixed dataset to fall back on) |\n|                                                                  |\n|  FIX: limit how far the policy distribution moves per update.    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 85,
+      "heading_context": "## TRPO: Trust Region Policy Optimization",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  TRPO                                                            |\n|                                                                  |\n|  maximize_theta  E[ ratio * A ]                                  |\n|     where ratio r(theta) = pi(a|s;theta) / pi(a|s;theta_old)     |\n|                                                                  |\n|  subject to     E[ KL( pi_old(.|s) || pi(.|s) ) ]  <=  delta     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## PPO: The Clipped Objective",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  PPO CLIPPED OBJECTIVE                                           |\n|                                                                  |\n|   r(theta) = pi(a|s;theta) / pi(a|s;theta_old)                   |\n|                                                                  |\n|   L_CLIP = E[ min(  r(theta) * A,                                |\n|                     clip(r(theta), 1-eps, 1+eps) * A ) ]         |\n|                                                                  |\n|   typical eps = 0.2                                              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## PPO: The Clipped Objective",
+      "confidence": "candidate",
+      "text": "  A > 0 (good action):   want to INCREASE r. But clip caps it at 1+eps.\n                         Past 1+eps, the objective FLATTENS -> no incentive\n                         to push the ratio further. Bounded step.\n\n  A < 0 (bad action):    want to DECREASE r. Clip floors it at 1-eps.\n                         Below 1-eps, objective flattens -> bounded step.\n\n  the min() makes the clip a PESSIMISTIC bound: it only ever removes\n  incentive to move too far; it never rewards a large ratio change.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "### TRPO vs PPO",
+      "confidence": "candidate",
+      "text": "+--------------------------------+--------------------------------+\n|  TRPO                          |  PPO                           |\n|  ----                          |  ---                           |\n|  hard KL constraint            |  clipped ratio (soft)          |\n|  second-order (Fisher, CG)     |  first-order SGD               |\n|  monotonic-improvement proof   |  heuristic, works great        |\n|  complex implementation        |  ~10 lines of objective        |\n+--------------------------------+--------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## DDPG and TD3: Off-Policy Deterministic Actor-Critic",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  DDPG (deterministic policy gradient)                            |\n|                                                                  |\n|   critic: minimize  ( Q(s,a;w) - y )^2,                          |\n|     y = r + gamma Q(s', mu(s'; theta^-); w^-)   (target nets)    |\n|                                                                  |\n|   actor:  ascend  grad_theta Q(s, mu(s;theta); w)                |\n|     = grad_a Q * grad_theta mu       (chain rule through critic) |\n|                                                                  |\n|   exploration: add noise to mu(s) (it is deterministic)          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 206,
+      "heading_context": "## DDPG and TD3: Off-Policy Deterministic Actor-Critic",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  TD3 (Twin Delayed DDPG) — three fixes for DDPG instability      |\n|  -----------------------                                         |\n|  1. TWIN CRITICS:    learn Q1, Q2; use min(Q1,Q2) in the target  |\n|                      -> fights overestimation (clipped double-Q) |\n|  2. DELAYED ACTOR:   update the actor (and targets) less often   |\n|                      than the critic -> critic stabilizes first  |\n|  3. TARGET SMOOTHING: add noise to the target action             |\n|                      -> regularizes the Q surface, avoids sharp  |\n|                         peaks the actor could exploit            |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 232,
+      "heading_context": "## SAC: Maximum-Entropy RL",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  MAXIMUM-ENTROPY OBJECTIVE                                       |\n|                                                                  |\n|   J(pi) = sum_t E[ r(s_t,a_t)  +  alpha * H( pi(.|s_t) ) ]       |\n|                                        ^ entropy bonus           |\n|   alpha = temperature: trades reward against exploration/        |\n|           stochasticity (can be auto-tuned to a target entropy). |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 253,
+      "heading_context": "## SAC: Maximum-Entropy RL",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  WHY MAX-ENTROPY HELPS                                           |\n|  --------------------                                            |\n|  - EXPLORATION is built into the objective (not a bolt-on bonus) |\n|  - ROBUSTNESS: stochastic policies hedge against model error     |\n|  - MULTIMODALITY: can represent several near-optimal behaviors   |\n|  - stable, sample-efficient, off-policy (replay buffer)          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 264,
+      "heading_context": "## SAC: Maximum-Entropy RL",
+      "confidence": "candidate",
+      "text": "SAC combines: max-entropy objective + twin critics (from TD3) + a stochastic",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "## The Deep-RL Map",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n| ALGO   | ON/OFF  | ACTION   | POLICY     | KEY IDEA              |\n|--------|---------|----------|------------|-----------------------|\n| TRPO   | on*     | both     | stochastic | hard KL trust region  |\n| PPO    | on*     | both     | stochastic | clipped ratio         |\n| A2C    | on      | both     | stochastic | sync advantage AC     |\n| DDPG   | off     | continuous| determin. | det. PG + replay      |\n| TD3    | off     | continuous| determin. | twin-Q, delay, smooth |\n| SAC    | off     | continuous| stochastic | max-entropy AC       |\n| DQN    | off     | discrete | implicit   | value-based (ch 05)   |\n+------------------------------------------------------------------+\n  *limited off-policy reuse via the importance ratio within a batch",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

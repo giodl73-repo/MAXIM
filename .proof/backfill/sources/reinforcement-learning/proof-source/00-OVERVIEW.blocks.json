@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                  THE AGENT-ENVIRONMENT LOOP                      |\n|                                                                  |\n|        .-----------------.                                       |\n|        |      AGENT       |   action a_t                         |\n|        |  policy pi(a|s)  |--------------------.                 |\n|        '-----------------'                     |                 |\n|              ^                                 v                 |\n|              |                       .-----------------.         |\n|              |  state s_{t+1}        |   ENVIRONMENT    |        |\n|              |  reward r_{t+1}       |  dynamics p,r    |        |\n|              '-----------------------|                 |         |\n|                                      '-----------------'         |\n|                                                                  |\n|   Goal: choose pi to maximize  E[ sum_t gamma^t r_{t+1} ]        |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|                   THE FORMALISM: A MARKOV DECISION PROCESS       |\n|   (S, A, p(s',r | s,a), gamma)                                   |\n|   Bellman expectation + Bellman optimality equations             |\n|   See: 01-MDP-FOUNDATIONS.md                                     |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|        HOW DO WE SOLVE IT? (three regimes of knowledge)          |\n|                                                                  |\n|   MODEL KNOWN          MODEL UNKNOWN          MODEL UNKNOWN      |\n|   (planning)           (learn values)         (learn policy)     |\n|   ----------           --------------          --------------    |\n|   Dynamic              MC / TD / Q-learning    Policy gradient   |\n|   programming          SARSA / DQN             REINFORCE / PPO   |\n|   (ch 02)              (ch 03-05)              (ch 06-07)        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 107,
+      "heading_context": "## The Core Vocabulary",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  TERM            MEANING                                         |\n|  ----            -------                                         |\n|  state s        the agent's situation; Markov => sufficient stat |\n|  action a        what the agent chooses                          |\n|  reward r        scalar signal; the ONLY objective               |\n|  policy pi(a|s)  the agent's behavior (stochastic map s -> a)    |\n|  return G_t      discounted sum of future rewards                |\n|  value v_pi(s)   expected return from s under pi                 |\n|  action-value    q_pi(s,a): expected return from (s,a) under pi  |\n|  model p,r       environment dynamics (may be known or learned)  |\n|  gamma           discount factor in [0,1)                        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "## The Taxonomy: How Algorithms Divide",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    AXIS 1: MODEL                                 |\n|   MODEL-FREE                       MODEL-BASED                   |\n|   learn v/q/pi from samples        learn or use p(s'|s,a)        |\n|   Q-learning, PPO, SAC             Dyna, MCTS, MuZero            |\n|                                    (ch 08)                       |\n+------------------------------------------------------------------+\n|                    AXIS 2: WHAT IS LEARNED                       |\n|   VALUE-BASED         POLICY-BASED          ACTOR-CRITIC         |\n|   learn q, act greedy learn pi directly     learn both          |\n|   DQN, SARSA          REINFORCE             A2C, PPO, SAC        |\n+------------------------------------------------------------------+\n|                    AXIS 3: ON / OFF POLICY                       |\n|   ON-POLICY                        OFF-POLICY                    |\n|   learn about pi you follow        learn about pi' != behavior   |\n|   SARSA, PPO, A3C                  Q-learning, DQN, DDPG, SAC    |\n+------------------------------------------------------------------+\n|                    AXIS 4: BOOTSTRAP (sample vs estimate)        |\n|   MONTE-CARLO                      TEMPORAL-DIFFERENCE           |\n|   full return, no bootstrap        bootstrap from own estimate   |\n|   high variance, unbiased          low variance, biased         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## Where Each Chapter Sits",
+      "confidence": "candidate",
+      "text": "            01 MDP FOUNDATIONS  (the formalism, Bellman)\n                      |\n        .-------------+--------------.\n        v                            v\n   02 DYNAMIC PROG.            03 MC & TD\n   (model known)              (model-free prediction)\n        |                            |\n        |                            v\n        |                     04 MODEL-FREE CONTROL\n        |                     (SARSA, Q-learning, exploration)\n        |                            |\n        '-------------+--------------'\n                      v\n            05 FUNCTION APPROX. (linear, deadly triad, DQN)\n                      |\n        .-------------+--------------.\n        v                            v\n   06 POLICY GRADIENTS         08 MODEL-BASED\n   (REINFORCE, actor-critic)   (Dyna, MCTS, AlphaZero, MuZero)\n        |\n        v\n   07 DEEP RL (TRPO, PPO, DDPG/TD3, SAC)\n        |\n        v\n   09 FRONTIERS (offline, multi-agent, RLHF, applications)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 204,
+      "heading_context": "## One Problem, Every Method: A Unifying Thread",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  WHAT YOU KNOW                  ->  WHICH METHOD                 |\n|  -------------                      ------------                 |\n|  full model (p, r), small S         dynamic programming  (ch 02) |\n|  no model, can act, discrete A      Q-learning / SARSA   (ch 04) |\n|  no model, large/continuous S       DQN / func approx    (ch 05) |\n|  continuous actions                 policy gradient      (ch 06) |\n|  want robust deep training          PPO / SAC            (ch 07) |\n|  can simulate, want to plan         MCTS / world model   (ch 08) |\n|  only a fixed log of episodes       offline RL           (ch 09) |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "## The Three Recurring Trade-Offs",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  1. EXPLORATION  vs  EXPLOITATION   (ch 04)                      |\n|     try new actions to learn   vs   take the best known action   |\n|                                                                  |\n|  2. BIAS  vs  VARIANCE           (ch 03, 06)                     |\n|     bootstrap (biased, stable)  vs full return (unbiased, noisy) |\n|     -- the TD<->MC dial; reappears as GAE's lambda               |\n|                                                                  |\n|  3. SAMPLE EFFICIENCY  vs  STABILITY   (ch 05, 07)               |\n|     off-policy + model (efficient, fragile -- deadly triad)      |\n|     vs on-policy (stable, sample-hungry -- PPO)                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

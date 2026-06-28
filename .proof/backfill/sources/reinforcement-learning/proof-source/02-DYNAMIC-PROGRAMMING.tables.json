@@ -1,0 +1,67 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\02-DYNAMIC-PROGRAMMING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 78,
+      "heading_context": "## Building Block 1: Policy Evaluation",
+      "headers": [
+        "Style",
+        "Update",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Synchronous",
+          "new array `v_{k+1}` from old `v_k`",
+          "clean, two arrays"
+        ],
+        [
+          "In-place (Gauss-Seidel)",
+          "overwrite `v(s)` as you go",
+          "uses fresh values, often faster"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 312,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Known small MDP, want exact optimum",
+          "Policy iteration or value iteration"
+        ],
+        [
+          "Evaluation is cheap, want fewest iterations",
+          "Policy iteration"
+        ],
+        [
+          "Evaluation is expensive, want simplicity",
+          "Value iteration"
+        ],
+        [
+          "Want a tunable middle ground",
+          "Modified policy iteration (k sweeps)"
+        ],
+        [
+          "State space too large to sweep",
+          "Async DP / sample (ch 03) / approx (ch 05)"
+        ],
+        [
+          "Some states matter more",
+          "Prioritized / asynchronous sweeps"
+        ],
+        [
+          "Need a policy without a model",
+          "You cannot use DP — go to ch 04"
+        ]
+      ]
+    }
+  ]
+}

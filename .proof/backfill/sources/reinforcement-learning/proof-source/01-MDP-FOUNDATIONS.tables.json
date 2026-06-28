@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\01-MDP-FOUNDATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 134,
+      "heading_context": "## Returns and Discounting",
+      "headers": [
+        "Setting",
+        "Return",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Episodic",
+          "sum to terminal state",
+          "natural horizon; gamma can = 1"
+        ],
+        [
+          "Continuing, discounted",
+          "gamma < 1 infinite sum",
+          "the default"
+        ],
+        [
+          "Continuing, average-reward",
+          "lim (1/T) sum r_t",
+          "advanced; avoids gamma choice"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 362,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I have / want...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "A known small MDP, want a fixed policy's value",
+          "Bellman expectation, matrix inverse"
+        ],
+        [
+          "A known MDP, want the optimal value",
+          "Bellman optimality, iterate `T*` (ch 02)"
+        ],
+        [
+          "To act without a model",
+          "Learn `q`, act greedily"
+        ],
+        [
+          "To act with a model",
+          "Learn `v`, one-step lookahead"
+        ],
+        [
+          "To reason about convergence",
+          "gamma-contraction in max-norm"
+        ],
+        [
+          "To set the planning horizon",
+          "gamma; effective horizon ~ 1/(1-gamma)"
+        ],
+        [
+          "A non-Markovian / partially observed task",
+          "Reconstruct state / belief (POMDP, ch 09)"
+        ]
+      ]
+    }
+  ]
+}

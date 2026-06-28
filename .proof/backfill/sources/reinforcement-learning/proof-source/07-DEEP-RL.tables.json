@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\07-DEEP-RL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 336,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Robust, simple default; discrete or continuous",
+          "PPO"
+        ],
+        [
+          "Want monotonic-improvement guarantees",
+          "TRPO (or PPO in practice)"
+        ],
+        [
+          "Continuous control, sample efficiency matters",
+          "SAC (default) or TD3"
+        ],
+        [
+          "Continuous control, deterministic actor wanted",
+          "TD3 (not raw DDPG)"
+        ],
+        [
+          "Exploration is the bottleneck",
+          "SAC (max-entropy) or entropy bonus"
+        ],
+        [
+          "Q-values overestimated in continuous control",
+          "TD3 / SAC twin critics"
+        ],
+        [
+          "Discrete actions, value-based",
+          "DQN / Rainbow (ch 05)"
+        ],
+        [
+          "Fine-tuning an LLM from a reward model",
+          "PPO (RLHF, ch 09)"
+        ],
+        [
+          "Very limited environment interaction",
+          "Off-policy (SAC) or offline RL (ch 09)"
+        ]
+      ]
+    }
+  ]
+}

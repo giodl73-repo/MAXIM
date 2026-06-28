@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-reinforcement-learning-dynamic-programming",
+  "source": "../../reinforcement-learning",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-DYNAMIC-PROGRAMMING.md#000",
+      "path": [
+        "02-DYNAMIC-PROGRAMMING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:02-dynamic-programming, git-history:reinforcement-learning:02-dynamic-programming]",
+        "canonical_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "concepts": "[policy iteration, value iteration, generalized policy iteration, policy evaluation, policy improvement]",
+        "current_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "id": "maxim:reinforcement-learning:dynamic-programming",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[generalized policy iteration]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamic Programming - Policy Iteration, Value Iteration, GPI",
+        "updated": "null"
+      },
+      "text": "# Dynamic Programming — Policy Iteration, Value Iteration, GPI"
+    },
+    {
+      "id": "02-DYNAMIC-PROGRAMMING.md#001",
+      "path": [
+        "02-DYNAMIC-PROGRAMMING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:02-dynamic-programming, git-history:reinforcement-learning:02-dynamic-programming]",
+        "canonical_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "concepts": "[policy iteration, value iteration, generalized policy iteration, policy evaluation, policy improvement]",
+        "current_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "id": "maxim:reinforcement-learning:dynamic-programming",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[generalized policy iteration]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamic Programming - Policy Iteration, Value Iteration, GPI",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-DYNAMIC-PROGRAMMING.md#002",
+      "path": [
+        "02-DYNAMIC-PROGRAMMING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:02-dynamic-programming, git-history:reinforcement-learning:02-dynamic-programming]",
+        "canonical_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "concepts": "[policy iteration, value iteration, generalized policy iteration, policy evaluation, policy improvement]",
+        "current_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "id": "maxim:reinforcement-learning:dynamic-programming",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[generalized policy iteration]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamic Programming - Policy Iteration, Value Iteration, GPI",
+        "updated": "null"
+      },
+      "text": "Dynamic programming solves an MDP *when you have the full model*. It is the\nidealized case that every model-free method approximates with samples. The two\nclassical algorithms — policy iteration and value iteration — are two corners of\none unifying idea: **generalized policy iteration**, the dance between evaluating\na policy and improving it."
+    },
+    {
+      "id": "02-DYNAMIC-PROGRAMMING.md#003",
+      "path": [
+        "02-DYNAMIC-PROGRAMMING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:02-dynamic-programming, git-history:reinforcement-learning:02-dynamic-programming]",
+        "canonical_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "concepts": "[policy iteration, value iteration, generalized policy iteration, policy evaluation, policy improvement]",
+        "current_path": "reinforcement-learning/02-DYNAMIC-PROGRAMMING.md",
+        "id": "maxim:reinforcement-learning:dynamic-programming",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[generalized policy iteration]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamic Programming - Policy Iteration, Value Iteration, GPI",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|             GENERALIZED POLICY ITERATION (GPI)                   |\n|                                                                  |\n|        evaluation                   improvement                  |\n|     pi --------------> v_pi    v --------------> greedy(v)       |\n|        (make v match pi)          (make pi greedy wrt v)         |\n|                                                                  |\n|        pi  ===>  v_pi  ===>  pi'  ===>  v_pi'  ===>  ...         |\n|                                                                  |\n|     The two processes pull toward each other; the fixed point    |\n|     of BOTH simultaneously is (pi_*, v_*).                       |\n|                                                                  |\n|     .----------------.                .------------------.       |\n|     | POLICY ITER.   |                | VALUE ITER.      |       |\n|     | full eval then |                | one eval sweep   |       |\n|     | one improve    |                | folded into max  |       |\n|     '----------------'                '------------------'       |\n|        two extremes of the SAME loop                             |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "02-DYNAMIC-PROGRAMMING.md"
+  ]
+}

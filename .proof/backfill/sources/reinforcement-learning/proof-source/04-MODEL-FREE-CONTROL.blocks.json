@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\04-MODEL-FREE-CONTROL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              MODEL-FREE CONTROL = GPI WITH SAMPLES               |\n|                                                                  |\n|   EVALUATE q from experience  <-->  IMPROVE: epsilon-greedy(q)   |\n|                                                                  |\n|   .----------------------.        .----------------------.       |\n|   |       SARSA          |        |     Q-LEARNING       |       |\n|   |   ON-POLICY          |        |     OFF-POLICY       |       |\n|   |   target uses the    |        |   target uses the    |       |\n|   |   action ACTUALLY    |        |   GREEDY action      |       |\n|   |   taken next (A')    |        |   max_a' Q(S',a')    |       |\n|   '----------------------'        '----------------------'       |\n|         learns q_pi for                learns q_* directly       |\n|         the behavior policy            regardless of behavior    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## The Exploration-Exploitation Dilemma",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  EXPLOIT                          EXPLORE                        |\n|  -------                          -------                        |\n|  take argmax_a Q(s,a)             try other actions to learn     |\n|  maximize reward NOW              improve Q for the future       |\n|  risk: stuck in a local optimum   risk: wasted reward now        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "## SARSA: On-Policy TD Control",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  SARSA  (on-policy)                                              |\n|                                                                  |\n|  observe S, choose A ~ epsilon-greedy(Q)                         |\n|  take A, observe R, S'                                           |\n|  choose A' ~ epsilon-greedy(Q)        <- the SAME policy         |\n|     Q(S,A) <- Q(S,A) + alpha[ R + gamma Q(S',A') - Q(S,A) ]      |\n|  S,A <- S',A'                                                    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## Q-Learning: Off-Policy TD Control",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  Q-LEARNING  (off-policy)                                        |\n|                                                                  |\n|  observe S, choose A ~ epsilon-greedy(Q)   (behavior policy)     |\n|  take A, observe R, S'                                           |\n|   Q(S,A) <- Q(S,A) + alpha[ R + gamma max_a' Q(S',a') - Q(S,A) ] |\n|  S <- S'                                                         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 161,
+      "heading_context": "## SARSA vs Q-Learning, Precisely",
+      "confidence": "candidate",
+      "text": "+--------------------------------+--------------------------------+\n|  SARSA                         |  Q-LEARNING                    |\n|  -----                         |  ----------                    |\n|  target: R + g Q(S', A')       |  target: R + g max_a Q(S',a)   |\n|  A' from behavior policy       |  greedy max, any behavior      |\n|  ON-policy                     |  OFF-policy                    |\n|  learns q_pi (behavior incl.   |  learns q_* (optimal,          |\n|     exploration cost)          |     ignores exploration cost)  |\n|  Bellman EXPECTATION backup    |  Bellman OPTIMALITY backup     |\n|  safer near danger             |  optimal but riskier path      |\n+--------------------------------+--------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## Expected SARSA and a Family Tree",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              THE TD-CONTROL FAMILY (target at S')                |\n|                                                                  |\n|  SARSA           R + gamma Q(S', A')          sample of pi       |\n|  Expected SARSA  R + gamma E_{a~pi}[Q(S',a)]  expectation of pi  |\n|  Q-learning      R + gamma max_a Q(S', a)     greedy policy      |\n|                                                                  |\n|  Q-learning = Expected SARSA with the GREEDY target policy       |\n|  (so it is the off-policy member of the same family)             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-reinforcement-learning-policy-gradients",
+  "source": "../../reinforcement-learning",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-POLICY-GRADIENTS.md#000",
+      "path": [
+        "06-POLICY-GRADIENTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:06-policy-gradients, git-history:reinforcement-learning:06-policy-gradients]",
+        "canonical_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "concepts": "[policy gradient theorem, REINFORCE, baseline, actor-critic, advantage, A2C, A3C, GAE]",
+        "current_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "id": "maxim:reinforcement-learning:policy-gradients",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[policy gradient theorem, actor-critic]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Policy Gradients - The Theorem, REINFORCE, Actor-Critic, GAE",
+        "updated": "null"
+      },
+      "text": "# Policy Gradients — The Theorem, REINFORCE, Actor-Critic, GAE"
+    },
+    {
+      "id": "06-POLICY-GRADIENTS.md#001",
+      "path": [
+        "06-POLICY-GRADIENTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:06-policy-gradients, git-history:reinforcement-learning:06-policy-gradients]",
+        "canonical_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "concepts": "[policy gradient theorem, REINFORCE, baseline, actor-critic, advantage, A2C, A3C, GAE]",
+        "current_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "id": "maxim:reinforcement-learning:policy-gradients",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[policy gradient theorem, actor-critic]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Policy Gradients - The Theorem, REINFORCE, Actor-Critic, GAE",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-POLICY-GRADIENTS.md#002",
+      "path": [
+        "06-POLICY-GRADIENTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:06-policy-gradients, git-history:reinforcement-learning:06-policy-gradients]",
+        "canonical_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "concepts": "[policy gradient theorem, REINFORCE, baseline, actor-critic, advantage, A2C, A3C, GAE]",
+        "current_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "id": "maxim:reinforcement-learning:policy-gradients",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[policy gradient theorem, actor-critic]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Policy Gradients - The Theorem, REINFORCE, Actor-Critic, GAE",
+        "updated": "null"
+      },
+      "text": "Value-based methods learn `q` and act greedily. Policy-gradient methods skip the\nintermediary and *optimize a parameterized policy* `pi(a|s; theta)` directly by\ngradient ascent on expected return. This is the only natural route to continuous\naction spaces and stochastic policies, and it is the foundation of every modern\ndeep-RL algorithm (PPO, SAC) and of RLHF."
+    },
+    {
+      "id": "06-POLICY-GRADIENTS.md#003",
+      "path": [
+        "06-POLICY-GRADIENTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:reinforcement-learning:06-policy-gradients, git-history:reinforcement-learning:06-policy-gradients]",
+        "canonical_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "concepts": "[policy gradient theorem, REINFORCE, baseline, actor-critic, advantage, A2C, A3C, GAE]",
+        "current_path": "reinforcement-learning/06-POLICY-GRADIENTS.md",
+        "id": "maxim:reinforcement-learning:policy-gradients",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[policy gradient theorem, actor-critic]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Policy Gradients - The Theorem, REINFORCE, Actor-Critic, GAE",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|          VALUE-BASED  vs  POLICY-BASED  vs  ACTOR-CRITIC         |\n|                                                                  |\n|  VALUE-BASED          POLICY-BASED          ACTOR-CRITIC         |\n|  -----------          ------------          ------------         |\n|  learn q(s,a)         learn pi(a|s;theta)   learn BOTH           |\n|  policy = argmax q    grad-ascend J(theta)  actor: pi(a|s;theta) |\n|  implicit policy      explicit policy       critic: v(s;w)       |\n|  discrete actions     continuous OK         critic reduces       |\n|  off-policy easy      stochastic OK         the variance         |\n|  DQN                  REINFORCE             A2C, PPO, SAC        |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|              THE OBJECTIVE  J(theta) = E_pi[ G_0 ]               |\n|       maximize expected return by ASCENDING grad_theta J         |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "06-POLICY-GRADIENTS.md"
+  ]
+}

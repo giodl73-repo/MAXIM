@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\05-FUNCTION-APPROXIMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|         FROM TABLE TO FUNCTION: WHAT CHANGES                     |\n|                                                                  |\n|   TABULAR                         FUNCTION APPROXIMATION         |\n|   -------                         -----------------------        |\n|   V[s] one entry per state        v(s; w), w in R^d, d << |S|    |\n|   updates are local               updates GENERALIZE across s    |\n|   guaranteed convergence          may diverge (deadly triad)     |\n|   exact                           approximate, must generalize   |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|              THE DEADLY TRIAD (divergence when all three)        |\n|                                                                  |\n|     [ FUNCTION APPROX. ]  + [ BOOTSTRAPPING ]  +  [ OFF-POLICY ] |\n|         generalize            TD targets           replay/ max   |\n|                                                                  |\n|     any TWO is usually fine.  ALL THREE can diverge.             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 88,
+      "heading_context": "## Value Function Approximation",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  TRUE GRADIENT (MC)        vs       SEMI-GRADIENT (TD)           |\n|  - differentiate full obj.          - ignore w-dependence of     |\n|  - converges (to a local min)         the bootstrap target       |\n|  - slow, high variance            - fast, but no fixed objective |\n|                                  - can diverge w/ off-policy     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## Linear Function Approximation",
+      "confidence": "candidate",
+      "text": "  w <- w + alpha [ R + gamma w^T x(S') - w^T x(S) ] x(S)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "## Linear Function Approximation",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  CONVERGENCE OF LINEAR TD(0)                                     |\n|                                                                  |\n|  ON-POLICY linear TD(0):  CONVERGES to the TD fixed point w_TD.  |\n|     - not the best linear fit; off by a factor up to 1/(1-gamma) |\n|       from the true minimum VE (the \"TD fixed point\" w_TD).      |\n|  OFF-POLICY linear TD(0):  CAN DIVERGE (Baird's counterexample). |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 129,
+      "heading_context": "## The Deadly Triad in Detail",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  INGREDIENT          WHY WE WANT IT        WHAT IT RISKS         |\n|  ----------          --------------        ---------------       |\n|  Function approx.    scale to huge S       updates leak across   |\n|                      generalize            states uncontrollably |\n|  Bootstrapping       sample efficiency,    targets move with w;  |\n|                      online, low variance  no fixed objective    |\n|  Off-policy          reuse data (replay),  state distribution    |\n|                      learn greedy policy   mismatch amplifies    |\n|                      while exploring       errors                |\n+------------------------------------------------------------------+\n\n  Remove ANY one => stable:\n    - drop bootstrapping  -> Monte Carlo + approx (true gradient): stable\n    - drop off-policy     -> on-policy TD + approx: stable (converges)\n    - drop approx         -> tabular: always converges",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## The Deadly Triad in Detail",
+      "confidence": "candidate",
+      "text": "  DIVERGENCE MECHANISM (intuition):\n    update v(s) up -> generalization raises v(s') too\n    -> bootstrap target R + gamma v(s') rises\n    -> next update raises v(s) again -> positive feedback -> infinity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 174,
+      "heading_context": "## Deep Q-Networks (DQN)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  DQN LOSS  (semi-gradient TD on the optimality target)           |\n|                                                                  |\n|   L(w) = E_{(s,a,r,s') ~ D} [ ( y - q(s,a; w) )^2 ]              |\n|   with  y = r + gamma max_a' q(s', a'; w^-)                      |\n|                                  ^^^^                            |\n|                          target-network weights (frozen copy)    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 185,
+      "heading_context": "## Deep Q-Networks (DQN)",
+      "confidence": "candidate",
+      "text": "### Trick 1: Experience Replay",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "### Trick 1: Experience Replay",
+      "confidence": "candidate",
+      "text": "  store transitions (s,a,r,s') in a buffer D\n  train on RANDOM MINIBATCHES sampled from D\n\n  why it helps:\n   - BREAKS correlation between consecutive samples (i.i.d.-like batches)\n   - REUSES each transition many times (sample efficiency)\n   - smooths the data distribution -> tames the off-policy leg",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 197,
+      "heading_context": "### Trick 1: Experience Replay",
+      "confidence": "candidate",
+      "text": "### Trick 2: Target Network",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 220,
+      "heading_context": "## The DQN Improvement Stack (\"Rainbow\")",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  EXTENSION            FIXES / ADDS                               |\n|  ---------            -----------                                |\n|  Double DQN           maximization bias: select with online w,   |\n|                       evaluate with target w^-                   |\n|  Dueling DQN          split q = V(s) + A(s,a); learn state value |\n|                       separately from action advantage           |\n|  Prioritized Replay  sample high-TD-error transitions more often |\n|                       (prioritized sweeping, ch 02 idea)         |\n|  Multi-step (n-step) n-step TD targets (ch 03) for faster credit |\n|  Noisy Nets           learnable parametric noise for exploration |\n| Distributional (C51) learn the DISTRIBUTION of returns, not mean |\n|  Rainbow              all of the above, combined                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 260,
+      "heading_context": "## Worked Example: Why the Target Network Matters",
+      "confidence": "candidate",
+      "text": "  WITHOUT target net (target uses current w):\n    w <- w + (0.9 w - w) = w + (-0.1 w) = 0.9 w     -> shrinks toward 0 (here OK)\n\n  Now flip the sign structure (off-policy weighting overweights this state),\n  effectively scaling the update; the map becomes w <- k*w with |k|>1:\n    w <- 1.1 w -> 1.21 w -> ... -> infinity         (DIVERGENCE)\n\n  WITH a frozen target w^- (updated every C steps):\n    target = 0.9 w^-  is CONSTANT during the inner updates\n    w converges toward 0.9 w^- each phase -> stable, no runaway feedback",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

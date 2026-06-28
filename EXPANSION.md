@@ -199,6 +199,7 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 15 | 15A–15D | algorithms, compilers, computer-graphics, dynamical-systems | ~40 | 2026-06 |
 | 16 | 16A–16B | computer-vision, combinatorics | ~20 | 2026-06 |
 | 17 | 17A–17B | embedded-systems, biochemistry | ~20 | 2026-06 |
+| 18 | 18A | reinforcement-learning | ~10 | 2026-06 |
 
 ---
 

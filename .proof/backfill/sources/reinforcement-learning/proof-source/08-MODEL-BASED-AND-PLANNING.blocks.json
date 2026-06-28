@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\08-MODEL-BASED-AND-PLANNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|          MODEL-FREE  vs  MODEL-BASED                             |\n|                                                                  |\n|   MODEL-FREE                       MODEL-BASED                   |\n|   ----------                       -----------                   |\n|   real experience -> values/policy learn/use model -> PLAN       |\n|   sample-hungry                    sample-efficient              |\n|   no model error                   suffers model error           |\n|   Q-learning, PPO, SAC             Dyna, MCTS, AlphaZero, MuZero |\n|                                                                  |\n|   DYNA bridges them: use a learned model to GENERATE extra       |\n|   experience for a model-free learner.                           |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|   PLANNING = using a model to improve a value/policy or to       |\n|   SELECT the next action by looking ahead (search/simulation).   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## Dyna: Integrating Learning and Planning",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  DYNA-Q                                                          |\n|                                                                  |\n|   loop:                                                          |\n|     1. act in the REAL world: (s,a,r,s')                         |\n|     2. DIRECT RL:  Q-learning update on the real transition      |\n|     3. MODEL LEARNING: store model[s,a] = (r, s')                |\n|     4. PLANNING: repeat n times:                                 |\n|          sample a previously-seen (s,a) from the model           |\n|          Q-learning update on the SIMULATED (s,a,r,s')           |\n+------------------------------------------------------------------+\n\n   real experience  --> Q  <-- simulated experience (from the model)\n        |                          ^\n        v                          |\n      model  ----------------------'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 95,
+      "heading_context": "## Planning by Search: Monte Carlo Tree Search",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  MCTS: FOUR PHASES PER SIMULATION                                |\n|                                                                  |\n|   1. SELECTION   from the root, descend by a tree policy (UCT)   |\n|                  until reaching a leaf                           |\n|   2. EXPANSION   add one (or more) child nodes at the leaf       |\n|   3. SIMULATION  roll out to an outcome (random or a policy)     |\n|      (ROLLOUT)   -> a value estimate for the leaf                |\n|   4. BACKUP      propagate the result up the path, updating      |\n|                  each node's visit count N and value Q           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 145,
+      "heading_context": "## AlphaGo and AlphaZero",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ALPHAZERO                                                       |\n|                                                                  |\n|   ONE network f(s) -> (p, v):                                    |\n|     p = policy prior over moves    (guides MCTS expansion)       |\n|     v = value estimate of s        (replaces random rollouts)    |\n|                                                                  |\n|   MCTS uses p and v instead of random rollouts (PUCT selection): |\n|   select a maximizing: Q(s,a) + c * p(a) * sqrt(N(s))/(1+N(s,a)) |\n|                                    ^ network prior steers search |\n|                                                                  |\n|   SELF-PLAY LOOP:                                                |\n|     1. MCTS (guided by f) plays games against itself             |\n|     2. MCTS's visit counts = an IMPROVED policy target pi        |\n|     3. train f so p -> pi and v -> game outcome z                |\n|     4. better f -> stronger MCTS -> better targets -> repeat     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## AlphaGo and AlphaZero",
+      "confidence": "candidate",
+      "text": "   policy improvement  =  MCTS search   (makes p better -> pi)\n   policy evaluation   =  self-play games  (outcome z trains v)\n   -> the same evaluate/improve loop, with planning doing the improving.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 186,
+      "heading_context": "## MuZero: Planning with a Learned Model",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  MUZERO: THREE LEARNED FUNCTIONS                                 |\n|                                                                  |\n|   REPRESENTATION  h: observation o -> latent state s0            |\n|   DYNAMICS        g: (s_k, a_k) -> (s_{k+1}, r_{k+1})            |\n|   PREDICTION      f: s_k -> (policy p_k, value v_k)              |\n|                                                                  |\n|   MCTS runs entirely in LATENT space using g and f.              |\n|   The latent model is trained ONLY to predict reward, value,     |\n|   and policy correctly along real trajectories -- NOT to         |\n|   reconstruct pixels. \"Value-equivalent\" model.                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 201,
+      "heading_context": "## MuZero: Planning with a Learned Model",
+      "confidence": "candidate",
+      "text": "   o --h--> s0 --g--> s1 --g--> s2 ...        (latent rollout)\n            |         |         |\n            f         f         f\n          (p,v)     (p,v)     (p,v)           (predictions to plan on)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "## World Models and Learned Simulators",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  WORLD MODELS / DREAMER                                          |\n|  -----------------------                                         |\n|  - learn a latent dynamics model (often a recurrent/VAE/RSSM)    |\n|  - train the policy by IMAGINED rollouts inside the model        |\n|    (backprop value gradients through the learned dynamics)       |\n|  - extreme sample efficiency: most learning happens \"in dreams\"  |\n|  - Dreamer line: strong on continuous control from pixels        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## World Models and Learned Simulators",
+      "confidence": "candidate",
+      "text": "  real env (few samples) --> learn world model --> imagine many\n                                                    rollouts -->\n                            train actor/critic entirely in imagination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 248,
+      "heading_context": "## The Spectrum of \"How Much Model\"",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n| MODEL-FREE ......  DYNA  ......  MCTS/AZ  ....  MUZERO  .. WORLD |\n|                                                           MODELS |\n|  no model      model for      model =         learned      full  |\n|              extra data    given          value-      generative |\n|                               simulator       equivalent   model |\n|                                               latent model       |\n|  Q-learn/PPO   Dyna-Q        AlphaZero      MuZero       Dreamer |\n+------------------------------------------------------------------+\n   <-- more samples needed            more compute/planning -->\n   <-- robust to model error          more sensitive to model error |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

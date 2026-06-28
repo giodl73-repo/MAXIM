@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\06-POLICY-GRADIENTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|          VALUE-BASED  vs  POLICY-BASED  vs  ACTOR-CRITIC         |\n|                                                                  |\n|  VALUE-BASED          POLICY-BASED          ACTOR-CRITIC         |\n|  -----------          ------------          ------------         |\n|  learn q(s,a)         learn pi(a|s;theta)   learn BOTH           |\n|  policy = argmax q    grad-ascend J(theta)  actor: pi(a|s;theta) |\n|  implicit policy      explicit policy       critic: v(s;w)       |\n|  discrete actions     continuous OK         critic reduces       |\n|  off-policy easy      stochastic OK         the variance         |\n|  DQN                  REINFORCE             A2C, PPO, SAC        |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|              THE OBJECTIVE  J(theta) = E_pi[ G_0 ]               |\n|       maximize expected return by ASCENDING grad_theta J         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Why Policy Gradients At All?",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ADVANTAGE OF DIRECT POLICY OPTIMIZATION                         |\n|  --------------------------------------                          |\n|  - CONTINUOUS actions: argmax over q is intractable; a           |\n|    parameterized pi (e.g. Gaussian) handles them natively        |\n|  - STOCHASTIC optimal policies: in partially observed or         |\n|    adversarial settings the best policy is randomized; argmax    |\n|    q is always deterministic                                     |\n|  - SMOOTH policy changes: small theta steps -> small policy      |\n|    changes (value-based argmax can flip abruptly)                |\n|  - directly optimizes the thing you care about (return)          |\n|                                                                  |\n| COST: high variance gradients; usually on-policy (sample hungry) |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 83,
+      "heading_context": "## The Policy Gradient Theorem",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  POLICY GRADIENT THEOREM                                         |\n|                                                                  |\n|  grad_theta J(theta)                                             |\n|     = E_pi [  grad_theta log pi(a|s; theta)  *  q_pi(s,a)  ]     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "## REINFORCE: Monte-Carlo Policy Gradient",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  REINFORCE                                                       |\n|                                                                  |\n|  run an episode under pi(.;theta)                                |\n|  for each step t:                                                |\n|    theta <- theta + alpha * gamma^t * G_t * grad log pi(A_t|S_t) |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## Actor-Critic: Bootstrap the Gradient",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                      ACTOR-CRITIC                                |\n|                                                                  |\n|   .---------.   action a    .-------------.                      |\n|   | ACTOR   |-------------->| ENVIRONMENT  |                     |\n|   | pi(.|s; |   s, r        '-------------'                      |\n|   |  theta) |<-------------------|                               |\n|   '---------'                    v                               |\n|        ^                   .-----------.                         |\n|        | TD error delta    |  CRITIC   |   estimates v(s; w)     |\n|        '-------------------|  v(s; w)  |                         |\n|                            '-----------'                         |\n|                                                                  |\n|   critic update:  w <- w + alpha_w * delta * grad v(s;w)         |\n|   actor update:   theta <- theta + alpha_t * delta * grad log pi |\n|   where  delta = r + gamma v(s';w) - v(s;w)   (TD error)         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 194,
+      "heading_context": "## Actor-Critic: Bootstrap the Gradient",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  REINFORCE          A weighted by    G_t (full MC return)        |\n|  REINFORCE+baseline A weighted by    G_t - v(s)                  |\n|  Actor-Critic       A weighted by    delta = r + g v(s') - v(s)  |\n|                     ^ bootstrapped: lower variance, some bias    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 211,
+      "heading_context": "## A2C and A3C",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  A3C (Asynchronous Advantage Actor-Critic)                       |\n|    many worker threads, each with a copy of (theta, w)           |\n|    each runs its own environment, computes gradients,            |\n|    ASYNCHRONOUSLY updates shared parameters.                     |\n|    Parallelism decorrelates data (replaces the replay buffer).   |\n|                                                                  |\n|  A2C (Advantage Actor-Critic)                                    |\n|    the SYNCHRONOUS version: wait for all workers, average,       |\n|   one update. Simpler, GPU-friendly, usually >= A3C in practice. |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "## Generalized Advantage Estimation (GAE)",
+      "confidence": "candidate",
+      "text": "  TD residual:   delta_t = r_t + gamma v(s_{t+1}) - v(s_t)\n\n  GAE:  A_t^{GAE(gamma,lambda)} = sum_{l=0}^{inf} (gamma lambda)^l delta_{t+l}\n\n    lambda = 0 :  A_t = delta_t            (1-step; low variance, biased)\n    lambda = 1 :  A_t = G_t - v(s_t)       (full MC advantage; unbiased, high var)\n    0<lambda<1 :  smooth bias-variance interpolation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 251,
+      "heading_context": "## Generalized Advantage Estimation (GAE)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  GAE = the bias-variance dial for the ADVANTAGE estimate.        |\n|  gamma controls the horizon; lambda controls how much you trust  |\n|  the critic's bootstrap vs the sampled rewards.                  |\n|  Typical: gamma=0.99, lambda=0.95  (used by PPO, ch 07).         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

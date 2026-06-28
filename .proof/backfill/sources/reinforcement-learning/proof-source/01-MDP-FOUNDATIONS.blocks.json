@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\01-MDP-FOUNDATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                      THE MDP STACK                               |\n|                                                                  |\n|  (S, A, p(s',r|s,a), gamma)        <- the MDP tuple              |\n|            |                                                     |\n|            v                                                     |\n|  return  G_t = r_{t+1} + gamma r_{t+2} + ...   <- objective      |\n|            |                                                     |\n|            v                                                     |\n|  value   v_pi(s) = E_pi[G_t | S_t = s]         <- prediction     |\n|  q-value q_pi(s,a) = E_pi[G_t | S_t=s, A_t=a]                    |\n|            |                                                     |\n|            v                                                     |\n|  BELLMAN EXPECTATION:   v_pi = r + gamma P_pi v_pi  (linear)     |\n|            |                                                     |\n|            v                                                     |\n|  BELLMAN OPTIMALITY:    v_* = max_a [ r + gamma E v_* ] (nonlin) |\n|            |                                                     |\n|            v                                                     |\n|  optimal policy  pi_*(s) = argmax_a q_*(s,a)   <- the goal       |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Markov Decision Process",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  S            set of states                                      |\n|  A            set of actions (A(s) if state-dependent)           |\n|  p(s',r|s,a)  dynamics: joint prob of next state and reward      |\n|  gamma        discount factor in [0,1)                           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 117,
+      "heading_context": "### Why discount?",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  REASON                          CONSEQUENCE                     |\n|  ------                          -----------                     |\n|  Mathematical convergence        gamma<1 => geometric series     |\n|                                  bounded if |r| <= R_max         |\n|  Uncertainty about the future    soft horizon ~ 1/(1-gamma)      |\n|  Models economic/biological      a reward now > a reward later   |\n|     preference for sooner reward                                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 180,
+      "heading_context": "## The Bellman Expectation Equation",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  BELLMAN EXPECTATION EQUATION (state value)                      |\n|                                                                  |\n|  v_pi(s) = sum_a pi(a|s) [ r(s,a)                                |\n|                          + gamma sum_{s'} p(s'|s,a) v_pi(s') ]   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## The Bellman Expectation Equation",
+      "confidence": "candidate",
+      "text": "  v_pi  =  r_pi  +  gamma P_pi v_pi          (P_pi = transition matrix under pi)\n  =>  v_pi  =  (I - gamma P_pi)^{-1} r_pi    (closed-form solution!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 214,
+      "heading_context": "## The Bellman Optimality Equation",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  BELLMAN OPTIMALITY EQUATION                                     |\n|                                                                  |\n|  v_*(s)   = max_a [ r(s,a) + gamma sum_{s'} p(s'|s,a) v_*(s') ]  |\n|                                                                  |\n| q_*(s,a) = r(s,a) + gamma sum_{s'} p(s'|s,a) max_{a'} q_*(s',a') |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 238,
+      "heading_context": "### Expectation vs Optimality, side by side",
+      "confidence": "candidate",
+      "text": "+--------------------------------+--------------------------------+\n|  BELLMAN EXPECTATION           |  BELLMAN OPTIMALITY            |\n|  --------------------          |  -------------------           |\n|  evaluates a fixed pi          |  finds the best pi             |\n|  sum_a pi(a|s) (...)           |  max_a (...)                   |\n|  LINEAR in v                   |  NONLINEAR (max) in v          |\n| closed form via matrix inverse |  no closed form; iterate       |\n|  -> policy evaluation          |  -> value iteration            |\n+--------------------------------+--------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## The Bellman Operator and Why Iteration Works",
+      "confidence": "candidate",
+      "text": "   v_0  --T*-->  v_1  --T*-->  v_2  -->  ...  -->  v_*\n   ||v_k - v_*||  <=  gamma^k ||v_0 - v_*||      (geometric)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "## Worked Example: A Two-State MDP",
+      "confidence": "candidate",
+      "text": "  stay@A   -> A, r = +1\n  switch@A -> B, r =  0\n  stay@B   -> B, r = +2\n  switch@B -> A, r =  0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 301,
+      "heading_context": "## Worked Example: A Two-State MDP",
+      "confidence": "candidate",
+      "text": "  v_*(B) = max{ 2 + 0.9 v_*(B),  0 + 0.9 v_*(A) }   <- \"stay\" should win\n  v_*(A) = max{ 1 + 0.9 v_*(A),  0 + 0.9 v_*(B) }   <- \"switch\" should win",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 308,
+      "heading_context": "## Worked Example: A Two-State MDP",
+      "confidence": "candidate",
+      "text": "  v_*(B) = 2 + 0.9 v_*(B)        =>  v_*(B) = 2 / 0.1 = 20\n  v_*(A) = 0 + 0.9 v_*(B)        =>  v_*(A) = 0.9 * 20 = 18",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 315,
+      "heading_context": "## Worked Example: A Two-State MDP",
+      "confidence": "candidate",
+      "text": "  at A: stay = 1 + 0.9*18 = 17.2  vs  switch = 0 + 0.9*20 = 18.0  -> switch wins. OK\n  at B: stay = 2 + 0.9*20 = 20.0  vs  switch = 0 + 0.9*18 = 16.2  -> stay wins.   OK",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

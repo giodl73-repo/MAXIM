@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\09-FRONTIERS-AND-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|          WHERE THE TEXTBOOK ASSUMPTIONS BREAK                    |\n|                                                                  |\n|  ASSUMPTION                  REALITY            ->  FRONTIER     |\n|  ----------                  -------                --------     |\n|  free online interaction     interaction is costly/    OFFLINE   |\n|                              unsafe                     RL       |\n|  single agent                others are learning too   MULTI-    |\n|                                                        AGENT     |\n|  reward is given             reward must be designed   RLHF /    |\n|                              or learned                reward    |\n|                                                        modeling  |\n|  reward = true goal          agents EXPLOIT the proxy  REWARD    |\n|                                                        HACKING   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## Offline (Batch) RL",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ONLINE RL                         OFFLINE RL                    |\n|  ---------                         ----------                    |\n|  collect data as you learn         fixed dataset D, no new data  |\n|  can correct mistakes by acting    cannot probe the environment  |\n|  exploration available             NO exploration                |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 72,
+      "heading_context": "## Offline (Batch) RL",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  THE OFFLINE FAILURE MODE                                        |\n|                                                                  |\n|  Q-learning's target uses  max_a' Q(s', a').                     |\n|  If a' is OUT OF DISTRIBUTION (never in D), Q(s',a') is a wild   |\n|  extrapolation -- often an OVERESTIMATE.                         |\n|  The policy then chases these phantom high values, and there is  |\n|  NO interaction to discover they are wrong. Errors compound.     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 112,
+      "heading_context": "## Multi-Agent RL (MARL)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  THE NON-STATIONARITY PROBLEM                                    |\n|  ---------------------------                                     |\n|  From agent i's view, the transition dynamics depend on the      |\n|  other agents' policies, which are CHANGING as they learn.       |\n|  -> the environment is non-stationary -> convergence guarantees  |\n|     from single-agent RL break.                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Multi-Agent RL (MARL)",
+      "confidence": "candidate",
+      "text": "  CTDE (centralized training, decentralized execution):\n     train with access to all agents' info (a central critic),\n     but each agent ACTS on only its local observation.\n     (MADDPG, QMIX, MAPPO)\n\n  SELF-PLAY: an agent trains against copies of itself -> automatic\n     curriculum (AlphaZero, ch 08; OpenAI Five; AlphaStar).\n\n  POPULATION-BASED / league play: maintain a population of opponents\n     to avoid cyclic forgetting and exploitable strategies.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 157,
+      "heading_context": "## RLHF: Reinforcement Learning from Human Feedback",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  THE RLHF PIPELINE                                               |\n|                                                                  |\n|  1. SFT:  supervised fine-tune the base model on demonstrations  |\n|        |                                                         |\n|        v                                                         |\n|  2. REWARD MODEL:  collect human preferences (A preferred to B); |\n|     train r_phi via the Bradley-Terry model:                     |\n|        P(A > B) = sigmoid( r_phi(A) - r_phi(B) )                 |\n|        |                                                         |\n|        v                                                         |\n|  3. RL (PPO):  optimize the policy (the LLM) to maximize r_phi,  |\n|     with a KL penalty to the SFT model:                          |\n|        maximize  E[ r_phi(x,y) ]  -  beta * KL( pi || pi_SFT )   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 190,
+      "heading_context": "## RLHF: Reinforcement Learning from Human Feedback",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  DPO (Direct Preference Optimization) -- the simplification      |\n|  -------------------------------------                           |\n|  Skips the explicit reward model AND PPO. A change of variables  |\n|  shows the RLHF optimum has a closed form, turning preference    |\n|  optimization into a SUPERVISED classification loss on pairs.    |\n|  No reward model, no RL loop -> simpler, popular, but loses some |\n|  flexibility (e.g. online exploration, reward reuse).            |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "### Reward shaping (helping learning)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  POTENTIAL-BASED REWARD SHAPING (Ng et al.)                      |\n|                                                                  |\n|   r'(s,a,s') = r(s,a,s') + gamma * Phi(s') - Phi(s)              |\n|                                                                  |\n|   THEOREM: for any potential Phi, this shaping leaves the        |\n|   optimal policy UNCHANGED -- it only speeds learning, never     |\n|   changes what is optimal. (The shaping telescopes over a        |\n|   trajectory.)                                                   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 237,
+      "heading_context": "### Reward hacking (the failure)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  REWARD HACKING / SPECIFICATION GAMING                           |\n|  -------------------------------------                           |\n|  The agent finds a policy that scores high on the PROXY reward   |\n|  but violates the designer's true intent. Classic cases:         |\n|   - boat-race agent loops to collect points instead of finishing |\n|   - simulated robot exploits a physics-engine bug to \"fly\"       |\n|   - LLM learns to be sycophantic / verbose because the reward    |\n|     model rewards confident, long answers                        |\n|                                                                  |\n|  Root cause: the reward is a PROXY for the goal (Goodhart's law: |\n|  \"when a measure becomes a target, it ceases to be a good        |\n|  measure\"). Optimization pressure finds the gap.                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 263,
+      "heading_context": "## Application Domains",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n| DOMAIN          | WHAT RL DELIVERED          | WHY RL FITS       |\n|-----------------|----------------------------|-------------------|\n| Games           | Atari (DQN), Go/chess      | clear reward,     |\n|                 | (AlphaZero), StarCraft     | cheap simulation, |\n|                 | (AlphaStar), Dota (Five)   | self-play         |\n| LLM alignment   | RLHF / RLAIF post-training | objective is      |\n|                 |                           | learned from prefs |\n| Robotics /      | locomotion, manipulation,  | continuous control|\n| control         | sim-to-real (domain rand.) | (SAC/PPO/TD3)     |\n| Operations      | data-center cooling,       | sequential        |\n|                 | chip floorplanning,        | decisions under   |\n|                 | inventory, routing         | uncertainty       |\n| Recommenders    | long-horizon engagement    | sequential, but   |\n|                 |                            | mostly OFFLINE RL |\n| Science         | protein/matrix-mult        | search over huge  |\n|                 | discovery (AlphaTensor) | combinatorial spaces |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

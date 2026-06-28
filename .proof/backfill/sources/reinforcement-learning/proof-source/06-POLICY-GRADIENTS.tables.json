@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\06-POLICY-GRADIENTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 341,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Continuous action space",
+          "Policy gradient / actor-critic"
+        ],
+        [
+          "Need a stochastic optimal policy",
+          "Policy gradient"
+        ],
+        [
+          "Simplest unbiased policy-gradient baseline",
+          "REINFORCE"
+        ],
+        [
+          "Cut REINFORCE variance, stay unbiased",
+          "Add a state-value baseline (advantage)"
+        ],
+        [
+          "Want low-variance online updates",
+          "Actor-critic (TD-error advantage)"
+        ],
+        [
+          "Scale on-policy AC across many envs",
+          "A2C (sync) / A3C (async)"
+        ],
+        [
+          "Tune the advantage bias-variance trade-off",
+          "GAE (gamma, lambda)"
+        ],
+        [
+          "Encourage exploration in a policy",
+          "Entropy bonus (or SAC, ch 07)"
+        ],
+        [
+          "Want a robust modern default",
+          "PPO with GAE (ch 07)"
+        ],
+        [
+          "Fine-tune an LLM from preferences",
+          "PPO + reward model (RLHF, ch 09)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1",
+  "source_markdown": "reinforcement-learning\\09-FRONTIERS-AND-APPLICATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 123,
+      "heading_context": "## Multi-Agent RL (MARL)",
+      "headers": [
+        "Setting",
+        "Reward structure",
+        "Solution concept"
+      ],
+      "rows": [
+        [
+          "Cooperative",
+          "shared / aligned rewards",
+          "joint optimum; credit assignment"
+        ],
+        [
+          "Competitive",
+          "zero-sum",
+          "minimax / Nash equilibrium"
+        ],
+        [
+          "Mixed",
+          "general-sum",
+          "(correlated) equilibria"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 347,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Have logged data, cannot interact safely",
+          "Offline RL (CQL / IQL / DT)"
+        ],
+        [
+          "Offline value overestimation on unseen actions",
+          "Conservatism / pessimism (CQL)"
+        ],
+        [
+          "Multiple learning agents, shared goal",
+          "CTDE (QMIX / MAPPO)"
+        ],
+        [
+          "Two-player zero-sum game",
+          "Self-play (AlphaZero-style)"
+        ],
+        [
+          "Objective is a fuzzy human preference",
+          "RLHF (reward model + PPO) or DPO"
+        ],
+        [
+          "Want simpler preference optimization, no RL loop",
+          "DPO"
+        ],
+        [
+          "Sparse reward slows learning",
+          "Potential-based shaping (safe)"
+        ],
+        [
+          "Agent is gaming the metric",
+          "Re-examine the reward; add KL anchor / oversight"
+        ],
+        [
+          "Sequential operations problem with known model",
+          "Compare to OR / optimal control first"
+        ],
+        [
+          "Continuous robotic control with a simulator",
+          "PPO / SAC + sim-to-real (domain randomization)"
+        ]
+      ]
+    }
+  ]
+}
