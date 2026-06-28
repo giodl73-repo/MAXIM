@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Sharding and Partitioning — Splitting Data Across Machines
 
 Replication (guide 07) makes **copies** of the data; it scales reads and availability but every

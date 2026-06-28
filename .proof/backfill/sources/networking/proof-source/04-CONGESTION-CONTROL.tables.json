@@ -1,0 +1,99 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\04-CONGESTION-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 294,
+      "heading_context": "## Comparison",
+      "headers": [
+        "Algorithm",
+        "Signal",
+        "Increase",
+        "Strength",
+        "Weakness"
+      ],
+      "rows": [
+        [
+          "**Reno/NewReno**",
+          "loss",
+          "linear (AIMD)",
+          "simple, foundational",
+          "poor on long-fat links; loss = congestion"
+        ],
+        [
+          "**CUBIC**",
+          "loss",
+          "cubic vs. time",
+          "great on LFNs, fair across RTTs",
+          "still fills buffers (bufferbloat)"
+        ],
+        [
+          "**BBR**",
+          "bandwidth + RTT model",
+          "rate-paced",
+          "loss-tolerant, empties queue",
+          "fairness vs. CUBIC (improved in v2/v3)"
+        ],
+        [
+          "**DCTCP**",
+          "ECN marks",
+          "ECN-proportional",
+          "precise in DC fabrics",
+          "needs ECN everywhere (controlled net)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 312,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Reach for / expect"
+      ],
+      "rows": [
+        [
+          "General-purpose server default (Linux)",
+          "CUBIC"
+        ],
+        [
+          "Long fat network (high BW × high RTT)",
+          "CUBIC or BBR"
+        ],
+        [
+          "Lossy links (wireless, transcontinental)",
+          "BBR (loss-tolerant)"
+        ],
+        [
+          "Latency matters under load (video, RPC)",
+          "BBR + AQM (CoDel) to kill bufferbloat"
+        ],
+        [
+          "Controlled datacenter fabric (09)",
+          "DCTCP with ECN everywhere"
+        ],
+        [
+          "Router/modem adding seconds of lag",
+          "AQM (FQ-CoDel) + enable ECN"
+        ],
+        [
+          "Want congestion signal without loss",
+          "ECN"
+        ],
+        [
+          "Two flows sharing a link should be fair",
+          "AIMD's convergence is why they are"
+        ],
+        [
+          "Startup: ramp to capacity fast",
+          "slow start (exponential, then ssthresh)"
+        ],
+        [
+          "Why throughput collapses under load",
+          "congestion collapse — AIMD prevents it"
+        ]
+      ]
+    }
+  ]
+}

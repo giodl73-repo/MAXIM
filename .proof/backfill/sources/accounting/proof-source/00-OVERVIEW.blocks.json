@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 35,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                      THE ACCOUNTING PIPELINE                             |\n|                                                                          |\n|  REALITY            CAPTURE          STORE          SUMMARIZE     ANALYZE |\n|  -------            -------          -----          ---------     ------- |\n|  Economic     -->   Journal    -->   General  -->   Financial -->  Ratios |\n|  events             entries          Ledger         Statements     &      |\n|  (sale, pay,        (debit =         (append-       (3 reports)    trends |\n|   borrow,            credit)          only log,                           |\n|   depreciate)                         per account)                       |\n|                                                                          |\n|  +----------+    +-----------+    +-----------+   +-----------+  +------+ |\n|  | source   |    |  DR / CR  |    | T-accounts|   |  Balance  |  | Liq. | |\n|  | document |--->| balanced  |--->| trial     |-->|  Income   |->| Lev. | |\n|  | (invoice,|    | entry     |    | balance   |   |  Cash Flow|  | Prof.| |\n|  |  receipt)|    | (atomic)  |    | (consist- |   |  (+notes) |  | Eff. | |\n|  +----------+    +-----------+    |  ency chk)|   +-----------+  +------+ |\n|                                   +-----------+                          |\n|                                                                          |\n|  INVARIANT enforced at every step:  Assets = Liabilities + Equity        |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 69,
+      "heading_context": "## The Two Audiences (and Two Accountings)",
+      "confidence": "candidate",
+      "text": "                          ACCOUNTING\n                              |\n            +-----------------+------------------+\n            |                                    |\n            v                                    v\n   +------------------+                +------------------+\n   | FINANCIAL ACCT.  |                | MANAGERIAL ACCT. |\n   | (external)       |                | (internal)       |\n   +------------------+                +------------------+\n   | Audience:        |                | Audience:        |\n   |  investors,      |                |  managers,       |\n   |  lenders, IRS,   |                |  the board, you  |\n   |  regulators      |                |                  |\n   | Rules: GAAP/IFRS |                | Rules: none —    |\n   |  (mandatory)     |                |  whatever helps  |\n   | Cadence: quarter |                | Cadence: daily / |\n   |  / year          |                |  whenever        |\n   | Output: 3 state- |                | Output: budgets, |\n   |  ments, audited  |                |  variances,      |\n   | Focus: the past, |                |  unit costs      |\n   |  whole firm      |                | Focus: future,   |\n   |                  |                |  per product/    |\n   |                  |                |  segment         |\n   +------------------+                +------------------+\n   Files 01-05, 09                     Files 06-08",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "## The Five Account Types (the type system)",
+      "confidence": "candidate",
+      "text": "                    ACCOUNTING EQUATION\n       Assets   =   Liabilities   +   Equity\n         |              |               |\n         |              |               +-- expanded by ops:\n         |              |                   Equity = Contributed\n         |              |                            + Retained Earnings\n         |              |                   Retained = Revenue - Expenses\n         |              |                              - Dividends\n         v              v                   |            |\n   +-----------+  +-----------+        +----------+ +----------+\n   |  ASSETS   |  | LIABILITY |        | REVENUE  | | EXPENSE  |\n   +-----------+  +-----------+        +----------+ +----------+\n   | cash      |  | payables  |        | sales    | | COGS     |\n   | AR        |  | debt      |        | interest | | salaries |\n   | inventory |  | deferred  |        |  income  | | rent     |\n   | PP&E      |  |  revenue  |        | (other)  | | deprec.  |\n   | goodwill  |  | accruals  |        +----------+ +----------+\n   +-----------+  +-----------+        (raise equity)(lower equity)\n   normal: DR     normal: CR           normal: CR    normal: DR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 147,
+      "heading_context": "## The Three Statements (and what each answers)",
+      "confidence": "candidate",
+      "text": "   BALANCE SHEET (Dec 31, 2025)        BALANCE SHEET (Dec 31, 2026)\n   +----------------------+            +----------------------+\n   | Assets = L + Equity  |            | Assets = L + Equity  |\n   +----------------------+            +----------------------+\n              |                                   ^\n              |   the period 2026 happens         |\n              |                                   |\n              v                                   |\n   +-------------------------+    +-------------------------+\n   | INCOME STATEMENT 2026   |    | CASH FLOW 2026          |\n   | Revenue - Expenses      |    | Operating + Investing   |\n   |  = Net Income           |    |  + Financing = Δ Cash   |\n   +-------------------------+    +-------------------------+\n        |                                  |\n        +-- flows into Retained Earnings --+-- flows into Cash line\n                    (part of Equity)            (an Asset)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## How a Single Transaction Propagates",
+      "confidence": "candidate",
+      "text": "EVENT: Sell software license for $1,000 cash; your cost to deliver was $300.\n\nSTEP 1 — Journal entry (two entries, each balanced):\n   (a) DR Cash            1,000\n          CR  Revenue           1,000      <- recognize the sale\n   (b) DR COGS              300\n          CR  Inventory          300       <- match the cost\n\nSTEP 2 — Post to ledger (append to each account's log):\n   Cash:      +1,000     Revenue:  +1,000\n   Inventory:   -300     COGS:       +300\n\nSTEP 3 — Trial balance: total DR (1,300) = total CR (1,300)  [consistency OK]\n\nSTEP 4 — Statements:\n   Income Stmt:   Revenue 1,000 - COGS 300 = Gross profit 700\n   Balance Sheet: Cash +1,000, Inventory -300 (assets net +700)\n                  Retained Earnings +700 (equity)         [A = L + E holds]\n   Cash Flow:     Operating cash +1,000\n\nSTEP 5 — Analysis:\n   Gross margin = 700 / 1,000 = 70%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 232,
+      "heading_context": "## The Directory Map",
+      "confidence": "candidate",
+      "text": "accounting/\n|\n+-- 00-OVERVIEW.md ............ you are here (the pipeline + invariant)\n|\n+-- THE FORMAL SYSTEM\n|   +-- 01-DOUBLE-ENTRY.md .... equation, DR/CR, journal->ledger->trial balance\n|\n+-- THE THREE STATEMENTS\n|   +-- 02-BALANCE-SHEET.md ... A=L+E, classification, worked example\n|   +-- 03-INCOME-STATEMENT.md  revenue recognition, COGS, margins, EPS\n|   +-- 04-CASH-FLOW-STATEMENT  operating/investing/financing, indirect method\n|\n+-- THE TIMING ENGINE\n|   +-- 05-ACCRUAL-VS-CASH.md . matching, deferrals/accruals, why they diverge\n|\n+-- MANAGERIAL (internal)\n|   +-- 06-COST-ACCOUNTING.md . fixed/variable, contribution, break-even, ABC\n|   +-- 07-MANAGERIAL-ACCT.md . budgeting, variance, transfer pricing, decisions\n|\n+-- ANALYSIS & ASSURANCE\n    +-- 08-FINANCIAL-ANALYSIS.md  liquidity/leverage/profitability/efficiency, DuPont\n    +-- 09-AUDIT-AND-CONTROLS.md  internal controls, SOX, GAAP vs IFRS, manipulation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

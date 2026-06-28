@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\02-TRAVERSAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Graph Traversal — BFS, DFS, and Their Decorations",
+      "confidence": "candidate",
+      "text": "  TRAVERSAL = (1) a frontier data structure  +  (2) a per-vertex bookkeeping array\n  =============================================================================\n\n   BFS                              DFS\n   frontier = QUEUE (FIFO)          frontier = STACK (LIFO) / recursion\n   explores in LAYERS by distance   explores DEEP then backtracks\n   O(V+E)                           O(V+E)\n\n        s                                s\n      / | \\                            / | \\\n     1  1  1   <- layer 1             a  .  .     dive a, then a's child,\n    /|     |\\                         |          then backtrack, then next\n   2 2     2 2 <- layer 2             b          ...\n                                      |\n   gives FEWEST-EDGES paths          c          gives a DFS TREE + edge types\n\n   +-----------------------------------------------------------------+\n   | DECORATE the same O(V+E) walk to get:                          |\n   |   topo sort     = DFS finish-order reversed (or Kahn's BFS)    |\n   |   components    = repeat traversal from each unvisited vertex  |\n   |   cycle detect  = DFS with WHITE/GRAY/BLACK colors            |\n   |   bipartite test= BFS 2-coloring by layer parity              |\n   +-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "## BFS — Layer by Layer",
+      "confidence": "candidate",
+      "text": "  Graph (undirected):        BFS from s, queue trace:\n                             ----------------------------------------\n       s --- a --- d        dequeue  discovers   dist set\n      / \\         /         s        a, b        a=1, b=1\n     b   c ------+          a        d           d=2\n                            b        c           c=2\n                            c        (a,b seen)  -\n                            d        (a seen)    -\n                            => order s,a,b,c,d ; dist[d]=2 via s-a-d\n\n  LAYERS:   L0 = {s}   L1 = {a, b}   L2 = {c, d}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## DFS — The DFS Tree and Edge Classification",
+      "confidence": "candidate",
+      "text": "  Directed graph, DFS from 0:        Edge types relative to the DFS tree:\n                                     ------------------------------------\n     0 ---> 1 ---> 2                 TREE  : edge to a freshly-discovered\n     |      ^      |                         vertex (0->1, 1->2)\n     v      |      v                 BACK  : edge to a GRAY ancestor  => CYCLE\n     3 -----+      4                         (2->1 here) <-- proves a cycle\n                                     FWD   : edge to a BLACK descendant\n   discover/finish times:           CROSS : edge to a finished vertex in\n     0: d=1            f=10                  another subtree\n     1: d=2  3: d=3 f=4\n     2: d=5  4: d=6 f=7 f=8 f=9      In an UNDIRECTED graph: only TREE and\n                                     BACK edges exist (no fwd/cross).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Topological Sort — Ordering a DAG",
+      "confidence": "candidate",
+      "text": "  DAG of build targets:            Two equivalent algorithms:\n                                   -------------------------------------------\n     A ---> B ---> D               KAHN (BFS-style):              DFS (finish-time):\n     |             ^                 repeatedly remove a vertex     run DFS, push each\n     v             |                 with in-degree 0:              vertex on a stack\n     C ------------+                   in-deg: A0 B1 C1 D2          when it FINISHES;\n                                       remove A -> B0,C0            answer = stack popped\n   valid orders:                       remove B -> D1               (reverse finish order)\n     A, B, C, D                        remove C -> D0\n     A, C, B, D                        remove D\n                                     order: A,B,C,D            both O(V+E)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "## Connected Components",
+      "confidence": "candidate",
+      "text": "  Undirected graph (3 components):     Algorithm:\n                                       --------------------------------------\n    0 - 1    3 - 4 - 5      7          for each vertex v:\n        |                                if v unvisited:\n        2                                  BFS/DFS from v, label all reached\n                                           with a new component id\n    comp 0: {0,1,2}                    => total work still O(V+E)\n    comp 1: {3,4,5}\n    comp 2: {7}   (isolated)           union-find (04) is the alternative,\n                                       ideal for INCREMENTAL/streaming edges",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Cycle Detection — Different Rules for Directed vs Undirected",
+      "confidence": "candidate",
+      "text": "  DIRECTED:  DFS, a BACK edge (to a GRAY/on-stack vertex) = cycle.\n             A black (finished) vertex is NOT a cycle (that's a fwd/cross edge).\n\n       0 -> 1 -> 2 -> 0     2->0 reaches GRAY 0  => CYCLE\n                            (0 is still on the recursion stack)\n\n  UNDIRECTED: DFS, any edge to a visited vertex that is NOT your DFS parent = cycle.\n              (the edge back to your parent is the same edge you arrived on)\n\n       0 - 1 - 2 - 0       at 2, edge 2-0 hits visited 0 (not parent 1) => CYCLE\n       but 1-0 from inside 1 is just the parent edge, ignore it.\n\n  Alternative for undirected: union-find. Adding an edge whose endpoints are\n  ALREADY in the same set closes a cycle (this is exactly Kruskal's reject test, 04).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

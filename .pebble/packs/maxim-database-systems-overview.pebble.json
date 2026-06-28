@@ -1,0 +1,741 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-overview",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "# Anatomy of a Database Engine — The Landscape"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "A database is not one thing. It is a **stack of cooperating subsystems**, each solving a\ndifferent hard problem, nested so that the guarantees of the top layer rest on the mechanisms\nof the layers below. The query language you write (`SELECT ... WHERE ...`) sits at the very\ntop. This directory is everything *underneath* that line."
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "```\n+===================================================================================+\n|                          A DATABASE ENGINE, TOP TO BOTTOM                          |\n+===================================================================================+\n|                                                                                   |\n|   CLIENT / WIRE PROTOCOL        SQL text, parameters, result rows over a socket    |\n|   (TDS, PostgreSQL fe/be, etc.)                                                    |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  QUERY PROCESSOR                                  [ guide 03 ]             |   |\n|   |  parse -> bind -> logical plan -> COST-BASED OPTIMIZER -> physical plan    |   |\n|   |  -> executor (iterators / vectorized). Uses STATISTICS to pick joins.      |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                            ^                                            |\n|         | reads/writes rows          | \"give me rows matching X, fast\"           |\n|         v                            |                                            |\n|   +---------------------------------------------------------------------------+   |\n|   |  ACCESS METHODS / INDEXES                         [ guide 02 ]             |   |\n|   |  B+tree, hash, bitmap, covering, composite, inverted. The data structures |   |\n|   |  that turn O(n) scans into O(log n) lookups.                              |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  TRANSACTION & CONCURRENCY CONTROL                [ guides 04, 05 ]        |   |\n|   |  ACID. MVCC version chains, 2PL locks, snapshot isolation. Decides what    |   |\n|   |  one transaction is allowed to SEE while others run concurrently.          |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  STORAGE ENGINE                                   [ guide 01 ]             |   |\n|   |  Pages, the BUFFER POOL (cache), heap files, B-tree files OR LSM-trees.    |   |\n|   |  How a logical row becomes bytes on a block device.                       |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  DURABILITY & RECOVERY                            [ guide 06 ]             |   |\n|   |  Write-Ahead Log (WAL), ARIES, checkpoints, crash recovery. Makes the \"D\"  |   |\n|   |  in ACID true across power loss.                                           |   |\n|   +---------------------------------------------------------------------------+   |\n|                                                                                   |\n+===================================================================================+\n|         |                                                                         |\n|         v   (the WAL is also the thing we SHIP to other machines)                 |\n|   +---------------------------------------------------------------------------+   |\n|   |  REPLICATION  [07]  ->  SHARDING/PARTITIONING [08]  ->  DISTRIBUTED SQL [09] |\n|   |  One node's durable log becomes many nodes' shared state. CAP enters here. |   |\n|   +---------------------------------------------------------------------------+   |\n+===================================================================================+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "**Read it top-down for a query, bottom-up for a guarantee.** A `SELECT` enters at the\nprocessor and descends to fetch bytes. A durability or isolation *promise* is built from the\nbottom: the WAL guarantees durability, the storage engine guarantees a row exists somewhere,\nMVCC guarantees what you see, the optimizer guarantees it found the rows efficiently."
+    },
+    {
+      "id": "00-OVERVIEW.md#004",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#005",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "## The One Idea That Organizes Everything: Nesting of Guarantees"
+    },
+    {
+      "id": "00-OVERVIEW.md#006",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "The reason databases are hard to reason about is that each guarantee is **implemented in terms\nof a weaker mechanism one layer down**. You cannot understand isolation levels without MVCC.\nYou cannot understand MVCC durability without the WAL. You cannot understand the WAL's payoff\nwithout the buffer pool. Here is the dependency chain made explicit."
+    },
+    {
+      "id": "00-OVERVIEW.md#007",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   \"SERIALIZABLE isolation\"           <- the promise (guide 05)\n        depends on\n   MVCC version chains + SSI or 2PL   <- the concurrency mechanism (guide 04)\n        depends on\n   tuple versions stored on pages     <- the storage layout (guide 01)\n        depends on\n   pages cached in the buffer pool    <- the cache (guide 01)\n        made durable by\n   the write-ahead log + checkpoints  <- durability (guide 06)\n        shipped over the network as\n   a replication stream               <- replication (guide 07)\n        partitioned across nodes by\n   a sharding key + 2PC/consensus      <- scale-out (guides 08, 09)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#008",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "Every guide in this directory is one rung of that ladder."
+    },
+    {
+      "id": "00-OVERVIEW.md#009",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#010",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "## Two Foundational Forks"
+    },
+    {
+      "id": "00-OVERVIEW.md#011",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "Before the details, two architectural forks decide most of a database engine's personality."
+    },
+    {
+      "id": "00-OVERVIEW.md#012",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "### Fork 1 — How is the storage engine organized? (guide 01)"
+    },
+    {
+      "id": "00-OVERVIEW.md#013",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "```\n                    +---------------------------+\n                    |  How do we lay out data?  |\n                    +---------------------------+\n                       /                      \\\n                      v                        v\n        +--------------------------+   +--------------------------+\n        |  IN-PLACE (B-tree / heap)|   |  LOG-STRUCTURED (LSM)    |\n        +--------------------------+   +--------------------------+\n        | Mutate the page where    |   | Never mutate in place.   |\n        | the row lives. Random    |   | Append to a memtable,    |\n        | writes. Read-optimized.  |   | flush sorted runs, merge |\n        |                          |   | them in the background.  |\n        | Postgres, InnoDB (MySQL),|   | Write-optimized.         |\n        | SQL Server, SQLite, all  |   |                          |\n        | classic OLTP engines.    |   | RocksDB, LevelDB,        |\n        |                          |   | Cassandra, ScyllaDB,     |\n        |                          |   | the storage under many   |\n        |                          |   | NewSQL engines.          |\n        +--------------------------+   +--------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#014",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "### Fork 2 — How do concurrent transactions avoid stepping on each other? (guide 04)"
+    },
+    {
+      "id": "00-OVERVIEW.md#015",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "```\n        +-----------------------------+   +-----------------------------+\n        |  PESSIMISTIC (locking, 2PL) |   |  OPTIMISTIC (MVCC, versions)|\n        +-----------------------------+   +-----------------------------+\n        | Acquire a lock BEFORE you   |   | Let everyone read a         |\n        | touch a row. Writers block  |   | consistent SNAPSHOT. Writers|\n        | readers (in classic 2PL).   |   | create new versions; readers|\n        | \"Assume conflict.\"          |   | never block. \"Assume no     |\n        |                             |   | conflict; detect at commit.\"|\n        | Classic SQL Server (without |   |                             |\n        | RCSI), DB2.                 |   | Postgres, Oracle, InnoDB,   |\n        |                             |   | SQL Server RCSI/SI, Cosmos. |\n        +-----------------------------+   +-----------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#016",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "Almost every modern OLTP engine has converged on **MVCC for reads** (optimistic for readers)\nwhile still using **locks for write-write conflicts**. That hybrid is the dominant design and\nguide 04 dissects it."
+    },
+    {
+      "id": "00-OVERVIEW.md#017",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#018",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "## Where Each Real System Sits"
+    },
+    {
+      "id": "00-OVERVIEW.md#019",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "Factual anchors you can trust throughout this directory:"
+    },
+    {
+      "id": "00-OVERVIEW.md#020",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "| System | Storage engine | Concurrency / default isolation | Notes |\n|--------|----------------|----------------------------------|-------|\n| **PostgreSQL** | Heap + B-tree, in-place | MVCC; default **Read Committed** | MVCC by tuple versioning; old versions vacuumed |\n| **MySQL / InnoDB** | Clustered B+tree (index-organized) | MVCC; default **Repeatable Read** | RR uses gap locks → blocks many phantoms |\n| **SQL Server** | Heap or clustered B+tree | Locking default **Read Committed**; RCSI/SI add MVCC | Snapshot isolation is opt-in per DB |\n| **SQLite** | B-tree, single file | Database-level locking; WAL mode | Serializable-ish via coarse locking |\n| **Oracle** | Heap + B-tree | MVCC via undo segments; **Read Committed** default | \"Serializable\" is actually snapshot isolation |\n| **RocksDB / LevelDB** | LSM-tree | Library; pluggable | Storage engine *inside* other databases |\n| **Cassandra / Scylla** | LSM-tree | Tunable consistency, no cross-row txn (classic) | AP-leaning, quorum reads/writes |\n| **Spanner** | Colossus + tablets | External consistency via **TrueTime** + Paxos | The NewSQL gold standard (guide 09) |\n| **CockroachDB** | Pebble (LSM, RocksDB-like) | Serializable via Raft + MVCC | Spanner-inspired, no TrueTime hardware |\n| **Cosmos DB** | Multi-model, partitioned | **5 consistency levels** (Strong→Eventual) | Tunable per-request (guide 09) |"
+    },
+    {
+      "id": "00-OVERVIEW.md#021",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "> Precision note: Oracle and PostgreSQL both implement their `SERIALIZABLE`-named or default\n> levels on snapshot machinery, but they differ — PostgreSQL's `SERIALIZABLE` is true\n> **Serializable Snapshot Isolation (SSI)** and prevents write skew; Oracle's `SERIALIZABLE`\n> is plain snapshot isolation and does **not**. Guide 05 makes this exact."
+    },
+    {
+      "id": "00-OVERVIEW.md#022",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#023",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "00-OVERVIEW.md#024",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "These hold for any senior engineer regardless of stack; the SQL Server / Azure column is\nadditive context for this reader."
+    },
+    {
+      "id": "00-OVERVIEW.md#025",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:00-overview, git-history:database-systems:00-overview]",
+        "canonical_path": "database-systems/00-OVERVIEW.md",
+        "concepts": "[database engine, storage engine, query processor, transaction manager, recovery, replication, sharding]",
+        "current_path": "database-systems/00-OVERVIEW.md",
+        "id": "maxim:database-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[database engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Anatomy of a Database Engine - Landscape",
+        "updated": "null"
+      },
+      "text": "| You already know (old world) | The internals concept (new world) | SQL Server / Azure anchor |\n|------------------------------|-----------------------------------|----------------------------|\n| A filesystem block cache | The **buffer pool** — the DB's own page cache, bypassing the OS cache | SQL Server buffer pool, `max server memory` |\n| `fsync()` to guarantee a write hit disk | WAL flush + group commit before acknowledging COMMIT | `WRITELOG` waits, log flush |\n| A clustered index = the table itself | **Index-organized / clustered** storage (InnoDB, SQL Server) | Clustered index IS the table |\n| Optimistic concurrency (a version/rowversion column you checked) | **MVCC** — the engine does this for every row automatically | `rowversion`/`timestamp`, RCSI |\n| A query plan you read in a profiler | The **physical plan** the cost-based optimizer chose | `SET SHOWPLAN_XML`, Query Store |\n| A transaction log you backed up | The **WAL** — same artifact, also drives replication | SQL Server transaction log, AG log shipping |\n| Read replicas behind a load balancer | **Leader-follower replication** with async/sync lag | Always On readable secondaries |\n| A partitioned table across filegroups | **Sharding / horizontal partitioning** by key | Elastic pools, Cosmos partition keys |\n| Two-phase commit across resource managers (MSDTC) | **2PC** for distributed transactions — same protocol | MSDTC, distributed transactions |"
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-networking-datacenter-networking",
+  "source": "../../networking",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-DATACENTER-NETWORKING.md#000",
+      "path": [
+        "09-DATACENTER-NETWORKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:09-datacenter-networking, git-history:networking:09-datacenter-networking]",
+        "canonical_path": "networking/09-DATACENTER-NETWORKING.md",
+        "concepts": "[clos, leaf-spine, vxlan, overlay, rdma, sdn, ecmp, east-west traffic]",
+        "current_path": "networking/09-DATACENTER-NETWORKING.md",
+        "id": "maxim:networking:datacenter-networking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[datacenter networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Datacenter Networking - Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN",
+        "updated": "null"
+      },
+      "text": "# Datacenter Networking — Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN"
+    },
+    {
+      "id": "09-DATACENTER-NETWORKING.md#001",
+      "path": [
+        "09-DATACENTER-NETWORKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:09-datacenter-networking, git-history:networking:09-datacenter-networking]",
+        "canonical_path": "networking/09-DATACENTER-NETWORKING.md",
+        "concepts": "[clos, leaf-spine, vxlan, overlay, rdma, sdn, ecmp, east-west traffic]",
+        "current_path": "networking/09-DATACENTER-NETWORKING.md",
+        "id": "maxim:networking:datacenter-networking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[datacenter networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Datacenter Networking - Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-DATACENTER-NETWORKING.md#002",
+      "path": [
+        "09-DATACENTER-NETWORKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:09-datacenter-networking, git-history:networking:09-datacenter-networking]",
+        "canonical_path": "networking/09-DATACENTER-NETWORKING.md",
+        "concepts": "[clos, leaf-spine, vxlan, overlay, rdma, sdn, ecmp, east-west traffic]",
+        "current_path": "networking/09-DATACENTER-NETWORKING.md",
+        "id": "maxim:networking:datacenter-networking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[datacenter networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Datacenter Networking - Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN",
+        "updated": "null"
+      },
+      "text": "A datacenter network has a fundamentally different shape than the Internet. The\nInternet optimizes for **north-south** traffic (clients pulling content in from\noutside) over links you don't own. A datacenter optimizes for **east-west**\ntraffic (server-to-server: a single user request fanning out to hundreds of\ninternal microservices, databases, and caches) over a fabric one organization\ncontrols completely. That control changes everything: you can abandon spanning\ntree (01), route on L3 throughout, build any-to-any bandwidth, and layer software\nabstractions on top. This guide is where networking meets the distributed systems\nthat ride on it."
+    },
+    {
+      "id": "09-DATACENTER-NETWORKING.md#003",
+      "path": [
+        "09-DATACENTER-NETWORKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:09-datacenter-networking, git-history:networking:09-datacenter-networking]",
+        "canonical_path": "networking/09-DATACENTER-NETWORKING.md",
+        "concepts": "[clos, leaf-spine, vxlan, overlay, rdma, sdn, ecmp, east-west traffic]",
+        "current_path": "networking/09-DATACENTER-NETWORKING.md",
+        "id": "maxim:networking:datacenter-networking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[datacenter networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Datacenter Networking - Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN",
+        "updated": "null"
+      },
+      "text": "```\n            NORTH-SOUTH (Internet)        vs.        EAST-WEST (datacenter)\n   +----------------------------+              +----------------------------+\n   |     clients (outside)      |              |   one user request fans    |\n   |            |               |              |   out to MANY services:    |\n   |            v               |              |                            |\n   |        [ origin ]          |              |  svc-A <-> svc-B <-> cache  |\n   |     a few big flows IN     |              |    ^         |        ^     |\n   +----------------------------+              |    +-- DB <--+        |     |\n                                               |         <-> queue <---+     |\n   Internet routing is about REACHING          |  MILLIONS of small flows    |\n   distant hosts. Datacenter fabric is         |  server-to-server, ANY to   |\n   about ANY server reaching ANY other         |  ANY, all under one admin   |\n   at full speed, predictable latency.         +----------------------------+\n```"
+    },
+    {
+      "id": "09-DATACENTER-NETWORKING.md#004",
+      "path": [
+        "09-DATACENTER-NETWORKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:09-datacenter-networking, git-history:networking:09-datacenter-networking]",
+        "canonical_path": "networking/09-DATACENTER-NETWORKING.md",
+        "concepts": "[clos, leaf-spine, vxlan, overlay, rdma, sdn, ecmp, east-west traffic]",
+        "current_path": "networking/09-DATACENTER-NETWORKING.md",
+        "id": "maxim:networking:datacenter-networking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[datacenter networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Datacenter Networking - Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN",
+        "updated": "null"
+      },
+      "text": "Two architectural moves define the modern datacenter. **Clos / leaf-spine** gives\nthe physical fabric uniform, non-blocking, any-to-any bandwidth. **Overlays\n(VXLAN)** give software-defined virtual networks on top of it, so tenants and\nservices get isolated L2/L3 segments decoupled from the physical wiring. Add\n**RDMA** for ultra-low-latency transfers and **SDN** for centralized control, and\nyou have the cloud's substrate."
+    }
+  ],
+  "refs": [
+    "09-DATACENTER-NETWORKING.md"
+  ]
+}

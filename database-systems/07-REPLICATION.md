@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Replication — One Node's Log Becomes Many Nodes' State
 
 Replication copies data across machines for **availability** (survive a node loss),

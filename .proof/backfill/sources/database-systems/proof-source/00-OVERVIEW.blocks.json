@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "# Anatomy of a Database Engine — The Landscape",
+      "confidence": "candidate",
+      "text": "+===================================================================================+\n|                          A DATABASE ENGINE, TOP TO BOTTOM                          |\n+===================================================================================+\n|                                                                                   |\n|   CLIENT / WIRE PROTOCOL        SQL text, parameters, result rows over a socket    |\n|   (TDS, PostgreSQL fe/be, etc.)                                                    |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  QUERY PROCESSOR                                  [ guide 03 ]             |   |\n|   |  parse -> bind -> logical plan -> COST-BASED OPTIMIZER -> physical plan    |   |\n|   |  -> executor (iterators / vectorized). Uses STATISTICS to pick joins.      |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                            ^                                            |\n|         | reads/writes rows          | \"give me rows matching X, fast\"           |\n|         v                            |                                            |\n|   +---------------------------------------------------------------------------+   |\n|   |  ACCESS METHODS / INDEXES                         [ guide 02 ]             |   |\n|   |  B+tree, hash, bitmap, covering, composite, inverted. The data structures |   |\n|   |  that turn O(n) scans into O(log n) lookups.                              |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  TRANSACTION & CONCURRENCY CONTROL                [ guides 04, 05 ]        |   |\n|   |  ACID. MVCC version chains, 2PL locks, snapshot isolation. Decides what    |   |\n|   |  one transaction is allowed to SEE while others run concurrently.          |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  STORAGE ENGINE                                   [ guide 01 ]             |   |\n|   |  Pages, the BUFFER POOL (cache), heap files, B-tree files OR LSM-trees.    |   |\n|   |  How a logical row becomes bytes on a block device.                       |   |\n|   +---------------------------------------------------------------------------+   |\n|         |                                                                         |\n|         v                                                                         |\n|   +---------------------------------------------------------------------------+   |\n|   |  DURABILITY & RECOVERY                            [ guide 06 ]             |   |\n|   |  Write-Ahead Log (WAL), ARIES, checkpoints, crash recovery. Makes the \"D\"  |   |\n|   |  in ACID true across power loss.                                           |   |\n|   +---------------------------------------------------------------------------+   |\n|                                                                                   |\n+===================================================================================+\n|         |                                                                         |\n|         v   (the WAL is also the thing we SHIP to other machines)                 |\n|   +---------------------------------------------------------------------------+   |\n|   |  REPLICATION  [07]  ->  SHARDING/PARTITIONING [08]  ->  DISTRIBUTED SQL [09] |\n|   |  One node's durable log becomes many nodes' shared state. CAP enters here. |   |\n|   +---------------------------------------------------------------------------+   |\n+===================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 119,
+      "heading_context": "## Two Foundational Forks",
+      "confidence": "candidate",
+      "text": "### Fork 1 — How is the storage engine organized? (guide 01)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "### Fork 1 — How is the storage engine organized? (guide 01)",
+      "confidence": "candidate",
+      "text": "                    +---------------------------+\n                    |  How do we lay out data?  |\n                    +---------------------------+\n                       /                      \\\n                      v                        v\n        +--------------------------+   +--------------------------+\n        |  IN-PLACE (B-tree / heap)|   |  LOG-STRUCTURED (LSM)    |\n        +--------------------------+   +--------------------------+\n        | Mutate the page where    |   | Never mutate in place.   |\n        | the row lives. Random    |   | Append to a memtable,    |\n        | writes. Read-optimized.  |   | flush sorted runs, merge |\n        |                          |   | them in the background.  |\n        | Postgres, InnoDB (MySQL),|   | Write-optimized.         |\n        | SQL Server, SQLite, all  |   |                          |\n        | classic OLTP engines.    |   | RocksDB, LevelDB,        |\n        |                          |   | Cassandra, ScyllaDB,     |\n        |                          |   | the storage under many   |\n        |                          |   | NewSQL engines.          |\n        +--------------------------+   +--------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 143,
+      "heading_context": "### Fork 1 — How is the storage engine organized? (guide 01)",
+      "confidence": "candidate",
+      "text": "### Fork 2 — How do concurrent transactions avoid stepping on each other? (guide 04)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 145,
+      "heading_context": "### Fork 2 — How do concurrent transactions avoid stepping on each other? (guide 04)",
+      "confidence": "candidate",
+      "text": "        +-----------------------------+   +-----------------------------+\n        |  PESSIMISTIC (locking, 2PL) |   |  OPTIMISTIC (MVCC, versions)|\n        +-----------------------------+   +-----------------------------+\n        | Acquire a lock BEFORE you   |   | Let everyone read a         |\n        | touch a row. Writers block  |   | consistent SNAPSHOT. Writers|\n        | readers (in classic 2PL).   |   | create new versions; readers|\n        | \"Assume conflict.\"          |   | never block. \"Assume no     |\n        |                             |   | conflict; detect at commit.\"|\n        | Classic SQL Server (without |   |                             |\n        | RCSI), DB2.                 |   | Postgres, Oracle, InnoDB,   |\n        |                             |   | SQL Server RCSI/SI, Cosmos. |\n        +-----------------------------+   +-----------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "## How To Read This Directory",
+      "confidence": "candidate",
+      "text": "   START  ->  00 OVERVIEW (you are here)\n                 |\n   STORAGE  ->  01 STORAGE-ENGINES   (pages, buffer pool, B-tree vs LSM, amplification)\n                 |\n   ACCESS   ->  02 INDEXING          (B+tree, hash, covering, composite, bitmap, inverted)\n                 |\n   QUERY    ->  03 QUERY-PROCESSING  (parse->plan->optimize->execute, joins, statistics)\n                 |\n   CONCURR  ->  04 TRANSACTIONS-MVCC (ACID, MVCC, 2PL, snapshot mechanics)\n                 |\n   CORRECT  ->  05 ISOLATION-LEVELS  (the 4 levels + anomalies, serializable vs SSI)\n                 |\n   DURABLE  ->  06 WAL-AND-RECOVERY  (WAL, ARIES, checkpoints, crash recovery)\n                 |\n   SCALE    ->  07 REPLICATION       (sync/async, quorum, conflict resolution)\n                 |\n                 08 SHARDING-PARTITIONING (hash/range, rebalancing, 2PC)\n                 |\n                 09 DISTRIBUTED-SQL   (Spanner/CockroachDB/Cosmos, CAP, consistency spectrum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

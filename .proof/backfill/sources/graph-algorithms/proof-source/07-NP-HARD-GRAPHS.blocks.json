@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\07-NP-HARD-GRAPHS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# NP-Hard Graph Problems — The Cliff and How to Climb It",
+      "confidence": "candidate",
+      "text": "  THE NP-HARD GRAPH ZOO (and the reductions wiring them together)\n  ==============================================================\n\n                3-SAT  (canonical NP-complete, Cook-Levin)\n                   |  poly-time reduction\n       +-----------+-----------------------+\n       v                                   v\n   INDEPENDENT SET <==complement==> CLIQUE       VERTEX COVER\n   (no two adjacent)  (V \\ IS in     (all adjacent)  (= V minus a max\n       |               complement)        ^          independent set!)\n       |  S is an independent set  <=>  V\\S is a vertex cover\n       |\n       v\n   GRAPH COLORING (k-coloring: adjacent vertices differ)\n       |   3-coloring is NP-complete; 2-coloring (bipartite) is O(V+E)\n       v\n   TSP / HAMILTONIAN CYCLE (visit every vertex; min-cost tour)\n       Hamiltonicity is NP-complete; metric TSP -> 1.5-approx (Christofides)\n\n   ESCAPES:  approximation | fixed-parameter (FPT in k) | structure (planar/bipartite)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## The Three Faces of One Problem",
+      "confidence": "candidate",
+      "text": "  Graph G:                Complement G':           Identities (on V vertices):\n                                                   ---------------------------------\n    A --- B               A     B  (A-B gone)      S is an INDEPENDENT SET in G\n    |    /                |                          <=> S is a CLIQUE in G'\n    C    D (D isolated)   C --- D (new edges...)   S is an INDEPENDENT SET in G\n                                                     <=> V\\S is a VERTEX COVER in G\n   {C,D} is independent   {edges flip}             so:\n   (no edge between)                               max independent set + min vertex\n   {A,C} is a vertex                                 cover = V   (exactly)\n   cover (covers A-B,\n   A-C, ...)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Approximation — How Close Can Polynomial Time Get?",
+      "confidence": "candidate",
+      "text": "  THE 2-APPROXIMATION FOR VERTEX COVER (clean, and worth knowing):\n    find a MAXIMAL matching M (greedily). Output BOTH endpoints of every M-edge.\n      - it's a cover: any uncovered edge could extend M, contradicting maximality\n      - it's <= 2*OPT: OPT must include >= 1 endpoint of each matched edge,\n        and the matched edges are disjoint, so OPT >= |M|; we output 2|M|.\n\n  CHRISTOFIDES FOR METRIC TSP (1.5-approx; requires triangle inequality):\n    1. build an MST (04)              2. min-weight matching on ODD-degree MST vertices\n    3. Eulerian circuit on MST+matching   4. shortcut repeats (triangle ineq. ensures\n                                             shortcutting never increases cost)\n    => tour <= 1.5 * OPT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # The Link Layer — Ethernet, MAC, Framing, Switching, VLANs, ARP
 
 ## The Big Picture

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\01-LINK-LAYER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                        ONE BROADCAST DOMAIN (one LAN / one VLAN)\n   +-------------------------------------------------------------------+\n   |                                                                   |\n   |   HOST A          HOST B          HOST C          ROUTER          |\n   |  +------+        +------+        +------+        +--------+        |\n   |  | NIC  |        | NIC  |        | NIC  |        | NIC    |        |\n   |  | MAC  |        | MAC  |        | MAC  |        | (gw)   |        |\n   |  | ..a1 |        | ..b2 |        | ..c3 |        | ..ff   |        |\n   |  +--+---+        +--+---+        +--+---+        +---+----+        |\n   |     |               |               |               |            |\n   |     +-------+-------+-------+-------+-------+-------+              |\n   |             |       |       |       |       |                     |\n   |          +--+-------+-------+-------+-------+--+                   |\n   |          |          ETHERNET SWITCH         |                    |\n   |          |  (forwards frames by MAC table)  |                    |\n   |          +----------------------------------+                    |\n   |                                                                   |\n   +-------------------------------------------------------------------+\n       Frames carry MAC src/dst. The switch reads dst MAC, looks it up,\n       and sends the frame out exactly the right port. The ROUTER is the\n       only way OUT of this broadcast domain (to other LANs / the Internet).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "## The MAC Address",
+      "confidence": "candidate",
+      "text": "   48 bits = 6 octets\n   +--------+--------+--------+--------+--------+--------+\n   |   00   |   1B   |   44   |   11   |   3A   |   B7   |\n   +--------+--------+--------+--------+--------+--------+\n   \\________ OUI ________/ \\______ device-specific ______/\n    (vendor, assigned       (vendor picks, must be\n     by IEEE: 24 bits)       unique within their OUI)\n\n   Special bits in the first octet:\n     - bit 0 (I/G): 0 = unicast, 1 = multicast/broadcast\n     - bit 1 (U/L): 0 = globally unique (OUI), 1 = locally administered\n\n   BROADCAST MAC: FF:FF:FF:FF:FF:FF  (every NIC on the segment accepts it)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## The Ethernet Frame",
+      "confidence": "candidate",
+      "text": " +----------+----------+----------+----------+------------------+---------+\n | Preamble | Dst MAC  | Src MAC  | EtherType|     Payload      |   FCS   |\n |  + SFD   |          |          |          |  (L3 packet)     |  (CRC)  |\n +----------+----------+----------+----------+------------------+---------+\n   7+1 bytes   6 bytes   6 bytes    2 bytes    46-1500 bytes     4 bytes\n   (sync)                                      (the MTU range)\n\n   EtherType values you will actually see:\n     0x0800 = IPv4\n     0x0806 = ARP\n     0x86DD = IPv6\n     0x8100 = 802.1Q VLAN tag (see VLANs below)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 159,
+      "heading_context": "## Switching: How a Frame Finds Its Port",
+      "confidence": "candidate",
+      "text": "   LEARNING (populate the table from SOURCE MACs as frames arrive):\n\n     Frame arrives on port 3, src=AA:..:a1\n        -> switch records:  AA:..:a1  is reachable via PORT 3\n\n   FORWARDING (use the table on DESTINATION MAC):\n\n     +-------------------+----------+\n     | MAC               | Port     |\n     +-------------------+----------+\n     | AA:..:a1          |    3     |\n     | BB:..:b2          |    7     |\n     | CC:..:c3          |    1     |\n     +-------------------+----------+\n\n     dst known   -> forward out that ONE port        (unicast)\n     dst unknown -> flood out ALL ports but ingress   (learn from the reply)\n     dst = FF:FF.. -> flood (broadcast, by definition)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "## Loops and Spanning Tree",
+      "confidence": "candidate",
+      "text": "   PHYSICAL (has a loop):          LOGICAL after STP (loop broken):\n\n     S1 ---- S2                      S1 ---- S2\n      |  \\   /  |                     |       |\n      |   \\ /   |        ===>         |       |  (one link\n      |    X    |                     |       |   set to\n      |   / \\   |                     |       |   BLOCKING)\n     S3 ---- S4                      S3       S4\n                                        (tree, no cycle)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 247,
+      "heading_context": "## VLANs: One Switch, Many LANs",
+      "confidence": "candidate",
+      "text": "   ONE PHYSICAL SWITCH                Logical result:\n   +-------------------------+\n   | p1 p2  | p3 p4  | p5 p6 |        VLAN 10 ==  isolated LAN\n   |  VLAN  |  VLAN  | TRUNK |        VLAN 20 ==  isolated LAN\n   |   10   |   20   |       |        (cannot talk without\n   +---||---+---||---+---||--+         going through a router)\n       eng       fin     to other switch\n\n   802.1Q TAG inserted into the frame (after Src MAC, EtherType 0x8100):\n   +--------+--------+----+-------+----------+\n   |Dst MAC |Src MAC |TPID| VID.. | EtherType|  ...payload...\n   +--------+--------+----+-------+----------+\n                      0x8100  12-bit VLAN ID (1..4094)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "## ARP: Bridging L3 Down to L2",
+      "confidence": "candidate",
+      "text": "   HOST A wants to send to 192.168.1.10 but doesn't know its MAC.\n\n   1) ARP REQUEST  (broadcast to FF:FF:FF:FF:FF:FF)\n      \"Who has 192.168.1.10? Tell 192.168.1.5\"\n              |\n              v   every host on the LAN hears it\n   2) ARP REPLY  (unicast back to A)\n      \"192.168.1.10 is at BB:..:b2\"\n              |\n              v\n   3) A caches the mapping in its ARP TABLE and sends the frame.\n\n      192.168.1.10  ->  BB:..:b2   (cached, ages out after minutes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 355,
+      "heading_context": "### \"If MAC addresses are globally unique, why not just route on them?\"",
+      "confidence": "candidate",
+      "text": "### \"MTU is 1500 — is that the frame size or the payload size?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -71,7 +71,7 @@ AMANITA PHALLOIDES ("Death Cap"):
 AMATOXIN CONTENT:
   α-amanitin: principal lethal toxin
   β-amanitin, γ-amanitin: additional congeners
-  Phalloidins: phallotoxins (actin polymerization inhibitors)
+  Phalloidins: phallotoxins (bind and stabilize F-actin, blocking depolymerization)
     → More toxic in vitro; not absorbed orally → less important in poisoning
   Amanitins: cyclic octapeptides; heat-stable; not inactivated by cooking
     LD₅₀ in mice: ~0.4 mg/kg (extremely potent)

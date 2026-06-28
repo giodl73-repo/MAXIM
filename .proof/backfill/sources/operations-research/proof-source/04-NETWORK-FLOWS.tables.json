@@ -1,0 +1,195 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\04-NETWORK-FLOWS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 91,
+      "heading_context": "## Layer 1: The Network LP and Total Unimodularity",
+      "headers": [
+        "Network constraint matrix",
+        "Property"
+      ],
+      "rows": [
+        [
+          "Node-arc incidence (directed)",
+          "Totally unimodular"
+        ],
+        [
+          "Bipartite incidence (assignment)",
+          "Totally unimodular"
+        ],
+        [
+          "Interval matrices",
+          "Totally unimodular"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 141,
+      "heading_context": "## Layer 2: Max-Flow / Min-Cut",
+      "headers": [
+        "Algorithm",
+        "Augmenting-path choice",
+        "Complexity",
+        "Note"
+      ],
+      "rows": [
+        [
+          "Ford–Fulkerson (generic)",
+          "any path",
+          "$O(E \\cdot",
+          "f^*",
+          ")$",
+          "not polynomial if capacities huge/irrational"
+        ],
+        [
+          "Edmonds–Karp",
+          "shortest (BFS) path",
+          "$O(V E^2)$",
+          "strongly polynomial"
+        ],
+        [
+          "Dinic",
+          "blocking flows on level graph",
+          "$O(V^2 E)$",
+          "$O(E\\sqrt V)$ on unit-capacity (bipartite matching)"
+        ],
+        [
+          "Push–relabel (Goldberg–Tarjan)",
+          "preflow + height labels",
+          "$O(V^2 E)$, $O(V^3)$ variants",
+          "fast in practice"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 180,
+      "heading_context": "## Layer 3: Min-Cost Flow — the General Model",
+      "headers": [
+        "Problem",
+        "Reduction to min-cost flow"
+      ],
+      "rows": [
+        [
+          "Max flow",
+          "All costs 0; add a high-capacity $t \\to s$ arc of cost $-1$; minimize"
+        ],
+        [
+          "Shortest path",
+          "Supply 1 at $s$, demand 1 at $t$, arc costs = lengths"
+        ],
+        [
+          "Transportation",
+          "Bipartite supplies → demands, no intermediate capacities"
+        ],
+        [
+          "Assignment",
+          "Transportation with all supplies = demands = 1"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 255,
+      "heading_context": "## Old World → Network-Flow Bridges",
+      "headers": [
+        "You already know",
+        "Network-flow analogue"
+      ],
+      "rows": [
+        [
+          "Bandwidth/capacity provisioning",
+          "Max-flow: the min-cut is your true bottleneck"
+        ],
+        [
+          "Load balancer behind a bottleneck link",
+          "Min-cut = the limiting cross-section"
+        ],
+        [
+          "Job-to-worker assignment (scheduling)",
+          "Assignment problem, Hungarian $O(n^3)$"
+        ],
+        [
+          "Shortest-path routing (OSPF/Dijkstra)",
+          "Shortest path = unit min-cost flow"
+        ],
+        [
+          "Bipartite matching (ads ↔ slots, users ↔ servers)",
+          "Max matching = max flow on unit-capacity bipartite graph"
+        ],
+        [
+          "Optimal transport / Sinkhorn in ML",
+          "Transportation problem, regularized"
+        ],
+        [
+          "Reliability: minimum set of links to cut a path",
+          "Min-cut directly"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 271,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Model",
+        "Algorithm",
+        "Complexity"
+      ],
+      "rows": [
+        [
+          "Most flow s→t",
+          "Max flow",
+          "Dinic / push–relabel",
+          "$O(V^2 E)$"
+        ],
+        [
+          "True bottleneck of a network",
+          "Min cut",
+          "= max flow (then read residual reachability)",
+          "same"
+        ],
+        [
+          "Cheapest way to ship demand",
+          "Min-cost flow",
+          "Network simplex / cost-scaling",
+          "strongly poly"
+        ],
+        [
+          "One-to-one min-cost matching",
+          "Assignment",
+          "Hungarian",
+          "$O(n^3)$"
+        ],
+        [
+          "Many-to-many supply→demand",
+          "Transportation",
+          "Network simplex",
+          "strongly poly"
+        ],
+        [
+          "Shortest route",
+          "Shortest path",
+          "Dijkstra / Bellman–Ford",
+          "see `graph-algorithms/`"
+        ],
+        [
+          "Non-bipartite matching",
+          "General matching",
+          "Edmonds' blossom",
+          "see `graph-algorithms/`"
+        ],
+        [
+          "Continuous OT in ML",
+          "Optimal transport",
+          "Sinkhorn (entropic)",
+          "see `machine-learning-theory/`"
+        ]
+      ]
+    }
+  ]
+}

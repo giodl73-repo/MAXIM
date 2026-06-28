@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # NP-Hard Graph Problems — The Cliff and How to Climb It
 
 This is the other side of the field. Everything in `02`–`06` was polynomial; here

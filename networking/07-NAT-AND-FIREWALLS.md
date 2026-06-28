@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # NAT and Firewalls — NAT Types, Stateful Firewalls, CGNAT, Port Forwarding
 
 ## The Big Picture

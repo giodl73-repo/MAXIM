@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Graph Algorithms — The Landscape
 
 A graph is the one data structure that everything reduces to: a routing table is

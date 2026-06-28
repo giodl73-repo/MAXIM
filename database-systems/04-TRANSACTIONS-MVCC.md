@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Transactions and MVCC — Letting Many Writers and Readers Coexist
 
 A transaction is a unit of work that the database makes **atomic, consistent, isolated, and

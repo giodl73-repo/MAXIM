@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\04-TRANSACTIONS-MVCC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "# Transactions and MVCC — Letting Many Writers and Readers Coexist",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                       CONCURRENCY CONTROL — THE TWO FAMILIES                         |\n+=====================================================================================+\n|                                                                                     |\n|   GOAL: run T1, T2, ... T_n concurrently but produce a result EQUIVALENT to some     |\n|         SERIAL order. (Serializability is the gold-standard correctness criterion.)  |\n|                                                                                     |\n|   +---------------------------------+     +-------------------------------------+   |\n|   |  PESSIMISTIC: LOCK FIRST (2PL)  |     |  OPTIMISTIC: VERSION + DETECT (MVCC) |   |\n|   +---------------------------------+     +-------------------------------------+   |\n|   | acquire lock BEFORE touching a  |     | readers see a consistent SNAPSHOT;   |   |\n|   | row. Conflicting txns BLOCK.    |     | writers create NEW versions; never   |   |\n|   |                                 |     | block readers. Conflicts detected at |   |\n|   | + simple correctness            |     | commit (abort the loser).            |   |\n|   | - readers block writers,        |     | + reads never block / never blocked  |   |\n|   |   writers block readers         |     | - storage for versions, GC/vacuum,   |   |\n|   | - deadlocks                     |     |   write-skew anomaly at SI            |   |\n|   +---------------------------------+     +-------------------------------------+   |\n|                                                                                     |\n|   MODERN REALITY: a HYBRID. MVCC for reads (no read locks) + locks or optimistic     |\n|   detection for WRITE-WRITE conflicts. Postgres, Oracle, InnoDB, SQL Server RCSI/SI. |\n+=====================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 79,
+      "heading_context": "## Pessimistic Concurrency: Two-Phase Locking (2PL)",
+      "confidence": "candidate",
+      "text": "   TWO PHASES of a transaction's lock set:\n\n   locks\n   held    GROWING PHASE         SHRINKING PHASE\n     |     (acquire only)        (release only)\n     |          ____________________\n     |         /                    \\\n     |        /                      \\\n     |       /                        \\\n     |______/                          \\________\n            t0                  (peak)          commit\n            |                                     |\n   RULE: once you RELEASE any lock, you may NEVER acquire another.\n   => guarantees a serializable schedule.\n\n   STRICT 2PL (what real systems use): hold ALL locks until COMMIT/ABORT, then release together.\n   => also guarantees recoverability (no cascading aborts).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## Pessimistic Concurrency: Two-Phase Locking (2PL)",
+      "confidence": "candidate",
+      "text": "            held: NONE   SHARED(read)   EXCLUSIVE(write)\n   want:\n   SHARED        ok          ok              BLOCK\n   EXCLUSIVE     ok         BLOCK            BLOCK\n\n   => readers (S) share; a writer (X) excludes everyone. In PURE 2PL a long read blocks writers\n      and a writer blocks readers. This is why classic locking databases have \"blocking\" pain.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 128,
+      "heading_context": "## Optimistic Concurrency: MVCC mechanics",
+      "confidence": "candidate",
+      "text": "   VERSION CHAIN for one logical row (key = 42), newest first:\n\n   +----------------------------------------------------------------------------------+\n   | v3  value=300  created_by=T9 (uncommitted)   ----.                               |\n   | v2  value=200  created_by=T7 (committed)      <--+-- a reader at snapshot S sees  |\n   | v1  value=100  created_by=T3 (committed)          |   the NEWEST version COMMITTED |\n   +---------------------------------------------------+   and <= S; ignores v3, v2 if  |\n                                                          they're newer than S.         |\n   VISIBILITY RULE (essence): a version is visible to txn T iff\n     - it was created by a transaction that COMMITTED before T's snapshot, AND\n     - it was not superseded by another such committed version, AND\n     - it was not deleted by a transaction committed before T's snapshot.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Optimistic Concurrency: MVCC mechanics",
+      "confidence": "candidate",
+      "text": "   POSTGRES — versions live IN the heap                ORACLE / SQL SERVER — versions in a\n   --------------------------------------              separate area\n   Each tuple has xmin (creating txn) and xmax         Oracle: UNDO segments hold prior images;\n   (deleting/superseding txn). An UPDATE writes a       a read reconstructs the old version by\n   NEW tuple and sets the old tuple's xmax. Old         applying undo. SQL Server RCSI/SI: the\n   versions accumulate in the table -> VACUUM           VERSION STORE in tempdb holds prior\n   reclaims dead tuples. Visibility checked via         row versions, pointed to by a 14-byte\n   xmin/xmax against the txn's snapshot.                versioning tag on the row.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Snapshot Isolation (SI) — the mechanism MVCC most naturally provides",
+      "confidence": "candidate",
+      "text": "   SNAPSHOT ISOLATION timeline\n\n   T1: --[snapshot @ s1]------------ reads x (sees value @ s1) ------- reads x (STILL @ s1) --commit\n   T2:           --------- writes x, COMMITS ------------------^\n                                                   T1 never sees T2's write -> repeatable, no\n                                                   non-repeatable read, no phantom for T1's reads.\n\n   WRITE-WRITE rule under SI: \"FIRST COMMITTER WINS.\"\n   If two txns both update the same row from the same snapshot, the first to commit succeeds;\n   the second gets a serialization/write-conflict error and must retry (or, with locking, blocks).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Write skew — the anomaly SI does NOT prevent (the famous gap)",
+      "confidence": "candidate",
+      "text": "   CLASSIC: two on-call doctors, invariant \"at least one must remain on call.\"\n   Both rows currently \"on call\". Both doctors try to go off call simultaneously.\n\n   snapshot @ s: {Alice=on, Bob=on}\n   T1 (Alice): reads \"Bob is on, so I may go off\" -> sets Alice = off\n   T2 (Bob):   reads \"Alice is on, so I may go off\" -> sets Bob = off\n\n   Different rows updated -> NO write-write conflict -> BOTH COMMIT under SI.\n   Result: nobody on call. Invariant violated. This is WRITE SKEW.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

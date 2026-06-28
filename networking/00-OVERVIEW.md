@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Networking — The Layered Model End-to-End
 
 ## The Big Picture

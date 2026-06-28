@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\09-DATACENTER-NETWORKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 34,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "            NORTH-SOUTH (Internet)        vs.        EAST-WEST (datacenter)\n   +----------------------------+              +----------------------------+\n   |     clients (outside)      |              |   one user request fans    |\n   |            |               |              |   out to MANY services:    |\n   |            v               |              |                            |\n   |        [ origin ]          |              |  svc-A <-> svc-B <-> cache  |\n   |     a few big flows IN     |              |    ^         |        ^     |\n   +----------------------------+              |    +-- DB <--+        |     |\n                                               |         <-> queue <---+     |\n   Internet routing is about REACHING          |  MILLIONS of small flows    |\n   distant hosts. Datacenter fabric is         |  server-to-server, ANY to   |\n   about ANY server reaching ANY other         |  ANY, all under one admin   |\n   at full speed, predictable latency.         +----------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 72,
+      "heading_context": "## Why Not Just Use the Old Tree?",
+      "confidence": "candidate",
+      "text": "   OLD ACCESS/AGGREGATION/CORE TREE:\n\n              [ CORE ]\n             /        \\\n       [ AGG ]        [ AGG ]\n       /     \\        /     \\\n    [acc]  [acc]   [acc]  [acc]\n     |||    |||     |||    |||\n    servers...\n\n   PROBLEMS for a datacenter:\n   1) OVERSUBSCRIPTION: many servers funnel up through few uplinks ->\n      the core is a bottleneck for east-west traffic.\n   2) SPANNING TREE BLOCKS half the links to break loops -> you PAY for\n      redundant links but can't USE them for bandwidth.\n   3) east-west traffic between two access switches must climb ALL the way\n      to the core and back -> long, congested path.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## Clos / Leaf-Spine Fabric",
+      "confidence": "candidate",
+      "text": "   LEAF-SPINE (2-tier Clos):\n\n         [ SPINE1 ]   [ SPINE2 ]   [ SPINE3 ]   [ SPINE4 ]\n            | \\  \\      /  | \\       / / |       / /  |\n            |  \\  \\    /   |  \\     / /  |      / /   |   <- EVERY leaf\n            |   \\  \\  /    |   \\   / /   |     / /    |      to EVERY spine\n         [ LEAF1 ]   [ LEAF2 ]   [ LEAF3 ]   [ LEAF4 ]\n           ||||        ||||        ||||        ||||\n         servers      servers     servers     servers\n\n   KEY PROPERTIES:\n   - ANY server to ANY server = exactly 2 hops (leaf -> spine -> leaf).\n     Predictable, uniform latency regardless of placement.\n   - ALL links active (no spanning tree). Routed at L3 with ECMP.\n   - SCALE OUT: need more bandwidth? add a spine. More servers? add a leaf.\n     Bandwidth grows by adding switches, not by buying a bigger core.\n   - NON-BLOCKING: with the right ratios, every server can talk at full\n     line rate simultaneously (high bisection bandwidth).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "## Overlays and VXLAN",
+      "confidence": "candidate",
+      "text": "   TWO PLANES:\n     UNDERLAY = the physical leaf-spine fabric, L3-routed (the \"real\" network)\n     OVERLAY  = virtual L2/L3 networks tunneled across the underlay\n\n   VXLAN ENCAPSULATION: wrap the tenant's L2 frame inside UDP/IP and ship it\n   across the L3 underlay. The original frame is the PAYLOAD.\n\n   +--------+------+------+-------+--------------------------------+\n   | Outer  | UDP  |VXLAN | VNI   |  ORIGINAL ETHERNET FRAME       |\n   | IP hdr | hdr  | hdr  |(24bit)|  (the tenant's L2 frame)       |\n   +--------+------+------+-------+--------------------------------+\n       ^underlay routes this       ^ the overlay's actual content\n\n   VNI = VXLAN Network Identifier, 24 bits -> ~16 MILLION segments.\n   (Compare VLAN's 12-bit, 4094-segment ceiling from 01 -> this is the fix.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## RDMA — Bypassing the Kernel",
+      "confidence": "candidate",
+      "text": "   NORMAL TCP PATH (every transfer):\n     app -> kernel socket -> TCP/IP stack -> NIC -> wire -> NIC ->\n            TCP/IP stack -> kernel -> COPY -> app    (CPU touches every byte)\n\n   RDMA PATH (zero-copy, kernel-bypass):\n     app memory -----------(NIC DMAs directly)----------> remote app memory\n            no CPU copy, no kernel on the data path, ultra-low latency\n\n   DEPLOYMENTS:\n     InfiniBand   - a purpose-built RDMA fabric (HPC, AI clusters)\n     RoCE         - RDMA over Converged Ethernet (RDMA on standard Ethernet)\n     iWARP        - RDMA over TCP/IP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 222,
+      "heading_context": "## SDN — Software-Defined Networking",
+      "confidence": "candidate",
+      "text": "   TRADITIONAL: each switch runs its OWN control plane (distributed protocols).\n     control + data plane fused in every box -> config per device, hard to\n     reason about globally.\n\n   SDN: centralize the decisions.\n     +-------------------------------------+\n     |   SDN CONTROLLER (software)         |  control plane\n     |   global view, policy, programming  |\n     +-------------------------------------+\n          | pushes forwarding rules down (e.g. OpenFlow, gNMI, BGP)\n          v\n     +--------+   +--------+   +--------+\n     | switch |   | switch |   | switch |    data plane (just forwards\n     +--------+   +--------+   +--------+     per the rules it's given)\n\n   PAYOFF: the network becomes PROGRAMMABLE. A cloud control plane can spin\n   up a tenant's virtual network, security policy, and load balancing as an\n   API call -> this is how a VPC appears in seconds when you click \"create\".",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 260,
+      "heading_context": "## How It All Stacks in a Cloud",
+      "confidence": "candidate",
+      "text": "   +-------------------------------------------------------------------+\n   |  SDN CONTROL PLANE (software)  -> programs everything below       |\n   +-------------------------------------------------------------------+\n   |  OVERLAY:  VXLAN virtual networks (per-tenant VPCs, ~16M segments)|\n   +-------------------------------------------------------------------+\n   |  UNDERLAY: leaf-spine Clos fabric, L3-routed, ECMP, all links live|\n   +-------------------------------------------------------------------+\n   |  TRANSPORT: TCP / RDMA(RoCE) with DCTCP/ECN congestion control(04)|\n   +-------------------------------------------------------------------+\n   |  PHYSICAL: commodity switches + servers, often jumbo frames (01)  |\n   +-------------------------------------------------------------------+\n\n   A cloud VPC = an SDN-programmed VXLAN overlay on a leaf-spine underlay.\n   That single sentence is the whole modern datacenter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

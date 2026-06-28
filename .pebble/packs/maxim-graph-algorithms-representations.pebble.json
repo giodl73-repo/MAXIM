@@ -1,0 +1,209 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-representations",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-REPRESENTATIONS.md#000",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "# Graph Representations"
+    },
+    {
+      "id": "01-REPRESENTATIONS.md#001",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "The representation is not a detail — it *is* the cost model. Every bound in the\nrest of this directory is quoted in terms of V (vertices) and E (edges), and\nwhether a bound is achievable at all depends on whether your representation makes\n\"iterate neighbors of v\" cheap (lists) or \"does edge (u,v) exist?\" cheap\n(matrix). Pick wrong and an O(V+E) algorithm silently becomes O(V²)."
+    },
+    {
+      "id": "01-REPRESENTATIONS.md#002",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "```\n  REPRESENTATIONS OF THE SAME GRAPH (V=4, E=4, directed)\n  ======================================================"
+    },
+    {
+      "id": "01-REPRESENTATIONS.md#003",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "Graph:                Adjacency LIST          Adjacency MATRIX\n                           (array of lists)         (V x V bit/weight)\n       0 ---> 1                                         to: 0 1 2 3\n       |    / |             0 -> [1, 2]              from 0 [0 1 1 0]\n       v   /  v             1 -> [3]                      1 [0 0 0 1]\n       2 <-   3             2 -> []                       2 [0 0 0 0]\n                            3 -> [2]                      3 [0 0 1 0]"
+    },
+    {
+      "id": "01-REPRESENTATIONS.md#004",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "EDGE LIST                          CSR (compressed sparse row)\n     (u, v[, w]) tuples                 row_ptr = [0, 2, 3, 3, 4]\n       (0,1) (0,2) (1,3) (3,2)          col_idx = [1, 2, 3, 2]\n                                        (neighbors of v = col_idx[row_ptr[v] : row_ptr[v+1]])"
+    },
+    {
+      "id": "01-REPRESENTATIONS.md#005",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "SPACE:   list O(V+E)   matrix O(V^2)   edge list O(E)   CSR O(V+E), cache-tight\n```"
+    },
+    {
+      "id": "01-REPRESENTATIONS.md#006",
+      "path": [
+        "01-REPRESENTATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:01-representations, git-history:graph-algorithms:01-representations]",
+        "canonical_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "concepts": "[adjacency list, adjacency matrix, edge list, CSR, sparse graphs, directed weighted graphs]",
+        "current_path": "graph-algorithms/01-REPRESENTATIONS.md",
+        "id": "maxim:graph-algorithms:representations",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph representation]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Representations",
+        "updated": "null"
+      },
+      "text": "**Read this as four encodings of one fact set.** The list and CSR scale with the\n*number of edges*; the matrix scales with the *number of vertex pairs*. For the\nsparse graphs that dominate real systems (E ≈ V, not V²), that difference is the\nwhole game."
+    }
+  ],
+  "refs": [
+    "01-REPRESENTATIONS.md"
+  ]
+}

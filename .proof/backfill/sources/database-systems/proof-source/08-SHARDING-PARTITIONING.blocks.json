@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\08-SHARDING-PARTITIONING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Sharding and Partitioning — Splitting Data Across Machines",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                  PARTITIONING vs REPLICATION — orthogonal axes                      |\n+=====================================================================================+\n|                                                                                     |\n|              REPLICATION (copies)  ------------------------------>                   |\n|        (availability, read scale; every node has the SAME data)                     |\n|        |                                                                            |\n|        |   +---------+   +---------+   +---------+                                   |\n|   P    |   | shard A |   | shard B |   | shard C |   <- each shard is a disjoint     |\n|   A    |   | replica1|   | replica1|   | replica1|      SLICE of the keyspace        |\n|   R    |   +---------+   +---------+   +---------+                                   |\n|   T    |   | shard A |   | shard B |   | shard C |   <- and each shard is itself     |\n|   I    v   | replica2|   | replica2|   | replica2|      REPLICATED for availability  |\n|   T        +---------+   +---------+   +---------+                                   |\n|   I        | shard A |   | shard B |   | shard C |                                   |\n|   O        | replica3|   | replica3|   | replica3|                                   |\n|   N        +---------+   +---------+   +---------+                                   |\n|   (storage + write scale; each node has DIFFERENT data)                              |\n|                                                                                     |\n|   PRODUCTION = BOTH: shard for scale, replicate each shard for availability.         |\n+=====================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### Range partitioning",
+      "confidence": "candidate",
+      "text": "   key space:  [A........F][G........M][N........S][T........Z]\n   shard:          S1          S2          S3          S4\n\n   + RANGE SCANS are efficient (a range often lives in one or few shards)\n   + ordered iteration is natural\n   - HOTSPOTS: monotonically increasing keys (timestamps, auto-increment IDs) -> all new\n     writes land on the LAST shard. The classic time-series hotspot.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Hash partitioning",
+      "confidence": "candidate",
+      "text": "   shard = hash(key) mod N    (naive)   OR   hash ranges assigned to shards\n\n   + EVEN distribution -> no hotspot from sequential keys\n   - RANGE SCANS are scattered (adjacent keys hash to different shards) -> a range query\n     fans out to ALL shards\n   - \"mod N\" is fragile: changing N (adding a shard) remaps ALMOST EVERY key -> see\n     consistent hashing below.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Consistent hashing — rebalancing without remapping everything",
+      "confidence": "candidate",
+      "text": "                    0 / 2^k\n                      *  nodeA\n            keyX *         \\\n                            \\      * nodeB\n       nodeD *               \\    /\n              \\               \\  /\n               \\               */  keyY -> belongs to nodeB (next clockwise)\n                \\             /\n                 *-----------*  nodeC\n\n   Add nodeE between A and B -> only keys in the A..E arc move (to nodeE). The rest stay put.\n\n   VIRTUAL NODES (vnodes): each physical node owns MANY points on the ring -> smoother balance\n   and finer-grained rebalancing. Used by Cassandra, DynamoDB-style systems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Rebalancing — moving partitions as the cluster grows",
+      "confidence": "candidate",
+      "text": "   STRATEGY                        BEHAVIOR\n   -----------------------------   ----------------------------------------------------------\n   hash mod N (DON'T)              adding a node remaps almost all keys -> mass data movement\n   FIXED number of partitions      create many more partitions than nodes up front (e.g. 1000\n   (e.g. Cassandra-ish, Riak)      partitions over 10 nodes); rebalancing just MOVES whole\n                                   partitions between nodes. Count fixed; assignment flexible.\n   DYNAMIC partitioning            split a partition when it grows past a threshold, merge when\n   (HBase, range systems)         small. Adapts to data volume; like a B-tree split at the\n                                   shard level.\n   CONSISTENT HASHING + vnodes     adding a node steals a fair share of vnodes from others.\n\n   RULE: do NOT tie the partition count to the NODE count. Decouple them so adding hardware\n   moves partitions, not every row.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## The hard part: operations that span shards",
+      "confidence": "candidate",
+      "text": "   CROSS-SHARD JOIN      data for the join lives on different nodes -> must move data over\n                         the network (broadcast the small side, or repartition both sides on\n                         the join key). Expensive. Co-locate related data to avoid it.\n\n   SECONDARY INDEX       partitioned by the PRIMARY key, but you query by a DIFFERENT column:\n                           - LOCAL (document-partitioned) index: each shard indexes its own\n                             rows -> a secondary-key query must SCATTER to all shards, GATHER.\n                           - GLOBAL (term-partitioned) index: the index itself is partitioned\n                             by the indexed term -> a query hits one shard, but WRITES must\n                             update a remote index partition (cross-shard write).\n\n   CROSS-SHARD TRANSACTION  a transaction touching rows on multiple shards needs an ATOMIC\n                            COMMIT protocol across nodes -> 2PC (below). This is the expensive,\n                            availability-reducing operation you design to avoid.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 170,
+      "heading_context": "## Two-Phase Commit (2PC) — atomic commit across shards",
+      "confidence": "candidate",
+      "text": "   ROLES: a COORDINATOR + multiple PARTICIPANTS (the shards in the transaction).\n\n   PHASE 1 - PREPARE (voting)\n     coordinator -> all participants: \"PREPARE to commit txn T\"\n     each participant: do the work, write it to its log durably, lock the rows, reply VOTE-COMMIT\n        (it now PROMISES it can commit even across a crash) OR VOTE-ABORT.\n\n   PHASE 2 - COMMIT/ABORT (decision)\n     if ALL voted commit: coordinator logs \"COMMIT\", -> tells all participants COMMIT.\n     if ANY voted abort:  coordinator logs \"ABORT\",  -> tells all participants ABORT.\n     participants apply the decision, release locks, ack.\n\n           coordinator                         participants (shards)\n                |  --- PREPARE ----------------->  |   (do work, fsync, lock, vote)\n                |  <-- VOTE-COMMIT / VOTE-ABORT --  |\n        decision logged\n                |  --- COMMIT / ABORT ----------->  |   (apply, unlock, ack)\n                |  <-- ACK ----------------------- |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 191,
+      "heading_context": "## Two-Phase Commit (2PC) — atomic commit across shards",
+      "confidence": "candidate",
+      "text": "### Why 2PC is feared: the blocking problem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "### Why 2PC is feared: the blocking problem",
+      "confidence": "candidate",
+      "text": "   If the COORDINATOR CRASHES after participants voted COMMIT but before sending the decision,\n   participants are STUCK in the \"prepared\" state: they've locked rows and promised to commit,\n   but don't know the outcome. They CANNOT unilaterally commit or abort -> they BLOCK, holding\n   locks, until the coordinator recovers. 2PC is a BLOCKING protocol; the coordinator is a SPOF.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 274,
+      "heading_context": "### \"Adding a shard is easy\"",
+      "confidence": "candidate",
+      "text": "### \"2PC gives me distributed ACID for free\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

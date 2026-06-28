@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Planarity and Graph Structure — The Structural Escape Hatch
 
 This is the second escape hatch from `07`'s hardness, and the more profound one:

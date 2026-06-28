@@ -5,12 +5,49 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
+import tempfile
+import tomllib
 from pathlib import Path
 
 
 ROOT = Path.cwd()
+
+# Tool crates (PROOF/CROP/FLETCH) are located via the portfolio `repo-map.toml`
+# config rather than hardcoded paths. The map records where every repo lives
+# locally; we walk up from the current module checkout to find the portfolio
+# root that defines the tool crates, then build each Cargo manifest path.
+TOOL_CRATES = {"proof": "proof", "crop": "crop", "fletch": "fletch"}
+
+
+def resolve_tool_manifests() -> dict[str, Path | None]:
+    """Resolve PROOF/CROP/FLETCH Cargo manifests from repo-map.toml.
+
+    Searches upward from the current working directory for a `repo-map.toml`
+    that defines `[repos.proof]`; the directory holding that map is the
+    portfolio root. Returns a dict mapping tool name -> manifest Path (or None
+    if the map or an entry is missing).
+    """
+    start = Path.cwd().resolve()
+    for base in (start, *start.parents):
+        candidate = base / "repo-map.toml"
+        if not candidate.is_file():
+            continue
+        try:
+            data = tomllib.loads(candidate.read_text(encoding="utf-8"))
+        except (OSError, tomllib.TOMLDecodeError):
+            continue
+        repos = data.get("repos", {})
+        if "proof" not in repos:
+            continue
+        resolved: dict[str, Path | None] = {}
+        for tool, key in TOOL_CRATES.items():
+            rel = repos.get(key, {}).get("relative")
+            resolved[tool] = (base / rel / "Cargo.toml") if rel else None
+        return resolved
+    return {tool: None for tool in TOOL_CRATES}
 
 
 def slugify(value: str) -> str:
@@ -159,11 +196,32 @@ def main() -> None:
     parser.add_argument("--module-dir", required=True, help="Module directory containing numbered markdown guides.")
     parser.add_argument("--module-id", required=True, help="Stable MAXIM module id, e.g. computing-software.")
     parser.add_argument("--section", help="Section id; defaults to --module-id.")
-    parser.add_argument("--proof-manifest", default=r"C:\src\proof\Cargo.toml")
-    parser.add_argument("--crop-manifest", default=r"C:\src\CROP\Cargo.toml")
-    parser.add_argument("--fletch-manifest", default=r"C:\src\FLETCH\Cargo.toml")
+    parser.add_argument("--proof-manifest", default=None, help="Override PROOF Cargo.toml (default: from repo-map.toml).")
+    parser.add_argument("--crop-manifest", default=None, help="Override CROP Cargo.toml (default: from repo-map.toml).")
+    parser.add_argument("--fletch-manifest", default=None, help="Override FLETCH Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--validate", action="store_true")
     args = parser.parse_args()
+
+    # Redirect cargo build output to a writable location so we never try to
+    # create a target/ dir inside the (possibly read-only) tool crates.
+    os.environ.setdefault(
+        "CARGO_TARGET_DIR", str(Path(tempfile.gettempdir()) / "maxim-cargo-target")
+    )
+
+    # Resolve tool-crate manifests from the portfolio config unless overridden.
+    resolved = resolve_tool_manifests()
+    for tool in TOOL_CRATES:
+        attr = f"{tool}_manifest"
+        if getattr(args, attr) is None:
+            manifest = resolved.get(tool)
+            if manifest is not None and manifest.is_file():
+                setattr(args, attr, str(manifest))
+        if getattr(args, attr) is None or not Path(getattr(args, attr)).is_file():
+            parser.error(
+                f"could not locate the {tool.upper()} Cargo.toml. Expected it via "
+                f"repo-map.toml ([repos.{tool}].relative) or --{tool}-manifest. "
+                f"Resolved: {getattr(args, attr) or resolved.get(tool)}"
+            )
 
     module_dir = Path(args.module_dir)
     module_id = args.module_id

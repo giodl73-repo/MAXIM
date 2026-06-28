@@ -314,7 +314,7 @@ Raft uses a joint consensus approach for adding/removing nodes — the cluster o
 
 ## Viewstamped Replication (VR)
 
-Liskov and Cowling (1988, republished 2012). Developed independently from Paxos, arrived at similar structure.
+Oki and Liskov (1988); revisited by Liskov and Cowling (2012). Developed independently from Paxos, arrived at similar structure.
 
 **Key differences from Raft**:
 - Views instead of terms

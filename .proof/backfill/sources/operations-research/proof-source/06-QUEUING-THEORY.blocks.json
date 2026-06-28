@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\06-QUEUING-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                 QUEUING THEORY: THE WHOLE PICTURE                     |\n|                                                                      |\n|   arrivals          QUEUE              SERVER(S)         departures   |\n|   rate lambda  -->  o o o o o  -->   [ S ][ S ]...   -->             |\n|                     (waiting)        c servers, rate mu each         |\n|                                                                      |\n|   KENDALL NOTATION:  A / S / c / K / N / D                          |\n|                      |   |   |   |   |   |                          |\n|              arrival_|   |   |   |   |   |_discipline (FCFS/LCFS/PS) |\n|              service____ |   |   |   |__population size              |\n|              servers________ |   |__system capacity (buffer)        |\n|                                                                      |\n|   LITTLE'S LAW (the universal invariant):   L = lambda * W          |\n|     L = avg # in system,  W = avg time in system,  lambda = arrival  |\n|                                                                      |\n|   THE CONGESTION CLIFF (M/M/1):   W = 1 / (mu - lambda)             |\n|     delay                                                            |\n|       |                          /|  <- blows up as rho -> 1         |\n|       |                        _/                                    |\n|       |__________----------''''                                     |\n|       +-------------------------------- utilization rho = lambda/mu  |\n|       0                              1                               |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "## Layer 1: Kendall Notation and the Vocabulary",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  SYMBOL   MEANING                  COMMON VALUES                     |\n|  ------   -------                  -------------                     |\n|  A        arrival process         M (Markov/Poisson, memoryless)    |\n|                                    D (deterministic), G (general)    |\n|  S        service distribution    M (exponential), D, G             |\n|  c        number of servers       1, c, infinity                    |\n|  K        system capacity (buffer)default infinity (unbounded)      |\n|  N        calling population       default infinity                 |\n|  D        queue discipline         FCFS, LCFS, PS (processor share), |\n|                                    priority                          |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "## Layer 3: The M/M/1 Queue Solved Exactly",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  Utilization:           rho = lambda / mu          (must be < 1)     |\n|  P(n in system):        p_n = (1 - rho) rho^n                        |\n|  P(system empty):       p_0 = 1 - rho                               |\n|                                                                      |\n|  L  (mean in system):   L  = rho / (1 - rho)                        |\n|  Lq (mean in queue):    Lq = rho^2 / (1 - rho)                      |\n|  W  (mean time in sys): W  = 1 / (mu - lambda)                      |\n|  Wq (mean wait):        Wq = rho / (mu - lambda) = lambda/(mu(mu-lam))|\n|                                                                      |\n|  CHECK via Little:  L = lambda W,  Lq = lambda Wq    (consistent)   |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 261,
+      "heading_context": "## Layer 6: Jackson Networks — Queues in Series and Parallel",
+      "confidence": "candidate",
+      "text": "   AN OPEN JACKSON NETWORK:\n\n   ext arrivals --> [Q1] --p12--> [Q2] --> exit\n        |             |               ^\n        |             p13             |\n        v             v               |\n       [Q3] ---------+---------------+\n   Each node i: Poisson external arrivals, exponential service, FCFS,\n   routing probability p_ij from i to j.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 334,
+      "heading_context": "### \"Does Little's Law need Poisson arrivals?\"",
+      "confidence": "candidate",
+      "text": "### \"Why does delay explode near $\\rho = 1$ instead of growing smoothly?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 338,
+      "heading_context": "### \"Why does delay explode near $\\rho = 1$ instead of growing smoothly?\"",
+      "confidence": "candidate",
+      "text": "### \"$\\rho$ is utilization — so $\\rho < 1$ just means under 100%?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

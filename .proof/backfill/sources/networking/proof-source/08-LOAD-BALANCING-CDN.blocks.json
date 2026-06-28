@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\08-LOAD-BALANCING-CDN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "        THE SCALING STACK: from one client to many servers, near and far\n   CLIENT\n     |\n     |  (1) DNS / ANYCAST steers you to the nearest EDGE (05, 02)\n     v\n   +-------------------+   EDGE / CDN POP (close to the user)\n   |  CDN edge cache   |   - serves cached static content directly\n   |  + TLS terminate  |   - or forwards a cache MISS toward origin\n   +---------+---------+\n             |  (2) cache miss -> go to origin region\n             v\n   +-------------------+   LOAD BALANCER in front of the fleet\n   |  L4 or L7 LB / VIP|   - L4: fast, by 5-tuple\n   |                   |   - L7: smart, by URL / header / cookie\n   +----+----+----+----+\n        |    |    |\n        v    v    v\n     +----++----++----+   BACKEND POOL (the actual servers)\n     | s1 || s2 || s3 |   - health-checked, added/removed dynamically\n     +----++----++----+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## L4 vs. L7 Load Balancing",
+      "confidence": "candidate",
+      "text": "   L4 LOAD BALANCER (transport layer)\n   ==================================\n     client --TCP--> [ LB picks a backend by 5-tuple ] --TCP--> backend\n     - decides ONCE per connection, by (src/dst IP+port)\n     - does NOT read HTTP; can't route by URL or cookie\n     - very fast, very high throughput, protocol-agnostic\n     - the whole TCP/TLS connection pins to one backend\n\n   L7 LOAD BALANCER (application layer / reverse proxy)\n   ====================================================\n     client --TLS--> [ LB TERMINATES, reads HTTP, routes ] --(new conn)--> backend\n     - decides PER REQUEST, by URL path / Host header / cookie / method\n     - can do path routing (/api -> svc-a, /img -> svc-b), sticky sessions,\n       header rewrites, retries, rate limiting, WAF\n     - must terminate TLS (06) to read the request -> more CPU",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## Balancing Algorithms",
+      "confidence": "candidate",
+      "text": "   ROUND ROBIN        next server in rotation. Simple, ignores load.\n   LEAST CONNECTIONS  the backend with the fewest active conns. Adapts to\n                      uneven request durations.\n   WEIGHTED           bigger servers get proportionally more. Heterogeneous\n                      fleets.\n   IP HASH /          hash the client (or 5-tuple) -> same client always hits\n   CONSISTENT HASH    the same backend. Gives session affinity AND minimal\n                      reshuffling when the pool changes.\n   LATENCY / EWMA     pick the backend with the lowest observed response time.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## Anycast: Global Load Balancing via Routing",
+      "confidence": "candidate",
+      "text": "   ONE IP (198.51.100.1) announced from many POPs via BGP:\n\n      user (Tokyo)   --routing--> Tokyo POP\n      user (London)  --routing--> London POP\n      user (NYC)     --routing--> NYC POP\n\n   - proximity: clients hit the nearest edge automatically (lower latency)\n   - failover: a POP dies -> withdraw its BGP announcement -> clients reroute\n   - DDoS absorption: attack traffic spreads across ALL POPs, not one target",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## CDNs — Content Delivery Networks",
+      "confidence": "candidate",
+      "text": "   WITHOUT CDN:                      WITH CDN:\n   user (Tokyo) -----long----->      user (Tokyo) --short--> Tokyo POP\n                origin (US)                                    | (cache HIT)\n                  ^                                            v\n            every request crosses                       served locally,\n            the ocean -> high latency                   origin untouched\n\n   CACHE HIT  -> POP serves from local cache (fast, origin idle)\n   CACHE MISS -> POP fetches from origin once, caches it, serves it,\n                 future requests are hits.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## CDNs — Content Delivery Networks",
+      "confidence": "candidate",
+      "text": "   CACHE KEY:        usually the URL (+ some headers / query params)\n   FRESHNESS:        governed by HTTP Cache-Control / Expires headers\n                     (max-age, s-maxage, no-cache, no-store, immutable)\n   STATIC vs DYNAMIC:\n     - static assets (images, JS, CSS, video) -> highly cacheable\n     - dynamic/personalized -> cache briefly, or not at all, or at the edge\n   INVALIDATION:     purge a URL when content changes (event-based), in\n                     addition to TTL expiry (time-based) -> same cache-\n                     coherence problem as DNS TTL (05).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## Edge Compute",
+      "confidence": "candidate",
+      "text": "   THE GRADIENT from origin toward the user:\n\n   ORIGIN (one region)  --->  REGIONAL  --->  EDGE POP  --->  CLIENT\n   full app, database          replicas        edge funcs      browser\n   heavy, far                  closer          lightweight,    (last mile)\n                                               near, fast\n\n   EDGE FUNCTIONS run at the POP: auth checks, redirects, A/B routing,\n   personalization, request rewriting, lightweight APIs. Constrained\n   runtime (fast cold start, no big stateful deps) -> close to the user.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Putting It Together: A Request's Journey",
+      "confidence": "candidate",
+      "text": "   user types https://shop.example.com/product/42\n     |\n   (1) DNS resolves to an ANYCAST IP (05, 02)\n     |\n   (2) BGP routes to the NEAREST CDN POP (anycast)\n     |\n   (3) POP TERMINATES TLS (06) close to the user\n     |\n   (4) is /product/42 cached & fresh?\n        HIT  -> served from the edge, done. (origin never touched)\n        MISS -> forward toward origin region:\n                 |\n   (5)          ORIGIN-side L4 LB spreads the connection\n                 |\n   (6)          L7 LB routes /product/* to the product service\n                 |\n   (7)          health-checked backend in the pool handles it\n                 |\n   (8)          response flows back, POP caches it per Cache-Control",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 299,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"L4 or L7 load balancer — how do I choose?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

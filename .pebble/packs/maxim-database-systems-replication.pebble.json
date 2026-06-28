@@ -1,0 +1,1441 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-replication",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-REPLICATION.md#000",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "# Replication — One Node's Log Becomes Many Nodes' State"
+    },
+    {
+      "id": "07-REPLICATION.md#001",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Replication copies data across machines for **availability** (survive a node loss),\n**read scaling** (serve reads from followers), and **locality** (read near the user). The\ndatabase-engine angle: replication is, mechanically, **shipping the WAL** (guide 06) from a\nleader to followers and having them apply it. This guide is the database-mechanics view;\nthe *theory* of consensus, linearizability, and CAP lives in `distributed-systems/`\n(02 consistency models, 03 consensus, 04 replication) and we defer to it explicitly."
+    },
+    {
+      "id": "07-REPLICATION.md#002",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|                       THE REPLICATION DESIGN SPACE (database view)                  |\n+=====================================================================================+\n|                                                                                     |\n|   WHO can accept WRITES?                                                             |\n|                                                                                     |\n|   +----------------------+   +----------------------+   +------------------------+   |\n|   |  SINGLE-LEADER       |   |  MULTI-LEADER        |   |  LEADERLESS (quorum)   |   |\n|   |  (primary/replica)   |   |  (multi-primary)     |   |  (Dynamo-style)        |   |\n|   +----------------------+   +----------------------+   +------------------------+   |\n|   | one leader takes all |   | several nodes take   |   | any replica takes a    |   |\n|   | writes; followers    |   | writes; changes      |   | write; client writes   |   |\n|   | replay its log.      |   | replicated both ways.|   | to W replicas, reads   |   |\n|   |                      |   | CONFLICTS arise.     |   | from R; W+R>N => overlap|   |\n|   | + simple, no write   |   | + write locality,    |   | + no leader bottleneck, |   |\n|   |   conflicts          |   |   multi-region active|   |   highly available      |   |\n|   | - leader is a write  |   | - conflict resolution|   | - read repair, eventual |   |\n|   |   bottleneck/SPOF    |   |   is HARD            |   |   consistency, tuning   |   |\n|   |                      |   |                      |   |                        |   |\n|   | Postgres, MySQL, SQL |   | active-active geo,   |   | Cassandra, DynamoDB,    |   |\n|   | Server AG, most OLTP |   | CRDT systems         |   | Riak (classic Dynamo)  |   |\n|   +----------------------+   +----------------------+   +------------------------+   |\n+=====================================================================================+\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#003",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Bridge: SQL Server Always On Availability Groups are **single-leader** (one primary, readable\nsecondaries) with a choice of synchronous or asynchronous commit per replica. That maps exactly\nto the leader-follower model below."
+    },
+    {
+      "id": "07-REPLICATION.md#004",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#005",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## How the WAL becomes a replica: what gets shipped"
+    },
+    {
+      "id": "07-REPLICATION.md#006",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   PHYSICAL / STREAMING REPLICATION         LOGICAL REPLICATION\n   --------------------------------         --------------------\n   ship the raw WAL (page-level changes).   decode the WAL into row-level events\n   Follower replays byte-for-byte; it is    (INSERT/UPDATE/DELETE on table T, values ...).\n   an exact physical copy.                  Follower applies the logical operations."
+    },
+    {
+      "id": "07-REPLICATION.md#007",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "+ low overhead, exact replica            + cross-version, selective tables, different\n   - same major version + page layout         schema/index on the target, DBs can differ\n   - whole-cluster, can't filter tables     - higher overhead, conflict potential"
+    },
+    {
+      "id": "07-REPLICATION.md#008",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Postgres: streaming (physical) WAL       Postgres: logical decoding / pub-sub\n   MySQL: ROW-based binlog (logical-ish)    MySQL: binlog is the replication stream\n   SQL Server AG: log block shipping        SQL Server: transactional/logical replication\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#009",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   STATEMENT vs ROW based logical replication (the MySQL binlog distinction):\n     STATEMENT-based   ship the SQL text; replica re-executes it.\n                       BREAKS on non-determinism: NOW(), RAND(), AUTO_INCREMENT races,\n                       triggers, non-deterministic UDFs -> replica diverges.\n     ROW-based         ship the actual before/after row images. Deterministic, larger.\n                       The modern default (MySQL ROW format) for correctness.\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#010",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "This is a real, classic footgun: statement-based replication of a query using `NOW()` or a\nnon-deterministic function makes the replica drift from the leader. Row-based avoids it by\nshipping concrete values."
+    },
+    {
+      "id": "07-REPLICATION.md#011",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#012",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Synchronous vs Asynchronous — the durability/latency knob"
+    },
+    {
+      "id": "07-REPLICATION.md#013",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "The central trade in single-leader replication: **when does the leader acknowledge a commit\nrelative to the followers receiving it?**"
+    },
+    {
+      "id": "07-REPLICATION.md#014",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   ASYNCHRONOUS                              SYNCHRONOUS\n   ------------                              -----------\n   leader commits + acks the client,         leader waits for >=1 follower to confirm it has\n   THEN streams to followers (lag).          the log record, THEN acks the client."
+    },
+    {
+      "id": "07-REPLICATION.md#015",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "write -> [leader durable] -> ACK          write -> [leader durable] -> wait follower ACK -> ACK\n                  \\                                              ^\n                   `--> follower (later)                         |\n                                                         follower has it too"
+    },
+    {
+      "id": "07-REPLICATION.md#016",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "+ lowest write latency                    + no data loss if leader dies (a follower has it)\n   - DATA LOSS window: if the leader dies     - higher write latency (a network round-trip)\n     before a follower got the last commits,  - if the sync follower is down/slow, writes\n     those commits are LOST on failover.        STALL unless you fall back (semi-sync)\n   - followers serve STALE reads (lag)\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#017",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   SEMI-SYNCHRONOUS (the common compromise):\n     ONE synchronous follower (no-data-loss guarantee for the acked write) + the rest async\n     (read scaling without paying sync latency to every replica). If the sync follower fails,\n     promote another or temporarily degrade to async. Postgres synchronous_commit + a sync\n     standby; MySQL semi-sync; SQL Server AG \"synchronous-commit\" replicas behave this way.\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#018",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "> Precision: synchronous replication that waits for a follower to **receive/persist the log**\n> still does not, by itself, give you linearizable reads from that follower — the follower may\n> have the log but not yet *applied* it. True strong consistency across replicas needs consensus\n> on a commit point. That is the consensus story in `distributed-systems/03`."
+    },
+    {
+      "id": "07-REPLICATION.md#019",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#020",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Replication lag — the consequence and its anomalies"
+    },
+    {
+      "id": "07-REPLICATION.md#021",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Async followers lag the leader. Reading from a lagging follower produces user-visible anomalies\nthat have standard fixes:"
+    },
+    {
+      "id": "07-REPLICATION.md#022",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   ANOMALY                         FIX (read-your-writes etc., from distributed-systems/02)\n   ----------------------------    ---------------------------------------------------------\n   Read-your-own-writes violation  route a user's reads to the leader for a window after they\n   (\"I posted but don't see it\")   write; or track the write's LSN and read a replica >= that LSN."
+    },
+    {
+      "id": "07-REPLICATION.md#023",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Monotonic-reads violation       pin a session to one replica so it never goes \"back in time\"\n   (\"comment appears then vanishes\")by hopping to a less-current replica."
+    },
+    {
+      "id": "07-REPLICATION.md#024",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Consistent-prefix violation     ensure causally related writes apply in order (matters in\n   (\"see reply before the question\") partitioned/multi-leader systems).\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#025",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "These are exactly the **consistency models** treated formally in `distributed-systems/02`. The\ndatabase mechanism is the same: bounded staleness, session pinning, or LSN/version tracking."
+    },
+    {
+      "id": "07-REPLICATION.md#026",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#027",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Failover and the split-brain hazard"
+    },
+    {
+      "id": "07-REPLICATION.md#028",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   Leader dies -> a follower must be PROMOTED. Three hard problems:"
+    },
+    {
+      "id": "07-REPLICATION.md#029",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "1. DETECTION   how do you know the leader is dead vs slow? (timeout -> false positives)\n   2. PROMOTION   pick the most up-to-date follower (highest applied LSN) to minimize loss.\n   3. FENCING     ensure the OLD leader cannot keep accepting writes if it comes back ->\n                  otherwise SPLIT-BRAIN: two leaders, divergent histories, data corruption."
+    },
+    {
+      "id": "07-REPLICATION.md#030",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "STONITH / fencing tokens / a consensus-based leader lease prevent split-brain. Automatic\n   failover REQUIRES a fencing mechanism; otherwise a network partition gives you two leaders.\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#031",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Split-brain is the single most dangerous replication failure: two nodes each believe they are\nleader and accept conflicting writes. The robust fix is to gate leadership through a\n**consensus protocol** (Raft/Paxos) or a quorum lease — which is why production single-leader\nclusters lean on a consensus-backed controller (`distributed-systems/03`)."
+    },
+    {
+      "id": "07-REPLICATION.md#032",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#033",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Leaderless / quorum replication (Dynamo-style)"
+    },
+    {
+      "id": "07-REPLICATION.md#034",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "No leader. The client (or a coordinator) writes to **W** replicas and reads from **R** of **N**\ntotal. Overlap gives consistency."
+    },
+    {
+      "id": "07-REPLICATION.md#035",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "```\n   N = replicas per key,  W = write quorum,  R = read quorum"
+    },
+    {
+      "id": "07-REPLICATION.md#036",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "IF W + R > N  ->  every read quorum OVERLAPS every write quorum\n                     -> a read sees at least one replica with the latest write\n                     (a \"strict quorum\" — but see the caveats)"
+    },
+    {
+      "id": "07-REPLICATION.md#037",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "common: N=3, W=2, R=2 (W+R=4 > 3)  -> tolerate 1 node down, still consistent-ish"
+    },
+    {
+      "id": "07-REPLICATION.md#038",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "STALE COPIES are repaired by:\n     - READ REPAIR:    on a read, detect divergent replicas, push the newest to the stale ones\n     - ANTI-ENTROPY:   background process (e.g. Merkle-tree comparison) reconciles replicas\n```"
+    },
+    {
+      "id": "07-REPLICATION.md#039",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "Caveat (precision): `W+R>N` gives quorum overlap but is **not** linearizable in the presence of\nconcurrent writes, sloppy quorums/hinted handoff, or in-flight failures — Dynamo-style systems\nare eventually consistent. The formal treatment is `distributed-systems/01` (CAP) and `04`."
+    },
+    {
+      "id": "07-REPLICATION.md#040",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#041",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Conflict resolution (multi-leader / leaderless)"
+    },
+    {
+      "id": "07-REPLICATION.md#042",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "When two nodes accept writes to the same key independently, you get a conflict. Strategies:"
+    },
+    {
+      "id": "07-REPLICATION.md#043",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "| Strategy | Mechanism | Trade-off |\n|----------|-----------|-----------|\n| **Last-write-wins (LWW)** | Keep the write with the highest timestamp | Simple; **silently drops** the loser's write; clock skew hazard |\n| **Version vectors** | Track per-replica version counters; detect concurrent vs causal | Detects true conflicts; needs app-level merge |\n| **CRDTs** | Conflict-free replicated data types: merges are commutative/associative/idempotent by construction | No coordination needed; limited to CRDT-expressible types |\n| **Application merge** | Surface both versions (siblings); app decides (e.g. shopping-cart union) | Correct; pushes work to the app |"
+    },
+    {
+      "id": "07-REPLICATION.md#044",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "CRDTs and version vectors are detailed in `distributed-systems/05` (distributed transactions /\nconflict resolution). LWW is the easy default and the easy way to lose data."
+    },
+    {
+      "id": "07-REPLICATION.md#045",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#046",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "07-REPLICATION.md#047",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "| You already know | Replication concept | SQL Server / Azure anchor |\n|------------------|---------------------|----------------------------|\n| Read replicas behind a load balancer | Single-leader leader-follower | Always On readable secondaries |\n| Log shipping a `.ldf` to a standby | Physical WAL/log streaming | AG synchronous/async-commit, log shipping |\n| \"Mirror\" with witness for failover | Promotion + fencing | Database mirroring (legacy), AG failover |\n| Active-active multi-region | Multi-leader, conflict resolution | Cosmos multi-region writes (guide 09) |\n| Eventual consistency you tuned | Quorum W/R, read repair | Cosmos consistency levels (guide 09) |\n| \"Last write wins\" you set on a sync | LWW conflict resolution | Cosmos LWW conflict policy |"
+    },
+    {
+      "id": "07-REPLICATION.md#048",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-REPLICATION.md#049",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "07-REPLICATION.md#050",
+      "path": [
+        "07-REPLICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:07-replication, git-history:database-systems:07-replication]",
+        "canonical_path": "database-systems/07-REPLICATION.md",
+        "concepts": "[replication, leader-follower, synchronous replication, asynchronous replication, quorum, conflict resolution, replication lag]",
+        "current_path": "database-systems/07-REPLICATION.md",
+        "id": "maxim:database-systems:replication",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[replication]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Replication - Sync/Async, Leader-Follower, Quorum, Conflicts",
+        "updated": "null"
+      },
+      "text": "| Need | Choice |\n|------|--------|\n| No data loss on failover | **Synchronous** (or semi-sync) replication to >=1 follower |\n| Lowest write latency, tolerate small loss window | **Asynchronous** replication |\n| Read scaling | Async **followers**; route reads off the leader |\n| Read-your-writes after a write | Route to leader briefly, or read a replica at >= the write's LSN |\n| Multi-region writes (active-active) | **Multi-leader** + a real conflict policy (not naive LWW) |\n| Maximum availability, accept eventual consistency | **Leaderless quorum** (Dynamo-style), tune W/R |\n| Automatic failover safely | Single-leader + **fencing/consensus** to prevent split-brain |\n| Replica drifting from primary | Use **row-based** logical replication, not statement-based |"
+    }
+  ],
+  "refs": [
+    "07-REPLICATION.md"
+  ]
+}

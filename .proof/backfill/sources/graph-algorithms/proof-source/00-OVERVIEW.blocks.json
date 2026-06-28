@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# Graph Algorithms — The Landscape",
+      "confidence": "candidate",
+      "text": "  graph-algorithms/ : REPRESENTATION -> TRAVERSAL -> POLYNOMIAL CORE -> THE CLIFF -> ESCAPE HATCHES\n  ============================================================================================\n\n   01 REPRESENTATION          02 TRAVERSAL              03-05 POLYNOMIAL CORE\n   +------------------+       +------------------+      +-------------------------+\n   | adjacency list   |       | BFS  (layers)    |      | 03 shortest paths       |\n   | adjacency matrix |  -->  | DFS  (recursion) | -->  |    Dijkstra/B-F/F-W/A*  |\n   | edge list / CSR  |       | topo sort (DAG)  |      | 04 spanning trees       |\n   | directed/weighted|       | components/cycle |      |    Prim/Kruskal/UF      |\n   +------------------+       +------------------+      | 05 connectivity         |\n        |  fixes V,E              | O(V+E) frontier     |    SCC/bridges/2-SAT    |\n        |  cost model             | for both BFS/DFS    +-------------------------+\n        v                         v                              |  all P-time\n   \"every bound below       \"every algorithm below               v\n    is stated in V and E\"    is a decorated DFS/BFS\"     ==================================\n                                                          THE CLIFF (P vs NP-hard)\n                                                          ==================================\n                                                          06 MAX-FLOW / MATCHING  (still P)\n                                                             max-flow = min-cut; LP dual\n                                                                |  reduction frontier\n                                                                v\n                                                          07 NP-HARD GRAPHS\n                                                             TSP, vertex cover, coloring,\n                                                             clique, independent set\n                                                                |  no poly algo (unless P=NP)\n                                                    +-----------+-----------+\n                                                    v                       v\n                                          08 SPECTRAL & RANDOM    09 PLANARITY & STRUCTURE\n                                          Laplacian, PageRank,    Euler V-E+F=2, minors,\n                                          random walks, expanders treewidth, embeddings\n                                          (linear-algebra escape) (structural escape)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 76,
+      "heading_context": "## The Five Strata",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n| STRATUM 0 — REPRESENTATION (01)                                          |\n|   How V vertices and E edges live in memory. Determines whether an       |\n|   edge-existence query is O(1) (matrix) or O(deg v) (list), and whether  |\n|   you pay O(V^2) or O(V+E) space. EVERY bound below is quoted in V, E.   |\n+--------------------------------------------------------------------------+\n| STRATUM 1 — TRAVERSAL (02)                                               |\n|   BFS and DFS, both O(V+E) on an adjacency list. Topological sort,       |\n|   connected components, cycle detection are all DFS/BFS with one extra   |\n|   array. This is the universal primitive.                               |\n+--------------------------------------------------------------------------+\n| STRATUM 2 — POLYNOMIAL CORE (03, 04, 05)                                 |\n|   Shortest paths, minimum spanning trees, strong connectivity. All       |\n|   solvable in low-degree polynomial time. The \"solved\" part of the field.|\n+--------------------------------------------------------------------------+\n| STRATUM 3 — FLOW: THE LP BRIDGE (06)                                     |\n|   Max-flow/min-cut and bipartite matching. Still polynomial, but it is   |\n|   the linear-programming dual frontier — the last big P-time conquest    |\n|   and the gateway to operations-research/.                              |\n+--------------------------------------------------------------------------+\n| STRATUM 4 — THE HARD SIDE (07, 08, 09)                                   |\n|   NP-hard graph problems (07) and the two ways around them: spectral     |\n|   relaxation (08) and structural parameterization (09).                 |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 161,
+      "heading_context": "## How the Files Chain",
+      "confidence": "candidate",
+      "text": "        01 REPRESENTATION\n              |  (fixes the cost model in V, E)\n              v\n        02 TRAVERSAL  ----------------+-----------------+\n         BFS / DFS / topo             |                 |\n              |                       |                 |\n   +----------+----------+            |                 |\n   v          v          v            v                 v\n  03 SHORTEST 04 MST    05 STRONG    06 FLOW           (DFS is the\n  PATHS       Prim/     CONNECTIVITY  max-flow          engine inside\n  Dijkstra    Kruskal   SCC/bridges   = min-cut         05's low-link\n  Bellman-F   union-    2-SAT         matching          and 09's planar\n  Floyd-W     find                     |                test)\n   |                                    | reduction\n   |  (all polynomial)                  v\n   +------------------------------> 07 NP-HARD GRAPHS\n                                     TSP/cover/coloring/clique\n                                        |\n                              +---------+---------+\n                              v                   v\n                       08 SPECTRAL          09 PLANARITY\n                       & RANDOM             & STRUCTURE\n                       (relax to            (exploit\n                        linear algebra)      structure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

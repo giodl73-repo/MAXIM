@@ -1,0 +1,210 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\01-REPRESENTATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## The Cost Model in One Table",
+      "headers": [
+        "Operation",
+        "Adjacency list",
+        "Adjacency matrix",
+        "Edge list",
+        "CSR"
+      ],
+      "rows": [
+        [
+          "Space",
+          "O(V+E)",
+          "O(V²)",
+          "O(E)",
+          "O(V+E)"
+        ],
+        [
+          "Edge exists (u,v)?",
+          "O(deg u)",
+          "**O(1)**",
+          "O(E)",
+          "O(deg u)"
+        ],
+        [
+          "Iterate neighbors of v",
+          "**O(deg v)**",
+          "O(V)",
+          "O(E)",
+          "**O(deg v)**"
+        ],
+        [
+          "Iterate all edges",
+          "O(V+E)",
+          "O(V²)",
+          "**O(E)**",
+          "O(V+E)"
+        ],
+        [
+          "Add edge",
+          "O(1)",
+          "O(1)",
+          "O(1)",
+          "rebuild"
+        ],
+        [
+          "Delete edge",
+          "O(deg u)",
+          "O(1)",
+          "O(E)",
+          "rebuild"
+        ],
+        [
+          "Add vertex",
+          "O(1)",
+          "O(V²) rebuild",
+          "O(1)",
+          "rebuild"
+        ],
+        [
+          "Cache behavior",
+          "pointer-chasing",
+          "dense, predictable",
+          "streaming",
+          "**best**"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 177,
+      "heading_context": "## Directed, Weighted, Multigraphs, and Self-Loops",
+      "headers": [
+        "Class",
+        "Generalizes by allowing…",
+        "Breaks the assumption that…"
+      ],
+      "rows": [
+        [
+          "Simple undirected",
+          "— (baseline)",
+          "—"
+        ],
+        [
+          "Directed (digraph)",
+          "asymmetric edges",
+          "reachability is symmetric (now need SCCs, `05`)"
+        ],
+        [
+          "Weighted",
+          "edge costs",
+          "all edges are equal (now need Dijkstra, not BFS)"
+        ],
+        [
+          "Weighted, neg edges",
+          "negative costs",
+          "Dijkstra's non-negativity invariant (need B-F, `03`)"
+        ],
+        [
+          "Multigraph",
+          "parallel edges",
+          "(u,v) is unique — matters for flow & matching"
+        ],
+        [
+          "With self-loops",
+          "(v,v) edges",
+          "the diagonal is zero"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 223,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is a graph representation of…"
+      ],
+      "rows": [
+        [
+          "SQL self-referencing FK (`manager_id`) + recursive CTE",
+          "an adjacency list walked by traversal"
+        ],
+        [
+          "A relational join table `(left_id, right_id)`",
+          "an edge list"
+        ],
+        [
+          "A bitmap / bitset of reachability",
+          "a boolean adjacency matrix row"
+        ],
+        [
+          "Sparse matrix in MATLAB/SciPy (`csr_matrix`)",
+          "literally CSR — same structure"
+        ],
+        [
+          "An ORM lazy-loading related entities",
+          "an implicit graph (successors on demand)"
+        ],
+        [
+          "`git` storing commits with parent pointers",
+          "adjacency list of a DAG (`02`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 240,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Sparse graph, lots of traversal",
+          "adjacency list / CSR",
+          "O(V+E) iteration"
+        ],
+        [
+          "Static graph, performance-critical",
+          "CSR",
+          "contiguous, cache-friendly"
+        ],
+        [
+          "Dense graph (E ≈ V²)",
+          "adjacency matrix",
+          "O(1) edge query, space already O(V²)"
+        ],
+        [
+          "Need fast \"edge exists?\"",
+          "adjacency matrix or hash set",
+          "O(1) lookup"
+        ],
+        [
+          "Algorithm iterates all edges (Kruskal)",
+          "edge list",
+          "O(E) natural form"
+        ],
+        [
+          "Graph mutates constantly",
+          "adjacency list (hash sets)",
+          "O(1) add/delete"
+        ],
+        [
+          "Graph too big / infinite to store",
+          "implicit (successor fn)",
+          "never materialize"
+        ],
+        [
+          "Need to walk edges backward",
+          "keep CSR + CSC",
+          "in-edges in O(deg)"
+        ],
+        [
+          "Weighted matrix",
+          "store weights, **`+∞`** for absent",
+          "don't overload `0`"
+        ]
+      ]
+    }
+  ]
+}

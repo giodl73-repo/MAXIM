@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\09-DATACENTER-NETWORKING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 281,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Datacenter mechanism"
+      ],
+      "rows": [
+        [
+          "Uniform any-to-any server bandwidth",
+          "leaf-spine (folded Clos)"
+        ],
+        [
+          "Use all links, no blocking",
+          "L3 routing + ECMP (drop spanning tree)"
+        ],
+        [
+          "More fabric bandwidth",
+          "add a spine switch (scale out)"
+        ],
+        [
+          "More server capacity",
+          "add a leaf switch (scale out)"
+        ],
+        [
+          "Millions of isolated tenant networks",
+          "VXLAN overlay (24-bit VNI)"
+        ],
+        [
+          "VM keeps its IP across racks",
+          "overlay decouples virtual from physical"
+        ],
+        [
+          "Lowest-latency, zero-copy transfers",
+          "RDMA (InfiniBand / RoCE / iWARP)"
+        ],
+        [
+          "Lossless fabric for RDMA",
+          "ECN + DCTCP, priority flow control (04)"
+        ],
+        [
+          "Provision a network by API",
+          "SDN (centralized control plane)"
+        ],
+        [
+          "A cloud VPC, concretely",
+          "SDN-programmed VXLAN overlay on Clos underlay"
+        ],
+        [
+          "Reduce per-packet overhead internally",
+          "jumbo frames (~9000 MTU, 01)"
+        ]
+      ]
+    }
+  ]
+}

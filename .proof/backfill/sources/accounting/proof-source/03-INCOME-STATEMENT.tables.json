@@ -1,0 +1,169 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\03-INCOME-STATEMENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 84,
+      "heading_context": "## The Margin Waterfall (the conceptual spine)",
+      "headers": [
+        "Margin",
+        "Formula",
+        "Tells you"
+      ],
+      "rows": [
+        [
+          "Gross margin",
+          "Gross profit / Revenue",
+          "Pricing power & production efficiency"
+        ],
+        [
+          "Operating margin",
+          "Operating income / Revenue",
+          "Core operating efficiency (financing-neutral)"
+        ],
+        [
+          "Net margin",
+          "Net income / Revenue",
+          "Overall bottom-line profitability"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 167,
+      "heading_context": "## COGS and the Inventory Flow",
+      "headers": [
+        "Method",
+        "Assumes you sell...",
+        "In rising prices →",
+        "LIFO allowed?"
+      ],
+      "rows": [
+        [
+          "**FIFO**",
+          "Oldest units first",
+          "Lower COGS, higher profit, higher tax",
+          "Yes (GAAP & IFRS)"
+        ],
+        [
+          "**LIFO**",
+          "Newest units first",
+          "Higher COGS, lower profit, lower tax",
+          "**GAAP only — IFRS bans it**"
+        ],
+        [
+          "**Weighted average**",
+          "Blended cost",
+          "Between FIFO and LIFO",
+          "Yes (GAAP & IFRS)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 194,
+      "heading_context": "## EPS — Per-Share Profitability",
+      "headers": [
+        "Concept",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Basic EPS",
+          "Profit per share actually outstanding"
+        ],
+        [
+          "Diluted EPS",
+          "Worst-case: assumes all options/convertibles exercise — always ≤ basic"
+        ],
+        [
+          "Weighted-average shares",
+          "Shares weighted by how long they were outstanding in the period"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 218,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Prior art",
+        "Income statement concept"
+      ],
+      "rows": [
+        [
+          "Per-frame / per-tick delta",
+          "The income statement (period flow vs balance-sheet state)"
+        ],
+        [
+          "Event-time stream processing",
+          "Revenue recognition (recognize at obligation satisfaction)"
+        ],
+        [
+          "Buffered / windowed events",
+          "Deferred revenue released over the subscription window"
+        ],
+        [
+          "Normalizing a metric per unit",
+          "EPS (net income per share)"
+        ],
+        [
+          "Worst-case capacity planning",
+          "Diluted EPS (assume all options exercise)"
+        ],
+        [
+          "Separating signal from noise",
+          "Operating income (strips financing/tax noise from core ops)"
+        ],
+        [
+          "Cost attribution to a request",
+          "Matching COGS to the revenue it generated"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 232,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to know...",
+        "Line / metric"
+      ],
+      "rows": [
+        [
+          "Pricing power & unit economics",
+          "Gross margin"
+        ],
+        [
+          "Core operating efficiency (financing-neutral)",
+          "Operating margin (EBIT)"
+        ],
+        [
+          "Overall profitability for owners",
+          "Net margin"
+        ],
+        [
+          "Profit per share / feeds P/E",
+          "Basic EPS"
+        ],
+        [
+          "Effect of options/RSUs on shareholders",
+          "Diluted EPS (and the basic-vs-diluted gap)"
+        ],
+        [
+          "When a subscription's cash becomes profit",
+          "Revenue recognition schedule (ASC 606)"
+        ],
+        [
+          "Effect of inventory method on tax",
+          "FIFO vs LIFO (LIFO only under GAAP)"
+        ],
+        [
+          "Whether earnings are \"clean\"",
+          "Compare net income vs cash flow (file 04); watch one-time items"
+        ]
+      ]
+    }
+  ]
+}

@@ -209,7 +209,7 @@ Illumina holds ~80% of the global sequencing market. Understanding its chemistry
   ┌─────────────────────────────────────────────────┐
   │ Cell suspension flows through microfluidic chip │
   │ Each cell + gel bead encapsulated in oil droplet│
-  │ Gel bead carries 10-bp cell barcode + UMI oligos│
+  │ Gel bead carries 16-bp cell barcode + UMI oligos│
   │ Throughput: ~10,000 cells per run               │
   └─────────────────────────────────────────────────┘
               │

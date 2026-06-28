@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # WAL and Recovery — Making "Durable" True Across a Crash
 
 The "D" in ACID — durability — is the promise that once `COMMIT` returns, your data survives a

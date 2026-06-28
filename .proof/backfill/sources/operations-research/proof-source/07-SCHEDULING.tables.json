@@ -1,0 +1,191 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\07-SCHEDULING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 145,
+      "heading_context": "## Layer 3: Critical Path Method (CPM) and PERT",
+      "headers": [
+        "Quantity",
+        "Pass",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "ES (earliest start)",
+          "forward",
+          "earliest it can begin given predecessors"
+        ],
+        [
+          "EF (earliest finish)",
+          "forward",
+          "$ES + \\text{duration}$"
+        ],
+        [
+          "LS (latest start)",
+          "backward",
+          "latest start not delaying the project"
+        ],
+        [
+          "LF (latest finish)",
+          "backward",
+          "latest finish not delaying the project"
+        ],
+        [
+          "**Slack / float**",
+          "$LS - ES$",
+          "how much an activity can slip"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 213,
+      "heading_context": "## Layer 4: Parallel Machines and List Scheduling",
+      "headers": [
+        "Algorithm",
+        "Approximation ratio for $P\\,",
+        "",
+        "\\,C_{max}$"
+      ],
+      "rows": [
+        [
+          "Arbitrary list scheduling",
+          "$2 - 1/m$ (tight)"
+        ],
+        [
+          "LPT (longest first)",
+          "$4/3 - 1/(3m)$"
+        ],
+        [
+          "PTAS (Hochbaum–Shmoys)",
+          "$(1+\\epsilon)$ for any fixed $\\epsilon$, poly time"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 242,
+      "heading_context": "## Layer 5: Flow Shop and Job Shop",
+      "headers": [
+        "Job-shop method",
+        "Type"
+      ],
+      "rows": [
+        [
+          "Disjunctive graph + branch & bound",
+          "Exact (small instances)"
+        ],
+        [
+          "Shifting bottleneck heuristic",
+          "Constructive heuristic"
+        ],
+        [
+          "MIP formulation (big-M disjunctions)",
+          "Exact via solver (file 03)"
+        ],
+        [
+          "Tabu search / simulated annealing / GA",
+          "Metaheuristic"
+        ],
+        [
+          "Constraint programming",
+          "Often the practical winner"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 256,
+      "heading_context": "## Old World → Scheduling Bridges",
+      "headers": [
+        "You already know",
+        "Scheduling analogue"
+      ],
+      "rows": [
+        [
+          "Critical path in a project plan (MS Project)",
+          "CPM: longest path in the task DAG, $O(V+E)$"
+        ],
+        [
+          "Build dependency graph / topological order",
+          "The precedence DAG; forward/backward passes"
+        ],
+        [
+          "CPU scheduler (SJF, EDF)",
+          "SPT = SJF for $\\sum C_j$; EDD ≈ EDF"
+        ],
+        [
+          "Load balancing across workers",
+          "$P\\,",
+          "",
+          "\\,C_{max}$, list scheduling, the $(2-1/m)$ bound"
+        ],
+        [
+          "\"Greedy heuristic, hope it's good\"",
+          "List scheduling — but now with a *proven* $2-1/m$ bound"
+        ],
+        [
+          "Slack/buffer in a release plan",
+          "Float = $LS - ES$; zero-float tasks are critical"
+        ],
+        [
+          "Capacity-constrained sprint planning",
+          "Bin-packing / parallel-machine makespan"
+        ],
+        [
+          "Tail-risk on a delivery date",
+          "PERT + Monte Carlo (file 08)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 273,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Approach"
+      ],
+      "rows": [
+        [
+          "Minimize total completion on 1 machine",
+          "SPT (sort by $p_j$) — exact"
+        ],
+        [
+          "Weighted total completion, 1 machine",
+          "WSPT / Smith's rule (sort by $w_j/p_j$) — exact"
+        ],
+        [
+          "Minimize max lateness, 1 machine",
+          "EDD (sort by due date) — exact"
+        ],
+        [
+          "Project duration + critical path",
+          "CPM: longest path in DAG — exact, $O(V+E)$"
+        ],
+        [
+          "Project duration under uncertainty",
+          "PERT, but Monte Carlo for tails (file 08)"
+        ],
+        [
+          "Balance load on $m$ machines",
+          "LPT list scheduling ($4/3$-approx); PTAS for $(1+\\epsilon)$"
+        ],
+        [
+          "2-machine flow shop",
+          "Johnson's rule — exact, $O(n\\log n)$"
+        ],
+        [
+          "Job shop (general factory)",
+          "MIP / CP / shifting bottleneck / metaheuristics"
+        ],
+        [
+          "Need a provable guarantee, not just a heuristic",
+          "Use an approximation algorithm with a known ratio"
+        ]
+      ]
+    }
+  ]
+}

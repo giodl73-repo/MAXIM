@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # DNS — Resolution, Record Types, Caching/TTL, DoH/DoT, Anycast
 
 ## The Big Picture

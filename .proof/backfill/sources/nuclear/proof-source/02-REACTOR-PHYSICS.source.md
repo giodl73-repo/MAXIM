@@ -88,7 +88,7 @@ k∞ = η · ε · p · f
 
 η (eta) = thermal fission factor = ν · σ_f / σ_a^(fuel)
   = neutrons produced per neutron absorbed in fuel
-  ≈ 2.07 (U-235 in thermal spectrum)  2.11 (U-233)  2.09 (Pu-239)
+  ≈ 2.07 (U-235 in thermal spectrum)  2.29 (U-233)  2.11 (Pu-239)
   Note: η = ν · [σ_f/(σ_f + σ_c)] where σ_c = capture cross section in fuel
 
 ε (epsilon) = fast fission factor

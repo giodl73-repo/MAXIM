@@ -1,0 +1,233 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\03-INTEGER-PROGRAMMING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 73,
+      "heading_context": "## Layer 1: The Model Zoo",
+      "headers": [
+        "Logical condition",
+        "Linear encoding (binary $x, y$)"
+      ],
+      "rows": [
+        [
+          "\"at most one of A, B\"",
+          "$x_A + x_B \\le 1$"
+        ],
+        [
+          "\"if A then B\" ($x_A \\Rightarrow x_B$)",
+          "$x_A \\le x_B$"
+        ],
+        [
+          "\"exactly $k$ of $n$\"",
+          "$\\sum_j x_j = k$"
+        ],
+        [
+          "\"fixed cost if used\" (big-M)",
+          "$q \\le M\\,x$, $q \\ge 0$, $x \\in \\{0,1\\}$"
+        ],
+        [
+          "\"either constraint 1 or 2\" (disjunction)",
+          "big-M with an indicator $x$"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 115,
+      "heading_context": "## Layer 2: NP-Hardness — Stated Precisely",
+      "headers": [
+        "Matrix property",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "Totally unimodular, integer $b$",
+          "LP relaxation optimum is integer → IP is polynomial"
+        ],
+        [
+          "General integer matrix",
+          "IP is NP-hard"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 183,
+      "heading_context": "## Layer 4: Branch and Bound",
+      "headers": [
+        "Prune rule",
+        "Trigger",
+        "Why valid"
+      ],
+      "rows": [
+        [
+          "**Infeasibility**",
+          "LP relaxation has no solution",
+          "Subregion empty"
+        ],
+        [
+          "**Bound**",
+          "$z_{LP} \\le z_{best}$ (max)",
+          "Subregion can't beat incumbent"
+        ],
+        [
+          "**Integrality**",
+          "LP solution already integer",
+          "Optimal *for this subregion*; record it"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 191,
+      "heading_context": "## Layer 4: Branch and Bound",
+      "headers": [
+        "Choice",
+        "Options",
+        "Effect"
+      ],
+      "rows": [
+        [
+          "Branching variable",
+          "most-fractional, pseudocost, strong branching",
+          "Tree size"
+        ],
+        [
+          "Node selection",
+          "depth-first (memory-light), best-first (fewest nodes), best-bound",
+          "Memory vs. node count"
+        ],
+        [
+          "Incumbent",
+          "heuristics (rounding, feasibility pump)",
+          "Earlier pruning"
+        ],
+        [
+          "LP warm starts",
+          "dual simplex reuse",
+          "Per-node speed (file 01)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 220,
+      "heading_context": "## Layer 5: Cutting Planes",
+      "headers": [
+        "Cut family",
+        "Source",
+        "Where used"
+      ],
+      "rows": [
+        [
+          "**Gomory fractional**",
+          "Simplex tableau, any ILP",
+          "General-purpose; finite termination"
+        ],
+        [
+          "**Cover inequalities**",
+          "Knapsack constraints",
+          "0-1 IP"
+        ],
+        [
+          "**Clique / odd-hole**",
+          "Graph structure",
+          "Stable set, coloring"
+        ],
+        [
+          "**MIR (mixed-integer rounding)**",
+          "General MIP",
+          "The backbone of modern solvers"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 270,
+      "heading_context": "## Old World → IP Bridges",
+      "headers": [
+        "You already know",
+        "IP analogue"
+      ],
+      "rows": [
+        [
+          "SAT / constraint solver",
+          "0-1 IP feasibility; both NP-complete, inter-reducible"
+        ],
+        [
+          "Backtracking search with pruning",
+          "Branch and bound *is* backtracking with LP bounds"
+        ],
+        [
+          "Branch prediction / pruning a search tree",
+          "Bounding rules prune the B&B tree"
+        ],
+        [
+          "Build dependency resolution (version solving)",
+          "A feasibility IP over package selection"
+        ],
+        [
+          "Resource scheduling / bin packing",
+          "Classic 0-1 IP (file 07 for scheduling specifics)"
+        ],
+        [
+          "Caching a subproblem result",
+          "Warm-starting child LPs from parent basis"
+        ],
+        [
+          "\"Within 2% of optimal\" SLA",
+          "The B&B optimality gap $(z_{best} - z_{LP})/z_{LP}$ is reported live"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 286,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Yes/no, assignment, selection decisions",
+          "0-1 / binary IP"
+        ],
+        [
+          "Open-a-facility + how-much-to-ship",
+          "Mixed IP with big-M linking"
+        ],
+        [
+          "Constraint matrix is network-structured (TU)",
+          "Solve the LP relaxation — it's already integer (file 04)"
+        ],
+        [
+          "Need an exact optimum",
+          "Branch and cut (modern MIP solver)"
+        ],
+        [
+          "Need a quick provable bound",
+          "LP relaxation value"
+        ],
+        [
+          "Need a near-optimal answer fast",
+          "LP relaxation + rounding (approximation)"
+        ],
+        [
+          "Constraints split into easy + complicating",
+          "Lagrangian relaxation + subgradient"
+        ],
+        [
+          "Solver too slow",
+          "Tighten formulation (cuts), add valid inequalities, presolve"
+        ],
+        [
+          "Want \"within X% of optimal\"",
+          "Run B&B; stop at desired optimality gap"
+        ]
+      ]
+    }
+  ]
+}

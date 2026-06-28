@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Storage Engines — How a Row Becomes Bytes on Disk
 
 The storage engine is the bottom of the stack: it owns the question "where do the actual bytes

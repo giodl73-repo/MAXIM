@@ -1,0 +1,349 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-spectral-and-random",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#000",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "# Spectral and Random Graph Methods — The Linear-Algebra Escape Hatch"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#001",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "This is the first of the two escape hatches from `07`'s hardness: instead of\ncombinatorial search, encode the graph as a **matrix** and read structure off its\n**eigenvalues and eigenvectors**. Spectral clustering relaxes NP-hard balanced\npartitioning to an eigenvector computation; PageRank is the stationary\ndistribution of a random walk; expanders are the graphs whose spectral gap makes\nrandom walks mix fast. For a reader with a strong linear-algebra background, this\nis where graph theory and matrix analysis become the same subject."
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#002",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "```\n  THE SPECTRAL VIEW: A GRAPH IS A MATRIX\n  ======================================"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#003",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "Adjacency A        Degree D            LAPLACIAN  L = D - A\n   (who connects)     (diagonal: deg)     (the central object)"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#004",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "0 1 1            2 0 0                 2 -1 -1\n      1 0 0            0 1 0                -1  1  0\n      1 0 0            0 0 1                -1  0  1"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#005",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "EIGENVALUES of L:  0 = lambda_1 <= lambda_2 <= ... <= lambda_n\n                          |              |\n                          |              +-- FIEDLER value (algebraic connectivity):\n                          |                  measures how \"splittable\" the graph is.\n                          |                  Its eigenvector partitions the graph.\n                          +-- multiplicity of 0 = number of CONNECTED COMPONENTS"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#006",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "+---------------------------------------------------------------------+\n   | SPECTRAL CLUSTERING  : Fiedler vector -> graph partition            |\n   | PAGERANK             : stationary distribution of a random walk     |\n   | RANDOM WALKS / MIXING: spectral gap controls how fast you mix       |\n   | EXPANDERS            : large spectral gap => sparse-yet-connected   |\n   +---------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#007",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "**Read this as a dictionary:** combinatorial properties on the left\n(components, partitions, mixing) correspond to spectral quantities on the right\n(eigenvalue multiplicity, the Fiedler gap). The whole file is that correspondence."
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#008",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#009",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "## The Laplacian — The Central Object"
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#010",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "The graph Laplacian **L = D − A** (degree matrix minus adjacency) is the single\nmost important matrix in spectral graph theory. Its eigenvalues encode global\nconnectivity structure that no local computation reveals."
+    },
+    {
+      "id": "08-SPECTRAL-AND-RANDOM.md#011",
+      "path": [
+        "08-SPECTRAL-AND-RANDOM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:graph-algorithms:08-spectral-and-random, git-history:graph-algorithms:08-spectral-and-random]",
+        "canonical_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "concepts": "[Laplacian, spectral clustering, PageRank, random walks, expanders, eigenvalues]",
+        "current_path": "graph-algorithms/08-SPECTRAL-AND-RANDOM.md",
+        "id": "maxim:graph-algorithms:spectral-and-random",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral graph theory]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral and Random Graph Methods",
+        "updated": "null"
+      },
+      "text": "```\n  Key facts about L = D - A (undirected graph):\n  ---------------------------------------------\n  * L is symmetric, positive SEMI-definite: all eigenvalues lambda_i >= 0.\n  * lambda_1 = 0 ALWAYS (the all-ones vector 1 is in the kernel: L*1 = 0).\n  * MULTIPLICITY of eigenvalue 0 = number of connected components.\n      (a path graph: mult 1; two disjoint triangles: mult 2.)\n  * lambda_2 > 0  <=>  the graph is connected.  lambda_2 is the FIEDLER VALUE\n      / algebraic connectivity -- bigger means \"harder to disconnect\"."
+    }
+  ],
+  "refs": [
+    "08-SPECTRAL-AND-RANDOM.md"
+  ]
+}

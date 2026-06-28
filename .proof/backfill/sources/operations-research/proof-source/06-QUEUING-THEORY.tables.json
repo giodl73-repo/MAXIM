@@ -1,0 +1,244 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\06-QUEUING-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 78,
+      "heading_context": "## Layer 1: Kendall Notation and the Vocabulary",
+      "headers": [
+        "Notation",
+        "Means"
+      ],
+      "rows": [
+        [
+          "**M/M/1**",
+          "Poisson arrivals, exponential service, one server, infinite buffer"
+        ],
+        [
+          "**M/M/c**",
+          "same, $c$ parallel servers (a call center / thread pool)"
+        ],
+        [
+          "**M/M/c/K**",
+          "$c$ servers, finite buffer $K$ (blocking when full)"
+        ],
+        [
+          "**M/M/c/c**",
+          "$c$ servers, no waiting room — **Erlang B** (loss system, trunk lines)"
+        ],
+        [
+          "**M/G/1**",
+          "general service distribution — **Pollaczek–Khinchine** formula"
+        ],
+        [
+          "**G/G/1**",
+          "general arrivals and service — approximations only"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 89,
+      "heading_context": "## Layer 1: Kendall Notation and the Vocabulary",
+      "headers": [
+        "Symbol",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "$\\lambda$",
+          "mean arrival rate"
+        ],
+        [
+          "$\\mu$",
+          "mean service rate per server"
+        ],
+        [
+          "$\\rho$",
+          "utilization (traffic intensity) $= \\lambda / (c\\mu)$"
+        ],
+        [
+          "$L$ / $L_q$",
+          "mean number in system / in queue"
+        ],
+        [
+          "$W$ / $W_q$",
+          "mean time in system / in queue (waiting)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 120,
+      "heading_context": "## Layer 2: Little's Law — The Universal Invariant",
+      "headers": [
+        "Apply Little's Law to...",
+        "Get"
+      ],
+      "rows": [
+        [
+          "Whole system",
+          "$L = \\lambda W$"
+        ],
+        [
+          "Queue only (exclude service)",
+          "$L_q = \\lambda W_q$"
+        ],
+        [
+          "Servers only",
+          "(busy servers) $= \\lambda / \\mu = c\\rho$"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 165,
+      "heading_context": "## Layer 3: The M/M/1 Queue Solved Exactly",
+      "headers": [
+        "$\\rho$",
+        "$L = \\rho/(1-\\rho)$",
+        "Mean # in system"
+      ],
+      "rows": [
+        [
+          "0.50",
+          "1.0",
+          "1"
+        ],
+        [
+          "0.80",
+          "4.0",
+          "4"
+        ],
+        [
+          "0.90",
+          "9.0",
+          "9"
+        ],
+        [
+          "0.95",
+          "19.0",
+          "19"
+        ],
+        [
+          "0.99",
+          "99.0",
+          "99"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 218,
+      "heading_context": "## Layer 4: M/M/c — Multiple Servers (the real model)",
+      "headers": [
+        "Formula",
+        "System",
+        "Question answered"
+      ],
+      "rows": [
+        [
+          "**Erlang B**",
+          "M/M/c/c (no waiting room)",
+          "Probability a call is **blocked** (lost) — trunk sizing"
+        ],
+        [
+          "**Erlang C**",
+          "M/M/c (infinite queue)",
+          "Probability a call must **wait** — staffing with a queue"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 297,
+      "heading_context": "## Old World → Queuing Bridges",
+      "headers": [
+        "You already know",
+        "Queuing analogue"
+      ],
+      "rows": [
+        [
+          "throughput × latency = concurrency",
+          "Little's Law $L = \\lambda W$"
+        ],
+        [
+          "Connection pool / thread pool sizing",
+          "M/M/c server count $c$; Erlang C wait probability"
+        ],
+        [
+          "Sharded queues vs. one shared queue",
+          "M/M/1 split vs. M/M/c pooling (pooling wins)"
+        ],
+        [
+          "Tail latency from request-size variance",
+          "Pollaczek–Khinchine: $W_q \\propto C_s^2$"
+        ],
+        [
+          "Autoscaling target utilization (~70%)",
+          "Avoiding the $1/(1-\\rho)$ congestion cliff"
+        ],
+        [
+          "Microservice call graph capacity",
+          "Jackson network, traffic equations"
+        ],
+        [
+          "Load-shedding / admission control",
+          "M/M/c/K finite buffer, Erlang B blocking"
+        ],
+        [
+          "Backpressure",
+          "Stability condition $\\rho < 1$"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 314,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Average concurrency from rate and latency",
+          "Little's Law $L = \\lambda W$"
+        ],
+        [
+          "Wait time, single server",
+          "M/M/1: $W = 1/(\\mu - \\lambda)$"
+        ],
+        [
+          "How many servers for an SLA",
+          "M/M/c + Erlang C ($P(\\text{wait})$)"
+        ],
+        [
+          "Trunk/line sizing with no queue (blocking)",
+          "M/M/c/c + Erlang B"
+        ],
+        [
+          "Effect of service-time variance",
+          "Pollaczek–Khinchine ($M/G/1$)"
+        ],
+        [
+          "Pool vs. shard a queue",
+          "Compare M/M/c (pooled) to split M/M/1 — pool wins"
+        ],
+        [
+          "Multi-stage / microservice network",
+          "Jackson network, traffic equations, product form"
+        ],
+        [
+          "Non-Markovian, finite buffers, blocking",
+          "Drop to simulation (file 08)"
+        ],
+        [
+          "Target utilization for headroom",
+          "Keep $\\rho$ well below 1 (the cliff)"
+        ]
+      ]
+    }
+  ]
+}

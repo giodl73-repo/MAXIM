@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # IP and Routing — IPv4/IPv6, CIDR, Routing Tables, BGP, OSPF
 
 ## The Big Picture

@@ -1,0 +1,172 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\09-PLANARITY-AND-STRUCTURE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 112,
+      "heading_context": "## Testing Planarity — Kuratowski, Wagner, and Linear-Time Tests",
+      "headers": [
+        "Tool",
+        "Statement",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Euler's formula",
+          "V − E + F = 2",
+          "quick non-planarity check via E ≤ 3V−6"
+        ],
+        [
+          "Kuratowski's theorem",
+          "planar ⇔ no K₅/K₃,₃ *subdivision*",
+          "characterization"
+        ],
+        [
+          "Wagner's theorem",
+          "planar ⇔ no K₅/K₃,₃ *minor*",
+          "minor-based characterization"
+        ],
+        [
+          "Boyer-Myrvold / Hopcroft-Tarjan",
+          "linear-time test + embedding",
+          "the practical algorithm"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 181,
+      "heading_context": "## Treewidth — How Tree-Like Is the Graph?",
+      "headers": [
+        "Graph class",
+        "Treewidth",
+        "NP-hard problems become…"
+      ],
+      "rows": [
+        [
+          "Tree / forest",
+          "1",
+          "trivially poly (DP on the tree)"
+        ],
+        [
+          "Series-parallel",
+          "2",
+          "poly"
+        ],
+        [
+          "Outerplanar",
+          "≤ 2",
+          "poly"
+        ],
+        [
+          "k × k grid",
+          "k",
+          "poly for fixed k (exp in k)"
+        ],
+        [
+          "Planar, diameter d",
+          "O(d)",
+          "poly when d small"
+        ],
+        [
+          "Clique Kₙ",
+          "n − 1",
+          "no help (as hard as general)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 227,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is a structural-graph property"
+      ],
+      "rows": [
+        [
+          "Single-layer PCB / VLSI routing",
+          "planarity (K₅/K₃,₃ minor ⇒ needs another layer)"
+        ],
+        [
+          "Subway / metro map \"clean\" drawing",
+          "planar embedding (orthogonal layout)"
+        ],
+        [
+          "Map coloring (no two neighbors alike)",
+          "four-color theorem on the planar adjacency graph"
+        ],
+        [
+          "Control-flow-graph analysis in a compiler",
+          "usually low treewidth ⇒ fast dataflow DP"
+        ],
+        [
+          "Road network locally tree-like",
+          "bounded treewidth / planar separators speed routing"
+        ],
+        [
+          "SQL query-plan / join-graph optimization",
+          "small-treewidth join graphs ⇒ tractable DP"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 245,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use",
+        "Result"
+      ],
+      "rows": [
+        [
+          "Can this be drawn without crossings?",
+          "Boyer-Myrvold planarity test",
+          "O(V), yes/no + embedding"
+        ],
+        [
+          "Quick non-planarity sanity check",
+          "Euler: is E > 3V−6?",
+          "if yes, definitely non-planar"
+        ],
+        [
+          "Color a planar map",
+          "four-color theorem",
+          "≤ 4 colors guaranteed to exist"
+        ],
+        [
+          "Is it 2-colorable?",
+          "bipartite BFS test (`02`)",
+          "O(V+E), planar or not"
+        ],
+        [
+          "3-color a planar graph",
+          "—",
+          "**still NP-complete**"
+        ],
+        [
+          "NP-hard problem on a tree-like graph",
+          "tree-decomposition DP",
+          "poly if treewidth bounded"
+        ],
+        [
+          "Decide a minor-closed property",
+          "forbidden-minor / RS test",
+          "poly (huge constant)"
+        ],
+        [
+          "Speed up routing on a planar/road graph",
+          "planar separator decomposition",
+          "divide-and-conquer"
+        ],
+        [
+          "Exploit small-treewidth program graph",
+          "Courcelle DP",
+          "linear for fixed treewidth"
+        ]
+      ]
+    }
+  ]
+}

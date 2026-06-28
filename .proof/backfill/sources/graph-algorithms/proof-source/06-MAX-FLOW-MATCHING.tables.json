@@ -1,0 +1,178 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\06-MAX-FLOW-MATCHING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 113,
+      "heading_context": "## The Algorithms — and Their Exact Bounds",
+      "headers": [
+        "Algorithm",
+        "Path choice",
+        "Time",
+        "Notes / precondition"
+      ],
+      "rows": [
+        [
+          "Ford-Fulkerson (generic)",
+          "*any* augmenting path",
+          "O(E · \\|f\\*\\|)",
+          "only integer caps; **can loop forever on irrationals**"
+        ],
+        [
+          "Edmonds-Karp",
+          "**BFS** (shortest aug path)",
+          "**O(V·E²)**",
+          "bound independent of capacities"
+        ],
+        [
+          "Dinic",
+          "BFS level graph + blocking flow",
+          "**O(V²·E)**",
+          "O(E·√V) on **unit-capacity** / bipartite"
+        ],
+        [
+          "Push-relabel (FIFO)",
+          "local push + relabel",
+          "O(V³)",
+          "often fastest in practice"
+        ],
+        [
+          "Push-relabel (highest-label)",
+          "—",
+          "O(V²·√E)",
+          "strong practical performer"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 171,
+      "heading_context": "## Bipartite Matching — The Flagship Reduction",
+      "headers": [
+        "Matching problem",
+        "Best algorithm",
+        "Time"
+      ],
+      "rows": [
+        [
+          "Max bipartite matching",
+          "Hopcroft-Karp",
+          "**O(E·√V)**"
+        ],
+        [
+          "Max bipartite matching (simple)",
+          "augmenting-path (Hungarian-style)",
+          "O(V·E)"
+        ],
+        [
+          "Min-cost / max-weight bipartite (assignment)",
+          "Hungarian algorithm",
+          "O(V³)"
+        ],
+        [
+          "Max matching, **general** (non-bipartite)",
+          "Blossom (Edmonds)",
+          "O(V³)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 212,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is max-flow / min-cut of…"
+      ],
+      "rows": [
+        [
+          "Network bandwidth / bottleneck capacity",
+          "max-flow value; min-cut = the bottleneck links"
+        ],
+        [
+          "\"Two independent paths\" redundancy SLA",
+          "edge-disjoint paths = max-flow, unit caps"
+        ],
+        [
+          "Assigning on-call engineers to shifts",
+          "bipartite matching → max-flow"
+        ],
+        [
+          "Load balancer capacity planning",
+          "max-flow on the request-routing graph"
+        ],
+        [
+          "Image background removal (graph cut)",
+          "min s-t cut separating fg/bg pixels"
+        ],
+        [
+          "Cluster failure domains",
+          "min-cut = cheapest set of links to sever"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 229,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use",
+        "Time"
+      ],
+      "rows": [
+        [
+          "General max-flow, default",
+          "Dinic",
+          "O(V²·E)"
+        ],
+        [
+          "Max-flow, easy to implement",
+          "Edmonds-Karp",
+          "O(V·E²)"
+        ],
+        [
+          "Max-flow, tiny integer caps",
+          "Ford-Fulkerson",
+          "O(E·\\|f\\*\\|)"
+        ],
+        [
+          "Max-flow in practice, large dense",
+          "push-relabel",
+          "O(V³) / O(V²√E)"
+        ],
+        [
+          "Max bipartite matching",
+          "Hopcroft-Karp",
+          "O(E·√V)"
+        ],
+        [
+          "Min-cost / weighted assignment",
+          "Hungarian",
+          "O(V³)"
+        ],
+        [
+          "Max matching, non-bipartite",
+          "Blossom (Edmonds)",
+          "O(V³)"
+        ],
+        [
+          "Min vertex cover on bipartite graph",
+          "König ⇒ max matching",
+          "O(E·√V)"
+        ],
+        [
+          "Cheapest set of links to disconnect s,t",
+          "min-cut (= max-flow)",
+          "flow time"
+        ],
+        [
+          "Optimization version (costs on flow)",
+          "min-cost flow (`operations-research/04`)",
+          "—"
+        ]
+      ]
+    }
+  ]
+}

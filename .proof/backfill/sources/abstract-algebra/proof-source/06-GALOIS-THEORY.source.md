@@ -68,7 +68,8 @@ DEFINITION: Let K/F be a field extension.
 GALOIS EXTENSION: K/F is Galois if:
   |Aut(K/F)| = [K:F].
   Equivalently: K is the splitting field of a separable polynomial f ∈ F[x].
-  (Separable: no repeated roots — always true in char 0 or for irreducible poly in char p.)
+  (Separable: no repeated roots — automatic in char 0 or over a perfect field; irreducible
+   polynomials over imperfect char-p fields can be inseparable, e.g. x^p − t over 𝔽_p(t).)
 
 GALOIS GROUP: Gal(K/F) = Aut(K/F) when K/F is Galois.
 
@@ -327,8 +328,11 @@ GALOIS THEORY AND PAIRING-BASED CRYPTOGRAPHY:
 ## Applications to Ruler-and-Compass Constructions
 
 ```
-A real number α is CONSTRUCTIBLE iff [Q(α):Q] is a power of 2.
-  (Each compass/straightedge step can at most double the degree of the extension.)
+A real number α is CONSTRUCTIBLE iff it sits atop a tower of degree-2 extensions of Q
+  — equivalently, the Galois closure of Q(α)/Q has degree a power of 2.
+  (Each compass/straightedge step at most doubles the degree. NECESSARY BUT NOT SUFFICIENT:
+   [Q(α):Q] a power of 2 alone does NOT imply constructible — there exist degree-4 α whose
+   Galois group is not a 2-group, hence not constructible.)
 
 CLASSICAL IMPOSSIBILITIES (proved using Galois theory):
   Squaring the circle: π is transcendental (Lindemann 1882) → not constructible.

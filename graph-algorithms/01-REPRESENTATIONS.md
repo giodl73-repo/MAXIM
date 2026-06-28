@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Graph Representations
 
 The representation is not a detail — it *is* the cost model. Every bound in the

@@ -1,0 +1,100 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\01-LINK-LAYER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 96,
+      "heading_context": "## The MAC Address",
+      "headers": [
+        "Property",
+        "MAC (L2)",
+        "IP (L3)"
+      ],
+      "rows": [
+        [
+          "Size",
+          "48 bits",
+          "32 (v4) / 128 (v6) bits"
+        ],
+        [
+          "Scope",
+          "one link only",
+          "global, end-to-end"
+        ],
+        [
+          "Assigned by",
+          "NIC vendor / OS",
+          "network operator / DHCP"
+        ],
+        [
+          "Changes per hop?",
+          "**yes**, rewritten every hop",
+          "no (modulo NAT)"
+        ],
+        [
+          "Hierarchical?",
+          "no (flat)",
+          "yes (prefix-based)"
+        ],
+        [
+          "Analogy",
+          "name written on your hand",
+          "postal address"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 319,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What's happening at L2",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Add a device to a LAN",
+          "switch learns its MAC on first frame",
+          "nothing — automatic"
+        ],
+        [
+          "Two hosts on same subnet can't talk",
+          "ARP failing, or different VLAN",
+          "check VLAN membership / ARP cache"
+        ],
+        [
+          "LAN suddenly saturated / frozen",
+          "broadcast storm from a loop",
+          "STP / RSTP must be enabled"
+        ],
+        [
+          "Need to isolate departments on one switch",
+          "logical segmentation",
+          "802.1Q VLANs"
+        ],
+        [
+          "Need >4094 isolated segments",
+          "VLAN ID space exhausted",
+          "VXLAN overlay (see 09)"
+        ],
+        [
+          "Want all redundant links active",
+          "STP blocks them",
+          "L3 fabric / overlay (09)"
+        ],
+        [
+          "Inside a datacenter, want bigger frames",
+          "reduce per-byte overhead",
+          "jumbo frames (~9000 MTU)"
+        ],
+        [
+          "Reaching anything off the local subnet",
+          "host ARPs the gateway, not the dest",
+          "a router (L3, see 02)"
+        ]
+      ]
+    }
+  ]
+}

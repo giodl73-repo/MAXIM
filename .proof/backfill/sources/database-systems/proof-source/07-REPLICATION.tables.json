@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\07-REPLICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 205,
+      "heading_context": "## Conflict resolution (multi-leader / leaderless)",
+      "headers": [
+        "Strategy",
+        "Mechanism",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "**Last-write-wins (LWW)**",
+          "Keep the write with the highest timestamp",
+          "Simple; **silently drops** the loser's write; clock skew hazard"
+        ],
+        [
+          "**Version vectors**",
+          "Track per-replica version counters; detect concurrent vs causal",
+          "Detects true conflicts; needs app-level merge"
+        ],
+        [
+          "**CRDTs**",
+          "Conflict-free replicated data types: merges are commutative/associative/idempotent by construction",
+          "No coordination needed; limited to CRDT-expressible types"
+        ],
+        [
+          "**Application merge**",
+          "Surface both versions (siblings); app decides (e.g. shopping-cart union)",
+          "Correct; pushes work to the app"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 219,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Replication concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "Read replicas behind a load balancer",
+          "Single-leader leader-follower",
+          "Always On readable secondaries"
+        ],
+        [
+          "Log shipping a `.ldf` to a standby",
+          "Physical WAL/log streaming",
+          "AG synchronous/async-commit, log shipping"
+        ],
+        [
+          "\"Mirror\" with witness for failover",
+          "Promotion + fencing",
+          "Database mirroring (legacy), AG failover"
+        ],
+        [
+          "Active-active multi-region",
+          "Multi-leader, conflict resolution",
+          "Cosmos multi-region writes (guide 09)"
+        ],
+        [
+          "Eventual consistency you tuned",
+          "Quorum W/R, read repair",
+          "Cosmos consistency levels (guide 09)"
+        ],
+        [
+          "\"Last write wins\" you set on a sync",
+          "LWW conflict resolution",
+          "Cosmos LWW conflict policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 232,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "No data loss on failover",
+          "**Synchronous** (or semi-sync) replication to >=1 follower"
+        ],
+        [
+          "Lowest write latency, tolerate small loss window",
+          "**Asynchronous** replication"
+        ],
+        [
+          "Read scaling",
+          "Async **followers**; route reads off the leader"
+        ],
+        [
+          "Read-your-writes after a write",
+          "Route to leader briefly, or read a replica at >= the write's LSN"
+        ],
+        [
+          "Multi-region writes (active-active)",
+          "**Multi-leader** + a real conflict policy (not naive LWW)"
+        ],
+        [
+          "Maximum availability, accept eventual consistency",
+          "**Leaderless quorum** (Dynamo-style), tune W/R"
+        ],
+        [
+          "Automatic failover safely",
+          "Single-leader + **fencing/consensus** to prevent split-brain"
+        ],
+        [
+          "Replica drifting from primary",
+          "Use **row-based** logical replication, not statement-based"
+        ]
+      ]
+    }
+  ]
+}

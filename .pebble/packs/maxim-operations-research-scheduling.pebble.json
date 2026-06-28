@@ -1,0 +1,1665 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-operations-research-scheduling",
+  "source": "../../operations-research",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-SCHEDULING.md#000",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "# Scheduling — Job-Shop, Critical Path, List Scheduling, and Approximation Bounds"
+    },
+    {
+      "id": "07-SCHEDULING.md#001",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-SCHEDULING.md#002",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "Scheduling assigns **jobs to machines over time** to optimize an objective (finish fast, hit deadlines, balance load). The field splits sharply: a handful of problems have elegant **polynomial optimal rules** (single-machine sequencing, critical path), while most multi-machine problems are **NP-hard** and we settle for **approximation algorithms with provable ratio bounds**. The deliverable is often not the optimal schedule but a *guarantee* — \"this greedy list schedule is within a factor 2 of optimal.\""
+    },
+    {
+      "id": "07-SCHEDULING.md#003",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|                 SCHEDULING: THE WHOLE PICTURE                        |\n|                                                                      |\n|   alpha | beta | gamma   <-- the 3-field classification             |\n|     |      |      |                                                   |\n|  machine_| job  |_objective (Cmax makespan, sum C_j, sum w_j C_j,   |\n|  environ. |constraints     Lmax lateness, ...)                       |\n|  (1, P, F,|(release dates,                                           |\n|   J, O,...)| precedence, ...)                                        |\n|                                                                      |\n|   POLYNOMIAL (exact rules)        NP-HARD (approximate)             |\n|   ------------------------        --------------------              |\n|   1 || sum C_j   -> SPT           P || Cmax  (load balancing)       |\n|   1 || Lmax      -> EDD           J || Cmax  (job-shop)             |\n|   critical path  -> longest path  flow shop F>=3                     |\n|                    in a DAG                                          |\n|                                                                      |\n|   GREEDY LIST SCHEDULING (Graham): always within (2 - 1/m) of opt   |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#004",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**The conceptual spine**: scheduling is where combinatorial optimization meets *guarantees*. When you can't solve optimally, you bound. The bounds (factor 2, factor 4/3, PTAS) are the real intellectual content."
+    },
+    {
+      "id": "07-SCHEDULING.md#005",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#006",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Three-Field Classification ($\\alpha\\,|\\,\\beta\\,|\\,\\gamma$)"
+    },
+    {
+      "id": "07-SCHEDULING.md#007",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "Graham's notation classifies every deterministic scheduling problem:"
+    },
+    {
+      "id": "07-SCHEDULING.md#008",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|  alpha (machine environment)                                        |\n|    1     single machine                                             |\n|    P     identical parallel machines                                |\n|    Q     uniform (different speeds)                                 |\n|    R     unrelated parallel machines                                |\n|    F     flow shop (all jobs same machine order)                    |\n|    J     job shop (each job its own machine order)                  |\n|    O     open shop (order free)                                     |\n|                                                                      |\n|  beta (job characteristics / constraints)                           |\n|    r_j   release dates       prec    precedence constraints         |\n|    d_j   due dates           pmtn    preemption allowed             |\n|    p_j=1 unit processing                                            |\n|                                                                      |\n|  gamma (objective to minimize)                                      |\n|    Cmax       makespan (max completion time) -- finish everything   |\n|    sum C_j    total completion (mean flow time)                    |\n|    sum w_j C_j weighted completion                                  |\n|    Lmax       max lateness                                          |\n|    sum U_j    number of late jobs                                  |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#009",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "Examples read like a formula:\n- $1\\,||\\,\\sum C_j$ — one machine, no constraints, minimize total completion time.\n- $P\\,||\\,C_{max}$ — identical parallel machines, minimize makespan (load balancing).\n- $J\\,||\\,C_{max}$ — job shop, minimize makespan (the classic hard problem)."
+    },
+    {
+      "id": "07-SCHEDULING.md#010",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "This taxonomy matters because tractability flips dramatically across cells: $1\\,||\\,\\sum C_j$ is trivially polynomial; $1\\,|\\,\\text{prec}\\,|\\,\\sum w_j C_j$ is NP-hard."
+    },
+    {
+      "id": "07-SCHEDULING.md#011",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#012",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Layer 2: Single-Machine — The Polynomial Optimal Rules"
+    },
+    {
+      "id": "07-SCHEDULING.md#013",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "On one machine, several objectives have provably optimal **greedy sequencing rules**:"
+    },
+    {
+      "id": "07-SCHEDULING.md#014",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|  PROBLEM            OPTIMAL RULE                  WHY                 |\n|  -------            ------------                  ---                 |\n|  1 || sum C_j       SPT: Shortest Processing      short jobs first    |\n|                     Time first                    minimize the wait   |\n|                                                   they impose on rest |\n|                                                                      |\n|  1 || sum w_j C_j   WSPT: largest ratio w_j/p_j   weighted version    |\n|                     first (Smith's rule)          (exchange argument) |\n|                                                                      |\n|  1 || Lmax          EDD: Earliest Due Date first  minimize max        |\n|                                                   lateness            |\n|                                                                      |\n|  1 || sum U_j       Moore-Hodgson algorithm       min # of late jobs  |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#015",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**SPT optimality (the exchange argument)**: in $\\sum C_j$, a short job placed before a long one delays only itself a little; the reverse delays the short job by the long job's full length. Swapping any out-of-SPT-order adjacent pair improves the objective — so SPT is optimal. This *adjacent-pairwise-exchange* proof technique recurs throughout scheduling."
+    },
+    {
+      "id": "07-SCHEDULING.md#016",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Smith's WSPT rule** generalizes: sequence by decreasing $w_j / p_j$ for $\\sum w_j C_j$. **EDD** (Jackson's rule) minimizes maximum lateness $L_{max}$. These are exact, $O(n \\log n)$ (just a sort) — a striking contrast to the NP-hardness one cell over."
+    },
+    {
+      "id": "07-SCHEDULING.md#017",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   SPT in action (1 || sum C_j):\n   jobs p = [3, 1, 2]  ->  sort: [1, 2, 3]\n   completion times:    1, 1+2=3, 3+3=6   sum = 10  (optimal)\n   any other order gives a larger sum.\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#018",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#019",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Layer 3: Critical Path Method (CPM) and PERT"
+    },
+    {
+      "id": "07-SCHEDULING.md#020",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "For a **project** — tasks with durations and precedence — the schedule is governed by the **longest path** through the dependency DAG."
+    },
+    {
+      "id": "07-SCHEDULING.md#021",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   PROJECT AS A DAG (activity-on-node), durations in [ ]:"
+    },
+    {
+      "id": "07-SCHEDULING.md#022",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "[A:3] ---> [C:2] ---\\\n       /                      \\\n   START                       [E:4] ---> END\n       \\                      /\n        [B:5] -------> [D:1]-/"
+    },
+    {
+      "id": "07-SCHEDULING.md#023",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "PATHS:   A->C->E = 3+2+4 = 9\n            B->D->E = 5+1+4 = 10  <- CRITICAL PATH (longest = project length)\n   Project minimum duration = 10. Critical activities: B, D, E (zero slack).\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#024",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**The Critical Path Method** computes, for each activity, four times via two passes:"
+    },
+    {
+      "id": "07-SCHEDULING.md#025",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "| Quantity | Pass | Meaning |\n|----------|------|---------|\n| ES (earliest start) | forward | earliest it can begin given predecessors |\n| EF (earliest finish) | forward | $ES + \\text{duration}$ |\n| LS (latest start) | backward | latest start not delaying the project |\n| LF (latest finish) | backward | latest finish not delaying the project |\n| **Slack / float** | $LS - ES$ | how much an activity can slip |"
+    },
+    {
+      "id": "07-SCHEDULING.md#026",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Critical activities have zero slack** — delaying any of them delays the whole project. The critical path is the chain of zero-slack activities; it *is* the longest path in the DAG, computable in $O(V+E)$ by topological order. This is a polynomial-time optimum — the project length problem is easy."
+    },
+    {
+      "id": "07-SCHEDULING.md#027",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Bridge — old world → project tooling**: this is exactly the engine inside MS Project / any Gantt tool. \"What's the critical path?\" = \"longest path in the task DAG.\" Crashing the schedule = shortening critical-path activities (and watching for a *new* critical path to emerge)."
+    },
+    {
+      "id": "07-SCHEDULING.md#028",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "### PERT — Adding Uncertainty"
+    },
+    {
+      "id": "07-SCHEDULING.md#029",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**PERT** treats activity durations as random, typically with a **Beta distribution** estimated from three points: optimistic $a$, most-likely $m$, pessimistic $b$:"
+    },
+    {
+      "id": "07-SCHEDULING.md#030",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   PERT activity estimates (Beta approximation):\n     mean      te  = (a + 4m + b) / 6\n     variance  sigma^2 = ((b - a) / 6)^2"
+    },
+    {
+      "id": "07-SCHEDULING.md#031",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "Project duration ~ Normal (CLT over critical-path activities):\n     mean    = sum of te along the critical path\n     var     = sum of sigma^2 along the critical path\n   => P(finish by deadline) from the normal CDF.\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#032",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**The PERT caveat (state it honestly):** PERT assumes the critical path is fixed and sums variances along it, applying the CLT. But with randomness a *non-critical* path can become critical in some scenarios, so classical PERT **systematically underestimates** expected project duration (Jensen's inequality on the max of paths). For accurate tail estimates, **Monte Carlo simulation** of the network (file 08) is the right tool — and this is one of the canonical \"simulate vs. solve\" cases."
+    },
+    {
+      "id": "07-SCHEDULING.md#033",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#034",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Layer 4: Parallel Machines and List Scheduling"
+    },
+    {
+      "id": "07-SCHEDULING.md#035",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "$P\\,||\\,C_{max}$ — schedule $n$ jobs on $m$ identical machines to minimize makespan — is **NP-hard** (it generalizes the Partition problem). We use **list scheduling** and bound how bad it can be."
+    },
+    {
+      "id": "07-SCHEDULING.md#036",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   GRAHAM'S LIST SCHEDULING:\n   - order the jobs in some list\n   - repeatedly assign the next job to the machine that is\n     currently LEAST loaded (greedy, no idle time)"
+    },
+    {
+      "id": "07-SCHEDULING.md#037",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "M1: [== J1 ==][= J4 =]\n   M2: [= J2 =][=== J3 ===][J5]\n   M3: [==== J6 ====]\n        makespan = max machine finish time\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#038",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Theorem (Graham 1966).** Any list schedule for $P\\,||\\,C_{max}$ has makespan at most\n$$\\left(2 - \\frac{1}{m}\\right) \\cdot C_{max}^*,$$\nwhere $C_{max}^*$ is the optimal makespan. So list scheduling is a **$(2 - 1/m)$-approximation**, and this bound is **tight** (achieved by adversarial instances)."
+    },
+    {
+      "id": "07-SCHEDULING.md#039",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   PROOF IDEA (clean and worth knowing):\n   Let M be the last machine to finish, and let job J start last on it\n   at time S. Before S, every machine was busy (greedy: J went to the\n   least-loaded machine). So S <= (total work - p_J)/m. Then\n        Cmax = S + p_J <= (sum p_i)/m + (1 - 1/m) p_J.\n   Two lower bounds on the optimum:  Cmax* >= (sum p_i)/m   (avg load)\n        and  Cmax* >= p_J  (longest job). Combine:\n        Cmax <= Cmax* + (1 - 1/m) Cmax* = (2 - 1/m) Cmax*.\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#040",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Improving the constant — LPT (Longest Processing Time first):**"
+    },
+    {
+      "id": "07-SCHEDULING.md#041",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Theorem (Graham 1969).** If the list is sorted in *decreasing* processing time (LPT), the makespan is at most\n$$\\left(\\frac{4}{3} - \\frac{1}{3m}\\right) \\cdot C_{max}^*.$$\nSorting longest-first leaves only small jobs to balance at the end — a $4/3$-approximation, far better than the generic $2$."
+    },
+    {
+      "id": "07-SCHEDULING.md#042",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "| Algorithm | Approximation ratio for $P\\,||\\,C_{max}$ |\n|-----------|------------------------------------------|\n| Arbitrary list scheduling | $2 - 1/m$ (tight) |\n| LPT (longest first) | $4/3 - 1/(3m)$ |\n| PTAS (Hochbaum–Shmoys) | $(1+\\epsilon)$ for any fixed $\\epsilon$, poly time |"
+    },
+    {
+      "id": "07-SCHEDULING.md#043",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "A **PTAS** (polynomial-time approximation scheme) exists for $P\\,||\\,C_{max}$: for any $\\epsilon > 0$ you can get within $(1+\\epsilon)$ of optimal in time polynomial in $n$ (exponential in $1/\\epsilon$). This is the strongest positive result — you can get arbitrarily close to optimal in polynomial time."
+    },
+    {
+      "id": "07-SCHEDULING.md#044",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#045",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Layer 5: Flow Shop and Job Shop"
+    },
+    {
+      "id": "07-SCHEDULING.md#046",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   FLOW SHOP (F): every job visits machines in the SAME order M1->M2->...\n   JOB SHOP (J):  each job has its OWN machine route (the general factory)\n   OPEN SHOP (O): machine order is free\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#047",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "**Johnson's rule** — the one beautiful exact result: $F2\\,||\\,C_{max}$ (two-machine flow shop) is solved **optimally in $O(n \\log n)$**:"
+    },
+    {
+      "id": "07-SCHEDULING.md#048",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "```\n   JOHNSON'S RULE (2-machine flow shop):\n   - jobs with p1 <= p2: schedule EARLY, in increasing p1 order\n   - jobs with p1 >  p2: schedule LATE,  in decreasing p2 order\n   This minimizes makespan exactly. (A rare exact multi-machine result.)\n```"
+    },
+    {
+      "id": "07-SCHEDULING.md#049",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "But the moment you add a third machine, $F3\\,||\\,C_{max}$ becomes **NP-hard**. And **$J\\,||\\,C_{max}$ (job shop) is strongly NP-hard** — famously, a 10-job × 10-machine instance (Fisher–Thompson, 1963) stood unsolved for over 20 years. Job shop is attacked by:"
+    },
+    {
+      "id": "07-SCHEDULING.md#050",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "| Job-shop method | Type |\n|-----------------|------|\n| Disjunctive graph + branch & bound | Exact (small instances) |\n| Shifting bottleneck heuristic | Constructive heuristic |\n| MIP formulation (big-M disjunctions) | Exact via solver (file 03) |\n| Tabu search / simulated annealing / GA | Metaheuristic |\n| Constraint programming | Often the practical winner |"
+    },
+    {
+      "id": "07-SCHEDULING.md#051",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "The **disjunctive graph** model represents the job-shop as a DAG with *disjunctive* edges (which job goes first on a shared machine?); choosing an orientation for each disjunction and finding the longest path gives the makespan — connecting directly to the critical-path idea of Layer 3."
+    },
+    {
+      "id": "07-SCHEDULING.md#052",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#053",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Old World → Scheduling Bridges"
+    },
+    {
+      "id": "07-SCHEDULING.md#054",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "| You already know | Scheduling analogue |\n|------------------|---------------------|\n| Critical path in a project plan (MS Project) | CPM: longest path in the task DAG, $O(V+E)$ |\n| Build dependency graph / topological order | The precedence DAG; forward/backward passes |\n| CPU scheduler (SJF, EDF) | SPT = SJF for $\\sum C_j$; EDD ≈ EDF |\n| Load balancing across workers | $P\\,||\\,C_{max}$, list scheduling, the $(2-1/m)$ bound |\n| \"Greedy heuristic, hope it's good\" | List scheduling — but now with a *proven* $2-1/m$ bound |\n| Slack/buffer in a release plan | Float = $LS - ES$; zero-float tasks are critical |\n| Capacity-constrained sprint planning | Bin-packing / parallel-machine makespan |\n| Tail-risk on a delivery date | PERT + Monte Carlo (file 08) |"
+    },
+    {
+      "id": "07-SCHEDULING.md#055",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "The systems upgrade: a CPU scheduler ships a heuristic with no guarantee; scheduling theory gives you the *same* greedy rule **plus a proof** that you're within $2\\times$ (or $4/3\\times$ with LPT) of the best possible. When you can't compute the optimum, the bound is the product."
+    },
+    {
+      "id": "07-SCHEDULING.md#056",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SCHEDULING.md#057",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "07-SCHEDULING.md#058",
+      "path": [
+        "07-SCHEDULING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:07-scheduling, git-history:operations-research:07-scheduling]",
+        "canonical_path": "operations-research/07-SCHEDULING.md",
+        "concepts": "[scheduling, job-shop, critical path, PERT, list scheduling, approximation algorithms]",
+        "current_path": "operations-research/07-SCHEDULING.md",
+        "id": "maxim:operations-research:scheduling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[scheduling]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Scheduling - Job-Shop, Critical Path/PERT, List Scheduling, Approximation",
+        "updated": "null"
+      },
+      "text": "| Problem | Approach |\n|---------|----------|\n| Minimize total completion on 1 machine | SPT (sort by $p_j$) — exact |\n| Weighted total completion, 1 machine | WSPT / Smith's rule (sort by $w_j/p_j$) — exact |\n| Minimize max lateness, 1 machine | EDD (sort by due date) — exact |\n| Project duration + critical path | CPM: longest path in DAG — exact, $O(V+E)$ |\n| Project duration under uncertainty | PERT, but Monte Carlo for tails (file 08) |\n| Balance load on $m$ machines | LPT list scheduling ($4/3$-approx); PTAS for $(1+\\epsilon)$ |\n| 2-machine flow shop | Johnson's rule — exact, $O(n\\log n)$ |\n| Job shop (general factory) | MIP / CP / shifting bottleneck / metaheuristics |\n| Need a provable guarantee, not just a heuristic | Use an approximation algorithm with a known ratio |"
+    }
+  ],
+  "refs": [
+    "07-SCHEDULING.md"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\03-QUERY-PROCESSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Query Processing — From Declarative Text to Physical Plan",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                         THE QUERY PROCESSING PIPELINE                               |\n+=====================================================================================+\n|                                                                                     |\n|  SQL TEXT                                                                           |\n|  \"SELECT c.name, SUM(o.total) FROM customers c JOIN orders o                        |\n|   ON c.id=o.cust_id WHERE o.region='EU' GROUP BY c.name\"                            |\n|        |                                                                            |\n|        v   (1) PARSE  — lex + grammar -> abstract syntax tree (AST)                  |\n|        v   (2) BIND   — resolve names to tables/columns, type-check, expand *        |\n|   +-----------------------------------------------------------------------------+   |\n|   |  (3) LOGICAL PLAN  — a tree of relational-algebra operators                   |  |\n|   |        sigma (filter region='EU')                                            |  |\n|   |          |                                                                   |  |\n|   |        join (c.id = o.cust_id)                                               |  |\n|   |        /        \\                                                            |  |\n|   |   scan customers  scan orders                                                |  |\n|   +-----------------------------------------------------------------------------+   |\n|        |                                                                            |\n|        v   (4) OPTIMIZE  — apply REWRITES + enumerate PHYSICAL plans, COST each,     |\n|        |                   pick the cheapest. Uses STATISTICS for cardinality.       |\n|   +-----------------------------------------------------------------------------+   |\n|   |  (5) PHYSICAL PLAN  — concrete algorithms chosen:                             |  |\n|   |        HashAggregate                                                          |  |\n|   |          |                                                                   |  |\n|   |        HashJoin (build on customers, probe with orders)                      |  |\n|   |        /            \\                                                         |  |\n|   |   IndexScan        IndexSeek orders ON (region) [pushed-down filter]          |  |\n|   +-----------------------------------------------------------------------------+   |\n|        |                                                                            |\n|        v   (6) EXECUTE  — iterator (Volcano) or VECTORIZED engine pulls rows         |\n|   RESULT ROWS                                                                       |\n+=====================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## Stage 1–2: Parse and Bind",
+      "confidence": "candidate",
+      "text": "   PARSE   text -> tokens -> AST.  Pure syntax. Rejects malformed SQL.\n   BIND    AST + CATALOG -> resolved tree.\n           - resolve \"orders\" -> table OID, \"o.total\" -> column + type\n           - expand SELECT *  -> explicit column list\n           - type-check expressions, resolve overloads, fold constants\n           - check permissions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### Rule-based rewrites (heuristic, always applied)",
+      "confidence": "candidate",
+      "text": "   PREDICATE PUSHDOWN     push filters down toward the scans so fewer rows flow up\n                          sigma(region='EU') applied at the orders SCAN, not after the join\n\n   PROJECTION PUSHDOWN    read only the columns you need (huge for column stores)\n\n   JOIN REORDERING        (A join B) join C  vs  A join (B join C) — associativity gives\n                          equivalent results but wildly different intermediate sizes\n\n   CONSTANT FOLDING /     WHERE 1=1, WHERE price > 10*5  -> simplified\n   SUBQUERY UNNESTING     turn correlated subqueries into joins where possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Statistics and Cardinality Estimation",
+      "confidence": "candidate",
+      "text": "   PER-COLUMN STATISTICS (typical)\n   - row count, number of distinct values (NDV)\n   - a HISTOGRAM of value distribution (equi-height/equi-depth buckets)\n   - most-common-values (MCV) list + their frequencies\n   - null fraction, average column width\n\n   HISTOGRAM (equi-depth): each bucket holds ~the same NUMBER of rows\n   value:   0----10----50----200----1000\n   rows:    [ 25% ][ 25% ][  25% ][  25% ]\n   => estimate rows for WHERE x BETWEEN 10 AND 50 by interpolation within buckets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 167,
+      "heading_context": "## Stage 5: Join Algorithms — the heart of the physical plan",
+      "confidence": "candidate",
+      "text": "+--------------------+   +---------------------+   +-------------------------+\n|  NESTED LOOP JOIN  |   |  HASH JOIN          |   |  MERGE (SORT-MERGE) JOIN|\n+--------------------+   +---------------------+   +-------------------------+\n| for r in outer:    |   | build hash table on |   | sort BOTH inputs on the |\n|   for s in inner:  |   |  the smaller input  |   |  join key, then walk     |\n|     if match emit  |   | probe it with the   |   |  them in lockstep        |\n|                    |   |  larger input       |   |  (merge step)            |\n+--------------------+   +---------------------+   +-------------------------+\n| O(M * N) naive;    |   | O(M + N) after build|   | O(M log M + N log N) to  |\n| O(M * log N) if    |   | (build is O(small)) |   | sort, then O(M+N) merge; |\n| inner is INDEXED   |   |                     |   | free if already sorted   |\n| (index nested loop)|   |                     |   | (e.g. from an index)     |\n+--------------------+   +---------------------+   +-------------------------+\n| BEST: small outer, |   | BEST: large, no     |   | BEST: both inputs sorted |\n| indexed inner;     |   | useful index, equi- |   | on key (clustered idx),  |\n| selective queries  |   | join, plenty of RAM |   | or need sorted output    |\n| OLTP point reads   |   | for the hash table  |   | merge of two sorted runs |\n+--------------------+   +---------------------+   +-------------------------+\n| equality OR range  |   | EQUALITY join only  |   | equality (and some       |\n| or any predicate   |   | (it hashes the key) |   | inequality) on sort key  |\n+--------------------+   +---------------------+   +-------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "## Aggregation and Sort operators",
+      "confidence": "candidate",
+      "text": "   HASH AGGREGATE      build a hash table keyed on GROUP BY columns; accumulate per group.\n                       No ordering required on input. Default for GROUP BY on unsorted data.\n\n   STREAM/SORT         input sorted on GROUP BY key -> aggregate in one pass, emit per group\n   AGGREGATE           as the key changes. Free if an index already provides the order.\n\n   TOP-N SORT          ORDER BY ... LIMIT k -> keep a bounded heap of k, don't sort everything.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

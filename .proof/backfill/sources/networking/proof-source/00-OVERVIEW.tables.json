@@ -1,0 +1,173 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 86,
+      "heading_context": "## Two Models: OSI vs. TCP/IP",
+      "headers": [
+        "",
+        "OSI",
+        "TCP/IP"
+      ],
+      "rows": [
+        [
+          "**Origin**",
+          "ISO standards body, ~1984",
+          "DARPA / Internet, codified RFC 1122 (1989)"
+        ],
+        [
+          "**Layers**",
+          "7",
+          "4"
+        ],
+        [
+          "**Where TLS lives**",
+          "\"Layer 5-6\" (informally)",
+          "Inside Application, above Transport"
+        ],
+        [
+          "**Used for**",
+          "teaching, vendor marketing (\"L7 firewall\")",
+          "the actual Internet"
+        ],
+        [
+          "**Honest take**",
+          "a reference vocabulary",
+          "the implemented architecture"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 122,
+      "heading_context": "## Encapsulation: The Onion of Headers",
+      "headers": [
+        "Layer",
+        "Unit name",
+        "Address it uses",
+        "Key header fields"
+      ],
+      "rows": [
+        [
+          "L2 Link",
+          "**frame**",
+          "MAC (48-bit)",
+          "src/dst MAC, EtherType, FCS"
+        ],
+        [
+          "L3 Network",
+          "**packet**",
+          "IP (32/128-bit)",
+          "src/dst IP, TTL, protocol"
+        ],
+        [
+          "L4 Transport",
+          "**segment** (TCP) / **datagram** (UDP)",
+          "port (16-bit)",
+          "src/dst port, seq/ack, flags"
+        ],
+        [
+          "L7 Application",
+          "**message**",
+          "URL / name",
+          "protocol-specific"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 273,
+      "heading_context": "## Where This Directory Sits in the Library",
+      "headers": [
+        "Neighbor",
+        "Relationship"
+      ],
+      "rows": [
+        [
+          "**telecommunications/**",
+          "Owns L1 — EM spectrum, modulation, fiber, cellular. This directory starts at L2 and assumes bits arrive."
+        ],
+        [
+          "**distributed-systems/**",
+          "The consumers. Consensus, replication, and message queues all run *over* these transports."
+        ],
+        [
+          "**cloud-architecture/**",
+          "Overlaps at L4-L7 — VPCs, cloud load balancers, service mesh. 08 and 09 bridge directly."
+        ],
+        [
+          "**cryptography/**",
+          "The math under 06-TLS — AEAD ciphers, ECDHE, signature schemes. We use the protocols; cryptography/ proves them."
+        ],
+        [
+          "**os/**",
+          "The socket API and the kernel TCP/IP stack live here. Where L4 meets the application."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 285,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to reason about...",
+        "Layer",
+        "Guide"
+      ],
+      "rows": [
+        [
+          "Why a host on my LAN is unreachable",
+          "L2",
+          "01-LINK-LAYER"
+        ],
+        [
+          "Why traffic to a remote network is dropping",
+          "L3",
+          "02-IP-ROUTING"
+        ],
+        [
+          "Whether to use TCP or UDP or QUIC",
+          "L4",
+          "03-TRANSPORT"
+        ],
+        [
+          "Why throughput is low on a long fat link",
+          "L4",
+          "04-CONGESTION-CONTROL"
+        ],
+        [
+          "Why a name resolves slowly or wrong",
+          "L7",
+          "05-DNS"
+        ],
+        [
+          "Why a TLS handshake fails",
+          "L6",
+          "06-TLS-AND-SECURITY"
+        ],
+        [
+          "Why a connection works one-way only",
+          "NAT",
+          "07-NAT-AND-FIREWALLS"
+        ],
+        [
+          "How to spread traffic across many servers",
+          "L4/L7",
+          "08-LOAD-BALANCING-CDN"
+        ],
+        [
+          "How traffic moves inside a datacenter",
+          "L2/L3 overlay",
+          "09-DATACENTER-NETWORKING"
+        ],
+        [
+          "\"Which layer is this bug in?\"",
+          "—",
+          "name the unit: frame/packet/segment/message"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\02-INDEXING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 93,
+      "heading_context": "## The B+tree Index — the default, and why",
+      "headers": [
+        "Operation",
+        "B+tree cost",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Point lookup `WHERE k = ?`",
+          "O(log_b n)",
+          "One descent"
+        ],
+        [
+          "Range `WHERE k BETWEEN a AND b`",
+          "O(log_b n) + scan of matching leaves",
+          "Sequential via leaf links"
+        ],
+        [
+          "`ORDER BY k`",
+          "Free if scanning the index",
+          "Index is already sorted"
+        ],
+        [
+          "Prefix of composite `(a,b,c)` on `a` or `a,b`",
+          "Usable",
+          "Leftmost-prefix rule (below)"
+        ],
+        [
+          "`WHERE b = ?` on index `(a,b)`",
+          "NOT usable as a seek",
+          "No leading column → scan"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 150,
+      "heading_context": "## Covering Indexes — answer the query from the index alone",
+      "headers": [
+        "Mechanism",
+        "Where the extra columns go",
+        "Engines"
+      ],
+      "rows": [
+        [
+          "`INCLUDE` clause",
+          "Stored at the leaf, NOT in the key (no sort cost)",
+          "SQL Server, Postgres (`INCLUDE`)"
+        ],
+        [
+          "Append to the key",
+          "Part of the sort key (wider, but enables prefix seeks)",
+          "Any engine; cruder"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 207,
+      "heading_context": "## Bitmap Indexes — low cardinality, analytic AND/OR",
+      "headers": [
+        "Good for",
+        "Bad for"
+      ],
+      "rows": [
+        [
+          "**Low-cardinality** columns (region, status, flags)",
+          "High-cardinality columns (a million distinct values → a million sparse bitmaps)"
+        ],
+        [
+          "Data warehouse / OLAP, mostly read-only",
+          "OLTP with frequent updates (updating one row flips bits across many bitmaps → contention)"
+        ],
+        [
+          "Combining many predicates with AND/OR",
+          "Point inserts/updates"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 272,
+      "heading_context": "## Index Selection — the engine's decision and yours",
+      "headers": [
+        "Selectivity (fraction of rows matched)",
+        "Optimizer choice"
+      ],
+      "rows": [
+        [
+          "Very low (e.g. < ~1–5%)",
+          "**Index seek** + lookups — random I/O worth it"
+        ],
+        [
+          "High (e.g. > ~20–30%, varies)",
+          "**Table/index scan** — sequential I/O beats many random lookups"
+        ],
+        [
+          "In between",
+          "Cost-based; depends on row width, clustering, cached state"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 286,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Index concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "A `Dictionary<K,V>` (hash map)",
+          "**Hash index** — O(1) equality, no ordering",
+          "In-Memory OLTP hash index; Redis"
+        ],
+        [
+          "A `SortedDictionary` / balanced tree",
+          "**B+tree index** — ordered, range + sort",
+          "The default clustered/nonclustered index"
+        ],
+        [
+          "Phone book sorted by (last, first)",
+          "**Composite index**, leftmost-prefix rule",
+          "Multi-column index column order"
+        ],
+        [
+          "A column-store you only filter, never seek",
+          "**Bitmap** index for low-cardinality OLAP",
+          "Columnstore index (related idea)"
+        ],
+        [
+          "A search engine over your text",
+          "**Inverted index** (term→docs)",
+          "Azure AI Search, Postgres GIN, Lucene"
+        ],
+        [
+          "Including extra columns to avoid a join back",
+          "**Covering index** (`INCLUDE`)",
+          "`CREATE INDEX ... INCLUDE (...)`"
+        ],
+        [
+          "Filtering an index to active rows only",
+          "**Partial / filtered index**",
+          "`CREATE INDEX ... WHERE is_active`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 300,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Speed up `WHERE k = ?` and `WHERE k BETWEEN ...`",
+          "**B+tree** on `k`"
+        ],
+        [
+          "Speed up `WHERE a=? AND b=? ORDER BY c`",
+          "**Composite** B+tree `(a, b, c)` — equality then sort"
+        ],
+        [
+          "Avoid a key lookup on a hot read query",
+          "**Covering** index — `INCLUDE` the SELECTed columns"
+        ],
+        [
+          "Index only the small set of \"active\" rows",
+          "**Partial / filtered** index with a `WHERE`"
+        ],
+        [
+          "Fast equality in an in-memory table, no ranges",
+          "**Hash** index"
+        ],
+        [
+          "OLAP AND/OR over status/region/flag columns",
+          "**Bitmap** index (data warehouse only)"
+        ],
+        [
+          "Full-text search, JSON/array containment",
+          "**Inverted** index (GIN / Lucene / Azure AI Search)"
+        ],
+        [
+          "Enforce uniqueness AND get the lookup",
+          "**Unique** B+tree index (constraint + index in one)"
+        ],
+        [
+          "Fix \"index not used\"",
+          "Match index column order to the predicate; check selectivity & statistics"
+        ]
+      ]
+    }
+  ]
+}

@@ -321,7 +321,7 @@ through field research. Each has a mechanism — not just a label.
   Mechanism: exploits journalistic norms of "balance"
   Effect: manufactured controversy → public uncertainty
 
-  FIREHOSE OF FALSEHOOD (RAND Cordesman 2015):
+  FIREHOSE OF FALSEHOOD (RAND, Paul & Matthews 2016):
   Russian information warfare strategy: flood information space with
   multiple contradictory false claims simultaneously
   Goal: NOT to persuade — to confuse, exhaust, and create cynicism

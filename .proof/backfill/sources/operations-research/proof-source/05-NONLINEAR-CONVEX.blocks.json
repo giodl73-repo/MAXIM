@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\05-NONLINEAR-CONVEX.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|          NONLINEAR / CONVEX OPTIMIZATION: THE WHOLE PICTURE          |\n|                                                                      |\n|   min f(x)   s.t.  g_i(x) <= 0,  h_j(x) = 0                          |\n|                                                                      |\n|   IS IT CONVEX?  (f convex, g_i convex, h_j affine)                  |\n|         |                                                            |\n|    +----+----------------------------+                              |\n|    | YES                             | NO                           |\n|    v                                 v                               |\n|  every local min = GLOBAL min      many local minima;               |\n|  KKT are SUFFICIENT (w/ CQ)        KKT only NECESSARY               |\n|  interior-point: poly to eps       NP-hard in general;              |\n|  strong duality (Slater)           local search -> a stationary pt  |\n|                                                                      |\n|   CERTIFICATE OF OPTIMALITY = KKT CONDITIONS:                       |\n|     stationarity:  grad f + sum lambda_i grad g_i                    |\n|                            + sum mu_j grad h_j = 0                  |\n|     primal feas:   g_i(x) <= 0,  h_j(x) = 0                          |\n|     dual feas:     lambda_i >= 0                                    |\n|     compl. slack:  lambda_i g_i(x) = 0                              |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## Layer 1: Convex Sets and Convex Functions",
+      "confidence": "candidate",
+      "text": "$$f(\\lambda x + (1-\\lambda)y) \\le \\lambda f(x) + (1-\\lambda) f(y).$$",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## Layer 1: Convex Sets and Convex Functions",
+      "confidence": "candidate",
+      "text": "   CONVEX FUNCTION                  CONVEX SET\n   ---------------                  ----------\n       f                            +-----------+\n       |  \\           /            /             \\\n       |   \\         /            |   any chord   |\n       |    \\.______./            |   stays       |\n       |   chord lies ABOVE       |   inside      |\n       |   the graph               \\             /\n       +---------------- x          +-----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 100,
+      "heading_context": "## Layer 2: The KKT Conditions",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  (1) STATIONARITY:                                                   |\n|      grad f(x*) + sum_i lambda*_i grad g_i(x*)                       |\n|                 + sum_j mu*_j grad h_j(x*) = 0                       |\n|                                                                      |\n|  (2) PRIMAL FEASIBILITY:                                             |\n|      g_i(x*) <= 0,    h_j(x*) = 0                                    |\n|                                                                      |\n|  (3) DUAL FEASIBILITY:                                               |\n|      lambda*_i >= 0                                                  |\n|                                                                      |\n|  (4) COMPLEMENTARY SLACKNESS:                                        |\n|      lambda*_i g_i(x*) = 0   for all i                               |\n|      (inactive constraint => zero multiplier;                       |\n|       positive multiplier  => active constraint)                    |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Layer 2: The KKT Conditions",
+      "confidence": "candidate",
+      "text": "   CONVEX problem  + KKT satisfied  =>  GLOBAL optimum (certificate!)\n   NONCONVEX       + KKT satisfied  =>  only a STATIONARY point\n                                        (could be a saddle or local max)\n   Local min (any) + a CQ           =>  KKT necessarily hold",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 172,
+      "heading_context": "## Layer 4: Algorithms — Unconstrained",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|              ALGORITHM LADDER (unconstrained min f)                  |\n|                                                                      |\n|  GRADIENT DESCENT      x_{k+1} = x_k - t_k grad f(x_k)               |\n|    first-order; cheap step; linear convergence on strongly convex;  |\n|    O(1/k) on convex smooth, O(1/k^2) with Nesterov acceleration.    |\n|                                                                      |\n|  NEWTON'S METHOD       x_{k+1} = x_k - [Hess f]^-1 grad f            |\n|    second-order; QUADRATIC local convergence; costly Hessian solve. |\n|                                                                      |\n|  QUASI-NEWTON (BFGS)   approximate Hessian from gradient history;   |\n|    superlinear; the practical sweet spot for smooth medium-scale.  |\n|                                                                      |\n|  STOCHASTIC GRADIENT   x_{k+1} = x_k - t_k grad f_i(x_k) (sampled)  |\n|    the engine of large-scale ML; noisy but cheap per step.          |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 213,
+      "heading_context": "## Layer 5: Algorithms — Constrained and Interior-Point",
+      "confidence": "candidate",
+      "text": "   INTERIOR-POINT (barrier) METHODS\n   --------------------------------\n   Replace inequality g_i(x) <= 0 with a LOG-BARRIER penalty:\n       min f(x) - (1/t) sum_i log(-g_i(x))\n   The -log(-g_i) blows up as g_i -> 0, keeping x strictly feasible.\n   Solve for increasing t (barrier vanishes); iterates trace the\n   CENTRAL PATH to the boundary optimum.\n\n      feasible region\n      +---------------+\n      | t small  o    |   o = current iterate (deep interior)\n      |          |    |\n      | t large  o    |   path follows central path\n      |          v    |\n      | t -> inf  *<--+   * = optimum on the boundary\n      +---------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 327,
+      "heading_context": "### \"Why interior-point and not simplex for these?\"",
+      "confidence": "candidate",
+      "text": "### \"Gradient descent convergence — linear or $O(1/k)$?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\03-TRANSPORT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 87,
+      "heading_context": "## Ports and Sockets",
+      "headers": [
+        "Port",
+        "Protocol",
+        "Service"
+      ],
+      "rows": [
+        [
+          "22",
+          "TCP",
+          "SSH"
+        ],
+        [
+          "25",
+          "TCP",
+          "SMTP (mail)"
+        ],
+        [
+          "53",
+          "UDP/TCP",
+          "DNS (05)"
+        ],
+        [
+          "80",
+          "TCP",
+          "HTTP"
+        ],
+        [
+          "123",
+          "UDP",
+          "NTP (time)"
+        ],
+        [
+          "443",
+          "TCP/UDP",
+          "HTTPS (TCP) and HTTP/3/QUIC (UDP)"
+        ],
+        [
+          "853",
+          "TCP",
+          "DNS-over-TLS (05)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 344,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Reliable, ordered byte stream",
+          "TCP"
+        ],
+        [
+          "Lowest latency, tolerate loss (media, games)",
+          "UDP"
+        ],
+        [
+          "Tiny request/response (a lookup)",
+          "UDP (e.g. DNS)"
+        ],
+        [
+          "Modern web, avoid HoL blocking, mobile roaming",
+          "QUIC / HTTP/3"
+        ],
+        [
+          "Encryption fused with transport, 0-RTT resume",
+          "QUIC"
+        ],
+        [
+          "To know which app a packet is for",
+          "the destination **port**"
+        ],
+        [
+          "To identify a unique connection",
+          "the **5-tuple**"
+        ],
+        [
+          "Don't overrun the receiver",
+          "flow control (rwnd, automatic)"
+        ],
+        [
+          "Don't overrun the network",
+          "congestion control (cwnd, see 04)"
+        ],
+        [
+          "Largest data per segment",
+          "MSS = MTU − IP hdr − TCP hdr"
+        ]
+      ]
+    }
+  ]
+}

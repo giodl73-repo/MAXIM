@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\08-SIMULATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                  SIMULATION: THE WHOLE PICTURE                        |\n|                                                                      |\n|   SOLVE (closed form)            SIMULATE (sample)                   |\n|   ------------------             ----------------                    |\n|   M/M/1: W = 1/(mu-lam)          M/G/c/K with priorities, balking,   |\n|   exact, instant                 abandonment -> no formula -> SIM    |\n|                                                                      |\n|   TWO ENGINES:                                                       |\n|                                                                      |\n|   MONTE CARLO                    DISCRETE-EVENT SIMULATION (DES)     |\n|   estimate  E[g(X)] = integral   advance a CLOCK through events;     |\n|   by  (1/n) sum g(X_i)           state changes only at events       |\n|       X_i ~ random samples       (arrival, departure, failure...)   |\n|                                                                      |\n|   ERROR ~ sigma / sqrt(n)        FUTURE EVENT LIST (priority queue)  |\n|   (slow: 100x work -> 10x        drives the simulation forward      |\n|    precision)                                                        |\n|                                                                      |\n|   VARIANCE REDUCTION buys precision without more samples:           |\n|     antithetic | control variates | importance | common random nums |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Layer 1: Monte Carlo — Estimating Expectations by Sampling",
+      "confidence": "candidate",
+      "text": "   THE TWO THEOREMS THAT MAKE IT WORK:\n\n   LAW OF LARGE NUMBERS:   theta_hat_n -> theta   (a.s., as n -> inf)\n                           -> the estimator is consistent\n\n   CENTRAL LIMIT THEOREM:  theta_hat_n ~approx~ Normal(theta, sigma^2/n)\n                           standard error = sigma / sqrt(n)\n                           95% CI: theta_hat +/- 1.96 sigma/sqrt(n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 99,
+      "heading_context": "## Layer 2: Random Number Generation",
+      "confidence": "candidate",
+      "text": "   THE PIPELINE:\n   PRNG (uniform U(0,1))  -->  transform  -->  desired distribution\n   |                            |\n   deterministic but            inverse-CDF, accept-reject,\n   statistically               Box-Muller, etc.\n   uniform-looking",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## Layer 2: Random Number Generation",
+      "confidence": "candidate",
+      "text": "   INVERSE-CDF (inverse transform):  X = F^{-1}(U),  U ~ Uniform(0,1)\n     works whenever F^{-1} is available (exponential: X = -ln(U)/lambda)\n\n   ACCEPT-REJECT:  sample from an easy g, accept with prob f/(M g)\n     works for densities with no closed-form inverse CDF\n\n   BOX-MULLER:  two uniforms -> two independent standard normals\n     Z1 = sqrt(-2 ln U1) cos(2 pi U2),  Z2 = sqrt(-2 ln U1) sin(2 pi U2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## Layer 3: Discrete-Event Simulation (DES)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    DISCRETE-EVENT SIMULATION ENGINE                  |\n|                                                                      |\n|  STATE:  system variables (queue length, server busy/idle, ...)     |\n|  CLOCK:  current simulated time t                                   |\n|  FEL:    Future Event List -- a PRIORITY QUEUE of (time, event),    |\n|          ordered by event time                                      |\n|                                                                      |\n|  MAIN LOOP:                                                          |\n|    while FEL not empty and t < T_end:                               |\n|       (t, e) <- pop earliest event from FEL                         |\n|       advance clock to t                                            |\n|       execute event handler for e:                                  |\n|          - update state                                             |\n|          - SCHEDULE new future events (push into FEL)               |\n|          - accumulate statistics                                    |\n|                                                                      |\n|  TIME ADVANCES IN JUMPS -- nothing happens between events,          |\n|  so we skip straight to the next one. (vs. time-stepping)           |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## Layer 3: Discrete-Event Simulation (DES)",
+      "confidence": "candidate",
+      "text": "   M/M/1 QUEUE AS DES (event types: ARRIVAL, DEPARTURE):\n\n   t=0.0 ARRIVAL  -> server idle: start service; schedule DEPARTURE\n                     schedule next ARRIVAL (t + Exp(lambda))\n   t=1.2 ARRIVAL  -> server busy: enqueue; schedule next ARRIVAL\n   t=2.0 DEPARTURE-> job leaves; queue nonempty: start next; schedule DEPART\n   ... accumulate: time-avg queue length, avg wait, server utilization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 185,
+      "heading_context": "## Layer 4: Variance Reduction — Buying Precision",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  TECHNIQUE            IDEA                          BEST WHEN         |\n|  ---------            ----                          --------          |\n|  ANTITHETIC          pair U with 1-U; negatively    g monotone in U   |\n|   VARIATES           correlated samples cancel                       |\n|                      noise: Var of average drops                    |\n|                                                                      |\n|  CONTROL VARIATES    subtract a correlated quantity  a correlated     |\n|                      with KNOWN mean to cancel       variable with    |\n|                      variance                        known E exists   |\n|                                                                      |\n|  IMPORTANCE          sample from a tilted dist. that  RARE EVENTS     |\n|   SAMPLING           hits the important region;       (small probs)   |\n|                      reweight by likelihood ratio                    |\n|                                                                      |\n|  COMMON RANDOM       use the SAME random stream when  COMPARING two   |\n|   NUMBERS (CRN)      comparing alternatives; the      designs         |\n|                      common noise cancels in the diff                |\n|                                                                      |\n|  STRATIFIED /        partition the sample space;      structured      |\n|   LATIN HYPERCUBE    sample each stratum              input space     |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 226,
+      "heading_context": "## Layer 5: When to Simulate vs. Solve",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|              THE SOLVE-OR-SIMULATE DECISION TREE                     |\n|                                                                      |\n|  Is there a closed form / tractable analytic model?                 |\n|     |                                                                |\n|     +-- YES (M/M/1, LP, CPM, Markov chain) ----> SOLVE.             |\n|     |    exact, instant, gives sensitivities & shadow prices.       |\n|     |                                                                |\n|     +-- NO. Is the problem high-dim integration / expectation?      |\n|            |                                                         |\n|            +-- YES ----> MONTE CARLO (beats quadrature in high d).  |\n|            |                                                         |\n|            +-- NO. Does the system have complex event-driven        |\n|                logic / non-Markovian dynamics / many interacting    |\n|                stochastic parts?                                    |\n|                    |                                                 |\n|                    +-- YES ----> DISCRETE-EVENT SIMULATION.         |\n|                    +-- NO  ----> reconsider; you may have a         |\n|                                  solvable model after all.          |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 298,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"Why is Monte Carlo error $1/\\sqrt n$ — can't I make it faster?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

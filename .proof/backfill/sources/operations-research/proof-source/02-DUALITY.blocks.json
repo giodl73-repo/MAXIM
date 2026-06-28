@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\02-DUALITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                   PRIMAL  <---- DUALITY ---->  DUAL                   |\n|                                                                      |\n|   PRIMAL (the producer)            DUAL (the resource pricer)        |\n|   ----------------------           ------------------------          |\n|   max  c'x    \"max profit\"         min  b'y    \"min cost to buy out  |\n|   s.t. Ax <= b  (m resources)            A'y >= c   all resources\"   |\n|        x >= 0  (n products)              y >= 0                       |\n|                                                                      |\n|   x_j = amount of product j        y_i = PRICE of resource i         |\n|   b_i = available units of i             (= SHADOW PRICE)            |\n|   c_j = profit per unit of j                                         |\n|                                                                      |\n|        c'x  <=  b'y      <--- WEAK DUALITY (every feasible pair)     |\n|        ^                  ^                                          |\n|        |                  |                                          |\n|   any primal-feasible x   any dual-feasible y                       |\n|                                                                      |\n|        c'x* = b'y*       <--- STRONG DUALITY (at the optimum, LP)   |\n|                               the gap closes to ZERO                 |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Layer 1: Constructing the Dual Mechanically",
+      "confidence": "candidate",
+      "text": "   PRIMAL                          DUAL\n   ------                          ----\n   max c'x                         min b'y\n   m constraints (rows of A)  <->  m variables y (one per constraint)\n   n variables x              <->  n constraints (cols of A -> rows of A')\n   constraint i  Ax_i <= b_i  <->  variable y_i >= 0\n   variable x_j >= 0          <->  constraint (A'y)_j >= c_j",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### The Transformation Table (memorize this)",
+      "confidence": "candidate",
+      "text": "   PRIMAL --dualize--> DUAL --dualize--> PRIMAL   (you end up back home)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## Layer 2: Weak Duality",
+      "confidence": "candidate",
+      "text": "   THE NUMBER LINE OF WEAK DUALITY:\n\n   primal objective values          dual objective values\n   (all feasible c'x)               (all feasible b'y)\n   ----------------|---------gap--------|------------------>\n                  c'x*               b'y*\n              (primal opt)        (dual opt)\n       <----- max pushes right    min pushes left ----->",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## Layer 3: Strong Duality — State the Hypotheses Carefully",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n|                    |   DUAL feasible      |   DUAL infeasible      |\n|--------------------+----------------------+------------------------|\n|  PRIMAL feasible   | both have optimal    | primal UNBOUNDED       |\n|                    | finite values, EQUAL |                        |\n|--------------------+----------------------+------------------------|\n|  PRIMAL infeasible | dual UNBOUNDED       | both infeasible        |\n|                    |                      | (possible!)            |\n+-------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 183,
+      "heading_context": "## Layer 4: Complementary Slackness",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|             COMPLEMENTARY SLACKNESS, IN WORDS                        |\n|                                                                      |\n|  For each constraint i:                                              |\n|     slack > 0 (resource i UNUSED)   =>   y_i = 0  (price zero)       |\n|     y_i > 0 (resource i is PRICED)  =>   constraint i is TIGHT       |\n|                                                                      |\n|  For each variable j:                                                |\n|     x_j > 0 (we PRODUCE product j)  =>   its dual constraint TIGHT   |\n|     dual constraint slack > 0       =>   x_j = 0 (don't produce j)   |\n|                                                                      |\n|  \"You never pay for what you don't use, and you never use            |\n|   what isn't worth its imputed cost.\"                               |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Layer 4: Complementary Slackness",
+      "confidence": "candidate",
+      "text": "   USING CS TO CHECK OPTIMALITY:\n\n   Given candidate x* :\n   1. Identify tight constraints (slack = 0) -> their y_i may be > 0\n      and non-tight constraints -> force y_i = 0.\n   2. For each x_j* > 0, force its dual constraint to equality.\n   3. Solve the resulting linear system for y.\n   4. If that y is dual-FEASIBLE (A'y >= c, y >= 0), then by CS\n      x* and y are BOTH OPTIMAL. Otherwise x* was not optimal.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 222,
+      "heading_context": "## Layer 5: Shadow Prices and Sensitivity Analysis",
+      "confidence": "candidate",
+      "text": "   OPTIMAL OBJECTIVE z* AS A FUNCTION OF RHS b_i:\n\n   z*(b_i)\n     |                      slope = y_i (next basis)\n     |                  ___/\n     |              ___/  <- breakpoint: basis changes here\n     |          ___/  slope = y_i* (current shadow price)\n     |      ___/\n     |  ___/\n     +------------------------------------ b_i\n        |---- validity range of current basis ----|\n\n   z*(b) is PIECEWISE LINEAR and CONCAVE in b (for a max LP).\n   Shadow price = slope of the current piece.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 259,
+      "heading_context": "## Duality Across the Library",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  WHERE DUALITY SHOWS UP                                             |\n|                                                                      |\n|  LP duality            ----  this file                              |\n|  Max-flow = Min-cut    ----  network flows (file 04), a duality thm  |\n|  KKT conditions        ----  convex optimization (file 05),         |\n|                              the nonlinear generalization           |\n|  Minimax theorem       ----  game-theory/: von Neumann's theorem    |\n|                              IS LP strong duality for zero-sum games |\n|  SVM dual              ----  machine-learning-theory/: the kernel    |\n|                              trick lives in the dual                |\n|  Lagrangian duality    ----  the unifying frame; LP duality is the   |\n|                              linear special case                    |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

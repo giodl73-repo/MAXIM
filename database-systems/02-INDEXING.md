@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Indexing — Data Structures That Avoid the Scan
 
 An index is a **secondary data structure** that lets the engine find rows without scanning the

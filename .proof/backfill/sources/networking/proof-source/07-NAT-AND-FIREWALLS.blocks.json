@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\07-NAT-AND-FIREWALLS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "              THE MIDDLEBOX: where private meets public\n   PRIVATE SIDE (RFC 1918)                            PUBLIC INTERNET\n   +---------------------+                            +----------------+\n   | 192.168.1.10  ------|----+                       |                |\n   | 192.168.1.11  ------|--+ |                       |                |\n   | 192.168.1.12  ------|+ | |    +-------------+    |  server        |\n   +---------------------+| | |    |  NAT +      |    |  203.0.113.5   |\n                          | | +--->|  FIREWALL   |--->|  :443          |\n                          | +----->|             |    |                |\n                          +------->| (one public |    |                |\n                                   |  IP, a state|    |                |\n                                   |  table)     |    |                |\n                                   +-------------+    +----------------+\n                                    public IP: 198.51.100.7\n\n   NAT:      rewrite (private IP:port) <-> (public IP:port), remember it\n   FIREWALL: allow/deny based on rules + connection STATE\n   BOTH:     keep a per-connection table; the table is the whole trick.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "## Why NAT Exists",
+      "confidence": "candidate",
+      "text": "   IPv4 = 32 bits = ~4.29 billion addresses. The Internet has FAR more\n   devices than that. The stopgap (since the mid-1990s):\n\n     MANY private hosts  --share-->  ONE public IPv4 address\n\n   Private ranges (RFC 1918, from 02) never appear on the public Internet:\n     10.0.0.0/8      172.16.0.0/12     192.168.0.0/16\n\n   NAT translates between the private world and the one public IP, so a whole\n   home/office/carrier looks like a single (or few) public address(es).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 97,
+      "heading_context": "## How NAT Actually Works (PAT)",
+      "confidence": "candidate",
+      "text": "   OUTBOUND: host 192.168.1.10:51000 -> server 203.0.113.5:443\n\n   NAT rewrites the SOURCE and records the mapping in its table:\n\n   +------------------------+------------------------+\n   | INSIDE (private)       | OUTSIDE (public)       |\n   +------------------------+------------------------+\n   | 192.168.1.10 : 51000   | 198.51.100.7 : 62000   |\n   | 192.168.1.11 : 51000   | 198.51.100.7 : 62001   |  <- same inside port,\n   +------------------------+------------------------+     different public port\n\n   ON THE WIRE the server sees: src 198.51.100.7:62000 -> 203.0.113.5:443\n\n   INBOUND REPLY: server -> 198.51.100.7:62000\n     NAT looks up 62000 in the table -> rewrites dst back to 192.168.1.10:51000\n     -> delivers to the right private host.\n\n   The PORT is what disambiguates which internal host a reply belongs to.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## NAT and the End-to-End Principle",
+      "confidence": "candidate",
+      "text": "   WHAT NAT BREAKS:\n   - inbound reachability: no public address -> servers behind NAT are\n     unreachable from outside without explicit port forwarding.\n   - peer-to-peer: two hosts BOTH behind NAT can't directly connect\n     (neither can initiate inbound to the other).\n   - protocols that embed IPs in their payload (old FTP, SIP) break unless\n     the NAT has an \"ALG\" that rewrites the embedded address too.\n   - end-to-end integrity: the L4 checksum must be recomputed; IPsec AH\n     (which signs the IP header) is incompatible with NAT.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## NAT Types and Traversal",
+      "confidence": "candidate",
+      "text": "   NAT MAPPING BEHAVIORS (roughly, easiest -> hardest to traverse):\n\n   FULL CONE          once 192.168.1.10:51000 -> 62000 is mapped, ANY\n                      external host can send to 62000 and reach the host.\n                      (most permissive)\n\n   RESTRICTED CONE    only external hosts the inside host has ALREADY\n                      contacted may send back (filtered by their IP).\n\n   PORT-RESTRICTED    same, but filtered by IP AND port.\n\n   SYMMETRIC          a DIFFERENT public port per destination. The mapping\n                      depends on where you're going -> hardest to predict,\n                      hardest to traverse. (most restrictive)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## NAT Types and Traversal",
+      "confidence": "candidate",
+      "text": "   STUN (RFC 8489): \"what's my public IP:port?\" A host asks a STUN server,\n        which reflects back the address NAT assigned -> the host learns its\n        own external mapping so it can share it with a peer (hole punching).\n\n   TURN (RFC 8656): when traversal FAILS (e.g. symmetric NAT on both ends),\n        relay ALL traffic through a public TURN server. Always works, but\n        adds a hop and cost -> the fallback of last resort.\n\n   ICE  (RFC 8445): the framework that gathers candidate addresses (local,\n        STUN-reflexive, TURN-relayed) and tries them in order to find a\n        working path between two peers. The orchestration over STUN+TURN.\n\n   HOLE PUNCHING: both peers send outbound simultaneously, each creating a\n        NAT mapping that lets the other's packets in. Works for cone NATs;\n        fails for symmetric (unpredictable ports) -> fall back to TURN.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## CGNAT — Carrier-Grade NAT",
+      "confidence": "candidate",
+      "text": "   DOUBLE NAT under CGNAT:\n\n   home host        home router         CARRIER (CGNAT)        Internet\n   192.168.1.10 --> 100.64.x.x      --> a SHARED public IP  --> server\n   (RFC 1918)       (RFC 6598            (one IP shared by\n                     shared range)        MANY subscribers)\n\n   The 100.64.0.0/10 range (RFC 6598) is reserved precisely for the space\n   BETWEEN the customer NAT and the carrier NAT.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## Port Forwarding and Stateful Firewalls",
+      "confidence": "candidate",
+      "text": "   STATIC RULE on the NAT/router:\n     public 198.51.100.7 : 8080  ---ALWAYS-FORWARD-TO--->  192.168.1.50 : 80\n\n   Now external clients hitting :8080 reach your internal web server. This\n   is the manual override for NAT's default \"no inbound\" -> how you self-host.\n   (UPnP / NAT-PMP let trusted apps create these mappings automatically.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 247,
+      "heading_context": "## Port Forwarding and Stateful Firewalls",
+      "confidence": "candidate",
+      "text": "   STATELESS (old, packet-by-packet):\n     each packet judged alone against rules. To allow replies you must\n     explicitly open the high ports -> coarse, leaky.\n\n   STATEFUL (modern):\n     +-------------------------------------------------------------+\n     | CONNECTION TRACKING TABLE                                   |\n     | flow (5-tuple) | state                                     |\n     | A:51000->B:443 | ESTABLISHED   <- outbound created it       |\n     +-------------------------------------------------------------+\n     RULE: \"allow ESTABLISHED + RELATED; default-deny everything else.\"\n     -> outbound connection auto-authorizes its OWN return traffic.\n     -> nothing unsolicited gets in. The table IS the security.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## Port Forwarding and Stateful Firewalls",
+      "confidence": "candidate",
+      "text": "   FIREWALL LAYERS (where filtering happens):\n     L3/L4 packet filter   -> by IP, port, protocol, flow state (fast, classic)\n     L7 / application       -> inspects HTTP, blocks by URL/content (WAF, deep)\n     stateful inspection    -> the connection-tracking middle ground (standard)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 311,
+      "heading_context": "### \"Is NAT a firewall?\"",
+      "confidence": "candidate",
+      "text": "### \"If IPv6 has enough addresses, is NAT gone?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

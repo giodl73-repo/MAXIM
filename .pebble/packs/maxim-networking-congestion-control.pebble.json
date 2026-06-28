@@ -1,0 +1,1749 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-networking-congestion-control",
+  "source": "../../networking",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-CONGESTION-CONTROL.md#000",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "# Congestion Control — Reno, CUBIC, BBR, AIMD, Bufferbloat"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#001",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#002",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "Congestion control answers one question: **how fast should I send when I cannot\nsee the network's capacity?** No router tells the sender \"the link is full\" (with\nrare exceptions). The sender must *infer* available bandwidth from indirect\nsignals — lost packets, rising delay, ACK timing — and continuously adjust its\nsending rate. Get it wrong on the low side and you waste capacity; get it wrong\non the high side and you cause **congestion collapse**, where everyone retransmits\ninto an already-full network and throughput craters. The history of this field is\na sequence of ever-cleverer guesses at that hidden capacity."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#003",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n              THE FUNDAMENTAL PROBLEM: capacity is INVISIBLE\n   SENDER                    NETWORK (unknown capacity)            RECEIVER\n   +------+    cwnd packets   +----+    +----+    +----+           +------+\n   | send |================>  | R1 |===>| R2 |===>| R3 |=========> | recv |\n   +------+                   +----+    +----+    +----+           +------+\n       ^                        |bottleneck link, finite rate|        |\n       |                        | a QUEUE builds if you      |        |\n       |   feedback signals:    | send faster than it drains |        |\n       +--- loss (drop) --------+                                     |\n       +--- delay (RTT rising) -+  <- queue filling shows as latency  |\n       +--- ACK pacing ---------+----------------------------- ACKs --+"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#004",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "GOAL: send at exactly the bottleneck rate. Too slow = waste.\n         Too fast = queue grows -> latency rises -> eventually DROPS.\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#005",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "The sender maintains a **congestion window** `cwnd` — the number of bytes it may\nhave in flight before getting an ACK. Congestion control is entirely the\nalgorithm that grows and shrinks `cwnd`. Recall from 03 that the real send limit\nis `min(rwnd, cwnd)`; this guide is about the `cwnd` half."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#006",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "> **Bridge — control under partial observability.** This is a control-theory\n> problem with a hidden plant: you actuate (send rate), observe a noisy proxy\n> (loss/delay), and must converge to an unknown setpoint (bottleneck bandwidth)\n> while *other* controllers (competing flows) perturb the same plant. AIMD is the\n> control law that makes that distributed system stable and fair."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#007",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#008",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## Flow Control vs. Congestion Control (Recap)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#009",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "Worth restating because it is *the* prerequisite distinction (see 03):"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#010",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   FLOW CONTROL          CONGESTION CONTROL\n   ============          ==================\n   protects RECEIVER     protects the NETWORK\n   window = rwnd         window = cwnd\n   set BY receiver       computed BY sender (this guide)\n   explicit (header)     INFERRED (no field tells you)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#011",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "actual send window = min(rwnd, cwnd)\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#012",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "Flow control is easy — the receiver simply states its free buffer. Congestion\ncontrol is hard — the network states *nothing*, so the sender must reverse-engineer\ncapacity from symptoms. Everything below is that reverse-engineering."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#013",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#014",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## AIMD — The Stability Law"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#015",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "The foundational algorithm is **AIMD (Additive Increase, Multiplicative\nDecrease)**, from the original work by Van Jacobson (1988) after the Internet\nsuffered real congestion collapses. The rule:"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#016",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   ADDITIVE INCREASE:        every RTT with no loss, cwnd += 1 (a constant)\n   MULTIPLICATIVE DECREASE:  on loss, cwnd *= 0.5 (cut in half)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#017",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "cwnd over time = the classic SAWTOOTH:"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#018",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "cwnd\n    |            /|          /|          /|\n    |           / |         / |         / |\n    |          /  |        /  |        /  |     additive climb (gentle)\n    |         /   |       /   |       /   |\n    |        /    |______/    |______/    |____ multiplicative drop (sharp)\n    |_______/                                    (halve on loss)\n    +------------------------------------------------> time\n            ^loss      ^loss      ^loss\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#019",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "Why this asymmetry — *slow up, fast down*? Because it provably converges to\n**fairness and stability**. The classic argument: if two flows share a link and\nboth add the same constant and multiply by the same factor, their rates converge\ntoward equality regardless of starting point. Symmetric additive-both or\nmultiplicative-both does **not** converge to fair shares; AIMD does. Reacting hard\nto congestion and probing gently for more is what keeps the whole Internet from\noscillating into collapse."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#020",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#021",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## TCP Reno: Slow Start and the Phases"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#022",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "The classic loss-based algorithm — **TCP Reno** (and its NewReno refinement) —\nwraps AIMD in a startup phase and a recovery phase. Four states:"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#023",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   1) SLOW START (despite the name, EXPONENTIAL growth):\n        cwnd starts small (a few MSS), DOUBLES every RTT.\n        Goal: find the rough scale of capacity fast.\n        Continues until cwnd reaches ssthresh OR a loss occurs."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#024",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "2) CONGESTION AVOIDANCE (additive increase, the linear climb):\n        once past ssthresh, cwnd += 1 MSS per RTT.\n        This is the slow probing edge of the sawtooth."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#025",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "3) FAST RETRANSMIT / FAST RECOVERY (3 duplicate ACKs = mild loss):\n        cut ssthresh = cwnd/2, set cwnd ~= ssthresh, keep going.\n        (multiplicative decrease, but stay in avoidance)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#026",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "4) TIMEOUT (RTO fires = severe loss):\n        ssthresh = cwnd/2, cwnd = 1, back to SLOW START.\n        (the harsh reset — the network may be badly congested)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#027",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "cwnd\n    |          ____ congestion avoidance (linear)\n    |         /\n    |        /\n    |       / <- exit slow start at ssthresh\n    |      |\n    |     /| slow start\n    |    / | (exponential)\n    |___/__|________________________________> time\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#028",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "The two loss signals from 03 map directly onto recovery aggressiveness: **3\nduplicate ACKs** mean \"one packet lost, network basically fine\" → gentle halving;\nan **RTO timeout** means \"I heard nothing back, the network may be wedged\" → harsh\nreset to `cwnd = 1` and slow start. Reno's defining weakness: it treats *any*\nloss as congestion, which punishes long-distance, high-bandwidth links and\nwireless (where loss can be non-congestive)."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#029",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#030",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## TCP CUBIC: The Modern Default"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#031",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "**CUBIC** is the default congestion control on Linux (and thus most of the\nInternet's servers). It keeps the loss-based AIMD framework but replaces the\n*linear* increase with a **cubic function** of time since the last loss, which\nmakes it far more efficient on **long fat networks** (high bandwidth × high RTT)."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#032",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   RENO'S LINEAR PROBE vs CUBIC'S CUBIC PROBE after a loss:"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#033",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "cwnd                                cwnd\n    |        /  (slow, RTT-coupled)     |    ___---  plateau near\n    |      /                            |  /  Wmax (the last-loss point)\n    |    /                              | |\n    |  /                                ||  steep again to probe higher\n    |/__________> time                  |/__________> time\n       RENO                                CUBIC"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#034",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "CUBIC's window growth depends on REAL TIME since last loss, not RTT.\n   -> two flows with very different RTTs grow more fairly (RTT-independence).\n   -> it ramps fast toward the prior max (Wmax), eases off near it (caution),\n      then probes beyond it (exploration).\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#035",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "CUBIC's key wins: (1) growth is a function of *wall-clock time*, not RTT, so it's\nfairer between short-RTT and long-RTT flows; (2) it spends most of its time near\nthe last known good window, gently probing higher. It is still **loss-based** — it\nfills the queue until something drops — which is exactly the behavior that causes\nbufferbloat."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#036",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#037",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## Bufferbloat: When Big Buffers Backfire"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#038",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "**Bufferbloat** is the pathology where oversized buffers in routers and modems\n*hide* loss from loss-based congestion control, so the sender keeps ramping,\nfilling the buffer, and adding enormous **latency** without ever triggering the\nloss signal that would tell it to back off."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#039",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   THE TRAP (loss-based CC + huge buffer):"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#040",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "sender keeps increasing cwnd ----> bottleneck queue fills up\n                                       (but buffer is HUGE, so no drop yet)\n        |                                      |\n        | no loss seen -> \"must be fine!\"      | queue depth = 100s of ms\n        v                                      v\n   keeps ramping ------------------------> LATENCY balloons, but\n                                            throughput is unchanged."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#041",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "Result: a saturated link adds SECONDS of delay. Video buffers, a\n   download in another tab makes your video call unusable. The buffer\n   \"helped\" by not dropping -> and thereby broke latency for everyone.\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#042",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "The mitigations attack it from two directions:"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#043",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "- **Smarter queue management** in the router: **AQM (Active Queue Management)**\n  algorithms like **CoDel** (Controlled Delay) and **FQ-CoDel** drop or mark\n  packets *based on how long they've been queued*, signaling congestion before\n  the buffer is full and isolating flows fairly.\n- **Delay-based congestion control** in the sender (next section): use *rising\n  latency* as the congestion signal instead of waiting for a drop."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#044",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "> **Bridge — queue depth as backpressure.** Bufferbloat is the absence of\n> backpressure: an unbounded queue lets a producer outrun a consumer with no\n> signal until catastrophe. You solve it in distributed systems (07\n> message-queues) with bounded queues and explicit backpressure; CoDel is bounded\n> queueing by *time* applied to packets."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#045",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#046",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## TCP BBR: Model the Pipe, Don't Wait for Loss"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#047",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "**BBR (Bottleneck Bandwidth and Round-trip propagation time)**, from Google, is a\nfundamentally different philosophy. Instead of treating loss as the congestion\nsignal, BBR builds an explicit **model of the path**: it continuously measures the\ntwo quantities that actually define the pipe and sends at exactly their product."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#048",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   BBR MEASURES TWO THINGS:\n     BtlBw  = bottleneck bandwidth   (max delivery rate observed)\n     RTprop = round-trip propagation (min RTT observed, i.e. empty-queue RTT)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#049",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "THE OPTIMAL OPERATING POINT (Kleinrock, 1979):\n     BDP (bandwidth-delay product) = BtlBw * RTprop\n     -> send just enough to keep the pipe FULL but the QUEUE EMPTY."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#050",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "throughput                    latency\n              |   ____________              |          /\n              |  /                          |         /\n              | /                           |________/  <- queue starts here\n              |/____________> in-flight     |____________> in-flight\n                  ^optimal: edge of full pipe, before the queue grows\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#051",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "BBR's advantages: it is **loss-tolerant** (a random wireless drop doesn't crater\nits rate, fixing Reno's old weakness) and it actively keeps the queue *empty*,\nsidestepping bufferbloat instead of merely surviving it. Its trade-off is\n**fairness**: early BBR could be aggressive against loss-based flows (CUBIC)\nsharing the same link; **BBRv2/BBRv3** add explicit loss and ECN response to\ncoexist more gracefully. BBR is a model-based controller; CUBIC is a\nsignal-reactive one."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#052",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#053",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## ECN: Asking the Network to Just Tell You"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#054",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "The cleanest fix is to stop guessing entirely. **ECN (Explicit Congestion\nNotification, RFC 3168)** lets a router *mark* a packet (\"I'm getting congested\")\ninstead of *dropping* it. The receiver echoes the mark back to the sender, which\nbacks off — congestion control without paying the cost of an actual loss and\nretransmission."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#055",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "```\n   WITHOUT ECN:  router congested -> DROP packet -> sender infers loss\n                 (cost: a retransmission + the latency of detecting it)"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#056",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "WITH ECN:     router congested -> SET a bit in the IP header (CE)\n                 -> receiver echoes it -> sender shrinks cwnd, NO packet lost"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#057",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "ECN uses 2 bits in the IPv4/IPv6 header (the ECN field) plus TCP flags.\n   Modern AQM (CoDel) can MARK instead of DROP when both ends support ECN.\n```"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#058",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "ECN turns an implicit, lossy signal into an explicit, lossless one. Adoption is\nnow widespread on servers; combined with AQM it is the most direct attack on both\ncongestion *and* bufferbloat. Data-center variants (**DCTCP**) lean on ECN heavily\nbecause in a controlled fabric (09) you can guarantee every device supports it."
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#059",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#060",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "## Comparison"
+    },
+    {
+      "id": "04-CONGESTION-CONTROL.md#061",
+      "path": [
+        "04-CONGESTION-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:04-congestion-control, git-history:networking:04-congestion-control]",
+        "canonical_path": "networking/04-CONGESTION-CONTROL.md",
+        "concepts": "[congestion control, aimd, reno, cubic, bbr, slow start, bufferbloat, ecn]",
+        "current_path": "networking/04-CONGESTION-CONTROL.md",
+        "id": "maxim:networking:congestion-control",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[congestion control]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Congestion Control - Reno, CUBIC, BBR, AIMD, Bufferbloat",
+        "updated": "null"
+      },
+      "text": "| Algorithm | Signal | Increase | Strength | Weakness |\n|---|---|---|---|---|\n| **Reno/NewReno** | loss | linear (AIMD) | simple, foundational | poor on long-fat links; loss = congestion |\n| **CUBIC** | loss | cubic vs. time | great on LFNs, fair across RTTs | still fills buffers (bufferbloat) |\n| **BBR** | bandwidth + RTT model | rate-paced | loss-tolerant, empties queue | fairness vs. CUBIC (improved in v2/v3) |\n| **DCTCP** | ECN marks | ECN-proportional | precise in DC fabrics | needs ECN everywhere (controlled net) |"
+    }
+  ],
+  "refs": [
+    "04-CONGESTION-CONTROL.md"
+  ]
+}

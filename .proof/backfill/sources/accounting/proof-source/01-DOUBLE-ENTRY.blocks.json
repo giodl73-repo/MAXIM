@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\01-DOUBLE-ENTRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------+\n|                       THE FUNDAMENTAL INVARIANT                         |\n|                                                                         |\n|              ASSETS  =  LIABILITIES  +  EQUITY                          |\n|              (own)      (owe others)    (owe owners)                    |\n|                                                                         |\n|   Every transaction is a balanced mutation: it changes >=2 accounts     |\n|   such that the equation STILL holds afterward.                         |\n|                                                                         |\n|   total DEBITS posted  ==  total CREDITS posted   (always, forever)     |\n+-------------------------------------------------------------------------+\n                                  |\n          +-----------------------+------------------------+\n          |                       |                        |\n          v                       v                        v\n   +-------------+        +---------------+        +----------------+\n   |  JOURNAL    |  -->   |   LEDGER      |  -->   | TRIAL BALANCE  |\n   | (the log)   | post   | (per-account  | sum    | (consistency   |\n   | chronolog.  |        |  T-accounts)  |        |  check)        |\n   | balanced    |        | running bal.  |        | DR total ==    |\n   | entries     |        | per account   |        |  CR total      |\n   +-------------+        +---------------+        +----------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 70,
+      "heading_context": "## Why Two Entries? The Error-Detecting Code View",
+      "confidence": "candidate",
+      "text": "   Single-entry (no check):          Double-entry (self-checking):\n   +------------------+              +----------------------------------+\n   | -500  rent paid  |              | DR Rent Expense  500             |\n   +------------------+              |    CR Cash            500        |\n   one number, trust me             | check: 500 == 500  OK            |\n                                     +----------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 90,
+      "heading_context": "## Debits and Credits: Drop Your Intuition",
+      "confidence": "candidate",
+      "text": "                 A T-ACCOUNT (any account)\n              +---------------------------+\n              |   account name            |\n              +-------------+-------------+\n              |   DEBIT     |   CREDIT    |\n              |   (left)    |   (right)   |\n              +-------------+-------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 104,
+      "heading_context": "## Debits and Credits: Drop Your Intuition",
+      "confidence": "candidate",
+      "text": "        A      =      L     +      E\n   +---------+   +---------+   +---------+\n   | DR | CR |   | DR | CR |   | DR | CR |\n   | +  | -  |   | -  | +  |   | -  | +  |\n   +---------+   +---------+   +---------+\n   normal: DR    normal: CR    normal: CR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 211,
+      "heading_context": "## The Ledger: Posting to T-Accounts",
+      "confidence": "candidate",
+      "text": "   After the equipment entry above:\n\n      Cash                  Equipment            Notes Payable\n   +---------+           +---------+           +---------+\n   | DR | CR |           | DR | CR |           | DR | CR |\n   |    |4000|           |10000|  |           |    |6000|\n   +---------+           +---------+           +---------+\n   bal: -4000(CR side)   bal: 10000 DR         bal: 6000 CR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## The Trial Balance: The Consistency Check",
+      "confidence": "candidate",
+      "text": "   TRIAL BALANCE — 2026-03-31\n   Account                  Debit      Credit\n   ----------------------   --------   --------\n   Cash                      26,000\n   Accounts Receivable        8,000\n   Inventory                  5,000\n   Equipment                 10,000\n   Accumulated Deprec.                    2,000   <- contra-asset (credit)\n   Accounts Payable                       4,000\n   Notes Payable                          6,000\n   Common Stock                          20,000\n   Retained Earnings                      9,000\n   Revenue                               40,000\n   COGS                      18,000\n   Salaries Expense          12,000\n   Depreciation Expense       2,000\n   ----------------------   --------   --------\n   TOTALS                    81,000     81,000   <- EQUAL => consistent",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 270,
+      "heading_context": "## The Full Cycle (the period loop)",
+      "confidence": "candidate",
+      "text": "   +-----------------------------------------------------------------+\n   |  1. Transactions occur            (continuous)                  |\n   |  2. Journalize                    (append balanced entries)     |\n   |  3. Post to ledger                (re-index by account)         |\n   |  4. Unadjusted trial balance      (consistency check)           |\n   |  5. Adjusting entries             (accruals/deferrals, file 05) |\n   |  6. Adjusted trial balance        (re-check)                    |\n   |  7. Financial statements          (files 02-04)                 |\n   |  8. CLOSING entries               (zero out temp accts ->       |\n   |                                    Retained Earnings)           |\n   |  9. Post-closing trial balance    (only permanent accts remain) |\n   +-----------------------------------------------------------------+\n                              |\n                        loop to next period",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "## The Full Cycle (the period loop)",
+      "confidence": "candidate",
+      "text": "   CLOSING (sweep temp -> permanent):\n     DR  Revenue            40,000\n         CR  Income Summary        40,000\n     DR  Income Summary     32,000\n         CR  COGS                  18,000\n         CR  Salaries Expense      12,000\n         CR  Depreciation Exp.      2,000\n     DR  Income Summary      8,000        <- net income\n         CR  Retained Earnings      8,000  <- folded into equity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

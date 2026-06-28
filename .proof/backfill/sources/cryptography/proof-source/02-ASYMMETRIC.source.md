@@ -143,7 +143,7 @@ OAEP (Optimal Asymmetric Encryption Padding — Bellare-Rogaway 1994):
   RSA-PSS (probabilistic signature scheme):
     Digital signature analog of OAEP; also Bellare-Rogaway
     sUF-CMA (strong unforgeability) in ROM
-    PKCS#1 v1.5 signatures: deterministic; length-extension; still widely deployed (TLS)
+    PKCS#1 v1.5 signatures: deterministic; Bleichenbacher '06 forgery if padding parsed loosely; still widely deployed (TLS)
     RSA-PSS: preferred for new systems; required in FIPS 186-4 for new applications
 
 BLEICHENBACHER vs MODERN:
@@ -262,8 +262,8 @@ CURVE COMPARISON:
   ├─────────────────────────────────────────────────────────────────────────┤
   │  P-256     │ 𝔽_p (256) │ 128-bit  │ NIST     │ Alleged backdoor?  │     │
   │  P-384     │ 𝔽_p (384) │ 192-bit  │ NIST     │ Rigid but opaque   │     │
-  │  Curve25519│ 𝔽_{2²⁵⁵} │ 128-bit  │ IETF RFC │ Clean; Bernstein   │     │
-  │  X448      │ 𝔽_{2⁴⁴⁸} │ 224-bit  │ IETF RFC │ Clean; higher sec  │     │
+  │  Curve25519│ 𝔽_p (255) │ 128-bit  │ IETF RFC │ Clean; Bernstein   │     │
+  │  X448      │ 𝔽_p (448) │ 224-bit  │ IETF RFC │ Clean; higher sec  │     │
   │  brainpool │ 𝔽_p var.  │ various  │ BSI/ETSI │ German std; slower │     │
   └─────────────────────────────────────────────────────────────────────────┘
   P-256 alleged backdoor: NIST curve seeds are unexplained SHA-1 hashes; Bernstein/Lange

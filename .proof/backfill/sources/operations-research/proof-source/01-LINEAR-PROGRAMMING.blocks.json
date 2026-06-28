@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\01-LINEAR-PROGRAMMING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|             LINEAR PROGRAMMING: THE WHOLE PICTURE                     |\n|                                                                      |\n|   ALGEBRA                       GEOMETRY                              |\n|   -------                       --------                             |\n|   max c'x                       objective = direction c              |\n|   s.t. Ax <= b                  each row of A = a halfspace          |\n|        x >= 0                   intersection = POLYHEDRON P          |\n|                                                                      |\n|                          x2                                          |\n|                          |    c (objective direction)               |\n|                          |   /                                       |\n|        feasible          | V3 ._____                                  |\n|        polytope P    V4 _|/        \\  V2  <-- OPTIMUM here            |\n|                       /  |          \\ /     (a vertex)               |\n|                      /   |  P        X                                |\n|                     /    |          / \\                              |\n|              V5 ___/_____|_________/   \\__ V1                         |\n|                          |________________________ x1               |\n|                                                                      |\n|   FUNDAMENTAL THEOREM OF LP:                                          |\n|   if an optimum exists, one occurs at a VERTEX (extreme point).      |\n|   SIMPLEX walks vertices V_i along edges, uphill in c, to optimum.   |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "## Layer 2: The Geometry — Polyhedra, Vertices, and the Fundamental Theorem",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------+\n|  TERM            DEFINITION                  WHY IT MATTERS   |\n|  ----            ----------                  -------------    |\n|  Halfspace       {x : a'x <= b}              one constraint   |\n|  Polyhedron      intersection of halfspaces  feasible region  |\n|  Vertex /        point not on any segment    candidate optima |\n|   extreme point  between two other pts of P                   |\n|  Edge            1-dim face joining vertices  simplex walks it |\n|  Face            P intersect a supporting     where optima     |\n|                  hyperplane                   live             |\n+--------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Layer 2: The Geometry — Polyhedra, Vertices, and the Fundamental Theorem",
+      "confidence": "candidate",
+      "text": "   WHY THE OPTIMUM IS AT A VERTEX (intuition):\n\n   The objective c'x is linear. Its level sets {x : c'x = k} are parallel\n   hyperplanes. Push the hyperplane in direction c as far as P allows.\n   The LAST point(s) of contact form a face of P. A bounded face always\n   contains a vertex. So a vertex is always among the optima.\n\n        level sets of c'x\n        \\    \\    \\    \\\n         \\    \\    \\    \\   <-- push this way (increasing c'x)\n          \\    \\    \\    \\\n   +-------\\----\\----\\----+\n   |  P     \\    \\    \\   |* last contact = optimal vertex\n   +---------\\----\\----\\--+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 167,
+      "heading_context": "## Layer 3: The Simplex Method",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                        SIMPLEX ALGORITHM                             |\n|                                                                      |\n|  0. Start at a basic feasible solution (a vertex).                   |\n|                                                                      |\n|  1. PRICE OUT: compute reduced costs for nonbasic vars:             |\n|        c_bar_j = c_j - c_B' B^-1 A_j                                 |\n|     (how much the objective improves per unit of x_j entering)      |\n|                                                                      |\n|  2. OPTIMALITY TEST: if all reduced costs c_bar_j <= 0 (for a max),  |\n|        STOP -- current vertex is OPTIMAL.                            |\n|                                                                      |\n|  3. ENTERING VAR: pick nonbasic j with c_bar_j > 0 (improving edge).|\n|                                                                      |\n|  4. RATIO TEST: as x_j increases, find which basic var hits 0 first:|\n|        theta = min over i with (B^-1 A_j)_i > 0 of                   |\n|                    (B^-1 b)_i / (B^-1 A_j)_i                         |\n|     If no such i (column has no positive entry): UNBOUNDED.          |\n|                                                                      |\n|  5. PIVOT: x_j enters basis, the arg-min basic var leaves.          |\n|     New vertex. Go to 1.                                             |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 228,
+      "heading_context": "## Layer 4: Complexity — Precisely",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  CLAIM                                              STATUS            |\n|  -----                                              ------            |\n|  LP (the decision/optimization problem) is in P     TRUE (Khachiyan   |\n|                                                     1979, ellipsoid)  |\n|  Simplex has exponential worst-case running time    TRUE (Klee-Minty  |\n|    (for common pivot rules)                         cube, 1972)       |\n|  Simplex is fast in practice (~ linear in m pivots) TRUE empirically; |\n|                                                     explained by      |\n|                                                     smoothed analysis |\n|                                                     (Spielman-Teng    |\n|                                                     2001/2004)        |\n|  Interior-point methods are polynomial AND practical TRUE (Karmarkar  |\n|                                                     1984)             |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Layer 5: Simplex vs. Interior-Point",
+      "confidence": "candidate",
+      "text": "       SIMPLEX                          INTERIOR-POINT\n       -------                          --------------\n   walks the BOUNDARY,              cuts THROUGH the interior,\n   vertex to vertex                 following the \"central path\"\n\n        ._____.                          .________.\n       /|     |\\                        /          \\\n      / |  P  | \\                      /     o      \\\n     .  |     |  .                    |    .  \\      |\n      \\ *--->*--*  <- path on edges   |   /    o ->  *  <- path inside\n       \\|     |/                       \\ o        * /\n        *_____*                         o________*/\n                                         endpoint snaps to a vertex",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

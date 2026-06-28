@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\07-NAT-AND-FIREWALLS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 285,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Mechanism"
+      ],
+      "rows": [
+        [
+          "Many private hosts, one public IPv4",
+          "PAT (NAT overload)"
+        ],
+        [
+          "Host a server behind NAT",
+          "port forwarding (static NAT entry)"
+        ],
+        [
+          "App auto-opens a port on the router",
+          "UPnP / NAT-PMP"
+        ],
+        [
+          "Two peers both behind NAT need to connect",
+          "STUN + hole punching (ICE)"
+        ],
+        [
+          "Traversal fails (symmetric NAT both ends)",
+          "TURN relay (fallback)"
+        ],
+        [
+          "ISP gives you no public IP at all",
+          "you're behind CGNAT (100.64/10)"
+        ],
+        [
+          "Why an idle connection drops behind NAT",
+          "mapping timed out → send keepalives"
+        ],
+        [
+          "Allow return traffic without opening ports",
+          "stateful firewall (ESTABLISHED/RELATED)"
+        ],
+        [
+          "Block by URL/content, not just port",
+          "L7 firewall / WAF"
+        ],
+        [
+          "End the need for NAT entirely",
+          "IPv6 + stateful firewall (02)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    THE OPERATIONS RESEARCH PIPELINE                   |\n|                                                                      |\n|   REAL SYSTEM        MODEL              SOLVE             INTERPRET   |\n|   -----------        -----              -----             ---------   |\n|   \"Route the    ->   min c'x       ->   simplex /    ->   shadow      |\n|    fleet\"            s.t. Ax <= b        interior-pt       prices,    |\n|                          x >= 0          branch&bound      sensitivity|\n|                                                                      |\n|   measured in        decision vars,      algorithm with    dual vals, |\n|   $, time, risk      objective fn,       known complexity  what-ifs,  |\n|                      feasible region     & guarantees      robustness |\n+----------------------------------------------------------------------+\n        |                    |                   |              |\n        v                    v                   v              v\n  DETERMINISTIC?      CONTINUOUS or        EXACT or         CERTAIN or\n  or STOCHASTIC?      DISCRETE vars?       APPROXIMATE?     UNCERTAIN data?",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 50,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  STRATUM 1: DETERMINISTIC OPTIMIZATION  (data known exactly)         |\n|    01 Linear Programming      — continuous, linear, convex polytope  |\n|    02 Duality                 — the shadow economy of every LP       |\n|    03 Integer Programming     — discrete vars, NP-hard               |\n|    04 Network Flows           — structured LPs, integral, fast       |\n|    05 Nonlinear / Convex      — smooth objectives, KKT, interior-pt  |\n+----------------------------------------------------------------------+\n                              |\n                              v\n+----------------------------------------------------------------------+\n|  STRATUM 2: PERFORMANCE & RESOURCE ANALYSIS  (systems over time)     |\n|    06 Queuing Theory          — congestion, waiting, throughput      |\n|    07 Scheduling              — sequencing jobs on machines          |\n|    08 Simulation              — when the model resists closed form   |\n+----------------------------------------------------------------------+\n                              |\n                              v\n+----------------------------------------------------------------------+\n|  STRATUM 3: DECISION UNDER UNCERTAINTY  (data is random)            |\n|    09 Stochastic & Dynamic    — DP, Markov decision processes,      |\n|                                 stochastic programming               |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "## Layer 1: The Model Taxonomy",
+      "confidence": "candidate",
+      "text": "                        OPTIMIZATION PROBLEMS\n                        =====================\n                                |\n            +-------------------+-------------------+\n            |                                       |\n       CONTINUOUS vars                         DISCRETE vars\n       (x in R^n)                              (x in Z^n)\n            |                                       |\n     +------+------+                         +------+------+\n     |             |                         |             |\n   LINEAR      NONLINEAR                  INTEGER       COMBINATORIAL\n   obj+constr  obj or constr              LP (ILP)      (TSP, matching)\n     |             |                         |             |\n   \"LP\"        +---+---+                  \"IP / MIP\"    structure\n   poly-time   |       |                  NP-hard       sometimes\n   (Khachiyan  CONVEX  NONCONVEX          in general    poly (flows,\n    1979)      |       |                                 matching)\n               KKT     local optima\n               poly    hard (NP-hard\n               (int-pt  in general)\n                methods)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Layer 2: Why Convexity Is the Dividing Line",
+      "confidence": "candidate",
+      "text": "A set $C \\subseteq \\mathbb{R}^n$ is **convex** if for all $x, y \\in C$ and $\\lambda \\in [0,1]$, $\\lambda x + (1-\\lambda) y \\in C$. A function $f$ is convex if its epigraph is a convex set, equivalently $f(\\lambda x + (1-\\lambda)y) \\le \\lambda f(x) + (1-\\lambda) f(y)$.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "## Layer 3: The Solver Landscape",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  PROBLEM CLASS         PRIMARY ALGORITHMS          GUARANTEE          |\n|  -------------         ------------------          ---------          |\n|  LP                    Simplex (Dantzig 1947)      exact; exp worst,  |\n|                                                    poly in practice   |\n|                        Interior-point (Karmarkar   exact to eps;      |\n|                          1984, after Khachiyan)    polynomial         |\n|                                                                      |\n|  Convex NLP            Interior-point / Newton      poly to eps        |\n|                        First-order (grad, prox)     poly to eps,       |\n|                                                     slow tail          |\n|                                                                      |\n|  ILP / MIP             Branch & bound + cutting     exact; exp worst   |\n|                          planes (branch & cut)      (NP-hard)          |\n|                                                                      |\n|  Network flow          Augmenting path / push-      strongly poly      |\n|                          relabel / network simplex                    |\n|                                                                      |\n|  MDP                    Value/policy iteration, LP   poly in |S|,|A|   |\n|                                                                      |\n|  Resists closed form    Discrete-event simulation    statistical, not  |\n|                          + Monte Carlo               exact             |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "## Layer 5: Deterministic vs. Stochastic — The Other Axis",
+      "confidence": "candidate",
+      "text": "                    IS THE DATA KNOWN?\n                    ==================\n                          |\n          +---------------+----------------+\n          |                                |\n       KNOWN EXACTLY                  RANDOM / UNCERTAIN\n       (deterministic)               (stochastic)\n          |                                |\n   +------+------+               +---------+---------+\n   |             |               |                   |\n  STATIC      DYNAMIC          STATIC              DYNAMIC\n  one shot    over time        one shot            over time\n   |             |               |                   |\n   LP/IP      multi-stage     stochastic          MDP, stochastic\n   (01-05)    DP (det.)       programming          control,\n                              (09): here-and-now   queuing (06),\n                              + recourse            simulation (08)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 260,
+      "heading_context": "## How the Files Connect",
+      "confidence": "candidate",
+      "text": "        01 LINEAR PROGRAMMING  <----geometry, simplex\n              |\n              | every LP has a...\n              v\n        02 DUALITY  <----shadow prices, complementary slackness, KKT seed\n              |\n        +-----+----------------------------+\n        |                                  |\n        v                                  v\n   03 INTEGER PROG                   04 NETWORK FLOWS\n   (LP relaxation = bound)           (LP with integral optima;\n   branch & bound, cuts               max-flow/min-cut = duality;\n        |                             cross-ref graph-algorithms/)\n        |\n        v\n   05 NONLINEAR / CONVEX  <----KKT generalizes LP duality; bridge to ML\n        |\n   = = = = = = = = = = = = = = = = = = = = = = = = = = = =  (uncertainty wall)\n        |\n        v\n   06 QUEUING  --07 SCHEDULING-- 08 SIMULATION\n        |              |              |\n        +--------------+--------------+\n                       |\n                       v\n              09 STOCHASTIC & DYNAMIC (DP / MDP / stochastic programming)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -356,8 +356,6 @@ US v Google (Advertising technology) — verdict Nov 2024
   Theory: monopolization of publisher ad server and ad exchange markets
   Verdict: Google liable for monopolizing publisher ad server (DFP) + ad exchange (AdX)
   Remedy phase: ongoing as of Feb 2026; DOJ seeking divestiture of ad tech stack
-  Verdict: Google liable for monopolizing publisher ad servers + ad exchanges (Nov 2024)
-  Remedy proceedings ongoing as of Feb 2026
 
 FTC v Meta (Facebook/Instagram/WhatsApp) — trial ongoing as of early 2026
   FTC seeking to force divestitures of Instagram + WhatsApp

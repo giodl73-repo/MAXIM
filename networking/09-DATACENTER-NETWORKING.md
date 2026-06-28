@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Datacenter Networking — Clos/Leaf-Spine, Overlays/VXLAN, RDMA, SDN
 
 ## The Big Picture

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\03-INTEGER-PROGRAMMING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|             INTEGER PROGRAMMING: THE WHOLE PICTURE                    |\n|                                                                      |\n|   The LP relaxation gives a CONTINUOUS polytope (easy).             |\n|   The integer points are a LATTICE inside it (hard).               |\n|                                                                      |\n|        x2                                                            |\n|        3 +  . . . . . . . .   . = integer feasible point            |\n|          |  . ___________ .       o = LP optimum (fractional!)      |\n|        2 +  ./           \\. o     * = IP optimum                    |\n|          |  /  LP poly-   \\                                         |\n|        1 +  . *  tope P    .                                        |\n|          |  \\             /                                         |\n|        0 +  . \\_________ /. .                                       |\n|          +--+--+--+--+--+--+---- x1                                  |\n|             0  1  2  3  4  5                                         |\n|                                                                      |\n|   STRATEGY:                                                          |\n|     1. Solve LP relaxation -> bound z_LP >= z_IP (for a max).        |\n|     2. If LP optimum is integer -> done.                            |\n|     3. Else BRANCH (split on a fractional var) or                   |\n|        CUT (add a valid inequality slicing off o, keeping the dots).|\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 58,
+      "heading_context": "## Layer 1: The Model Zoo",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  TYPE                  VARIABLES              EXAMPLE                 |\n|  ----                  ---------              -------                 |\n|  Pure IP (ILP)         all integer            counting / lot sizing  |\n|  Mixed IP (MIP)        some integer,          facility location      |\n|                        some continuous         (open? + how much?)   |\n|  0-1 / Binary IP       x_j in {0,1}           assignment, knapsack,  |\n|                                                set cover, scheduling |\n|  Combinatorial         structure-encoded      TSP, matching, cuts    |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 89,
+      "heading_context": "## Layer 2: NP-Hardness — Stated Precisely",
+      "confidence": "candidate",
+      "text": "   WHY: a Karp reduction from a known NP-complete problem.\n\n   3-SAT  ----encodes as---->  0-1 IP feasibility\n   each clause (a v ~b v c) becomes  x_a + (1 - x_b) + x_c >= 1\n   x_i in {0,1}.  A satisfying assignment <=> a feasible 0-1 point.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 150,
+      "heading_context": "## Layer 4: Branch and Bound",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                       BRANCH AND BOUND (maximize)                    |\n|                                                                      |\n|  incumbent z_best := -inf.  Queue := { root LP relaxation }.        |\n|  while queue not empty:                                              |\n|    pop a node; solve its LP relaxation -> value z_LP, point x_LP.   |\n|                                                                      |\n|    PRUNE BY INFEASIBILITY: LP infeasible -> discard node.           |\n|    PRUNE BY BOUND:        z_LP <= z_best -> discard (can't beat it).|\n|    PRUNE BY INTEGRALITY:  x_LP integer -> candidate; update z_best. |\n|                                                                      |\n|    else BRANCH: pick fractional x_j = f.                            |\n|       child A: add constraint x_j <= floor(f)                       |\n|       child B: add constraint x_j >= ceil(f)                        |\n|       push both children.                                           |\n|  return z_best.                                                     |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## Layer 4: Branch and Bound",
+      "confidence": "candidate",
+      "text": "   BRANCHING TREE (branch on x_j = 2.4):\n\n                    [ root LP: z=18.5, x_j=2.4 ]\n                     /                        \\\n            x_j <= 2                         x_j >= 3\n           /                                        \\\n   [ LP: z=17.1, x_k=1.6 ]                   [ LP: z=16.0, integer! ]\n      /          \\                            -> incumbent z_best = 16\n  x_k<=1       x_k>=2                          (prunes siblings with z_LP<=16)\n   ...           ...",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 246,
+      "heading_context": "### Branch and Cut — the modern synthesis",
+      "confidence": "candidate",
+      "text": "This is why MIP solvers, despite NP-hardness, routinely solve instances with millions of variables: the worst case is exponential, but engineering (cuts + heuristics + presolve + warm starts) tames the typical case — directly analogous to how simplex is exponential worst-case but excellent in practice (file 01).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

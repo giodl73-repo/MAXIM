@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\02-IP-ROUTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                        THE INTERNET = NETWORK OF NETWORKS\n   +----------+        +----------+        +----------+        +----------+\n   |   AS 1   |  BGP   |   AS 2   |  BGP   |   AS 3   |  BGP   |   AS 4   |\n   | (Comcast)|<------>| (transit)|<------>|(Cloudflr)|<------>| (Azure)  |\n   +----------+        +----------+        +----------+        +----------+\n        | OSPF              | OSPF              | OSPF              | OSPF\n        | (interior)        | (interior)        | (interior)        |\n    +---+---+           +---+---+           +---+---+           +---+---+\n    |routers|           |routers|           |routers|           |routers|\n    +-------+           +-------+           +-------+           +-------+\n\n   TWO ROUTING SCOPES:\n     INTRA-AS  (inside one org)   -> IGP: OSPF / IS-IS    \"find best path, I trust me\"\n     INTER-AS  (between orgs)     -> EGP: BGP             \"find path, I trust no one\"\n\n   Each router does ONE primitive over and over:\n     \"Look up the dst IP, find the longest-matching prefix, forward to next hop.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 83,
+      "heading_context": "## IPv4 Addressing",
+      "confidence": "candidate",
+      "text": "### Private and Special Ranges (RFC 1918 + friends)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## CIDR and Subnetting",
+      "confidence": "candidate",
+      "text": "   PREFIX NOTATION:  192.168.1.0/24\n\n   /24 means: first 24 bits are the network -> 8 host bits left.\n              2^8 = 256 total addresses.\n              Usable hosts = 256 - 2 = 254\n              (one address is the NETWORK id, one is the BROADCAST)\n\n   COMMON PREFIX SIZES:\n   +------+------------------+-----------------+------------------+\n   | CIDR | Mask             | Total addresses | Usable hosts     |\n   +------+------------------+-----------------+------------------+\n   | /8   | 255.0.0.0        | 16,777,216      | 16,777,214       |\n   | /16  | 255.255.0.0      | 65,536          | 65,534           |\n   | /24  | 255.255.255.0    | 256             | 254              |\n   | /30  | 255.255.255.252  | 4               | 2 (point-to-pt)  |\n   | /31  | 255.255.255.254  | 2               | 2 (RFC 3021 link)|\n   | /32  | 255.255.255.255  | 1               | 1 (a single host)|\n   +------+------------------+-----------------+------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 146,
+      "heading_context": "## The Routing Table and Longest Prefix Match",
+      "confidence": "candidate",
+      "text": "   ROUTING TABLE (simplified):\n   +--------------------+------------------+-----------+\n   | Destination prefix | Next hop         | Interface |\n   +--------------------+------------------+-----------+\n   | 10.1.5.0/24        | 10.1.5.1 (direct)|   eth1    |\n   | 10.1.0.0/16        | 10.0.0.1         |   eth0    |\n   | 0.0.0.0/0          | 192.0.2.1 (gw)   |   eth0    |  <- default route\n   +--------------------+------------------+-----------+\n\n   Packet to 10.1.5.42:\n     matches 10.1.5.0/24  (24 bits)  <-- WINS, most specific\n     matches 10.1.0.0/16  (16 bits)\n     matches 0.0.0.0/0    (0 bits, the catch-all default)\n\n   LONGEST PREFIX MATCH: the entry with the most bits wins.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 173,
+      "heading_context": "## IGP vs. EGP: Two Routing Worlds",
+      "confidence": "candidate",
+      "text": "   +---------------------------------------------------------------+\n   |                  ONE AUTONOMOUS SYSTEM (AS)                    |\n   |   = one administrative domain, has a unique AS number (ASN)   |\n   |                                                               |\n   |     R1 ---- R2 ---- R3       run an IGP between themselves:   |\n   |      \\      |      /         OSPF or IS-IS                    |\n   |       \\     |     /          goal: SHORTEST PATH, full trust  |\n   |        \\    |    /                                            |\n   |         +---R4---+----[ BGP speaker ]----> to OTHER ASes      |\n   +---------------------------------------------------------------+\n                                  |\n                                  | BGP between ASes:\n                                  | goal: POLICY + economics, ZERO trust\n                                  v\n   +---------------------------------------------------------------+\n   |                  ANOTHER AS (different org)                   |\n   +---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 283,
+      "heading_context": "## IPv6 — The Successor",
+      "confidence": "candidate",
+      "text": "   IPv4 (32 bit):  192.168.1.10\n   IPv6 (128 bit): 2001:db8:85a3::8a2e:370:7334\n\n   +----------------------+------------------+\n   |  routing prefix (network) | interface ID |\n   |       /64 typical         |   /64 host   |\n   +----------------------+------------------+\n\n   KEY DIFFERENCES vs IPv4:\n   - 128-bit address  -> no scarcity, no NAT needed for addressing\n   - NO header checksum -> faster forwarding (rely on L2 FCS + L4)\n   - NO router fragmentation -> only the SOURCE fragments (uses Path MTU Discovery)\n   - ARP replaced by NDP (Neighbor Discovery, ICMPv6, RFC 4861)\n   - SLAAC: hosts can autoconfigure addresses without DHCP (RFC 4862)\n   - Built-in support for IPsec (optional, not mandatory in practice)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 349,
+      "heading_context": "### \"Why does BGP sometimes pick a longer path?\"",
+      "confidence": "candidate",
+      "text": "### \"If IPv6 has unlimited addresses, why still use NAT?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

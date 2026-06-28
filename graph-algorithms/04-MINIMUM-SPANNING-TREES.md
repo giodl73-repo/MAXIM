@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Minimum Spanning Trees — Prim, Kruskal, and Why Greedy Works
 
 A minimum spanning tree (MST) connects all V vertices of a weighted, *undirected*,

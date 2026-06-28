@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\06-TLS-AND-SECURITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 292,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Encrypt + authenticate a TCP connection",
+          "TLS 1.3"
+        ],
+        [
+          "Lowest handshake latency",
+          "TLS 1.3 (1-RTT), 0-RTT on resume (idempotent only)"
+        ],
+        [
+          "Past sessions safe if key later stolen",
+          "forward secrecy → ECDHE (mandatory in 1.3)"
+        ],
+        [
+          "Prove the server's identity",
+          "X.509 cert validated to a trusted root CA"
+        ],
+        [
+          "Prove the *client's* identity too",
+          "mTLS (client certificate)"
+        ],
+        [
+          "Service-to-service auth in a mesh",
+          "mTLS with short-lived certs"
+        ],
+        [
+          "Free, automated certificates",
+          "ACME / Let's Encrypt"
+        ],
+        [
+          "Detect a rogue cert for your domain",
+          "Certificate Transparency logs"
+        ],
+        [
+          "Restrict which CA may issue your cert",
+          "CAA DNS record (05)"
+        ],
+        [
+          "LB needs to route on URL/headers",
+          "terminate TLS at the edge (08)"
+        ],
+        [
+          "Never expose plaintext in the middle",
+          "passthrough or re-encrypt/mTLS"
+        ]
+      ]
+    }
+  ]
+}

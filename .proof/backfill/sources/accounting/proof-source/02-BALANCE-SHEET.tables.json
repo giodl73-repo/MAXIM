@@ -1,0 +1,240 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\02-BALANCE-SHEET.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 73,
+      "heading_context": "## The Three Sections in Order",
+      "headers": [
+        "Asset",
+        "What it is",
+        "Current?",
+        "Measurement basis"
+      ],
+      "rows": [
+        [
+          "Cash & equivalents",
+          "Money + <90-day instruments",
+          "Current",
+          "Face value"
+        ],
+        [
+          "Marketable securities",
+          "Tradable short-term investments",
+          "Current",
+          "Fair value"
+        ],
+        [
+          "Accounts receivable",
+          "Money owed by customers",
+          "Current",
+          "Net of allowance"
+        ],
+        [
+          "Inventory",
+          "Goods to sell (raw/WIP/finished)",
+          "Current",
+          "Lower of cost or market"
+        ],
+        [
+          "Prepaid expenses",
+          "Paid-ahead costs (insurance, rent)",
+          "Current",
+          "Unamortized cost"
+        ],
+        [
+          "PP&E",
+          "Property, plant, equipment",
+          "Non-current",
+          "Cost − accum. depreciation"
+        ],
+        [
+          "Intangibles",
+          "Patents, software, licenses",
+          "Non-current",
+          "Cost − amortization"
+        ],
+        [
+          "Goodwill",
+          "Premium paid in acquisitions",
+          "Non-current",
+          "Cost − impairment (no amort.)"
+        ],
+        [
+          "Long-term investments",
+          "Strategic stakes, held bonds",
+          "Non-current",
+          "Varies"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 92,
+      "heading_context": "## The Three Sections in Order",
+      "headers": [
+        "Liability",
+        "What it is",
+        "Current?"
+      ],
+      "rows": [
+        [
+          "Accounts payable",
+          "Owed to suppliers",
+          "Current"
+        ],
+        [
+          "Accrued expenses",
+          "Incurred, not yet paid (wages, interest)",
+          "Current"
+        ],
+        [
+          "Deferred / unearned revenue",
+          "Cash taken for work not yet done",
+          "Current (usually)"
+        ],
+        [
+          "Current portion of LT debt",
+          "Principal due within 12 months",
+          "Current"
+        ],
+        [
+          "Long-term debt / bonds",
+          "Borrowings due >1 yr",
+          "Non-current"
+        ],
+        [
+          "Deferred tax liability",
+          "Tax timing differences",
+          "Non-current"
+        ],
+        [
+          "Pension / lease obligations",
+          "Long-term promises",
+          "Non-current"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 242,
+      "heading_context": "## GAAP vs IFRS on the Balance Sheet",
+      "headers": [
+        "Item",
+        "US GAAP",
+        "IFRS"
+      ],
+      "rows": [
+        [
+          "PP&E measurement",
+          "Historical cost only",
+          "Cost **or** revaluation model (upward to fair value allowed)"
+        ],
+        [
+          "Inventory costing",
+          "FIFO, LIFO, weighted-avg permitted",
+          "**LIFO prohibited**; FIFO/weighted-avg only"
+        ],
+        [
+          "Development costs",
+          "Expensed (most R&D)",
+          "Capitalized if criteria met (IAS 38)"
+        ],
+        [
+          "Ordering",
+          "Often current-first (most liquid)",
+          "Often non-current-first (IAS 1 permits either)"
+        ],
+        [
+          "Reversal of impairments",
+          "Generally prohibited",
+          "Permitted (except goodwill)"
+        ],
+        [
+          "Terminology",
+          "\"Balance Sheet\"",
+          "\"Statement of Financial Position\""
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 258,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Prior art",
+        "Balance sheet concept"
+      ],
+      "rows": [
+        [
+          "Persistent state / heap snapshot",
+          "The balance sheet itself (state at an instant)"
+        ],
+        [
+          "Per-frame delta applied to state",
+          "Income statement / cash flow move snapshot→snapshot"
+        ],
+        [
+          "Foreign-key claims on a resource",
+          "Liabilities + equity (claims on assets)"
+        ],
+        [
+          "Residual / computed column",
+          "Equity (= assets − liabilities)"
+        ],
+        [
+          "Soft delete / tombstone",
+          "Contra-accounts (accum. deprec., treasury stock)"
+        ],
+        [
+          "Liquidity tiers (hot/warm/cold storage)",
+          "Current vs non-current ordering"
+        ],
+        [
+          "Deferred obligation / outstanding promise",
+          "Deferred revenue (liability until earned)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 272,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to know...",
+        "Look at"
+      ],
+      "rows": [
+        [
+          "Can the firm cover near-term bills?",
+          "Working capital, current ratio"
+        ],
+        [
+          "How much is funded by debt vs owners?",
+          "Total liabilities vs total equity (leverage, file 08)"
+        ],
+        [
+          "How much cumulative profit was kept?",
+          "Retained earnings"
+        ],
+        [
+          "Is there acquisition premium on the books?",
+          "Goodwill (and its impairment risk)"
+        ],
+        [
+          "Did they take customer cash in advance?",
+          "Deferred revenue (an obligation, not income)"
+        ],
+        [
+          "Is reported asset value near market?",
+          "Usually no — historical cost (use `finance/` for valuation)"
+        ],
+        [
+          "Buybacks reducing share count?",
+          "Treasury stock (contra-equity)"
+        ]
+      ]
+    }
+  ]
+}

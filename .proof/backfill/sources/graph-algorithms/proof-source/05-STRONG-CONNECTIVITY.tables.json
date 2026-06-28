@@ -1,0 +1,167 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\05-STRONG-CONNECTIVITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 87,
+      "heading_context": "## Strongly Connected Components (SCCs)",
+      "headers": [
+        "",
+        "Tarjan",
+        "Kosaraju"
+      ],
+      "rows": [
+        [
+          "DFS passes",
+          "**one**",
+          "**two** (graph, then transpose Gᵀ)"
+        ],
+        [
+          "Extra structure",
+          "a stack of \"open\" vertices + low-link",
+          "finish-order stack, then transpose"
+        ],
+        [
+          "Time",
+          "O(V+E)",
+          "O(V+E)"
+        ],
+        [
+          "Needs the transpose Gᵀ?",
+          "no",
+          "yes (reverse all edges)"
+        ],
+        [
+          "Intuition",
+          "low[v]==disc[v] ⇒ v roots an SCC",
+          "2nd DFS in reverse finish order peels SCCs"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 198,
+      "heading_context": "## 2-SAT — Boolean Satisfiability in Linear Time",
+      "headers": [
+        "SAT variant",
+        "Complexity",
+        "Method"
+      ],
+      "rows": [
+        [
+          "2-SAT",
+          "**O(V+E)**",
+          "implication graph + SCC"
+        ],
+        [
+          "Horn-SAT",
+          "linear",
+          "unit propagation"
+        ],
+        [
+          "3-SAT (and general SAT)",
+          "**NP-complete**",
+          "DPLL/CDCL heuristics (`07`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 214,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is a connectivity-decomposition of…"
+      ],
+      "rows": [
+        [
+          "Circular package/module dependencies",
+          "a non-trivial SCC in the dependency digraph"
+        ],
+        [
+          "Valid build order requires no cycles",
+          "topo sort works only on the SCC condensation DAG"
+        ],
+        [
+          "Single point of failure in a network",
+          "an articulation point / bridge"
+        ],
+        [
+          "\"Two independent network paths\" SLA",
+          "biconnectivity / 2-edge-connectivity"
+        ],
+        [
+          "Deadlock detection (wait-for graph)",
+          "a cycle = SCC in the resource wait-for graph"
+        ],
+        [
+          "Constraint config \"A implies B\" feasibility",
+          "2-SAT on the implication graph"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 231,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Use",
+        "Time"
+      ],
+      "rows": [
+        [
+          "Mutually-reachable groups (directed)",
+          "Tarjan or Kosaraju SCC",
+          "O(V+E)"
+        ],
+        [
+          "One-pass SCC, production code",
+          "Tarjan",
+          "O(V+E)"
+        ],
+        [
+          "SCC, easiest to reason about",
+          "Kosaraju (needs transpose)",
+          "O(V+E)"
+        ],
+        [
+          "Reachability skeleton of a digraph",
+          "condensation (SCCs → DAG)",
+          "O(V+E)"
+        ],
+        [
+          "Find single-point-of-failure edges",
+          "bridges (low-link DFS)",
+          "O(V+E)"
+        ],
+        [
+          "Find single-point-of-failure nodes",
+          "articulation points",
+          "O(V+E)"
+        ],
+        [
+          "Verify \"survives any single failure\"",
+          "biconnectivity test",
+          "O(V+E)"
+        ],
+        [
+          "Solve a 2-literal-clause SAT",
+          "2-SAT via implication-graph SCC",
+          "O(V+E)"
+        ],
+        [
+          "Detect a deadlock / circular dependency",
+          "SCC on wait-for / dependency graph",
+          "O(V+E)"
+        ],
+        [
+          "k disjoint paths between two nodes",
+          "max-flow / min-cut (`06`)",
+          "flow time"
+        ]
+      ]
+    }
+  ]
+}

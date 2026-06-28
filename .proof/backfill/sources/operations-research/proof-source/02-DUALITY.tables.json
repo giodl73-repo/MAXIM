@@ -1,0 +1,181 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\02-DUALITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 78,
+      "heading_context": "## Layer 1: Constructing the Dual Mechanically",
+      "headers": [
+        "Primal (max)",
+        "Dual (min)"
+      ],
+      "rows": [
+        [
+          "constraint $\\le b_i$",
+          "variable $y_i \\ge 0$"
+        ],
+        [
+          "constraint $\\ge b_i$",
+          "variable $y_i \\le 0$"
+        ],
+        [
+          "constraint $= b_i$",
+          "variable $y_i$ free"
+        ],
+        [
+          "variable $x_j \\ge 0$",
+          "constraint $(A^\\top y)_j \\ge c_j$"
+        ],
+        [
+          "variable $x_j \\le 0$",
+          "constraint $(A^\\top y)_j \\le c_j$"
+        ],
+        [
+          "variable $x_j$ free",
+          "constraint $(A^\\top y)_j = c_j$"
+        ],
+        [
+          "objective coeff $c_j$",
+          "dual RHS"
+        ],
+        [
+          "RHS $b_i$",
+          "dual objective coeff"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 124,
+      "heading_context": "## Layer 2: Weak Duality",
+      "headers": [
+        "Corollary",
+        "Statement",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Bounding",
+          "Any dual-feasible $y$ gives an upper bound $b^\\top y$ on the primal max",
+          "Certificates in branch & bound (file 03)"
+        ],
+        [
+          "Optimality certificate",
+          "If $c^\\top \\hat x = b^\\top \\hat y$ for feasible $\\hat x, \\hat y$, both are optimal",
+          "Prove optimality without exhaustive search"
+        ],
+        [
+          "Unbounded ⟹ infeasible",
+          "If primal is unbounded, dual is infeasible (and vice versa)",
+          "Diagnose model errors"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 239,
+      "heading_context": "## Layer 5: Shadow Prices and Sensitivity Analysis",
+      "headers": [
+        "Sensitivity question",
+        "Answer source"
+      ],
+      "rows": [
+        [
+          "\"What is one more unit of resource $i$ worth?\"",
+          "Shadow price $y_i^*$"
+        ],
+        [
+          "\"Over what RHS range is $y_i^*$ valid?\"",
+          "RHS ranging — interval where optimal basis $B$ stays feasible"
+        ],
+        [
+          "\"How much can $c_j$ change before the solution shifts?\"",
+          "Objective (cost) ranging — interval keeping reduced costs $\\le 0$"
+        ],
+        [
+          "\"Should I add a new product/column?\"",
+          "Pricing: is its reduced cost $c_j - y^\\top A_j > 0$? (column generation)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 282,
+      "heading_context": "## Old World → Duality Bridges",
+      "headers": [
+        "You already know",
+        "Dual analogue"
+      ],
+      "rows": [
+        [
+          "Internal cost accounting / transfer pricing",
+          "Shadow prices are exactly imputed internal prices of resources"
+        ],
+        [
+          "\"What's the bottleneck?\" in capacity planning",
+          "Constraints with $y_i^* > 0$ are the active bottlenecks"
+        ],
+        [
+          "Marginal cost / marginal value reasoning",
+          "$y_i^* = \\partial z^*/\\partial b_i$ is a marginal value"
+        ],
+        [
+          "Certificate of infeasibility (e.g., UNSAT core)",
+          "Farkas certificate: a $y$ proving no feasible $x$ exists"
+        ],
+        [
+          "Lower/upper bounds in branch & bound",
+          "Dual feasible point = valid bound (file 03)"
+        ],
+        [
+          "Lagrange multipliers from calculus",
+          "Dual variables ARE Lagrange multipliers"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 297,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Get an upper bound on a max LP quickly",
+          "Any dual-feasible $y$: $b^\\top y$ (weak duality)"
+        ],
+        [
+          "Prove a candidate solution is optimal",
+          "Complementary slackness check"
+        ],
+        [
+          "Find the value of relaxing a constraint",
+          "Shadow price $y_i^*$"
+        ],
+        [
+          "Diagnose \"primal infeasible vs. unbounded\"",
+          "Inspect the dual; use Farkas certificate"
+        ],
+        [
+          "Recover the dual solution from simplex",
+          "$y^\\top = c_B^\\top B^{-1}$ at optimal basis"
+        ],
+        [
+          "Know how far I can change RHS / costs",
+          "RHS ranging / objective ranging"
+        ],
+        [
+          "Solve a huge structured LP",
+          "Column generation / Dantzig–Wolfe (pricing via dual)"
+        ],
+        [
+          "Connect to a zero-sum game",
+          "LP strong duality = minimax (`game-theory/`)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\02-INDEXING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "# Indexing — Data Structures That Avoid the Scan",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                              THE INDEX LANDSCAPE                                     |\n+=====================================================================================+\n|                                                                                     |\n|                          What access pattern are you serving?                       |\n|                                                                                     |\n|   EQUALITY +     |   EQUALITY      |   LOW-CARDINALITY  |   FULL-TEXT /              |\n|   RANGE + SORT   |   ONLY          |   ANALYTICS        |   MULTI-VALUE              |\n|        |         |        |        |        |           |        |                  |\n|        v         |        v        |        v           |        v                  |\n|   +----------+   |   +----------+  |   +-----------+    |   +-----------+            |\n|   |  B+TREE  |   |   |  HASH    |  |   |  BITMAP   |    |   | INVERTED  |            |\n|   +----------+   |   +----------+  |   +-----------+    |   +-----------+            |\n|   point + range  |   O(1) point,   |   one bitmap per   |   term -> list of         |\n|   + ORDER BY +    |   NO range,     |   distinct value;  |   doc/row ids;            |\n|   prefix scans   |   NO sort       |   AND/OR by bitwise|   text search, arrays,    |\n|                  |                 |   ops; OLAP/DW     |   JSON, GIN (Postgres)     |\n|   The default.   |   In-memory     |   Oracle/columnar  |                           |\n|   95% of indexes |   engines, hash |   warehouses       |   Lucene/Elasticsearch    |\n|   you create.    |   joins (g.03)  |                    |   are inverted indexes    |\n|   +----------+                                                                       |\n+=====================================================================================+\n        |\n        |  Orthogonal modifiers you layer ON TOP of the above:\n        v\n   COMPOSITE (multi-column, order matters) | COVERING (includes all needed columns)\n   PARTIAL/FILTERED (index only some rows)  | UNIQUE (also a constraint)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## The B+tree Index — the default, and why",
+      "confidence": "candidate",
+      "text": "   CLUSTERED INDEX               NON-CLUSTERED (SECONDARY) INDEX\n   ----------------              -------------------------------\n   leaf = the actual ROW         leaf = index key + a POINTER to the row\n   (the table IS the tree)       pointer is either:\n                                   (a) the primary key  (InnoDB, SQL Server clustered table)\n   InnoDB: always on PK            (b) a physical RID/ctid (SQL Server heap, Postgres)\n   SQL Server: optional, one\n   per table                     => secondary lookup may need a SECOND descent (\"bookmark\n   Postgres: no clustered          lookup\" / \"key lookup\") to fetch non-indexed columns.\n   index concept; tables are\n   heaps, all indexes secondary",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Composite Indexes — order is everything",
+      "confidence": "candidate",
+      "text": "   INDEX ON (last_name, first_name, city)\n\n   sorted as:  Adams, Ada,   Boston\n               Adams, Ben,   Reno\n               Adams, Ben,   Tulsa\n               Brown, Cleo,  Miami\n               ...\n\n   LEFTMOST-PREFIX RULE — the index can SEEK on a prefix of the key columns:\n\n   WHERE last_name = 'Adams'                              -> SEEK (uses col1)\n   WHERE last_name = 'Adams' AND first_name = 'Ben'       -> SEEK (uses col1,col2)\n   WHERE last_name = 'Adams' AND first_name='Ben'\n         AND city = 'Tulsa'                               -> SEEK (full key)\n   WHERE first_name = 'Ben'                               -> NO SEEK (col1 missing) -> scan\n   WHERE last_name = 'Adams' AND city = 'Tulsa'           -> SEEK on col1, then FILTER city\n                                                              (col2 gap breaks the seek on city)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## Covering Indexes — answer the query from the index alone",
+      "confidence": "candidate",
+      "text": "   QUERY:  SELECT order_id, total FROM orders WHERE customer_id = 42;\n\n   Plain index on (customer_id):\n       seek customer_id=42  ->  for each match, KEY LOOKUP into table for order_id,total\n                                (random I/O per row)\n\n   Covering index on (customer_id) INCLUDE (order_id, total):\n       seek customer_id=42  ->  order_id,total are AT THE LEAF  ->  DONE. No table access.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Hash Indexes — O(1) equality, no range",
+      "confidence": "candidate",
+      "text": "   WHERE k = 42        ->  O(1)  great\n   WHERE k > 42        ->  USELESS (hash has no order)  -> falls back to scan\n   ORDER BY k          ->  USELESS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## Bitmap Indexes — low cardinality, analytic AND/OR",
+      "confidence": "candidate",
+      "text": "   COLUMN region (4 distinct values), 8 rows:\n\n   row:        r1 r2 r3 r4 r5 r6 r7 r8\n   region=NA:   1  0  0  1  0  0  1  0\n   region=EU:   0  1  0  0  1  0  0  0\n   region=APAC: 0  0  1  0  0  1  0  1\n   region=LATAM:0  0  0  0  0  0  0  0   ... etc\n\n   QUERY: WHERE region='NA' OR region='EU'\n        =>  NA_bitmap OR EU_bitmap  =  1 1 0 1 1 0 1 0   (one bitwise OR, blazing fast)\n\n   QUERY: WHERE region='NA' AND status='paid'\n        =>  NA_bitmap AND paid_bitmap   (bitwise AND across two bitmap indexes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Inverted Indexes — full-text and multi-value",
+      "confidence": "candidate",
+      "text": "   DOCUMENTS:                    INVERTED INDEX (term -> postings):\n   doc1: \"the quick fox\"           the   -> [1, 2]\n   doc2: \"the lazy dog\"            quick -> [1]\n   doc3: \"quick brown fox\"         fox   -> [1, 3]\n                                   lazy  -> [2]\n                                   dog   -> [2]\n                                   brown -> [3]\n\n   QUERY: \"quick fox\"\n       postings(quick)=[1,3]  INTERSECT  postings(fox)=[1,3]  =>  [1,3]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 254,
+      "heading_context": "## Index Selection — the engine's decision and yours",
+      "confidence": "candidate",
+      "text": "                       +-----------------------------------+\n                       |  Query has WHERE / JOIN / ORDER BY |\n                       +-----------------------------------+\n                                       |\n              equality only? --YES--> hash (if in-mem) or B+tree\n                   | NO\n              range or sort? --YES--> B+tree, range/sort column LAST in a composite\n                   | NO\n              low-cardinality analytic AND/OR? --YES--> bitmap (DW only)\n                   | NO\n              text / array / json membership? --YES--> inverted / GIN\n                   |\n              does the query read few extra columns? --YES--> add them as INCLUDE (covering)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

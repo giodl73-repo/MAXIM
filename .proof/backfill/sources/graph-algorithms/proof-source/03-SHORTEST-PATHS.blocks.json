@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\03-SHORTEST-PATHS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Shortest Paths — Preconditions Are Everything",
+      "confidence": "candidate",
+      "text": "  PICK A SHORTEST-PATH ALGORITHM BY ITS PRECONDITION\n  ==================================================\n\n                        +------------------------------+\n                        | Do you need ALL pairs?        |\n                        +------------------------------+\n                         | yes                  | no (single source)\n                         v                      v\n              +---------------------+   +-------------------------------+\n              | Floyd-Warshall      |   | Are any edge weights NEGATIVE?|\n              | O(V^3), any weights |   +-------------------------------+\n              | no neg cycle (detects|    | no                    | yes\n              | them on diagonal)   |    v                       v\n              +---------------------+  +----------------+  +----------------------+\n                                       | Is graph a DAG?|  | Bellman-Ford         |\n                                       +----------------+  | O(V*E), detects a    |\n                                        | yes      | no    | NEGATIVE CYCLE        |\n                                        v          v       +----------------------+\n                              +----------------+ +-------------------------+\n                              | DAG relaxation | | DIJKSTRA                |\n                              | O(V+E),        | | O((V+E) log V) heap     |\n                              | topo order     | | REQUIRES weights >= 0   |\n                              +----------------+ +-------------------------+\n                                                       |  have a goal + heuristic?\n                                                       v\n                                                  +------------------+\n                                                  | A* : Dijkstra +  |\n                                                  | admissible h(v)  |\n                                                  +------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "## Dijkstra — REQUIRES Non-Negative Weights",
+      "confidence": "candidate",
+      "text": "  Why a negative edge BREAKS Dijkstra:\n\n      A --1--> B\n      |        ^\n      4        |\n      |       -3      (edge B<-C... actually C->B with weight -3)\n      v        |\n      C -------+\n\n   From A: pop A(0). Relax A->B=1, A->C=4. Heap: B(1), C(4).\n   Pop B(1) and FINALIZE it as dist 1.\n   Later, C->B = 4 + (-3) = 1... ties here, but make C->B = -3 from C(4):\n   the true A->C->B = 4 + (-3) = 1, but had it been A->C->B = 4 + (-10),\n   B's true distance is -6 -- yet B was FINALIZED at 1 and never revisited.\n   => WRONG ANSWER. Use Bellman-Ford when negatives are possible.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Dijkstra — REQUIRES Non-Negative Weights",
+      "confidence": "candidate",
+      "text": "  Graph:                    Dijkstra from A:\n     A --1--> B --2--> D     pop  finalize  relax\n     |        |        ^     A    A=0       B=1, C=4\n     4        3        |     B    B=1       C=min(4,1+3)=4, D=1+2=3\n     v        |        |     D    D=3       (nothing improves)\n     C <------+        |     C    C=4       (D already 3)\n       (C unused here) |     => dist: A=0 B=1 D=3 C=4   path A->B->D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "## Bellman-Ford — Negative Edges and Negative-Cycle Detection",
+      "confidence": "candidate",
+      "text": "  Bellman-Ford(source):\n    repeat V-1 times:\n        for each edge (u,v,w):  RELAX(u,v)\n    # detection round:\n    for each edge (u,v,w):\n        if dist[u] + w < dist[v]:   ==> a NEGATIVE CYCLE is reachable\n\n  Why V-1 rounds: a simple shortest path has at most V-1 edges. Round i\n  guarantees all shortest paths using <= i edges are correct. After V-1\n  rounds, all are correct -- UNLESS a negative cycle lets paths keep improving\n  forever, which is exactly what the V-th round detects.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 158,
+      "heading_context": "# detection round:",
+      "confidence": "candidate",
+      "text": "  Negative EDGE is fine:            Negative CYCLE makes \"shortest\" undefined:\n\n     A --4--> B                        A --1--> B\n     |       /                         ^        |\n     2     -3   <- neg edge, OK         -4      1\n     |    /                            |        v\n     v   v                             D <--1-- C\n     C                                 cycle A->B->C->D->A = 1+1+1-4 = -1 < 0\n   dist computed fine; no cycle.       => loop forever to get -inf\n                                          Bellman-Ford's V-th round flags it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 190,
+      "heading_context": "## DAG Shortest Paths — Beat Dijkstra When Acyclic",
+      "confidence": "candidate",
+      "text": "  DAG, topo order [A,B,C,D]:        Relax in topo order:\n                                    A: dist 0; relax A->B(2), A->C(6)\n    A --2--> B --3--> D             B: dist 2; relax B->D = 2+3 = 5\n    |        |                      C: dist 6; relax C->D = 6+? (if worse, ignore)\n    6        v                      D: dist 5\n    +------> C                      => O(V+E), negatives OK, no heap needed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## A\\* — Dijkstra With a Goal and a Heuristic",
+      "confidence": "candidate",
+      "text": "  Dijkstra frontier key:  g(v)           = cost so far\n  A* frontier key:        f(v) = g(v) + h(v)   (h = estimate to goal)\n\n         start ......... explores in a circle (Dijkstra)\n           \\\n            \\......      A* explores an ellipse stretched toward the goal\n                 goal\n\n  PRECONDITIONS on h:\n    ADMISSIBLE   : h(v) <= true distance to goal   => A* finds OPTIMAL path\n    CONSISTENT   : h(u) <= w(u,v) + h(v)  (triangle)=> no vertex re-expanded\n                   (consistent => admissible; the stronger, usual requirement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

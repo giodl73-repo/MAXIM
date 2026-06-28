@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Anatomy of a Database Engine — The Landscape
 
 A database is not one thing. It is a **stack of cooperating subsystems**, each solving a

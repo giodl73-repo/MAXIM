@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\05-DNS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                       THE DNS HIERARCHY (a delegated tree)\n                                  . (root)\n                                  |  managed by 13 root server \"letters\"\n                                  |  (a..m), each an ANYCAST cluster\n            +---------------------+---------------------+\n            |                     |                     |\n          .com (TLD)            .org                  .uk\n          managed by            managed by            managed by\n          a registry            a registry            a registry\n            |\n        example.com (authoritative zone)\n          managed by example's own/hosted nameservers\n            |\n        +---+---------+-----------+\n        |             |           |\n      www.          api.         mail.    <- records live in the zone\n\n   DELEGATION: each level only knows WHO to ask next, not the final answer.\n   \"Ask the root who runs .com; ask .com who runs example.com; ask THEM.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## The Resolution Walk",
+      "confidence": "candidate",
+      "text": "   You: browser wants example.com\n\n   1) STUB RESOLVER (your OS) --recursive--> RECURSIVE RESOLVER\n        \"give me the A record for example.com\" (e.g. your ISP's, or 8.8.8.8)\n                                   |\n   2) RESOLVER --iterative--> ROOT server\n        \"who handles .com?\"  <-- \"ask the .com TLD servers at X\"\n                                   |\n   3) RESOLVER --iterative--> .com TLD server\n        \"who handles example.com?\"  <-- \"ask ns1.example.com at Y\"\n                                   |\n   4) RESOLVER --iterative--> AUTHORITATIVE server (ns1.example.com)\n        \"A record for example.com?\"  <-- \"93.184.216.34, TTL 3600\"\n                                   |\n   5) RESOLVER caches it (for TTL seconds) and returns it to your stub.\n\n   The next user asking within TTL gets it straight from the cache (step 1 only).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## The Resolution Walk",
+      "confidence": "candidate",
+      "text": "   RECURSIVE                          ITERATIVE\n   =========                          =========\n   \"do all the work, give me          \"just tell me the next\n    the final answer\"                  server to ask\"\n   stub -> resolver                    resolver -> root/TLD/auth\n   one question, one final answer      many questions, referrals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Caching and TTL",
+      "confidence": "candidate",
+      "text": "   THE TTL TRADE-OFF:\n\n   LOW TTL (e.g. 60s)              HIGH TTL (e.g. 86400s / 1 day)\n   ================               ==============================\n   + changes propagate fast        + far fewer queries, less load\n   + good before a migration       + survives an authoritative outage\n   - heavy query load               - changes take up to a day to spread\n   - more exposed to auth outage    - stale during/after a failover\n\n   CACHE LAYERS (each honors TTL):\n     browser cache -> OS stub cache -> recursive resolver cache -> auth\n        (closest)                                          (source of truth)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Anycast: One Address, Many Servers",
+      "confidence": "candidate",
+      "text": "   ANYCAST: the address 198.51.100.1 is announced from THREE sites via BGP.\n\n         CLIENT in Tokyo ---routes to---> TOKYO instance of 198.51.100.1\n         CLIENT in Berlin --routes to---> FRANKFURT instance\n         CLIENT in Texas --routes to----> DALLAS instance\n\n   Same IP. BGP picks the closest origin per the routing table. If one site\n   dies, BGP withdraws its announcement and clients reroute to the next\n   nearest -> automatic failover + load spreading, no DNS change needed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 209,
+      "heading_context": "## Encrypted DNS: DoT and DoH",
+      "confidence": "candidate",
+      "text": "   PLAINTEXT DNS (UDP/53)\n     query \"example.com\" visible to your ISP, Wi-Fi operator, anyone on path.\n\n   DoT — DNS over TLS (RFC 7858)\n     +-------------------------------+\n     | DNS query wrapped in TLS      |   dedicated port 853 (TCP)\n     +-------------------------------+   network operators CAN see it's DNS\n     | TLS                           |   (distinct port) but not the content\n     +-------------------------------+\n\n   DoH — DNS over HTTPS (RFC 8484)\n     +-------------------------------+\n     | DNS query as an HTTPS request |   port 443, looks like normal web\n     +-------------------------------+   traffic -> harder to block or even\n     | HTTPS / TLS                   |   distinguish from other HTTPS\n     +-------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

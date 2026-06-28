@@ -1,0 +1,159 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\01-STORAGE-ENGINES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 171,
+      "heading_context": "## Layer 3a: In-Place Storage — Heap and B-tree Files",
+      "headers": [
+        "Property",
+        "Value",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Height",
+          "O(log_b n), b = keys per page (large, ~hundreds)",
+          "A billion rows is ~3–4 levels deep"
+        ],
+        [
+          "Point lookup",
+          "O(log_b n) page reads",
+          "3–4 page touches, often all cached but the leaf"
+        ],
+        [
+          "Range scan",
+          "O(log_b n) to find start + sequential leaf walk",
+          "Leaves are linked → sequential I/O"
+        ],
+        [
+          "Insert/Delete",
+          "O(log_b n), with page **splits/merges**",
+          "Splits cause write amplification + fragmentation"
+        ],
+        [
+          "Fill factor",
+          "Pages kept partly empty (e.g. 70%)",
+          "Leaves room for in-place inserts; trades space"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 259,
+      "heading_context": "## The Amplification Triangle — the universal trade-off",
+      "headers": [
+        "Amplification",
+        "Definition",
+        "B+tree (in-place)",
+        "LSM-tree"
+      ],
+      "rows": [
+        [
+          "**Write**",
+          "physical bytes written ÷ logical bytes written",
+          "Moderate (page splits, full-page writes, WAL)",
+          "Low at ingest, but **compaction** rewrites data many times over its life"
+        ],
+        [
+          "**Read**",
+          "pages touched ÷ pages of answer",
+          "Low — one root-to-leaf descent",
+          "Higher — check memtable + multiple levels (Bloom filters mitigate)"
+        ],
+        [
+          "**Space**",
+          "disk used ÷ live data",
+          "Moderate — fill-factor slack, fragmentation",
+          "Tunable — tombstones + stale versions until compaction; leveled vs tiered changes this"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 274,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Storage-engine concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "OS page cache / mmap",
+          "The **buffer pool**, but DB-managed with knowledge of access patterns",
+          "SQL Server buffer pool"
+        ],
+        [
+          "A table with no index = full scan",
+          "**Heap file** sequential scan",
+          "SQL Server heap (no clustered index)"
+        ],
+        [
+          "The PK *is* the storage order",
+          "**Index-organized / clustered** table",
+          "Clustered index = the table; InnoDB always"
+        ],
+        [
+          "Log-append then compact (like a GC'd allocator)",
+          "**LSM-tree** memtable → SSTable → compaction",
+          "Azure Cosmos/Cassandra-API uses LSM under the hood"
+        ],
+        [
+          "Defragmenting a disk",
+          "**B-tree fragmentation** from splits; index rebuild/REORGANIZE",
+          "`ALTER INDEX REBUILD`"
+        ],
+        [
+          "A `.ldf` you fsync",
+          "**WAL** that gates dirty-page flush (guide 06)",
+          "Transaction log flush before COMMIT ack"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 287,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Pick / expect"
+      ],
+      "rows": [
+        [
+          "Read-heavy OLTP, point + range lookups on indexed keys",
+          "**B+tree** in-place engine (Postgres, InnoDB, SQL Server)"
+        ],
+        [
+          "Write-heavy ingest, time-series, log/event data, SSD",
+          "**LSM-tree** (RocksDB-backed, Cassandra)"
+        ],
+        [
+          "You need cheap, predictable point reads above all",
+          "B+tree — single descent, no Bloom-filter misses"
+        ],
+        [
+          "You need maximum sustained write throughput",
+          "LSM with size-tiered compaction (accept space + read amp)"
+        ],
+        [
+          "Disk space is the binding constraint",
+          "LSM **leveled** compaction (low space amp) or compress B-tree pages"
+        ],
+        [
+          "\"Why did my delete not free space?\"",
+          "LSM tombstones — space reclaimed only at compaction"
+        ],
+        [
+          "\"Why is COMMIT slower than the write?\"",
+          "WAL flush gating COMMIT (guide 06), not the page write"
+        ],
+        [
+          "Range scans dominate",
+          "B+tree — linked leaves give sequential I/O"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\01-DOUBLE-ENTRY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 119,
+      "heading_context": "## Debits and Credits: Drop Your Intuition",
+      "headers": [
+        "Account type",
+        "Normal balance",
+        "Debit does",
+        "Credit does",
+        "Lives on statement"
+      ],
+      "rows": [
+        [
+          "**Asset**",
+          "Debit",
+          "Increase",
+          "Decrease",
+          "Balance sheet"
+        ],
+        [
+          "**Liability**",
+          "Credit",
+          "Decrease",
+          "Increase",
+          "Balance sheet"
+        ],
+        [
+          "**Equity** (contributed, retained)",
+          "Credit",
+          "Decrease",
+          "Increase",
+          "Balance sheet"
+        ],
+        [
+          "**Revenue**",
+          "Credit",
+          "Decrease",
+          "Increase",
+          "Income statement"
+        ],
+        [
+          "**Expense**",
+          "Debit",
+          "Increase",
+          "Decrease",
+          "Income statement"
+        ],
+        [
+          "**Dividends / Draws**",
+          "Debit",
+          "Increase",
+          "Decrease",
+          "Equity (contra)"
+        ],
+        [
+          "**Contra-asset** (accum. deprec., allowance)",
+          "Credit",
+          "Decrease",
+          "Increase",
+          "Balance sheet (subtracts)"
+        ],
+        [
+          "**Contra-revenue** (returns, discounts)",
+          "Debit",
+          "Increase",
+          "Decrease",
+          "Income statement (subtracts)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 256,
+      "heading_context": "## The Trial Balance: The Consistency Check",
+      "headers": [
+        "Caught",
+        "Not caught"
+      ],
+      "rows": [
+        [
+          "One-sided entry (only DR or only CR)",
+          "Entry posted to the wrong account (both sides)"
+        ],
+        [
+          "Unequal DR/CR amounts",
+          "Entry omitted entirely (both sides missing)"
+        ],
+        [
+          "Transposition that breaks balance",
+          "Compensating errors that happen to cancel"
+        ],
+        [
+          "Math/summation slips",
+          "A correct-looking but economically wrong entry"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 309,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Prior art",
+        "Double-entry concept"
+      ],
+      "rows": [
+        [
+          "ACID transaction, all-or-nothing",
+          "Atomic journal entry (post all lines or none)"
+        ],
+        [
+          "Invariant / CHECK constraint",
+          "`Assets = Liabilities + Equity`, DR total = CR total"
+        ],
+        [
+          "Write-ahead log",
+          "Journal (chronological, append-only)"
+        ],
+        [
+          "Materialized per-key views",
+          "Ledger / T-accounts (re-indexed by account)"
+        ],
+        [
+          "Replaying the log to validate state",
+          "Trial balance"
+        ],
+        [
+          "Event sourcing, no in-place mutation",
+          "No-erasure rule; reversing entries"
+        ],
+        [
+          "Parity bit / checksum",
+          "The two-sided balance requirement"
+        ],
+        [
+          "Garbage collection at epoch boundary",
+          "Closing entries (zero temporaries)"
+        ],
+        [
+          "Permanent state vs per-frame delta",
+          "Balance sheet (permanent) vs income statement (temporary)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 325,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Entry pattern"
+      ],
+      "rows": [
+        [
+          "Buy an asset for cash",
+          "DR Asset / CR Cash"
+        ],
+        [
+          "Buy an asset on credit",
+          "DR Asset / CR Accounts Payable"
+        ],
+        [
+          "Make a sale for cash",
+          "DR Cash / CR Revenue"
+        ],
+        [
+          "Make a sale on credit",
+          "DR Accounts Receivable / CR Revenue"
+        ],
+        [
+          "Collect a receivable",
+          "DR Cash / CR Accounts Receivable"
+        ],
+        [
+          "Pay an expense",
+          "DR Expense / CR Cash"
+        ],
+        [
+          "Borrow money",
+          "DR Cash / CR Notes Payable"
+        ],
+        [
+          "Repay principal",
+          "DR Notes Payable / CR Cash"
+        ],
+        [
+          "Owner invests",
+          "DR Cash / CR Common Stock"
+        ],
+        [
+          "Pay a dividend",
+          "DR Dividends / CR Cash"
+        ],
+        [
+          "Record depreciation",
+          "DR Depreciation Exp / CR Accumulated Deprec."
+        ],
+        [
+          "Fix a posted error",
+          "Reverse the bad entry, then post the correct one"
+        ]
+      ]
+    }
+  ]
+}

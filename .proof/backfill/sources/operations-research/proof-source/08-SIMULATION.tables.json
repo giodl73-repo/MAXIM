@@ -1,0 +1,181 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\08-SIMULATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 84,
+      "heading_context": "## Layer 1: Monte Carlo — Estimating Expectations by Sampling",
+      "headers": [
+        "Monte Carlo use",
+        "Example"
+      ],
+      "rows": [
+        [
+          "High-dim integration",
+          "Option pricing (path integrals), Bayesian posteriors"
+        ],
+        [
+          "Rare-event probability",
+          "Reliability, $P(\\text{failure})$ — needs importance sampling"
+        ],
+        [
+          "Optimization under uncertainty",
+          "Sample-average approximation (file 09)"
+        ],
+        [
+          "Propagating input uncertainty",
+          "\"Flaw of averages\": $\\mathbb{E}[g(X)] \\ne g(\\mathbb{E}[X])$"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 110,
+      "heading_context": "## Layer 2: Random Number Generation",
+      "headers": [
+        "Property a PRNG must have",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Long period",
+          "Don't repeat within the run"
+        ],
+        [
+          "Uniformity + independence",
+          "Pass DIEHARD/TestU01 statistical tests"
+        ],
+        [
+          "Reproducibility (seed)",
+          "**Debugging and variance reduction (CRN)**"
+        ],
+        [
+          "Fast",
+          "Billions of draws"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 249,
+      "heading_context": "## Layer 5: When to Simulate vs. Solve",
+      "headers": [
+        "Prefer SOLVE when",
+        "Prefer SIMULATE when"
+      ],
+      "rows": [
+        [
+          "Closed form exists (M/M/c, LP, DP)",
+          "No closed form; complex logic"
+        ],
+        [
+          "Need shadow prices / sensitivities (file 02)",
+          "Need only output distributions"
+        ],
+        [
+          "Need provable optimality",
+          "\"What if\" exploration, design comparison"
+        ],
+        [
+          "Markovian, memoryless dynamics",
+          "Non-Markovian, history-dependent"
+        ],
+        [
+          "Speed and exactness matter",
+          "Realism/detail matters more than exactness"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 265,
+      "heading_context": "## Old World → Simulation Bridges",
+      "headers": [
+        "You already know",
+        "Simulation analogue"
+      ],
+      "rows": [
+        [
+          "A/B test with confidence intervals",
+          "Each replication is a trial; report CIs, not points"
+        ],
+        [
+          "Load test / chaos experiment",
+          "DES of the system under synthetic load"
+        ],
+        [
+          "Event loop / message queue",
+          "The future event list IS an event loop driven by a priority queue"
+        ],
+        [
+          "Reproducible test seed",
+          "Fixed PRNG seed → reproducible runs + common random numbers"
+        ],
+        [
+          "\"Works on average\" fallacy",
+          "Flaw of averages: $\\mathbb{E}[g(X)] \\ne g(\\mathbb{E}[X])$"
+        ],
+        [
+          "Capacity model for a complex pipeline",
+          "DES when the queuing formula (file 06) doesn't apply"
+        ],
+        [
+          "Profiling: more samples = tighter estimate",
+          "$O(1/\\sqrt n)$ — 100x samples for 10x precision"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 281,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "High-dimensional integral / expectation",
+          "Monte Carlo"
+        ],
+        [
+          "Closed-form queue/LP/Markov model exists",
+          "Solve it — don't simulate"
+        ],
+        [
+          "Complex event-driven system, no formula",
+          "Discrete-event simulation"
+        ],
+        [
+          "Need to generate a custom distribution",
+          "Inverse-CDF or accept-reject"
+        ],
+        [
+          "Rare-event probability (reliability, tail risk)",
+          "Importance sampling"
+        ],
+        [
+          "Comparing two designs",
+          "Common random numbers"
+        ],
+        [
+          "Monotone integrand, want free variance cut",
+          "Antithetic variates"
+        ],
+        [
+          "Have a correlated known-mean quantity",
+          "Control variates"
+        ],
+        [
+          "Steady-state metric from one long run",
+          "Discard warm-up; batch means or replications"
+        ],
+        [
+          "Uncertainty propagation (nonlinear system)",
+          "Monte Carlo (avoid the flaw of averages)"
+        ]
+      ]
+    }
+  ]
+}

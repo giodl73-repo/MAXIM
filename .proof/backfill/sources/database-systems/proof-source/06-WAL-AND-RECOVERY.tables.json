@@ -1,0 +1,96 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\06-WAL-AND-RECOVERY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 211,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "WAL / recovery concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "`fsync()` before acknowledging a write",
+          "The **commit rule** — log durable before COMMIT ack",
+          "`WRITELOG` waits; log flush"
+        ],
+        [
+          "A `.ldf` transaction log you back up",
+          "The **WAL** itself",
+          "Transaction log; log backups"
+        ],
+        [
+          "Append-only journal then apply (like a journaling FS)",
+          "Write-ahead log → lazy page flush",
+          "Same protocol"
+        ],
+        [
+          "A redo log + undo log",
+          "ARIES **redo** (AFTER image) + **undo** (BEFORE image)",
+          "Recovery on startup / restore"
+        ],
+        [
+          "Tuning how often dirty buffers flush",
+          "**Checkpoint** frequency knob",
+          "`RECOVERY INTERVAL`, indirect checkpoints"
+        ],
+        [
+          "Point-in-time restore from log",
+          "Replay WAL/log to a target LSN/time",
+          "Log shipping; PITR"
+        ],
+        [
+          "Batching fsyncs for throughput",
+          "**Group commit**",
+          "Delayed durability (an explicit SQL Server option)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 225,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation / question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "\"Will COMMIT survive a power cut?\"",
+          "Yes — commit record is fsync'd before ack (commit rule)"
+        ],
+        [
+          "\"Why is COMMIT slower than the UPDATE?\"",
+          "COMMIT waits on the **log fsync**, not the page write"
+        ],
+        [
+          "Crash recovery taking too long on restart",
+          "Checkpoint more often / lower recovery interval (shorter redo)"
+        ],
+        [
+          "Steady-state write I/O too high",
+          "Checkpoint less often / raise `max_wal_size` (more redo on crash)"
+        ],
+        [
+          "Need point-in-time restore",
+          "Keep WAL/log + base backup; replay to target LSN/time"
+        ],
+        [
+          "Need replication off the same machinery",
+          "Ship physical WAL (streaming) or decode logical (g.07)"
+        ],
+        [
+          "High commit throughput needed",
+          "**Group commit** / delayed durability (accept tiny loss window)"
+        ],
+        [
+          "\"Can I lose committed data?\"",
+          "Only if you disable durable commit (delayed durability) and crash"
+        ]
+      ]
+    }
+  ]
+}

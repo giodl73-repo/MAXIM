@@ -1,0 +1,262 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 111,
+      "heading_context": "## The One Table That Orients Everything",
+      "headers": [
+        "Problem",
+        "Best general algorithm",
+        "Time",
+        "Precondition / caveat"
+      ],
+      "rows": [
+        [
+          "Traverse / reach",
+          "BFS or DFS",
+          "O(V+E)",
+          "adjacency list; O(V^2) on matrix"
+        ],
+        [
+          "Single-source shortest path",
+          "Dijkstra (binary heap)",
+          "O((V+E) log V)",
+          "**weights ≥ 0**"
+        ],
+        [
+          "SSSP, negative edges",
+          "Bellman-Ford",
+          "O(V·E)",
+          "handles neg edges; **detects neg cycle**"
+        ],
+        [
+          "SSSP on a DAG",
+          "DAG relaxation",
+          "O(V+E)",
+          "acyclic only; weights any sign"
+        ],
+        [
+          "All-pairs shortest path",
+          "Floyd-Warshall",
+          "O(V^3)",
+          "any weights, **no neg cycle**; detects them"
+        ],
+        [
+          "Minimum spanning tree",
+          "Prim (heap) / Kruskal",
+          "O(E log V)",
+          "undirected, connected; both give MST"
+        ],
+        [
+          "Strongly connected comps",
+          "Tarjan / Kosaraju",
+          "O(V+E)",
+          "directed graph"
+        ],
+        [
+          "Bridges / articulation",
+          "Tarjan low-link DFS",
+          "O(V+E)",
+          "undirected"
+        ],
+        [
+          "Topological order",
+          "Kahn / DFS",
+          "O(V+E)",
+          "DAG only (cycle ⇒ no order)"
+        ],
+        [
+          "Max-flow",
+          "Dinic",
+          "O(V^2 · E)",
+          "integer/rational capacities"
+        ],
+        [
+          "Max bipartite matching",
+          "Hopcroft-Karp",
+          "O(E·√V)",
+          "bipartite"
+        ],
+        [
+          "Min vertex cover (general)",
+          "—",
+          "NP-hard",
+          "2-approx in poly time; exact FPT in k"
+        ],
+        [
+          "TSP (metric)",
+          "Christofides",
+          "poly, 1.5-approx",
+          "triangle inequality required"
+        ],
+        [
+          "Graph 3-coloring",
+          "—",
+          "NP-complete",
+          "2-coloring (bipartite) is O(V+E)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 140,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know it as…",
+        "It is really…",
+        "Covered in"
+      ],
+      "rows": [
+        [
+          "OSPF / link-state routing",
+          "Dijkstra on the topology graph",
+          "`03`"
+        ],
+        [
+          "BGP path-vector / RIP",
+          "distributed Bellman-Ford",
+          "`03`"
+        ],
+        [
+          "`make` / MSBuild / Bazel dependency order",
+          "topological sort of a DAG",
+          "`02`"
+        ],
+        [
+          "NuGet / npm version resolution",
+          "DAG + SAT/backtracking on conflicts",
+          "`02`, `07`"
+        ],
+        [
+          "`git` commit ancestry, rebase",
+          "DAG traversal, LCA",
+          "`02`"
+        ],
+        [
+          "Spanning-tree protocol (STP, 802.1D)",
+          "a spanning tree (not minimum) of the LAN",
+          "`04`"
+        ],
+        [
+          "Network capacity planning",
+          "max-flow / min-cut",
+          "`06`"
+        ],
+        [
+          "Scheduler with mutually-exclusive jobs",
+          "graph coloring / independent set",
+          "`07`"
+        ],
+        [
+          "PageRank / \"importance\" ranking",
+          "stationary distribution of a random walk",
+          "`08`"
+        ],
+        [
+          "VLSI / PCB layout, no crossings",
+          "planar embedding",
+          "`09`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 192,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to…",
+        "Reach for",
+        "Why / precondition"
+      ],
+      "rows": [
+        [
+          "Find *any* path / check reachability",
+          "BFS or DFS (`02`)",
+          "O(V+E); BFS gives fewest-edges path"
+        ],
+        [
+          "Shortest path, all weights ≥ 0",
+          "Dijkstra (`03`)",
+          "heap version O((V+E) log V)"
+        ],
+        [
+          "Shortest path, some negative edges",
+          "Bellman-Ford (`03`)",
+          "O(V·E); also detects neg cycles"
+        ],
+        [
+          "Shortest path on a DAG",
+          "topo-order relaxation (`03`)",
+          "O(V+E), beats Dijkstra"
+        ],
+        [
+          "All-pairs distances, dense graph",
+          "Floyd-Warshall (`03`)",
+          "O(V^3), trivial to code"
+        ],
+        [
+          "Cheapest connecting network",
+          "Prim or Kruskal (`04`)",
+          "both are MST; Kruskal needs union-find"
+        ],
+        [
+          "Build / dependency order",
+          "topological sort (`02`)",
+          "cycle ⇒ impossible build"
+        ],
+        [
+          "Find tightly-coupled clusters (directed)",
+          "Tarjan SCC (`05`)",
+          "single-pass O(V+E)"
+        ],
+        [
+          "Find single points of failure",
+          "bridges / articulation (`05`)",
+          "low-link DFS"
+        ],
+        [
+          "Assign jobs↔workers 1:1",
+          "bipartite matching (`06`)",
+          "Hopcroft-Karp O(E√V)"
+        ],
+        [
+          "Max throughput / capacity bottleneck",
+          "max-flow / min-cut (`06`)",
+          "Dinic O(V²E)"
+        ],
+        [
+          "Route a salesman / vehicle",
+          "TSP heuristics (`07`)",
+          "NP-hard; metric ⇒ Christofides 1.5"
+        ],
+        [
+          "Register allocation / frequency assign",
+          "graph coloring (`07`)",
+          "NP-hard; greedy + heuristics"
+        ],
+        [
+          "Rank nodes by importance",
+          "PageRank / eigenvector (`08`)",
+          "power iteration on the graph"
+        ],
+        [
+          "Partition / cluster a graph",
+          "spectral clustering (`08`)",
+          "Fiedler vector of the Laplacian"
+        ],
+        [
+          "Lay out a graph without crossings",
+          "planarity test (`09`)",
+          "linear-time (Boyer-Myrvold)"
+        ],
+        [
+          "Solve NP-hard on a \"thin\" graph",
+          "treewidth DP (`09`)",
+          "poly if treewidth bounded"
+        ]
+      ]
+    }
+  ]
+}

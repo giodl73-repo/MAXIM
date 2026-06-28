@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\04-MINIMUM-SPANNING-TREES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Minimum Spanning Trees — Prim, Kruskal, and Why Greedy Works",
+      "confidence": "candidate",
+      "text": "  TWO GREEDY ALGORITHMS, ONE OPTIMUM\n  ==================================\n\n  Graph (undirected, weighted):       PRIM (grow a tree from a seed):\n                                         start {A}; repeatedly add the cheapest\n       A --1-- B                         edge LEAVING the tree.\n       |     / |                         {A} -1-> B  -> {A,B} -2-> C -> {A,B,C} ...\n       4   2   3                       KRUSKAL (sort edges, add if no cycle):\n       |  /    |                         sort: (A,B)=1,(B,C)=2,(B,D)=3,(A,C)=4,(C,D)=5\n       C --5-- D                         add 1 ok, add 2 ok, add 3 ok -> 3 edges, done.\n\n   MST = { A-B(1), B-C(2), B-D(3) }   total weight 6, exactly V-1 = 3 edges\n   (both algorithms yield this same total; here the tree is even identical)\n\n   +-----------------------------------------------------------------+\n   | WHY GREEDY IS OPTIMAL:                                          |\n   |   CUT property  : the min-weight edge crossing any cut is SAFE  |\n   |                   (in SOME MST). Prim exploits this directly.   |\n   |   CYCLE property: the max-weight edge of any cycle is NOT in    |\n   |                   any MST. Kruskal's \"reject if cycle\" uses it. |\n   +-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## Kruskal — Sort, Then Add If No Cycle",
+      "confidence": "candidate",
+      "text": "  Kruskal:\n    sort edges ascending by weight\n    for each edge (u,v) in order:\n        if find(u) != find(v):     # endpoints in different components?\n            add (u,v) to MST        # YES -> safe (cut property), keep it\n            union(u, v)\n        # else they're already connected -> adding closes a CYCLE -> reject\n                                    #         (cycle property)\n\n  Trace on the example graph:\n    (A,B)1: A,B separate -> ADD,  union -> {A,B}\n    (B,C)2: B,C separate -> ADD,  union -> {A,B,C}\n    (B,D)3: B,D separate -> ADD,  union -> {A,B,C,D}   3 edges, STOP\n    (A,C)4: same set     -> REJECT (would cycle)\n    (C,D)5: same set     -> REJECT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## Prim — Grow One Tree From a Seed",
+      "confidence": "candidate",
+      "text": "  Prim from A (priority queue of frontier edges):\n    tree={A}; push A's edges. cheapest = A-B(1) -> add B. tree={A,B}\n    frontier now: B-C(2), B-D(3), A-C(4). cheapest = B-C(2) -> add C. tree={A,B,C}\n    frontier: B-D(3), C-D(5).             cheapest = B-D(3) -> add D. DONE.\n    MST = {A-B, B-C, B-D}, weight 6.\n\n  Each step picks the min crossing edge of the cut (tree, rest) == CUT PROPERTY.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "## Prim — Grow One Tree From a Seed",
+      "confidence": "candidate",
+      "text": "   PRIM grows ONE connected blob:        KRUSKAL grows a FOREST that merges:\n\n     (A)        (A)-(B)      (A)-(B)        A  B  C  D   ->  A-B  C  D\n      |   ->     |       ->   | \\           (separate)      then  A-B-C  D\n                              (C) (D)                       then  A-B-C-D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

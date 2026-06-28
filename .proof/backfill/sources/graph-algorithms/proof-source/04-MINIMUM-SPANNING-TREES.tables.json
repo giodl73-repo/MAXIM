@@ -1,0 +1,158 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\04-MINIMUM-SPANNING-TREES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 163,
+      "heading_context": "## Union-Find (Disjoint-Set Union) — Near-Constant Per Operation",
+      "headers": [
+        "Optimization",
+        "Without",
+        "With both"
+      ],
+      "rows": [
+        [
+          "Per-operation amortized",
+          "O(log n) or worse",
+          "**O(α(n)) ≈ O(1)**"
+        ],
+        [
+          "What it does",
+          "—",
+          "path compression flattens; union-by-rank stays balanced"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 205,
+      "heading_context": "## Prim vs Kruskal — Choose by Representation",
+      "headers": [
+        "",
+        "Prim",
+        "Kruskal"
+      ],
+      "rows": [
+        [
+          "Strategy",
+          "grow one tree (vertex-centric)",
+          "merge a forest (edge-centric)"
+        ],
+        [
+          "Core data structure",
+          "priority queue",
+          "sort + union-find"
+        ],
+        [
+          "Time (heap / sort)",
+          "O(E log V)",
+          "O(E log V)"
+        ],
+        [
+          "Time, dense (E≈V²)",
+          "**O(V²)** with array, no heap",
+          "O(V² log V)"
+        ],
+        [
+          "Best when",
+          "dense graphs, adjacency matrix",
+          "sparse graphs, edge list given"
+        ],
+        [
+          "Edges arrive online",
+          "awkward (tree must stay connected)",
+          "natural (sort, union as they come)"
+        ],
+        [
+          "Both produce",
+          "**an MST**",
+          "**an MST** (identical total weight)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 223,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It relates to MST via…"
+      ],
+      "rows": [
+        [
+          "Spanning Tree Protocol (STP, 802.1D)",
+          "builds *a* spanning tree to kill L2 loops — RSTP uses path *cost*, edging toward minimum"
+        ],
+        [
+          "Network/cluster cabling to minimize cost",
+          "the textbook MST application (least cable to connect all sites)"
+        ],
+        [
+          "Single-linkage hierarchical clustering",
+          "the merge order *is* Kruskal — clusters merge by nearest pair"
+        ],
+        [
+          "Circuit / chip net routing (minimize wire)",
+          "Steiner-tree relaxes to MST when no extra junctions allowed"
+        ],
+        [
+          "Image segmentation (Felzenszwalb)",
+          "MST-based region merging on the pixel graph"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 239,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Sparse graph, edge list available",
+          "Kruskal",
+          "sort + union-find, O(E log V)"
+        ],
+        [
+          "Dense graph (E ≈ V²)",
+          "Prim, array (no heap)",
+          "O(V²) beats heap versions"
+        ],
+        [
+          "Edges streaming / arriving online",
+          "Kruskal",
+          "union as edges come"
+        ],
+        [
+          "Need k clusters",
+          "Kruskal, stop after V−k unions",
+          "leaves k components"
+        ],
+        [
+          "Graph disconnected",
+          "either ⇒ minimum spanning **forest**",
+          "one tree per component"
+        ],
+        [
+          "Directed graph",
+          "neither — use Chu-Liu/Edmonds arborescence",
+          "MST is undirected-only"
+        ],
+        [
+          "Need incremental connectivity queries",
+          "union-find alone",
+          "O(α) per op"
+        ],
+        [
+          "Want second-best MST / sensitivity",
+          "cycle property + edge swaps",
+          "replace one tree edge"
+        ]
+      ]
+    }
+  ]
+}

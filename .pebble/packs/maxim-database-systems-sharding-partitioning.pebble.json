@@ -1,0 +1,657 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-sharding-partitioning",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-SHARDING-PARTITIONING.md#000",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "# Sharding and Partitioning — Splitting Data Across Machines"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#001",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "Replication (guide 07) makes **copies** of the data; it scales reads and availability but every\nwrite still hits the leader, and the whole dataset must fit on one machine. **Partitioning**\n(a.k.a. **sharding** when across machines) splits the data into disjoint pieces so writes and\nstorage scale horizontally. The cost is that operations spanning shards — joins, transactions,\nsecondary-key lookups — get hard."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#002",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|                  PARTITIONING vs REPLICATION — orthogonal axes                      |\n+=====================================================================================+\n|                                                                                     |\n|              REPLICATION (copies)  ------------------------------>                   |\n|        (availability, read scale; every node has the SAME data)                     |\n|        |                                                                            |\n|        |   +---------+   +---------+   +---------+                                   |\n|   P    |   | shard A |   | shard B |   | shard C |   <- each shard is a disjoint     |\n|   A    |   | replica1|   | replica1|   | replica1|      SLICE of the keyspace        |\n|   R    |   +---------+   +---------+   +---------+                                   |\n|   T    |   | shard A |   | shard B |   | shard C |   <- and each shard is itself     |\n|   I    v   | replica2|   | replica2|   | replica2|      REPLICATED for availability  |\n|   T        +---------+   +---------+   +---------+                                   |\n|   I        | shard A |   | shard B |   | shard C |                                   |\n|   O        | replica3|   | replica3|   | replica3|                                   |\n|   N        +---------+   +---------+   +---------+                                   |\n|   (storage + write scale; each node has DIFFERENT data)                              |\n|                                                                                     |\n|   PRODUCTION = BOTH: shard for scale, replicate each shard for availability.         |\n+=====================================================================================+\n```"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#003",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "The key decision is the **partition key** (shard key) and the **partitioning scheme** that maps\na key to a shard. Get this wrong and you get hotspots, cross-shard transactions everywhere, and\npainful rebalancing."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#004",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#005",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "## Partitioning schemes"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#006",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "### Range partitioning"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#007",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "Assign contiguous key ranges to shards."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#008",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "```\n   key space:  [A........F][G........M][N........S][T........Z]\n   shard:          S1          S2          S3          S4"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#009",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "+ RANGE SCANS are efficient (a range often lives in one or few shards)\n   + ordered iteration is natural\n   - HOTSPOTS: monotonically increasing keys (timestamps, auto-increment IDs) -> all new\n     writes land on the LAST shard. The classic time-series hotspot.\n```"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#010",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "### Hash partitioning"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#011",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "Apply a hash to the key, partition by the hash value."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#012",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "```\n   shard = hash(key) mod N    (naive)   OR   hash ranges assigned to shards"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#013",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "+ EVEN distribution -> no hotspot from sequential keys\n   - RANGE SCANS are scattered (adjacent keys hash to different shards) -> a range query\n     fans out to ALL shards\n   - \"mod N\" is fragile: changing N (adding a shard) remaps ALMOST EVERY key -> see\n     consistent hashing below.\n```"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#014",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "### Consistent hashing — rebalancing without remapping everything"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#015",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "The fix for \"`mod N` remaps everything when N changes.\" Map both keys and nodes onto a hash ring;\na key belongs to the next node clockwise. Adding/removing a node only moves the keys in **one\narc**, not all keys."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#016",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "```\n                    0 / 2^k\n                      *  nodeA\n            keyX *         \\\n                            \\      * nodeB\n       nodeD *               \\    /\n              \\               \\  /\n               \\               */  keyY -> belongs to nodeB (next clockwise)\n                \\             /\n                 *-----------*  nodeC"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#017",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "Add nodeE between A and B -> only keys in the A..E arc move (to nodeE). The rest stay put."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#018",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "VIRTUAL NODES (vnodes): each physical node owns MANY points on the ring -> smoother balance\n   and finer-grained rebalancing. Used by Cassandra, DynamoDB-style systems.\n```"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#019",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "> Consistent hashing is treated as a distributed-systems primitive in\n> `distributed-systems/04`; here it is specifically the *rebalancing* mechanism for shards."
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#020",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#021",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "## Rebalancing — moving partitions as the cluster grows"
+    },
+    {
+      "id": "08-SHARDING-PARTITIONING.md#022",
+      "path": [
+        "08-SHARDING-PARTITIONING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:08-sharding-partitioning, git-history:database-systems:08-sharding-partitioning]",
+        "canonical_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "concepts": "[sharding, partitioning, hash partitioning, range partitioning, rebalancing, distributed transaction, two-phase commit, consistent hashing]",
+        "current_path": "database-systems/08-SHARDING-PARTITIONING.md",
+        "id": "maxim:database-systems:sharding-partitioning",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sharding]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sharding and Partitioning - Hash/Range, Rebalancing, 2PC",
+        "updated": "null"
+      },
+      "text": "```\n   STRATEGY                        BEHAVIOR\n   -----------------------------   ----------------------------------------------------------\n   hash mod N (DON'T)              adding a node remaps almost all keys -> mass data movement\n   FIXED number of partitions      create many more partitions than nodes up front (e.g. 1000\n   (e.g. Cassandra-ish, Riak)      partitions over 10 nodes); rebalancing just MOVES whole\n                                   partitions between nodes. Count fixed; assignment flexible.\n   DYNAMIC partitioning            split a partition when it grows past a threshold, merge when\n   (HBase, range systems)         small. Adapts to data volume; like a B-tree split at the\n                                   shard level.\n   CONSISTENT HASHING + vnodes     adding a node steals a fair share of vnodes from others."
+    }
+  ],
+  "refs": [
+    "08-SHARDING-PARTITIONING.md"
+  ]
+}

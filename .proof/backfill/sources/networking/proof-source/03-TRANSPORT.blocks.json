@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\03-TRANSPORT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                       THE TRANSPORT LAYER MENU\n   +-----------------------------------------------------------------+\n   |  UDP                 TCP                    QUIC                 |\n   |  ===                 ===                    ====                 |\n   |  message-oriented    byte-stream            byte-streams,       |\n   |  no connection       connection             many in parallel    |\n   |  no reliability      reliable, ordered      reliable + encrypted|\n   |  no congestion ctrl  full congestion ctrl   built-in (BBR/CUBIC)|\n   |  8-byte header       20-byte header (min)   on top of UDP       |\n   |  \"fire and forget\"   \"phone call\"           \"TCP+TLS, faster\"   |\n   |                                                                 |\n   |  DNS, VoIP, games    HTTP/1-2, SSH, SMTP     HTTP/3              |\n   +-----------------------------------------------------------------+\n        |                      |                       |\n        +----- both ride on -->+ <-- IP (L3) -->       + (rides on UDP)\n                            same SOCKET API (mostly)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 104,
+      "heading_context": "## The TCP Header",
+      "confidence": "candidate",
+      "text": "   0                   1                   2                   3\n   +--------+--------+--------+--------+--------+--------+--------+--------+\n   |     Source Port (16)     |   Destination Port (16)                   |\n   +-----------------------------------------------------------------------+\n   |                  Sequence Number (32)                                |\n   +-----------------------------------------------------------------------+\n   |              Acknowledgment Number (32)                              |\n   +-------+-----+-----------------+-------------------------------------+\n   | DataOf| rsv | flags (SYN ACK  |        Window Size (16)             |\n   | fset  |     |  FIN RST PSH URG)|       <- flow control rwnd          |\n   +-----------------------------+-----------------------------------------+\n   |     Checksum (16)           |     Urgent Pointer (16)                |\n   +-----------------------------+-----------------------------------------+\n   |                    Options (0-40 bytes, e.g. MSS, SACK, timestamps)  |\n   +-----------------------------------------------------------------------+\n\n   The two numbers that make TCP reliable:\n     SEQ = byte offset of THIS segment's first data byte in the stream.\n     ACK = \"I have received everything up to byte N; send N next.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 139,
+      "heading_context": "## The TCP State Machine",
+      "confidence": "candidate",
+      "text": "   THREE-WAY HANDSHAKE (open):\n\n     CLIENT                                 SERVER\n        |                                      |\n        |  ---- SYN, seq=x --------------->    |   \"let's talk, my seq starts x\"\n        |                                      |\n        |  <--- SYN-ACK, seq=y, ack=x+1 ---    |   \"ok, my seq y, got your x\"\n        |                                      |\n        |  ---- ACK, ack=y+1 ------------->    |   \"got yours, we're open\"\n        |                                      |\n        |=========== ESTABLISHED ==============|   (data flows both ways)\n\n   FOUR-WAY TEARDOWN (close) — each side closes independently:\n\n        |  ---- FIN ------------------>        |\n        |  <--- ACK ------------------         |\n        |  <--- FIN ------------------         |\n        |  ---- ACK ------------------>        |\n        |                                      |\n        |  [TIME_WAIT ~2*MSL on the closer]    |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## The TCP State Machine",
+      "confidence": "candidate",
+      "text": "   KEY STATES (the ones you see in `netstat`/`ss`):\n   CLOSED -> (open) -> SYN_SENT -> ESTABLISHED -> (close) -> FIN_WAIT_1\n        -> FIN_WAIT_2 -> TIME_WAIT -> CLOSED\n   server side: LISTEN -> SYN_RCVD -> ESTABLISHED -> CLOSE_WAIT -> LAST_ACK",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Reliability: How TCP Recovers Loss",
+      "confidence": "candidate",
+      "text": "   Sender sends bytes 1..4 in four segments. Segment 2 is lost.\n\n     seg1 (1) -> ACK 2  \"got up to 1, want 2\"\n     seg2 (2) -> LOST\n     seg3 (3) -> ACK 2  \"still want 2!\"  (duplicate ACK)\n     seg4 (4) -> ACK 2  \"still want 2!\"  (duplicate ACK)\n                 ^^^^^^ 3 duplicate ACKs trigger FAST RETRANSMIT of seg2\n     retransmit seg2 -> ACK 5  \"now I have everything through 4\"\n\n   TWO LOSS SIGNALS:\n     - 3 duplicate ACKs  -> fast retransmit (mild loss; one segment)\n     - RTO timer expires -> timeout retransmit (severe; reset, slow start)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "## UDP — The Minimalist",
+      "confidence": "candidate",
+      "text": "   UDP HEADER (8 bytes total):\n   +-------------+-------------+-------------+-------------+\n   | Src Port(16)| Dst Port(16)| Length (16) | Checksum(16)|\n   +-------------+-------------+-------------+-------------+\n\n   USE UDP WHEN:\n     - latency > reliability   (VoIP, video, games — a late packet is useless)\n     - request/response is tiny (DNS — one query, one reply; 05)\n     - you build your own reliability on top (QUIC does exactly this)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 302,
+      "heading_context": "## QUIC — TCP Reinvented on UDP",
+      "confidence": "candidate",
+      "text": "   THE STACK SHIFT:\n\n   HTTP/2 over TLS over TCP        HTTP/3 over QUIC over UDP\n   =======================        =========================\n   +------------------+            +------------------------+\n   |     HTTP/2       |            |        HTTP/3          |\n   +------------------+            +------------------------+\n   |     TLS 1.3      |            |   QUIC (streams + TLS  |\n   +------------------+            |   1.3 + loss recovery  |\n   |       TCP        |            |   + congestion ctrl)   |\n   +------------------+            +------------------------+\n   |       IP         |            |         UDP            |\n   +------------------+            +------------------------+\n                                   |         IP             |\n                                   +------------------------+\n\n   WHAT QUIC FIXES:\n   - Head-of-line blocking: TCP is ONE byte stream; a single lost packet\n     stalls ALL multiplexed HTTP/2 streams. QUIC has INDEPENDENT streams,\n     so loss on one doesn't block the others.\n   - Handshake latency: TCP+TLS = 2-3 RTTs to first byte. QUIC merges them:\n     1-RTT, or 0-RTT on resumption.\n   - Connection migration: QUIC uses a connection ID, not the 5-tuple, so a\n     connection survives a NAT rebinding or Wi-Fi -> cellular switch.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

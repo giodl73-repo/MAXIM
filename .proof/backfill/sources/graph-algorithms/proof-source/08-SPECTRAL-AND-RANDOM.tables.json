@@ -1,0 +1,166 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\08-SPECTRAL-AND-RANDOM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 170,
+      "heading_context": "## Random Walks and PageRank",
+      "headers": [
+        "Quantity",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Stationary distribution",
+          "long-run fraction of time spent at each vertex"
+        ],
+        [
+          "PageRank",
+          "stationary dist. of the teleporting walk on the web digraph"
+        ],
+        [
+          "Mixing time",
+          "steps until the walk is ε-close to stationary"
+        ],
+        [
+          "Spectral gap (1 − λ₂)",
+          "controls mixing speed: bigger gap ⇒ faster mixing"
+        ],
+        [
+          "Hitting / cover time",
+          "expected steps to reach / visit all vertices"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 206,
+      "heading_context": "## Expanders — Sparse Graphs That Behave Like Dense Ones",
+      "headers": [
+        "Property",
+        "Dense graph",
+        "Expander",
+        "Path / grid"
+      ],
+      "rows": [
+        [
+          "Edges",
+          "Θ(V²)",
+          "**O(V)**",
+          "O(V)"
+        ],
+        [
+          "Mixing time",
+          "O(1)",
+          "**O(log V)**",
+          "O(V²) (slow)"
+        ],
+        [
+          "Min cut",
+          "large",
+          "**large (no bottleneck)**",
+          "tiny"
+        ],
+        [
+          "Use",
+          "—",
+          "error-correcting codes, derandomization, robust networks",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 224,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is a spectral / random-walk quantity"
+      ],
+      "rows": [
+        [
+          "PageRank / link-based ranking",
+          "dominant eigenvector of the Google matrix"
+        ],
+        [
+          "Recommendation \"people also viewed\"",
+          "personalized PageRank / random-walk proximity"
+        ],
+        [
+          "Community detection in a social graph",
+          "spectral clustering (Fiedler / k eigenvectors)"
+        ],
+        [
+          "Load-balanced, bottleneck-free network fabric",
+          "an expander topology (large spectral gap)"
+        ],
+        [
+          "Graph neural network message passing",
+          "polynomials of the normalized Laplacian"
+        ],
+        [
+          "Markov-chain Monte Carlo convergence",
+          "mixing time = spectral gap of the chain"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 242,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Use",
+        "Key object"
+      ],
+      "rows": [
+        [
+          "Count connected components (spectrally)",
+          "multiplicity of Laplacian eigenvalue 0",
+          "L = D − A"
+        ],
+        [
+          "Partition a graph into balanced clusters",
+          "spectral clustering",
+          "Fiedler vector / k eigenvectors"
+        ],
+        [
+          "Measure \"how connected / hard to split\"",
+          "algebraic connectivity",
+          "λ₂ (Fiedler value)"
+        ],
+        [
+          "Rank vertices by importance",
+          "PageRank / eigenvector centrality",
+          "stationary distribution"
+        ],
+        [
+          "Find related items / proximity",
+          "personalized PageRank",
+          "biased random walk"
+        ],
+        [
+          "Estimate random-walk convergence speed",
+          "mixing time",
+          "spectral gap (1 − λ₂)"
+        ],
+        [
+          "Build a sparse but robust network",
+          "expander construction",
+          "large spectral gap"
+        ],
+        [
+          "Certify the quality of a cut",
+          "Cheeger's inequality",
+          "λ₂ vs conductance φ"
+        ],
+        [
+          "Large sparse Laplacian eigenvectors",
+          "Lanczos / LOBPCG (`numerical-methods/`)",
+          "sparse eigensolver"
+        ]
+      ]
+    }
+  ]
+}

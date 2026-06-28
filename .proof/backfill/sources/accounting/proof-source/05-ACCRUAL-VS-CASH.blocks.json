@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\05-ACCRUAL-VS-CASH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|             TWO CLOCKS FOR THE SAME TRANSACTION                          |\n|                                                                          |\n|   EVENT TIMELINE:                                                        |\n|                                                                          |\n|     Order      Deliver      Invoice      Customer pays                   |\n|     placed     goods        sent         (60 days later)                 |\n|       |          |            |               |                          |\n|   ----+----------+------------+---------------+--------------> time       |\n|                  ^                            ^                          |\n|                  |                            |                          |\n|         ACCRUAL recognizes here       CASH recognizes here              |\n|         (revenue EARNED on delivery)  (revenue when CASH arrives)        |\n|                                                                          |\n|   ACCRUAL = event-time semantics   |   CASH = settlement-time semantics  |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## The Two Principles That Define Accrual",
+      "confidence": "candidate",
+      "text": "   +-----------------------------------------------------------------+\n   |  REVENUE RECOGNITION:  recognize revenue when EARNED            |\n   |    (obligation satisfied / control transferred — ASC 606),      |\n   |    not when cash is received.                                   |\n   +-----------------------------------------------------------------+\n   |  MATCHING PRINCIPLE:   recognize expenses in the SAME period    |\n   |    as the revenue they helped generate, not when cash is paid.  |\n   +-----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 76,
+      "heading_context": "## The Two Principles That Define Accrual",
+      "confidence": "candidate",
+      "text": "   PAY CASH (March)              EARN REVENUE (June)\n        |                              |\n        |  cost parked as ASSET        |  cost released as EXPENSE\n        |  (inventory / prepaid)       |  (COGS), MATCHED to revenue\n        +------------------------------+\n              the asset is a BUFFER that holds the cost\n              until the matching revenue event fires",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "## The Four Timing Cases (the 2x2)",
+      "confidence": "candidate",
+      "text": "                    |  CASH BEFORE event     |  CASH AFTER event\n   -----------------+------------------------+------------------------\n   REVENUE side     |  DEFERRED REVENUE      |  ACCRUED REVENUE\n   (you earn)       |  (unearned)            |  (earned, unbilled)\n                    |  got cash, owe service |  did work, awaiting cash\n                    |  -> LIABILITY          |  -> ASSET (receivable)\n   -----------------+------------------------+------------------------\n   EXPENSE side     |  PREPAID EXPENSE       |  ACCRUED EXPENSE\n   (you incur)      |  (deferred cost)       |  (payable)\n                    |  paid ahead            |  used, not yet paid\n                    |  -> ASSET              |  -> LIABILITY",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Why Accrual ≠ Cash — A Worked Period",
+      "confidence": "candidate",
+      "text": "   EVENTS in Q1:\n   - Delivered $1,000 of services; collected $600, $400 still owed (AR)\n   - Collected $300 upfront for Q2 work (not yet earned -> deferred)\n   - Incurred $500 of costs; paid $350, $150 still owed (AP)\n   - Paid $240 for a 12-month insurance policy (only $60 is Q1's share)\n\n                                CASH BASIS        ACCRUAL BASIS\n   --------------------------   ----------        -------------\n   Revenue                      600 + 300 = 900   1,000  (earned only)\n   Expenses                     350 + 240 = 590   500 + 60 = 560\n   --------------------------   ----------        -------------\n   \"Profit\"                     310               440\n\n   Balance-sheet residue (accrual only):\n     Accounts receivable     +400   (earned, uncollected)\n     Deferred revenue        +300   (collected, unearned)\n     Accounts payable        +150   (incurred, unpaid)\n     Prepaid insurance       +180   (paid, unconsumed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

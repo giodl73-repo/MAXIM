@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\06-MAX-FLOW-MATCHING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Maximum Flow and Matching — The LP-Dual Frontier",
+      "confidence": "candidate",
+      "text": "  THE MAX-FLOW LANDSCAPE\n  ======================\n\n   Source s --capacities--> network --> Sink t       Goal: max units s->t\n                                                      subject to:\n        s --10--> A --4--> t                            0 <= f(e) <= cap(e)\n        |          ^                                     flow in = flow out (except s,t)\n        8          6\n        v          |                          +-------------------------------------+\n        B ---10----+                          | MAX-FLOW MIN-CUT THEOREM            |\n                                              |   max flow value = min cut capacity|\n   AUGMENTING-PATH FAMILY (Ford-Fulkerson):   +-------------------------------------+\n     repeatedly find an s->t path with spare              |\n     capacity in the RESIDUAL graph, push flow.           | dual / certificate\n     +-------------------+-------------------+             v\n     | Edmonds-Karp:     | Dinic:            |     a CUT (S, T) with s in S, t in T\n     | BFS aug paths     | BFS levels +      |     whose crossing capacity == flow\n     | O(V * E^2)        | blocking flow     |     PROVES the flow is optimal.\n     |                   | O(V^2 * E)        |\n     +-------------------+-------------------+\n\n   REDUCES TO MAX-FLOW: bipartite matching, vertex/edge-disjoint paths,\n                        project selection, min-cut image segmentation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## The Setup, the Residual Graph, and the Theorem",
+      "confidence": "candidate",
+      "text": "  Edge with cap 10, flow 6:        Residual:\n       u --6/10--> v                  u --4--> v    (forward: 10-6 = 4 spare)\n                                       u <--6-- v    (backward: 6 cancellable)\n\n  An AUGMENTING PATH is any s->t path in Gf with all-positive residual capacity.\n  Push flow = the path's BOTTLENECK (min residual along it). Repeat until none.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## The Setup, the Residual Graph, and the Theorem",
+      "confidence": "candidate",
+      "text": "  At max flow, the residual graph has NO s->t path. The reachable set from s\n  is S; the rest is T. Every forward edge S->T is SATURATED (full), every\n  backward edge T->S carries zero. So:  cut capacity = sum of crossing caps = |f|.\n\n      S | T\n   s--*--+--*--t      crossing edges all full => flow can't increase => OPTIMAL",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## The Algorithms — and Their Exact Bounds",
+      "confidence": "candidate",
+      "text": "  WHY Ford-Fulkerson's bound is O(E*|f*|), not polynomial in input size:\n\n       s --1000--> A           pick the bad path s->A->B->t (bottleneck 1):\n       |  \\          \\  1000    pushes 1 unit; then s->B->A->t pushes 1 unit;\n     1000  1        1000        ... if you keep choosing the 1-capacity middle\n       |     \\  1     /         edge, you augment 2000 times for a flow of 2000.\n       v       v   v\n       B --1000--> t           Edmonds-Karp's BFS avoids this: it always takes\n                               the FEWEST-EDGE path, bounding augmentations to O(VE).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## Bipartite Matching — The Flagship Reduction",
+      "confidence": "candidate",
+      "text": "  Bipartite graph (workers L, jobs R):     Reduce to max-flow:\n                                           -------------------------------------\n    L1 --- R1        add super-source s -> each Li (cap 1)\n    L1 --- R2        add super-sink   each Rj -> t (cap 1)\n    L2 --- R2        original edges Li -> Rj have cap 1\n    L3 --- R1                          s =1=> Li =1=> Rj =1=> t\n\n   MAX MATCHING = MAX FLOW value (integral, so every f(e) in {0,1};\n                  a saturated Li->Rj edge = a matched pair).\n\n   Hopcroft-Karp does this directly: O(E * sqrt(V)) -- the Dinic bound on the\n   unit-capacity reduction, found without explicitly building the flow network.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "## Reductions — What Secretly *Is* Max-Flow",
+      "confidence": "candidate",
+      "text": "  Edge/vertex-disjoint s-t paths   = max-flow with unit capacities (Menger, 05)\n  Bipartite matching               = max-flow, unit caps via super s/t\n  Min vertex cover (bipartite)     = max matching (Konig)  -> max-flow\n  Project selection / max-weight   = min-cut (s=projects, t=costs)\n   closure                           \n  Image segmentation (graph cut)   = min s-t cut (foreground/background)\n  Baseball elimination             = max-flow feasibility",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

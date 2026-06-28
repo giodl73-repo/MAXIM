@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\08-SHARDING-PARTITIONING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 200,
+      "heading_context": "## Two-Phase Commit (2PC) — atomic commit across shards",
+      "headers": [
+        "Property",
+        "2PC",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Atomicity across nodes",
+          "Yes",
+          "The whole point"
+        ],
+        [
+          "Blocking on coordinator failure",
+          "**Yes**",
+          "Participants hold locks, stall, until coordinator recovers"
+        ],
+        [
+          "Availability under partition",
+          "Reduced",
+          "A partitioned participant blocks the commit"
+        ],
+        [
+          "Latency",
+          "2 round-trips + 2 log fsyncs",
+          "Slower than a local commit"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 227,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Sharding concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "Partitioned tables across filegroups",
+          "**Partitioning** (single node) vs sharding (across nodes)",
+          "Table partitioning"
+        ],
+        [
+          "Federation / scale-out across DBs",
+          "**Sharding** by a partition key",
+          "Elastic database / sharding tools"
+        ],
+        [
+          "Cosmos partition key choice",
+          "The shard-key co-location decision",
+          "Cosmos logical partition key"
+        ],
+        [
+          "MSDTC distributed transaction",
+          "**Two-phase commit** (and its blocking)",
+          "MSDTC; `BEGIN DISTRIBUTED TRAN`"
+        ],
+        [
+          "A hash ring for cache nodes",
+          "**Consistent hashing** for rebalancing",
+          "(general) Cosmos physical partitions"
+        ],
+        [
+          "Compensating workflow on failure",
+          "**Saga** pattern",
+          "Durable Functions / saga orchestration"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 240,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Even write distribution, no sequential hotspot",
+          "**Hash** partitioning"
+        ],
+        [
+          "Efficient range scans / ordered access",
+          "**Range** partitioning (watch the trailing-shard hotspot)"
+        ],
+        [
+          "Add/remove nodes without remapping all keys",
+          "**Consistent hashing** + virtual nodes, or fixed-partition-count"
+        ],
+        [
+          "Keep related rows together (avoid cross-shard txn)",
+          "Shard by a key that co-locates them (e.g. `customer_id`)"
+        ],
+        [
+          "Query by a non-shard column",
+          "Local index (scatter-gather) or global index (cross-shard write)"
+        ],
+        [
+          "Atomic transaction across shards",
+          "**2PC** (accept blocking) or 2PC-over-consensus (Spanner/Cockroach)"
+        ],
+        [
+          "Avoid distributed-transaction blocking",
+          "**Saga** with compensations (eventual consistency)"
+        ],
+        [
+          "Scale WRITES",
+          "**Shard** (replication only scales reads)"
+        ]
+      ]
+    }
+  ]
+}

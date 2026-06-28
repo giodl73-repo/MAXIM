@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\06-COST-ACCOUNTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    TWO AXES OF COST CLASSIFICATION                      |\n|                                                                          |\n|              BEHAVIOR (vs volume)        TRACEABILITY (to a unit)        |\n|              ------------------          ----------------------         |\n|     FIXED  --- constant in total,        DIRECT --- traceable to one     |\n|                varies per unit                       product/job        |\n|                (rent, salaries)                      (materials, labor)  |\n|                                                                          |\n|     VARIABLE - varies in total,          INDIRECT (overhead) --- shared, |\n|                constant per unit                     must be ALLOCATED   |\n|                (materials, commissions)              (factory rent,      |\n|                                                       supervisor salary) |\n|                                                                          |\n|     MIXED ---- both components            +---------------------------+  |\n|                (utilities: base + usage)  | Total cost =              |  |\n|                                           |   Fixed + (Variable x Q)  |  |\n|                                           +---------------------------+  |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## Cost Behavior: The Linear Model",
+      "confidence": "candidate",
+      "text": "   Total Cost (TC) = Fixed Cost (F) + Variable Cost per unit (v) x Quantity (Q)\n\n   $  TC\n   |          ____________ slope = v (variable cost/unit)\n   |     ____/\n   |____/  <- F (fixed cost, the intercept)\n   |\n   +-------------------------------> Q\n        relevant range",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## Contribution Margin — The Decision Workhorse",
+      "confidence": "candidate",
+      "text": "   REVENUE\n   |--- Variable costs ---|------ Contribution margin ------|\n                          |-- covers Fixed --|-- Profit --|\n\n   Once fixed costs are covered, ALL further CM is profit.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## Break-Even Analysis",
+      "confidence": "candidate",
+      "text": "   $ |                              Total Revenue (slope p)\n     |                         ___/\n     |                    ___/  ___/ Total Cost (F + vQ)\n     |               ___/  ___/\n     |          ___/  ___/   <-- BREAK-EVEN (lines cross)\n     |     ___/__/            below: LOSS    above: PROFIT\n     |  _/_/  <- F\n     +-------------------------------> Q\n                    Q*",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Worked example",
+      "confidence": "candidate",
+      "text": "   Price             p   = $50\n   Variable cost     v   = $30   -> CM = $20/unit, CM ratio = 40%\n   Fixed costs       F   = $200,000\n\n   Break-even units  = 200,000 / 20      = 10,000 units\n   Break-even sales  = 200,000 / 0.40    = $500,000\n\n   Target profit of $80,000:\n     Units = (F + target) / CM = (200,000 + 80,000) / 20 = 14,000 units",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Cost Allocation — Spreading Indirect Costs",
+      "confidence": "candidate",
+      "text": "   OVERHEAD POOL ($500,000)\n        |\n        | allocation base (the \"driver\" you pick)\n        v\n   +---------+   +---------+   +---------+\n   |Product A|   |Product B|   |Product C|\n   +---------+   +---------+   +---------+\n\n   Traditional: allocate by a single volume base\n                (direct labor hours, machine hours)\n                Overhead rate = Pool / Total base units",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## Activity-Based Costing (ABC)",
+      "confidence": "candidate",
+      "text": "   TRADITIONAL                    ACTIVITY-BASED COSTING\n   -----------                    ----------------------\n   Overhead                       Overhead\n      |                              |\n      | one base                     +-> Activity: Machine setups\n      | (labor hrs)                  |     driver: # setups\n      v                              +-> Activity: Quality inspections\n   Products                          |     driver: # inspections\n                                     +-> Activity: Order processing\n                                     |     driver: # orders\n                                     +-> Activity: Machining\n                                           driver: machine hours\n                                              |\n                                              v\n                                          Products\n                                     (each charged for the activities\n                                      it actually consumes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

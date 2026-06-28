@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\06-TLS-AND-SECURITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                  WHAT TLS ADDS ON TOP OF THE TRANSPORT\n   +-------------------------------------------------------------------+\n   |  APPLICATION (HTTP)         <- sees plaintext, unaware of TLS      |\n   +-------------------------------------------------------------------+\n   |  TLS 1.3                                                          |\n   |    1) HANDSHAKE: agree on keys + VERIFY the server's certificate  |\n   |    2) RECORD:    encrypt + authenticate every byte (AEAD cipher)  |\n   +-------------------------------------------------------------------+\n   |  TCP (03)                   <- reliable byte stream, but PLAINTEXT|\n   +-------------------------------------------------------------------+\n\n   THREE PROPERTIES:\n     CONFIDENTIALITY  ->  symmetric AEAD encryption (AES-GCM / ChaCha20)\n     INTEGRITY        ->  the same AEAD tag (tampering breaks the tag)\n     AUTHENTICITY     ->  X.509 certificate + signature, validated to a CA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## The Hybrid Model: Why Two Kinds of Crypto",
+      "confidence": "candidate",
+      "text": "   ASYMMETRIC (public-key)              SYMMETRIC\n   =======================              =========\n   - slow, but no shared secret         - fast, but needs a shared secret\n     needed in advance                    both sides already have\n   - used to: AUTHENTICATE (signatures)  - used to: ENCRYPT the bulk data\n     + AGREE on a key (key exchange)\n   - ECDHE, RSA, ECDSA, Ed25519          - AES-GCM, ChaCha20-Poly1305\n\n   TLS USES BOTH:\n     handshake (asymmetric) ---> derives ---> session key (symmetric)\n        \"prove who you are, agree           \"now encrypt everything\n         on a secret over an open wire\"      fast with this secret\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 97,
+      "heading_context": "## The TLS 1.3 Handshake",
+      "confidence": "candidate",
+      "text": "   TLS 1.3 — 1-RTT HANDSHAKE\n   CLIENT                                            SERVER\n     |                                                  |\n     | --- ClientHello -------------------------------> |\n     |     + supported ciphers                          |\n     |     + key_share (client's ephemeral ECDHE pub)   |\n     |     + SNI (which hostname I want)                 |\n     |                                                  |\n     | <-- ServerHello -------------------------------- |\n     |     + key_share (server's ephemeral ECDHE pub)   |\n     |     + {Certificate}        <- now ENCRYPTED      |\n     |     + {CertificateVerify}  <- signs handshake    |\n     |     + {Finished}                                 |\n     |                                                  |\n     |  [both sides now derive the same session keys    |\n     |   from the two key_shares -> ECDHE shared secret]|\n     |                                                  |\n     | --- {Finished} --------------------------------> |\n     |                                                  |\n     |======== ENCRYPTED APPLICATION DATA ==============|\n                         (1 RTT total)\n   { } = encrypted under handshake keys.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "## The TLS 1.3 Handshake",
+      "confidence": "candidate",
+      "text": "   WHAT TLS 1.3 REMOVED vs 1.2 (all attack-surface reductions):\n     - RSA key transport (no forward secrecy)  -> GONE, ECDHE only\n     - static/non-ephemeral DH                  -> GONE\n     - obsolete ciphers (RC4, 3DES, CBC modes)  -> GONE, AEAD only\n     - renegotiation, compression               -> GONE (had exploits)\n     - the 2-RTT handshake                      -> now 1-RTT (or 0-RTT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 151,
+      "heading_context": "## Certificates and X.509",
+      "confidence": "candidate",
+      "text": "   AN X.509 CERTIFICATE (the essentials):\n   +-----------------------------------------------+\n   | Subject:        example.com                   |  who it's for\n   | SAN:            example.com, www.example.com  |  Subject Alt Names\n   | Public Key:     <the server's public key>     |  the bound key\n   | Issuer:         \"R3\" (an intermediate CA)     |  who vouches\n   | Validity:       notBefore .. notAfter         |  expiry window\n   | Serial / Ext:   key usage, CT, OCSP info...   |\n   |-----------------------------------------------|\n   | SIGNATURE by the Issuer's private key         |  <- the trust glue\n   +-----------------------------------------------+\n\n   NOTE: modern validation uses the SAN field, NOT the old Subject CN,\n   to match the hostname.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## mTLS — Mutual Authentication",
+      "confidence": "candidate",
+      "text": "   ONE-WAY TLS (the web)              mTLS (zero-trust internal)\n   ====================              ==========================\n   client verifies server cert        BOTH verify each other's cert\n   server trusts client later          identity is mutual + cryptographic\n   (password, token, cookie)           no shared secret to phish\n\n   server -> presents cert -> client verifies      (same as normal TLS)\n   server -> REQUESTS client cert\n   client -> presents cert -> server verifies       (the added half)\n   -> only then does the channel open",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## TLS Termination: Where Decryption Happens",
+      "confidence": "candidate",
+      "text": "   TERMINATE AT THE EDGE (LB/CDN decrypts, then plaintext inside)\n     client --TLS--> [ LB / CDN terminates ] --plaintext--> backends\n     + offloads crypto from backends, lets the LB inspect L7 (routing)\n     - traffic inside the perimeter is plaintext (or needs re-encryption)\n\n   PASSTHROUGH (LB forwards ciphertext; backend terminates)\n     client --TLS--------------(opaque)-------------> [ backend terminates ]\n     + true end-to-end encryption; LB can't read it (L4 only)\n     - LB can't do L7 routing or inspect content\n\n   RE-ENCRYPT / mTLS MESH (terminate at edge, then mTLS internally)\n     client --TLS--> [ edge ] --mTLS--> services    (best of both, more cost)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

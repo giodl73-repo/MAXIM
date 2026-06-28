@@ -1,0 +1,128 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\03-QUERY-PROCESSING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 150,
+      "heading_context": "## Statistics and Cardinality Estimation",
+      "headers": [
+        "Failure",
+        "Why",
+        "Symptom"
+      ],
+      "rows": [
+        [
+          "**Stale statistics**",
+          "Data changed since last `ANALYZE`/stats update",
+          "Estimates lag reality; wrong join algo"
+        ],
+        [
+          "**Correlation**",
+          "Optimizer assumes columns independent; `city='Seattle' AND state='WA'` are not",
+          "Underestimates AND-of-predicates"
+        ],
+        [
+          "**Parameter sniffing**",
+          "Plan cached for one parameter reused for a skewed other",
+          "A plan great for value A, terrible for value B"
+        ],
+        [
+          "**Out-of-histogram**",
+          "Querying a value beyond the stats' range (e.g. \"today\")",
+          "Ascending-key problem in time-series"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 249,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Query-processing concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "A compiler: parse → IR → optimize → codegen",
+          "parse → logical plan → cost-based optimize → executor",
+          "Showplan stages"
+        ],
+        [
+          "Estimated vs actual in a profiler",
+          "Cardinality estimate vs real row count",
+          "\"Estimated/Actual rows\" in the plan"
+        ],
+        [
+          "A `Dictionary` for a join in app code",
+          "**Hash join** build/probe",
+          "Hash Match operator"
+        ],
+        [
+          "Walking two sorted lists to merge",
+          "**Merge join**",
+          "Merge Join operator"
+        ],
+        [
+          "Nested `for` loops over collections",
+          "**Nested loop join** (index nested loop if inner indexed)",
+          "Nested Loops operator"
+        ],
+        [
+          "SIMD / batch processing",
+          "**Vectorized execution**",
+          "Batch mode, columnstore"
+        ],
+        [
+          "`OPTION (RECOMPILE)` to fix a bad cached plan",
+          "Defeating **parameter sniffing**",
+          "`RECOMPILE`, plan guides, Query Store"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 263,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Symptom / question",
+        "Likely answer"
+      ],
+      "rows": [
+        [
+          "Plan estimated 10 rows, processed 10M",
+          "Stale/missing statistics or correlation → update stats, add multi-column stats"
+        ],
+        [
+          "Hash join spilling to tempdb/disk",
+          "Memory grant too small or wrong build side → bad cardinality estimate"
+        ],
+        [
+          "Same query fast for one param, slow for another",
+          "**Parameter sniffing** → `RECOMPILE`, optimize-for, or query hints"
+        ],
+        [
+          "OLTP point lookup chose a scan",
+          "Selectivity too high or non-sargable predicate (guide 02)"
+        ],
+        [
+          "Analytic GROUP BY over millions slow on a row store",
+          "Wrong engine — want vectorized/columnar execution"
+        ],
+        [
+          "`ORDER BY` adds a big sort",
+          "Provide order via an index (composite, range column last)"
+        ],
+        [
+          "Join of two huge tables on equality",
+          "Expect (and want) a **hash join** if no useful index"
+        ],
+        [
+          "Small driving table, indexed lookup table",
+          "Expect (and want) an **index nested loop**"
+        ]
+      ]
+    }
+  ]
+}

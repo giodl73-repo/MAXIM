@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Distributed SQL (NewSQL) — Scale-Out Without Giving Up Transactions
 
 For two decades the trade was forced: choose **SQL + ACID on one big machine** (vertical scale,

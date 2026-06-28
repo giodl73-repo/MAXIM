@@ -1,0 +1,1077 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-networking-overview",
+  "source": "../../networking",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "# Networking — The Layered Model End-to-End"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "A network exists to move a chunk of application data from one process on one\nmachine to another process on a different machine, possibly on the other side of\nthe planet, across equipment owned by dozens of organizations that have never\nmet. The only way humans have ever made that tractable is **layering**: each\nlayer solves exactly one problem and hands a clean abstraction to the layer\nabove. The genius of the design is that each layer talks *logically* to its peer\non the far machine, while *physically* the data travels straight down the stack,\nacross the wire, and back up."
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "```\n   HOST A                          THE PATH                       HOST B\n+-----------+                                                  +-----------+\n| APP DATA  |  <===== logical peer conversation (HTTP) =====>  | APP DATA  |  L7  Application\n+-----------+                                                  +-----------+\n| TLS/QUIC  |  <===== logical peer (encryption/session) ====>  | TLS/QUIC  |  L5-6 Session/Presentation\n+-----------+                                                  +-----------+\n| TCP / UDP |  <===== logical peer (ports, reliability) ====>  | TCP / UDP |  L4  Transport\n+-----------+                                                  +-----------+\n|    IP     |  <===== logical peer (global addressing) =====>  |    IP     |  L3  Network\n+-----------+        |              |              |           +-----------+\n| ETHERNET  |        |              |              |           | ETHERNET  |  L2  Link\n+-----------+        v              v              v           +-----------+\n|   PHY     |   +--------+     +--------+     +--------+        |   PHY     |  L1  Physical\n+-----+-----+   | SWITCH |     | ROUTER |     | ROUTER |        +-----+-----+\n      |         | (L2)   |     | (L3)   |     | (L3)   |              |\n      +========>+========+====>+========+====>+========+=============>+\n       copper/    forwards      forwards by    forwards by     fiber/\n       fiber      by MAC        IP prefix      IP prefix       copper"
+    },
+    {
+      "id": "00-OVERVIEW.md#004",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "DATA GOES DOWN A's STACK -> ACROSS DEVICES -> UP B's STACK\n   Each box on the path only reads UP TO the layer it operates on.\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#005",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "**Read this top-down for intent, bottom-up for mechanism.** The application\n*thinks* it is talking HTTP directly to the peer. In reality every layer wraps\nthe data from above in its own header, ships the bytes down, and the layer pops\nits header off on the way up. A switch only looks at L2. A router only looks at\nL3. Neither understands your TLS session — and that separation is the whole\npoint."
+    },
+    {
+      "id": "00-OVERVIEW.md#006",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#007",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "## Two Models: OSI vs. TCP/IP"
+    },
+    {
+      "id": "00-OVERVIEW.md#008",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "Theory uses the 7-layer **OSI model** (ISO/IEC 7498-1). Practice uses the\n4-layer **TCP/IP model** (the Internet architecture, described in RFC 1122).\nThey map onto each other loosely; nobody implements OSI literally, but its\nvocabulary (\"a layer-3 device\", \"an L7 load balancer\") is universal."
+    },
+    {
+      "id": "00-OVERVIEW.md#009",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "```\n   OSI (7 layers)              TCP/IP (4 layers)        Example\n   ===============             =================        =======\n 7 Application      \\\n 6 Presentation      >----->   Application              HTTP, DNS, TLS payload\n 5 Session          /\n 4 Transport        ------->   Transport                TCP, UDP, QUIC\n 3 Network          ------->   Internet                 IP, ICMP, routing\n 2 Data Link        \\\n                     >----->   Link                     Ethernet, Wi-Fi, ARP\n 1 Physical         /\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#010",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "| | OSI | TCP/IP |\n|---|---|---|\n| **Origin** | ISO standards body, ~1984 | DARPA / Internet, codified RFC 1122 (1989) |\n| **Layers** | 7 | 4 |\n| **Where TLS lives** | \"Layer 5-6\" (informally) | Inside Application, above Transport |\n| **Used for** | teaching, vendor marketing (\"L7 firewall\") | the actual Internet |\n| **Honest take** | a reference vocabulary | the implemented architecture |"
+    },
+    {
+      "id": "00-OVERVIEW.md#011",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "> **Bridge — abstraction layers you already know.** This is the same move as a\n> language runtime stack: your C# `Stream` doesn't know whether it's backed by a\n> file, a socket, or memory; each layer below exposes a uniform contract. OSI\n> layering is the network's equivalent of interface segregation — every layer is\n> an interface, and devices implement only the interfaces they need."
+    },
+    {
+      "id": "00-OVERVIEW.md#012",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#013",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "## Encapsulation: The Onion of Headers"
+    },
+    {
+      "id": "00-OVERVIEW.md#014",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "Every layer prepends (and sometimes appends) its own header. By the time your\nHTTP request hits the wire it is wrapped four deep. This nesting is called\n**encapsulation**; the unwrapping on the far side is **decapsulation**."
+    },
+    {
+      "id": "00-OVERVIEW.md#015",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "```\n   APPLICATION:  [ HTTP request bytes ............................. ]\n                                  |\n   TRANSPORT:    [ TCP hdr | HTTP request bytes ................... ]   \"segment\"\n                                  |\n   NETWORK:      [ IP hdr | TCP hdr | HTTP request bytes ......... ]    \"packet\"\n                                  |\n   LINK:         [ ETH hdr | IP hdr | TCP hdr | HTTP bytes | FCS ]      \"frame\"\n                                  |\n   PHYSICAL:     1010110100101110101011010010111010101101001011101...  \"bits\"\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#016",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "The naming matters because the rest of this directory uses it precisely:"
+    },
+    {
+      "id": "00-OVERVIEW.md#017",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "| Layer | Unit name | Address it uses | Key header fields |\n|-------|-----------|-----------------|-------------------|\n| L2 Link | **frame** | MAC (48-bit) | src/dst MAC, EtherType, FCS |\n| L3 Network | **packet** | IP (32/128-bit) | src/dst IP, TTL, protocol |\n| L4 Transport | **segment** (TCP) / **datagram** (UDP) | port (16-bit) | src/dst port, seq/ack, flags |\n| L7 Application | **message** | URL / name | protocol-specific |"
+    },
+    {
+      "id": "00-OVERVIEW.md#018",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "A useful discipline: when something breaks, **name the layer**. \"Can't reach the\nhost\" (L3 routing? L2 ARP?) is a different bug from \"connection refused\" (L4 — no\nlistener on the port) which is different from \"TLS handshake failed\" (L6/7 trust)."
+    },
+    {
+      "id": "00-OVERVIEW.md#019",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#020",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "## What Each Layer Actually Owns"
+    },
+    {
+      "id": "00-OVERVIEW.md#021",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "The hardest part of networking is keeping straight *which concern lives where*.\nFive different layers all do something that sounds like \"control flow,\" and\nconflating them is the #1 source of confusion. Here is the clean separation."
+    },
+    {
+      "id": "00-OVERVIEW.md#022",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "```\n+-------------------------------------------------------------------------+\n| CONCERN              | LAYER | MECHANISM           | \"ANSWERS THE Q...\"  |\n|----------------------|-------|---------------------|---------------------|\n| Which physical port? | L2    | MAC switching       | next hop on this LAN |\n| Which global host?   | L3    | IP routing          | next hop toward dest |\n| Which process?       | L4    | port numbers        | which app on the host|\n| Reliable delivery?   | L4    | TCP seq/ack/retx    | did it arrive intact |\n| Don't overrun PEER?  | L4    | flow control (rwnd) | peer's buffer space  |\n| Don't overrun NET?   | L4    | congestion control  | network's capacity   |\n| What's the IP for X? | L7    | DNS                 | name -> address      |\n| Who am I talking to? | L6/7  | TLS / PKI           | identity + secrecy   |\n+-------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#023",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "Two pairs deserve special emphasis because they are constantly confused:"
+    },
+    {
+      "id": "00-OVERVIEW.md#024",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "- **Routing vs. switching.** A *switch* (L2) moves a frame to the right port on\n  one LAN using MAC addresses; it has no idea the Internet exists. A *router*\n  (L3) moves a packet from one network to another using IP prefixes. Switching\n  is \"find the right door in this building\"; routing is \"find the right building\n  in the city.\" (01 and 02 respectively.)"
+    },
+    {
+      "id": "00-OVERVIEW.md#025",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "- **Flow control vs. congestion control.** Both throttle the sender, but for\n  different reasons. *Flow control* protects the **receiver** from being\n  overrun (its buffer is full). *Congestion control* protects the **network**\n  in between from being overrun (a link is saturated). TCP does both\n  simultaneously with two separate windows. (Covered in 03 and 04.)"
+    },
+    {
+      "id": "00-OVERVIEW.md#026",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "> **Bridge — addressing vs. routing.** If you have built a distributed system,\n> you already know this split: a service *name* (DNS) resolves to an *address*\n> (IP), which a *routing fabric* delivers to a *port* where a *process* listens.\n> It is the same indirection chain as service discovery → endpoint → load\n> balancer → pod. Networking just standardized it 40 years earlier."
+    },
+    {
+      "id": "00-OVERVIEW.md#027",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#028",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "## The Journey of One Packet"
+    },
+    {
+      "id": "00-OVERVIEW.md#029",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "Concrete walkthrough — what happens when your laptop loads `https://example.com`.\nEvery numbered directory in this folder owns one step."
+    },
+    {
+      "id": "00-OVERVIEW.md#030",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "```\n  YOU TYPE: https://example.com\n     |\n  (1) DNS RESOLUTION                                          --> see 05-DNS\n      \"example.com\" -> 93.184.x.x   (cached? recurse? anycast root?)\n     |\n  (2) ROUTE LOOKUP                                            --> see 02-IP-ROUTING\n      Is dst on my subnet? No -> send to default gateway.\n     |\n  (3) ARP / LINK                                              --> see 01-LINK-LAYER\n      \"What MAC owns the gateway IP?\" -> build Ethernet frame.\n     |\n  (4) NAT (home/CGNAT)                                        --> see 07-NAT\n      Rewrite private src IP:port -> public IP:port; remember mapping.\n     |\n  (5) TCP / QUIC HANDSHAKE                                    --> see 03-TRANSPORT\n      SYN / SYN-ACK / ACK establishes a connection to port 443.\n     |\n  (6) CONGESTION CONTROL ramps the send rate                  --> see 04-CONGESTION\n      slow start -> probe for bandwidth (CUBIC/BBR).\n     |\n  (7) TLS 1.3 HANDSHAKE                                       --> see 06-TLS\n      verify cert chain, derive keys, 1-RTT to secure channel.\n     |\n  (8) LOAD BALANCER / CDN may answer instead of origin        --> see 08-LB-CDN\n      anycast routes you to the nearest edge POP.\n     |\n  (9) DATACENTER FABRIC delivers to the actual server         --> see 09-DATACENTER\n      leaf-spine + VXLAN overlay inside the provider.\n     |\n  HTTP RESPONSE flows back up every layer, in reverse.\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#031",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "Nine steps, nine guides. The rest of this directory is just each box, opened up."
+    },
+    {
+      "id": "00-OVERVIEW.md#032",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#033",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "## The Address Hierarchy"
+    },
+    {
+      "id": "00-OVERVIEW.md#034",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "Every layer has its own namespace, and they nest. Keeping the scopes straight is\nhalf of understanding networking."
+    },
+    {
+      "id": "00-OVERVIEW.md#035",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------+\n| NAME           example.com               human-friendly, global|\n|   | resolved by DNS (L7)                                        |\n|   v                                                             |\n| IP ADDRESS     93.184.216.34            globally routable (L3)  |\n|   | mapped by ARP/NDP on the local link                         |\n|   v                                                             |\n| MAC ADDRESS    00:1b:44:11:3a:b7        link-local only (L2)    |\n|   | identifies a NIC on one segment; never crosses a router     |\n|   v                                                             |\n| PORT           :443                     which process (L4)      |\n+----------------------------------------------------------------+"
+    },
+    {
+      "id": "00-OVERVIEW.md#036",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "SCOPE:  MAC = this LAN only.  IP = whole Internet.  Name = human memory.\n          The MAC changes at every router hop; the IP (usually) does not.\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#037",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:networking:00-overview, git-history:networking:00-overview]",
+        "canonical_path": "networking/00-OVERVIEW.md",
+        "concepts": "[networking, osi model, tcp/ip, encapsulation, layering]",
+        "current_path": "networking/00-OVERVIEW.md",
+        "id": "maxim:networking:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[networking]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Networking - The Layered Model End-to-End",
+        "updated": "null"
+      },
+      "text": "This last point trips everyone up: as a packet crosses routers, the **L3\nsource/destination IPs stay the same end-to-end** (modulo NAT), but the **L2\nsource/destination MACs are rewritten at every single hop** — because MAC\naddressing is link-local. The router strips the incoming frame, keeps the\npacket, and builds a *brand new* frame for the next link."
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

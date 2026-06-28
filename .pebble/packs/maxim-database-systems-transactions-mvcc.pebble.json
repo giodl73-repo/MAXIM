@@ -1,0 +1,97 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-transactions-mvcc",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-TRANSACTIONS-MVCC.md#000",
+      "path": [
+        "04-TRANSACTIONS-MVCC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:04-transactions-mvcc, git-history:database-systems:04-transactions-mvcc]",
+        "canonical_path": "database-systems/04-TRANSACTIONS-MVCC.md",
+        "concepts": "[transaction, ACID, MVCC, two-phase locking, snapshot isolation, version chain, concurrency control]",
+        "current_path": "database-systems/04-TRANSACTIONS-MVCC.md",
+        "id": "maxim:database-systems:transactions-mvcc",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency control]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Transactions and MVCC - ACID, 2PL, Snapshot Mechanics",
+        "updated": "null"
+      },
+      "text": "# Transactions and MVCC — Letting Many Writers and Readers Coexist"
+    },
+    {
+      "id": "04-TRANSACTIONS-MVCC.md#001",
+      "path": [
+        "04-TRANSACTIONS-MVCC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:04-transactions-mvcc, git-history:database-systems:04-transactions-mvcc]",
+        "canonical_path": "database-systems/04-TRANSACTIONS-MVCC.md",
+        "concepts": "[transaction, ACID, MVCC, two-phase locking, snapshot isolation, version chain, concurrency control]",
+        "current_path": "database-systems/04-TRANSACTIONS-MVCC.md",
+        "id": "maxim:database-systems:transactions-mvcc",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency control]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Transactions and MVCC - ACID, 2PL, Snapshot Mechanics",
+        "updated": "null"
+      },
+      "text": "A transaction is a unit of work that the database makes **atomic, consistent, isolated, and\ndurable** even while thousands of other transactions run concurrently. This guide covers the\n*mechanisms* — ACID, two-phase locking, and especially multi-version concurrency control\n(MVCC). Guide 05 then covers the *guarantees* (isolation levels) those mechanisms produce."
+    },
+    {
+      "id": "04-TRANSACTIONS-MVCC.md#002",
+      "path": [
+        "04-TRANSACTIONS-MVCC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:04-transactions-mvcc, git-history:database-systems:04-transactions-mvcc]",
+        "canonical_path": "database-systems/04-TRANSACTIONS-MVCC.md",
+        "concepts": "[transaction, ACID, MVCC, two-phase locking, snapshot isolation, version chain, concurrency control]",
+        "current_path": "database-systems/04-TRANSACTIONS-MVCC.md",
+        "id": "maxim:database-systems:transactions-mvcc",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency control]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Transactions and MVCC - ACID, 2PL, Snapshot Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|                       CONCURRENCY CONTROL — THE TWO FAMILIES                         |\n+=====================================================================================+\n|                                                                                     |\n|   GOAL: run T1, T2, ... T_n concurrently but produce a result EQUIVALENT to some     |\n|         SERIAL order. (Serializability is the gold-standard correctness criterion.)  |\n|                                                                                     |\n|   +---------------------------------+     +-------------------------------------+   |\n|   |  PESSIMISTIC: LOCK FIRST (2PL)  |     |  OPTIMISTIC: VERSION + DETECT (MVCC) |   |\n|   +---------------------------------+     +-------------------------------------+   |\n|   | acquire lock BEFORE touching a  |     | readers see a consistent SNAPSHOT;   |   |\n|   | row. Conflicting txns BLOCK.    |     | writers create NEW versions; never   |   |\n|   |                                 |     | block readers. Conflicts detected at |   |\n|   | + simple correctness            |     | commit (abort the loser).            |   |\n|   | - readers block writers,        |     | + reads never block / never blocked  |   |\n|   |   writers block readers         |     | - storage for versions, GC/vacuum,   |   |\n|   | - deadlocks                     |     |   write-skew anomaly at SI            |   |\n|   +---------------------------------+     +-------------------------------------+   |\n|                                                                                     |\n|   MODERN REALITY: a HYBRID. MVCC for reads (no read locks) + locks or optimistic     |\n|   detection for WRITE-WRITE conflicts. Postgres, Oracle, InnoDB, SQL Server RCSI/SI. |\n+=====================================================================================+\n```"
+    }
+  ],
+  "refs": [
+    "04-TRANSACTIONS-MVCC.md"
+  ]
+}

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Graph Traversal — BFS, DFS, and Their Decorations
 
 Traversal is *the* primitive. Almost every algorithm in this directory is a BFS

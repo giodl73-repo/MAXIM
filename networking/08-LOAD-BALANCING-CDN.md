@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Load Balancing and CDN — L4 vs L7, Anycast, CDNs, Edge
 
 ## The Big Picture

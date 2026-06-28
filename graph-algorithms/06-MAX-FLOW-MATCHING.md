@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Maximum Flow and Matching — The LP-Dual Frontier
 
 Max-flow is the last great polynomial conquest before the NP-hard cliff, and its

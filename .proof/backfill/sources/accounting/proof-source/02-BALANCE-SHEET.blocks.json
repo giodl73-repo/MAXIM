@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\02-BALANCE-SHEET.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                   BALANCE SHEET  —  as of a POINT IN TIME                |\n|                                                                          |\n|         ASSETS              =        LIABILITIES   +   EQUITY            |\n|       (what we control)            (creditor claims)  (owner claims)     |\n|                                                                          |\n|   +--------------------+        +--------------------------------------+ |\n|   | CURRENT (<1 yr)    |        | CURRENT LIABILITIES (<1 yr)          | |\n|   |  Cash              |        |  Accounts payable                    | |\n|   |  Marketable secs   |        |  Accrued expenses                    | |\n|   |  Accounts recv.    |        |  Deferred revenue                    | |\n|   |  Inventory         |        |  Current portion of LT debt          | |\n|   |  Prepaid expenses  |        +--------------------------------------+ |\n|   +--------------------+        | NON-CURRENT LIABILITIES (>1 yr)      | |\n|   | NON-CURRENT (>1 yr)|        |  Long-term debt / bonds              | |\n|   |  PP&E (net)        |        |  Deferred tax liability              | |\n|   |  Intangibles       |        |  Pension obligations                 | |\n|   |  Goodwill          |        +--------------------------------------+ |\n|   |  LT investments    |        | EQUITY                               | |\n|   |                    |        |  Common stock + APIC (contributed)   | |\n|   |                    |        |  Retained earnings (accumulated)     | |\n|   |                    |        |  Treasury stock (contra, subtracts)  | |\n|   |                    |        |  Accum. other comprehensive income   | |\n|   +--------------------+        +--------------------------------------+ |\n|                                                                          |\n|        TOTAL ASSETS         ==      TOTAL LIAB. + TOTAL EQUITY            |\n|        (these two numbers are EQUAL — that is why it \"balances\")          |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 140,
+      "heading_context": "## Classification: Why Current vs Non-Current Matters",
+      "confidence": "candidate",
+      "text": "   CURRENT ASSETS            CURRENT LIABILITIES\n   +-----------------+       +-----------------+\n   | Cash      40    |       | Payables    30  |\n   | AR        50    |       | Accrued     20  |\n   | Inventory 30    |       | Def. rev.   10  |\n   +-----------------+       +-----------------+\n   total     120            total        60\n                |                  |\n                +-- Working capital = 120 - 60 = 60\n                +-- Current ratio   = 120 / 60 = 2.0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 173,
+      "heading_context": "## Worked Example — Building a Balance Sheet (it balances)",
+      "confidence": "candidate",
+      "text": "   #    ASSETS                          =  LIABILITIES        +  EQUITY\n   T1   Cash +200                       =                     +  Stock +200\n   T2   Cash +100                       =  Note +100          +\n   T3   Cash -150, Equip +150           =                     +\n   T4   Inventory +80                   =  Payable +80        +\n   T5   Cash +90, Inventory -40         =                     +  RE +50 (90-40)\n   T6   Cash -30                        =  Payable -30        +\n   T7   Equip -15 (accum deprec)        =                     +  RE -15 (deprec exp)\n   T8   Cash +25                        =  Def.Rev +25        +",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 187,
+      "heading_context": "#    ASSETS                          =  LIABILITIES        +  EQUITY",
+      "confidence": "candidate",
+      "text": "   Cash:      200+100-150+90-30+25            = 235\n   Inventory: 80-40                           = 40\n   Equipment: 150 gross, less 15 accum dep    = 135 net\n   ----                                         ----\n   TOTAL ASSETS                                 410\n\n   Note payable                               = 100\n   Accounts payable: 80-30                    = 50\n   Deferred revenue                           = 25\n   ----                                         ----\n   TOTAL LIABILITIES                            175\n\n   Common stock                               = 200\n   Retained earnings: +50 -15                 = 35\n   ----                                         ----\n   TOTAL EQUITY                                 235",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

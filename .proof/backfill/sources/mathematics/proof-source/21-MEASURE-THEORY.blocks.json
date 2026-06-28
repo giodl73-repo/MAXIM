@@ -74,7 +74,7 @@
       "line": 461,
       "heading_context": "### Relationships",
       "confidence": "candidate",
-      "text": "                    a.s. convergence\n                   /                \\\n                  ↓                  ↓\n             a.s. convergence   a.s. convergence\n         (on finite measure spaces)    ↓\n                  →    convergence in measure\n                  ↑\n             Lᵖ convergence (p ≥ 1)\n                  ↓\n             convergence in distribution (weakest)\n\nNone of these arrows reverse in general.\nCounterexamples:\n  • Convergence in measure but not a.s.: \"typewriter sequence\" on [0,1]\n    f₁=1_{[0,1]}, f₂=1_{[0,1/2]}, f₃=1_{[1/2,1]}, f₄=1_{[0,1/4]}, ...\n    ||fₙ||₁ → 0, but fₙ(x) ≢ 0 for any x.\n  • a.s. convergence but not L¹: fₙ = n·1_{[0,1/n]}. fₙ → 0 a.s., but ∫fₙ = 1.\n    (Needs DCT's dominating function, which doesn't exist here.)",
+      "text": "   Lᵖ convergence (p ≥ 1)\n         │  (Markov / Chebyshev)\n         ▼\n   a.s. convergence ──(finite measure space)──▶ convergence in measure\n         ▲                                            │\n         └────────── along a subsequence ─────────────┤\n                                                       ▼\n                                       convergence in distribution (weakest)\n\n  • a.s. ⇒ in measure only on a FINITE measure space.\n  • Lᵖ ⇒ in measure always; the converse needs uniform integrability.\n  • in measure ⇒ a.s. only along a subsequence.\n  • a.s. + a dominating function ⇒ Lᵖ (DCT).\n\nNone of these arrows reverse in general (without the extra hypotheses noted).\nCounterexamples:\n  • Convergence in measure but not a.s.: \"typewriter sequence\" on [0,1]\n    f₁=1_{[0,1]}, f₂=1_{[0,1/2]}, f₃=1_{[1/2,1]}, f₄=1_{[0,1/4]}, ...\n    ||fₙ||₁ → 0, but fₙ(x) ≢ 0 for any x.\n  • a.s. convergence but not L¹: fₙ = n·1_{[0,1/n]}. fₙ → 0 a.s., but ∫fₙ = 1.\n    (Needs DCT's dominating function, which doesn't exist here.)",
       "notes": [
         "fenced visual/source block"
       ]
@@ -82,7 +82,7 @@
     {
       "id": "block-8",
       "kind": "diagram_like",
-      "line": 486,
+      "line": 489,
       "heading_context": "### Weak Convergence (in Distribution)",
       "confidence": "candidate",
       "text": "Xₙ →_d X if F_{Xₙ}(x) → F_X(x) at all continuity points of F_X.\n\nEquivalently: E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ.\n\nPortmanteau theorem (equivalent characterizations):\n  (1) E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ\n  (2) E[φ(Xₙ)] → E[φ(X)] for all bounded Lipschitz φ\n  (3) limsup P(Xₙ ∈ F) ≤ P(X ∈ F) for all closed F\n  (4) liminf P(Xₙ ∈ G) ≥ P(X ∈ G) for all open G\n  (5) P(Xₙ ∈ B) → P(X ∈ B) for all B with P(X ∈ ∂B) = 0\n\nCharacteristic functions (Lévy continuity theorem):\n  Xₙ →_d X iff φ_{Xₙ}(t) → φ_X(t) for all t.\n  φ_X(t) = E[e^{itX}] is the characteristic function.\n  This is how CLT is proved rigorously.",
@@ -93,7 +93,7 @@
     {
       "id": "block-9",
       "kind": "ascii_table_candidate",
-      "line": 506,
+      "line": 509,
       "heading_context": "### CLT — Measure-Theoretic Proof Sketch",
       "confidence": "candidate",
       "text": "Let X₁, X₂, ... iid with mean 0, variance σ².\nSₙ = (X₁+...+Xₙ)/(σ√n).\n\nCharacteristic function of Sₙ:\n  φ_{Sₙ}(t) = [φ_X(t/(σ√n))]ⁿ\n\nTaylor expand φ_X near 0:\n  φ_X(t) = 1 + E[X]·it - E[X²]t²/2 + o(t²) = 1 - σ²t²/2 + o(t²)\n\nSubstituting:\n  φ_{Sₙ}(t) = [1 - σ²(t/σ√n)²/2 + o(t²/n)]ⁿ\n             = [1 - t²/(2n) + o(1/n)]ⁿ\n             → e^{-t²/2}   (as n → ∞)\n\ne^{-t²/2} is characteristic function of N(0,1).\nBy Lévy continuity: Sₙ →_d N(0,1). □",
@@ -104,7 +104,7 @@
     {
       "id": "block-10",
       "kind": "diagram_like",
-      "line": 571,
+      "line": 574,
       "heading_context": "### Ergodic Theory and MCMC",
       "confidence": "candidate",
       "text": "If T is measure-preserving on (Ω, ℱ, μ) and f ∈ L¹(μ):\n\n  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → E_μ[f | ℐ]   μ-a.s. and in L¹\n\nwhere ℐ = σ-algebra of T-invariant sets.\n\nIf T is ergodic: ℐ is trivial → E_μ[f | ℐ] = ∫ f dμ.\n\nSo for ergodic T:  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → ∫_Ω f dμ  a.s.\n\nTime average of f along a single trajectory = space average of f over Ω.",
@@ -115,7 +115,7 @@
     {
       "id": "block-11",
       "kind": "ascii_table_candidate",
-      "line": 610,
+      "line": 613,
       "heading_context": "### KL Divergence and Radon-Nikodym",
       "confidence": "candidate",
       "text": "**Why P ≪ Q is required**: If P(A) > 0 but Q(A) = 0 for some set A, then dP/dQ is undefined (or +∞) on A, and log(dP/dQ) = +∞ on a P-positive set → KL = +∞. KL divergence detects whether Q has full support relative to P.",
@@ -126,7 +126,7 @@
     {
       "id": "block-12",
       "kind": "diagram_like",
-      "line": 624,
+      "line": 627,
       "heading_context": "### Measure Theory in Probability and Statistics",
       "confidence": "candidate",
       "text": "Laws of large numbers (formal version):\n  Strong LLN: (X₁+...+Xₙ)/n → E[X₁] a.s. if E[|X₁|] < ∞.\n  Proof: Kolmogorov's criterion + Borel-Cantelli lemma.\n\nBorel-Cantelli:\n  If Σₙ P(Aₙ) < ∞: P(Aₙ i.o.) = 0   [events happen finitely often a.s.]\n  If Σₙ P(Aₙ) = ∞ and independent: P(Aₙ i.o.) = 1   [infinitely often a.s.]\n  Used to prove a.s. convergence results.\n\nKolmogorov extension theorem:\n  Consistent family of finite-dimensional distributions → exists stochastic process\n  with those distributions. Justifies defining Brownian motion, Gaussian processes.",
@@ -137,7 +137,7 @@
     {
       "id": "block-13",
       "kind": "diagram_like",
-      "line": 722,
+      "line": 725,
       "heading_context": "## Decision Cheat Sheet",
       "confidence": "candidate",
       "text": "Task:                                        Tool:\n────────────────────────────────────────     ──────────────────────────────────────────\nInterchange limit and integral               DCT (need dominating function) or MCT (non-negative increasing)\nIntegrate product function on X×Y           Fubini-Tonelli (check σ-finite + integrability/non-negative)\nShow two measures are related               Radon-Nikodym (if ν ≪ μ → density dν/dμ exists)\nDefine conditional expectation              Radon-Nikodym on sub-σ-algebra\nShow sequence converges to 0 a.s.           Borel-Cantelli: show Σ P(|fₙ| > ε) < ∞\nShow a.e. convergence → L¹ convergence     Dominated convergence (need dominating g ∈ L¹)\nProve completeness of function space        Riesz-Fischer (Cauchy → subsequence → a.s. → DCT)\nChange variables in integral                Jacobian formula (|det DT|)\nWork with densities rigorously              Radon-Nikodym: density = dP/dλ\nProve CLT rigorously                        Characteristic functions + Lévy continuity theorem\nKL divergence between P and Q               ∫ log(dP/dQ) dP  — requires P ≪ Q\nImportance weighting for domain shift       Density ratio dP_T/dP_S via Radon-Nikodym\nMCMC convergence justification             Birkhoff ergodic theorem (time avg → space avg)\nItô integral — why L² not pathwise         Quadratic variation of Brownian motion; Itô isometry",

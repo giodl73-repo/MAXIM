@@ -1,0 +1,97 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-storage-engines",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-STORAGE-ENGINES.md#000",
+      "path": [
+        "01-STORAGE-ENGINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:01-storage-engines, git-history:database-systems:01-storage-engines]",
+        "canonical_path": "database-systems/01-STORAGE-ENGINES.md",
+        "concepts": "[storage engine, page, buffer pool, heap file, b-tree, lsm-tree, write amplification, read amplification, space amplification]",
+        "current_path": "database-systems/01-STORAGE-ENGINES.md",
+        "id": "maxim:database-systems:storage-engines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Engines - Heap, B-tree, LSM, Buffer Pool, Amplification",
+        "updated": "null"
+      },
+      "text": "# Storage Engines — How a Row Becomes Bytes on Disk"
+    },
+    {
+      "id": "01-STORAGE-ENGINES.md#001",
+      "path": [
+        "01-STORAGE-ENGINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:01-storage-engines, git-history:database-systems:01-storage-engines]",
+        "canonical_path": "database-systems/01-STORAGE-ENGINES.md",
+        "concepts": "[storage engine, page, buffer pool, heap file, b-tree, lsm-tree, write amplification, read amplification, space amplification]",
+        "current_path": "database-systems/01-STORAGE-ENGINES.md",
+        "id": "maxim:database-systems:storage-engines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Engines - Heap, B-tree, LSM, Buffer Pool, Amplification",
+        "updated": "null"
+      },
+      "text": "The storage engine is the bottom of the stack: it owns the question \"where do the actual bytes\nlive, and how do I get them in and out of memory efficiently?\" Everything above it — indexes,\ntransactions, the optimizer — assumes this layer just works."
+    },
+    {
+      "id": "01-STORAGE-ENGINES.md#002",
+      "path": [
+        "01-STORAGE-ENGINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:01-storage-engines, git-history:database-systems:01-storage-engines]",
+        "canonical_path": "database-systems/01-STORAGE-ENGINES.md",
+        "concepts": "[storage engine, page, buffer pool, heap file, b-tree, lsm-tree, write amplification, read amplification, space amplification]",
+        "current_path": "database-systems/01-STORAGE-ENGINES.md",
+        "id": "maxim:database-systems:storage-engines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage engine]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Engines - Heap, B-tree, LSM, Buffer Pool, Amplification",
+        "updated": "null"
+      },
+      "text": "```\n+=========================================================================================+\n|                        THE STORAGE ENGINE, FROM ROW TO BLOCK DEVICE                     |\n+=========================================================================================+\n|                                                                                         |\n|   LOGICAL ROW   (id=42, name='Ada', balance=100)                                        |\n|        |                                                                                |\n|        v   serialized into a tuple/record format (header + column values)               |\n|   +---------------------------------------------------------------------------------+   |\n|   |  PAGE  (a.k.a. block)  — the fixed-size unit of I/O. 8 KB Postgres/SQL Server,    |  |\n|   |  16 KB InnoDB default. The DB NEVER reads a single row from disk; it reads a page.|  |\n|   |  +--------+-------------------------------+----------------------+-------------+  |   |\n|   |  | header | slot array -> -> ->           |   free space        |  <- tuples  |  |   |\n|   |  +--------+-------------------------------+----------------------+-------------+  |   |\n|   |  (slotted page: slots grow down, tuples grow up, meet in the middle)             |  |\n|   +---------------------------------------------------------------------------------+   |\n|        |                                                                                |\n|        v   pages are cached in RAM by...                                                 |\n|   +---------------------------------------------------------------------------------+   |\n|   |  BUFFER POOL  — the DB's own page cache. Hot pages live here; cold pages get      |  |\n|   |  evicted (LRU/clock). A \"hit\" = page already in RAM. A \"miss\" = read from disk.   |  |\n|   |  Dirty pages (modified) must be flushed before eviction, AFTER the WAL is durable.|  |\n|   +---------------------------------------------------------------------------------+   |\n|        |                                                                                |\n|        v   pages laid out on disk in one of two grand strategies...                      |\n|   +---------------------------------+   +-----------------------------------------+       |\n|   |  IN-PLACE FILES                 |   |  LOG-STRUCTURED FILES (LSM)             |       |\n|   |  heap files + B-tree files      |   |  memtable + immutable SSTables          |       |\n|   |  mutate the page in place       |   |  append-only, merge in background       |       |\n|   +---------------------------------+   +-----------------------------------------+       |\n|                                                                                         |\n+=========================================================================================+\n```"
+    }
+  ],
+  "refs": [
+    "01-STORAGE-ENGINES.md"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\09-PLANARITY-AND-STRUCTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Planarity and Graph Structure — The Structural Escape Hatch",
+      "confidence": "candidate",
+      "text": "  STRUCTURE DEFEATS HARDNESS\n  ==========================\n\n   PLANARITY                         TREEWIDTH\n   (geometric structure)             (decomposition structure)\n   -------------------------         ----------------------------------\n   drawable with no edge crossings   \"how far from being a tree?\"\n        |                                 |\n        |  Euler:  V - E + F = 2           |  tree (tw=1) -> series-parallel (tw=2)\n        |  forbidden minors: K5, K3,3      |  -> ... -> clique K_n (tw = n-1)\n        v                                  v\n   LINEAR-TIME planarity test        BOUNDED treewidth => DP solves NP-hard\n   (Hopcroft-Tarjan, Boyer-Myrvold)  problems in poly time (Courcelle's theorem)\n\n         +---------------------------------------------------------+\n         | ROBERTSON-SEYMOUR (graph minors): every minor-closed    |\n         | family has a FINITE set of forbidden minors. Implies    |\n         | poly-time membership tests for huge classes of problems.|\n         +---------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## Euler's Formula — The Backbone of Planar Graphs",
+      "confidence": "candidate",
+      "text": "                          V - E + F = 2\n\n  Example (a cube graph drawn planar):  V=8, E=12, F=6  ->  8 - 12 + 6 = 2  OK\n  Example (a triangle):                 V=3, E=3,  F=2  ->  3 - 3  + 2 = 2  OK\n                                                            (2 faces: inside + outside)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## The Four-Color Theorem and Planar Coloring",
+      "confidence": "candidate",
+      "text": "  FOUR-COLOR THEOREM (Appel-Haken 1976, first major computer-assisted proof):\n     every planar graph is 4-colorable.\n\n  Practically:\n     2-colorable?  -> O(V+E) bipartite test (02), planar or not\n     5-coloring    -> constructive, O(V) (uses the degree-<=5 vertex)\n     4-coloring    -> guaranteed to EXIST, but FINDING it is still nontrivial\n     3-coloring    -> NP-complete EVEN for planar graphs!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Treewidth — How Tree-Like Is the Graph?",
+      "confidence": "candidate",
+      "text": "  A TREE DECOMPOSITION covers the graph with overlapping \"bags\" of vertices\n  arranged in a tree, such that:\n    1. every vertex is in some bag\n    2. every edge's endpoints share some bag\n    3. the bags containing any vertex form a connected subtree\n\n  Graph:   A-B-C-D  with B-D also:        Tree decomposition (bags):\n                                            {A,B} -- {B,C,D} -- {C,D}\n  WIDTH of a decomposition = (max bag size) - 1.\n  TREEWIDTH = minimum width over all valid tree decompositions.\n     tree -> tw 1 ;  cycle -> tw 2 ;  k x k grid -> tw k ;  K_n -> tw n-1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Graph Minors — The Unifying Theory",
+      "confidence": "candidate",
+      "text": "  ROBERTSON-SEYMOUR:  every minor-closed family has a FINITE set of\n                      forbidden minors (an \"obstruction set\").\n\n  Consequences:\n   * Wagner's K5/K3,3 characterization of planarity is the SIMPLEST instance.\n   * For ANY fixed minor H, \"does G contain H as a minor?\" is decidable in\n     O(V^3) time  -> O(V^2) (improved). So every minor-closed property has a\n     POLYNOMIAL membership test... though the constant can be astronomical and\n     the obstruction set is often non-constructive (existence, not the list).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 269,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "V − E + F = 1 + c. It says nothing about non-planar graphs (which have no",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

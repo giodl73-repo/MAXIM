@@ -1,0 +1,161 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\05-ACCRUAL-VS-CASH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 108,
+      "heading_context": "## The Four Timing Cases (the 2x2)",
+      "headers": [
+        "Case",
+        "Cash vs event",
+        "Created as",
+        "Example"
+      ],
+      "rows": [
+        [
+          "**Deferred revenue**",
+          "Cash before earning",
+          "Liability",
+          "Annual SaaS paid upfront"
+        ],
+        [
+          "**Prepaid expense**",
+          "Cash before incurring",
+          "Asset",
+          "Insurance paid for the year"
+        ],
+        [
+          "**Accrued revenue**",
+          "Earned before cash",
+          "Asset (receivable)",
+          "Work done, not yet invoiced"
+        ],
+        [
+          "**Accrued expense**",
+          "Incurred before cash",
+          "Liability (payable)",
+          "Wages earned, paid next period"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 212,
+      "heading_context": "## When Cash Basis Is Acceptable",
+      "headers": [
+        "Context",
+        "Basis",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Public companies, audited entities",
+          "Accrual (required)",
+          "Faithful performance; GAAP/IFRS mandate"
+        ],
+        [
+          "Large private firms (above thresholds)",
+          "Accrual (required)",
+          "Tax/reporting rules"
+        ],
+        [
+          "Very small businesses, sole proprietors",
+          "Cash often allowed",
+          "Simplicity; tax cash-basis below size thresholds"
+        ],
+        [
+          "Internal cash-management / treasury",
+          "Cash view used alongside",
+          "You still need to know real liquidity"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 227,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Prior art",
+        "Accrual concept"
+      ],
+      "rows": [
+        [
+          "Event-time vs processing-time",
+          "Accrual (event-time) vs cash (settlement-time)"
+        ],
+        [
+          "Watermarks / windowed aggregation",
+          "Period-end adjusting entries flush the timing buffer"
+        ],
+        [
+          "Buffering events until trigger fires",
+          "Prepaid/deferred parked on the balance sheet"
+        ],
+        [
+          "Eventual consistency (lagged settle)",
+          "AR / AP / deferred revenue (the earn-vs-settle gap)"
+        ],
+        [
+          "Amortizing a one-time cost over uses",
+          "Matching (depreciation, prepaid consumption)"
+        ],
+        [
+          "Reconciling two consistency models",
+          "Cash flow statement (accrual → cash, file 04)"
+        ],
+        [
+          "Idempotent reversal at boundary",
+          "Reversing entries for accruals next period"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 241,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Treatment",
+        "Account created"
+      ],
+      "rows": [
+        [
+          "Collected cash before delivering",
+          "Defer",
+          "Deferred revenue (liability)"
+        ],
+        [
+          "Paid cash before consuming",
+          "Defer",
+          "Prepaid expense (asset)"
+        ],
+        [
+          "Earned revenue, not yet billed",
+          "Accrue",
+          "Accrued revenue (asset)"
+        ],
+        [
+          "Incurred cost, not yet paid",
+          "Accrue",
+          "Accrued expense / payable (liability)"
+        ],
+        [
+          "Bought a long-lived asset",
+          "Capitalize + depreciate",
+          "Asset → expense over life (matching)"
+        ],
+        [
+          "Want true profitability",
+          "Read accrual income statement",
+          "—"
+        ],
+        [
+          "Want survival / liquidity",
+          "Read cash flow statement (file 04)",
+          "—"
+        ]
+      ]
+    }
+  ]
+}

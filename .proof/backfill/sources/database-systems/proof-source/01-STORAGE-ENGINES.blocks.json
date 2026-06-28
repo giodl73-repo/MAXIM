@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\01-STORAGE-ENGINES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "# Storage Engines — How a Row Becomes Bytes on Disk",
+      "confidence": "candidate",
+      "text": "+=========================================================================================+\n|                        THE STORAGE ENGINE, FROM ROW TO BLOCK DEVICE                     |\n+=========================================================================================+\n|                                                                                         |\n|   LOGICAL ROW   (id=42, name='Ada', balance=100)                                        |\n|        |                                                                                |\n|        v   serialized into a tuple/record format (header + column values)               |\n|   +---------------------------------------------------------------------------------+   |\n|   |  PAGE  (a.k.a. block)  — the fixed-size unit of I/O. 8 KB Postgres/SQL Server,    |  |\n|   |  16 KB InnoDB default. The DB NEVER reads a single row from disk; it reads a page.|  |\n|   |  +--------+-------------------------------+----------------------+-------------+  |   |\n|   |  | header | slot array -> -> ->           |   free space        |  <- tuples  |  |   |\n|   |  +--------+-------------------------------+----------------------+-------------+  |   |\n|   |  (slotted page: slots grow down, tuples grow up, meet in the middle)             |  |\n|   +---------------------------------------------------------------------------------+   |\n|        |                                                                                |\n|        v   pages are cached in RAM by...                                                 |\n|   +---------------------------------------------------------------------------------+   |\n|   |  BUFFER POOL  — the DB's own page cache. Hot pages live here; cold pages get      |  |\n|   |  evicted (LRU/clock). A \"hit\" = page already in RAM. A \"miss\" = read from disk.   |  |\n|   |  Dirty pages (modified) must be flushed before eviction, AFTER the WAL is durable.|  |\n|   +---------------------------------------------------------------------------------+   |\n|        |                                                                                |\n|        v   pages laid out on disk in one of two grand strategies...                      |\n|   +---------------------------------+   +-----------------------------------------+       |\n|   |  IN-PLACE FILES                 |   |  LOG-STRUCTURED FILES (LSM)             |       |\n|   |  heap files + B-tree files      |   |  memtable + immutable SSTables          |       |\n|   |  mutate the page in place       |   |  append-only, merge in background       |       |\n|   +---------------------------------+   +-----------------------------------------+       |\n|                                                                                         |\n+=========================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 73,
+      "heading_context": "## Layer 1: The Page",
+      "confidence": "candidate",
+      "text": "   SLOTTED PAGE LAYOUT  (used by Postgres, SQL Server, InnoDB, most engines)\n\n   +------+----+----+----+--------------------------------+------+------+------+\n   |HEADER|slot|slot|slot| -------- FREE SPACE -------->   |tuple3|tuple2|tuple1|\n   +------+----+----+----+--------------------------------+------+------+------+\n            |    |    |                                       ^      ^      ^\n            |    |    +---------------------------------------+      |      |\n            |    +----------------------------------------------------+     |\n            +----------------------------------------------------------------+\n\n   - Slots are a small array of (offset, length) pointers near the page header.\n   - Tuples are packed from the END of the page backward.\n   - To find row N: read slot N -> get offset -> read tuple. O(1) within a page.\n   - DELETE = mark the slot dead (tuple becomes garbage, reclaimed later).\n   - VARIABLE-LENGTH rows are why we need the slot indirection at all.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "## Layer 2: The Buffer Pool",
+      "confidence": "candidate",
+      "text": "   READ PATH                                WRITE PATH\n   ---------                                ----------\n   1. Want page P                           1. Modify page P in the pool (now \"dirty\")\n   2. In buffer pool? --YES--> return       2. Write the change to the WAL first  <-- KEY\n   3. --NO--> evict a victim (clock/LRU)    3. Acknowledge COMMIT once WAL is durable\n   4. If victim dirty, flush it first       4. Page stays dirty in RAM; flushed LATER\n   5. Read P from disk into the frame          by a background writer / at a checkpoint\n   6. return P",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "### B+tree files — the workhorse index/storage structure",
+      "confidence": "candidate",
+      "text": "                         B+TREE (order shown small for clarity)\n\n                              +-------------------+\n                              |    [ 30 | 70 ]    |   <- internal node: keys + child ptrs\n                              +----+----+----+----+\n                            <30 |    |30-70|   |>=70\n                                v         v        v\n                  +----------+      +----------+      +----------+\n                  | [10|20]  |      | [40|55]  |      | [80|95]  |   <- internal\n                  +--+--+--+-+      +--+--+--+-+      +--+--+--+-+\n                     ...                ...               ...\n                  +----+----+----+   leaf level (all keys live here, sorted)\n   ... <-LEAF[10|15]<->LEAF[20|25]<->LEAF[40|50]<->LEAF[55|60]<->LEAF[80|90]-> ...\n            ^------ leaves are LINKED -> a range scan walks the linked list ------^",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 179,
+      "heading_context": "### B+tree files — the workhorse index/storage structure",
+      "confidence": "candidate",
+      "text": "**B-tree vs B+tree:** in a classic B-tree, keys (and data) live in *all* nodes; in a **B+tree**,",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "## Layer 3b: Log-Structured Storage — the LSM-tree",
+      "confidence": "candidate",
+      "text": "   LSM-TREE WRITE/READ FLOW\n\n   WRITE  -> append to WAL (durability) -> insert into MEMTABLE (sorted in RAM, e.g. skiplist)\n                                                  |\n                          memtable full ----------+\n                                                  v\n                          FLUSH to disk as an immutable, sorted SSTable (Level 0)\n                                                  |\n                   background COMPACTION merges SSTables across levels, dropping\n                   overwritten/deleted keys (tombstones), keeping each level sorted\n                                                  |\n                                                  v\n            L0  [sst][sst][sst]        (recently flushed, may overlap key ranges)\n            L1  [----- sorted, non-overlapping runs -----]\n            L2  [--------------- larger sorted runs ---------------]\n            L3  [------------------------ even larger -------------------------]\n\n   READ   -> check memtable -> check each level newest-first -> stop at first hit\n             (a key may exist in several levels; the NEWEST version wins)\n             Bloom filters per SSTable skip levels that definitely lack the key.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

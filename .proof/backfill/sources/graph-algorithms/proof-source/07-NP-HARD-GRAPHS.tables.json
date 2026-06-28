@@ -1,0 +1,190 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\07-NP-HARD-GRAPHS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 79,
+      "heading_context": "## The Three Faces of One Problem",
+      "headers": [
+        "Problem",
+        "Asks for",
+        "Identity"
+      ],
+      "rows": [
+        [
+          "**Independent set**",
+          "largest set, no two adjacent",
+          "complement of a clique in Gᶜ"
+        ],
+        [
+          "**Clique**",
+          "largest set, all pairwise adjacent",
+          "independent set in the complement"
+        ],
+        [
+          "**Vertex cover**",
+          "smallest set touching every edge",
+          "V minus a maximum independent set"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 96,
+      "heading_context": "## Approximation — How Close Can Polynomial Time Get?",
+      "headers": [
+        "Problem",
+        "Best poly-time approximation",
+        "Hardness of approximation"
+      ],
+      "rows": [
+        [
+          "**Vertex cover**",
+          "**2** (greedy on a maximal matching)",
+          "no better than ~1.36 unless P=NP; no 2−ε under UGC"
+        ],
+        [
+          "**Metric TSP**",
+          "**1.5** (Christofides)",
+          "no PTAS unless P=NP (APX-hard)"
+        ],
+        [
+          "**General TSP**",
+          "**inapproximable** to any constant",
+          "NP-hard even to approximate"
+        ],
+        [
+          "**Independent set**",
+          "**no constant factor**",
+          "n^(1−ε)-inapproximable"
+        ],
+        [
+          "**Clique**",
+          "no constant factor",
+          "n^(1−ε)-inapproximable"
+        ],
+        [
+          "**Graph coloring**",
+          "within O(n^(1−ε)) is hard",
+          "very hard to approximate"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 180,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is the NP-hard problem…"
+      ],
+      "rows": [
+        [
+          "Register allocation in a compiler",
+          "graph coloring (interference graph) — `computing/22`"
+        ],
+        [
+          "Wireless channel / frequency assignment",
+          "graph coloring"
+        ],
+        [
+          "Exam / room scheduling with conflicts",
+          "coloring / independent set"
+        ],
+        [
+          "Selecting non-conflicting features/jobs",
+          "maximum independent set"
+        ],
+        [
+          "Minimum monitors to watch every link",
+          "minimum vertex cover"
+        ],
+        [
+          "Vehicle routing / delivery tour",
+          "TSP (with capacity ⇒ VRP, harder still)"
+        ],
+        [
+          "Package dependency conflict resolution",
+          "SAT (general) — why npm/NuGet resolution is hard"
+        ],
+        [
+          "Finding tight communities in a network",
+          "clique / dense-subgraph"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Approach",
+        "Guarantee"
+      ],
+      "rows": [
+        [
+          "Vertex cover, need a fast answer",
+          "greedy on maximal matching",
+          "2-approx"
+        ],
+        [
+          "Vertex cover, answer is small (k)",
+          "FPT branching",
+          "exact, O(2ᵏ·(V+E))"
+        ],
+        [
+          "Vertex cover on a bipartite graph",
+          "König ⇒ max matching (`06`)",
+          "**exact, poly**"
+        ],
+        [
+          "Metric TSP (triangle inequality)",
+          "Christofides",
+          "1.5-approx"
+        ],
+        [
+          "Euclidean TSP",
+          "Arora/Mitchell PTAS",
+          "(1+ε)-approx"
+        ],
+        [
+          "General TSP (arbitrary weights)",
+          "heuristics (2-opt, LK)",
+          "**no constant guarantee**"
+        ],
+        [
+          "Graph coloring, general",
+          "greedy / DSATUR heuristic",
+          "no good guarantee"
+        ],
+        [
+          "Is it 2-colorable?",
+          "BFS bipartite test (`02`)",
+          "exact, O(V+E)"
+        ],
+        [
+          "Coloring a planar graph",
+          "5/4-color theorems",
+          "≤ 4 colors guaranteed"
+        ],
+        [
+          "Max independent set, tree/bipartite",
+          "DP / matching",
+          "exact, poly"
+        ],
+        [
+          "Max independent set, general",
+          "branch-and-bound / heuristic",
+          "no constant approx"
+        ],
+        [
+          "Any NP-hard graph problem",
+          "**first check the structure**",
+          "planar/bipartite/small-k may be poly"
+        ]
+      ]
+    }
+  ]
+}

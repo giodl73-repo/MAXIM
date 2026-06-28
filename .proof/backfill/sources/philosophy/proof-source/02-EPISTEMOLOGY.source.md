@@ -106,7 +106,7 @@ GETTIER CASE 1:
   Smith's justified true belief: "The person who will get the job has 10 coins"
   But Smith doesn't know this — it's justified true belief but not knowledge
 
-GETTIER CASE 2 (Barn Facade County):
+FAKE BARNS (Goldman 1976 — a Gettier-style luck case, not Gettier's own):
   Henry drives through a county filled with barn facades; one real barn exists
   Henry looks at the real barn; forms true justified belief "that's a barn"
   But: he couldn't distinguish it from the many facades

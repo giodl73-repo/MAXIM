@@ -1,0 +1,150 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\04-TRANSACTIONS-MVCC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 61,
+      "heading_context": "## ACID — what the transaction promises",
+      "headers": [
+        "Property",
+        "Precise meaning",
+        "Implemented by"
+      ],
+      "rows": [
+        [
+          "**Atomicity**",
+          "All-or-nothing: a transaction's effects are fully applied or fully absent. A crash/abort mid-way leaves no partial state.",
+          "WAL + undo (rollback), guide 06"
+        ],
+        [
+          "**Consistency**",
+          "A transaction moves the DB from one valid state to another, preserving declared invariants (constraints, FKs). *This C is the application's invariants, not the C in CAP.*",
+          "Constraints + the txn body"
+        ],
+        [
+          "**Isolation**",
+          "Concurrent transactions don't see each other's uncommitted/intermediate state; the result is *as if* some serial order ran (at SERIALIZABLE). Weaker levels relax this.",
+          "2PL or MVCC — this guide; guide 05"
+        ],
+        [
+          "**Durability**",
+          "Once COMMIT returns, the effects survive crashes.",
+          "WAL flush before COMMIT ack, guide 06"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 184,
+      "heading_context": "## Snapshot Isolation (SI) — the mechanism MVCC most naturally provides",
+      "headers": [
+        "Anomaly",
+        "Prevented by SI?"
+      ],
+      "rows": [
+        [
+          "Dirty read",
+          "YES — you only see committed versions"
+        ],
+        [
+          "Non-repeatable read",
+          "YES — your snapshot is stable"
+        ],
+        [
+          "Phantom read",
+          "YES — new rows committed after your snapshot are invisible to you"
+        ],
+        [
+          "Lost update (same row)",
+          "YES — first-committer-wins aborts the second writer"
+        ],
+        [
+          "**Write skew**",
+          "**NO** — SI does NOT prevent it (see below)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 240,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Concurrency concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "Pessimistic vs optimistic locking",
+          "2PL (lock first) vs MVCC (version + detect)",
+          "RCSI/SNAPSHOT vs default locking"
+        ],
+        [
+          "A `rowversion`/`timestamp` column you check before update",
+          "Optimistic concurrency = a hand-rolled MVCC for one row",
+          "`rowversion`, `WHERE rowver = @old`"
+        ],
+        [
+          "A `lock` statement / mutex",
+          "Exclusive (X) lock in 2PL",
+          "`UPDLOCK`, `HOLDLOCK` hints"
+        ],
+        [
+          "Detecting a cycle in a wait graph",
+          "**Deadlock detection** → abort victim",
+          "Deadlock graph, victim selection"
+        ],
+        [
+          "Garbage collection of old objects",
+          "MVCC version cleanup",
+          "autovacuum (PG); version store cleanup"
+        ],
+        [
+          "\"First write wins\" optimistic concurrency in app code",
+          "SI **first-committer-wins**",
+          "SNAPSHOT isolation conflict (error 3960)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 253,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Mechanism / setting"
+      ],
+      "rows": [
+        [
+          "Want readers to never block writers",
+          "MVCC — Postgres default, SQL Server RCSI, Oracle"
+        ],
+        [
+          "Need a stable point-in-time view for a long report",
+          "SNAPSHOT / repeatable read on MVCC"
+        ],
+        [
+          "Two txns racing to update the SAME row",
+          "Lost update prevented by first-committer-wins or row lock"
+        ],
+        [
+          "Two txns reading an overlap, writing DIFFERENT rows, must keep an invariant",
+          "**Write skew risk** → need SERIALIZABLE (SSI) or explicit lock"
+        ],
+        [
+          "Classic SQL Server blocking/deadlock pain",
+          "Turn on **RCSI** to move reads to MVCC"
+        ],
+        [
+          "Bloat / table growth / tempdb pressure",
+          "MVCC version cleanup — kill long-running transactions; tune autovacuum"
+        ],
+        [
+          "Absolute correctness, accept some aborts",
+          "SERIALIZABLE (SSI in Postgres, or 2PL serializable) — guide 05"
+        ]
+      ]
+    }
+  ]
+}

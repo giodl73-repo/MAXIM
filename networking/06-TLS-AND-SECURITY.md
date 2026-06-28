@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # TLS and Transport Security — TLS 1.3, Certificates, PKI, mTLS
 
 ## The Big Picture

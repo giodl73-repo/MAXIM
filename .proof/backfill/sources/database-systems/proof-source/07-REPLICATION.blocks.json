@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\07-REPLICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Replication — One Node's Log Becomes Many Nodes' State",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                       THE REPLICATION DESIGN SPACE (database view)                  |\n+=====================================================================================+\n|                                                                                     |\n|   WHO can accept WRITES?                                                             |\n|                                                                                     |\n|   +----------------------+   +----------------------+   +------------------------+   |\n|   |  SINGLE-LEADER       |   |  MULTI-LEADER        |   |  LEADERLESS (quorum)   |   |\n|   |  (primary/replica)   |   |  (multi-primary)     |   |  (Dynamo-style)        |   |\n|   +----------------------+   +----------------------+   +------------------------+   |\n|   | one leader takes all |   | several nodes take   |   | any replica takes a    |   |\n|   | writes; followers    |   | writes; changes      |   | write; client writes   |   |\n|   | replay its log.      |   | replicated both ways.|   | to W replicas, reads   |   |\n|   |                      |   | CONFLICTS arise.     |   | from R; W+R>N => overlap|   |\n|   | + simple, no write   |   | + write locality,    |   | + no leader bottleneck, |   |\n|   |   conflicts          |   |   multi-region active|   |   highly available      |   |\n|   | - leader is a write  |   | - conflict resolution|   | - read repair, eventual |   |\n|   |   bottleneck/SPOF    |   |   is HARD            |   |   consistency, tuning   |   |\n|   |                      |   |                      |   |                        |   |\n|   | Postgres, MySQL, SQL |   | active-active geo,   |   | Cassandra, DynamoDB,    |   |\n|   | Server AG, most OLTP |   | CRDT systems         |   | Riak (classic Dynamo)  |   |\n|   +----------------------+   +----------------------+   +------------------------+   |\n+=====================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## How the WAL becomes a replica: what gets shipped",
+      "confidence": "candidate",
+      "text": "   PHYSICAL / STREAMING REPLICATION         LOGICAL REPLICATION\n   --------------------------------         --------------------\n   ship the raw WAL (page-level changes).   decode the WAL into row-level events\n   Follower replays byte-for-byte; it is    (INSERT/UPDATE/DELETE on table T, values ...).\n   an exact physical copy.                  Follower applies the logical operations.\n\n   + low overhead, exact replica            + cross-version, selective tables, different\n   - same major version + page layout         schema/index on the target, DBs can differ\n   - whole-cluster, can't filter tables     - higher overhead, conflict potential\n\n   Postgres: streaming (physical) WAL       Postgres: logical decoding / pub-sub\n   MySQL: ROW-based binlog (logical-ish)    MySQL: binlog is the replication stream\n   SQL Server AG: log block shipping        SQL Server: transactional/logical replication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Synchronous vs Asynchronous — the durability/latency knob",
+      "confidence": "candidate",
+      "text": "   ASYNCHRONOUS                              SYNCHRONOUS\n   ------------                              -----------\n   leader commits + acks the client,         leader waits for >=1 follower to confirm it has\n   THEN streams to followers (lag).          the log record, THEN acks the client.\n\n   write -> [leader durable] -> ACK          write -> [leader durable] -> wait follower ACK -> ACK\n                  \\                                              ^\n                   `--> follower (later)                         |\n                                                         follower has it too\n\n   + lowest write latency                    + no data loss if leader dies (a follower has it)\n   - DATA LOSS window: if the leader dies     - higher write latency (a network round-trip)\n     before a follower got the last commits,  - if the sync follower is down/slow, writes\n     those commits are LOST on failover.        STALL unless you fall back (semi-sync)\n   - followers serve STALE reads (lag)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Failover and the split-brain hazard",
+      "confidence": "candidate",
+      "text": "   Leader dies -> a follower must be PROMOTED. Three hard problems:\n\n   1. DETECTION   how do you know the leader is dead vs slow? (timeout -> false positives)\n   2. PROMOTION   pick the most up-to-date follower (highest applied LSN) to minimize loss.\n   3. FENCING     ensure the OLD leader cannot keep accepting writes if it comes back ->\n                  otherwise SPLIT-BRAIN: two leaders, divergent histories, data corruption.\n\n   STONITH / fencing tokens / a consensus-based leader lease prevent split-brain. Automatic\n   failover REQUIRES a fencing mechanism; otherwise a network partition gives you two leaders.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Leaderless / quorum replication (Dynamo-style)",
+      "confidence": "candidate",
+      "text": "   N = replicas per key,  W = write quorum,  R = read quorum\n\n   IF W + R > N  ->  every read quorum OVERLAPS every write quorum\n                     -> a read sees at least one replica with the latest write\n                     (a \"strict quorum\" — but see the caveats)\n\n   common: N=3, W=2, R=2 (W+R=4 > 3)  -> tolerate 1 node down, still consistent-ish\n\n   STALE COPIES are repaired by:\n     - READ REPAIR:    on a read, detect divergent replicas, push the newest to the stale ones\n     - ANTI-ENTROPY:   background process (e.g. Merkle-tree comparison) reconciles replicas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

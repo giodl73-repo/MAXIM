@@ -1,0 +1,166 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\05-ISOLATION-LEVELS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 62,
+      "heading_context": "## The anomalies — define them precisely first",
+      "headers": [
+        "Anomaly",
+        "Definition",
+        "Example"
+      ],
+      "rows": [
+        [
+          "**Dirty read (P1)**",
+          "T2 reads a row written by T1 *before* T1 commits; T1 may roll back",
+          "Read a balance from an uncommitted, later-aborted transfer"
+        ],
+        [
+          "**Non-repeatable read (P2)**",
+          "T1 reads a row, T2 updates+commits it, T1 re-reads and sees a *different value*",
+          "Two reads of the same account differ within one transaction"
+        ],
+        [
+          "**Phantom (P3)**",
+          "T1 runs a predicate query, T2 inserts/deletes a row matching that predicate+commits, T1 re-runs and the *set of rows changes*",
+          "`COUNT(*) WHERE region='EU'` changes between two reads"
+        ],
+        [
+          "**Lost update (P4)**",
+          "T1 and T2 both read a value, both update based on it; one update overwrites the other",
+          "Two `balance = balance - 10` racing, only one decrement survives"
+        ],
+        [
+          "**Read skew (A5A)**",
+          "T1 reads x, T2 updates x and a related y, T1 reads y — sees an inconsistent x/y pair",
+          "Read account A before transfer, account B after"
+        ],
+        [
+          "**Write skew (A5B)**",
+          "T1 and T2 read an overlapping set, each writes a *different* row; combined result breaks an invariant no single transaction broke",
+          "The two-doctors-off-call example (guide 04)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 85,
+      "heading_context": "## The canonical guarantee table (ANSI definition)",
+      "headers": [
+        "Level",
+        "Dirty read",
+        "Non-repeatable read",
+        "Phantom"
+      ],
+      "rows": [
+        [
+          "READ UNCOMMITTED",
+          "allowed",
+          "allowed",
+          "allowed"
+        ],
+        [
+          "READ COMMITTED",
+          "**prevented**",
+          "allowed",
+          "allowed"
+        ],
+        [
+          "REPEATABLE READ",
+          "**prevented**",
+          "**prevented**",
+          "allowed"
+        ],
+        [
+          "SERIALIZABLE",
+          "**prevented**",
+          "**prevented**",
+          "**prevented**"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 233,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Isolation concept",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "`WITH (NOLOCK)` for fast dirty reads",
+          "READ UNCOMMITTED (its hazards)",
+          "`NOLOCK`, READ UNCOMMITTED"
+        ],
+        [
+          "The default that \"just reads committed rows\"",
+          "READ COMMITTED (per-statement snapshot)",
+          "Default level; RCSI variant"
+        ],
+        [
+          "Optimistic concurrency with `rowversion`",
+          "Lost-update prevention",
+          "`WHERE rowver=@old`, SNAPSHOT"
+        ],
+        [
+          "SERIALIZABLE causing blocking/deadlocks",
+          "Lock-based serializable + range locks",
+          "SQL Server SERIALIZABLE"
+        ],
+        [
+          "\"Snapshot gives me a consistent read view\"",
+          "SNAPSHOT ISOLATION (and its write-skew gap)",
+          "`SET TRANSACTION ISOLATION LEVEL SNAPSHOT`"
+        ],
+        [
+          "Cross-region \"strong vs eventual\" knobs",
+          "Distributed consistency (different axis)",
+          "Cosmos consistency levels (guide 09)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 246,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Maximum throughput, only committed data",
+          "**READ COMMITTED** (the default)"
+        ],
+        [
+          "Stable re-reads of the same rows in a txn",
+          "**REPEATABLE READ** (know your engine's exact semantics)"
+        ],
+        [
+          "A consistent point-in-time view across tables, non-blocking",
+          "**SNAPSHOT** (SI)"
+        ],
+        [
+          "Protection against a multi-row invariant violation (write skew)",
+          "**SERIALIZABLE** (SSI in Postgres/Cockroach)"
+        ],
+        [
+          "Prevent a lost update on a single row",
+          "atomic `UPDATE`, `SELECT ... FOR UPDATE`, or SNAPSHOT+"
+        ],
+        [
+          "Prevent phantoms specifically",
+          "SNAPSHOT, SERIALIZABLE, or InnoDB RR (gap locks)"
+        ],
+        [
+          "Eliminate SQL Server reader/writer blocking",
+          "turn on **RCSI** (moves reads to MVCC)"
+        ]
+      ]
+    }
+  ]
+}

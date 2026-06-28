@@ -342,7 +342,7 @@ The escaping particle becomes a real photon — Hawking radiation.
          8πGMk_B
 
   Solar mass BH (M = 2×10³⁰ kg):  T_H ~ 6 × 10⁻⁸ K  (unmeasurable)
-  Moon mass BH:                    T_H ~ 2.5 K
+  Moon mass BH:                    T_H ~ 1.7 K
   Asteroid mass BH:                T_H ~ 10⁶ K
   Planck mass BH (10⁻⁸ kg):       T_H ~ 10³² K = Planck temperature
 ```
@@ -401,7 +401,7 @@ This is not a small discrepancy. It is the largest ratio between a theoretical
 prediction and an observation ever encountered. The vacuum energy calculation
 is not even in the same universe as the observed value.
 
-**Three classes of attempted resolution**:
+**Four classes of attempted resolution**:
 
 ```
   1. CANCELLATION:

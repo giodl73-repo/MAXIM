@@ -1,0 +1,247 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\08-FINANCIAL-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 62,
+      "heading_context": "## Family 1: Liquidity — Can It Pay Near-Term?",
+      "headers": [
+        "Ratio",
+        "Formula",
+        "Reads as"
+      ],
+      "rows": [
+        [
+          "**Current ratio**",
+          "Current assets / Current liabilities",
+          "Broad short-term cushion"
+        ],
+        [
+          "**Quick ratio (acid test)**",
+          "(Current assets − Inventory) / Current liabilities",
+          "Cushion *excluding* hard-to-sell inventory"
+        ],
+        [
+          "**Cash ratio**",
+          "(Cash + equivalents) / Current liabilities",
+          "Most conservative — cash only"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 91,
+      "heading_context": "## Family 2: Leverage — How Much Debt, Can It Service?",
+      "headers": [
+        "Ratio",
+        "Formula",
+        "Reads as"
+      ],
+      "rows": [
+        [
+          "**Debt-to-equity**",
+          "Total debt / Total equity",
+          "$ of debt per $ of equity"
+        ],
+        [
+          "**Debt-to-assets**",
+          "Total debt / Total assets",
+          "Fraction of assets funded by debt"
+        ],
+        [
+          "**Interest coverage (TIE)**",
+          "EBIT / Interest expense",
+          "How many times earnings cover interest"
+        ],
+        [
+          "**Net debt / EBITDA**",
+          "(Debt − Cash) / EBITDA",
+          "Years of earnings to repay net debt"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 121,
+      "heading_context": "## Family 3: Profitability — Does It Make Money?",
+      "headers": [
+        "Margin",
+        "Formula"
+      ],
+      "rows": [
+        [
+          "Gross margin",
+          "Gross profit / Revenue"
+        ],
+        [
+          "Operating margin",
+          "Operating income (EBIT) / Revenue"
+        ],
+        [
+          "Net margin",
+          "Net income / Revenue"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 129,
+      "heading_context": "## Family 3: Profitability — Does It Make Money?",
+      "headers": [
+        "Return",
+        "Formula",
+        "Measures"
+      ],
+      "rows": [
+        [
+          "**ROA**",
+          "Net income / Total assets",
+          "Profit per dollar of assets (operating efficiency)"
+        ],
+        [
+          "**ROE**",
+          "Net income / Shareholders' equity",
+          "Profit per dollar of owner capital"
+        ],
+        [
+          "**ROIC**",
+          "NOPAT / Invested capital",
+          "Return on capital *actually deployed*, financing-neutral"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 157,
+      "heading_context": "## Family 4: Efficiency — How Hard Do Assets Work?",
+      "headers": [
+        "Ratio",
+        "Formula",
+        "Reads as"
+      ],
+      "rows": [
+        [
+          "**Asset turnover**",
+          "Revenue / Total assets",
+          "Revenue generated per $ of assets"
+        ],
+        [
+          "**Inventory turnover**",
+          "COGS / Average inventory",
+          "How many times inventory cycles/year"
+        ],
+        [
+          "**Days inventory (DIO)**",
+          "365 / Inventory turnover",
+          "Days to sell inventory"
+        ],
+        [
+          "**Receivables turnover**",
+          "Revenue / Average AR",
+          "How fast credit sales are collected"
+        ],
+        [
+          "**Days sales outstanding (DSO)**",
+          "365 / Receivables turnover",
+          "Days to collect a sale"
+        ],
+        [
+          "**Days payables (DPO)**",
+          "365 / (COGS / Avg AP)",
+          "Days you take to pay suppliers"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 262,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Prior art",
+        "Analysis concept"
+      ],
+      "rows": [
+        [
+          "Normalizing metrics (dimensionless)",
+          "Ratios (strip scale/units for comparison)"
+        ],
+        [
+          "Throughput / latency / items-in-flight",
+          "Cash conversion cycle (days cash in pipeline)"
+        ],
+        [
+          "Utilization (work per resource)",
+          "Asset turnover, inventory turnover"
+        ],
+        [
+          "Latency to settle a request",
+          "Days sales outstanding (collection latency)"
+        ],
+        [
+          "Amplifier with gain and instability",
+          "Leverage (magnifies ROE and risk)"
+        ],
+        [
+          "Factoring a metric into causal terms",
+          "DuPont decomposition of ROE"
+        ],
+        [
+          "Benchmarking vs baseline/peers/SLO",
+          "Trend / peer / industry-benchmark comparison"
+        ],
+        [
+          "Return on investment vs cost of capital",
+          "ROIC vs WACC (value creation test)"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 277,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Ratio",
+        "Healthy direction"
+      ],
+      "rows": [
+        [
+          "Can it pay bills this year?",
+          "Current / quick ratio",
+          "≥ ~1.5 / ≥ ~1.0 (industry-dependent)"
+        ],
+        [
+          "Is inventory propping up liquidity?",
+          "Current vs quick gap",
+          "Small gap = liquid; large = inventory-heavy"
+        ],
+        [
+          "How risky is its debt load?",
+          "Debt-to-equity, interest coverage",
+          "Lower D/E; coverage well above ~3x"
+        ],
+        [
+          "Does it create real value?",
+          "ROIC vs WACC",
+          "ROIC > WACC"
+        ],
+        [
+          "Why is ROE high?",
+          "DuPont (margin × turnover × leverage)",
+          "Prefer margin/turnover over leverage"
+        ],
+        [
+          "How fast is cash tied up?",
+          "Cash conversion cycle",
+          "Lower (or negative) is better"
+        ],
+        [
+          "Compare firms of different size",
+          "Common-size statements",
+          "—"
+        ]
+      ]
+    }
+  ]
+}

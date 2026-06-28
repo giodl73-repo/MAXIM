@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Shortest Paths — Preconditions Are Everything
 
 Shortest-path algorithms are distinguished almost entirely by their

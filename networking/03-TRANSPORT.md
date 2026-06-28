@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # The Transport Layer — TCP State Machine, UDP, QUIC, Ports, Sockets
 
 ## The Big Picture

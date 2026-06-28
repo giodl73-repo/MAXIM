@@ -1,0 +1,288 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\05-NONLINEAR-CONVEX.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 80,
+      "heading_context": "## Layer 1: Convex Sets and Convex Functions",
+      "headers": [
+        "Convexity-preserving operation",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Nonnegative weighted sum",
+          "Sum of convex losses is convex"
+        ],
+        [
+          "Pointwise maximum/supremum",
+          "$\\max$ of convex (e.g., hinge loss) is convex"
+        ],
+        [
+          "Composition with affine map",
+          "$f(Ax+b)$ convex if $f$ is"
+        ],
+        [
+          "Partial minimization over a convex jointly-convex fn",
+          "Marginalization stays convex"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 121,
+      "heading_context": "## Layer 2: The KKT Conditions",
+      "headers": [
+        "Direction",
+        "Statement",
+        "Hypotheses"
+      ],
+      "rows": [
+        [
+          "**Necessary**",
+          "If $x^*$ is a local min, KKT hold",
+          "A **constraint qualification** (CQ) holds at $x^*$ (e.g., LICQ, Slater, or linear constraints)"
+        ],
+        [
+          "**Sufficient**",
+          "If KKT hold, $x^*$ is a **global** min",
+          "The problem is **convex** ($f, g_i$ convex, $h_j$ affine)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 157,
+      "heading_context": "## Layer 3: Lagrangian Duality (the unifying frame)",
+      "headers": [
+        "Problem class",
+        "Duality gap"
+      ],
+      "rows": [
+        [
+          "LP (feasible, finite)",
+          "Zero (no CQ needed)"
+        ],
+        [
+          "Convex + Slater",
+          "Zero"
+        ],
+        [
+          "Convex, Slater fails",
+          "May be positive"
+        ],
+        [
+          "Nonconvex",
+          "Generally positive"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 191,
+      "heading_context": "## Layer 4: Algorithms — Unconstrained",
+      "headers": [
+        "Method",
+        "Order",
+        "Local rate",
+        "Per-step cost"
+      ],
+      "rows": [
+        [
+          "Gradient descent",
+          "1st",
+          "Linear (strongly convex); $O(1/k)$ (convex smooth)",
+          "$\\nabla f$"
+        ],
+        [
+          "Nesterov accelerated GD",
+          "1st",
+          "$O(1/k^2)$ (convex smooth) — optimal first-order",
+          "$\\nabla f$"
+        ],
+        [
+          "Newton",
+          "2nd",
+          "Quadratic",
+          "$\\nabla^2 f$ + solve"
+        ],
+        [
+          "BFGS / L-BFGS",
+          "quasi-2nd",
+          "Superlinear",
+          "$\\nabla f$ + rank-2 update"
+        ],
+        [
+          "SGD",
+          "1st (stochastic)",
+          "$O(1/k)$ (convex), sublinear",
+          "one sample gradient"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 234,
+      "heading_context": "## Layer 5: Algorithms — Constrained and Interior-Point",
+      "headers": [
+        "Constrained method",
+        "Idea",
+        "Note"
+      ],
+      "rows": [
+        [
+          "**Interior-point / barrier**",
+          "log-barrier + Newton on central path",
+          "Polynomial; standard for LP/QP/SOCP/SDP"
+        ],
+        [
+          "**Projected gradient**",
+          "gradient step then project onto feasible set",
+          "Simple when projection is cheap (box, simplex)"
+        ],
+        [
+          "**Proximal / prox-gradient (ISTA/FISTA)**",
+          "gradient on smooth part + prox on nonsmooth",
+          "LASSO ($\\ell_1$), the ML workhorse"
+        ],
+        [
+          "**ADMM**",
+          "split + augmented Lagrangian + alternating",
+          "Distributed/decomposable convex problems"
+        ],
+        [
+          "**Sequential Quadratic Programming (SQP)**",
+          "solve a QP approximation each step",
+          "General (nonconvex) NLP"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 262,
+      "heading_context": "## Layer 6: The Convex Problem Hierarchy",
+      "headers": [
+        "Class",
+        "Cone",
+        "Example application"
+      ],
+      "rows": [
+        [
+          "LP",
+          "nonnegative orthant",
+          "resource allocation (files 01–02)"
+        ],
+        [
+          "QP",
+          "+ quadratic objective",
+          "portfolio (Markowitz), SVM, least squares"
+        ],
+        [
+          "SOCP",
+          "second-order (Lorentz) cone",
+          "robust LP, antenna design"
+        ],
+        [
+          "SDP",
+          "PSD matrix cone",
+          "relaxations of combinatorial problems (Max-Cut), control (LMIs)"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 275,
+      "heading_context": "## Old World → Convex Optimization Bridges",
+      "headers": [
+        "You already know",
+        "Convex-optimization analogue"
+      ],
+      "rows": [
+        [
+          "Gradient descent in model training",
+          "The canonical first-order convex method"
+        ],
+        [
+          "Least-squares fitting",
+          "An unconstrained convex QP (normal equations)"
+        ],
+        [
+          "Lagrange multipliers from calculus",
+          "The multipliers in KKT / the dual variables"
+        ],
+        [
+          "\"Local minimum trap\" worry in deep nets",
+          "The nonconvex regime — no global guarantee"
+        ],
+        [
+          "Regularization (L1/L2)",
+          "Convex penalty terms; prox-gradient solves them"
+        ],
+        [
+          "Hyperparameter sweep (nonconvex, black-box)",
+          "When KKT/gradients don't apply → global/heuristic methods"
+        ],
+        [
+          "Condition number of a matrix",
+          "$\\kappa = L/\\mu$ governs gradient-descent speed"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 291,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Method"
+      ],
+      "rows": [
+        [
+          "Linear obj + linear constraints",
+          "LP — simplex or interior-point (file 01)"
+        ],
+        [
+          "Convex quadratic objective",
+          "QP — interior-point"
+        ],
+        [
+          "Smooth unconstrained convex, large scale",
+          "Gradient descent / L-BFGS"
+        ],
+        [
+          "Want optimal first-order rate",
+          "Nesterov acceleration ($O(1/k^2)$)"
+        ],
+        [
+          "Constrained convex, need polynomial guarantee",
+          "Interior-point (barrier)"
+        ],
+        [
+          "$\\ell_1$ / nonsmooth regularizer",
+          "Proximal gradient (ISTA/FISTA)"
+        ],
+        [
+          "Distributed / decomposable",
+          "ADMM"
+        ],
+        [
+          "Nonconvex smooth NLP",
+          "SQP / trust-region → stationary point only"
+        ],
+        [
+          "Robust / cone constraints",
+          "SOCP or SDP"
+        ],
+        [
+          "Need to certify global optimality",
+          "Check KKT **and** confirm convexity"
+        ],
+        [
+          "Problem is nonconvex",
+          "Accept local optimum, or use global/heuristic (multistart, etc.)"
+        ]
+      ]
+    }
+  ]
+}

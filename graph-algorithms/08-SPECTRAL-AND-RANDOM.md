@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Spectral and Random Graph Methods — The Linear-Algebra Escape Hatch
 
 This is the first of the two escape hatches from `07`'s hardness: instead of

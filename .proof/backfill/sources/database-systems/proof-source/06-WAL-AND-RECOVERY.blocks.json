@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\06-WAL-AND-RECOVERY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# WAL and Recovery — Making \"Durable\" True Across a Crash",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                  WHY THE WAL EXISTS: THE FUNDAMENTAL PROBLEM                         |\n+=====================================================================================+\n|                                                                                     |\n|   A COMMIT must be durable INSTANTLY, but flushing the actual modified PAGES to      |\n|   their home locations is SLOW and RANDOM (scattered across the file).              |\n|                                                                                     |\n|   SOLUTION: don't flush the pages at commit. Flush a small, SEQUENTIAL LOG of what   |\n|   changed. The log is the source of truth; pages catch up lazily.                   |\n|                                                                                     |\n|        +-------------+        append-only, SEQUENTIAL writes (fast on any media)     |\n|        |    WAL      |  <-----  log record per change: \"page P, before X, after Y\"   |\n|        +-------------+                                                               |\n|              |  (fsync'd before COMMIT returns)                                      |\n|              v                                                                       |\n|        +-------------+        random writes, deferred to checkpoint / lazy writer    |\n|        | DATA PAGES  |  <-----  the buffer pool flushes dirty pages LATER            |\n|        +-------------+                                                               |\n|                                                                                     |\n|   THE TWO RULES (the WAL protocol):                                                  |\n|   1. WAL rule:   the log record for a change must hit stable storage BEFORE the      |\n|                  data page is written to its home location.                          |\n|   2. Commit rule:the COMMIT log record must be durable BEFORE COMMIT is acknowledged.|\n+=====================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Log Record and the LSN",
+      "confidence": "candidate",
+      "text": "   Every log record carries a LOG SEQUENCE NUMBER (LSN) — a monotonically increasing id\n   (usually the byte offset in the log). LSNs order all changes in the system.\n\n   A typical UPDATE log record (ARIES-style):\n   +-------+--------+--------+---------+------------+-----------------+-------------+\n   | LSN   | TxnID  | type   | pageID  | prevLSN    | BEFORE image    | AFTER image |\n   +-------+--------+--------+---------+------------+-----------------+-------------+\n        |                                   |             |                 |\n        |                                   |             |                 +-- for REDO\n        |                                   |             +-------------------- for UNDO\n        |                                   +---------------------------------- back-link to\n        |                                                                       this txn's\n        |                                                                       previous record\n        +----- orders all changes globally; each DATA PAGE stores the LSN of the last log\n               record applied to it (pageLSN) so recovery knows if a change is already there.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "## ARIES — the recovery algorithm everything descends from",
+      "confidence": "candidate",
+      "text": "   +-----------+   +-----------+   +-----------+\n   |  ANALYSIS |-->|   REDO    |-->|   UNDO    |\n   +-----------+   +-----------+   +-----------+\n\n   1) ANALYSIS  start from the last checkpoint. Scan forward. Rebuild:\n        - the TRANSACTION TABLE  (which txns were in-flight, and were they committed?)\n        - the DIRTY PAGE TABLE   (which pages were dirty, and from which LSN onward)\n      Determines where REDO must start (the oldest recLSN in the dirty page table).\n\n   2) REDO  \"repeat history.\" Replay log forward from that start point, re-applying EVERY\n        logged change whose effect isn't already on the page (pageLSN < record LSN),\n        regardless of whether its transaction committed. State now == moment of crash.\n\n   3) UNDO  roll back every transaction that was IN-FLIGHT (not committed) at crash time,\n        applying BEFORE images in reverse, writing COMPENSATION LOG RECORDS (CLRs) so the\n        undo work is itself durable and idempotent if recovery crashes again.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## ARIES — the recovery algorithm everything descends from",
+      "confidence": "candidate",
+      "text": "   TIMELINE OF A CRASH\n\n   ----[checkpoint]----[T1 commits]----[T2 still running]----X CRASH----reboot----\n                                                              |\n       ANALYSIS: T1 committed, T2 in-flight; pages P,Q dirty since LSN n\n       REDO:     replay from LSN n -> P and Q reflect both T1 and T2 changes\n       UNDO:     roll back T2 (it never committed); T1's changes stay (durable)\n       => result: T1 durable, T2 gone, atomicity + durability both preserved.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Checkpoints — bounding recovery time",
+      "confidence": "candidate",
+      "text": "   A FUZZY CHECKPOINT (ARIES, non-blocking — the practical kind):\n     - write a BEGIN_CHECKPOINT record\n     - snapshot the transaction table + dirty page table into an END_CHECKPOINT record\n     - (optionally) start flushing dirty pages in the background\n     - the system keeps running THROUGHOUT — no global quiesce\n\n   Effect: ANALYSIS starts at the last checkpoint; REDO starts at the oldest dirty-page LSN\n   recorded there. The further behind your dirty pages, the longer the redo.\n\n   TRADE-OFF:\n     frequent checkpoints  -> short recovery, more steady-state flush I/O\n     rare checkpoints      -> less steady-state I/O, longer recovery after a crash",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## Group commit and the COMMIT latency story",
+      "confidence": "candidate",
+      "text": "   Without group commit: each COMMIT = its own fsync (slow under load)\n   With group commit:    many txns' commit records accumulate, ONE fsync flushes them all\n                         -> throughput scales; individual latency rises slightly under load",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Strong Connectivity — SCCs, Bridges, and 2-SAT
 
 This file is about *decomposing* a graph by connectivity structure, and it is a

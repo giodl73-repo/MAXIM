@@ -1,0 +1,150 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 141,
+      "heading_context": "## The Three Statements (and what each answers)",
+      "headers": [
+        "Statement",
+        "Question it answers",
+        "Time model",
+        "Invariant tie"
+      ],
+      "rows": [
+        [
+          "**Balance Sheet**",
+          "*What do we own and owe — right now?*",
+          "Snapshot (point in time)",
+          "`A = L + E` literally"
+        ],
+        [
+          "**Income Statement**",
+          "*Did we make money this period?*",
+          "Flow (over a period)",
+          "Net income → Retained Earnings"
+        ],
+        [
+          "**Cash Flow Statement**",
+          "*Where did the cash actually go?*",
+          "Flow (over a period)",
+          "Δ Cash on balance sheet"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 176,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Systems / data concept",
+        "Accounting analog"
+      ],
+      "rows": [
+        [
+          "Append-only event log",
+          "General ledger (you never delete; you post a reversing entry)"
+        ],
+        [
+          "ACID transaction (atomic, balanced)",
+          "Journal entry (total debits = total credits, all-or-nothing)"
+        ],
+        [
+          "Database invariant / constraint",
+          "`Assets = Liabilities + Equity`"
+        ],
+        [
+          "Materialized view over the log",
+          "Trial balance / financial statements"
+        ],
+        [
+          "Replica reconciliation / consensus",
+          "Bank reconciliation, intercompany elimination"
+        ],
+        [
+          "Eventual consistency vs strong",
+          "Cash-basis (lagged) vs accrual-basis (recognize at event time)"
+        ],
+        [
+          "Schema / type system",
+          "The five account types and their normal balances"
+        ],
+        [
+          "Audit log / immutability for compliance",
+          "SOX 404 controls, no-erasure rule, audit trail"
+        ],
+        [
+          "Idempotent compensating transaction",
+          "Reversing/correcting entry (never edit a posted entry)"
+        ],
+        [
+          "Soft delete vs hard delete",
+          "Contra-accounts (accumulated depreciation, allowance for doubtful accounts)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 266,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to know...",
+        "Read",
+        "Statement / tool"
+      ],
+      "rows": [
+        [
+          "How the whole system stays consistent",
+          "01",
+          "Double-entry, trial balance"
+        ],
+        [
+          "What we own and owe right now",
+          "02",
+          "Balance sheet"
+        ],
+        [
+          "Whether we were profitable this period",
+          "03",
+          "Income statement"
+        ],
+        [
+          "Where the cash actually went",
+          "04",
+          "Cash flow statement"
+        ],
+        [
+          "Why profit ≠ cash in the bank",
+          "05",
+          "Accrual vs cash"
+        ],
+        [
+          "What it costs to make one more unit",
+          "06",
+          "Contribution margin, variable cost"
+        ],
+        [
+          "Whether to make-or-buy, keep-or-drop",
+          "06, 07",
+          "Relevant costs, contribution"
+        ],
+        [
+          "Whether the plant beat its budget",
+          "07",
+          "Variance analysis"
+        ],
+        [
+          "How healthy / leveraged the firm is",
+          "08",
+          "Ratios, DuPont"
+        ],
+        [
+          "Whether the numbers can be trusted",
+          "09",
+          "Internal controls, audit, GAAP/IFRS"
+        ]
+      ]
+    }
+  ]
+}

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Isolation Levels — Exactly What Each One Guarantees
 
 Isolation levels are the **contract** the database offers about what concurrent transactions may

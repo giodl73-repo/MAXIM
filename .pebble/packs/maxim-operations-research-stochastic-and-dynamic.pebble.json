@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-operations-research-stochastic-and-dynamic",
+  "source": "../../operations-research",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-STOCHASTIC-AND-DYNAMIC.md#000",
+      "path": [
+        "09-STOCHASTIC-AND-DYNAMIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:09-stochastic-and-dynamic, git-history:operations-research:09-stochastic-and-dynamic]",
+        "canonical_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "concepts": "[dynamic programming, Markov decision processes, stochastic programming, Bellman equation, value iteration]",
+        "current_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "id": "maxim:operations-research:stochastic-and-dynamic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamic programming]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Stochastic and Dynamic Optimization - DP, MDPs, Stochastic Programming",
+        "updated": "null"
+      },
+      "text": "# Stochastic and Dynamic Optimization — DP, MDPs, and Stochastic Programming"
+    },
+    {
+      "id": "09-STOCHASTIC-AND-DYNAMIC.md#001",
+      "path": [
+        "09-STOCHASTIC-AND-DYNAMIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:09-stochastic-and-dynamic, git-history:operations-research:09-stochastic-and-dynamic]",
+        "canonical_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "concepts": "[dynamic programming, Markov decision processes, stochastic programming, Bellman equation, value iteration]",
+        "current_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "id": "maxim:operations-research:stochastic-and-dynamic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamic programming]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Stochastic and Dynamic Optimization - DP, MDPs, Stochastic Programming",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-STOCHASTIC-AND-DYNAMIC.md#002",
+      "path": [
+        "09-STOCHASTIC-AND-DYNAMIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:09-stochastic-and-dynamic, git-history:operations-research:09-stochastic-and-dynamic]",
+        "canonical_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "concepts": "[dynamic programming, Markov decision processes, stochastic programming, Bellman equation, value iteration]",
+        "current_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "id": "maxim:operations-research:stochastic-and-dynamic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamic programming]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Stochastic and Dynamic Optimization - DP, MDPs, Stochastic Programming",
+        "updated": "null"
+      },
+      "text": "This is OR's treatment of **decisions over time under uncertainty**. Three frameworks dominate: **dynamic programming** (decompose a sequential decision into stages via the Bellman recursion), **Markov decision processes** (DP with a probabilistic state transition — the optimal-control of stochastic systems and the model behind reinforcement learning), and **stochastic programming** (optimize *now* with explicit recourse *later*, when uncertainty resolves). All three rest on one idea: the **principle of optimality** — an optimal policy's tail is itself optimal."
+    },
+    {
+      "id": "09-STOCHASTIC-AND-DYNAMIC.md#003",
+      "path": [
+        "09-STOCHASTIC-AND-DYNAMIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:operations-research:09-stochastic-and-dynamic, git-history:operations-research:09-stochastic-and-dynamic]",
+        "canonical_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "concepts": "[dynamic programming, Markov decision processes, stochastic programming, Bellman equation, value iteration]",
+        "current_path": "operations-research/09-STOCHASTIC-AND-DYNAMIC.md",
+        "id": "maxim:operations-research:stochastic-and-dynamic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamic programming]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Stochastic and Dynamic Optimization - DP, MDPs, Stochastic Programming",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|         STOCHASTIC & DYNAMIC OPTIMIZATION: THE WHOLE PICTURE          |\n|                                                                      |\n|                   DECISIONS OVER TIME UNDER UNCERTAINTY              |\n|                                                                      |\n|   DETERMINISTIC DP        MARKOV DECISION         STOCHASTIC         |\n|   (Bellman recursion)     PROCESS (MDP)           PROGRAMMING        |\n|   ------------------      --------------          -------------       |\n|   stages, states,         states S, actions A,    here-and-now x +   |\n|   deterministic trans.    transition P(s'|s,a),   recourse y(omega)  |\n|                           reward R, discount gamma  over scenarios    |\n|                                                                      |\n|   V(s) = min over a of     V*(s) = max_a [ R + gamma sum P V*(s') ] |\n|     [ cost(s,a)              (Bellman OPTIMALITY equation)           |\n|       + V(next(s,a)) ]                                               |\n|                                                                      |\n|   PRINCIPLE OF OPTIMALITY (Bellman 1957):                           |\n|     any tail of an optimal policy is itself optimal                |\n|     -> the recursion is valid; solve backward / by fixed point      |\n|                                                                      |\n|   THE CURSE OF DIMENSIONALITY: |S| grows exponentially in the       |\n|   number of state variables -> approximate DP / RL for large MDPs   |\n+----------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "09-STOCHASTIC-AND-DYNAMIC.md"
+  ]
+}

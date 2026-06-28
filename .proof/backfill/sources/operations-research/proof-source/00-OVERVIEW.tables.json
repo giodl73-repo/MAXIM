@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 106,
+      "heading_context": "## Layer 1: The Model Taxonomy",
+      "headers": [
+        "Class",
+        "Variables",
+        "Objective / Constraints",
+        "Tractability",
+        "File"
+      ],
+      "rows": [
+        [
+          "**LP**",
+          "continuous",
+          "linear / linear",
+          "Polynomial (interior-point); simplex exp. worst-case, poly in practice",
+          "01, 02"
+        ],
+        [
+          "**Convex NLP**",
+          "continuous",
+          "convex / convex",
+          "Polynomial to ε (interior-point)",
+          "05"
+        ],
+        [
+          "**Nonconvex NLP**",
+          "continuous",
+          "smooth, nonconvex",
+          "NP-hard in general; local methods",
+          "05"
+        ],
+        [
+          "**ILP / MIP**",
+          "integer (or mixed)",
+          "linear",
+          "NP-hard",
+          "03"
+        ],
+        [
+          "**Network flow**",
+          "continuous (integral optima)",
+          "linear, special structure",
+          "Strongly polynomial",
+          "04"
+        ],
+        [
+          "**MDP**",
+          "policy",
+          "expected reward / dynamics",
+          "Poly in states+actions (LP/DP)",
+          "09"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 135,
+      "heading_context": "## Layer 2: Why Convexity Is the Dividing Line",
+      "headers": [
+        "Property",
+        "Convex problem",
+        "Nonconvex problem"
+      ],
+      "rows": [
+        [
+          "Local optimum",
+          "Is globally optimal",
+          "May be far from global"
+        ],
+        [
+          "Certificate of optimality",
+          "KKT conditions (sufficient)",
+          "KKT necessary only"
+        ],
+        [
+          "Algorithm guarantee",
+          "Converges to global opt",
+          "Converges to *a* stationary point"
+        ],
+        [
+          "Duality gap",
+          "Zero (under constraint qual.)",
+          "Generally positive"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 212,
+      "heading_context": "## Old World → OR World Bridges",
+      "headers": [
+        "You already know",
+        "OR concept it maps to"
+      ],
+      "rows": [
+        [
+          "Constraint solving / SAT in a build system",
+          "Integer programming feasibility (file 03)"
+        ],
+        [
+          "Graph algorithms (shortest path, max-flow)",
+          "Network flows are LPs with integral optima (04)"
+        ],
+        [
+          "Capacity planning a service",
+          "Queuing theory: M/M/c sizing (06)"
+        ],
+        [
+          "Critical path in a project plan (MS Project)",
+          "PERT/CPM scheduling (07)"
+        ],
+        [
+          "A/B test or load test",
+          "Monte Carlo / discrete-event simulation (08)"
+        ],
+        [
+          "Caching policy, retry/backoff tuning",
+          "Markov decision process: optimize a policy (09)"
+        ],
+        [
+          "Autoscaler rules",
+          "Stochastic control / DP under random demand (09)"
+        ],
+        [
+          "Gradient descent in training",
+          "Convex optimization, first-order methods (05)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 249,
+      "heading_context": "## Layer 5: Deterministic vs. Stochastic — The Other Axis",
+      "headers": [
+        "Axis",
+        "Deterministic",
+        "Stochastic"
+      ],
+      "rows": [
+        [
+          "Static (one decision)",
+          "LP, IP, convex (01–05)",
+          "Stochastic programming, 2-stage recourse (09)"
+        ],
+        [
+          "Dynamic (sequential)",
+          "Deterministic DP (09)",
+          "MDP, queuing, simulation (06, 08, 09)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 293,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Use",
+        "File"
+      ],
+      "rows": [
+        [
+          "Allocate continuous resources, linear costs",
+          "Linear programming",
+          "01"
+        ],
+        [
+          "Know what a constraint is worth / do what-if",
+          "Duality, shadow prices, sensitivity",
+          "02"
+        ],
+        [
+          "Make yes/no or count decisions (assignment, knapsack)",
+          "Integer programming, branch & bound",
+          "03"
+        ],
+        [
+          "Route flow, match, assign on a graph",
+          "Network flows",
+          "04"
+        ],
+        [
+          "Optimize a smooth nonlinear objective",
+          "Convex optimization / KKT",
+          "05"
+        ],
+        [
+          "Size a server pool / understand wait times",
+          "Queuing theory (M/M/c)",
+          "06"
+        ],
+        [
+          "Sequence jobs on machines, find critical path",
+          "Scheduling, PERT/CPM",
+          "07"
+        ],
+        [
+          "Analyze a system with no closed form",
+          "Simulation (DES, Monte Carlo)",
+          "08"
+        ],
+        [
+          "Make sequential decisions under randomness",
+          "DP / MDP / stochastic programming",
+          "09"
+        ],
+        [
+          "Prove a solution is optimal",
+          "Duality / complementary slackness / KKT",
+          "02, 05"
+        ],
+        [
+          "Bound how far from optimal a heuristic is",
+          "Approximation algorithms / LP relaxation",
+          "03, 07"
+        ]
+      ]
+    }
+  ]
+}

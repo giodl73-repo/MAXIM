@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\04-CONGESTION-CONTROL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "              THE FUNDAMENTAL PROBLEM: capacity is INVISIBLE\n   SENDER                    NETWORK (unknown capacity)            RECEIVER\n   +------+    cwnd packets   +----+    +----+    +----+           +------+\n   | send |================>  | R1 |===>| R2 |===>| R3 |=========> | recv |\n   +------+                   +----+    +----+    +----+           +------+\n       ^                        |bottleneck link, finite rate|        |\n       |                        | a QUEUE builds if you      |        |\n       |   feedback signals:    | send faster than it drains |        |\n       +--- loss (drop) --------+                                     |\n       +--- delay (RTT rising) -+  <- queue filling shows as latency  |\n       +--- ACK pacing ---------+----------------------------- ACKs --+\n\n   GOAL: send at exactly the bottleneck rate. Too slow = waste.\n         Too fast = queue grows -> latency rises -> eventually DROPS.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 90,
+      "heading_context": "## AIMD — The Stability Law",
+      "confidence": "candidate",
+      "text": "   ADDITIVE INCREASE:        every RTT with no loss, cwnd += 1 (a constant)\n   MULTIPLICATIVE DECREASE:  on loss, cwnd *= 0.5 (cut in half)\n\n   cwnd over time = the classic SAWTOOTH:\n\n   cwnd\n    |            /|          /|          /|\n    |           / |         / |         / |\n    |          /  |        /  |        /  |     additive climb (gentle)\n    |         /   |       /   |       /   |\n    |        /    |______/    |______/    |____ multiplicative drop (sharp)\n    |_______/                                    (halve on loss)\n    +------------------------------------------------> time\n            ^loss      ^loss      ^loss",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 122,
+      "heading_context": "## TCP Reno: Slow Start and the Phases",
+      "confidence": "candidate",
+      "text": "   1) SLOW START (despite the name, EXPONENTIAL growth):\n        cwnd starts small (a few MSS), DOUBLES every RTT.\n        Goal: find the rough scale of capacity fast.\n        Continues until cwnd reaches ssthresh OR a loss occurs.\n\n   2) CONGESTION AVOIDANCE (additive increase, the linear climb):\n        once past ssthresh, cwnd += 1 MSS per RTT.\n        This is the slow probing edge of the sawtooth.\n\n   3) FAST RETRANSMIT / FAST RECOVERY (3 duplicate ACKs = mild loss):\n        cut ssthresh = cwnd/2, set cwnd ~= ssthresh, keep going.\n        (multiplicative decrease, but stay in avoidance)\n\n   4) TIMEOUT (RTO fires = severe loss):\n        ssthresh = cwnd/2, cwnd = 1, back to SLOW START.\n        (the harsh reset — the network may be badly congested)\n\n   cwnd\n    |          ____ congestion avoidance (linear)\n    |         /\n    |        /\n    |       / <- exit slow start at ssthresh\n    |      |\n    |     /| slow start\n    |    / | (exponential)\n    |___/__|________________________________> time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 167,
+      "heading_context": "## TCP CUBIC: The Modern Default",
+      "confidence": "candidate",
+      "text": "   RENO'S LINEAR PROBE vs CUBIC'S CUBIC PROBE after a loss:\n\n   cwnd                                cwnd\n    |        /  (slow, RTT-coupled)     |    ___---  plateau near\n    |      /                            |  /  Wmax (the last-loss point)\n    |    /                              | |\n    |  /                                ||  steep again to probe higher\n    |/__________> time                  |/__________> time\n       RENO                                CUBIC\n\n   CUBIC's window growth depends on REAL TIME since last loss, not RTT.\n   -> two flows with very different RTTs grow more fairly (RTT-independence).\n   -> it ramps fast toward the prior max (Wmax), eases off near it (caution),\n      then probes beyond it (exploration).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "## Bufferbloat: When Big Buffers Backfire",
+      "confidence": "candidate",
+      "text": "   THE TRAP (loss-based CC + huge buffer):\n\n   sender keeps increasing cwnd ----> bottleneck queue fills up\n                                       (but buffer is HUGE, so no drop yet)\n        |                                      |\n        | no loss seen -> \"must be fine!\"      | queue depth = 100s of ms\n        v                                      v\n   keeps ramping ------------------------> LATENCY balloons, but\n                                            throughput is unchanged.\n\n   Result: a saturated link adds SECONDS of delay. Video buffers, a\n   download in another tab makes your video call unusable. The buffer\n   \"helped\" by not dropping -> and thereby broke latency for everyone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## ECN: Asking the Network to Just Tell You",
+      "confidence": "candidate",
+      "text": "   WITHOUT ECN:  router congested -> DROP packet -> sender infers loss\n                 (cost: a retransmission + the latency of detecting it)\n\n   WITH ECN:     router congested -> SET a bit in the IP header (CE)\n                 -> receiver echoes it -> sender shrinks cwnd, NO packet lost\n\n   ECN uses 2 bits in the IPv4/IPv6 header (the ECN field) plus TCP flags.\n   Modern AQM (CoDel) can MARK instead of DROP when both ends support ECN.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

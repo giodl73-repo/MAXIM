@@ -1,0 +1,97 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-indexing",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-INDEXING.md#000",
+      "path": [
+        "02-INDEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:02-indexing, git-history:database-systems:02-indexing]",
+        "canonical_path": "database-systems/02-INDEXING.md",
+        "concepts": "[index, b+tree index, hash index, covering index, composite index, bitmap index, inverted index, index selection]",
+        "current_path": "database-systems/02-INDEXING.md",
+        "id": "maxim:database-systems:indexing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[index]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Indexing - B+tree, Hash, Covering, Composite, Bitmap, Inverted",
+        "updated": "null"
+      },
+      "text": "# Indexing — Data Structures That Avoid the Scan"
+    },
+    {
+      "id": "02-INDEXING.md#001",
+      "path": [
+        "02-INDEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:02-indexing, git-history:database-systems:02-indexing]",
+        "canonical_path": "database-systems/02-INDEXING.md",
+        "concepts": "[index, b+tree index, hash index, covering index, composite index, bitmap index, inverted index, index selection]",
+        "current_path": "database-systems/02-INDEXING.md",
+        "id": "maxim:database-systems:indexing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[index]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Indexing - B+tree, Hash, Covering, Composite, Bitmap, Inverted",
+        "updated": "null"
+      },
+      "text": "An index is a **secondary data structure** that lets the engine find rows without scanning the\nwhole table. Indexing is the single biggest lever on read performance — and the most common\nplace real systems go wrong, because an index that the optimizer can't or won't use is pure\nwrite-time cost with zero read-time benefit."
+    },
+    {
+      "id": "02-INDEXING.md#002",
+      "path": [
+        "02-INDEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:02-indexing, git-history:database-systems:02-indexing]",
+        "canonical_path": "database-systems/02-INDEXING.md",
+        "concepts": "[index, b+tree index, hash index, covering index, composite index, bitmap index, inverted index, index selection]",
+        "current_path": "database-systems/02-INDEXING.md",
+        "id": "maxim:database-systems:indexing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[index]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Indexing - B+tree, Hash, Covering, Composite, Bitmap, Inverted",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|                              THE INDEX LANDSCAPE                                     |\n+=====================================================================================+\n|                                                                                     |\n|                          What access pattern are you serving?                       |\n|                                                                                     |\n|   EQUALITY +     |   EQUALITY      |   LOW-CARDINALITY  |   FULL-TEXT /              |\n|   RANGE + SORT   |   ONLY          |   ANALYTICS        |   MULTI-VALUE              |\n|        |         |        |        |        |           |        |                  |\n|        v         |        v        |        v           |        v                  |\n|   +----------+   |   +----------+  |   +-----------+    |   +-----------+            |\n|   |  B+TREE  |   |   |  HASH    |  |   |  BITMAP   |    |   | INVERTED  |            |\n|   +----------+   |   +----------+  |   +-----------+    |   +-----------+            |\n|   point + range  |   O(1) point,   |   one bitmap per   |   term -> list of         |\n|   + ORDER BY +    |   NO range,     |   distinct value;  |   doc/row ids;            |\n|   prefix scans   |   NO sort       |   AND/OR by bitwise|   text search, arrays,    |\n|                  |                 |   ops; OLAP/DW     |   JSON, GIN (Postgres)     |\n|   The default.   |   In-memory     |   Oracle/columnar  |                           |\n|   95% of indexes |   engines, hash |   warehouses       |   Lucene/Elasticsearch    |\n|   you create.    |   joins (g.03)  |                    |   are inverted indexes    |\n|   +----------+                                                                       |\n+=====================================================================================+\n        |\n        |  Orthogonal modifiers you layer ON TOP of the above:\n        v\n   COMPOSITE (multi-column, order matters) | COVERING (includes all needed columns)\n   PARTIAL/FILTERED (index only some rows)  | UNIQUE (also a constraint)\n```"
+    }
+  ],
+  "refs": [
+    "02-INDEXING.md"
+  ]
+}

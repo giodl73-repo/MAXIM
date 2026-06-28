@@ -1,0 +1,1329 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-distributed-sql",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-DISTRIBUTED-SQL.md#000",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "# Distributed SQL (NewSQL) — Scale-Out Without Giving Up Transactions"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#001",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "For two decades the trade was forced: choose **SQL + ACID on one big machine** (vertical scale,\na ceiling) or **NoSQL + eventual consistency** that scales horizontally but drops transactions\nand joins. **NewSQL / Distributed SQL** is the class of systems (Spanner, CockroachDB, YugabyteDB,\nTiDB, Cloud Spanner, and to a degree Cosmos DB) that aim to deliver horizontal scale **and**\nstrong consistency **and** the SQL/transaction model — by composing the machinery from guides\n06–08 (WAL, replication, sharding, 2PC) on top of a **consensus** core\n(`distributed-systems/03`)."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#002",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|                 THE THREE ERAS, AND WHAT EACH GAVE UP                                |\n+=====================================================================================+\n|                                                                                     |\n|   \"OLD SQL\" (single-node RDBMS)   NoSQL (Dynamo/Cassandra/Mongo)   NewSQL / Dist-SQL  |\n|   -----------------------------   ----------------------------    ----------------    |\n|   + ACID, SQL, joins, txns        + horizontal scale              + horizontal scale  |\n|   + strong consistency            + high availability             + ACID + SQL + txns |\n|   - scales UP only (a ceiling)    - eventual consistency          + strong consistency|\n|   - SPOF without HA add-ons       - no multi-row txn (classic)    - latency cost for   |\n|                                   - no joins / limited queries      cross-region commit|\n|                                                                    - operational depth |\n|                                                                                     |\n|   Postgres, MySQL, SQL Server,    Cassandra, DynamoDB, MongoDB,    Spanner, CockroachDB|\n|   Oracle (single-node)            Riak (classic)                  YugabyteDB, TiDB     |\n+=====================================================================================+\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#003",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "The thesis of NewSQL: the CAP \"you must give up consistency to scale\" framing was about\n*specific designs*, not a law forcing eventual consistency. By paying a **latency** cost (not a\nconsistency cost) you can keep strong guarantees while scaling out — within the limits CAP and\nPACELC actually impose."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#004",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#005",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "## CAP — stated precisely (the part everyone gets wrong)"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#006",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "CAP (Brewer's conjecture; Gilbert–Lynch 2002 proof) says: when a network **partition (P)**\noccurs, a distributed system must choose between **consistency (C, linearizability)** and\n**availability (A, every request gets a non-error response)**. It cannot have both *during a\npartition*."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#007",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   CAP IS A CHOICE THAT ONLY APPLIES DURING A PARTITION:"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#008",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "partition happens\n              |\n        +-----+-----+\n        |           |\n        v           v\n     keep C       keep A\n     (refuse/      (answer\n      block        from one\n      writes on    side ->\n      minority     may serve\n      side)        stale/diverge)\n     => CP system   => AP system"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#009",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "WHEN THERE IS NO PARTITION (the normal case), you can have BOTH C and A.\n   So CAP does NOT say \"pick 2 of 3 always\" — it says \"during a partition, C xor A.\"\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#010",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "Common misreadings to avoid (all corrected here):\n- **CA is not a real category** for a distributed system — you cannot \"give up partition\n  tolerance\"; partitions happen whether you planned for them or not. The meaningful choice is\n  CP vs AP.\n- The **C in CAP is linearizability**, not ACID consistency (guide 04) — different thing, same\n  letter.\n- CAP only constrains behavior **during a partition**; it says nothing about the (common)\n  no-partition case."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#011",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "### PACELC — the more complete statement"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#012",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "CAP ignores the cost in the normal case. **PACELC** (Abadi 2012) extends it:"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#013",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   IF (P)artition:  choose (A)vailability or (C)onsistency\n   ELSE (no partition):  choose (L)atency or (C)onsistency"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#014",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "PA/EL  = available under partition, low-latency normally (Dynamo, Cassandra default)\n   PC/EC  = consistent under partition, consistent (higher-latency) normally (Spanner-like)\n   PA/EC, PC/EL ... other combinations exist.\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#015",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "PACELC is the better lens for NewSQL: even with no partition, strong consistency across regions\ncosts **latency** (a cross-region round trip / commit-wait). NewSQL systems are generally\n**PC/EC** — they keep consistency and pay latency."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#016",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#017",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "## The consistency spectrum"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#018",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "A single axis from \"every read sees the latest write\" to \"reads may be arbitrarily stale,\"\ntreated formally in `distributed-systems/02`. The NewSQL-relevant landmarks:"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#019",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   STRONGEST  ----------------------------------------------------------->  WEAKEST\n   linearizable   sequential   bounded     causal      session    eventual\n   (external                   staleness   consistency consistency\n    consistency)\n       |             |            |           |            |          |\n   read sees      a single    reads lag    causally    your own    converges\n   the latest     global      by <= T or   related     reads/      eventually;\n   committed      order, not  K versions   writes seen  writes      no ordering\n   write          real-time                in order     consistent  guarantee\n   (Spanner)      (some        (Cosmos)     (Cosmos)    (Cosmos     (Dynamo,\n                  systems)                              default)    Cassandra)\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#020",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "Stronger consistency = more coordination = more latency and less availability under partition.\nThe whole game is choosing the weakest level that still satisfies correctness."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#021",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#022",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "## How the marquee systems actually achieve it"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#023",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "### Google Spanner — external consistency via TrueTime"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#024",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   SPANNER (Corbett et al., OSDI 2012)\n   - data sharded into \"splits\"; each split replicated by a PAXOS group across zones/regions.\n   - transactions across splits use 2PC, with each participant a Paxos group (no coordinator\n     SPOF -> the 2PC-over-consensus pattern from guide 08).\n   - GUARANTEE: \"external consistency\" (= linearizability for transactions): if txn T1 commits\n     before T2 starts, T1's commit timestamp < T2's. The strongest practical guarantee."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#025",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "THE TRICK — TrueTime: a clock API that returns an INTERVAL [earliest, latest] with a BOUNDED\n   uncertainty (epsilon, a few ms), backed by GPS + atomic clocks in every datacenter.\n   On commit, Spanner waits out the uncertainty (\"COMMIT-WAIT\": sleep until the timestamp is\n   guaranteed in the past everywhere) so timestamp order == real-time commit order."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#026",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "choose commit timestamp s = TT.now().latest\n        COMMIT-WAIT until TT.now().earliest > s   (a few ms)\n        => no other txn can have committed \"before\" with a later-looking timestamp."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#027",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "COST: that commit-wait latency, plus cross-region Paxos round-trips. Pays LATENCY for\n   external consistency. Classic PC/EC.\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#028",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "> Spanner's reliance on **specialized GPS/atomic-clock hardware** for TrueTime is the detail\n> that makes it Google-specific; the bounded-uncertainty clock is the load-bearing idea."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#029",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "### CockroachDB — Spanner's ideas without the atomic clocks"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#030",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   COCKROACHDB\n   - inspired by Spanner; uses RAFT (not Paxos) per range, MVCC, 2PC across ranges.\n   - storage engine: PEBBLE (an LSM-tree, RocksDB-family) -> guide 01.\n   - DEFAULT isolation: SERIALIZABLE (SSI lineage) -> strongest, no write skew (guide 05).\n   - NO TrueTime hardware: uses HLC (hybrid logical clocks) + a configured max clock OFFSET;\n     on uncertainty it may RESTART a transaction rather than commit-wait. Linearizable per key;\n     not globally external-consistent like Spanner, but serializable.\n   - speaks the PostgreSQL wire protocol -> drop-in-ish for Postgres clients.\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#031",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "### Azure Cosmos DB — tunable consistency as a product knob"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#032",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   COSMOS DB\n   - globally distributed, multi-model; partitioned by a logical partition key (guide 08).\n   - FIVE well-defined consistency levels, selectable per account and overridable per request:\n       STRONG        linearizable (single-region writes; no stale reads). Highest latency.\n       BOUNDED       staleness bounded by K versions OR T time; reads lag by at most that.\n       SESSION       (DEFAULT) read-your-writes, monotonic reads/writes WITHIN a session.\n       CONSISTENT    reads never see out-of-order writes (consistent prefix), may be stale.\n        PREFIX\n       EVENTUAL      replicas converge; no ordering guarantee. Lowest latency, highest avail.\n   - backed by SLAs on latency, availability, throughput, AND the consistency guarantee.\n   - multi-region WRITE mode uses conflict resolution (LWW or custom) -> guide 07.\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#033",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "Cosmos's contribution is making the consistency↔latency trade an explicit, **per-request**\ndial with five precisely-defined points, rather than a fixed architectural choice."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#034",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "### Comparison"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#035",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "| System | Consensus | Storage | Default isolation/consistency | Distinguishing mechanism |\n|--------|-----------|---------|-------------------------------|--------------------------|\n| **Spanner** | Paxos per split | Colossus/tablets | External consistency (linearizable txns) | **TrueTime** (GPS+atomic clocks) + commit-wait |\n| **CockroachDB** | Raft per range | Pebble (LSM) | **SERIALIZABLE** | HLC + clock-offset + txn restarts; PG wire |\n| **YugabyteDB** | Raft per tablet | DocDB (RocksDB) | Serializable / snapshot | PG-compatible (YSQL) |\n| **TiDB** | Raft (per region) | TiKV (RocksDB) | Snapshot / serializable opt-in | MySQL-compatible; Percolator-style txns |\n| **Cosmos DB** | (internal) | LSM-family | **Session** (5 tunable levels) | Per-request consistency dial + SLAs |"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#036",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#037",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "## What you give up, precisely"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#038",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "NewSQL is not magic; it pays real costs that drive design:"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#039",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "```\n   CROSS-REGION WRITE LATENCY   strong consistency needs a quorum/consensus round-trip\n                                across regions -> tens of ms minimum (speed of light).\n                                Keep writes region-local where possible."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#040",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "2PC LATENCY ON CROSS-SHARD   multi-shard transactions still pay prepare+commit round-trips\n   TRANSACTIONS                 (over consensus). Co-locate to keep txns single-shard (guide 08)."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#041",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "AVAILABILITY UNDER PARTITION CP systems (Spanner, Cockroach default) refuse writes on the\n                                minority side of a partition to preserve consistency."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#042",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "OPERATIONAL COMPLEXITY       clock sync, consensus group membership, rebalancing, hotspot\n                                management -> more to run than a single Postgres.\n```"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#043",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "The right framing for a VP: distributed SQL trades **latency and operational complexity** for\n**linear scale + strong consistency**. You do not trade away correctness — you pay for it in\nmilliseconds and ops headcount. Reach for it when you've genuinely outgrown a replicated\nsingle-leader Postgres/SQL Server, not before."
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#044",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#045",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "09-DISTRIBUTED-SQL.md#046",
+      "path": [
+        "09-DISTRIBUTED-SQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:database-systems:09-distributed-sql, git-history:database-systems:09-distributed-sql]",
+        "canonical_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "concepts": "[distributed sql, newsql, spanner, cockroachdb, cosmos db, CAP theorem, consistency spectrum, external consistency, truetime]",
+        "current_path": "database-systems/09-DISTRIBUTED-SQL.md",
+        "id": "maxim:database-systems:distributed-sql",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed sql]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed SQL - Spanner, CockroachDB, Cosmos, CAP, Consistency Spectrum",
+        "updated": "null"
+      },
+      "text": "| You already know | Distributed-SQL concept | Azure / SQL Server anchor |\n|------------------|-------------------------|----------------------------|\n| Scale-up SQL Server hitting a ceiling | Horizontal scale-out without losing ACID | Azure SQL Hyperscale (scale-out storage), Cosmos |\n| \"Pick 2 of 3\" CAP slogan | The corrected CAP: **C xor A only during a partition**; PACELC | Cosmos consistency levels embody PACELC |\n| ACID consistency (constraints) | CAP consistency = **linearizability** (different!) | — |\n| MSDTC / 2PC | 2PC **over a consensus group** (no coordinator SPOF) | Spanner/Cockroach distributed txns |\n| Read replicas with lag | Bounded-staleness / session consistency | Cosmos Bounded Staleness / Session |\n| Always On AG failover | Consensus-driven leader election per shard | Raft/Paxos leader per range |\n| Cosmos \"strong vs eventual\" toggle | The consistency spectrum, dialed per request | The five Cosmos levels |"
+    }
+  ],
+  "refs": [
+    "09-DISTRIBUTED-SQL.md"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\02-IP-ROUTING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 87,
+      "heading_context": "## IPv4 Addressing",
+      "headers": [
+        "Range",
+        "CIDR",
+        "Purpose",
+        "RFC"
+      ],
+      "rows": [
+        [
+          "10.0.0.0 – 10.255.255.255",
+          "10.0.0.0/8",
+          "Private (large)",
+          "RFC 1918"
+        ],
+        [
+          "172.16.0.0 – 172.31.255.255",
+          "172.16.0.0/12",
+          "Private (medium)",
+          "RFC 1918"
+        ],
+        [
+          "192.168.0.0 – 192.168.255.255",
+          "192.168.0.0/16",
+          "Private (small/home)",
+          "RFC 1918"
+        ],
+        [
+          "127.0.0.0/8",
+          "loopback",
+          "localhost (127.0.0.1)",
+          "RFC 1122"
+        ],
+        [
+          "169.254.0.0/16",
+          "link-local",
+          "auto-config when DHCP fails (APIPA)",
+          "RFC 3927"
+        ],
+        [
+          "100.64.0.0/10",
+          "CGNAT shared",
+          "carrier-grade NAT (07)",
+          "RFC 6598"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 193,
+      "heading_context": "## IGP vs. EGP: Two Routing Worlds",
+      "headers": [
+        "",
+        "IGP (interior)",
+        "EGP (exterior)"
+      ],
+      "rows": [
+        [
+          "Examples",
+          "OSPF, IS-IS, (RIP, legacy)",
+          "BGP (BGP-4 only, today)"
+        ],
+        [
+          "Scope",
+          "within one AS",
+          "between ASes"
+        ],
+        [
+          "Optimizes for",
+          "shortest path (a metric)",
+          "**policy** + economics"
+        ],
+        [
+          "Trust model",
+          "full (your own routers)",
+          "**none** (the open Internet)"
+        ],
+        [
+          "Convergence",
+          "seconds",
+          "can be slow; designed for stability"
+        ],
+        [
+          "Scale",
+          "thousands of routers",
+          "the whole Internet (~1M routes)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 301,
+      "heading_context": "## IPv6 — The Successor",
+      "headers": [
+        "Feature",
+        "IPv4",
+        "IPv6"
+      ],
+      "rows": [
+        [
+          "Address size",
+          "32 bits",
+          "128 bits"
+        ],
+        [
+          "Header",
+          "variable, has checksum",
+          "fixed 40-byte base, no checksum"
+        ],
+        [
+          "Fragmentation",
+          "routers + source",
+          "**source only** (PMTUD)"
+        ],
+        [
+          "Address resolution",
+          "ARP (broadcast)",
+          "NDP (multicast)"
+        ],
+        [
+          "Autoconfig",
+          "DHCP",
+          "SLAAC or DHCPv6"
+        ],
+        [
+          "NAT",
+          "ubiquitous (07)",
+          "designed to be unnecessary"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 318,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer / Tool"
+      ],
+      "rows": [
+        [
+          "Routing inside my own network/org",
+          "OSPF (or IS-IS); link-state, shortest path"
+        ],
+        [
+          "Routing between organizations / on the Internet",
+          "BGP-4, policy-driven"
+        ],
+        [
+          "How big is a /24?",
+          "256 addresses, 254 usable hosts"
+        ],
+        [
+          "How to shrink the routing table",
+          "CIDR aggregation (advertise a supernet)"
+        ],
+        [
+          "Private addresses for internal use",
+          "10/8, 172.16/12, 192.168/16 (RFC 1918)"
+        ],
+        [
+          "Which route wins when several match",
+          "longest prefix match (most specific)"
+        ],
+        [
+          "Out of IPv4 addresses",
+          "NAT (07) short-term, IPv6 long-term"
+        ],
+        [
+          "Why traffic takes a weird path",
+          "BGP policy/economics, not geography"
+        ],
+        [
+          "Protect against route hijacks",
+          "RPKI origin validation (crypto)"
+        ],
+        [
+          "Catch-all \"send everything else here\"",
+          "default route 0.0.0.0/0"
+        ]
+      ]
+    }
+  ]
+}

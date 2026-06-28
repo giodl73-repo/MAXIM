@@ -1,0 +1,131 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\03-SHORTEST-PATHS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 221,
+      "heading_context": "## Floyd-Warshall — All-Pairs by Dynamic Programming",
+      "headers": [
+        "",
+        "Bound",
+        "Weights",
+        "Negative cycle"
+      ],
+      "rows": [
+        [
+          "V Dijkstras",
+          "O(V·(V+E) log V)",
+          "**≥ 0 only**",
+          "n/a"
+        ],
+        [
+          "V Bellman-Fords",
+          "O(V²·E)",
+          "any",
+          "detects"
+        ],
+        [
+          "Floyd-Warshall",
+          "O(V³)",
+          "any",
+          "detects (diagonal < 0)"
+        ],
+        [
+          "Johnson's",
+          "O(V·E + V² log V)",
+          "any (reweights)",
+          "detects (in the B-F phase)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 258,
+      "heading_context": "## A\\* — Dijkstra With a Goal and a Heuristic",
+      "headers": [
+        "h(v)",
+        "Behavior"
+      ],
+      "rows": [
+        [
+          "h(v) = 0 everywhere",
+          "A\\* degenerates to **Dijkstra** (admissible but uninformed)"
+        ],
+        [
+          "h = admissible (e.g. straight-line distance ≤ road distance)",
+          "optimal path, fewer expansions"
+        ],
+        [
+          "h = consistent",
+          "optimal, and no vertex is ever re-opened"
+        ],
+        [
+          "h *overestimates*",
+          "A\\* is fast but **may return a non-optimal path**"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 275,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Algorithm",
+        "Time",
+        "Precondition"
+      ],
+      "rows": [
+        [
+          "Unweighted shortest path",
+          "BFS (`02`)",
+          "O(V+E)",
+          "uniform edge cost"
+        ],
+        [
+          "Single source, weights ≥ 0",
+          "Dijkstra",
+          "O((V+E) log V)",
+          "**no negative edges**"
+        ],
+        [
+          "Single source, some negatives",
+          "Bellman-Ford",
+          "O(V·E)",
+          "detects neg cycle"
+        ],
+        [
+          "Single source on a DAG",
+          "topo-order relax",
+          "O(V+E)",
+          "acyclic; any weights"
+        ],
+        [
+          "Single source + target + heuristic",
+          "A\\*",
+          "≤ Dijkstra",
+          "admissible h"
+        ],
+        [
+          "All pairs, dense",
+          "Floyd-Warshall",
+          "O(V³)",
+          "no neg cycle (detects)"
+        ],
+        [
+          "All pairs, sparse, negatives",
+          "Johnson's",
+          "O(V·E + V² log V)",
+          "detects neg cycle"
+        ],
+        [
+          "Need to *detect* a negative cycle",
+          "Bellman-Ford / Floyd-Warshall",
+          "O(V·E) / O(V³)",
+          "—"
+        ]
+      ]
+    }
+  ]
+}

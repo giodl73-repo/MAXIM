@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\04-NETWORK-FLOWS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                 NETWORK FLOWS: THE WHOLE PICTURE                      |\n|                                                                      |\n|   GRAPH                          LINEAR PROGRAM                       |\n|   -----                          --------------                       |\n|   nodes V, arcs E            ->  variables f_e (flow on each arc)    |\n|   capacities u_e            ->   0 <= f_e <= u_e                      |\n|   conservation at node v    ->   sum_in f = sum_out f  (flow bal.)   |\n|   source s, sink t                                                   |\n|                                                                      |\n|        [s] --10--> (a) --9--> [t]                                    |\n|          \\         ^          /                                      |\n|           4        |5        15                                      |\n|            \\       |        /                                        |\n|             v      |       v                                         |\n|             (b) --6+----->(c)                                        |\n|                                                                      |\n|   FOUR CANONICAL PROBLEMS:                                           |\n|     Max flow      -- push the most s->t                              |\n|     Min cut       -- the dual / bottleneck (= max flow!)            |\n|     Min-cost flow -- cheapest way to ship d units                   |\n|     Assignment    -- min-cost perfect matching (special transport)  |\n|                                                                      |\n|   KEY FACT: the node-arc incidence matrix is TOTALLY UNIMODULAR,    |\n|   so integer capacities => integer optimal flow (no rounding!).     |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "## Layer 2: Max-Flow / Min-Cut",
+      "confidence": "candidate",
+      "text": "   A CUT separates s from t. Its capacity = sum of forward arcs across it.\n\n         S side       |        S-bar side\n       +-----------+  |  +-----------+\n       | [s]  (a)  |--|->| (c)  [t]  |\n       |      (b)  |--|->|           |\n       +-----------+  |  +-----------+\n                      ^\n                   the cut; capacity = sum of arcs crossing left->right",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## Layer 3: Min-Cost Flow — the General Model",
+      "confidence": "candidate",
+      "text": "                       MIN-COST FLOW\n                      (cost + capacity)\n              /         |          |         \\\n             /          |          |          \\\n        MAX FLOW    SHORTEST    TRANSPORTATION  ASSIGNMENT\n       (costs=0,    PATH        (bipartite,     (transport with\n        add s->t    (unit       supply/demand    supplies all 1,\n        return arc) supply at    no capacities)  bipartite)\n                    s, demand t)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Layer 3: Min-Cost Flow — the General Model",
+      "confidence": "candidate",
+      "text": "   OPTIMALITY (complementary slackness, file 02, specialized):\n   reduced cost c_e^pi = c_e - pi_u + pi_v\n     f_e = 0       => c_e^pi >= 0\n     0 < f_e < u_e => c_e^pi = 0\n     f_e = u_e     => c_e^pi <= 0\n   Equivalently: NO negative-cost cycle in the residual graph.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## Layer 4: The Assignment Problem",
+      "confidence": "candidate",
+      "text": "   AGENTS        TASKS         cost matrix C (n x n)\n   [a1] ------> [t1]           assign exactly one task per agent\n   [a2] ------> [t2]           minimize sum of assigned costs\n   [a3] ------> [t3]\n\n   LP:  min sum_ij c_ij x_ij\n        s.t. sum_j x_ij = 1  (each agent one task)\n             sum_i x_ij = 1  (each task one agent)\n             x_ij >= 0       (TU => integer optimum: x_ij in {0,1} automatically)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 235,
+      "heading_context": "## Layer 5: Where This Overlaps graph-algorithms/",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  CONCEPT                 THIS FILE (OR view)    graph-algorithms/    |\n|  -------                 -----------------      (future, algo view)  |\n|  Max-flow/min-cut        duality theorem,       Dinic/push-relabel   |\n|                          TU, LP framing         data structures,     |\n|                                                 almost-linear bounds |\n|  Shortest path           special min-cost flow  Dijkstra/Bellman-Ford|\n|  Matching                assignment LP, Birkhoff Hopcroft-Karp,       |\n|                                                 blossom (Edmonds)    |\n|  Min-cost flow           potentials = duals     scaling algorithms   |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

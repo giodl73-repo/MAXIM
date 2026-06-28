@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Query Processing — From Declarative Text to Physical Plan
 
 SQL is **declarative**: you state *what* you want, not *how* to get it. The query processor's

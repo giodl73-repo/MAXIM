@@ -69,7 +69,7 @@ arbitrarily low BER given sufficient code length. No code exceeds capacity.
 
 SHANNON LIMIT FOR BPSK (1 bit/symbol):
   Capacity = 1 bit/symbol at Eb/N₀ → required minimum Eb/N₀ for code rate R
-  Shannon limit for rate R = 1: Eb/N₀ ≥ ln(2) = -1.59 dB
+  Shannon limit as rate R → 0: Eb/N₀ ≥ ln(2) = -1.59 dB
 
 MEANING: With a rate-1 BPSK channel code:
   Without coding: need ~6.8 dB Eb/N₀ for BER 10⁻³

@@ -1,0 +1,163 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\05-DNS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 115,
+      "heading_context": "## Record Types",
+      "headers": [
+        "Type",
+        "Maps name to...",
+        "Example / use"
+      ],
+      "rows": [
+        [
+          "**A**",
+          "IPv4 address",
+          "`example.com → 93.184.216.34`"
+        ],
+        [
+          "**AAAA**",
+          "IPv6 address",
+          "`example.com → 2606:2800:...`"
+        ],
+        [
+          "**CNAME**",
+          "another name (alias)",
+          "`www → example.com` (no IP at this name)"
+        ],
+        [
+          "**MX**",
+          "mail server (+ priority)",
+          "routes email for the domain"
+        ],
+        [
+          "**NS**",
+          "the zone's authoritative nameservers",
+          "the delegation glue"
+        ],
+        [
+          "**TXT**",
+          "arbitrary text",
+          "SPF/DKIM (mail auth), domain verification"
+        ],
+        [
+          "**SOA**",
+          "zone metadata (serial, TTLs)",
+          "one per zone; \"start of authority\""
+        ],
+        [
+          "**PTR**",
+          "IP back to a name (reverse DNS)",
+          "`34.216.184.93.in-addr.arpa → example.com`"
+        ],
+        [
+          "**SRV**",
+          "service location (host + port)",
+          "service discovery for protocols"
+        ],
+        [
+          "**CAA**",
+          "which CAs may issue certs",
+          "ties into PKI (06)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 228,
+      "heading_context": "## Encrypted DNS: DoT and DoH",
+      "headers": [
+        "",
+        "DoT",
+        "DoH"
+      ],
+      "rows": [
+        [
+          "RFC",
+          "7858",
+          "8484"
+        ],
+        [
+          "Port",
+          "853 (dedicated)",
+          "443 (shared with HTTPS)"
+        ],
+        [
+          "Visibility",
+          "identifiable as DNS by port",
+          "blends into web traffic"
+        ],
+        [
+          "Favored by",
+          "network operators (manageable)",
+          "browsers/privacy (unblockable)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 276,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Name → IPv4",
+          "A record"
+        ],
+        [
+          "Name → IPv6",
+          "AAAA record"
+        ],
+        [
+          "Alias one name to another",
+          "CNAME (not at the zone apex)"
+        ],
+        [
+          "Point the apex at a load balancer",
+          "ALIAS/ANAME (provider-specific)"
+        ],
+        [
+          "Route mail",
+          "MX records"
+        ],
+        [
+          "Verify domain / mail auth (SPF, DKIM)",
+          "TXT records"
+        ],
+        [
+          "Restrict which CA can issue certs",
+          "CAA record (ties to 06)"
+        ],
+        [
+          "Fast propagation before a migration",
+          "lower the TTL ahead of time"
+        ],
+        [
+          "Fewer queries, outage resilience",
+          "higher TTL"
+        ],
+        [
+          "Nearest server, auto-failover, one IP",
+          "anycast (BGP, 02)"
+        ],
+        [
+          "Encrypt my DNS queries",
+          "DoT (853) or DoH (443)"
+        ],
+        [
+          "Prove answers aren't forged",
+          "DNSSEC (signing, not encryption)"
+        ],
+        [
+          "One small query/reply",
+          "UDP/53; TCP/53 when too big"
+        ]
+      ]
+    }
+  ]
+}

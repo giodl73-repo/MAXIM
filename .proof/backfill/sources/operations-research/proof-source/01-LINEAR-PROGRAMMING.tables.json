@@ -1,0 +1,176 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\01-LINEAR-PROGRAMMING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 72,
+      "heading_context": "## Layer 1: Standard Form",
+      "headers": [
+        "Original",
+        "Transformation"
+      ],
+      "rows": [
+        [
+          "min c'x",
+          "max (−c)'x"
+        ],
+        [
+          "a'x ≥ b (constraint)",
+          "−a'x ≤ −b, or subtract surplus s ≥ 0"
+        ],
+        [
+          "a'x = b",
+          "keep as equality, or split into ≤ and ≥"
+        ],
+        [
+          "a'x ≤ b",
+          "add slack s ≥ 0: a'x + s = b"
+        ],
+        [
+          "x free (unbounded sign)",
+          "x = x⁺ − x⁻ with x⁺, x⁻ ≥ 0"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 215,
+      "heading_context": "## Layer 3: The Simplex Method",
+      "headers": [
+        "Method",
+        "Idea"
+      ],
+      "rows": [
+        [
+          "**Two-phase simplex**",
+          "Phase I: add artificial vars, minimize their sum; if min = 0, drop them and a feasible vertex is found. Phase II: optimize the real objective."
+        ],
+        [
+          "**Big-M method**",
+          "Penalize artificial vars with a huge cost $M$ in a single combined objective."
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 272,
+      "heading_context": "## Layer 5: Simplex vs. Interior-Point",
+      "headers": [
+        "Dimension",
+        "Simplex",
+        "Interior-point (e.g., primal-dual)"
+      ],
+      "rows": [
+        [
+          "Path",
+          "Vertices (boundary)",
+          "Interior, central path"
+        ],
+        [
+          "Worst case",
+          "Exponential",
+          "Polynomial, $O(\\sqrt{n})$ iterations to ε"
+        ],
+        [
+          "Per-iteration cost",
+          "Cheap (one pivot, rank-1 update)",
+          "Expensive (solve a Newton system)"
+        ],
+        [
+          "Warm starts",
+          "Excellent (great for branch & bound, file 03)",
+          "Poor"
+        ],
+        [
+          "Solution type",
+          "Exact vertex (basic)",
+          "ε-optimal interior point"
+        ],
+        [
+          "Large sparse LPs",
+          "Competitive",
+          "Often wins"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 287,
+      "heading_context": "## Old World → LP World Bridges",
+      "headers": [
+        "You already know",
+        "LP analogue"
+      ],
+      "rows": [
+        [
+          "Constraint solver / SAT feasibility",
+          "Phase I simplex decides LP feasibility"
+        ],
+        [
+          "Gradient descent (ML)",
+          "Simplex is a combinatorial cousin: discrete steepest-ascent over vertices"
+        ],
+        [
+          "Resource quotas / capacity planning",
+          "Constraints $Ax \\le b$ are resource limits"
+        ],
+        [
+          "Greedy \"improve until stuck\" heuristic",
+          "Simplex IS greedy, but provably reaches the global optimum (convexity guarantees it)"
+        ],
+        [
+          "Spreadsheet \"Solver\" add-in",
+          "That Solver runs simplex or interior-point under the hood"
+        ],
+        [
+          "Profiling: hotspot is in matrix solves",
+          "Same here: each pivot/Newton step is a linear-algebra kernel"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 302,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Small/medium LP, need exact vertex",
+          "Simplex"
+        ],
+        [
+          "Huge sparse LP",
+          "Interior-point (often)"
+        ],
+        [
+          "Inside branch & bound (many re-solves)",
+          "Simplex (warm starts) — see file 03"
+        ],
+        [
+          "Need to detect infeasibility",
+          "Phase I simplex (artificial vars)"
+        ],
+        [
+          "Worried about cycling at degenerate vertices",
+          "Bland's rule or lexicographic pivoting"
+        ],
+        [
+          "Need shadow prices / sensitivity",
+          "Read off $y = c_B^\\top B^{-1}$ — see file 02"
+        ],
+        [
+          "Objective seems unbounded",
+          "Ratio test column all ≤ 0 → certify unbounded"
+        ],
+        [
+          "Variables must be integer",
+          "This is no longer LP — go to file 03 (IP)"
+        ]
+      ]
+    }
+  ]
+}

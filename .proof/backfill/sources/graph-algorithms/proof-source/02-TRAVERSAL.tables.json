@@ -1,0 +1,205 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\02-TRAVERSAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 62,
+      "heading_context": "## BFS vs DFS — The Core Contrast",
+      "headers": [
+        "Property",
+        "BFS",
+        "DFS"
+      ],
+      "rows": [
+        [
+          "Frontier",
+          "queue (FIFO)",
+          "stack / recursion (LIFO)"
+        ],
+        [
+          "Order",
+          "by distance (layers)",
+          "by depth (dive then backtrack)"
+        ],
+        [
+          "Time",
+          "O(V+E)",
+          "O(V+E)"
+        ],
+        [
+          "Space",
+          "O(V) — worst frontier is a full layer",
+          "O(V) — recursion depth ≤ V"
+        ],
+        [
+          "Finds",
+          "**fewest-edges** shortest path (unweighted)",
+          "a spanning tree; finish-time order"
+        ],
+        [
+          "Natural for",
+          "shortest hops, level structure, bipartite test",
+          "topo sort, SCC, cycle detect, backtracking"
+        ],
+        [
+          "Implicit-graph use",
+          "uniform-cost frontier search",
+          "iterative deepening, game trees"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 165,
+      "heading_context": "## Topological Sort — Ordering a DAG",
+      "headers": [
+        "Method",
+        "Mechanism",
+        "Cycle detection",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Kahn's algorithm",
+          "repeatedly remove in-degree-0 vertices",
+          "if vertices remain, a cycle exists",
+          "natural for streaming / partial orders"
+        ],
+        [
+          "DFS finish order",
+          "reverse the order vertices finish",
+          "a back edge ⇒ cycle ⇒ no order",
+          "one pass, also gives edge classification"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 226,
+      "heading_context": "## Cycle Detection — Different Rules for Directed vs Undirected",
+      "headers": [
+        "Graph class",
+        "Detection rule",
+        "Pitfall"
+      ],
+      "rows": [
+        [
+          "Directed",
+          "DFS back edge to a **gray** (on-stack) vertex",
+          "a black vertex is NOT a cycle"
+        ],
+        [
+          "Undirected",
+          "DFS edge to any visited **non-parent** vertex",
+          "forgetting to exclude the parent edge ⇒ false positive"
+        ],
+        [
+          "Undirected (incremental)",
+          "union-find: endpoints already unioned",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 241,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know it as…",
+        "It is traversal of…"
+      ],
+      "rows": [
+        [
+          "`make` / MSBuild / Bazel build order",
+          "topological sort of a DAG"
+        ],
+        [
+          "npm / NuGet install order",
+          "topo sort (+ SAT for version conflicts)"
+        ],
+        [
+          "Recursive directory walk (`os.walk`, `dir /s`)",
+          "DFS of the filesystem tree"
+        ],
+        [
+          "Web crawler / `wget --recursive`",
+          "BFS/DFS of the link graph"
+        ],
+        [
+          "`git log --graph`, `git bisect`",
+          "DAG traversal of commit ancestry"
+        ],
+        [
+          "Garbage collector mark phase",
+          "DFS/BFS from roots over the object graph"
+        ],
+        [
+          "Spreadsheet recalculation order",
+          "topo sort of the cell-dependency DAG"
+        ],
+        [
+          "Network broadcast / flooding",
+          "BFS from the source"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 260,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Use",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Fewest-edges path (unweighted)",
+          "BFS",
+          "layers = distances"
+        ],
+        [
+          "Any path / reachability",
+          "BFS or DFS",
+          "both O(V+E)"
+        ],
+        [
+          "Build / dependency order",
+          "topological sort",
+          "edges = prerequisites"
+        ],
+        [
+          "Detect a cycle (directed)",
+          "DFS, gray-vertex back edge",
+          "distinguishes back from fwd/cross"
+        ],
+        [
+          "Detect a cycle (undirected)",
+          "DFS non-parent visited, or union-find",
+          "exclude the parent edge"
+        ],
+        [
+          "Count / label components (undirected)",
+          "repeated BFS/DFS, or union-find",
+          "one label per fresh start"
+        ],
+        [
+          "Mutually-reachable sets (directed)",
+          "SCC (`05`), not plain components",
+          "reachability is asymmetric"
+        ],
+        [
+          "Is the graph bipartite?",
+          "BFS 2-coloring by layer parity",
+          "conflict ⇒ odd cycle"
+        ],
+        [
+          "Explore a huge/infinite state space",
+          "DFS w/ iterative deepening, or BFS frontier",
+          "implicit graph"
+        ]
+      ]
+    }
+  ]
+}

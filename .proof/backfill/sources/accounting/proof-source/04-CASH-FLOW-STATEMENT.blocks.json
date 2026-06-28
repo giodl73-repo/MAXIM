@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "accounting\\04-CASH-FLOW-STATEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|              CASH FLOW STATEMENT  —  for a PERIOD                        |\n|                                                                          |\n|   +------------------------------------------------------------------+  |\n|   | OPERATING (CFO)   cash from running the core business            |  |\n|   |   Net income, +/- non-cash items, +/- working-capital changes    |  |\n|   +------------------------------------------------------------------+  |\n|                              +                                          |\n|   +------------------------------------------------------------------+  |\n|   | INVESTING (CFI)   cash for long-term assets                      |  |\n|   |   - capex, - acquisitions, + asset sales, +/- securities         |  |\n|   +------------------------------------------------------------------+  |\n|                              +                                          |\n|   +------------------------------------------------------------------+  |\n|   | FINANCING (CFF)   cash with capital providers                    |  |\n|   |   + borrow, - repay debt, + issue stock, - buybacks, - dividends |  |\n|   +------------------------------------------------------------------+  |\n|                              =                                          |\n|   NET CHANGE IN CASH                                                     |\n|   + Beginning cash                                                       |\n|   = Ending cash    <-- MUST equal the cash line on the balance sheet    |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Three Activities (what belongs where)",
+      "confidence": "candidate",
+      "text": "                        ALL CASH MOVEMENTS\n                               |\n        +----------------------+----------------------+\n        |                      |                      |\n        v                      v                      v\n   +-----------+         +-----------+         +-----------+\n   | OPERATING |         | INVESTING |         | FINANCING |\n   +-----------+         +-----------+         +-----------+\n   running the          buying/selling        raising/returning\n   business             long-term assets      capital\n   ---------            -----------------      ----------------\n   collect from         buy PP&E (capex)       borrow / repay debt\n    customers           buy/sell investments   issue / buy back stock\n   pay suppliers        acquire companies      pay dividends\n   pay employees        sell a division        (interest: usually CFO\n   pay taxes                                    under GAAP)\n   pay interest*",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## The Indirect Method, Mechanically",
+      "confidence": "candidate",
+      "text": "   Asset goes UP   -> cash went OUT (SUBTRACT)    [AR up = uncollected]\n   Asset goes DOWN -> cash came IN (ADD)\n   Liab. goes UP   -> cash came IN (ADD)          [AP up = unpaid]\n   Liab. goes DOWN -> cash went OUT (SUBTRACT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## Worked Example — Net Income to Cash (it reconciles)",
+      "confidence": "candidate",
+      "text": "   GIVEN (from files 02-03):\n     Net income                              174\n     Depreciation expense                     60\n     Stock-based compensation                 20\n     Accounts receivable    rose by           50   (asset up  -> subtract)\n     Inventory              rose by           40   (asset up  -> subtract)\n     Accounts payable       rose by           30   (liab up   -> add)\n     Deferred revenue       rose by           25   (liab up   -> add)\n\n   OPERATING ACTIVITIES (indirect):\n     Net income                              174\n     + Depreciation                           60\n     + Stock comp                             20\n     - Increase in AR                        (50)\n     - Increase in inventory                 (40)\n     + Increase in AP                         30\n     + Increase in deferred revenue           25\n     ---------------------------------------------\n     CFO                                      219\n\n   INVESTING ACTIVITIES:\n     Capex (bought equipment)               (150)\n     ---------------------------------------------\n     CFI                                    (150)\n\n   FINANCING ACTIVITIES:\n     Borrowed on note                        100\n     Issued stock                              0\n     Dividends paid                          (20)\n     ---------------------------------------------\n     CFF                                      80\n\n   NET CHANGE IN CASH = 219 - 150 + 80    =  149\n     + Beginning cash                         86\n     = Ending cash                           235  <- equals balance-sheet cash",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

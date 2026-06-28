@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\09-STOCHASTIC-AND-DYNAMIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|         STOCHASTIC & DYNAMIC OPTIMIZATION: THE WHOLE PICTURE          |\n|                                                                      |\n|                   DECISIONS OVER TIME UNDER UNCERTAINTY              |\n|                                                                      |\n|   DETERMINISTIC DP        MARKOV DECISION         STOCHASTIC         |\n|   (Bellman recursion)     PROCESS (MDP)           PROGRAMMING        |\n|   ------------------      --------------          -------------       |\n|   stages, states,         states S, actions A,    here-and-now x +   |\n|   deterministic trans.    transition P(s'|s,a),   recourse y(omega)  |\n|                           reward R, discount gamma  over scenarios    |\n|                                                                      |\n|   V(s) = min over a of     V*(s) = max_a [ R + gamma sum P V*(s') ] |\n|     [ cost(s,a)              (Bellman OPTIMALITY equation)           |\n|       + V(next(s,a)) ]                                               |\n|                                                                      |\n|   PRINCIPLE OF OPTIMALITY (Bellman 1957):                           |\n|     any tail of an optimal policy is itself optimal                |\n|     -> the recursion is valid; solve backward / by fixed point      |\n|                                                                      |\n|   THE CURSE OF DIMENSIONALITY: |S| grows exponentially in the       |\n|   number of state variables -> approximate DP / RL for large MDPs   |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "## Layer 1: Dynamic Programming and the Principle of Optimality",
+      "confidence": "candidate",
+      "text": "   STAGE STRUCTURE (solve right-to-left):\n\n   stage 0      stage 1      stage 2  ...  stage T\n   [states] -> [states] -> [states] ->    [terminal]\n       ^            ^           ^              |\n       |____________|___________|______________| backward induction\n       V_0          V_1         V_2            V_T (known)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 97,
+      "heading_context": "## Layer 2: Markov Decision Processes",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  S        state space                                               |\n|  A        action space (A(s) available in state s)                  |\n|  P(s'|s,a) transition probability: next state given state, action   |\n|  R(s,a)   reward (or cost) for taking action a in state s           |\n|  gamma    discount factor in [0,1)  (present value of future reward) |\n|                                                                      |\n|  POLICY pi: S -> A   (what to do in each state)                     |\n|  GOAL: find pi* maximizing expected discounted reward               |\n|        V^pi(s) = E[ sum_{t>=0} gamma^t R(s_t, pi(s_t)) | s_0 = s ]  |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 126,
+      "heading_context": "### Solution Algorithms",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  VALUE ITERATION                                                    |\n|    repeat:  V(s) <- max_a [ R(s,a) + gamma sum P(s'|s,a) V(s') ]    |\n|    converges geometrically (rate gamma) to V*; then extract pi*.   |\n|    error bound: ||V_k - V*|| <= gamma^k ||V_0 - V*|| / (1-gamma)    |\n|                                                                      |\n|  POLICY ITERATION                                                   |\n|    repeat:                                                          |\n|      (1) POLICY EVALUATION: solve linear system for V^pi           |\n|          V^pi(s) = R(s,pi(s)) + gamma sum P(s'|s,pi(s)) V^pi(s')    |\n|      (2) POLICY IMPROVEMENT: pi'(s) <- argmax_a [...]              |\n|    until policy stops changing. Converges in FINITELY many steps.  |\n|                                                                      |\n|  LINEAR PROGRAMMING FORMULATION                                     |\n|    min sum_s V(s)  s.t.  V(s) >= R(s,a) + gamma sum P V(s')  all a  |\n|    -> MDPs are solvable as an LP! (file 01) polynomial in |S|,|A|.  |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Layer 3: The Curse of Dimensionality and Approximate DP",
+      "confidence": "candidate",
+      "text": "   THE CURSE: |S| = (values per variable)^(number of state variables)\n\n   1 variable, 100 values  -> 100 states          (trivial)\n   5 variables             -> 100^5 = 10^10 states (huge)\n   10 variables            -> 100^10 = 10^20 states (hopeless)\n\n   Exact DP/MDP solution requires sweeping ALL states. Beyond ~10^7-10^8\n   states this is infeasible -> APPROXIMATE the value function.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 189,
+      "heading_context": "## Layer 4: Stochastic Programming — Here-and-Now plus Recourse",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|              TWO-STAGE STOCHASTIC PROGRAM                            |\n|                                                                      |\n|   FIRST STAGE (here-and-now, before uncertainty):                   |\n|       min  c'x  +  E_omega[ Q(x, omega) ]                           |\n|       s.t. Ax = b,  x >= 0                                          |\n|                                                                      |\n|   SECOND STAGE (recourse, after omega is observed):                 |\n|       Q(x, omega) = min  q(omega)' y                               |\n|                     s.t. T(omega) x + W y = h(omega),  y >= 0       |\n|                                                                      |\n|   x  = decisions you must commit NOW (build the plant, place order) |\n|   y  = corrective decisions AFTER demand/yield is revealed          |\n|   omega = the random scenario; E_omega = expectation over scenarios |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 207,
+      "heading_context": "## Layer 4: Stochastic Programming — Here-and-Now plus Recourse",
+      "confidence": "candidate",
+      "text": "   THE TIMELINE:\n\n   decide x  --->  uncertainty omega revealed  --->  decide recourse y(omega)\n   (1st stage)     (nature's move)                   (2nd stage, adapts)\n   |_________________ minimize  c'x + E[ Q(x,omega) ] ___________________|",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 288,
+      "heading_context": "### \"Value iteration vs. policy iteration — which converges?\"",
+      "confidence": "candidate",
+      "text": "### \"Why must $\\gamma < 1$?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\05-STRONG-CONNECTIVITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Strong Connectivity — SCCs, Bridges, and 2-SAT",
+      "confidence": "candidate",
+      "text": "  ONE DFS, FOUR RESULTS (all O(V+E))\n  ==================================\n\n   DFS assigns each vertex:\n     disc[v]  = discovery time (order first reached)\n     low[v]   = lowest disc reachable from v's subtree via >= 0 tree edges + 1 back edge\n\n                         +----------------------------------------+\n   DIRECTED graph -----> |  SCCs: Tarjan (1 DFS) or Kosaraju (2)  |\n                         +----------------------------------------+\n                                    |\n                                    v  condensation (SCCs -> super-nodes) is a DAG\n                         +----------------------------------------+\n   UNDIRECTED graph ---> |  BRIDGES: edge (u,v) with low[v]>disc[u]|\n                         |  ARTICULATION: vertex whose removal      |\n                         |    splits the graph                     |\n                         +----------------------------------------+\n                                    |\n                                    v  application\n                         +----------------------------------------+\n   Boolean 2-SAT -------> |  build implication graph, SCC it:      |\n                         |  SAT iff no var x and ~x in same SCC    |\n                         +----------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## Strongly Connected Components (SCCs)",
+      "confidence": "candidate",
+      "text": "  Directed graph:                 SCCs:\n                                  ---------------------------------\n     A ---> B ---> C              {A, B, D} are mutually reachable\n     ^      |      |              (A->B->D->A is a cycle)\n     |      v      v              {C, E}     are mutually reachable\n     D <----+      E              (C->E->C ... if E->C exists)\n            |      ^\n            +------+              CONDENSATION (a DAG):\n                                    [ABD] ---> [CE]\n                                  reachability collapses to a clean DAG.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Biconnectivity — The Redundancy Guarantee",
+      "confidence": "candidate",
+      "text": "  k-connectivity (Menger's theorem):\n    a graph is k-vertex-connected  <=>  every pair has k vertex-disjoint paths\n    a graph is k-edge-connected    <=>  every pair has k edge-disjoint paths\n\n  These connectivity numbers are computable via MAX-FLOW (06): the max number of\n  edge-disjoint s-t paths equals the min s-t cut (Menger == max-flow/min-cut).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## 2-SAT — Boolean Satisfiability in Linear Time",
+      "confidence": "candidate",
+      "text": "  Each 2-clause (a OR b) is logically two IMPLICATIONS:\n        (a OR b)  ==  (~a => b)  AND  (~b => a)\n\n  Build the IMPLICATION GRAPH: a vertex for each literal x and ~x; an edge for\n  each implication. Then:\n\n     SATISFIABLE  <=>  no variable x has  x  and  ~x  in the SAME SCC.\n\n  Why: x and ~x in one SCC means x => ~x AND ~x => x, forcing x = ~x. Contradiction.\n\n  Assignment: in the condensation DAG (reverse topo order), set a literal TRUE if\n  its SCC comes AFTER its negation's SCC.\n\n  Example: (x OR y) AND (~x OR y) AND (~y OR z)\n     edges: ~x->y, ~y->x, x->y, ~y->x, y->z, ~z->y ...\n     compute SCCs; check no {x,~x} pair shares one -> SATISFIABLE, read off values.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

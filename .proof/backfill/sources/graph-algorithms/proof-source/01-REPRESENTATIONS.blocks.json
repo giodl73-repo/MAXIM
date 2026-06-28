@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\01-REPRESENTATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Graph Representations",
+      "confidence": "candidate",
+      "text": "  REPRESENTATIONS OF THE SAME GRAPH (V=4, E=4, directed)\n  ======================================================\n\n     Graph:                Adjacency LIST          Adjacency MATRIX\n                           (array of lists)         (V x V bit/weight)\n       0 ---> 1                                         to: 0 1 2 3\n       |    / |             0 -> [1, 2]              from 0 [0 1 1 0]\n       v   /  v             1 -> [3]                      1 [0 0 0 1]\n       2 <-   3             2 -> []                       2 [0 0 0 0]\n                            3 -> [2]                      3 [0 0 1 0]\n                                                    \n     EDGE LIST                          CSR (compressed sparse row)\n     (u, v[, w]) tuples                 row_ptr = [0, 2, 3, 3, 4]\n       (0,1) (0,2) (1,3) (3,2)          col_idx = [1, 2, 3, 2]\n                                        (neighbors of v = col_idx[row_ptr[v] : row_ptr[v+1]])\n\n  SPACE:   list O(V+E)   matrix O(V^2)   edge list O(E)   CSR O(V+E), cache-tight",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## Why \"O(V+E)\" Is the Magic Number",
+      "confidence": "candidate",
+      "text": "  total neighbor-iteration work\n    = sum over all v of  deg(v)\n    = 2E   (undirected)   or   E   (directed)\n\n  plus O(V) to touch every vertex once (even isolated ones)\n\n    => O(V + E)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## CSR — The Production Representation",
+      "confidence": "candidate",
+      "text": "  Adjacency list:                 CSR (two flat arrays):\n    0 -> [1, 2]                      row_ptr = [0, 2, 3, 3, 4]   (length V+1)\n    1 -> [3]                         col_idx = [1, 2, 3, 2]      (length E)\n    2 -> []\n    3 -> [2]                       neighbors of vertex v:\n                                     col_idx[ row_ptr[v] .. row_ptr[v+1] )\n\n                                   deg(v) = row_ptr[v+1] - row_ptr[v]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 124,
+      "heading_context": "## CSR — The Production Representation",
+      "confidence": "candidate",
+      "text": "   row_ptr index:   0    1    2    3    4\n                  +----+----+----+----+----+\n                  | 0  | 2  | 3  | 3  | 4  |\n                  +----+----+----+----+----+\n                    |    |    |    \\____\\___ vertex 2 and 3 both start..\n                    |    |    |               (3==3 => vertex 2 has NO edges)\n                    v    v    v\n   col_idx:       [ 1 ,  2 ,  3 ,  2 ]\n                   \\_v0_/  \\v1/ \\v3/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Directed, Weighted, Multigraphs, and Self-Loops",
+      "confidence": "candidate",
+      "text": "  UNDIRECTED edge {u,v}        DIRECTED edge (u,v)\n    store BOTH u->v AND v->u     store ONLY u->v\n    deg sum = 2E                 out-deg sum = in-deg sum = E\n    matrix is SYMMETRIC          matrix need not be symmetric\n\n   u <---> v                     u -----> v\n    (one logical edge,            (one edge; reverse may not exist)\n     two list entries)\n\n  WEIGHTED                      MULTIGRAPH              SELF-LOOP\n    list: (v, w) pairs            multiple u->v edges     edge (v,v)\n    matrix: store w not bit       list allows dups        list: v in adj[v]\n    matrix: 0 vs INF =            matrix needs a count    matrix: diagonal entry\n     \"no edge\" sentinel matters!   or edge-id, not a bit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

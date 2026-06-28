@@ -3420,7 +3420,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "```\n                    a.s. convergence\n                   /                \\\n                  ↓                  ↓\n             a.s. convergence   a.s. convergence\n         (on finite measure spaces)    ↓\n                  →    convergence in measure\n                  ↑\n             Lᵖ convergence (p ≥ 1)\n                  ↓\n             convergence in distribution (weakest)"
+      "text": "```\n   Lᵖ convergence (p ≥ 1)\n         │  (Markov / Chebyshev)\n         ▼\n   a.s. convergence ──(finite measure space)──▶ convergence in measure\n         ▲                                            │\n         └────────── along a subsequence ─────────────┤\n                                                       ▼\n                                       convergence in distribution (weakest)"
     },
     {
       "id": "21-MEASURE-THEORY.md#122",
@@ -3448,7 +3448,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "None of these arrows reverse in general.\nCounterexamples:\n  • Convergence in measure but not a.s.: \"typewriter sequence\" on [0,1]\n    f₁=1_{[0,1]}, f₂=1_{[0,1/2]}, f₃=1_{[1/2,1]}, f₄=1_{[0,1/4]}, ...\n    ||fₙ||₁ → 0, but fₙ(x) ≢ 0 for any x.\n  • a.s. convergence but not L¹: fₙ = n·1_{[0,1/n]}. fₙ → 0 a.s., but ∫fₙ = 1.\n    (Needs DCT's dominating function, which doesn't exist here.)\n```"
+      "text": "• a.s. ⇒ in measure only on a FINITE measure space.\n  • Lᵖ ⇒ in measure always; the converse needs uniform integrability.\n  • in measure ⇒ a.s. only along a subsequence.\n  • a.s. + a dominating function ⇒ Lᵖ (DCT)."
     },
     {
       "id": "21-MEASURE-THEORY.md#123",
@@ -3476,7 +3476,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Subsequence principle**: fₙ → f in measure iff every subsequence has a further subsequence converging a.s."
+      "text": "None of these arrows reverse in general (without the extra hypotheses noted).\nCounterexamples:\n  • Convergence in measure but not a.s.: \"typewriter sequence\" on [0,1]\n    f₁=1_{[0,1]}, f₂=1_{[0,1/2]}, f₃=1_{[1/2,1]}, f₄=1_{[0,1/4]}, ...\n    ||fₙ||₁ → 0, but fₙ(x) ≢ 0 for any x.\n  • a.s. convergence but not L¹: fₙ = n·1_{[0,1/n]}. fₙ → 0 a.s., but ∫fₙ = 1.\n    (Needs DCT's dominating function, which doesn't exist here.)\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#124",
@@ -3504,7 +3504,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "### Weak Convergence (in Distribution)"
+      "text": "**Subsequence principle**: fₙ → f in measure iff every subsequence has a further subsequence converging a.s."
     },
     {
       "id": "21-MEASURE-THEORY.md#125",
@@ -3532,7 +3532,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "```\nXₙ →_d X if F_{Xₙ}(x) → F_X(x) at all continuity points of F_X."
+      "text": "### Weak Convergence (in Distribution)"
     },
     {
       "id": "21-MEASURE-THEORY.md#126",
@@ -3560,7 +3560,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Equivalently: E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ."
+      "text": "```\nXₙ →_d X if F_{Xₙ}(x) → F_X(x) at all continuity points of F_X."
     },
     {
       "id": "21-MEASURE-THEORY.md#127",
@@ -3588,7 +3588,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Portmanteau theorem (equivalent characterizations):\n  (1) E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ\n  (2) E[φ(Xₙ)] → E[φ(X)] for all bounded Lipschitz φ\n  (3) limsup P(Xₙ ∈ F) ≤ P(X ∈ F) for all closed F\n  (4) liminf P(Xₙ ∈ G) ≥ P(X ∈ G) for all open G\n  (5) P(Xₙ ∈ B) → P(X ∈ B) for all B with P(X ∈ ∂B) = 0"
+      "text": "Equivalently: E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ."
     },
     {
       "id": "21-MEASURE-THEORY.md#128",
@@ -3616,7 +3616,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Characteristic functions (Lévy continuity theorem):\n  Xₙ →_d X iff φ_{Xₙ}(t) → φ_X(t) for all t.\n  φ_X(t) = E[e^{itX}] is the characteristic function.\n  This is how CLT is proved rigorously.\n```"
+      "text": "Portmanteau theorem (equivalent characterizations):\n  (1) E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ\n  (2) E[φ(Xₙ)] → E[φ(X)] for all bounded Lipschitz φ\n  (3) limsup P(Xₙ ∈ F) ≤ P(X ∈ F) for all closed F\n  (4) liminf P(Xₙ ∈ G) ≥ P(X ∈ G) for all open G\n  (5) P(Xₙ ∈ B) → P(X ∈ B) for all B with P(X ∈ ∂B) = 0"
     },
     {
       "id": "21-MEASURE-THEORY.md#129",
@@ -3644,7 +3644,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "### CLT — Measure-Theoretic Proof Sketch"
+      "text": "Characteristic functions (Lévy continuity theorem):\n  Xₙ →_d X iff φ_{Xₙ}(t) → φ_X(t) for all t.\n  φ_X(t) = E[e^{itX}] is the characteristic function.\n  This is how CLT is proved rigorously.\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#130",
@@ -3672,7 +3672,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "```\nLet X₁, X₂, ... iid with mean 0, variance σ².\nSₙ = (X₁+...+Xₙ)/(σ√n)."
+      "text": "### CLT — Measure-Theoretic Proof Sketch"
     },
     {
       "id": "21-MEASURE-THEORY.md#131",
@@ -3700,7 +3700,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Characteristic function of Sₙ:\n  φ_{Sₙ}(t) = [φ_X(t/(σ√n))]ⁿ"
+      "text": "```\nLet X₁, X₂, ... iid with mean 0, variance σ².\nSₙ = (X₁+...+Xₙ)/(σ√n)."
     },
     {
       "id": "21-MEASURE-THEORY.md#132",
@@ -3728,7 +3728,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Taylor expand φ_X near 0:\n  φ_X(t) = 1 + E[X]·it - E[X²]t²/2 + o(t²) = 1 - σ²t²/2 + o(t²)"
+      "text": "Characteristic function of Sₙ:\n  φ_{Sₙ}(t) = [φ_X(t/(σ√n))]ⁿ"
     },
     {
       "id": "21-MEASURE-THEORY.md#133",
@@ -3756,7 +3756,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Substituting:\n  φ_{Sₙ}(t) = [1 - σ²(t/σ√n)²/2 + o(t²/n)]ⁿ\n             = [1 - t²/(2n) + o(1/n)]ⁿ\n             → e^{-t²/2}   (as n → ∞)"
+      "text": "Taylor expand φ_X near 0:\n  φ_X(t) = 1 + E[X]·it - E[X²]t²/2 + o(t²) = 1 - σ²t²/2 + o(t²)"
     },
     {
       "id": "21-MEASURE-THEORY.md#134",
@@ -3784,7 +3784,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "e^{-t²/2} is characteristic function of N(0,1).\nBy Lévy continuity: Sₙ →_d N(0,1). □\n```"
+      "text": "Substituting:\n  φ_{Sₙ}(t) = [1 - σ²(t/σ√n)²/2 + o(t²/n)]ⁿ\n             = [1 - t²/(2n) + o(1/n)]ⁿ\n             → e^{-t²/2}   (as n → ∞)"
     },
     {
       "id": "21-MEASURE-THEORY.md#135",
@@ -3812,7 +3812,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "---"
+      "text": "e^{-t²/2} is characteristic function of N(0,1).\nBy Lévy continuity: Sₙ →_d N(0,1). □\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#136",
@@ -3840,7 +3840,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "## 8. Product Measures and Integration"
+      "text": "---"
     },
     {
       "id": "21-MEASURE-THEORY.md#137",
@@ -3868,7 +3868,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "### Product Measure Construction"
+      "text": "## 8. Product Measures and Integration"
     },
     {
       "id": "21-MEASURE-THEORY.md#138",
@@ -3896,7 +3896,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "For σ-finite (Xᵢ, ℱᵢ, μᵢ):\n```\nProduct measure μ₁×μ₂ on ℱ₁⊗ℱ₂:\n  (μ₁×μ₂)(A×B) = μ₁(A)·μ₂(B)  for A∈ℱ₁, B∈ℱ₂.\nExtends uniquely to ℱ₁⊗ℱ₂ by Carathéodory."
+      "text": "### Product Measure Construction"
     },
     {
       "id": "21-MEASURE-THEORY.md#139",
@@ -3924,7 +3924,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Lebesgue measure on ℝⁿ = Lebesgue ⊗ ... ⊗ Lebesgue (n times).\n```"
+      "text": "For σ-finite (Xᵢ, ℱᵢ, μᵢ):\n```\nProduct measure μ₁×μ₂ on ℱ₁⊗ℱ₂:\n  (μ₁×μ₂)(A×B) = μ₁(A)·μ₂(B)  for A∈ℱ₁, B∈ℱ₂.\nExtends uniquely to ℱ₁⊗ℱ₂ by Carathéodory."
     },
     {
       "id": "21-MEASURE-THEORY.md#140",
@@ -3952,7 +3952,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "### Change of Variables (substitution)"
+      "text": "Lebesgue measure on ℝⁿ = Lebesgue ⊗ ... ⊗ Lebesgue (n times).\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#141",
@@ -3980,7 +3980,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "For diffeomorphism T: U → V (open subsets of ℝⁿ):\n```\n∫_V f(y) dy = ∫_U f(T(x)) |det DT(x)| dx"
+      "text": "### Change of Variables (substitution)"
     },
     {
       "id": "21-MEASURE-THEORY.md#142",
@@ -4008,7 +4008,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "|det DT(x)|: absolute value of Jacobian determinant."
+      "text": "For diffeomorphism T: U → V (open subsets of ℝⁿ):\n```\n∫_V f(y) dy = ∫_U f(T(x)) |det DT(x)| dx"
     },
     {
       "id": "21-MEASURE-THEORY.md#143",
@@ -4036,7 +4036,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "This is Radon-Nikodym in disguise:\n  Push-forward measure: (T₊μ)(A) = μ(T⁻¹(A))\n  d(T₊μ)/dμ = 1/|det DT| ∘ T\n```"
+      "text": "|det DT(x)|: absolute value of Jacobian determinant."
     },
     {
       "id": "21-MEASURE-THEORY.md#144",
@@ -4064,7 +4064,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Polar coordinates**: T: (r,θ) → (r cos θ, r sin θ). |det DT| = r.\n```\n∫∫_{ℝ²} f(x,y) dx dy = ∫₀^∞ ∫₀^{2π} f(r cos θ, r sin θ) r dθ dr\n```"
+      "text": "This is Radon-Nikodym in disguise:\n  Push-forward measure: (T₊μ)(A) = μ(T⁻¹(A))\n  d(T₊μ)/dμ = 1/|det DT| ∘ T\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#145",
@@ -4092,7 +4092,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "---"
+      "text": "**Polar coordinates**: T: (r,θ) → (r cos θ, r sin θ). |det DT| = r.\n```\n∫∫_{ℝ²} f(x,y) dx dy = ∫₀^∞ ∫₀^{2π} f(r cos θ, r sin θ) r dθ dr\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#146",
@@ -4120,7 +4120,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "## 9. Applications and ML Connections"
+      "text": "---"
     },
     {
       "id": "21-MEASURE-THEORY.md#147",
@@ -4148,7 +4148,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "### Ergodic Theory and MCMC"
+      "text": "## 9. Applications and ML Connections"
     },
     {
       "id": "21-MEASURE-THEORY.md#148",
@@ -4176,7 +4176,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Ergodic theory** studies measure-preserving transformations — dynamical systems that preserve volume. The central result connects time averages to space averages."
+      "text": "### Ergodic Theory and MCMC"
     },
     {
       "id": "21-MEASURE-THEORY.md#149",
@@ -4204,7 +4204,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Setup**: (Ω, ℱ, μ) is a probability space. T: Ω → Ω is **measure-preserving** if μ(T⁻¹(A)) = μ(A) for all A ∈ ℱ. Think of T as \"advance the system by one time step.\""
+      "text": "**Ergodic theory** studies measure-preserving transformations — dynamical systems that preserve volume. The central result connects time averages to space averages."
     },
     {
       "id": "21-MEASURE-THEORY.md#150",
@@ -4232,7 +4232,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "T is **ergodic** if the only T-invariant sets are trivial: T⁻¹(A) = A ⟹ μ(A) = 0 or 1. Ergodicity means the system cannot be decomposed into independent subsystems — it explores the whole space."
+      "text": "**Setup**: (Ω, ℱ, μ) is a probability space. T: Ω → Ω is **measure-preserving** if μ(T⁻¹(A)) = μ(A) for all A ∈ ℱ. Think of T as \"advance the system by one time step.\""
     },
     {
       "id": "21-MEASURE-THEORY.md#151",
@@ -4260,7 +4260,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Birkhoff Ergodic Theorem** (time average = space average):\n```\nIf T is measure-preserving on (Ω, ℱ, μ) and f ∈ L¹(μ):"
+      "text": "T is **ergodic** if the only T-invariant sets are trivial: T⁻¹(A) = A ⟹ μ(A) = 0 or 1. Ergodicity means the system cannot be decomposed into independent subsystems — it explores the whole space."
     },
     {
       "id": "21-MEASURE-THEORY.md#152",
@@ -4288,7 +4288,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "(1/n) Σ_{k=0}^{n-1} f(Tᵏω) → E_μ[f | ℐ]   μ-a.s. and in L¹"
+      "text": "**Birkhoff Ergodic Theorem** (time average = space average):\n```\nIf T is measure-preserving on (Ω, ℱ, μ) and f ∈ L¹(μ):"
     },
     {
       "id": "21-MEASURE-THEORY.md#153",
@@ -4316,7 +4316,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "where ℐ = σ-algebra of T-invariant sets."
+      "text": "(1/n) Σ_{k=0}^{n-1} f(Tᵏω) → E_μ[f | ℐ]   μ-a.s. and in L¹"
     },
     {
       "id": "21-MEASURE-THEORY.md#154",
@@ -4344,7 +4344,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "If T is ergodic: ℐ is trivial → E_μ[f | ℐ] = ∫ f dμ."
+      "text": "where ℐ = σ-algebra of T-invariant sets."
     },
     {
       "id": "21-MEASURE-THEORY.md#155",
@@ -4372,7 +4372,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "So for ergodic T:  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → ∫_Ω f dμ  a.s."
+      "text": "If T is ergodic: ℐ is trivial → E_μ[f | ℐ] = ∫ f dμ."
     },
     {
       "id": "21-MEASURE-THEORY.md#156",
@@ -4400,7 +4400,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "Time average of f along a single trajectory = space average of f over Ω.\n```"
+      "text": "So for ergodic T:  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → ∫_Ω f dμ  a.s."
     },
     {
       "id": "21-MEASURE-THEORY.md#157",
@@ -4428,7 +4428,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**MCMC connection**: A Markov chain with stationary distribution π defines a (random) measure-preserving transformation. The chain is ergodic on (Ω, π) iff it is irreducible and aperiodic. The Birkhoff theorem is precisely why MCMC works: time-averages along the chain converge to expectations under π. Convergence rate is governed by the spectral gap of the transition operator — the gap between 1 and the second-largest eigenvalue of the Markov transition kernel acting on L²(π)."
+      "text": "Time average of f along a single trajectory = space average of f over Ω.\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#158",
@@ -4456,7 +4456,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "```\nMCMC algorithm → generates trajectory ω₀, ω₁, ω₂, ...\nEstimator: (1/n) Σ f(ωₖ) → ∫ f dπ  by ergodic theorem.\nSpeed of convergence ← spectral gap of transition kernel P on L²(π).\nMixing time ∝ 1 / spectral gap.\n```"
+      "text": "**MCMC connection**: A Markov chain with stationary distribution π defines a (random) measure-preserving transformation. The chain is ergodic on (Ω, π) iff it is irreducible and aperiodic. The Birkhoff theorem is precisely why MCMC works: time-averages along the chain converge to expectations under π. Convergence rate is governed by the spectral gap of the transition operator — the gap between 1 and the second-largest eigenvalue of the Markov transition kernel acting on L²(π)."
     },
     {
       "id": "21-MEASURE-THEORY.md#159",
@@ -4484,7 +4484,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Statistical mechanics**: The ergodic hypothesis (Boltzmann) is the physical claim that a gas system is ergodic — time averages of macroscopic observables equal ensemble averages over the microcanonical measure. This justifies thermodynamics from Hamiltonian mechanics. The hypothesis is false for most Hamiltonian systems (KAM theory), but true for sufficiently chaotic ones."
+      "text": "```\nMCMC algorithm → generates trajectory ω₀, ω₁, ω₂, ...\nEstimator: (1/n) Σ f(ωₖ) → ∫ f dπ  by ergodic theorem.\nSpeed of convergence ← spectral gap of transition kernel P on L²(π).\nMixing time ∝ 1 / spectral gap.\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#160",
@@ -4512,7 +4512,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "### KL Divergence and Radon-Nikodym"
+      "text": "**Statistical mechanics**: The ergodic hypothesis (Boltzmann) is the physical claim that a gas system is ergodic — time averages of macroscopic observables equal ensemble averages over the microcanonical measure. This justifies thermodynamics from Hamiltonian mechanics. The hypothesis is false for most Hamiltonian systems (KAM theory), but true for sufficiently chaotic ones."
     },
     {
       "id": "21-MEASURE-THEORY.md#161",
@@ -4540,7 +4540,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**KL divergence** (Kullback-Leibler) between probability measures P and Q:\n```\nKL(P || Q) = ∫ log(dP/dQ) dP    when P ≪ Q  (P absolutely continuous w.r.t. Q)\n           = +∞                  when P ⊄ Q"
+      "text": "### KL Divergence and Radon-Nikodym"
     },
     {
       "id": "21-MEASURE-THEORY.md#162",
@@ -4568,7 +4568,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "The integrand is exactly the Radon-Nikodym derivative dP/dQ (log-likelihood ratio).\n```"
+      "text": "**KL divergence** (Kullback-Leibler) between probability measures P and Q:\n```\nKL(P || Q) = ∫ log(dP/dQ) dP    when P ≪ Q  (P absolutely continuous w.r.t. Q)\n           = +∞                  when P ⊄ Q"
     },
     {
       "id": "21-MEASURE-THEORY.md#163",
@@ -4596,7 +4596,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "This makes precise several properties that are otherwise opaque:"
+      "text": "The integrand is exactly the Radon-Nikodym derivative dP/dQ (log-likelihood ratio).\n```"
     },
     {
       "id": "21-MEASURE-THEORY.md#164",
@@ -4624,7 +4624,7 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Asymmetry**: KL(P||Q) ≠ KL(Q||P) because dP/dQ and dQ/dP are different functions. Swapping them changes the measure you integrate against (P vs Q), not just the integrand."
+      "text": "This makes precise several properties that are otherwise opaque:"
     },
     {
       "id": "21-MEASURE-THEORY.md#165",
@@ -4652,10 +4652,38 @@
         "title": "Measure Theory - Complete Reference",
         "updated": "null"
       },
-      "text": "**Why P ≪ Q is required**: If P(A) > 0 but Q(A) = 0 for some set A, then dP/dQ is undefined (or +∞) on A, and log(dP/dQ) = +∞ on a P-positive set → KL = +∞. KL divergence detects whether Q has full support relative to P."
+      "text": "**Asymmetry**: KL(P||Q) ≠ KL(Q||P) because dP/dQ and dQ/dP are different functions. Swapping them changes the measure you integrate against (P vs Q), not just the integrand."
     },
     {
       "id": "21-MEASURE-THEORY.md#166",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Why P ≪ Q is required**: If P(A) > 0 but Q(A) = 0 for some set A, then dP/dQ is undefined (or +∞) on A, and log(dP/dQ) = +∞ on a P-positive set → KL = +∞. KL divergence detects whether Q has full support relative to P."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#167",
       "path": [
         "21-MEASURE-THEORY.md"
       ],

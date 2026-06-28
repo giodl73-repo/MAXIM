@@ -16,7 +16,7 @@
     {
       "id": "block-2",
       "kind": "diagram_like",
-      "line": 95,
+      "line": 96,
       "heading_context": "### The Fundamental Theorem",
       "confidence": "candidate",
       "text": "FUNDAMENTAL THEOREM OF GALOIS THEORY:\n  Let K/F be a finite Galois extension with G = Gal(K/F).\n\n  There is a bijection:\n  {intermediate fields F ⊆ E ⊆ K}  ←→  {subgroups H ≤ G}\n  given by:\n    E ↦ Gal(K/E)\n    H ↦ K^H\n\n  Under this correspondence:\n  1. [E:F] = [G:H] = |G|/|H|  (index = degree)\n  2. [K:E] = |H|\n  3. E₁ ⊆ E₂  ⟺  Gal(K/E₂) ⊆ Gal(K/E₁)  [REVERSED]\n  4. E/F is Galois  ⟺  Gal(K/E) ◁ G  [E normal ↔ subgroup normal]\n  5. When E/F is Galois: Gal(E/F) ≅ G/Gal(K/E).",
@@ -27,7 +27,7 @@
     {
       "id": "block-3",
       "kind": "chart_like",
-      "line": 113,
+      "line": 114,
       "heading_context": "### The Fundamental Theorem",
       "confidence": "candidate",
       "text": "### Example: Q(√2, √3) / Q",
@@ -38,7 +38,7 @@
     {
       "id": "block-4",
       "kind": "diagram_like",
-      "line": 115,
+      "line": 116,
       "heading_context": "### Example: Q(√2, √3) / Q",
       "confidence": "candidate",
       "text": "G = Gal(Q(√2,√3)/Q) ≅ Z/2 × Z/2.\n  Four automorphisms:\n  e:   √2↦√2, √3↦√3\n  σ:   √2↦-√2, √3↦√3\n  τ:   √2↦√2, √3↦-√3\n  στ:  √2↦-√2, √3↦-√3\n\nSubgroups of Z/2×Z/2:\n  {e}: whole field K = Q(√2,√3)\n  ⟨σ⟩: fixed field = Q(√3)  (σ fixes √3)\n  ⟨τ⟩: fixed field = Q(√2)\n  ⟨στ⟩: fixed field = Q(√6)  (στ fixes √2·√3 = √6? check: (στ)(√6) = (-√2)(-√3) = √6 ✓)\n  G = Z/2×Z/2: fixed field = Q\n\nLattice (REVERSED):\n  Subgroups:  {e} ← ⟨σ⟩,⟨τ⟩,⟨στ⟩ ← G\n  Fields:     K   →  Q(√3),Q(√2),Q(√6) → Q",
@@ -49,7 +49,7 @@
     {
       "id": "block-5",
       "kind": "chart_like",
-      "line": 190,
+      "line": 191,
       "heading_context": "### Radical Extensions",
       "confidence": "candidate",
       "text": "### Degrees 2–4: Solvable",
@@ -60,7 +60,7 @@
     {
       "id": "block-6",
       "kind": "ascii_table_candidate",
-      "line": 192,
+      "line": 193,
       "heading_context": "### Degrees 2–4: Solvable",
       "confidence": "candidate",
       "text": "DEGREE 2: x² + bx + c = 0.\n  Galois group ⊆ S₂ ≅ Z/2 (solvable).\n  Formula: x = (-b ± √(b²-4c)) / 2.  ← adjoining one square root.\n\nDEGREE 3: x³ + px + q = 0 (depressed cubic via substitution x = t - b/3).\n  Galois group ⊆ S₃ (order 6, solvable — derived series: S₃' = A₃ ≅ Z/3, then {e}).\n  Cardano's formula (1545):\n    Let D = -(4p³+27q²) (discriminant).\n    u = ∛(-q/2 + √(D/108)), v = ∛(-q/2 - √(D/108)) with uv = -p/3.\n    Three roots: u+v, ωu+ω²v, ω²u+ωv  where ω = e^{2πi/3}.\n  Requires: square root + two cube roots.\n\nDEGREE 4: Ferrari's method (1545).\n  Reduce to a cubic resolvent (which is solvable by degree 3).\n  Galois group ⊆ S₄ (order 24, solvable — S₄' = A₄, A₄' = V₄, V₄' = {e}).\n\nHistorical note: Quadratic known ancient times; cubic/quartic discovered 16th century.\n  The race to find the cubic formula: Tartaglia→Cardano dispute (1545).\n  Ferrari (student of Cardano) solved the quartic.\n  Abel (1824) and Galois (1832) then showed degree ≥ 5 is generally impossible.",
@@ -71,7 +71,7 @@
     {
       "id": "block-7",
       "kind": "chart_like",
-      "line": 215,
+      "line": 216,
       "heading_context": "### Degrees 2–4: Solvable",
       "confidence": "candidate",
       "text": "### Degree 5 and Beyond: Unsolvable",
@@ -82,7 +82,7 @@
     {
       "id": "block-8",
       "kind": "diagram_like",
-      "line": 247,
+      "line": 248,
       "heading_context": "## Insolvability of the Quintic — Proof Sketch",
       "confidence": "candidate",
       "text": "THEOREM: There is no formula analogous to the quadratic formula for degree ≥ 5.\n\nProof sketch:\n1. The splitting field K of the general quintic f over F = Q(s₁,...,s₅)\n   (sᵢ = i-th elementary symmetric polynomial in roots x₁,...,x₅)\n   has Gal(K/F) = S₅.\n\n2. Any radical extension tower F = F₀ ⊂ F₁ ⊂ ... ⊂ Fₘ = K corresponds\n   to a tower of groups G = G₀ ▷ G₁ ▷ ... ▷ Gₘ = {e} with Gᵢ/Gᵢ₊₁ cyclic.\n   (Adding n-th root → cyclic extension → cyclic quotient group.)\n\n3. This means G = S₅ is solvable — but S₅ is NOT solvable.\n\n4. Contradiction — no radical tower can yield the splitting field of the general quintic.\n\n(The full proof requires also handling the case where F doesn't contain enough\nroots of unity, using \"Galois closure\" techniques.)",
@@ -93,7 +93,7 @@
     {
       "id": "block-9",
       "kind": "diagram_like",
-      "line": 271,
+      "line": 272,
       "heading_context": "## Inverse Galois Problem",
       "confidence": "candidate",
       "text": "QUESTION: For each finite group G, does ∃ Galois extension K/Q with Gal(K/Q) ≅ G?\n\nKNOWN:\n  Every abelian group: YES (Kronecker-Weber).\n  Every solvable group: YES (Šafarevič, 1954).\n  A_n for all n: YES.\n  S_n for all n: YES.\n  All groups of order ≤ 1000: YES (computed).\n  Most sporadic simple groups: YES (various authors).\n  The Monster: YES (J. Thompson et al.).\n\nOPEN: The general inverse Galois problem.\n  No known group G for which the answer is definitively NO.\n  But also no proof that the answer is always YES.\n\nTHE ABSOLUTE GALOIS GROUP Gal(Q̄/Q):\n  The profinite group of ALL automorphisms of Q̄ fixing Q.\n  Gal(Q̄/Q) = lim← Gal(K/Q) over all finite Galois K/Q.\n  This is one of the central objects of modern mathematics — understanding its\n  representations IS the Langlands program.\n\n  Key connections:\n  - Gal(Q̄/Q) acts on ℓ-adic étale cohomology of varieties over Q.\n  - This action encodes arithmetic information (Weil conjectures, proved by Deligne 1974).\n  - The Langlands correspondence: n-dimensional representations of Gal(Q̄/Q) ↔\n    automorphic forms on GL(n) — a vast generalization of class field theory.\n  - Fermat's Last Theorem (Wiles 1995) proved that a specific Galois representation\n    (from a semistable elliptic curve) is modular — a case of Langlands.\n\nGALOIS THEORY AND PAIRING-BASED CRYPTOGRAPHY:\n  Weil and Tate pairings on elliptic curves:\n    e: E[r] × E[r] → μ_r ⊂ F*_{p^k}\n  This is a bilinear, non-degenerate, Galois-equivariant map from the r-torsion\n  group of an elliptic curve into roots of unity in the extension field F_{p^k}.\n\n  The embedding degree k (smallest k with r | p^k - 1) determines the extension\n  field — this is Galois theory at work: μ_r ⊂ F_{p^k} iff Frobenius^k acts\n  trivially on r-torsion, iff p^k ≡ 1 (mod r).\n\n  Applications built on pairings:\n    BLS aggregate signatures (Ethereum 2.0 consensus layer)\n    Identity-based encryption (Boneh-Franklin 2001)\n    zk-SNARKs (Groth16, PLONK): bilinear pairing groups enable the\n      polynomial commitment scheme that makes zero-knowledge proofs efficient.\n  See `10-APPLICATIONS.md` for the full cryptographic treatment.",

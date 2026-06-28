@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\09-DISTRIBUTED-SQL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Distributed SQL (NewSQL) — Scale-Out Without Giving Up Transactions",
+      "confidence": "candidate",
+      "text": "+=====================================================================================+\n|                 THE THREE ERAS, AND WHAT EACH GAVE UP                                |\n+=====================================================================================+\n|                                                                                     |\n|   \"OLD SQL\" (single-node RDBMS)   NoSQL (Dynamo/Cassandra/Mongo)   NewSQL / Dist-SQL  |\n|   -----------------------------   ----------------------------    ----------------    |\n|   + ACID, SQL, joins, txns        + horizontal scale              + horizontal scale  |\n|   + strong consistency            + high availability             + ACID + SQL + txns |\n|   - scales UP only (a ceiling)    - eventual consistency          + strong consistency|\n|   - SPOF without HA add-ons       - no multi-row txn (classic)    - latency cost for   |\n|                                   - no joins / limited queries      cross-region commit|\n|                                                                    - operational depth |\n|                                                                                     |\n|   Postgres, MySQL, SQL Server,    Cassandra, DynamoDB, MongoDB,    Spanner, CockroachDB|\n|   Oracle (single-node)            Riak (classic)                  YugabyteDB, TiDB     |\n+=====================================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## CAP — stated precisely (the part everyone gets wrong)",
+      "confidence": "candidate",
+      "text": "   CAP IS A CHOICE THAT ONLY APPLIES DURING A PARTITION:\n\n        partition happens\n              |\n        +-----+-----+\n        |           |\n        v           v\n     keep C       keep A\n     (refuse/      (answer\n      block        from one\n      writes on    side ->\n      minority     may serve\n      side)        stale/diverge)\n     => CP system   => AP system\n\n   WHEN THERE IS NO PARTITION (the normal case), you can have BOTH C and A.\n   So CAP does NOT say \"pick 2 of 3 always\" — it says \"during a partition, C xor A.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## The consistency spectrum",
+      "confidence": "candidate",
+      "text": "   STRONGEST  ----------------------------------------------------------->  WEAKEST\n   linearizable   sequential   bounded     causal      session    eventual\n   (external                   staleness   consistency consistency\n    consistency)\n       |             |            |           |            |          |\n   read sees      a single    reads lag    causally    your own    converges\n   the latest     global      by <= T or   related     reads/      eventually;\n   committed      order, not  K versions   writes seen  writes      no ordering\n   write          real-time                in order     consistent  guarantee\n   (Spanner)      (some        (Cosmos)     (Cosmos)    (Cosmos     (Dynamo,\n                  systems)                              default)    Cassandra)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 265,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"CAP says pick 2 of 3\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

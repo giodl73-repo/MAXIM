@@ -1,0 +1,112 @@
+{
+  "schema_version": "1",
+  "source_markdown": "networking\\08-LOAD-BALANCING-CDN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 93,
+      "heading_context": "## L4 vs. L7 Load Balancing",
+      "headers": [
+        "",
+        "L4 LB",
+        "L7 LB"
+      ],
+      "rows": [
+        [
+          "Operates at",
+          "transport (TCP/UDP)",
+          "application (HTTP/gRPC)"
+        ],
+        [
+          "Routes by",
+          "5-tuple",
+          "URL, headers, cookies, method"
+        ],
+        [
+          "Reads payload?",
+          "no",
+          "yes (terminates the connection)"
+        ],
+        [
+          "TLS",
+          "can pass through",
+          "usually terminates (06)"
+        ],
+        [
+          "Granularity",
+          "per connection",
+          "per request"
+        ],
+        [
+          "Cost",
+          "low (packet forwarding)",
+          "higher (full proxy + crypto)"
+        ],
+        [
+          "Use for",
+          "raw throughput, any protocol",
+          "path routing, sticky sessions, WAF"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 280,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Raw throughput, any protocol, fast",
+          "L4 load balancer"
+        ],
+        [
+          "Route by URL/path/header, sticky sessions, WAF",
+          "L7 load balancer"
+        ],
+        [
+          "Spread evenly, equal servers",
+          "round robin"
+        ],
+        [
+          "Adapt to uneven request durations",
+          "least connections"
+        ],
+        [
+          "Session affinity + minimal reshuffle on changes",
+          "consistent hashing"
+        ],
+        [
+          "Send users to the nearest site, auto-failover",
+          "anycast (BGP)"
+        ],
+        [
+          "Serve static content fast worldwide",
+          "CDN edge caching"
+        ],
+        [
+          "Shorten the TLS handshake for distant users",
+          "terminate TLS at the edge"
+        ],
+        [
+          "Absorb a DDoS",
+          "anycast spread + scrubbing"
+        ],
+        [
+          "Run logic close to the user",
+          "edge compute / edge functions"
+        ],
+        [
+          "Stop sending a dead server traffic",
+          "health checks"
+        ],
+        [
+          "Cache freshness control",
+          "HTTP Cache-Control (max-age, s-maxage)"
+        ]
+      ]
+    }
+  ]
+}

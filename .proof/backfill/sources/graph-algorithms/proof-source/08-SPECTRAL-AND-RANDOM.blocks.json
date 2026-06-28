@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graph-algorithms\\08-SPECTRAL-AND-RANDOM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Spectral and Random Graph Methods — The Linear-Algebra Escape Hatch",
+      "confidence": "candidate",
+      "text": "  THE SPECTRAL VIEW: A GRAPH IS A MATRIX\n  ======================================\n\n   Adjacency A        Degree D            LAPLACIAN  L = D - A\n   (who connects)     (diagonal: deg)     (the central object)\n\n      0 1 1            2 0 0                 2 -1 -1\n      1 0 0            0 1 0                -1  1  0\n      1 0 0            0 0 1                -1  0  1\n\n   EIGENVALUES of L:  0 = lambda_1 <= lambda_2 <= ... <= lambda_n\n                          |              |\n                          |              +-- FIEDLER value (algebraic connectivity):\n                          |                  measures how \"splittable\" the graph is.\n                          |                  Its eigenvector partitions the graph.\n                          +-- multiplicity of 0 = number of CONNECTED COMPONENTS\n\n   +---------------------------------------------------------------------+\n   | SPECTRAL CLUSTERING  : Fiedler vector -> graph partition            |\n   | PAGERANK             : stationary distribution of a random walk     |\n   | RANDOM WALKS / MIXING: spectral gap controls how fast you mix       |\n   | EXPANDERS            : large spectral gap => sparse-yet-connected   |\n   +---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## The Laplacian — The Central Object",
+      "confidence": "candidate",
+      "text": "  Key facts about L = D - A (undirected graph):\n  ---------------------------------------------\n  * L is symmetric, positive SEMI-definite: all eigenvalues lambda_i >= 0.\n  * lambda_1 = 0 ALWAYS (the all-ones vector 1 is in the kernel: L*1 = 0).\n  * MULTIPLICITY of eigenvalue 0 = number of connected components.\n      (a path graph: mult 1; two disjoint triangles: mult 2.)\n  * lambda_2 > 0  <=>  the graph is connected.  lambda_2 is the FIEDLER VALUE\n      / algebraic connectivity -- bigger means \"harder to disconnect\".\n\n  Quadratic form (the reason it clusters):\n      x^T L x  =  sum over edges (u,v) of  (x_u - x_v)^2\n  => L measures how much a vertex labeling x VARIES across edges. Minimizing it\n     (subject to constraints) puts connected vertices at similar values => clusters.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "## Spectral Clustering — Relaxing an NP-Hard Cut",
+      "confidence": "candidate",
+      "text": "  Goal: split V into two balanced parts cutting few edges (NP-hard exactly).\n\n  Relaxation:  minimize  x^T L x   subject to  x perpendicular to 1, ||x||=1\n               solution  =  the FIEDLER VECTOR (eigenvector of lambda_2).\n\n  Then ROUND: sign(x_v) gives the partition (positive -> part A, negative -> B);\n  or for k parts, embed each vertex by its first k eigenvectors and run k-means.\n\n      vertex:   A    B    C    D    E    F\n      Fiedler:  +.4  +.3  +.5  -.4  -.3  -.5\n                \\_____ part 1 ____/  \\__ part 2 __/    cut = few edges between",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "## Spectral Clustering — Relaxing an NP-Hard Cut",
+      "confidence": "candidate",
+      "text": "  SPECTRAL CLUSTERING (the standard recipe):\n    1. build the Laplacian L (or normalized L_sym)\n    2. compute the k smallest eigenvectors (after the trivial lambda_1=0)\n    3. each vertex -> its row in the n x k eigenvector matrix (an embedding)\n    4. run k-means on those k-dim points -> k clusters",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "## Random Walks and PageRank",
+      "confidence": "candidate",
+      "text": "  Transition matrix P = D^(-1) A  (row-stochastic: P[u][v] = 1/deg(u) if edge).\n  A walk's distribution after t steps: pi_t = pi_0 * P^t.\n  STATIONARY distribution pi satisfies  pi = pi * P  (left eigenvector, eig 1).\n\n  For an undirected connected non-bipartite graph: pi(v) proportional to deg(v).\n  (more connected => visited more often -- the simplest \"importance\" measure.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Random Walks and PageRank",
+      "confidence": "candidate",
+      "text": "  PageRank recurrence (power iteration to the stationary vector):\n\n     PR(v) = (1 - d)/N  +  d * sum over u->v of  PR(u) / out-deg(u)\n             \\_________/      \\___________________________________/\n              teleport          rank flowing in from pages linking to v\n\n  Solve by POWER ITERATION: start uniform, apply the recurrence until convergence.\n  Converges geometrically; the rate is the spectral gap (the 2nd eigenvalue of the\n  Google matrix). ~50-100 iterations suffice on the real web.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
