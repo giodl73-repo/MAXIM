@@ -230,9 +230,13 @@ Each directory has a `STATUS.md` with its full file list.
 | [`graph-algorithms/`](graph-algorithms/STATUS.md) | 10 | ✅ | 14 |
 | [`operations-research/`](operations-research/STATUS.md) | 10 | ✅ | 14 |
 | [`accounting/`](accounting/STATUS.md) | 10 | ✅ | 14 |
+| [`algorithms/`](algorithms/STATUS.md) | 10 | ✅ | 15 |
+| [`compilers/`](compilers/STATUS.md) | 10 | ✅ | 15 |
+| [`computer-graphics/`](computer-graphics/STATUS.md) | 10 | ✅ | 15 |
+| [`dynamical-systems/`](dynamical-systems/STATUS.md) | 10 | ✅ | 15 |
 
-**Complete: Batches 1–13 ✅ + Batch 14 (5 new domains) — 222 directories, ~2,220 files**
-**Final target: 222 directories · 13 sections · ~2,220 content files · ~14,400 pages · 52 bound volumes**
+**Complete: Batches 1–13 ✅ + Batch 14 (5 domains) + Batch 15 (4 domains) — 226 directories, ~2,260 files**
+**Final target: 226 directories · 13 sections · ~2,260 content files · ~14,650 pages · 52 bound volumes**
 *13 × 4 = 52. A deck of cards. People (●) at center. Batches 12–13 complete the deck.*
 
 **Batch 1 agent groups (complete):**
