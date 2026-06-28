@@ -113,7 +113,7 @@ DIMINISHED 7TH as pivot (Z₁₂ group theory):
   Why only 3 distinct dim7 chords? A dim7 = 4 equally-spaced pitch classes
   (spacing 3 in Z₁₂). The set {0,3,6,9} is a subgroup of order 4.
   By Lagrange's theorem: 12/4 = 3 cosets = 3 distinct dim7 chords.
-  Same argument: 4 augmented triads (spacing 4, 12/4=3? no: 12/3=4 cosets),
+  Same argument: 4 augmented triads (spacing 4, subgroup {0,4,8} order 3, 12/3=4 cosets),
   6 tritone pairs (spacing 6, 12/2=6), 2 whole-tone scales (spacing 2, 12/6=2).
   Fully diminished 7th (°7) = four minor thirds stacked
   Symmetry: only 3 distinct diminished 7th chords (then cycle repeats)

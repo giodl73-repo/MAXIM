@@ -306,7 +306,7 @@ ALPHAFOLD2 (DeepMind, 2021):
   Architecture: transformer-based with equivariant geometry module
   Performance: CASP14 TM-score ~0.9 (near experimental accuracy)
   Impact: 200M+ protein structures predicted (covers entire known proteome)
-  Nobel Chemistry 2024: Jumper, Hassabis + Rumelhart (former)
+  Nobel Chemistry 2024: Hassabis + Jumper (AlphaFold2); shared with Baker (de novo design)
 
 PROTEIN MISFOLDING DISEASES:
   Amyloid β / Tau (Alzheimer's): β-sheet aggregates

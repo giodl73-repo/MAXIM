@@ -69,7 +69,7 @@ Harry Hess (1960): ocean ridges are spreading centers where new ocean crust is c
 
 ```
 MAGNETIC REVERSAL RECORD:
-(Earth's magnetic field reverses every ~200,000–1,000,000 years)
+(Earth's magnetic field reverses at irregular intervals — from <100,000 years to tens of millions; not periodic)
 
               RIDGE AXIS
                   |

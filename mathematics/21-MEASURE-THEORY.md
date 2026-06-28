@@ -459,18 +459,21 @@ Weak convergence (distributions):
 ### Relationships
 
 ```
-                    a.s. convergence
-                   /                \
-                  ↓                  ↓
-             a.s. convergence   a.s. convergence
-         (on finite measure spaces)    ↓
-                  →    convergence in measure
-                  ↑
-             Lᵖ convergence (p ≥ 1)
-                  ↓
-             convergence in distribution (weakest)
+   Lᵖ convergence (p ≥ 1)
+         │  (Markov / Chebyshev)
+         ▼
+   a.s. convergence ──(finite measure space)──▶ convergence in measure
+         ▲                                            │
+         └────────── along a subsequence ─────────────┤
+                                                       ▼
+                                       convergence in distribution (weakest)
 
-None of these arrows reverse in general.
+  • a.s. ⇒ in measure only on a FINITE measure space.
+  • Lᵖ ⇒ in measure always; the converse needs uniform integrability.
+  • in measure ⇒ a.s. only along a subsequence.
+  • a.s. + a dominating function ⇒ Lᵖ (DCT).
+
+None of these arrows reverse in general (without the extra hypotheses noted).
 Counterexamples:
   • Convergence in measure but not a.s.: "typewriter sequence" on [0,1]
     f₁=1_{[0,1]}, f₂=1_{[0,1/2]}, f₃=1_{[1/2,1]}, f₄=1_{[0,1/4]}, ...
