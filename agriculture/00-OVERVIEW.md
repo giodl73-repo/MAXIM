@@ -111,7 +111,7 @@ AFRICA (~5,000 BCE):                Sorghum, cowpeas, pearl millet
 NEW GUINEA (~7,000 BCE):            Taro, yam, sugarcane (early)
 ```
 
-**Why agriculture?** — Not because it was obviously better than foraging (foragers had more leisure time, more diverse diet, better health in many metrics). Probable drivers: population pressure + climate change (Younger Dryas cold snap 12,800–11,700 BCE pushed people toward intensive plant harvesting) + sedentariness (from settled storage of wild grain → feedback toward cultivation).
+**Why agriculture?** — Not because it was obviously better than foraging (foragers had more leisure time, more diverse diet, better health in many metrics). Probable drivers: population pressure + climate change (Younger Dryas cold snap ~12,800–11,700 years ago (~10,800–9,700 BCE) pushed people toward intensive plant harvesting) + sedentariness (from settled storage of wild grain → feedback toward cultivation).
 
 **Consequences of the Neolithic transition:**
 - Population growth (more calories per hectare, but less nutritious early)

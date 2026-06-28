@@ -198,7 +198,7 @@ Three end-members (continuous substitution at the X site):
 
 Biological apatite: bones and teeth are composite materials
   Hydroxyapatite (70% by weight in bone) + collagen (organic framework)
-  Teeth enamel: 97% fluorapatite by weight (the hardest biological material)
+  Teeth enamel: ~96% hydroxyapatite by weight (the hardest biological material)
   Dental fluoride treatment: converts hydroxyapatite → fluorapatite
     → Fluorapatite is harder and less acid-soluble
 

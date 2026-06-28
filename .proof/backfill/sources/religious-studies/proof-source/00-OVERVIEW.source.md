@@ -370,8 +370,8 @@ Church (doctrinal). The Sufi tariqas (imagistic) within Islam (doctrinal).
 |                                                                   |
 |  Christianity    |||||||||||||||||||||||||||||||| 31%  (~2.4B)    |
 |  Islam           |||||||||||||||||||||||||        25%  (~1.9B)    |
-|  Hinduism        ||||||||||||||||                 15%  (~1.2B)    |
 |  Unaffiliated    ||||||||||||||                   16%  (~1.2B)    |
+|  Hinduism        ||||||||||||||||                 15%  (~1.2B)    |
 |  Buddhism        |||||||                           7%  (~500M)    |
 |  Folk religions  ||||||                            6%  (~430M)    |
 |  Other           |                                 1%  (~60M)     |

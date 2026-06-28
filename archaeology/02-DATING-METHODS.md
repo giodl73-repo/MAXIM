@@ -94,9 +94,9 @@ CALIBRATION CURVE CONSTRUCTION:
   Tree rings (dendrochronology): each ring = 1 year known age
   ¹⁴C-date the ring → known calendar year → known ¹⁴C ratio
   Build continuous curve back to ~14,000 BP (tree ring)
-  Extended by: corals, speleothems, lake varves → IntCal21 curve to 55,000 BP
+  Extended by: corals, speleothems, lake varves → IntCal20 curve to 55,000 BP
 
-  IntCal21 (2020): international calibration dataset
+  IntCal20 (2020): international calibration dataset
   Published by IntCal Working Group; used by OxCal software (Oxford)
 ```
 

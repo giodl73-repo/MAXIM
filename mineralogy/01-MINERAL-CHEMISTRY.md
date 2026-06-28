@@ -177,7 +177,7 @@ POLYMORPHIC PAIRS AND TRIPLETS
 |  SILICON DIOXIDE (SiO₂)                                           |
 |  Quartz: stable below 573°C, hexagonal; common everywhere         |
 |  Tridymite: 573°C–870°C, hexagonal with different topology        |
-|  Cristobalite: 870°C–1723°C (melting point)                       |
+|  Cristobalite: 1470°C–1723°C (melting point)                      |
 |  Coesite: very high pressure (>3 GPa); marker of meteor impact    |
 |  Stishovite: >10 GPa; Si in 6-fold coordination (not 4-fold)      |
 |  Opal: amorphous (non-crystalline) — technically a mineraloid     |

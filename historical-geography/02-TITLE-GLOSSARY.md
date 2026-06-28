@@ -215,7 +215,7 @@ AFTER GOLDEN BULL 1356 — SEVEN ELECTORS:
 
   SECULAR:
     King of Bohemia         → Archcupbearer
-    Count Palatine of Rhine → Archduke (seneschal)
+    Count Palatine of Rhine → Archsteward (Archseneschal)
     Duke of Saxony          → Archmarshall
     Margrave of Brandenburg → Archchamberlain
 

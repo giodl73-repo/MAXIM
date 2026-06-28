@@ -412,7 +412,7 @@ doesn't compete for land (if collocated with underground CO₂ storage sites).
      Air → potassium hydroxide (KOH) liquid contactors
      CO₂ + 2KOH → K₂CO₃ + H₂O
      K₂CO₃ → limestone kiln (regenerates KOH, releases pure CO₂)
-     Energy: ~1.5 GJ heat + ~0.4 GWh electricity per tCO₂
+     Energy: ~1.5 GJ heat + ~0.4 MWh electricity per tCO₂
 
   2. SOLID SORBENT (Climeworks / Global Thermostat):
      Air → amine-functionalized solid sorbent

@@ -468,7 +468,7 @@ After He exhaustion, the core contracts, heats further:
   4. Core bounce:         nuclear repulsion at ρ ~ 3×10¹⁴ g/cm³ → outward shock
   5. Neutrino heating:    99% of SN energy in ν's; ~1% heats shock → explosion
 
-  Neutrino luminosity during collapse: ~3×10⁵³ erg (10× Sun's 10-Gyr output)
+  Neutrino luminosity during collapse: ~3×10⁵³ erg (~100× Sun's 10-Gyr output)
   in ~10 seconds. SN 1987A: 24 neutrinos detected at Earth (17 kpc away).
 
   PROPERTIES:
@@ -578,7 +578,7 @@ After He exhaustion, the core contracts, heats further:
   (SN 1006, SN 1054/Crab, Tycho 1572, Kepler 1604, SN 1987A)
 
   SN 1987A: only naked-eye SN since 1604; ~170,000 ly in LMC
-  23 neutrinos detected (Kamiokande, IMB, Baksan) — confirmed core-collapse theory
+  24 neutrinos detected (Kamiokande, IMB, Baksan) — confirmed core-collapse theory
   Central compact object still unconfirmed (dust-obscured; possibly NS)
 
   RATE:

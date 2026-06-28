@@ -591,7 +591,7 @@ rate 1980-2010 was the fastest sustained growth in economic history.
 
 ## Common Confusion Points
 
-**Watt did not invent the steam engine.** Newcomen built the first practical steam engine in 1712, 53 years before Watt's separate condenser patent. Watt made the existing engine dramatically more efficient. Trevithick (not Watt) made the first steam locomotive.
+**Watt did not invent the steam engine.** Newcomen built the first practical steam engine in 1712, 57 years before Watt's separate condenser patent. Watt made the existing engine dramatically more efficient. Trevithick (not Watt) made the first steam locomotive.
 
 **The Luddites were not anti-technology in principle.** They were skilled handloom weavers who correctly identified that power looms would destroy their wages and livelihoods. They targeted specific machines that displaced their specific labor. The "Luddite" label (anti-technology) is historically inaccurate. They were engaged in a labor dispute using machine-breaking as negotiating leverage.
 

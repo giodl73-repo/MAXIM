@@ -132,7 +132,7 @@ TORNADO GENESIS (tilting/stretching mechanism):
 
 TORNADO STRUCTURE:
   Wall cloud → Rotating contact → Funnel cloud → Dust whirl → Condensation funnel
-  (funnel appears as condensation where pressure < dewpoint;
+  (funnel appears as condensation where adiabatic cooling reaches the dewpoint;
    the tornado itself extends even when funnel isn't visible)
 ```
 

@@ -80,7 +80,7 @@ CURRENT BEST ESTIMATES:
 +----+--------------------+-------------------+-------------------+
 
 OPTIMISTIC N: 3 x 1.0 x 0.4 x 1.0 x 0.1 x 0.1 x 10^9 = 12,000,000
-PESSIMISTIC N: 3 x 1.0 x 0.1 x 10^-10 x 10^-9 x 0.01 x 100 ~ 10^-17
+PESSIMISTIC N: 3 x 1.0 x 0.1 x 10^-10 x 10^-9 x 0.01 x 100 ~ 3 x 10^-20
                (i.e., expected value << 1; we might be alone)
 
 THE KEY INSIGHT: Almost all uncertainty is in fl, fi, and L.
@@ -325,7 +325,7 @@ SETI HISTORY
   - Result to date: no confirmed signals.
 
 FREQUENCY RATIONALE:
-  "Cosmic waterhole" (Morrison & Cocconi 1959):
+  "Cosmic waterhole" (named c. 1971; 21cm line per Cocconi & Morrison 1959):
   Between 1.42 GHz (hydrogen, 21 cm) and 1.65 GHz (OH)
   These are the most abundant molecules in the galaxy.
   Any civilization would know these frequencies.

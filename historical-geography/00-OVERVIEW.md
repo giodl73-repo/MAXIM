@@ -171,7 +171,7 @@ This library covers approximately **500–1600 CE** as the core period with earl
          ~700: Arab Caliphate at maximum extent
          ~800: Charlemagne / Carolingian Empire
          ~900: Viking age peak; feudal fragmentation in France
-         ~1000: Ottoman Turks emerge; Kievan Rus peak
+         ~1000: Seljuk Turks emerge; Kievan Rus peak
          ~1066: Norman Conquest of England
          ~1095: First Crusade called
          ~1200: Mongol expansion begins

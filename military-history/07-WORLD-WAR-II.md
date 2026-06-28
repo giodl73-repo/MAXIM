@@ -47,8 +47,8 @@ updated: null
 |  reliability vs Tiger tactical performance — decisive factor    |
 |                                                                  |
 |  INTELLIGENCE:                                                   |
-|  ULTRA (Enigma decryption), MAGIC (Japanese JN-25 codes),       |
-|  Double Cross System (turned German agents in UK)               |
+|  ULTRA (Enigma decryption), MAGIC (Japanese PURPLE               |
+|  diplomatic cipher), Double Cross System (turned German agents)  |
 |  Intelligence advantage shaped every major Allied operation      |
 +------------------------------------------------------------------+
 ```

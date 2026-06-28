@@ -336,7 +336,7 @@ Plugging in measured values:
 c = 1/sqrt(4pi x 10^-7 * 8.85 x 10^-12)
   = 2.998 x 10^8 m/s
 
-Speed of light (Fizeau, 1849): 3.13 x 10^8 m/s
+Speed of light (Fizeau, 1849): 3.15 x 10^8 m/s
 (modern: 2.998 x 10^8 m/s)
 
 MAXWELL'S CONCLUSION (1865):

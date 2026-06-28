@@ -108,7 +108,7 @@ THE MORRIGAN — Triple goddess of war, fate, sovereignty
 
 LUGH LÁMHFHADA — "Long-Arm" / god of all arts
   — Killed Balor of the Evil Eye (Fomorian leader) — his grandfather!
-  — Spear (Gáe Dearg): one of four treasures
+  — Spear (Spear of Lugh): one of four treasures
   — Harvest festival Lughnasadh (August 1) named for him
 
 DIAN CÉCHT — Divine physician

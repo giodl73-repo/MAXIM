@@ -64,7 +64,7 @@ IRON OXIDE MINERALS
 |                                                                  |
 |  MAGNETITE: Fe₃O₄ (= FeO · Fe₂O₃, mixed Fe²⁺/Fe³⁺)               |
 |  Spinel structure (inverse spinel actually)                      |
-|  Strongly magnetic — the original "loadstone"                    |
+|  Strongly magnetic — the original "lodestone"                    |
 |  Black, metallic luster, Mohs 5.5–6.5                            |
 |  Titaniferous magnetite (with ilmenite exsolution lamellae)      |
 |    → Paleomagnetic record of Earth's field reversals             |

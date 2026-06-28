@@ -451,7 +451,7 @@ PROGNOSIS vs DIAGNOSIS:
 
 "FIRST DO NO HARM" (primum non nocere):
   Not actually in the Hippocratic Oath (commonly misattributed)
-  The Oath (Epidemics I): "As to diseases, make a habit of two
+  Epidemics I: "As to diseases, make a habit of two
   things: to help, or at least to do no harm"
   The principle reflects empirical humility: do not intervene
   aggressively when the evidence for intervention is weak

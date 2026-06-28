@@ -333,7 +333,7 @@ SIXTH CRUSADE (1228–1229): Frederick II's diplomatic crusade
   Negotiated Treaty of Jaffa 1229 with al-Kamil (Ayyubid)
   Christians got: Jerusalem, Bethlehem, Nazareth, a corridor to coast
   10-year truce
-  Pope Innocent IV was furious (Frederick was excommunicated)
+  Pope Gregory IX was furious (Frederick was excommunicated)
   Patriarch of Jerusalem refused to crown Frederick; Frederick crowned himself
   Muslims were angry at al-Kamil for conceding Jerusalem
   Jerusalem lost again 1244 (Khwarazmian Turks — fleeing Mongols)

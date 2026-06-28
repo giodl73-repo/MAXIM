@@ -113,7 +113,7 @@ FINANCIAL CAPITALISM TIMELINE (1840-1914)
 
 1895-1900    Merger wave: massive consolidation across industries
 
-1900         US Steel Corporation formed: $1.4 billion capitalization
+1901         US Steel Corporation formed: $1.4 billion capitalization
              (largest corporation in history at the time)
 
 1907         Panic of 1907: Knickerbocker Trust collapse;

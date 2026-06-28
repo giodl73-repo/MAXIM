@@ -202,7 +202,7 @@ CONCRETIONS AS PRESERVATION CHAMBERS:
 ## Lagerstätten — Exceptional Fossil Windows
 
 ```
-LAGERSTÄTTEN (German: "mother lode"):
+LAGERSTÄTTEN (German: "storage/resting place"):
   Fossil deposits with extraordinary preservation quality or quantity
   Two types:
     Conservation Lagerstätten: exceptional quality preservation
@@ -248,7 +248,7 @@ PRESERVATION MECHANISM:
   Shallow hypersaline lagoon behind reef
   Anoxic bottom (no infauna), fine-grained carbonate mud (lithographic limestone)
   Organisms drifted in from reef → sank to anoxic bottom → perfect preservation
-  Same limestone used for lithographic printing (Solnhofen = "flat-lying stone")
+  Same limestone used for lithographic printing (German Plattenkalk = "flat-bedded limestone")
 
 KEY TAXA:
   Archaeopteryx: 11 known specimens; feathers, claws, teeth, long bony tail

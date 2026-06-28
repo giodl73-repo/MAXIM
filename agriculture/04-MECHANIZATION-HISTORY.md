@@ -319,7 +319,7 @@ CONSEQUENCES:
 
 **Mechanization didn't increase farm area — it concentrated it** — Small farms couldn't afford machines; large farms could. Mechanization drove farm consolidation (smaller number of larger farms). US farm count: 7 million farms in 1935 → 2 million in 2020; average farm size doubled.
 
-**McCormick didn't invent the reaper** — Multiple inventors worked simultaneously. Obed Hussey patented a reaper the same year (1833). The commercial success was McCormick's due to marketing, warranty, installment payment plans (financial innovation), and manufacturing scale — not purely the invention.
+**McCormick didn't invent the reaper** — Multiple inventors worked simultaneously. Obed Hussey patented a reaper in 1833, the year before McCormick's patent. The commercial success was McCormick's due to marketing, warranty, installment payment plans (financial innovation), and manufacturing scale — not purely the invention.
 
 **GPS guidance ≠ autonomous farming** — Most "autosteer" tractors still require a human to manage headland turns, monitor for obstacles, and make agronomic decisions. True autonomy (no human in/near cab) was only commercially launched in 2022 (John Deere) and requires extensive pre-mapping.
 

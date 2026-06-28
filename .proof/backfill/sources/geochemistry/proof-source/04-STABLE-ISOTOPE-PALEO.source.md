@@ -225,7 +225,7 @@ SPELEOTHEM OXYGEN ISOTOPES
     → δ¹⁸O_speleothem records monsoon intensity, not temperature directly
 
   DONGGE CAVE (China):
-    Heshang Cave records East Asian Monsoon
+    Dongge Cave records East Asian Monsoon
     Stalagmite records last 160 kyr at sub-decadal resolution
     Shows monsoon strength correlates with Greenland ice core temperature
     → Northern Hemisphere insolation drives both ice extent and monsoon

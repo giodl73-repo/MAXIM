@@ -146,7 +146,7 @@ POLICY IMPLICATION:
 ```
 GLOBAL CONTEXT:
   ~286 transboundary river basins covering 47% of land surface
-  ~39 billion people (37% of world population) live in transboundary basins
+  ~3 billion people (37% of world population) live in transboundary basins
   ~300+ transboundary aquifers identified
   2 or more countries share almost every major river basin
 
@@ -155,7 +155,7 @@ MAJOR TRANSBOUNDARY CONFLICT REGIONS:
   NILE BASIN (11 countries, ~500 million people):
     Egypt: historical control, 1959 treaty with Sudan gives 87% of flow
     Ethiopia: Nile headwaters (Blue Nile = 85% of flow at Aswan)
-    Grand Ethiopian Renaissance Dam (GERD): 74 GW, completed filling ~2022
+    Grand Ethiopian Renaissance Dam (GERD): ~5.15 GW, completed filling ~2022
     → Egypt's position: GERD threatens Aswan water security
     → Ethiopia's position: sovereign right to develop its resources
     → No final legal agreement; ongoing negotiations

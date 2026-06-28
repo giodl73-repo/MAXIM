@@ -172,7 +172,7 @@ PATCHED CONIC APPROXIMATION
 
   SOI RADII (APPROXIMATE):
     Moon:    66,000 km  (0.17 Moon-Earth distance)
-    Mars:    578,000 km (0.39% of Earth-Mars distance at conjunction)
+    Mars:    577,000 km (Mars sphere-of-influence radius)
     Jupiter: 48.2 million km (large; deep gravity well)
     Earth:   925,000 km from Earth
 ```

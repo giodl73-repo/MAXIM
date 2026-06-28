@@ -361,4 +361,4 @@ Barringer Crater (AZ) ~50 ka    1.2 km    Best-preserved young crater
 
 **Venus retrograde rotation** — Venus rotates backwards (retrograde) relative to its orbital motion, with a Venusian day longer than its year. This is puzzling; possibly a large impact or resonance with Earth. Unrelated to its geologic stagnant lid state but adds to Venus's "wrongness."
 
-**Planetary volcanoes vs Earth's** — Earth's largest volcano (Mauna Kea) is ~10 km from sea floor. Olympus Mons on Mars is 22 km above datum and 600 km across. Mars volcanism grows so large because: one-plate planet (no conveyor belt moving crust away from plume), lower gravity (erupted material piles up rather than spreading under its own weight).
+**Planetary volcanoes vs Earth's** — Earth's largest volcano (Mauna Loa) is ~10 km from sea floor. Olympus Mons on Mars is 22 km above datum and 600 km across. Mars volcanism grows so large because: one-plate planet (no conveyor belt moving crust away from plume), lower gravity (erupted material piles up rather than spreading under its own weight).

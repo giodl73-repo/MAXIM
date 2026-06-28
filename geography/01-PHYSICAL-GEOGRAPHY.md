@@ -122,7 +122,7 @@ humans have settled and why.
   → Database index performance: B-tree depth is log₂(N)
   The non-intuitive part: Mw 9.0 releases ~1000× MORE energy than Mw 7.0
   (not 2× or 10×). Two magnitude units = 31.6² ≈ 1000× energy.
-  2011 Tōhoku (Mw 9.1) released ~45× the energy of 1994 Northridge (Mw 6.7)
+  2011 Tōhoku (Mw 9.1) released ~4000× the energy of 1994 Northridge (Mw 6.7)
   despite feeling like a "small" difference in the number.
 
   SEISMIC WAVES:

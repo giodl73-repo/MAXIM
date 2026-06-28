@@ -169,7 +169,7 @@ WHITE'S SYSTEM:
 
 RESULT: WHITE PLAN ADOPTED IN ALL ESSENTIALS
   Dollar as reserve currency = US "exorbitant privilege"
-  (Barry Estaing's phrase: US could pay for imports with its
+  (Valéry Giscard d'Estaing's phrase: US could pay for imports with its
    own printed currency; others could not)
   No symmetric adjustment obligation on surplus countries
   This would create the Triffin dilemma within 20 years

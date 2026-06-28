@@ -200,7 +200,7 @@ PROTEIN SYNTHESIS:
 ```
 ENTERIC FERMENTATION EMISSIONS:
   Per cow: 70–120 kg CH₄/yr (highly variable: diet, breed, productivity)
-  CH₄ GWP₁₀₀ = 28–34× CO₂ (IPCC AR6: fossil CH₄ = 82.5 GWP₂₀)
+  CH₄ GWP₁₀₀ ≈ 27–30× CO₂ (IPCC AR6; fossil CH₄ GWP₂₀ ≈ 82.5)
 
   Global livestock CH₄: ~2.1 Gt CO₂-eq/yr
   ~5% of total anthropogenic GHG

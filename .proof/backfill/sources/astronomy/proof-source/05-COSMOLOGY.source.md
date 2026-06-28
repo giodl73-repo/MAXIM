@@ -46,7 +46,7 @@ updated: null
   1 Gyr        Reionization complete (z~6); first quasars, galaxy formation
   3 Gyr        Peak star formation + quasar activity (z~2-3)
   5 Gyr        Dark energy begins to dominate (z~0.4, ä changes sign)
-  9.8 Gyr      Solar System forms (z~0.5)
+  9.2 Gyr      Solar System forms (z~0.4)
   13.787 Gyr   Today (z=0)
 
   THE ΛCDM CONTENT PIE:

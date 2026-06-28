@@ -121,7 +121,7 @@ NORMATIVE THEORY OVERVIEW
 THE TROLLEY PROBLEM (Philippa Foot, 1967; Judith Jarvis Thomson, 1985)
 =======================================================================
 
-FOOTBRIDGE TROLLEY (TRACK VARIANT):
+SWITCH / LEVER TROLLEY (TRACK VARIANT):
   A runaway trolley is heading toward 5 people.
   You can pull a lever to divert to a sidetrack where 1 person is.
   Do you pull the lever?

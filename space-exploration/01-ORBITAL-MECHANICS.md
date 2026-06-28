@@ -64,7 +64,7 @@ KEPLER'S THREE LAWS
   LAW 2 (Equal Areas):
     A line from body to focus sweeps equal areas in equal times
     → Faster near periapsis (closest point); slower near apoapsis
-    → Conservation of angular momentum: L = m × v × r = constant
+    → Conservation of angular momentum: L = m × v_⊥ × r = constant
 
   LAW 3 (Harmonic Law):
     T² ∝ a³
@@ -225,7 +225,7 @@ GRAVITY ASSISTS
   REAL EXAMPLES:
     Voyager 1: Jupiter (1979) + Saturn (1980) → escape solar system
     Cassini: Earth flyby (1999) + Jupiter (2000) → Saturn insertion 2004
-    Messenger: 2 Earth + 2 Venus + 3 Mercury flybys to slow down to Mercury orbit
+    Messenger: 1 Earth + 2 Venus + 3 Mercury flybys to slow down to Mercury orbit
     New Horizons: Jupiter (2007) gravity assist → Pluto (2015)
     Parker Solar Probe: 7 Venus flybys to lower perihelion to <10 R_Sun
 

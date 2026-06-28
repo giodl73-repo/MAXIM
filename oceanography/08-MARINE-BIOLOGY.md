@@ -248,7 +248,7 @@ MEAN TROPHIC LEVEL OF FISHERIES CATCH:
   → Sequential depletion of each trophic level
 
 MAXIMUM SUSTAINABLE YIELD (MSY):
-  MSY = 0.5 × K × r/4   (simplified logistic model)
+  MSY = r × K / 4       (simplified logistic model)
   where K = carrying capacity, r = intrinsic growth rate
   At 50% K: population growth maximized → highest sustainable harvest
   Reality: multispecies, variable environment, poorly known K and r

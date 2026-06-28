@@ -212,7 +212,7 @@ The K'iche' Maya creation epic — the most complete pre-Columbian mythological 
 │       → Survivors become the monkeys in the trees                │
 │  4th: Maize humans (CURRENT) — successful creation (see below)   │
 │                                                                  │
-│  THE HERO TWINS — XUN HUNAHPU AND XBALANQUE:                     │
+│  THE HERO TWINS — HUNAHPU AND XBALANQUE:                         │
 │  (This narrative precedes the creation of maize humans)          │
 │                                                                  │
 │  The Hero Twins' father (Hunahpu) and uncle (Vucub Hunahpu)      │

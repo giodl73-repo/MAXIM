@@ -51,7 +51,7 @@ hierarchy stratifies the degrees of undecidability.
 !  ! Sigma-0 = Pi-0 = Delta-1 = Recursive (decidable)          !    !
 !  ! Sigma-1 = RE (semi-decidable)                             !    !
 !  ! Pi-1 = co-RE                                              !    !
-!  ! Sigma-n, Pi-n for all n: the analytical hierarchy         !    !
+!  ! Sigma-n, Pi-n for all n: the arithmetic hierarchy         !    !
 !  ! True arithmetic: not in any Sigma-n                       !    !
 !  .===========================================================.    !
 .===================================================================.

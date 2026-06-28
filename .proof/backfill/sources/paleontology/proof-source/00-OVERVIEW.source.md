@@ -208,7 +208,7 @@ Late Ordovician   443        57%            Gondwana glaciation → sea level fa
 Late Devonian     372        57%            Ocean anoxia, cooling (multiple pulses)
 End-Permian (P-T) 252        90%+           Siberian Traps volcanism → many feedbacks
 End-Triassic      201        47%            CAMP volcanism (Central Atlantic Magmatic Province)
-K-Pg              66         76%            Chicxulub impactor + Deccan Traps
+K-Pg              66         ~40%           Chicxulub impactor + Deccan Traps
 ```
 
 Each mass extinction is covered in detail in 07-MASS-EXTINCTIONS.md.

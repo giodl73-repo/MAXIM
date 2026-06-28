@@ -216,8 +216,8 @@ PERSISTENT VEGETATIVE STATE CASES:
   Precedent for surrogate decision-making.
   (Quinlan lived 9 more years after ventilator removed -- breathing sustained.)
 
-  TERRY SCHIAVO (1990-2005):
-  Cardiac arrest at 27, left in PVS.
+  TERRI SCHIAVO (1990-2005):
+  Cardiac arrest at 26, left in PVS.
   Husband (legal guardian) vs. parents: dispute over withdrawal of feeding tube.
   Florida courts, U.S. Congress, President Bush, Supreme Court all involved.
   Tube withdrawn 2005 after years of litigation.

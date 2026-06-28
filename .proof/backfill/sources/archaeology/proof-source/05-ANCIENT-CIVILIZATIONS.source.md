@@ -347,4 +347,4 @@ INFORMATION MANAGEMENT AS STATE DRIVER:
 
 **The Indus script debate**: Some scholars argue the Indus script is not language-encoding at all (no Zipf's law distribution in shorter tokens). Others maintain it is. The undeciphered status makes any reconstruction of Indus political and religious life speculative.
 
-**Linear vs. multilinear evolution**: 19th-century anthropology assumed all societies evolve through fixed stages (savagery → barbarism → civilization: Morgan and Tyler). Modern archaeology rejects this — there are multiple pathways and trajectories, not a universal sequence.
+**Linear vs. multilinear evolution**: 19th-century anthropology assumed all societies evolve through fixed stages (savagery → barbarism → civilization: Morgan and Tylor). Modern archaeology rejects this — there are multiple pathways and trajectories, not a universal sequence.

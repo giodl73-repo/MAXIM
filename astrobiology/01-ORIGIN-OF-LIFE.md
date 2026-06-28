@@ -232,7 +232,7 @@ These must have been solved simultaneously or in close succession — that's wha
   =====================================
 
   Key insight: ALL cells maintain proton gradient across membrane.
-  Mitchell chemiosmosis (1961 Nobel): proton motive force drives ATP.
+  Mitchell chemiosmosis (1961 hypothesis; 1978 Nobel): proton motive force drives ATP.
 
   LOST CITY TYPE VENTS provide a NATURAL PROTON GRADIENT:
 

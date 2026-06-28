@@ -299,7 +299,7 @@ The Le Chatelier principle you know from equilibrium chemistry has a climate-sca
 
 ```
   SOURCES:
-    Agriculture: ~5.0 MtN₂O/yr (largest single source)
+    Agriculture: ~5.0 MtN₂O/yr (largest anthropogenic source)
       Synthetic N fertilizer → soil nitrification/denitrification
     Natural soils: ~6.0 MtN₂O/yr
     Oceans: ~4.0 MtN₂O/yr

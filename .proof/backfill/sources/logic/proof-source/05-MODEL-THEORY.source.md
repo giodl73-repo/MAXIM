@@ -201,7 +201,7 @@ Perhaps the most useful theorem in model theory:
   If T has an infinite model, then T has a countable model.
 
   More generally: if T has a model of cardinality kappa >= !L! (language cardinality),
-  then T has a model of every cardinality lambda >= !L!.
+  then T has a model of every cardinality lambda with !L! <= lambda <= kappa.
 ```
 
 ### Upward (Skolem 1922)

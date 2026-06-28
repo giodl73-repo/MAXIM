@@ -269,7 +269,7 @@ cross-examination that he hadn't read much of the literature on immunology.
 | Position | Proponents | Core claim |
 |----------|-----------|-----------|
 | Young Earth Creationism (YEC) | Answers in Genesis (Ken Ham) | Earth ~6,000 years old; Genesis literal; evolution false |
-| Old Earth Creationism | Reasons to Believe (Hugh Ross) | Earth ~13.8B years old; species separately created; big bang OK |
+| Old Earth Creationism | Reasons to Believe (Hugh Ross) | Earth ~4.5B years old (universe ~13.8B); species separately created; big bang OK |
 | Intelligent Design | Discovery Institute, Behe, Dembski | Evolution insufficient; some biological systems require design |
 | Theistic Evolution | BioLogos (Francis Collins), ASA | Evolution is true; God works through natural processes |
 | Methodological naturalism | Most working scientists | Science uses natural explanations only; compatible with personal theism |

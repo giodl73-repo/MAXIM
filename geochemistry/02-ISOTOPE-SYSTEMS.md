@@ -90,7 +90,7 @@ RADIOGENIC DECAY SYSTEMS SUMMARY
            ²³⁵U      ²⁰⁷Pb    0.704 Ga Concordia cross-check
   Rb-Sr    ⁸⁷Rb      ⁸⁷Sr     48.8 Ga  Crustal ages; mantle reservoirs
   Sm-Nd    ¹⁴⁷Sm    ¹⁴³Nd     106 Ga   Crustal growth; mantle structure
-  Re-Os    ¹⁸⁷Re    ¹⁸⁷Os     42.3 Ga  Ore deposits; mantle Os
+  Re-Os    ¹⁸⁷Re    ¹⁸⁷Os     41.6 Ga  Ore deposits; mantle Os
   Lu-Hf    ¹⁷⁶Lu    ¹⁷⁶Hf     37.1 Ga  Zircon dating; mantle sources
   K-Ar     ⁴⁰K       ⁴⁰Ar     1.25 Ga  Thermochronology; volcanic ages
   ¹⁴C      ¹⁴C       ¹⁴N      5730 yr  Archaeological/young material

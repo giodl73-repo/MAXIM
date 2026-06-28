@@ -294,7 +294,7 @@ Why did Jesus die, and how does it save? No single theory is normative for all C
 
 | Theory | Proponent | Mechanism | Critique |
 |--------|----------|-----------|----------|
-| Satisfaction (Anselmian) | Anselm (1097) | Jesus satisfies the infinite honor-debt owed to God by human sin | Medieval feudal metaphysics |
+| Satisfaction (Anselmian) | Anselm (1098) | Jesus satisfies the infinite honor-debt owed to God by human sin | Medieval feudal metaphysics |
 | Penal Substitution | Calvin, Protestant orthodoxy | Jesus takes the legal penalty (punishment) humans deserve | Makes God's mercy subject to God's justice; violence at the heart |
 | Moral Influence | Peter Abelard | Jesus' death demonstrates God's love, inspiring human moral transformation | Says nothing about why death was necessary |
 | Christus Victor | Aulén (1931) | Jesus defeats the powers of sin, death, and devil | Mythological framing; what powers exactly? |

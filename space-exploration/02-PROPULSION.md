@@ -272,7 +272,7 @@ NUCLEAR THERMAL PROPULSION (NTP)
 
   NERVA PROGRAM (1955-1972):
     US nuclear rocket program; 20 test firings
-    Phoebus 2A (1968): 1.1 GW, 867 kN thrust, Isp = 825 s
+    Phoebus 2A (1968): ~4 GW, 930 kN thrust, Isp = 825 s
     Cancelled 1972 when Mars mission cancelled
     Required safety certification before flight (never achieved)
 
