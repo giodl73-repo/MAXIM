@@ -196,7 +196,7 @@ GIORGIA LUPI (b. 1981):
 ## Podcast Narrative Structure: Serial as Model
 
 ```
-SERIAL (NPR/WBEZ, Sarah Koenig, 2014)
+SERIAL (This American Life / WBEZ, Sarah Koenig, 2014)
 =======================================
 
 "Serial" Season 1: investigation of the 1999 murder

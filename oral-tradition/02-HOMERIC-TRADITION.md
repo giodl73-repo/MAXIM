@@ -72,7 +72,7 @@ ACHILLES:
   Slot shape    Formula
   --------      -------
   dactylic end  "swift-footed Achilles" (podas okus Akhilleus)
-  spondaic end  "much-enduring Achilles" (polullas dios Akhilleus)
+  spondaic end  "much-enduring Achilles" (polutlas dios Akhilleus)
 
 If ONE poet invented this, the system would show:
   - Redundancy (same slot, multiple options)

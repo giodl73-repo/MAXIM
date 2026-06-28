@@ -178,7 +178,7 @@ ATU HISTORY
 1910: Antti Aarne (Finnish) -- first comparative index
       Classified 540 tale types
 1928: Stith Thompson (American) -- expanded to 2,499 types
-1961: Thompson's "Motif-Index of Folk-Literature"
+1955-1958: Thompson's "Motif-Index of Folk-Literature"
       (6 volumes) -- catalogued motifs below tale type level
 2004: Hans-Jorgen Uther (German) -- revised to 2,232 types
 

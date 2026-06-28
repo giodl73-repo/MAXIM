@@ -250,7 +250,7 @@ KEY INSIGHT #1: Cartouches = royal names
   Same sign group = "Ptolemaios" in transliteration
 
 KEY INSIGHT #2: Proper names are phonetic
-  Cleopatra on the Philae obelisk (bilingual, Young found)
+  Cleopatra on the Philae obelisk (bilingual, Bankes identified)
   P-T-O-L-E-M-A-I-O-S shares signs with:
   K-L-E-O-P-A-T-R-A
   Shared signs P, T, O, L, A = same sounds in both names

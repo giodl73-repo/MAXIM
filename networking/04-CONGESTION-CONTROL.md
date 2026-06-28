@@ -223,7 +223,7 @@ The mitigations attack it from two directions:
 
 > **Bridge — queue depth as backpressure.** Bufferbloat is the absence of
 > backpressure: an unbounded queue lets a producer outrun a consumer with no
-> signal until catastrophe. You solve it in distributed systems (07
+> signal until catastrophe. You solve it in distributed systems (
 > message-queues) with bounded queues and explicit backpressure; CoDel is bounded
 > queueing by *time* applied to packets.
 

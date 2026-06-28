@@ -40,7 +40,7 @@ JOURNALISM HISTORY TIMELINE
   1765 ── Stamp Act crisis — colonial press as political opposition
   1791 ── First Amendment ratified — press freedom constitutional in US
   1833 ── New York Sun: Penny press — mass market, advertising model
-  1848 ── Associated Press formed (NY papers sharing costs)
+  1846 ── Associated Press formed (NY papers sharing costs)
   1851 ── Reuters founded (London) — telegraphic news service
   1860s ── Civil War photography (Mathew Brady) — visual journalism
   1880s ── Pulitzer/Hearst circulation wars — sensationalism

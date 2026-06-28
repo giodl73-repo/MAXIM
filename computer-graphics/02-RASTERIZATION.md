@@ -299,8 +299,8 @@ area = `½·|4·4| = 8`. Sub-areas for `P=(1,1)`:
 ```
 
 For a perspective triangle you would instead interpolate `r/w` and `1/w`, then divide — at
-`P` the red would be `(0.75·rA/wA + 0.125·rB/wB + 0.125·rC/wC) / (0.75/wA + 0.125/wB +
-0.125/wC)`. With all `w` equal (orthographic, or the triangle parallel to the screen) the
+`P` the red would be `(0.5·rA/wA + 0.25·rB/wB + 0.25·rC/wC) / (0.5/wA + 0.25/wB +
+0.25/wC)`. With all `w` equal (orthographic, or the triangle parallel to the screen) the
 two agree, which is why the catch only bites on slanted, receding surfaces.
 
 ---

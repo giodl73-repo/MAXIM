@@ -99,7 +99,7 @@ ESA's Copernicus is the European counterpart to Landsat -- free, open, operation
 | Archive | 2014-present (S-1A), 2016-present (S-1B) |
 | Access | Copernicus Data Space, ASF DAAC, Google Earth Engine |
 
-**Note**: Sentinel-1B had a power anomaly in 2021 and was decommissioned in 2022. Sentinel-1C launched December 2023 to replace it. As of 2024, S-1A and S-1C together restore 6-day revisit.
+**Note**: Sentinel-1B had a power anomaly and was decommissioned in 2021. Sentinel-1C launched December 2023 to replace it. As of 2024, S-1A and S-1C together restore 6-day revisit.
 
 ### Sentinel-2: MultiSpectral Imager
 

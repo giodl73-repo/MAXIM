@@ -191,7 +191,7 @@ Lewandowsky & van der Linden work:
     ad hominem, slippery slope, impossible expectations
 
 Cambridge case study:
-  "Bad News" online game (Guskin & Vraga; Cambridge):
+  "Bad News" online game (Roozenbeek & van der Linden; Cambridge + DROG):
     Players practice creating misinformation
     Learn the techniques by doing them
     Shown to reduce susceptibility to those techniques

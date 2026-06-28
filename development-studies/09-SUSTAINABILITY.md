@@ -384,7 +384,7 @@ REFORM PROPOSALS:
   Carbon border adjustment (EU CBAM): price on imports from
                non-carbon-priced jurisdictions → incentive for climate
   Loss and damage: compensation for poor countries hit by rich-country
-               caused climate change (COP27 Warsaw fund operationalized)
+               caused climate change (COP27 Sharm El-Sheikh loss & damage fund agreed, 2022)
   SDG 2.0: reform for post-2030 framework — fewer, clearer priorities
 ```
 

@@ -140,8 +140,8 @@ Example: 9.16.4.1.1 (typical Classic Maya date)
 
 CORRELATION WITH WESTERN CALENDAR:
   GMT correlation (Goodman-Martinez-Thompson):
-  Maya "0 point" = August 11, 3114 BCE (Julian) or
-                   September 6, 3114 BCE (Gregorian)
+  Maya "0 point" = August 11, 3114 BCE (proleptic Gregorian) or
+                   September 6, 3114 BCE (Julian)
   This is the standard used in most scholarship
   The famous "2012 date" = 13.0.0.0.0 in Long Count
     = December 21, 2012 Gregorian
@@ -153,7 +153,7 @@ SIGNIFICANCE FOR EPIGRAPHY:
   Maya inscriptions from ~250-900 CE (Classic period)
     have known dates accurate to the day
   This is unusually precise for ancient history
-  Example: Stela 29 at Tikal = 9.0.0.0.0 = 292 CE exactly
+  Example: Stela 29 at Tikal = 8.12.14.8.15 = 292 CE exactly
 ```
 
 ---

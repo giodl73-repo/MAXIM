@@ -272,8 +272,9 @@ Maya decipherment took ~140 years because Western scholars systematically resist
 MAYA DECIPHERMENT TIMELINE
 ============================
 
-1566: Diego de Landa's "Relacion de las Cosas de Yucatan"
-  Spanish bishop describes Maya writing
+1562: Diego de Landa burns Maya books at Mani, Yucatan
+  Spanish bishop describes Maya writing (his "Relacion de las
+  Cosas de Yucatan" was written later, c. 1566)
   Includes an "alphabet" -- actually a syllabary excerpt
   AND burns Maya books (only 4 survive: Dresden, Madrid, Paris, Grolier)
   De Landa's alphabet was misunderstood for 400 years

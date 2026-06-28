@@ -174,7 +174,7 @@ RESULTS:
   Average household: no transformative effect
 ```
 
-**The six-country synthesis** (Banerjee et al., *American Economic Review: Applied* 2015):
+**The six-country synthesis** (Banerjee et al., *American Economic Journal: Applied Economics* 2015):
 Six simultaneous RCTs across India, Ethiopia, Morocco, Mexico, Bosnia-Herzegovina, Mongolia:
 - Consistent: more credit → more self-employment investment; consumption smoothing
 - Consistent: no average effect on consumption, income, or women's empowerment

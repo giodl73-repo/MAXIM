@@ -394,7 +394,7 @@ ITHACA (DeepMind, 2022):
   Published in Nature
   Collaborative tool (AI assists human expert, not replaces)
   "Human + AI" performance > either alone
-  Human: 27% geography attribution alone
+  Human: 25% geography attribution alone
   Ithaca alone: 71%
   Human + Ithaca: 72% (marginal improvement from collaboration)
   Interpretation: humans contribute other knowledge beyond
