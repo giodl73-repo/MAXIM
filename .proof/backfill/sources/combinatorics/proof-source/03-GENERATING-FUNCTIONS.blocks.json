@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\03-GENERATING-FUNCTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|         A GENERATING FUNCTION IS A SEQUENCE WEARING ALGEBRA                 |\n+=============================================================================+\n|                                                                             |\n|   SEQUENCE  a0, a1, a2, ...                                                 |\n|        |                                                                    |\n|        .----------------------------+----------------------------.          |\n|        |                            |                            |          |\n|        v                            v                            v          |\n|   ORDINARY (OGF)              EXPONENTIAL (EGF)            DIRICHLET        |\n|   A(x)=SUM a_n x^n            E(x)=SUM a_n x^n/n!          SUM a_n / n^s    |\n|   unlabelled structures       labelled structures         multiplicative    |\n|   (subsets, partitions,       (permutations, set          (number theory,   |\n|    integer compositions)       partitions, surjections)    see number-th.)  |\n|        |                            |                                       |\n|        v                            v                                       |\n|   SEQUENCE OPS  <-->  ALGEBRA OPS                                           |\n|     shift  ........ multiply by x / x^k                                     |\n|     a_{n}->a_{n+1}.. (A(x)-a0)/x                                            |\n|     CONVOLVE ...... MULTIPLY series   (product rule!)                       |\n|     partial sums .. divide by (1-x)                                         |\n|     weight by n ... x d/dx                                                  |\n|        |                                                                    |\n|        v                                                                    |\n|   SOLVE RECURRENCE: turn recurrence -> functional equation -> A(x) ->       |\n|   extract [x^n] A(x) by partial fractions / known series.                   |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## Layer 1 — OGF vs EGF: Which to Use",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  ORDINARY (OGF):   A(x) = SUM_{n>=0} a_n x^n                  |\n|    Use when objects are UNLABELLED — order/identity of the    |\n|    n \"slots\" does not matter beyond their count.              |\n|    Multiplication = \"pick a structure of size j AND one of    |\n|    size n-j\", combined by concatenation.                      |\n|      A(x) B(x):  [x^n] = SUM_j a_j b_{n-j}   (Cauchy product) |\n|                                                               |\n|  EXPONENTIAL (EGF): E(x) = SUM_{n>=0} a_n x^n / n!            |\n|    Use when objects are LABELLED — the n elements are         |\n|    distinct and a combination must choose WHICH labels go     |\n|    to which part.                                             |\n|      E(x) F(x):  [x^n/n!] = SUM_j C(n,j) a_j b_{n-j}          |\n|                  (binomial convolution — note the C(n,j)!)    |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "## Layer 2 — The Operations Dictionary (OGF)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  SEQUENCE OPERATION              SERIES OPERATION                    |\n+----------------------------------------------------------------------+\n|  a_n  (baseline)                 A(x)                                |\n|  scale  c a_n                    c A(x)                              |\n|  shift right (prepend k zeros)   x^k A(x)                            |\n|  shift left  a_{n+1}             (A(x) - a_0)/x                      |\n|  a_{n-1} convolved with b        A(x) B(x)                           |\n|  partial sums  s_n=SUM_{i<=n}a_i A(x)/(1-x)                          |\n|  weight  n a_n                   x A'(x)                             |\n|  alternate signs  (-1)^n a_n     A(-x)                               |\n|  binomial transform SUM C(n,k)a_k (1/(1-x)) A(x/(1-x))               |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Layer 2 — The Operations Dictionary (OGF)",
+      "confidence": "candidate",
+      "text": "   1/(1-x)      = 1 + x + x^2 + ...        (a_n = 1)\n   1/(1-x)^2    = 1 + 2x + 3x^2 + ...      (a_n = n+1)\n   1/(1-x)^{k}  = SUM_n C(n+k-1, k-1) x^n  (multiset / stars-and-bars)\n   1/(1-ax)     = SUM_n a^n x^n            (geometric, a_n = a^n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\03-SEGMENTATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## The Three Flavors (Know Which You Need)",
+      "headers": [
+        "Task",
+        "Output",
+        "Distinguishes instances?",
+        "Labels every pixel?"
+      ],
+      "rows": [
+        [
+          "**Semantic**",
+          "Class per pixel",
+          "No",
+          "Yes"
+        ],
+        [
+          "**Instance**",
+          "Mask per object",
+          "Yes",
+          "No (only \"things\")"
+        ],
+        [
+          "**Panoptic**",
+          "Class + instance id per pixel",
+          "Yes",
+          "Yes (stuff + things)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 101,
+      "heading_context": "## Layer 1: Thresholding — The Simplest Cut",
+      "headers": [
+        "Variant",
+        "Idea"
+      ],
+      "rows": [
+        [
+          "Global (Otsu)",
+          "One `T` for the whole image; assumes bimodal histogram"
+        ],
+        [
+          "Adaptive / local",
+          "`T` varies per region; handles uneven lighting"
+        ],
+        [
+          "Multi-level",
+          "Several thresholds → several classes"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 179,
+      "heading_context": "## Layer 4: Mean Shift — Mode-Seeking in Feature Space",
+      "headers": [
+        "Method",
+        "Needs #clusters?",
+        "Strength",
+        "Weakness"
+      ],
+      "rows": [
+        [
+          "K-means (on pixels)",
+          "Yes (`k`)",
+          "Simple, fast",
+          "Spherical clusters only"
+        ],
+        [
+          "Mean Shift",
+          "No",
+          "Arbitrary cluster shapes",
+          "Bandwidth-sensitive, slow"
+        ],
+        [
+          "SLIC superpixels",
+          "Yes (#superpixels)",
+          "Compact, fast over-segmentation",
+          "Not final objects"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 255,
+      "heading_context": "## Layer 6: Deep Segmentation — Learning the Labels",
+      "headers": [
+        "Architecture",
+        "Task",
+        "Key idea"
+      ],
+      "rows": [
+        [
+          "**FCN**",
+          "Semantic",
+          "Fully convolutional dense prediction"
+        ],
+        [
+          "**U-Net**",
+          "Semantic (medical)",
+          "Encoder-decoder + skip connections"
+        ],
+        [
+          "**DeepLab**",
+          "Semantic",
+          "Atrous convolution for large receptive field"
+        ],
+        [
+          "**Mask R-CNN**",
+          "Instance",
+          "Add a per-RoI mask branch to detection (guide 07)"
+        ],
+        [
+          "**SAM**",
+          "Promptable",
+          "Foundation model; segment \"anything\" from a prompt"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 271,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Segmentation analogue"
+      ],
+      "rows": [
+        [
+          "Min-cut / max-flow (algorithms)",
+          "Graph-cut segmentation is literally min-cut"
+        ],
+        [
+          "Clustering (k-means, EM)",
+          "Mean Shift / SLIC group pixels in feature space"
+        ],
+        [
+          "Markov Random Fields / CRFs",
+          "The data+smoothness energy is an MRF"
+        ],
+        [
+          "Quadtrees / spatial subdivision",
+          "Split-and-merge region segmentation"
+        ],
+        [
+          "Encoder-decoder (autoencoders)",
+          "U-Net is an encoder-decoder with skips"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 283,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Binarize a high-contrast scan",
+          "Otsu thresholding"
+        ],
+        [
+          "Threshold under uneven lighting",
+          "Adaptive (local) thresholding"
+        ],
+        [
+          "Separate touching round objects",
+          "Marker-controlled watershed"
+        ],
+        [
+          "Cluster without picking k",
+          "Mean Shift"
+        ],
+        [
+          "Fast over-segmentation for downstream",
+          "SLIC superpixels"
+        ],
+        [
+          "Interactive foreground extraction",
+          "GrabCut (graph cuts)"
+        ],
+        [
+          "Label every pixel by class",
+          "Semantic seg (FCN/U-Net/DeepLab)"
+        ],
+        [
+          "Separate object instances",
+          "Instance seg (Mask R-CNN)"
+        ],
+        [
+          "Full scene (stuff + things)",
+          "Panoptic segmentation"
+        ],
+        [
+          "Segment arbitrary objects from a prompt",
+          "SAM"
+        ]
+      ]
+    }
+  ]
+}

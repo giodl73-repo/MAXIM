@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\04-INCLUSION-EXCLUSION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|          INCLUSION-EXCLUSION: OVERCOUNT, THEN CORRECT                      |\n+============================================================================+\n|                                                                            |\n|   |A u B u C| = |A|+|B|+|C|                                                |\n|              - |AB|-|AC|-|BC|       add singles, subtract pairs,           |\n|              + |ABC|                add triples, alternate...              |\n|                                                                            |\n|       +-----------+        Venn intuition:  each region must be            |\n|      / A   /-------\\       counted exactly once. Adding singles            |\n|     /     / overlap \\      double-counts overlaps; subtracting pairs       |\n|    |  +--+----+  C   |     over-subtracts the triple; add it back.         |\n|    |  |  | B  |      |                                                     |\n|     \\ |  +----+-----/                                                      |\n|      \\+--------+----/                                                      |\n|                                                                            |\n|   GENERAL FORM (n sets):                                                   |\n|   | UNION A_i | = SUM_{S nonempty} (-1)^{|S|+1} | INTERSECT_{i in S} A_i | |\n|                                                                            |\n|   COMPLEMENT FORM (count elements in NO A_i):                              |\n|   | NONE | = SUM_{S} (-1)^{|S|} | A_S |   ,  A_empty = whole universe U    |\n|                                                                            |\n|         |                  |                   |                           |\n|         v                  v                   v                           |\n|   DERANGEMENTS        SURJECTIONS         EULER PHI / SIEVE                |\n|   D_n = n! SUM        n! S(k,n) =          phi(n)=n PROD(1-1/p)            |\n|   (-1)^j / j!         SUM (-1)^j C(n,j)    (number theory link)            |\n|                       (n-j)^k                                              |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "## Layer 2 — Derangements (the flagship application)",
+      "confidence": "candidate",
+      "text": "   Universe U = all n! permutations.\n   Bad property i = \"fixes point i\" (pi(i) = i).\n   A_S = permutations fixing every i in S = (n - |S|)! arrangements\n         of the remaining points.  There are C(n,|S|) sets of each size.\n\n   D_n = SUM_{j=0}^{n} (-1)^j C(n,j) (n-j)!\n       = n! SUM_{j=0}^{n} (-1)^j / j!\n       = n! * [ 1 - 1 + 1/2! - 1/3! + ... ]\n       ->  n!/e   as n -> infinity.\n\n   D_0=1, D_1=0, D_2=1, D_3=2, D_4=9, D_5=44, ...",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 252,
+      "heading_context": "### \"The intersections A_S are hard to compute.\"",
+      "confidence": "candidate",
+      "text": "### \"Does I-E give 1/e for derangements *exactly*?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\05-RECURRENCES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 184,
+      "heading_context": "## Layer 4 — Divide-and-Conquer Recurrences and the Master Theorem",
+      "headers": [
+        "Recurrence",
+        "`a, b, c*`",
+        "Master case",
+        "Result"
+      ],
+      "rows": [
+        [
+          "`T(n)=2T(n/2)+n` (mergesort)",
+          "2,2,1",
+          "2 (k=0)",
+          "`Θ(n log n)`"
+        ],
+        [
+          "`T(n)=2T(n/2)+1` (tree traversal)",
+          "2,2,1",
+          "1",
+          "`Θ(n)`"
+        ],
+        [
+          "`T(n)=T(n/2)+1` (binary search)",
+          "1,2,0",
+          "2 (k=0)",
+          "`Θ(log n)`"
+        ],
+        [
+          "`T(n)=7T(n/2)+n^2` (Strassen)",
+          "7,2,2.807",
+          "1",
+          "`Θ(n^{log₂7})`"
+        ],
+        [
+          "`T(n)=4T(n/2)+n^3`",
+          "4,2,2",
+          "3",
+          "`Θ(n^3)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 203,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Solving linear ODE via `e^{λt}`",
+          "characteristic-equation method (`r^n`)"
+        ],
+        [
+          "Resonance / `t·e^{λt}` for repeated ODE roots",
+          "`n·r^n` for repeated recurrence roots"
+        ],
+        [
+          "Method of undetermined coefficients",
+          "particular-solution guessing"
+        ],
+        [
+          "Recursion-tree / call-graph cost analysis",
+          "divide-and-conquer recurrence + Master Theorem"
+        ],
+        [
+          "Z-transform of a difference equation",
+          "generating function of the recurrence (`03`)"
+        ],
+        [
+          "`T(n)=2T(n/2)+n` in a code review",
+          "mergesort = `Θ(n log n)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 221,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Recurrence shape",
+        "Method",
+        "Reference"
+      ],
+      "rows": [
+        [
+          "`a_n = c_1 a_{n-1}+...+c_k a_{n-k}` (const coeffs)",
+          "Characteristic equation",
+          "this file"
+        ],
+        [
+          "...with forcing term `g(n)`",
+          "Homogeneous + particular",
+          "this file"
+        ],
+        [
+          "Repeated characteristic root `r` (mult m)",
+          "`r^n, n r^n, ..., n^{m-1}r^n`",
+          "this file"
+        ],
+        [
+          "Convolution `a_{n+1}=Σ a_i a_{n-i}`",
+          "Generating function",
+          "`03`, `07`"
+        ],
+        [
+          "Polynomial coefficients in `n`",
+          "Generating function / hypergeometric",
+          "`03`"
+        ],
+        [
+          "`T(n) = a T(n/b) + f(n)`",
+          "Master Theorem",
+          "this file"
+        ],
+        [
+          "Uneven splits `T(n)=T(αn)+T(βn)+f`",
+          "Akra–Bazzi",
+          "this file"
+        ],
+        [
+          "Just want asymptotics, not exact",
+          "Dominant root / singularity analysis",
+          "`03`"
+        ]
+      ]
+    }
+  ]
+}

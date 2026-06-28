@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\06-PIGEONHOLE-AND-RAMSEY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|        UNAVOIDABLE STRUCTURE: \"ENOUGH\" FORCES ORDER                         |\n+=============================================================================+\n|                                                                             |\n|   PIGEONHOLE                RAMSEY                  RELATIVES               |\n|   n+1 items, n boxes        2-color edges of        van der Waerden:        |\n|   => some box has >= 2      K_R(s,t); enough        long arithmetic         |\n|        |                    => mono K_s or K_t      progressions forced     |\n|        v                         |                  Schur: x+y=z mono       |\n|   GENERALIZED               R(3,3) = 6              Hales-Jewett: combo     |\n|   N items, k boxes          R(4,4) = 18             lines in a cube         |\n|   => some box >= ceil(N/k)  R(5,5) in [43,48]            |                  |\n|                                  |                       v                  |\n|        |                         v                  \"Complete disorder      |\n|        v                  BOUNDS:                    is impossible\"         |\n|   PROBABILISTIC           R(s,t) <= C(s+t-2,s-1)    -- T. Motzkin           |\n|   pigeonhole:             2^{s/2} < R(s,s) < 4^s                            |\n|   E[X] argument           lower via prob. method (file 08)                  |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 73,
+      "heading_context": "## Layer 1 — The Pigeonhole Principle",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  CLASSIC APPLICATIONS (the art is choosing the boxes)         |\n|                                                               |\n|  * Among 13 people, two share a birth MONTH (12 holes).       |\n|  * Any 5 points in a unit square: two within distance         |\n|    sqrt2 / 2 (cut square into 4 quadrant holes).              |\n|  * Any sequence of n^2+1 distinct reals has a monotone        |\n|    subsequence of length n+1 (Erdos-Szekeres; holes = pairs   |\n|    (longest incr, longest decr ending here)).                 |\n|  * Some consecutive run of days sums to a multiple of n       |\n|    (holes = residues of partial sums mod n).                  |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 114,
+      "heading_context": "## Layer 2 — Ramsey's Theorem",
+      "confidence": "candidate",
+      "text": "### Proving R(3,3) = 6",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 135,
+      "heading_context": "## Layer 3 — Ramsey Numbers and Their Bounds",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  KNOWN SMALL RAMSEY NUMBERS (diagonal and off-diagonal)          |\n|                                                                  |\n|  R(3,3) = 6        R(3,4) = 9        R(3,5) = 14                 |\n|  R(4,4) = 18       R(3,6) = 18       R(3,7) = 23                 |\n|  R(4,5) = 25       R(5,5) in [43,48] (UNKNOWN!)                  |\n|                                                                  |\n|  Erdos's famous remark: if aliens demanded R(5,5) we should      |\n|  marshal all our computers; if they demanded R(6,6) we should    |\n|  attack them first.                                              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 160,
+      "heading_context": "### The recursive upper bound",
+      "confidence": "candidate",
+      "text": "`r + b = n-1 = R(s-1,t)+R(s,t-1)-1`, so by pigeonhole either `r ≥ R(s-1,t)` or",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 187,
+      "heading_context": "## Layer 4 — Ramsey's Relatives",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  THEOREM (van der Waerden)                                       |\n|  For any r colors and length k, there is W(r,k) such that any    |\n|  r-coloring of {1,...,W} contains a monochromatic arithmetic     |\n|  progression of length k.   W(2,3) = 9.                          |\n|                                                                  |\n|  THEOREM (Schur)                                                 |\n|  For any r colors there is S(r) such that any r-coloring of      |\n|  {1,...,S} has a monochromatic solution to x + y = z.            |\n|  (Implies Fermat's equation x^n+y^n=z^n is solvable mod p for    |\n|   large p -- a number-theory corollary, see number-theory/.)     |\n|                                                                  |\n|  THEOREM (Hales-Jewett)                                          |\n|  Coloring the cells of a high-dimensional k^n cube forces a      |\n|  monochromatic \"combinatorial line.\" The abstract engine         |\n|  behind van der Waerden; dimension-free density version is       |\n|  the Szemeredi/Furstenberg circle of ideas.                      |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 256,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"Ramsey's theorem tells me R(5,5) — so why is it unknown?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

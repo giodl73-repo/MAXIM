@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\01-IMAGE-FORMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture: From 3D Point to Pixel",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                   THE IMAGE-FORMATION CHAIN  (3D point -> pixel)             |\n|                                                                              |\n|  X_world          X_camera          x_normalized         x_pixel             |\n|  [X Y Z 1]^T      [Xc Yc Zc]^T      [Xc/Zc, Yc/Zc]       [u v]^T             |\n|     |                 |                  |                  |                |\n|     |  EXTRINSICS     |  PERSPECTIVE     |  INTRINSICS      |  SAMPLING      |\n|     |  [R | t]        |  DIVISION (/Zc)  |  K              |  + COLOR        |\n|     v                 v                  v                  v                |\n|  .--------.      .---------.       .-----------.      .-----------.          |\n|  | world  | ---> | camera  | --->  |  image    | ---> |  sensor   |          |\n|  | frame  |  rigid  frame  | proj  |  plane    |  pix  |  array    |         |\n|  '--------'  move '---------' ect   '-----------' grid '-----------'         |\n|                                                                              |\n|   x ~ K [R | t] X      (the full 3x4 projection, up to scale '~')            |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Layer 1: The Pinhole Camera Model",
+      "confidence": "candidate",
+      "text": "            world point X = (Xc, Yc, Zc) in camera frame\n                 *\n                  \\\n                   \\         image plane at z = f\n            ........\\........+------------+\n                     \\       |            |\n                      \\      |   x = ?    |\n        optical -------C-----+------------+----> Z (optical axis)\n        center         |     |\n        (pinhole)      f     |\n                       <----->\n                    focal length\n\n   Similar triangles:   x = f * Xc / Zc ,   y = f * Yc / Zc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 100,
+      "heading_context": "## Layer 2: Intrinsics — The Calibration Matrix K",
+      "confidence": "candidate",
+      "text": "        .                  .\n        |  fx   s    cx     |     fx, fy : focal length in PIXELS (f / pixel size)\n   K =  |   0   fy   cy     |     cx, cy : principal point (image center), in pixels\n        |   0    0    1     |     s      : skew (~0 for modern sensors)\n        '                  '\n\n   Full intrinsic projection (point already in camera frame):\n\n     .   .     .              . .     .\n     | u |     | fx   s    cx | | Xc/Zc |\n     | v |  ~  |  0   fy   cy | | Yc/Zc |     (homogeneous, defined up to scale)\n     | 1 |     |  0    0    1 | |   1   |\n     '   '     '              ' '     '",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "## Layer 3: Extrinsics — Where the Camera Is",
+      "confidence": "candidate",
+      "text": "   X_camera = R * X_world + t        (R: world->camera rotation; t: translation)\n\n   Equivalently, the camera CENTER in world coords is:   C = -R^T t\n\n   +              +   These 6 DOF (3 rotation + 3 translation) are the camera POSE.\n   | R   t |          Recovering pose from images = \"localization\" (guide 08 SLAM).\n   | 0   1 |\n   +              +   <- the 4x4 homogeneous form",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 145,
+      "heading_context": "## Layer 3: Extrinsics — Where the Camera Is",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|             INTRINSICS vs EXTRINSICS  (the two halves of calibration)        |\n|                                                                              |\n|  INTRINSICS  K                         EXTRINSICS  [R | t]                   |\n|  -----------                           -------------                         |\n|  inside the camera                     camera's pose in the world            |\n|  fx fy cx cy s   (5 DOF)               R (3 DOF) + t (3 DOF) = 6 DOF         |\n|  fixed per lens setup                  changes every time you move           |\n|  found ONCE by calibration             estimated PER frame                   |\n|                                                                              |\n|  Together:   P = K [R | t]   is the 3x4 PROJECTION MATRIX (11 DOF)           |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## Layer 5: Lens Distortion — Where the Pinhole Lies",
+      "confidence": "candidate",
+      "text": "   Let r^2 = x_n^2 + y_n^2   (normalized, undistorted coords)\n\n   Radial:     x_d = x_n (1 + k1 r^2 + k2 r^4 + k3 r^6)\n               y_d = y_n (1 + k1 r^2 + k2 r^4 + k3 r^6)\n\n   Tangential: adds p1, p2 terms for lens-sensor misalignment\n\n   k1<0 -> barrel (wide angle);  k1>0 -> pincushion (telephoto)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## Layer 5: Lens Distortion — Where the Pinhole Lies",
+      "confidence": "candidate",
+      "text": "   ideal grid          barrel (k1<0)        pincushion (k1>0)\n   .--+--+--.          .-+----+-.            .--+--+--.\n   |  |  |  |          | |    | |            \\  |  |  /\n   +--+--+--+          +-+----+-+             +-+--+-+\n   |  |  |  |          | |    | |             | |  | |\n   '--+--+--'          '-+----+-'            /  |  |  \\\n   straight            edges bow out         edges pinch in",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Layer 6: Sampling — Continuous Irradiance to Discrete Pixels",
+      "confidence": "candidate",
+      "text": "   continuous image  I(x,y)    --multiply by 2D comb (sensor grid)-->  I[m,n]\n\n   Nyquist in 2D: spatial frequencies above the pixel-pitch limit ALIAS.\n   Manifestation: moiré on fine textures (a striped shirt, a brick wall).\n   Mitigation: an optical low-pass (anti-aliasing) filter + lens MTF rolloff.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 257,
+      "heading_context": "## Layer 7: Color — From Spectrum to RGB",
+      "confidence": "candidate",
+      "text": "   BAYER PATTERN (2x2 tile)        each photosite sees ONE color;\n   +----+----+                     the other two are interpolated\n   |  R |  G |                     (demosaicing) from neighbors.\n   +----+----+                     50% green (matches eye sensitivity),\n   |  G |  B |                     25% red, 25% blue.\n   +----+----+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 266,
+      "heading_context": "## Layer 7: Color — From Spectrum to RGB",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       THE COLOR PIPELINE  (sensor -> usable RGB)             |\n|                                                                              |\n|  photons -> CFA mosaic -> demosaic -> white balance -> color space ->        |\n|             (raw Bayer)   (interp)    (illuminant)     (sRGB) -> gamma       |\n|                                                                              |\n|  Gamma: stored values are NONLINEAR (sRGB ~ 1/2.2). For most CV math you     |\n|  want LINEAR light -> linearize first, or your gradients/averages are wrong. |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\07-DETECTION-AND-TRACKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture: Where, Not Just What",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              CLASSIFY -> DETECT -> TRACK  (adding location, then time)       |\n|                                                                              |\n|  CLASSIFY            DETECT                    TRACK                         |\n|  \"cat\"              \"cat @ box1, 0.9\"         \"cat#3 @ box1 -> box1' -> ...\" |\n|                     \"dog @ box2, 0.8\"          maintain IDENTITY over frames |\n|                                                                              |\n|  .-------.          .-------.                  frame t      frame t+1        |\n|  | whole |          | [box] |                  .--[#3]--.   .---[#3]-.       |\n|  | image |          |  [box]|                  |        |   |        |       |\n|  '-------'          '-------'                  '--------'   '--------'       |\n|   one label         many boxes + labels        boxes LINKED across time      |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## Layer 1: IoU — The Metric Everything Rests On",
+      "confidence": "candidate",
+      "text": "   IoU = area(intersection) / area(union)\n\n        +----------+\n        |  GT      |          intersection = overlap region\n        |    +-----+----+     union = total area covered by both\n        |    | // |    |\n        +----+----+    |      IoU = 0   -> no overlap\n             | pred    |      IoU = 1   -> perfect match\n             +---------+      IoU > 0.5 -> conventionally a \"correct\" detection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 78,
+      "heading_context": "## Layer 2: NMS — Removing Duplicate Boxes",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  NON-MAXIMUM SUPPRESSION (per class)                         |\n|                                                                              |\n|  1. SORT all boxes by confidence (descending)                                |\n|  2. TAKE the top box; add it to the KEEP list                                |\n|  3. REMOVE every remaining box with IoU > threshold against it               |\n|  4. REPEAT with the next highest-confidence survivor                         |\n|                                                                              |\n|   before NMS:  [==][=][===]  three boxes on one object                       |\n|   after NMS:   [===]          keep the most confident, drop overlaps         |\n|                                                                              |\n|   Soft-NMS: instead of deleting, DECAY overlapping boxes' scores             |\n|   (better for crowded scenes where objects truly overlap).                   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "## Layer 3: mAP — The Detection Scoreboard",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                        BUILDING UP mAP                                       |\n|                                                                              |\n|  precision = TP / (TP + FP)     \"of my detections, how many are right?\"      |\n|  recall    = TP / (TP + FN)     \"of real objects, how many did I find?\"      |\n|                                                                              |\n|  Vary the confidence threshold -> trace a PRECISION-RECALL curve.            |\n|                                                                              |\n|   precision 1|`-._                                                           |\n|              |    `-._         AP = area under this PR curve (per class)     |\n|              |        `-.__                                                  |\n|              +-------------`---> recall                                      |\n|                                                                              |\n|  AP   = area under PR curve for ONE class at ONE IoU threshold               |\n|  mAP  = mean of AP over ALL classes                                          |\n|  COCO mAP = mean over classes AND IoU thresholds 0.50:0.05:0.95              |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 143,
+      "heading_context": "## Layer 4: Two-Stage Detectors — The R-CNN Family",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                 R-CNN LINEAGE  (two-stage: propose -> classify)              |\n|                                                                              |\n|  R-CNN (2014)      ~2000 region proposals (selective search) ->              |\n|                    run the CNN on EACH crop -> classify+regress. SLOW.       |\n|      |                                                                       |\n|  Fast R-CNN        run the CNN ONCE on the whole image; RoI-pool features    |\n|                    for each proposal. Much faster.                           |\n|      |                                                                       |\n|  Faster R-CNN      replace selective search with a learned REGION PROPOSAL   |\n|                    NETWORK (RPN) sharing the backbone -> end-to-end, fast.   |\n|      |                                                                       |\n|  Mask R-CNN        add a per-RoI MASK branch -> instance segmentation        |\n|                    (the link back to guide 03)                               |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 173,
+      "heading_context": "## Layer 5: Single-Stage Detectors — The YOLO Family",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                 YOLO  (single-stage: one pass -> all boxes)                  |\n|                                                                              |\n|  divide image into an SxS grid. Each cell predicts:                          |\n|    - B bounding boxes (x, y, w, h) + an objectness/confidence                |\n|    - class probabilities                                                     |\n|  ALL predicted in ONE network pass -> then NMS to clean up.                  |\n|                                                                              |\n|   +--+--+--+--+      each cell: \"is an object centered here? box + class\"    |\n|   |  |  |  |  |                                                              |\n|   +--+--+--+--+      vs R-CNN's propose-then-classify, YOLO regresses        |\n|   |  |##|  |  |      everything at once -> faster, slightly less accurate    |\n|   +--+--+--+--+      on small/dense objects (historically).                  |\n|   |  |  |  |  |                                                              |\n|   +--+--+--+--+                                                              |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## Layer 5: Single-Stage Detectors — The YOLO Family",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              TWO-STAGE vs SINGLE-STAGE  (accuracy vs speed)                  |\n|                                                                              |\n|  TWO-STAGE (Faster R-CNN)              SINGLE-STAGE (YOLO, SSD, RetinaNet)   |\n|  --------------------------            ----------------------------------    |\n|  propose regions, then classify        regress boxes+classes in one pass     |\n|  higher accuracy, esp. small obj       faster, real-time                     |\n|  slower                                slightly lower accuracy (gap closing) |\n|  anchors via RPN                       dense anchors / anchor-free (FCOS)    |\n|                                                                              |\n|  RetinaNet's FOCAL LOSS fixed the class imbalance that hurt single-stage     |\n|  detectors (vast majority of anchors are background).                        |\n|                                                                              |\n|  DETR (2020): transformer, set-prediction, NO anchors, NO NMS.               |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 227,
+      "heading_context": "## Layer 6: Optical Flow — Pixel Motion Between Frames",
+      "confidence": "candidate",
+      "text": "   Brightness constancy:  I(x, y, t) = I(x+u, y+v, t+1)\n\n   First-order Taylor expansion gives the OPTICAL FLOW CONSTRAINT EQUATION:\n\n        Ix*u + Iy*v + It = 0      (one equation, two unknowns -> ill-posed:\n                                   the \"aperture problem\")\n\n   Solutions add a constraint:\n     LUCAS-KANADE: assume constant flow in a window -> least squares (2x2\n                   system uses the SAME structure matrix as Harris, guide 02)\n     HORN-SCHUNCK: add a global smoothness term -> variational, dense flow\n     RAFT (deep):  learn flow with iterative refinement -> current SOTA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 256,
+      "heading_context": "## Layer 7: The Kalman Filter — Tracking as Recursive Estimation",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                THE KALMAN FILTER  (predict-correct loop)                     |\n|                                                                              |\n|  STATE x: [position, velocity]   COVARIANCE P: uncertainty                   |\n|                                                                              |\n|  PREDICT (motion model F):                                                   |\n|     x_pred = F x         (where will it be next frame?)                      |\n|     P_pred = F P F^T + Q (uncertainty GROWS)                                 |\n|                                                                              |\n|  CORRECT (measurement z, model H):                                           |\n|     K = P_pred H^T (H P_pred H^T + R)^-1     <- KALMAN GAIN                  |\n|     x = x_pred + K (z - H x_pred)            <- blend prediction + detection |\n|     P = (I - K H) P_pred                     <- uncertainty SHRINKS          |\n|                                                                              |\n|   Gain K trades trust between the motion prediction and the new detection.   |\n|   Nonlinear motion -> Extended (EKF) or Unscented (UKF) Kalman filter.       |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 288,
+      "heading_context": "## Layer 8: Multi-Object Tracking — Tracking-by-Detection",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  TRACKING-BY-DETECTION  (e.g. SORT / DeepSORT)               |\n|                                                                              |\n|  frame t: tracks {T1, T2, T3}  +  new detections {d1, d2, d3, d4}            |\n|                                                                              |\n|  1. PREDICT    Kalman-predict each track's box for this frame                |\n|  2. ASSOCIATE  build a cost matrix (1 - IoU, or appearance distance);        |\n|                solve assignment with the HUNGARIAN algorithm                 |\n|  3. UPDATE     matched tracks: Kalman-correct with the detection             |\n|  4. MANAGE     unmatched detections -> new tracks;                           |\n|                unmatched tracks -> age out / delete                          |\n|                                                                              |\n|   SORT: IoU + Kalman + Hungarian.                                            |\n|   DeepSORT: adds a learned APPEARANCE embedding -> survives occlusion.       |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

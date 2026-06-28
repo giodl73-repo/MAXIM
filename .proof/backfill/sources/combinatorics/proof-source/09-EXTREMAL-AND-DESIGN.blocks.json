@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\09-EXTREMAL-AND-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+==============================================================================+\n|       EXTREMAL: HOW LARGE/SMALL UNDER A CONSTRAINT?                          |\n|       DESIGN: HOW TO ARRANGE WITH PERFECT BALANCE?                           |\n+==============================================================================+\n|                                                                              |\n|   EXTREMAL GRAPH/SET THEORY          DESIGN THEORY                           |\n|   .-------------------------.        .---------------------------.           |\n|   | Turan:  max edges with  |        | Latin squares: n-symbol   |           |\n|   |   no K_{r+1}            |        |   grid, each symbol once   |          |\n|   |   = (1-1/r) n^2/2       |        |   per row & column         |          |\n|   | Dilworth: poset = union |        | Block designs (BIBD):     |           |\n|   |   of (width) chains     |        |   v points, blocks of k,   |          |\n|   | Sperner: max antichain  |        |   every pair in lambda     |          |\n|   |   in 2^[n] = C(n, n/2)  |        |   blocks                   |          |\n|   | Erdos-Ko-Rado: max      |        | Steiner systems S(t,k,v)  |           |\n|   |   intersecting k-family  |        |   t-subsets each in 1 blk  |         |\n|   |   = C(n-1, k-1)         |        | Projective/affine planes  |           |\n|   '-------------------------'        '---------------------------'           |\n|                |                              |                              |\n|                '--------------+---------------'                              |\n|                               v                                              |\n|             CODING-THEORY BRIDGE: designs <-> codes <-> packings             |\n|             Hamming/Reed-Muller, Singleton & Gilbert-Varshamov bounds        |\n|             (cross: cryptography/, abstract-algebra/ finite fields)          |\n+==============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 198,
+      "heading_context": "## Layer 5 — The Coding-Theory Bridge",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|  DESIGN  <-->  CODE  <-->  PACKING                                  |\n|                                                                     |\n|  An error-correcting code is a set of codewords (points in F_q^n)   |\n|  pairwise far apart in HAMMING distance. The codewords of many      |\n|  optimal codes form (or come from) combinatorial designs.           |\n|                                                                     |\n|  * Hamming code [7,4,3]: its codewords/supports give the Fano       |\n|    plane = S(2,3,7) Steiner triple system.                          |\n|  * Golay [24,12,8] code: cosets give the S(5,8,24) Witt design.     |\n|  * Reed-Muller / Reed-Solomon: polynomial evaluation codes,         |\n|    built on finite-field structure.                                 |\n|                                                                     |\n|  KEY BOUNDS (extremal flavor):                                      |\n|    Singleton:        d <= n - k + 1   (MDS codes meet it)           |\n|    Hamming (sphere): packing bound on # codewords vs radius         |\n|    Gilbert-Varshamov: EXISTENCE bound -- good codes exist           |\n|       (proved by the probabilistic / greedy method, file 08)        |\n+---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 295,
+      "heading_context": "### \"Why do projective planes only exist for prime-power orders?\"",
+      "confidence": "candidate",
+      "text": "### \"Erdős–Ko–Rado needs n ≥ 2k — why?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture: Where the Pipeline Earns Its Keep",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|            APPLICATIONS = RECIPES OVER THE VISION STACK                      |\n|                                                                              |\n|  APPLICATION        COMPONENTS USED (from earlier guides)                    |\n|  -----------        -----------------------------------                      |\n|  OCR                detect text (07) -> recognize chars (05, sequence)       |\n|  Face recognition   detect (07) -> align (06 H) -> embed (05) -> match       |\n|  Medical imaging    segment (03 U-Net) -> classify/detect (05/07)            |\n|  Generative vision  learn image distribution -> GAN / DIFFUSION              |\n|  3D capture / AR     SLAM (08) + detection (07) + rendering (graphics)       |\n|                                                                              |\n|  Then: TRAIN -> OPTIMIZE (quantize/prune) -> DEPLOY (cloud / edge)           |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 54,
+      "heading_context": "## Application 1: OCR — Reading Text in Images",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       OCR PIPELINE  (detect -> recognize)                    |\n|                                                                              |\n|  1. TEXT DETECTION    find text regions (EAST, DBNet) -> oriented boxes      |\n|                       (a specialized detector, guide 07)                     |\n|  2. RECTIFY           warp each region to a horizontal strip (homography,    |\n|                       guide 06) -- handles rotation/perspective              |\n|  3. RECOGNITION       CNN extracts features -> sequence model reads chars:   |\n|                       CRNN + CTC loss, or an attention/transformer decoder   |\n|  4. POST-PROCESS      language model / dictionary correction                 |\n|                                                                              |\n|   \"no segmentation of individual characters needed\" -- CTC aligns a          |\n|   variable-length character sequence to the feature columns automatically.   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 85,
+      "heading_context": "## Application 2: Face Recognition — Embeddings and Metric Learning",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  FACE RECOGNITION  (detect -> align -> embed -> match)       |\n|                                                                              |\n|  1. DETECT     find faces (MTCNN / RetinaFace) -> box + landmarks            |\n|  2. ALIGN      warp eyes/nose/mouth to a canonical position (similarity      |\n|                transform) -> pose-normalized face                            |\n|  3. EMBED      CNN -> a fixed embedding vector (e.g. 512-D)                  |\n|  4. MATCH      compare embeddings by cosine/Euclidean distance               |\n|                                                                              |\n|   TRAINING uses metric losses that shape the embedding space:                |\n|     - triplet loss: anchor closer to positive than negative by a margin      |\n|     - ArcFace: additive ANGULAR margin -> tighter identity clusters          |\n|                                                                              |\n|   VERIFICATION (1:1, \"is this the same person?\") vs                          |\n|   IDENTIFICATION (1:N, \"who is this?\" -> nearest neighbor in a gallery)      |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 125,
+      "heading_context": "## Application 3: Medical Imaging — Where Errors Cost Lives",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              MEDICAL IMAGING: THE CONSTRAINTS THAT CHANGE EVERYTHING         |\n|                                                                              |\n|  TASK TYPES                            DOMAIN CONSTRAINTS                    |\n|  ----------                            ------------------                    |\n|  segmentation (tumor, organ, vessel)   small/imbalanced labeled datasets     |\n|  classification (malignant?)           3D volumes (CT/MRI), not just 2D      |\n|  detection (lesions, nodules)          calibration + uncertainty REQUIRED    |\n|  registration (align scans over time)  regulatory approval (FDA/CE)          |\n|                                        interpretability for clinicians       |\n|                                                                              |\n|   Metrics shift: not just accuracy but SENSITIVITY (catch every disease)     |\n|   vs SPECIFICITY, Dice/IoU for segmentation, AUC of the ROC curve.           |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 157,
+      "heading_context": "## Application 4: Generative Vision — Synthesizing Images",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                     GENERATIVE VISION: GAN vs DIFFUSION                      |\n|                                                                              |\n|  GAN (2014)                            DIFFUSION (2020+)                     |\n|  ----------                            ----------------                      |\n|  generator vs discriminator,           gradually ADD noise (forward) then    |\n|  adversarial minimax game              LEARN to DENOISE step by step         |\n|                                        (reverse the noising process)         |\n|                                                                              |\n|  noise -> G -> fake image              x0 -> +noise -> ... -> pure noise     |\n|                  ^                              <- denoise <- (sampling)     |\n|                  | D: real or fake?                                          |\n|                                                                              |\n|  fast sampling, training UNSTABLE      stable training, high quality,        |\n|  (mode collapse)                       slower sampling (many denoise steps)  |\n|                                                                              |\n|  Text-to-image (Stable Diffusion, DALL-E): a diffusion model conditioned     |\n|  on text embeddings (CLIP), often in a compressed LATENT space for speed.    |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "## Layer 5: Deployment — From Notebook to Production",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                   THE DEPLOYMENT PATH  (train -> ship)                       |\n|                                                                              |\n|  TRAINED MODEL (FP32, large)                                                 |\n|       |                                                                      |\n|       v   OPTIMIZE                                                           |\n|  .-------------------------------------------.                               |\n|  | QUANTIZATION  FP32 -> INT8 (4x smaller,   |  accuracy drop usually tiny   |\n|  |               faster on int hardware)     |  with calibration/QAT         |\n|  | PRUNING       remove low-weight channels  |                               |\n|  | DISTILLATION  train a small student net   |                               |\n|  | FUSION        fold conv+BN+ReLU into one  |                               |\n|  '-------------------------------------------'                               |\n|       |                                                                      |\n|       v   PACKAGE                                                            |\n|  ONNX / TensorRT / Core ML / TFLite  (runtime + hardware backend)            |\n|       |                                                                      |\n|       v   DEPLOY                                                             |\n|  CLOUD GPU (throughput, batch)   vs   EDGE (latency, privacy, offline)       |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 295,
+      "heading_context": "### \"GAN vs diffusion — did diffusion just win?\"",
+      "confidence": "candidate",
+      "text": "### \"Why quantize? Won't INT8 wreck accuracy?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

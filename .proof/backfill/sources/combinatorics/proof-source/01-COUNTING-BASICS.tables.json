@@ -1,0 +1,199 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\01-COUNTING-BASICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 109,
+      "heading_context": "## Layer 2 — The Four Fundamental Counts",
+      "headers": [
+        "Count",
+        "Formula",
+        "Counts",
+        "Example (n=4, k=2)"
+      ],
+      "rows": [
+        [
+          "Ordered, no repeat",
+          "`n!/(n-k)!`",
+          "k-permutations",
+          "`4·3 = 12`"
+        ],
+        [
+          "Ordered, repeat",
+          "`n^k`",
+          "k-tuples / functions",
+          "`4^2 = 16`"
+        ],
+        [
+          "Unordered, no repeat",
+          "`C(n,k)`",
+          "k-subsets",
+          "`C(4,2) = 6`"
+        ],
+        [
+          "Unordered, repeat",
+          "`C(n+k-1,k)`",
+          "k-multisets",
+          "`C(5,2) = 10`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 180,
+      "heading_context": "## Layer 3 — The Twelvefold Way",
+      "headers": [
+        "Cell",
+        "Why"
+      ],
+      "rows": [
+        [
+          "dist/dist, any = `n^k`",
+          "each of k balls independently picks one of n boxes"
+        ],
+        [
+          "dist/dist, injective = `P(n,k)`",
+          "balls distinct, no box reused: ordered selection"
+        ],
+        [
+          "dist/dist, surjective = `n! S(k,n)`",
+          "partition k balls into n nonempty groups, then label groups"
+        ],
+        [
+          "same/dist, any = `C(n+k-1,k)`",
+          "stars and bars"
+        ],
+        [
+          "same/dist, injective = `C(n,k)`",
+          "choose which k of n boxes get a ball"
+        ],
+        [
+          "same/dist, surjective = `C(k-1,n-1)`",
+          "compositions: stars and bars with each box ≥ 1"
+        ],
+        [
+          "dist/same, surjective = `S(k,n)`",
+          "set partitions of [k] into exactly n blocks"
+        ],
+        [
+          "dist/same, any = `B_k`",
+          "sum over block counts: the Bell number"
+        ],
+        [
+          "same/same, surjective = `p_n(k)`",
+          "integer partitions of k into exactly n parts"
+        ],
+        [
+          "same/same, any = `p_{≤n}(k)`",
+          "partitions of k into at most n parts"
+        ],
+        [
+          "injective + same balls = `[k≤n]`",
+          "identical balls, ≤1 per box: only the indicator survives"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 233,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know (engineering)",
+        "Maps to (combinatorics)"
+      ],
+      "rows": [
+        [
+          "Cartesian product of fields",
+          "Rule of product, `n^k`"
+        ],
+        [
+          "Tagged union / discriminated union size",
+          "Rule of sum"
+        ],
+        [
+          "Number of distinct query plans / orderings",
+          "Permutations `P(n,k)`"
+        ],
+        [
+          "Choosing a subset of feature flags",
+          "Combinations `C(n,k)`"
+        ],
+        [
+          "Distributing N identical tasks to W workers",
+          "Stars and bars"
+        ],
+        [
+          "Hash function `f: keys → buckets`",
+          "Functions `[k] → [n]`, the `n^k` cell"
+        ],
+        [
+          "Counting onto mappings (every bucket hit)",
+          "Surjections, `n! S(k,n)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 252,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "The objects are...",
+        "and you...",
+        "Count"
+      ],
+      "rows": [
+        [
+          "ordered, distinct",
+          "take all n",
+          "`n!`"
+        ],
+        [
+          "ordered, distinct",
+          "take k of n",
+          "`P(n,k) = n!/(n-k)!`"
+        ],
+        [
+          "ordered, repeats OK",
+          "take k",
+          "`n^k`"
+        ],
+        [
+          "unordered, distinct",
+          "take k of n",
+          "`C(n,k)`"
+        ],
+        [
+          "unordered, repeats OK",
+          "take k of n types",
+          "`C(n+k-1,k)`"
+        ],
+        [
+          "identical balls → distinct boxes",
+          "any placement",
+          "`C(n+k-1,k)`"
+        ],
+        [
+          "identical balls → distinct boxes",
+          "≥1 per box",
+          "`C(k-1,n-1)`"
+        ],
+        [
+          "distinct balls → distinct boxes",
+          "onto",
+          "`n! S(k,n)`"
+        ],
+        [
+          "distinct balls → identical boxes",
+          "any",
+          "Bell `B_k`"
+        ],
+        [
+          "identical balls → identical boxes",
+          "any",
+          "`p_{≤n}(k)`"
+        ]
+      ]
+    }
+  ]
+}

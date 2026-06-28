@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\05-DEEP-VISION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 72,
+      "heading_context": "## Layer 1: The Convolution Layer — Weight Sharing as a Prior",
+      "headers": [
+        "Prior",
+        "What it buys"
+      ],
+      "rows": [
+        [
+          "Local connectivity",
+          "Each unit sees a small patch — matches image locality"
+        ],
+        [
+          "Weight sharing",
+          "Far fewer parameters; translation equivariance"
+        ],
+        [
+          "Pooling / stride",
+          "Spatial invariance + a growing receptive field"
+        ],
+        [
+          "Channel depth",
+          "Many filters per location → rich feature banks"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 118,
+      "heading_context": "## Layer 3: The Building Blocks",
+      "headers": [
+        "Layer",
+        "Role",
+        "Key detail"
+      ],
+      "rows": [
+        [
+          "**Convolution**",
+          "Learned filtering",
+          "The feature extractor"
+        ],
+        [
+          "**ReLU** (activation)",
+          "Nonlinearity",
+          "`max(0,x)`; cheap, avoids vanishing gradient"
+        ],
+        [
+          "**Pooling**",
+          "Downsample / invariance",
+          "Max or average over a window; no parameters"
+        ],
+        [
+          "**Batch norm**",
+          "Stabilize training",
+          "Normalizes activations per mini-batch"
+        ],
+        [
+          "**Stride / dilation**",
+          "Control resolution & RF",
+          "Stride downsamples; dilation enlarges RF"
+        ],
+        [
+          "**1x1 convolution**",
+          "Channel mixing / bottleneck",
+          "Reduces depth cheaply (Network-in-Network)"
+        ],
+        [
+          "**Global avg pool**",
+          "Spatial → vector",
+          "Replaces dense layers before the head"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 214,
+      "heading_context": "## Layer 5: Transfer Learning — The Practical Workhorse",
+      "headers": [
+        "Your situation",
+        "Strategy"
+      ],
+      "rows": [
+        [
+          "Tiny dataset, similar domain",
+          "Freeze backbone, train new head only"
+        ],
+        [
+          "Moderate dataset",
+          "Fine-tune later layers + head"
+        ],
+        [
+          "Large dataset, different domain",
+          "Fine-tune all, low learning rate"
+        ],
+        [
+          "No labels",
+          "Self-supervised pretraining (SimCLR, MAE), then fine-tune"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 250,
+      "heading_context": "## Layer 6: Vision Transformers — Attention Instead of Convolution",
+      "headers": [
+        "Aspect",
+        "CNN",
+        "Vision Transformer"
+      ],
+      "rows": [
+        [
+          "Inductive bias",
+          "Strong (locality, translation equivariance)",
+          "Weak (must learn it from data)"
+        ],
+        [
+          "Data appetite",
+          "Moderate",
+          "Large (or heavy augmentation / pretraining)"
+        ],
+        [
+          "Receptive field",
+          "Grows with depth",
+          "Global from layer 1"
+        ],
+        [
+          "Compute scaling",
+          "Linear in pixels",
+          "Quadratic in #patches (attention)"
+        ],
+        [
+          "Best when",
+          "Small/medium data",
+          "Large data, scale, multimodal"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 268,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Deep vision analogue"
+      ],
+      "rows": [
+        [
+          "FIR filter banks (signal)",
+          "A conv layer is a learned, stacked filter bank"
+        ],
+        [
+          "HOG/SIFT feature engineering",
+          "Replaced by learned early conv filters"
+        ],
+        [
+          "Well-conditioned iterative updates",
+          "Residual blocks keep the Jacobian near `I`"
+        ],
+        [
+          "Spatial pyramid (guide 04)",
+          "Pooling hierarchy learns coarse-to-fine spatial bins"
+        ],
+        [
+          "Caching / reuse",
+          "Transfer learning reuses a pretrained backbone"
+        ],
+        [
+          "Attention (transformers, NLP)",
+          "ViT applies the same self-attention to patches"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 281,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "A strong default image classifier",
+          "ResNet (50/101) backbone"
+        ],
+        [
+          "Maximum accuracy/compute efficiency",
+          "EfficientNet / ConvNeXt"
+        ],
+        [
+          "Run on mobile / edge",
+          "MobileNet / depthwise-separable convs"
+        ],
+        [
+          "Adapt to my small dataset",
+          "Transfer learning (freeze + new head)"
+        ],
+        [
+          "Train with no labels first",
+          "Self-supervised pretraining (MAE/SimCLR)"
+        ],
+        [
+          "Scale to huge data / multimodal",
+          "Vision Transformer (ViT / Swin)"
+        ],
+        [
+          "Enlarge receptive field without losing resolution",
+          "Dilated (atrous) convolution"
+        ],
+        [
+          "Reduce channel depth cheaply",
+          "1x1 convolution bottleneck"
+        ],
+        [
+          "Train very deep nets stably",
+          "Residual connections + batch norm"
+        ]
+      ]
+    }
+  ]
+}

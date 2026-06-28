@@ -1,0 +1,157 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\07-DETECTION-AND-TRACKING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 126,
+      "heading_context": "## Layer 3: mAP — The Detection Scoreboard",
+      "headers": [
+        "Metric",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "AP@0.5",
+          "Average precision at IoU ≥ 0.5 (PASCAL VOC convention)"
+        ],
+        [
+          "AP@0.75",
+          "Stricter localization"
+        ],
+        [
+          "mAP (COCO)",
+          "Averaged over IoU 0.5–0.95 *and* classes — the standard headline"
+        ],
+        [
+          "AR",
+          "Average recall (object-finding ability)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 210,
+      "heading_context": "## Layer 5: Single-Stage Detectors — The YOLO Family",
+      "headers": [
+        "Detector",
+        "Type",
+        "Hallmark"
+      ],
+      "rows": [
+        [
+          "Faster R-CNN",
+          "Two-stage",
+          "RPN + anchors; accuracy benchmark"
+        ],
+        [
+          "YOLO (v1→v8+)",
+          "Single-stage",
+          "Real-time grid regression"
+        ],
+        [
+          "SSD",
+          "Single-stage",
+          "Multi-scale feature maps"
+        ],
+        [
+          "RetinaNet",
+          "Single-stage",
+          "Focal loss fixes foreground/background imbalance"
+        ],
+        [
+          "FCOS",
+          "Single-stage",
+          "Anchor-free (per-pixel prediction)"
+        ],
+        [
+          "DETR",
+          "Transformer",
+          "Set prediction; no anchors, no NMS"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 315,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Detection/tracking analogue"
+      ],
+      "rows": [
+        [
+          "Precision/recall, AUC (ML eval)",
+          "mAP is PR-curve area + IoU correctness"
+        ],
+        [
+          "Kalman filter / state estimation (control)",
+          "Object tracking's predict-correct core"
+        ],
+        [
+          "Assignment problem / Hungarian (OR)",
+          "Detection-to-track data association"
+        ],
+        [
+          "Structure tensor / eigen-analysis (guide 02)",
+          "Lucas-Kanade flow well-posedness"
+        ],
+        [
+          "Greedy non-max / dedup",
+          "NMS removing duplicate boxes"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 327,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Highest detection accuracy",
+          "Faster R-CNN (two-stage)"
+        ],
+        [
+          "Real-time detection",
+          "YOLO (single-stage)"
+        ],
+        [
+          "Fix foreground/background imbalance",
+          "RetinaNet (focal loss)"
+        ],
+        [
+          "Detection without anchors or NMS",
+          "DETR (transformer set prediction)"
+        ],
+        [
+          "Box + per-object mask",
+          "Mask R-CNN"
+        ],
+        [
+          "Remove duplicate boxes",
+          "NMS (Soft-NMS in crowds)"
+        ],
+        [
+          "Score a detector",
+          "mAP (COCO 0.5:0.95)"
+        ],
+        [
+          "Dense pixel motion",
+          "Optical flow (Lucas-Kanade / RAFT)"
+        ],
+        [
+          "Follow one object smoothly",
+          "Kalman filter"
+        ],
+        [
+          "Track many objects with IDs",
+          "SORT / DeepSORT (Kalman + Hungarian)"
+        ]
+      ]
+    }
+  ]
+}

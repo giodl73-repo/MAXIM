@@ -1,0 +1,153 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\03-GENERATING-FUNCTIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 89,
+      "heading_context": "## Layer 1 — OGF vs EGF: Which to Use",
+      "headers": [
+        "Quantity",
+        "OGF",
+        "EGF"
+      ],
+      "rows": [
+        [
+          "`a_n = 1`",
+          "`1/(1-x)`",
+          "`e^x`"
+        ],
+        [
+          "`a_n = n!`",
+          "`Σ n! x^n` (divergent, formal)",
+          "`1/(1-x)`"
+        ],
+        [
+          "`a_n = C(m,n)`",
+          "`(1+x)^m`",
+          "—"
+        ],
+        [
+          "`a_n = 2^n`",
+          "`1/(1-2x)`",
+          "`e^{2x}`"
+        ],
+        [
+          "product means",
+          "concatenate (Cauchy)",
+          "label-split (binomial)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 203,
+      "heading_context": "## Layer 4 — Partitions: Products of Geometric Series",
+      "headers": [
+        "Restriction on parts",
+        "OGF factor included",
+        "Result"
+      ],
+      "rows": [
+        [
+          "distinct parts",
+          "`∏_k (1 + x^k)`",
+          "distinct-part partitions"
+        ],
+        [
+          "odd parts only",
+          "`∏_{k odd} 1/(1-x^k)`",
+          "Euler: distinct = odd parts"
+        ],
+        [
+          "parts ≤ m",
+          "`∏_{k=1}^m 1/(1-x^k)`",
+          "partitions into parts ≤ m"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 219,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Z-transform / generating polynomial of a signal",
+          "OGF (`Σ a_n x^n`, signal-processing dual)"
+        ],
+        [
+          "Laplace / characteristic-function of a distribution",
+          "EGF / moment generating function"
+        ],
+        [
+          "Convolution in DSP / probability",
+          "series multiplication `A(x)B(x)`"
+        ],
+        [
+          "Solving a linear recurrence by characteristic roots",
+          "partial fractions of the OGF denominator"
+        ],
+        [
+          "Polynomial multiply = FFT",
+          "Cauchy product is exactly that"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 239,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Unlabelled objects, count by size",
+          "OGF",
+          "concatenation = Cauchy product"
+        ],
+        [
+          "Labelled objects (distinct elements)",
+          "EGF",
+          "label-split = binomial convolution"
+        ],
+        [
+          "Recurrence with a *convolution* term",
+          "OGF, expect a functional equation",
+          "convolution ↔ product"
+        ],
+        [
+          "Linear recurrence, constant coeffs",
+          "OGF + partial fractions",
+          "roots of char. poly"
+        ],
+        [
+          "Counting integer partitions",
+          "OGF as `∏ 1/(1-x^k)`",
+          "each factor = a part's multiplicity"
+        ],
+        [
+          "Counting set partitions / permutations",
+          "EGF",
+          "objects are labelled"
+        ],
+        [
+          "Need asymptotics of `a_n`",
+          "singularity analysis of the GF",
+          "growth ↔ nearest singularity"
+        ],
+        [
+          "Need partial sums `Σ_{i≤n} a_i`",
+          "multiply OGF by `1/(1-x)`",
+          "summation operator"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                  COMBINATORICS — FOUR PILLARS                              |\n+============================================================================+\n|                                                                            |\n|  ENUMERATIVE        ALGEBRAIC          EXTREMAL          PROBABILISTIC     |\n|  .-------------.   .-------------.    .-------------.   .-------------.    |\n|  |How many?    |   |Gen. funcs   |    |How large /  |   |Does a       |    |\n|  |Twelvefold   |   |OGF / EGF    |    |small can a  |   |structure    |    |\n|  |Permutations |   |Symmetric    |    |structure be |   |EXIST?       |    |\n|  |Combinations |   |functions    |    |under a      |   |Random build |    |\n|  |Inclusion-   |   |Group actns  |    |constraint?  |   |First moment |    |\n|  |exclusion    |   |Burnside/    |    |Turan        |   |Second moment|    |\n|  |Recurrences  |   |Polya        |    |Dilworth     |   |Lovasz LLL   |    |\n|  |Catalan/     |   |Recurrence   |    |Erdos-Ko-Rado|   |Alteration   |    |\n|  |Stirling/Bell|   |solving      |    |Sperner      |   |Expectation  |    |\n|  '-------------'   '-------------'    '-------------'   '-------------'    |\n|        |                 |                  |                 |            |\n|        '-----------------------------------------------------'            |\n|                                  |                                         |\n|                    SHARED BIJECTIVE / STRUCTURAL CORE                      |\n|        \"Count by setting up a bijection to something you can count.\"       |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 86,
+      "heading_context": "## Layer 1 — Enumerative: How Many?",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  ENUMERATIVE TOOLKIT (in rough order of power)                |\n|                                                               |\n|  Sum / product rule .......... disjoint cases / sequences     |\n|  Permutations / combinations . ordered / unordered selection  |\n|  The twelvefold way .......... balls-in-boxes, all 12 cells   |\n|  Inclusion-exclusion ......... overcount, then correct        |\n|  Generating functions ........ encode the whole sequence      |\n|  Recurrences ................. count_n in terms of count_<n   |\n|  Bijection ................... THE master move; reduce to     |\n|                                a count you already know       |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Layer 2 — Algebraic: Package the Counts",
+      "confidence": "candidate",
+      "text": "              SEQUENCE                      GENERATING FUNCTION\n          a_0, a_1, a_2, ...     <----->    A(x) = SUM a_n x^n\n                                            (ordinary, OGF)\n\n                                            E(x) = SUM a_n x^n / n!\n                                            (exponential, EGF)\n\n  Operations on sequences  <-->  Operations on series:\n     shift, convolve              multiply, differentiate, substitute\n     \"labelled\" structures        EGF; \"unlabelled\" -> OGF",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Layer 3 — Extremal: How Far Can You Push?",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  EXTREMAL: constraint  =>  forced structure                   |\n|                                                               |\n|  Pigeonhole ......... n+1 items, n boxes => a collision       |\n|  Ramsey ............. big enough => monochromatic clique      |\n|  Turan .............. too many edges => a K_{r+1}             |\n|  Dilworth ........... poset width => chain cover size         |\n|  Sperner ............ largest antichain in 2^[n] = C(n,n/2)   |\n|  Erdos-Ko-Rado ...... largest intersecting family of k-sets   |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Layer 4 — Probabilistic: Does It Exist?",
+      "confidence": "candidate",
+      "text": "   Want: an object with property P.\n   Build a RANDOM object from a well-chosen distribution.\n        |\n        v\n   Show  Pr[object lacks P]  <  1\n        |\n        v\n   Therefore SOME object in the sample space HAS P.   (it exists!)\n\n   Sharper variants:\n     First moment  : E[X] < 1  =>  Pr[X = 0] > 0   (a bad-count is 0 somewhere)\n     Second moment : Var small =>  X concentrates near E[X]\n     Lovasz LLL    : rare, weakly dependent bad events => all avoidable at once\n     Alteration    : build random, then DELETE the few defects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 203,
+      "heading_context": "## How the Files Connect",
+      "confidence": "candidate",
+      "text": "                       00-OVERVIEW (you are here)\n                                |\n        +-----------------------+-----------------------+\n        |                       |                       |\n   ENUMERATIVE             ALGEBRAIC               EXTREMAL/PROB\n        |                       |                       |\n  01 COUNTING-BASICS      03 GENERATING-FUNCTIONS  06 PIGEONHOLE-RAMSEY\n  02 BINOMIAL-IDENTITIES  05 RECURRENCES           08 PROBABILISTIC-METHOD\n  04 INCLUSION-EXCLUSION  07 SPECIAL-NUMBERS        09 EXTREMAL-AND-DESIGN\n        |                       |                       |\n        +-----------------------+-----------------------+\n                                |\n            cross-refs: graph-algorithms/, number-theory/,\n            abstract-algebra/, probability-statistics/, cryptography/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

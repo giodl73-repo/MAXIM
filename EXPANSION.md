@@ -197,6 +197,7 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 13 | 13A–13C | remote-sensing, dyeing-fiber, historiography, philosophy-of-science, geotechnical-engineering, development-studies, programming-language-theory | ~77 | 2026-02 |
 | 14 | 14A–14E | networking, database-systems, graph-algorithms, operations-research, accounting | ~50 | 2026-06 |
 | 15 | 15A–15D | algorithms, compilers, computer-graphics, dynamical-systems | ~40 | 2026-06 |
+| 16 | 16A–16B | computer-vision, combinatorics | ~20 | 2026-06 |
 
 ---
 

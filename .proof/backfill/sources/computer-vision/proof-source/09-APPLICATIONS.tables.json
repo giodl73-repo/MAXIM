@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\09-APPLICATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 104,
+      "heading_context": "## Application 2: Face Recognition — Embeddings and Metric Learning",
+      "headers": [
+        "Term",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Verification (1:1)",
+          "Same person? Threshold a distance"
+        ],
+        [
+          "Identification (1:N)",
+          "Who is this? Nearest neighbor in a gallery"
+        ],
+        [
+          "Triplet loss",
+          "Anchor–positive closer than anchor–negative by a margin"
+        ],
+        [
+          "ArcFace",
+          "Angular-margin softmax → highly separable embeddings"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 179,
+      "heading_context": "## Application 4: Generative Vision — Synthesizing Images",
+      "headers": [
+        "Model family",
+        "Mechanism",
+        "Strength",
+        "Weakness"
+      ],
+      "rows": [
+        [
+          "**GAN**",
+          "Adversarial generator vs discriminator",
+          "Fast sampling",
+          "Unstable training, mode collapse"
+        ],
+        [
+          "**VAE**",
+          "Encode to latent, decode",
+          "Stable, structured latent",
+          "Blurry samples"
+        ],
+        [
+          "**Diffusion**",
+          "Iterative denoising",
+          "High quality, stable training",
+          "Slow sampling (many steps)"
+        ],
+        [
+          "**Autoregressive**",
+          "Predict pixels/tokens in order",
+          "Tractable likelihood",
+          "Slow, sequential"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 222,
+      "heading_context": "## Layer 5: Deployment — From Notebook to Production",
+      "headers": [
+        "Decision",
+        "Cloud",
+        "Edge (device)"
+      ],
+      "rows": [
+        [
+          "Latency",
+          "Network round-trip",
+          "Local, low"
+        ],
+        [
+          "Privacy",
+          "Data leaves device",
+          "Stays on device"
+        ],
+        [
+          "Cost",
+          "Per-inference GPU cost",
+          "One-time hardware"
+        ],
+        [
+          "Model size",
+          "Large OK",
+          "Must be small (quantized/pruned)"
+        ],
+        [
+          "Connectivity",
+          "Required",
+          "Works offline"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 248,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Application analogue"
+      ],
+      "rows": [
+        [
+          "Sequence labeling / CTC (speech)",
+          "OCR recognition stage"
+        ],
+        [
+          "PCA / SVD subspaces (Eigenfaces)",
+          "Replaced by learned face embeddings"
+        ],
+        [
+          "ROC / sensitivity / specificity",
+          "Medical model evaluation"
+        ],
+        [
+          "Lossy compression (JPEG)",
+          "Quantization of model weights"
+        ],
+        [
+          "Cloud vs edge service deployment",
+          "Vision inference placement decision"
+        ],
+        [
+          "Distillation / model compression",
+          "Shrinking nets for the edge"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 261,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Read text from images",
+          "Text detector + CRNN/CTC or transformer OCR"
+        ],
+        [
+          "Recognize people not seen in training",
+          "Face embeddings (ArcFace) + nearest neighbor"
+        ],
+        [
+          "Verify \"same person?\"",
+          "1:1 embedding distance + threshold"
+        ],
+        [
+          "Segment a tumor with little data",
+          "U-Net + transfer learning + augmentation"
+        ],
+        [
+          "Weigh false negatives heavily",
+          "Optimize sensitivity; report Dice/AUC"
+        ],
+        [
+          "Generate photoreal images",
+          "Diffusion (Stable Diffusion)"
+        ],
+        [
+          "Generate from text prompts",
+          "Latent diffusion conditioned on CLIP text"
+        ],
+        [
+          "Shrink a model 4x with little accuracy loss",
+          "INT8 quantization (+ QAT if needed)"
+        ],
+        [
+          "Run on-device, offline, private",
+          "Edge deployment (TFLite/Core ML/TensorRT)"
+        ],
+        [
+          "Maximize datacenter throughput",
+          "Batching + GPU/TPU + quantization"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\06-MULTIVIEW-GEOMETRY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 83,
+      "heading_context": "## Layer 1: The Epipolar Constraint — Search Becomes 1D",
+      "headers": [
+        "Term",
+        "Definition"
+      ],
+      "rows": [
+        [
+          "**Epipolar plane**",
+          "Plane through `X`, `C1`, `C2`"
+        ],
+        [
+          "**Epipolar line**",
+          "Intersection of the epipolar plane with an image"
+        ],
+        [
+          "**Epipole**",
+          "Image of one camera's center in the other view; all epipolar lines pass through it"
+        ],
+        [
+          "**Baseline**",
+          "The line `C1`–`C2` joining the two centers"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 237,
+      "heading_context": "## Layer 5: Stereo and Rectification",
+      "headers": [
+        "Matching cost",
+        "Property"
+      ],
+      "rows": [
+        [
+          "SAD / SSD",
+          "Sum of (absolute / squared) differences; fast, brightness-sensitive"
+        ],
+        [
+          "NCC",
+          "Normalized cross-correlation; invariant to brightness/contrast"
+        ],
+        [
+          "Census / Hamming",
+          "Bit-string of local ordering; robust to illumination"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 267,
+      "heading_context": "## Layer 6: Homography — When the Scene Is Planar",
+      "headers": [
+        "Relation",
+        "When it applies",
+        "DOF",
+        "Min points"
+      ],
+      "rows": [
+        [
+          "**Homography H**",
+          "Planar scene OR pure rotation",
+          "8",
+          "4"
+        ],
+        [
+          "**Fundamental F**",
+          "General scene, uncalibrated",
+          "7",
+          "7–8"
+        ],
+        [
+          "**Essential E**",
+          "General scene, calibrated",
+          "5",
+          "5"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 316,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Multi-view geometry analogue"
+      ],
+      "rows": [
+        [
+          "SVD / null space / least squares",
+          "Estimating F, E, H, and triangulation are all SVD"
+        ],
+        [
+          "Skew-symmetric matrix of a cross product",
+          "`[t]_x` in the essential matrix `E = [t]_x R`"
+        ],
+        [
+          "Projective geometry (graphics)",
+          "Epipolar geometry is its two-view specialization"
+        ],
+        [
+          "Robust statistics / median",
+          "RANSAC = consensus-based robust fitting"
+        ],
+        [
+          "Cross-correlation (signal)",
+          "Stereo block matching; NCC is the normalized form"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 328,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Constrain a match to a 1D search",
+          "Epipolar line from `F` (or `E`)"
+        ],
+        [
+          "Relate two uncalibrated views",
+          "Fundamental matrix `F` (8-point)"
+        ],
+        [
+          "Relate two calibrated views",
+          "Essential matrix `E` (5-point)"
+        ],
+        [
+          "Recover relative camera motion",
+          "Decompose `E` → `(R, t)` + cheirality test"
+        ],
+        [
+          "Reconstruct a 3D point from two views",
+          "Triangulation (DLT / optimal)"
+        ],
+        [
+          "Get a dense depth map from a stereo rig",
+          "Rectify + block match + `Z = f*b/d`"
+        ],
+        [
+          "Stitch a panorama or rectify a plane",
+          "Homography `H` (4 points)"
+        ],
+        [
+          "Fit a model despite wrong matches",
+          "RANSAC (minimal sample + consensus)"
+        ],
+        [
+          "Stabilize an estimate numerically",
+          "Hartley normalization before the SVD"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\02-FILTERING-AND-FEATURES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture: From Pixels to Repeatable Points",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              FROM PIXELS TO MATCHABLE FEATURES  (the early-vision flow)      |\n|                                                                              |\n|   IMAGE          FILTERING            DETECTION           DESCRIPTION        |\n|   I(x,y)   --->  convolve with  --->  find edges /  --->  encode local       |\n|                  kernels h            corners / blobs     patch -> vector    |\n|     |                |                    |                   |              |\n|     v                v                    v                   v              |\n|  .------.      .-----------.        .-----------.       .-----------.        |\n|  |pixels|      | gradients |        | keypoints |       |descriptor |        |\n|  |grid  |      | Gx, Gy    |        |(x,y,scale,|       |128-dim    |        |\n|  |      |      | smoothed  |        | orient)   |       |SIFT vector|        |\n|  '------'      '-----------'        '-----------'       '-----------'        |\n|                                                                              |\n|   Goal: points that survive rotation, scale, illumination -> MATCHING        |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 68,
+      "heading_context": "## Layer 1: Convolution vs Correlation (Get This Exactly Right)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                    CONVOLUTION vs CORRELATION                                |\n|                                                                              |\n|  CONVOLUTION                          CORRELATION                            |\n|  -----------                          -----------                            |\n|  kernel flipped 180 deg               kernel used as-is                      |\n|  commutative, associative             not commutative                        |\n|  LTI-system output (signal theory)    template matching                      |\n|  the \"true\" linear filter             \"does this patch look like h?\"         |\n|                                                                              |\n|  KEY FACT: a CNN \"convolution\" layer computes CORRELATION (no flip).         |\n|  It learns the kernel, so the flip is irrelevant -- the learned weights      |\n|  simply absorb it. The name is a historical misnomer.                        |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "## Layer 3: Edges — Where Intensity Changes Fast",
+      "confidence": "candidate",
+      "text": "   Sobel kernels (separable: [1 2 1]^T x [-1 0 1]):\n\n        Gx = [-1  0  +1]        Gy = [+1 +2 +1]\n             [-2  0  +2]             [ 0  0  0]\n             [-1  0  +1]             [-1 -2 -1]\n\n   Gradient magnitude:  |G| = sqrt(Gx^2 + Gy^2)\n   Gradient direction:  theta = atan2(Gy, Gx)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 147,
+      "heading_context": "### Canny edge detector (the gold standard)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                      CANNY EDGE DETECTOR  (5 stages)                         |\n|                                                                              |\n|  1. SMOOTH        Gaussian blur to suppress noise                            |\n|  2. GRADIENT      Sobel -> magnitude |G| and direction theta                 |\n|  3. NON-MAX       thin edges: keep a pixel only if it is a local max         |\n|     SUPPRESSION   ALONG the gradient direction (1-pixel-wide ridges)         |\n|  4. DOUBLE        two thresholds: strong (> T_high) and weak (T_low..T_high) |\n|     THRESHOLD                                                                |\n|  5. HYSTERESIS    keep weak edges only if connected to a strong edge         |\n|                                                                              |\n|  Result: clean, thin, connected edge contours.                               |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Layer 4: Corners — The Harris Detector",
+      "confidence": "candidate",
+      "text": "   For a window, gradients Ix, Iy give the structure matrix:\n\n         .                      .\n   M  =  | SUM Ix^2   SUM IxIy  |     (sums weighted by a Gaussian window)\n         | SUM IxIy   SUM Iy^2  |\n         '                      '\n\n   Eigenvalues lambda1, lambda2 of M classify the local patch:\n\n   lambda1 ~ lambda2 ~ 0     -> FLAT region (no structure)\n   lambda1 >> lambda2 ~ 0    -> EDGE (one strong direction)\n   lambda1 ~ lambda2 >> 0    -> CORNER (structure in both directions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 216,
+      "heading_context": "## Layer 5: Scale and Blobs — Why SIFT Needs Scale Space",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              SCALE SPACE  (image x sigma)  and the DoG approximation         |\n|                                                                              |\n|  Build a pyramid of Gaussian blurs:   L(x,y,sigma) = G(sigma) * I            |\n|                                                                              |\n|  Difference of Gaussians approximates the scale-normalized Laplacian:        |\n|     DoG = L(x,y, k*sigma) - L(x,y, sigma)   ~  (k-1) sigma^2 * Laplacian(L)  |\n|                                                                              |\n|   sigma  small  +----+   blob detector: a keypoint is a LOCAL EXTREMUM       |\n|     ^           |    |   in the 3x3x3 neighborhood across (x, y, AND scale). |\n|     |  larger   +----+   The scale at which it peaks IS the keypoint scale.  |\n|     |  blur                                                                  |\n|     +-------------------> x,y                                                |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "## Layer 6: SIFT — The Canonical Descriptor",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                          SIFT PIPELINE  (4 steps)                            |\n|                                                                              |\n|  1. SCALE-SPACE EXTREMA   DoG pyramid; find extrema across x, y, scale       |\n|  2. KEYPOINT LOCALIZE     sub-pixel fit; reject low-contrast + edge points   |\n|                          (edge rejection uses the Harris-like Hessian ratio) |\n|  3. ORIENTATION ASSIGN    histogram of gradient directions -> dominant       |\n|                           orientation -> ROTATION invariance                 |\n|  4. DESCRIPTOR            4x4 grid of 8-bin gradient histograms = 128-D      |\n|                           vector, normalized for illumination invariance     |\n+------------------------------------------------------------------------------+\n\n   Invariances achieved:\n     scale       <- detected at its characteristic scale\n     rotation    <- descriptor rotated to the dominant orientation\n     illumination<- gradient-based + normalized (cancels affine brightness)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

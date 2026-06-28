@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\08-3D-AND-SLAM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture: From Many Images to a Map",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|         MANY IMAGES -> CAMERA POSES + 3D STRUCTURE  (joint estimation)       |\n|                                                                              |\n|   input: overlapping images        output: poses + sparse/dense 3D           |\n|                                                                              |\n|     [img1][img2][img3]...           C1    C2    C3   (camera trajectory)     |\n|         \\    |    /                  \\    |    /                             |\n|          \\   |   /         ==>        \\   |   /     . . .  (3D points X_j)   |\n|       feature matches                  \\  |  /     . map .                   |\n|       across views                      \\ | /      . . . .                   |\n|                                          scene                               |\n|                                                                              |\n|   SfM = offline (photo collection).  SLAM = online (live camera).            |\n|   Same unknowns; same refiner (bundle adjustment).                           |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 57,
+      "heading_context": "## Layer 1: Structure-from-Motion — The Offline Pipeline",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       STRUCTURE-FROM-MOTION PIPELINE                         |\n|                                                                              |\n|  1. FEATURES      extract SIFT/ORB keypoints in every image (guide 02)       |\n|  2. MATCH         match features between image pairs; RANSAC-filter (g.06)   |\n|  3. INITIALIZE    pick a good pair; estimate E -> (R,t); triangulate points  |\n|  4. INCREMENTAL   for each new image: PnP pose from known 3D<->2D matches;   |\n|     GROWTH        triangulate new points; repeat                             |\n|  5. BUNDLE        globally refine ALL poses + ALL points by minimizing       |\n|     ADJUST        reprojection error (next layer)                            |\n|                                                                              |\n|   Output: a SPARSE point cloud + every camera's pose. (COLMAP is the         |\n|   reference open-source implementation.)                                     |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "## Layer 2: Bundle Adjustment — The Optimizer That Ties It Together",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       BUNDLE ADJUSTMENT                                      |\n|                                                                              |\n|   minimize over {camera poses P_i} and {3D points X_j}:                      |\n|                                                                              |\n|       E = SUM_i SUM_j  v_ij * || x_ij  -  project(P_i, X_j) ||^2             |\n|                                                                              |\n|   x_ij    = observed 2D feature of point j in image i                        |\n|   project = the pinhole projection (guide 01)                                |\n|   v_ij    = 1 if point j is visible in image i, else 0                       |\n|                                                                              |\n|   This is a huge NONLINEAR LEAST-SQUARES problem. Solved by                  |\n|   Levenberg-Marquardt, exploiting the SPARSE block structure (most           |\n|   points are seen by few cameras -> sparse Jacobian / Schur complement).     |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 127,
+      "heading_context": "## Layer 3: Multi-View Stereo — Going Dense",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              SPARSE (SfM) -> DENSE (MVS) -> SURFACE                          |\n|                                                                              |\n|   SfM points (sparse)      MVS depth (dense)        meshed surface           |\n|     .   .   .                ::::::::::::             /\\/\\/\\/\\               |\n|       .   .          ->     ::::::::::::::   ->      |      |                |\n|     .   .   .                ::::::::::::            \\/\\/\\/\\/                |\n|                                                                              |\n|   MVS idea: for each pixel, hypothesize depths along its ray; check          |\n|   PHOTO-CONSISTENCY across the other views (does the patch look the same     |\n|   when reprojected?). PatchMatch MVS is the standard fast method.            |\n|                                                                              |\n|   Then: depth maps -> fused point cloud -> Poisson surface reconstruction    |\n|   -> textured MESH.                                                          |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Layer 4: Point Clouds and Surfaces",
+      "confidence": "candidate",
+      "text": "   Common point-cloud operations:\n     - ICP (Iterative Closest Point): align two clouds -> registration\n     - normal estimation: local plane fit (eigenvector of small covariance)\n     - Poisson reconstruction: implicit surface from oriented points -> mesh\n     - PointNet / sparse convs: DEEP learning directly on point sets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 187,
+      "heading_context": "## Layer 5: Visual SLAM — Mapping While Moving",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  VISUAL SLAM ARCHITECTURE (front end + back end)             |\n|                                                                              |\n|  FRONT END (per frame, fast)            BACK END (occasional, accurate)      |\n|  --------------------------             ----------------------------         |\n|  track features -> estimate pose        local bundle adjustment              |\n|  (VISUAL ODOMETRY)                      keyframe map management              |\n|       |                                       |                              |\n|       v                                       v                              |\n|  .-----------.    LOOP CLOSURE         .-----------------.                   |\n|  | new frame | --detect revisit-->     | pose-graph      |                   |\n|  | pose, map |   (place recognition)   | optimization    |                   |\n|  '-----------'                         | corrects DRIFT  |                   |\n|                                        '-----------------'                   |\n|                                                                              |\n|   DRIFT: small per-frame errors accumulate. LOOP CLOSURE recognizes a        |\n|   previously seen place and corrects the whole trajectory globally.          |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 239,
+      "heading_context": "## Layer 6: Neural 3D — NeRF and Gaussian Splatting",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  NEURAL SCENE REPRESENTATIONS                                |\n|                                                                              |\n|  NeRF: MLP F(x, y, z, theta, phi) -> (color, density)                        |\n|        render a pixel = integrate color*density along its ray                |\n|        (the volume-rendering equation), differentiable -> train on images    |\n|                                                                              |\n|        ray ---o---o---o---o--->   sample points, query MLP, alpha-composite  |\n|                                                                              |\n|  3D GAUSSIAN SPLATTING (2023): represent the scene as millions of 3D         |\n|        Gaussians; rasterize them -> real-time, high quality, explicit        |\n|        (faster to render than NeRF's per-ray MLP queries).                   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 325,
+      "heading_context": "### \"Feature-based vs direct SLAM — which is better?\"",
+      "confidence": "candidate",
+      "text": "### \"Does NeRF replace classical 3D reconstruction?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

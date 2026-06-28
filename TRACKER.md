@@ -234,9 +234,11 @@ Each directory has a `STATUS.md` with its full file list.
 | [`compilers/`](compilers/STATUS.md) | 10 | ✅ | 15 |
 | [`computer-graphics/`](computer-graphics/STATUS.md) | 10 | ✅ | 15 |
 | [`dynamical-systems/`](dynamical-systems/STATUS.md) | 10 | ✅ | 15 |
+| [`computer-vision/`](computer-vision/STATUS.md) | 10 | ✅ | 16 |
+| [`combinatorics/`](combinatorics/STATUS.md) | 10 | ✅ | 16 |
 
-**Complete: Batches 1–13 ✅ + Batch 14 (5 domains) + Batch 15 (4 domains) — 226 directories, ~2,260 files**
-**Final target: 226 directories · 13 sections · ~2,260 content files · ~14,650 pages · 52 bound volumes**
+**Complete: Batches 1–13 ✅ + Batch 14 (5) + Batch 15 (4) + Batch 16 (2) — 228 directories, ~2,280 files**
+**Final target: 228 directories · 13 sections · ~2,280 content files · ~14,800 pages · 52 bound volumes**
 *13 × 4 = 52. A deck of cards. People (●) at center. Batches 12–13 complete the deck.*
 
 **Batch 1 agent groups (complete):**

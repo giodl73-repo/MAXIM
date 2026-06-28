@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\08-PROBABILISTIC-METHOD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|     PROVE EXISTENCE BY SHOWING A RANDOM OBJECT WORKS                        |\n+=============================================================================+\n|                                                                             |\n|   THE CORE LOGIC                                                            |\n|   Build a RANDOM object X. If Pr[X is good] > 0, a good object EXISTS.      |\n|                                                                             |\n|   FIRST MOMENT             SECOND MOMENT            LOVASZ LOCAL LEMMA      |\n|   E[X] argument            Var(X) argument          (LLL)                   |\n|        |                        |                       |                   |\n|   * E[X] < 1 => some          * X concentrates       * many \"bad\" events    |\n|     outcome has X=0             near E[X] if Var       each rare, weakly    |\n|   * E[X] >= t => some          is small (Chebyshev)   dependent => all      |\n|     outcome has X>=t           => existence of a       avoidable AT ONCE    |\n|     (\"averaging\")              \"typical\" object        Pr > 0 even when     |\n|        |                        |                       union bound fails   |\n|        v                        v                       |                   |\n|   ALTERATION (delete-defects):  build random, then remove the few bad       |\n|   parts; what remains is good and still large.                              |\n|        |                                                                    |\n|        v                                                                    |\n|   DERANDOMIZE: method of conditional expectations -> explicit algorithm.    |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 77,
+      "heading_context": "## Layer 1 — The First Moment Method",
+      "confidence": "candidate",
+      "text": "### Application: Ramsey lower bound `R(s,s) > 2^{s/2}`",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## Layer 2 — The Second Moment Method",
+      "confidence": "candidate",
+      "text": "   CHEBYSHEV:  Pr[ |X - E[X]| >= t ] <= Var(X) / t^2.\n\n   KEY COROLLARY (for nonnegative X):\n       if Var(X) = o(E[X]^2), then Pr[X = 0] -> 0\n       => X > 0 almost surely for large n  (the good event is TYPICAL).\n\n   Used to prove THRESHOLDS: a property appears suddenly as a parameter\n   crosses a critical value (e.g. random graph G(n,p) contains a fixed\n   subgraph H once p exceeds the threshold p* = n^{-1/m(H)}).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

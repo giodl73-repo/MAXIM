@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\05-DEEP-VISION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture: Learning the Filters",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|               THE CNN AS A LEARNED FEATURE HIERARCHY  (image -> label)       |\n|                                                                              |\n|   IMAGE     LAYER 1        LAYER 2..k        DEEP LAYERS      HEAD           |\n|   +-----+   edges,         textures,         object parts,    softmax        |\n|   |     |   oriented  -->  corners,    -->   wheels, eyes -->  \"car: 0.97\"   |\n|   |     |   bars           color blobs        whole objects                  |\n|   +-----+   (Gabor-like)                                                     |\n|              |                                                               |\n|              +-- These early filters look like LEARNED Sobel/SIFT filters.   |\n|                 Deep learning AUTOMATED the feature engineering of guide 04. |\n|                                                                              |\n|   Spatial size SHRINKS (pooling/stride); channel depth GROWS (more filters). |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 58,
+      "heading_context": "## Layer 1: The Convolution Layer — Weight Sharing as a Prior",
+      "confidence": "candidate",
+      "text": "   A conv layer: input C_in channels -> output C_out channels.\n   Each output channel = SUM over input channels of (input * kernel) + bias.\n\n      input HxWxC_in   --[ K kernels, each kxkxC_in ]-->   output H'xW'xC_out\n\n   Parameters per layer:  k*k * C_in * C_out  (+ C_out biases)\n   -- INDEPENDENT of image size. A dense layer would need H*W*C weights per unit.\n\n   Stride s: step the kernel by s -> downsamples by s.\n   Padding p: pad the border to control output size.\n   Output size: H' = floor((H + 2p - k)/s) + 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "## Layer 2: The Receptive Field — How Much Each Unit Sees",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       RECEPTIVE FIELD GROWTH WITH DEPTH                      |\n|                                                                              |\n|   input        layer1 (3x3)     layer2 (3x3)      layer3 (3x3)               |\n|   pixel grid   sees 3x3         sees 5x5          sees 7x7                   |\n|                                                                              |\n|   o o o o o     [ o o o ]                                                    |\n|   o o o o o     [ o o o ]  -> stacking two 3x3 = one 5x5 RF, fewer params    |\n|   o o o o o     [ o o o ]     and more nonlinearity (the VGG insight)        |\n|                                                                              |\n|   Stride/pooling MULTIPLY RF growth; dilation (atrous) ENLARGES RF without   |\n|   adding parameters or losing resolution (used in DeepLab, guide 03).        |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "## Layer 3: The Building Blocks",
+      "confidence": "candidate",
+      "text": "   A typical block:   conv -> batch norm -> ReLU  (repeat)  -> pool\n   Classifier tail:   ... -> global average pool -> dense -> softmax",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 140,
+      "heading_context": "## Layer 4: The Architecture Lineage",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  CNN ARCHITECTURE LINEAGE  (problem -> fix)                  |\n|                                                                              |\n|  LeNet (1998)    first conv net (digits)                                     |\n|      |                                                                       |\n|  AlexNet (2012)  ReLU + dropout + GPUs; WON ImageNet -> ignited deep vision  |\n|      |                                                                       |\n|  VGG (2014)      deep stacks of 3x3 convs; simple, uniform                   |\n|      |                                                                       |\n|  GoogLeNet/      Inception modules: parallel multi-scale convs + 1x1         |\n|  Inception       bottlenecks -> efficiency                                   |\n|      |                                                                       |\n|  ResNet (2015)   RESIDUAL connections: y = F(x) + x  -> trains 100+ layers   |\n|      |          (solves vanishing-gradient/degradation) -- the turning point |\n|      |                                                                       |\n|  DenseNet,       feature reuse, depthwise-separable convs (MobileNet),       |\n|  EfficientNet    compound scaling -> accuracy/compute frontier               |\n|      |                                                                       |\n|  ViT (2020)      pure transformer on image patches -- a new branch (below)   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "### ResNet — why residual connections matter",
+      "confidence": "candidate",
+      "text": "   Plain block:     y = F(x)                  hard to learn identity\n   Residual block:  y = F(x) + x              identity is FREE (set F=0)\n\n         x ----------------+\n         |                 |  (skip / identity)\n         v                 v\n       [ weight layers ]   +  ----> y = F(x) + x\n       (learn F(x))\n\n   Gradient flows directly through the +x path -> deep nets become trainable.\n   This single idea unlocked networks of 50, 101, 152+ layers.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 195,
+      "heading_context": "## Layer 5: Transfer Learning — The Practical Workhorse",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       TRANSFER LEARNING STRATEGIES                           |\n|                                                                              |\n|  PRE-TRAINED BACKBONE (ImageNet)        +------------------------+           |\n|  [ generic early layers ] [ later ]     | YOUR small dataset     |           |\n|                                          +------------------------+          |\n|                                                                              |\n|  STRATEGY                  FREEZE              TRAIN                         |\n|  --------                  ------              -----                         |\n|  Feature extraction        all conv layers     just a new head               |\n|  Fine-tuning (light)       early layers         later layers + head          |\n|  Fine-tuning (full)        nothing              everything (low LR)          |\n|                                                                              |\n|  Less data / more similar -> freeze more. More data / less similar -> train  |\n|  more. This is the single highest-leverage technique in applied vision.      |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 234,
+      "heading_context": "## Layer 6: Vision Transformers — Attention Instead of Convolution",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                    VISION TRANSFORMER (ViT) PIPELINE                         |\n|                                                                              |\n|  image -> split into 16x16 PATCHES -> linear-embed each -> add POSITIONAL    |\n|           encoding -> prepend [CLS] token -> TRANSFORMER ENCODER (self-      |\n|           attention + MLP, repeated) -> [CLS] output -> classify             |\n|                                                                              |\n|   +--+--+--+      patch1 patch2 ... patchN                                   |\n|   |  |  |  |  ->  [emb] [emb] ... [emb]  --self-attention--> every patch     |\n|   +--+--+--+      + pos  + pos      + pos    attends to EVERY other patch    |\n|   |  |  |  |                                                                 |\n|   +--+--+--+      GLOBAL receptive field immediately (no locality prior)     |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

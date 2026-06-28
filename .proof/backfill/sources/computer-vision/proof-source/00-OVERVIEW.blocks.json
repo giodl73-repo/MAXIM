@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture: Vision Is Inverse Graphics",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  VISION = INVERTING THE IMAGE-FORMATION MODEL                |\n|                                                                              |\n|   GRAPHICS (forward)                          VISION (inverse)               |\n|   -----------------                           ---------------                |\n|   scene + lights + camera                     pixels (one or many images)    |\n|            |                                          |                      |\n|            v   project, shade, sample                 v   recover            |\n|   +------------------+                        +------------------+           |\n|   |  PIXEL ARRAY     |  <------------------>  |  SCENE / LABELS  |           |\n|   |  I(x,y)          |     well-posed         |  geometry, ID,   |           |\n|   +------------------+     vs ILL-POSED       |  motion, depth   |           |\n|                                                                              |\n|   The image is a many-to-one projection. Vision must add priors to invert.   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## The Pipeline: What This Directory Covers",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                        THE COMPUTER VISION STACK                             |\n|                                                                              |\n|  LAYER 0  IMAGE FORMATION         pinhole model, intrinsics K, extrinsics    |\n|           (01)                    [R|t], sampling, color    -> the FORWARD   |\n|              |                                                 model we      |\n|              v                                                 invert        |\n|  LAYER 1  EARLY VISION            convolution, edges (Canny), corners        |\n|           (02)                    (Harris), descriptors (SIFT/ORB)           |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 2  MID-LEVEL VISION        segmentation: threshold, watershed,        |\n|           (03)                    graph cuts, semantic/instance/panoptic     |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 3  CLASSICAL RECOGNITION   HOG, bag-of-visual-words, SVM/boosting,    |\n|           (04)                    Viola-Jones  -> the pre-deep recognizer    |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 4  DEEP VISION             CNNs as learned filters, receptive         |\n|           (05)                    fields, ResNet lineage, ViT, transfer      |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 5  MULTI-VIEW GEOMETRY     epipolar constraint, F and E matrices,     |\n|           (06)                    stereo, triangulation, RANSAC              |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 6  DETECTION + TRACKING    R-CNN/YOLO, NMS, IoU/mAP, Kalman,          |\n|           (07)                    optical flow                               |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 7  3D + SLAM               structure-from-motion, MVS, point          |\n|           (08)                    clouds, visual SLAM, NeRF                  |\n|              |                                                               |\n|              v                                                               |\n|  LAYER 8  APPLICATIONS            OCR, faces, medical, generative,           |\n|           (09)                    deployment                                 |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "## Three Eras (and Why They Coexist)",
+      "confidence": "candidate",
+      "text": "   classical signal        geometric            deep / learned\n   ----------------        ---------            --------------\n   |Sobel, Canny|          |F-matrix|           |  CNN / ViT |\n   |Harris, SIFT| -------> |epipolar| -------->  |  end-to-end|\n   |  filters   |  feed    |bundleAdj|  features |  learned   |\n   +------------+          +--------+            +-----------+\n        2D signal           3D geometry            statistics\n   They COMPOSE: modern systems use all three at once.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 150,
+      "heading_context": "## Where Vision Touches the Rest of the Library",
+      "confidence": "candidate",
+      "text": "                          +-------------------+\n                          |  COMPUTER VISION  |\n                          +-------------------+\n              /        /         |          \\          \\\n             v        v          v           v          v\n   signal-      computer-    mathematics/  ai-eng /     optics/\n   processing/  graphics/    (lin alg,     ml-theory/   (lens\n   (conv,       (forward     SVD, proj     (training,   physics,\n   sampling,    render       geometry,     transformers,image\n   Fourier)     model, proj  least sq)     generalization)formation)\n                geometry)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 177,
+      "heading_context": "## A Worked Mental Model: One Image, Every Layer",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|  RAW IMAGE  ->  640x480 RGB pixel array I(x,y,c)                             |\n|       |                                                                      |\n|  (01) FORMATION   known: focal length f, principal point, pixel size         |\n|       |           the car's 3D points X projected by  x ~ K[R|t]X            |\n|       v                                                                      |\n|  (02) FEATURES    Canny edges trace the body; Harris/SIFT mark wheel-arch    |\n|       |           corners and badge keypoints with scale + orientation       |\n|       v                                                                      |\n|  (03) SEGMENT     a mask separates \"car\" pixels from road and sky            |\n|       |                                                                      |\n|  (04/05) RECOGNIZE  classical: HOG+SVM says \"car\"; deep: a CNN says          |\n|       |             \"car, sedan, 0.97\" and localizes it                      |\n|       v                                                                      |\n|  (06) GEOMETRY    with a second photo, epipolar matching + triangulation     |\n|       |           recovers the car's depth and the camera's motion           |\n|       v                                                                      |\n|  (07) TRACK       across a video, a Kalman filter follows the car's box      |\n|       |                                                                      |\n|  (08) 3D / SLAM   many frames -> a 3D point cloud and the camera trajectory  |\n|       v                                                                      |\n|  (09) APPLY       OCR the license plate; flag it; deploy on an edge device   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "### \"Image processing vs computer vision — what's the line?\"",
+      "confidence": "candidate",
+      "text": "  IMAGE PROCESSING            COMPUTER VISION\n  image  -> image             image  -> description / scene\n  denoise, sharpen, warp      \"what is this, where, how far\"\n  signal in, signal out       signal in, MEANING out",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

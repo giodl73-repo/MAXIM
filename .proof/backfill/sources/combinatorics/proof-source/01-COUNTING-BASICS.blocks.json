@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\01-COUNTING-BASICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|              FROM TWO RULES TO THE TWELVEFOLD WAY                          |\n+============================================================================+\n|                                                                            |\n|   RULE OF SUM                       RULE OF PRODUCT                        |\n|   disjoint choices: A or B          sequential choices: A then B           |\n|   |A| + |B|                          |A| * |B|                             |\n|        \\                                 /                                 |\n|         \\                               /                                  |\n|          v                             v                                   |\n|        .-----------------------------------.                               |\n|        |  SELECTION:  pick k from n        |                               |\n|        |                                   |                               |\n|        |  ordered, no repeat ... P(n,k)    |                               |\n|        |  ordered, repeat ....... n^k      |                               |\n|        |  unordered, no repeat .. C(n,k)   |                               |\n|        |  unordered, repeat ..... C(n+k-1,k)|                              |\n|        '-----------------------------------'                               |\n|                          |                                                 |\n|                          v                                                 |\n|        .-----------------------------------.                               |\n|        |   THE TWELVEFOLD WAY              |                               |\n|        |   functions f: [k] balls -> [n] boxes                             |\n|        |   x {any, injective, surjective} |                                |\n|        |   x {balls dist/same} x {boxes dist/same}                         |\n|        |   = 12 cells                      |                               |\n|        '-----------------------------------'                               |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## Layer 1 — The Two Rules",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  RULE OF SUM (disjoint union)                                 |\n|    If task can be done in EITHER way A (m ways) OR way B      |\n|    (n ways), and the ways are disjoint, total = m + n.        |\n|                                                               |\n|  RULE OF PRODUCT (sequence)                                   |\n|    If task is \"do A (m ways) THEN B (n ways)\" with the count  |\n|    of B independent of the choice of A, total = m * n.        |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 95,
+      "heading_context": "## Layer 2 — The Four Fundamental Counts",
+      "confidence": "candidate",
+      "text": "                         REPETITION ALLOWED?\n                    NO                      YES\n              +-------------------+-------------------+\n   ORDER  YES |  P(n,k)           |  n^k              |\n   MATTERS    |  = n!/(n-k)!      |  k-tuples         |\n              |  k-permutations   |  (functions)      |\n              +-------------------+-------------------+\n          NO  |  C(n,k)           |  C(n+k-1, k)      |\n              |  = n!/(k!(n-k)!)  |  multisets        |\n              |  k-subsets        |  \"stars and bars\" |\n              +-------------------+-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 135,
+      "heading_context": "### Multisets and stars and bars",
+      "confidence": "candidate",
+      "text": "`x_1 + x_2 + ... + x_n = k`. Encode a solution as `k` stars and `n-1` bars:",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 137,
+      "heading_context": "### Multisets and stars and bars",
+      "confidence": "candidate",
+      "text": "   x_1=2, x_2=0, x_3=3   for n=3, k=5:\n\n      * *  |  |  * * *\n      ^^^^    ^^^^^^^\n      two    (zero)   three\n\n   k stars + (n-1) bars in a row, choose which (n-1) of the\n   (n+k-1) positions are bars:   C(n+k-1, n-1) = C(n+k-1, k).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 161,
+      "heading_context": "## Layer 3 — The Twelvefold Way",
+      "confidence": "candidate",
+      "text": "+======================================================================+\n|  f : [k] balls --> [n] boxes                                         |\n+======================================================================+\n|  BALLS    BOXES    | ANY f          | INJECTIVE      | SURJECTIVE    |\n|  (k)      (n)      | (<=1 not req)  | (<=1 per box)  | (>=1 per box) |\n+--------------------+----------------+----------------+---------------+\n|  distinct distinct | n^k            | n!/(n-k)!      | n! S(k,n)     |\n|  same    distinct  | C(n+k-1, k)    | C(n, k)        | C(k-1, n-1)   |\n|  distinct same     | SUM_{j} S(k,j) | [k<=n]         | S(k, n)       |\n|  same    same      | p_{<=n}(k)     | [k<=n]         | p_n(k)        |\n+--------------------+----------------+----------------+---------------+\n|  S(k,n) = Stirling 2nd kind;  p_n(k) = partitions of k into n parts  |\n|  [P] = 1 if P true else 0;  SUM_j S(k,j) = Bell number B_k           |\n+======================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 204,
+      "heading_context": "## Worked Counts (verify the formulas)",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  Q1. License plates: 3 letters then 4 digits, repeats OK.     |\n|      26^3 * 10^4 = 17,576 * 10,000 = 175,760,000.             |\n|      (product rule, ordered with repetition)                  |\n|                                                               |\n|  Q2. Committees of 3 from 10 people.                          |\n|      C(10,3) = 120.   (unordered, no repeat)                  |\n|                                                               |\n|  Q3. Ways to write 7 as an ordered sum of 3 positive parts    |\n|      (compositions): C(7-1, 3-1) = C(6,2) = 15.               |\n|                                                               |\n|  Q4. Nonneg integer solutions to a+b+c+d = 10:                |\n|      C(10+4-1, 10) = C(13,3) = 286.   (stars and bars)        |\n|                                                               |\n|  Q5. Surjections from 4 distinct balls onto 2 distinct boxes: |\n|      2! * S(4,2) = 2 * 7 = 14.                                |\n|      (or 2^4 - 2 = 14 by inclusion-exclusion, see file 04)    |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "### \"Do I use n^k or C(n,k)? They feel similar.\"",
+      "confidence": "candidate",
+      "text": "### \"Stars and bars gives C(n+k-1, k) — but I keep getting C(n+k-1, n).\"",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 279,
+      "heading_context": "### \"Stars and bars gives C(n+k-1, k) — but I keep getting C(n+k-1, n).\"",
+      "confidence": "candidate",
+      "text": "They are equal: `C(n+k-1, k) = C(n+k-1, n-1)`. Choosing which positions are",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

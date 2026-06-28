@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 109,
+      "heading_context": "## Three Eras (and Why They Coexist)",
+      "headers": [
+        "Era",
+        "Period",
+        "Core idea",
+        "What it is good at",
+        "Where it breaks"
+      ],
+      "rows": [
+        [
+          "**Classical / signal**",
+          "1960s–1990s",
+          "Hand-designed filters and features; the image as a 2D signal",
+          "Edges, corners, blobs; interpretable; cheap",
+          "Semantics, occlusion, intra-class variation"
+        ],
+        [
+          "**Geometric**",
+          "1980s–2010s",
+          "Recover 3D structure from projection geometry",
+          "Pose, depth, reconstruction, calibration",
+          "Texture-less, dynamic, or non-rigid scenes"
+        ],
+        [
+          "**Deep / learned**",
+          "2012–now",
+          "Learn the features *and* the decision end-to-end",
+          "Classification, detection, segmentation, generation",
+          "Data hunger, distribution shift, geometric guarantees"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 133,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Maps to in vision"
+      ],
+      "rows": [
+        [
+          "Convolution / LTI systems (signal processing)",
+          "A CNN layer is a bank of learned convolution kernels; the receptive field is the impulse-response support"
+        ],
+        [
+          "Projective geometry / homogeneous coords (graphics)",
+          "The pinhole model, camera matrix, and homographies are the same machinery, *used to invert*"
+        ],
+        [
+          "Least squares / SVD (linear algebra)",
+          "Triangulation, the 8-point algorithm for F, and PnP pose are constrained least-squares / null-space problems"
+        ],
+        [
+          "Kalman filtering (control theory)",
+          "Object tracking propagates a Gaussian belief over object state frame to frame"
+        ],
+        [
+          "Backprop / optimization (ML)",
+          "Same training machinery; vision adds spatial structure (weight sharing, pooling) as an architectural prior"
+        ],
+        [
+          "Compression / sampling (signal)",
+          "Nyquist governs aliasing in images; mipmaps in graphics ↔ scale space (SIFT) in vision"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 209,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Go to",
+        "Core tool"
+      ],
+      "rows": [
+        [
+          "Understand how pixels relate to 3D points",
+          "01",
+          "Pinhole model, `x ~ K[R\\|t]X`"
+        ],
+        [
+          "Detect edges or corners; match keypoints",
+          "02",
+          "Canny, Harris, SIFT/ORB"
+        ],
+        [
+          "Cut an image into regions or objects",
+          "03",
+          "Thresholding, graph cuts, semantic/instance seg"
+        ],
+        [
+          "Classify images without deep nets",
+          "04",
+          "HOG, bag-of-visual-words + SVM"
+        ],
+        [
+          "Build a modern recognizer",
+          "05",
+          "CNN (ResNet) or ViT + transfer learning"
+        ],
+        [
+          "Recover depth or camera pose from 2+ views",
+          "06",
+          "Epipolar geometry, F/E matrices, triangulation"
+        ],
+        [
+          "Find and follow objects in video",
+          "07",
+          "YOLO/R-CNN, NMS, IoU/mAP, Kalman, optical flow"
+        ],
+        [
+          "Reconstruct a 3D scene from images",
+          "08",
+          "SfM, bundle adjustment, MVS, SLAM"
+        ],
+        [
+          "Read text, recognize faces, or generate images",
+          "09",
+          "OCR, face embeddings, GAN/diffusion"
+        ],
+        [
+          "Fit a model to noisy correspondences",
+          "06",
+          "RANSAC"
+        ]
+      ]
+    }
+  ]
+}

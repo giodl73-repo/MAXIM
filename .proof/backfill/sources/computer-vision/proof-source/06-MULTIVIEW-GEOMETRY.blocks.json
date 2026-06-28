@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\06-MULTIVIEW-GEOMETRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture: Recovering Depth from Two Eyes",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              TWO VIEWS RECOVER THE THIRD DIMENSION                           |\n|                                                                              |\n|                          X  (3D point, unknown depth)                        |\n|                         /|\\                                                  |\n|                        / | \\                                                 |\n|                       /  |  \\                                                |\n|                      /   |   \\                                               |\n|        image 1 -----x1   |   x2----- image 2                                 |\n|                   /      |      \\                                            |\n|                  C1------|-------C2     two camera centers                   |\n|                  (left)  |   (right)                                         |\n|                          v                                                   |\n|                     baseline C1-C2 + the two rays -> triangulate X           |\n|                                                                              |\n|   Disparity (x1 - x2) is INVERSELY proportional to depth Z.                  |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "## Layer 1: The Epipolar Constraint — Search Becomes 1D",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                        EPIPOLAR GEOMETRY                                     |\n|                                                                              |\n|                            X (somewhere on this ray)                         |\n|                           /:\\                                                |\n|                          / : \\                                               |\n|                         /  :  \\                                              |\n|              image1    /   :   \\    image2                                   |\n|             +--------+/    :    \\+--------+                                  |\n|             |   x1 . |     :     | . . . .|  <- epipolar LINE l2:            |\n|             |        |     :     |  the image of x1's ray                    |\n|             |  e1 .  |     :     |  . e2  |  <- epipoles e1,e2 = image of    |\n|             +--------+     :     +--------+     the OTHER camera center      |\n|                  C1 -------:------- C2                                       |\n|                       baseline                                               |\n|                                                                              |\n|   The two image planes, the two centers, and X all lie in ONE epipolar       |\n|   plane. Its intersection with each image is an epipolar line.               |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 116,
+      "heading_context": "## Layer 2: The Fundamental Matrix F",
+      "confidence": "candidate",
+      "text": "### The 8-point algorithm",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "### The 8-point algorithm",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                  NORMALIZED 8-POINT ALGORITHM (estimate F)                   |\n|                                                                              |\n|  1. NORMALIZE   translate/scale points so they are centered, ~unit spread    |\n|                 (Hartley normalization -- essential for numerical stability) |\n|  2. BUILD A     each match -> one row of A from x2^T F x1 = 0; stack >= 8    |\n|  3. SVD of A    F = the singular vector for the smallest singular value      |\n|                 (least-squares null space)                                   |\n|  4. ENFORCE     SVD F = U S V^T; zero the smallest singular value; recompose |\n|     RANK 2      -> guarantees det F = 0 (valid epipolar geometry)            |\n|  5. DENORMALIZE undo the step-1 transform                                    |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 166,
+      "heading_context": "## Layer 3: The Essential Matrix E — When the Cameras Are Calibrated",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              FUNDAMENTAL vs ESSENTIAL  (uncalibrated vs calibrated)          |\n|                                                                              |\n|  FUNDAMENTAL F                         ESSENTIAL E                           |\n|  -------------                         -----------                           |\n|  pixel coordinates                     normalized (calibrated) coords        |\n|  x2^T F x1 = 0                          x2_hat^T E x1_hat = 0                |\n|  encodes intrinsics + pose             encodes ONLY relative pose            |\n|  7 DOF, rank 2                          5 DOF, rank 2, equal singular values |\n|  no metric meaning                      decomposes to R, t (up to scale)     |\n|                                                                              |\n|  E = K2^T F K1    (calibration is the bridge between them)                   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "## Layer 5: Stereo and Rectification",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                    STEREO PIPELINE  (rectified rig -> depth map)             |\n|                                                                              |\n|  1. CALIBRATE     intrinsics + extrinsics of both cameras                    |\n|  2. RECTIFY       warp so epipolar lines are horizontal & row-aligned        |\n|  3. MATCH         for each pixel, scan the same row in the other image;      |\n|                   cost = SAD/SSD/census/NCC over a window                    |\n|  4. DISPARITY     disparity map d(x,y) = horizontal shift of best match      |\n|  5. DEPTH         Z = f*b/d  -> depth map / 3D point cloud                   |\n|                                                                              |\n|   Global methods (semi-global matching SGM, graph cuts) enforce smoothness   |\n|   across the whole map; local window methods are fast but noisy.             |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 284,
+      "heading_context": "## Layer 7: RANSAC — Robustness to Wrong Matches",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                         RANSAC  (robust model fitting)                       |\n|                                                                              |\n|  REPEAT N times:                                                             |\n|    1. SAMPLE   pick the MINIMAL set at random (8 for F, 4 for H)             |\n|    2. FIT      estimate the model from just those points                     |\n|    3. SCORE    count INLIERS: matches with error < threshold t               |\n|  KEEP the model with the most inliers; REFIT using all its inliers.          |\n|                                                                              |\n|   data with outliers:    o o o   X (outlier)                                 |\n|                         o o o o        X                                     |\n|       best line  -------o-o-o-o-o-------   ignores the X's                   |\n|                                                                              |\n|   #iterations N for success prob p, inlier ratio w, sample size s:           |\n|       N = log(1 - p) / log(1 - w^s)                                          |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 352,
+      "heading_context": "### \"Fundamental vs essential — when do I use which?\"",
+      "confidence": "candidate",
+      "text": "### \"Why does F have rank 2 — and why force it?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

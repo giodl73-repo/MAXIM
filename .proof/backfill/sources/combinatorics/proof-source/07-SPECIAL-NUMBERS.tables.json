@@ -1,0 +1,135 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\07-SPECIAL-NUMBERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 129,
+      "heading_context": "## Layer 2 — Stirling Numbers (Two Kinds)",
+      "headers": [
+        "n\\k",
+        "S(n,1)",
+        "S(n,2)",
+        "S(n,3)",
+        "S(n,4)"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "1",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "3",
+          "1",
+          "3",
+          "1",
+          "0"
+        ],
+        [
+          "4",
+          "1",
+          "7",
+          "6",
+          "1"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 237,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "# of distinct binary-tree shapes / parse trees",
+          "Catalan `C_n`"
+        ],
+        [
+          "# of ways to fully-parenthesize a chain product",
+          "Catalan (matrix-chain DP states)"
+        ],
+        [
+          "# of GROUP BY partitions of n rows",
+          "Bell `B_n` / Stirling 2nd"
+        ],
+        [
+          "# of ways to assign tasks to k nonempty teams",
+          "`k! S(n,k)` (labeled) or `S(n,k)`"
+        ],
+        [
+          "Cycle structure of a random permutation",
+          "Stirling 1st `c(n,k)`"
+        ],
+        [
+          "Sorting-network / inversion statistics",
+          "Eulerian numbers (descents)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 258,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I am counting...",
+        "Number",
+        "Formula / GF"
+      ],
+      "rows": [
+        [
+          "Binary trees / balanced parens / Dyck paths",
+          "Catalan `C_n`",
+          "`C(2n,n)/(n+1)`"
+        ],
+        [
+          "Triangulations of an (n+2)-gon",
+          "Catalan `C_n`",
+          "same"
+        ],
+        [
+          "Set partitions into exactly `k` blocks",
+          "Stirling 2nd `S(n,k)`",
+          "`S=kS+S` recurrence"
+        ],
+        [
+          "Onto functions `[n]→[k]`",
+          "`k! S(n,k)`",
+          "I-E (`04`)"
+        ],
+        [
+          "All set partitions of `[n]`",
+          "Bell `B_n`",
+          "EGF `e^{e^x-1}`"
+        ],
+        [
+          "Permutations with `k` cycles",
+          "Stirling 1st `c(n,k)`",
+          "`(n-1)c+c` recurrence"
+        ],
+        [
+          "Permutations with `k` ascents",
+          "Eulerian `A(n,k)`",
+          "`(k+1)A+(n-k)A`"
+        ],
+        [
+          "Unordered integer sums",
+          "partitions `p(n)`",
+          "OGF `∏ 1/(1-x^k)`"
+        ]
+      ]
+    }
+  ]
+}

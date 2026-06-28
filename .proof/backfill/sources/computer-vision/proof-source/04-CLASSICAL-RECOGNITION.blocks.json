@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\04-CLASSICAL-RECOGNITION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture: Hand-Crafted Features Plus a Classifier",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|             THE CLASSICAL RECOGNITION PIPELINE  (image -> label)             |\n|                                                                              |\n|   IMAGE        FEATURE EXTRACT      ENCODE            CLASSIFY               |\n|   .-----.      .-------------.      .-----------.     .-----------.          |\n|   |     | ---> | HOG / SIFT  | ---> | fixed-len | --> | SVM /     | -> \"cat\" |\n|   |     |      | dense or    |      | vector    |     | boosting/ |          |\n|   |     |      | keypoints   |      | (BoVW,    |     | random    |          |\n|   '-----'      '-------------'      |  pyramid) |     | forest)   |          |\n|                  HAND-DESIGNED       HAND-DESIGNED      LEARNED              |\n|                                                                              |\n|   Only the last box is trained. Deep learning makes ALL of it learned.       |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "## Layer 1: HOG — Histogram of Oriented Gradients",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                          HOG DESCRIPTOR (4 steps)                            |\n|                                                                              |\n|  1. GRADIENTS    compute Gx, Gy per pixel -> magnitude + orientation         |\n|  2. CELLS        divide window into small cells (e.g. 8x8 px)                |\n|                  build a histogram of orientations per cell (e.g. 9 bins)    |\n|  3. BLOCKS       group cells into overlapping blocks (e.g. 2x2 cells)        |\n|                  NORMALIZE within each block (contrast invariance)           |\n|  4. CONCATENATE  all block histograms -> one long feature vector             |\n|                                                                              |\n|     +--+--+--+--+      each cell ->  \\ | /  histogram of                     |\n|     |  |  |  |  |                    -- + --  gradient orientations          |\n|     +--+--+--+--+                    / | \\   (9 bins, 0..180 deg)            |\n|     |  |  |  |  |      block = 2x2 cells, L2-normalized together             |\n|     +--+--+--+--+                                                            |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 90,
+      "heading_context": "## Layer 2: Bag-of-Visual-Words — Borrowing from Text Retrieval",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|            BAG-OF-VISUAL-WORDS  (text bag-of-words, for images)              |\n|                                                                              |\n|  1. EXTRACT    dense or keypoint SIFT descriptors from many images           |\n|  2. CLUSTER    k-means over all descriptors -> k cluster centers =           |\n|                the \"VISUAL VOCABULARY\" (each center is a \"visual word\")      |\n|  3. ASSIGN     each descriptor -> nearest visual word                        |\n|  4. HISTOGRAM  count word occurrences -> k-D histogram = the image vector    |\n|                                                                              |\n|   image -> {sift1, sift2, ...} -> [w3,w17,w3,w42,...] -> histogram over k    |\n|                                                                              |\n|   Like a document = a histogram of words, an image = a histogram of          |\n|   visual words. Order/position discarded (\"bag\").                            |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## Layer 3: Spatial Pyramid — Putting Position Back In",
+      "confidence": "candidate",
+      "text": "   Level 0          Level 1            Level 2\n   .-------.        .---+---.          .-+-+-+-.\n   |       |        |   |   |          +-+-+-+-+\n   | whole |        +---+---+          +-+-+-+-+\n   | image |        |   |   |          +-+-+-+-+\n   '-------'        '---+---'          '-+-+-+-'\n   1 histogram      4 histograms       16 histograms\n\n   Concatenate all levels (weighted) -> a spatially-aware image vector.\n   \"A face has eyes in the TOP cells, mouth in the BOTTOM cells.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## Layer 4: The Classifiers",
+      "confidence": "candidate",
+      "text": "   LINEAR SVM in HOG space:        the learned weight vector w, reshaped to\n                                   the HOG cell grid, LOOKS like the object --\n   w . x + b  > 0  -> object       a \"template\" of oriented edges. A sliding\n                < 0  -> background  window evaluates w.x+b at every location.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 175,
+      "heading_context": "## Layer 5: Viola-Jones — Real-Time Face Detection",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                      VIOLA-JONES  (three key ideas)                          |\n|                                                                              |\n|  1. HAAR FEATURES        sum(white region) - sum(black region):              |\n|       +----+----+        captures edges/lines (e.g. eyes darker than cheeks) |\n|       |XXXX|    |                                                            |\n|       |XXXX|    |        thousands of such rectangle features per window     |\n|       +----+----+                                                            |\n|                                                                              |\n|  2. INTEGRAL IMAGE       precompute a summed-area table: ANY rectangle sum   |\n|                          in O(1) (4 lookups), regardless of size             |\n|                                                                              |\n|  3. ADABOOST CASCADE     boost selects the few best features; arrange as a   |\n|                          CASCADE -- early simple stages reject most windows  |\n|                          instantly; only face-like windows reach later       |\n|                          stages -> huge average speedup                      |\n|                                                                              |\n|   cascade:  [stage1]--reject-->X   [stage2]--reject-->X  ...  [stageN]->FACE |\n|                |pass                |pass                                    |\n|                v                    v                                        |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 213,
+      "heading_context": "## The Whole Pipeline, Compared",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|            CLASSICAL vs DEEP RECOGNITION  (what got automated)               |\n|                                                                              |\n|  CLASSICAL (pre-2012)                  DEEP (2012+)                          |\n|  --------------------                  -----------                           |\n|  feature design: HOG, SIFT (FIXED)     features: LEARNED conv filters        |\n|  encoding: BoVW, spatial pyramid       encoding: LEARNED pooling hierarchy   |\n|  classifier: SVM / boosting (LEARNED)  classifier: LEARNED softmax head      |\n|                                                                              |\n|  human picks features, machine          machine learns features AND          |\n|  learns only the final boundary         classifier end-to-end from pixels    |\n|                                                                              |\n|  interpretable, low-data, modular       higher accuracy, data-hungry,        |\n|                                         opaque, monolithic                   |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

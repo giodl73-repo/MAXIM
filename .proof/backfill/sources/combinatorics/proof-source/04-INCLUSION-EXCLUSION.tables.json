@@ -1,0 +1,80 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\04-INCLUSION-EXCLUSION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 194,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "`COUNT(DISTINCT)` over overlapping predicate sets",
+          "union form of I-E"
+        ],
+        [
+          "`WHERE NOT (a OR b OR c)` — rows matching none",
+          "complement form"
+        ],
+        [
+          "De Morgan: `¬(A∨B) = ¬A ∧ ¬B`",
+          "\"none of the bad\" = intersection of complements"
+        ],
+        [
+          "Bitmask over subsets in a `2^n` loop",
+          "the `Σ_{S⊆[n]}` sum literally iterates masks"
+        ],
+        [
+          "Cache/branch \"all-miss\" probability",
+          "union bound / first Bonferroni"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 213,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to count...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "`\\|A ∪ B ∪ ...\\|` with overlaps",
+          "Union form"
+        ],
+        [
+          "Elements satisfying **none** of n conditions",
+          "Complement form"
+        ],
+        [
+          "Permutations with no fixed point",
+          "Derangements `D_n = n! Σ (-1)^j/j!`"
+        ],
+        [
+          "Onto functions `[k]→[n]`",
+          "`Σ (-1)^j C(n,j)(n-j)^k = n! S(k,n)`"
+        ],
+        [
+          "Integers in `[1,n]` coprime to n",
+          "Euler totient `n ∏(1-1/p)`"
+        ],
+        [
+          "Integers divisible by none of given primes",
+          "Legendre sieve"
+        ],
+        [
+          "A bound when full I-E is intractable",
+          "Bonferroni inequalities"
+        ],
+        [
+          "\"At least one of the bad events\" probability",
+          "Union bound (`Σ Pr`)"
+        ]
+      ]
+    }
+  ]
+}

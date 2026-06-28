@@ -1,0 +1,769 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-vision-multiview-geometry",
+  "source": "../../computer-vision",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#000",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "# Multi-View Geometry"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#001",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Recovering Depth from Two Eyes"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#002",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "A single image destroys depth (guide 01: projection divides by `Z`). Two images of the\nsame scene from different viewpoints recover it — the difference in where a point appears\n(its *disparity*) encodes its distance. Multi-view geometry is the precise machinery for\nthis: the **epipolar constraint** that links the two views, the **fundamental** and\n**essential** matrices that encode it, **triangulation** that reconstructs 3D points, and\n**RANSAC** that makes it all robust to wrong matches. This is the geometric heart of\nvision — the part deep learning has *not* replaced."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#003",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|              TWO VIEWS RECOVER THE THIRD DIMENSION                           |\n|                                                                              |\n|                          X  (3D point, unknown depth)                        |\n|                         /|\\                                                  |\n|                        / | \\                                                 |\n|                       /  |  \\                                                |\n|                      /   |   \\                                               |\n|        image 1 -----x1   |   x2----- image 2                                 |\n|                   /      |      \\                                            |\n|                  C1------|-------C2     two camera centers                   |\n|                  (left)  |   (right)                                         |\n|                          v                                                   |\n|                     baseline C1-C2 + the two rays -> triangulate X           |\n|                                                                              |\n|   Disparity (x1 - x2) is INVERSELY proportional to depth Z.                  |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#004",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#005",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Epipolar Constraint — Search Becomes 1D"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#006",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "Given a point `x1` in image 1, where is its match in image 2? Without geometry you would\nsearch the whole image (2D). The epipolar constraint reduces this to a *single line* —\nthe **epipolar line** — because the true match must lie on the projection of the ray\nthrough `x1`."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#007",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                        EPIPOLAR GEOMETRY                                     |\n|                                                                              |\n|                            X (somewhere on this ray)                         |\n|                           /:\\                                                |\n|                          / : \\                                               |\n|                         /  :  \\                                              |\n|              image1    /   :   \\    image2                                   |\n|             +--------+/    :    \\+--------+                                  |\n|             |   x1 . |     :     | . . . .|  <- epipolar LINE l2:            |\n|             |        |     :     |  the image of x1's ray                    |\n|             |  e1 .  |     :     |  . e2  |  <- epipoles e1,e2 = image of    |\n|             +--------+     :     +--------+     the OTHER camera center      |\n|                  C1 -------:------- C2                                       |\n|                       baseline                                               |\n|                                                                              |\n|   The two image planes, the two centers, and X all lie in ONE epipolar       |\n|   plane. Its intersection with each image is an epipolar line.               |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#008",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "| Term | Definition |\n|------|------------|\n| **Epipolar plane** | Plane through `X`, `C1`, `C2` |\n| **Epipolar line** | Intersection of the epipolar plane with an image |\n| **Epipole** | Image of one camera's center in the other view; all epipolar lines pass through it |\n| **Baseline** | The line `C1`–`C2` joining the two centers |"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#009",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "The payoff: stereo matching searches a 1D line, not a 2D plane — a quadratic-to-linear\nreduction in the matching problem."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#010",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#011",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "## Layer 2: The Fundamental Matrix F"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#012",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "The epipolar constraint is captured algebraically by the **fundamental matrix** `F`, a\n3x3 rank-2 matrix relating corresponding *pixel* coordinates in two **uncalibrated**\nviews."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#013",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "```\n   For corresponding points x1, x2 (homogeneous pixel coords):"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#014",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "x2^T F x1 = 0          <- THE epipolar constraint"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#015",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "Meaning: F x1 = l2 is the epipolar LINE in image 2 on which x2 must lie.\n            F^T x2 = l1 is the epipolar line in image 1."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#016",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "Properties of F:\n     - 3x3, RANK 2 (det F = 0)        <- one of its singular values is 0\n     - 7 degrees of freedom           (9 entries, -1 scale, -1 rank constraint)\n     - epipoles are its null spaces:  F e1 = 0,   F^T e2 = 0\n     - depends on intrinsics K1,K2 AND the relative pose (uncalibrated)\n```"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#017",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "### The 8-point algorithm"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#018",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "`F` is estimated from point correspondences. Each match `x2^T F x1 = 0` gives one linear\nequation in the 9 entries of `F`; eight matches determine it (up to scale)."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#019",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                  NORMALIZED 8-POINT ALGORITHM (estimate F)                   |\n|                                                                              |\n|  1. NORMALIZE   translate/scale points so they are centered, ~unit spread    |\n|                 (Hartley normalization -- essential for numerical stability) |\n|  2. BUILD A     each match -> one row of A from x2^T F x1 = 0; stack >= 8    |\n|  3. SVD of A    F = the singular vector for the smallest singular value      |\n|                 (least-squares null space)                                   |\n|  4. ENFORCE     SVD F = U S V^T; zero the smallest singular value; recompose |\n|     RANK 2      -> guarantees det F = 0 (valid epipolar geometry)            |\n|  5. DENORMALIZE undo the step-1 transform                                    |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#020",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "**Bridge — linear algebra:** every step is SVD. Solving `A f = 0` for the homogeneous\nnull space is \"smallest-singular-vector of `A`\"; enforcing rank 2 is \"zero the smallest\nsingular value of `F`.\" Hartley's normalization is the difference between a usable `F`\nand numerical garbage."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#021",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#022",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "## Layer 3: The Essential Matrix E — When the Cameras Are Calibrated"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#023",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "If you know the intrinsics `K1, K2`, work in *normalized* camera coordinates (`x_hat =\nK^-1 x`) and the constraint uses the **essential matrix** `E`, which encodes *only the\nrelative pose* — pure geometry, no intrinsics."
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#024",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "```\n   Normalized coords:  x_hat = K^-1 x      Then:   x2_hat^T E x1_hat = 0"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#025",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "Relationship:        E = K2^T F K1       (F is E \"wrapped\" in the intrinsics)"
+    },
+    {
+      "id": "06-MULTIVIEW-GEOMETRY.md#026",
+      "path": [
+        "06-MULTIVIEW-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-vision:06-multiview-geometry, git-history:computer-vision:06-multiview-geometry]",
+        "canonical_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "concepts": "[epipolar geometry, fundamental matrix, essential matrix, stereo, triangulation, RANSAC, homography]",
+        "current_path": "computer-vision/06-MULTIVIEW-GEOMETRY.md",
+        "id": "maxim:computer-vision:multiview-geometry",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[multi-view geometry]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Multi-View Geometry",
+        "updated": "null"
+      },
+      "text": "E factorizes into the relative ROTATION and TRANSLATION:"
+    }
+  ],
+  "refs": [
+    "06-MULTIVIEW-GEOMETRY.md"
+  ]
+}

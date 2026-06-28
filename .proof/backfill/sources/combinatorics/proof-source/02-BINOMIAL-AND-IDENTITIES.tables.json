@@ -1,0 +1,124 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\02-BINOMIAL-AND-IDENTITIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 102,
+      "heading_context": "## Layer 2 — The Binomial Theorem",
+      "headers": [
+        "Substitution",
+        "Identity",
+        "Combinatorial reading"
+      ],
+      "rows": [
+        [
+          "`x=y=1`",
+          "`Σ_k C(n,k) = 2^n`",
+          "all subsets of `[n]`"
+        ],
+        [
+          "`x=1, y=-1`",
+          "`Σ_k (-1)^k C(n,k) = 0` (n>0)",
+          "even subsets = odd subsets"
+        ],
+        [
+          "differentiate, `x=1`",
+          "`Σ_k k C(n,k) = n 2^{n-1}`",
+          "sum of subset sizes"
+        ],
+        [
+          "`x=2, y=1`",
+          "`Σ_k C(n,k) 2^k = 3^n`",
+          "functions `[n]→{a,b,c}`-style"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 213,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Counting bit-strings with k ones",
+          "`C(n,k)` (k-subsets ↔ bitmasks)"
+        ],
+        [
+          "`2^n` subsets / full truth table",
+          "row sum `Σ_k C(n,k) = 2^n`"
+        ],
+        [
+          "Polynomial expansion in a CAS",
+          "binomial / multinomial theorem"
+        ],
+        [
+          "Convolution of two distributions",
+          "Vandermonde (`(1+x)^m(1+x)^n`)"
+        ],
+        [
+          "Splitting work into labeled buckets of fixed sizes",
+          "multinomial coefficient"
+        ],
+        [
+          "Anagrams / multiset permutations",
+          "`n!/(k_1!...k_m!)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 234,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Count k-subsets / bitmasks",
+          "`C(n,k) = n!/(k!(n-k)!)`"
+        ],
+        [
+          "Expand `(x+y)^n`",
+          "Binomial theorem"
+        ],
+        [
+          "Sum a Pascal row",
+          "`Σ_k C(n,k) = 2^n`"
+        ],
+        [
+          "Sum with alternating signs",
+          "`Σ_k (-1)^k C(n,k) = 0` (n>0)"
+        ],
+        [
+          "Split `C(m+n,k)` over two groups",
+          "Vandermonde"
+        ],
+        [
+          "Sum a Pascal column/diagonal",
+          "Hockey stick"
+        ],
+        [
+          "Count multiset arrangements",
+          "Multinomial `n!/(k_1!...k_m!)`"
+        ],
+        [
+          "Expand `(x_1+...+x_m)^n`",
+          "Multinomial theorem"
+        ],
+        [
+          "Handle non-integer exponent",
+          "Generalized binomial `(1+x)^α`"
+        ],
+        [
+          "Prove a binomial identity",
+          "Count one set two ways (bijection)"
+        ]
+      ]
+    }
+  ]
+}

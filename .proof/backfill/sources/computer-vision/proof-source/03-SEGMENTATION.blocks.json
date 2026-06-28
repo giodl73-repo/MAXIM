@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\03-SEGMENTATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture: Partitioning the Image",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                   SEGMENTATION: ASSIGN EVERY PIXEL A LABEL                   |\n|                                                                              |\n|   INPUT IMAGE             METHOD FAMILIES               OUTPUT               |\n|   .---------.      .-------------------------.      .-------------.          |\n|   |         |      | thresholding (global)   |      | region map  |          |\n|   |  scene  | ---> | region growing / split  | ---> | each pixel  |          |\n|   |         |      | watershed (topographic) |      | -> a label  |          |\n|   |         |      | graph cuts / mean shift |      |             |          |\n|   |         |      | DEEP (semantic/instance)|      |             |          |\n|   '---------'      '-------------------------'      '-------------'          |\n|                                                                              |\n|   classical = group by appearance;  deep = group by learned semantics        |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 54,
+      "heading_context": "## The Three Flavors (Know Which You Need)",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|             SEMANTIC vs INSTANCE vs PANOPTIC  (what the labels mean)         |\n|                                                                              |\n|  SEMANTIC            INSTANCE              PANOPTIC                          |\n|  --------            --------              --------                          |\n|  per-pixel CLASS     per-OBJECT mask       semantic + instance unified       |\n|  \"road, car, sky\"    \"car1, car2, car3\"   \"road (stuff) + car1,2,3 (things)\" |\n|                                                                              |\n|  two cars share      two cars are          stuff gets a class; things get    |\n|  ONE label \"car\"     SEPARATE masks        class AND an instance id          |\n|                                                                              |\n|  no object count     counts objects        complete scene labeling           |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 86,
+      "heading_context": "## Layer 1: Thresholding — The Simplest Cut",
+      "confidence": "candidate",
+      "text": "   Binary:   B(x,y) = 1 if I(x,y) > T else 0\n\n   OTSU'S METHOD picks T automatically by maximizing between-class variance\n   (equivalently minimizing within-class variance) over a bimodal histogram:\n\n      histogram          T splits the two peaks\n      count |   .-.          .-.\n            |  /   \\        /   \\\n            | /     \\  T   /     \\\n            |/       \\-|--/       \\\n            +----------+-----------> intensity\n            background  | foreground",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 113,
+      "heading_context": "## Layer 2: Region-Based — Growing and Splitting",
+      "confidence": "candidate",
+      "text": "   REGION GROWING               SPLIT-AND-MERGE (quadtree)\n   --------------               -----------------\n   start from seeds;            split image into quadrants\n   add neighbor pixels that     recursively until each is\n   meet a similarity test       homogeneous; then merge\n   (intensity / color / texture) adjacent similar quadrants\n\n   .--+--.        seed o     .--------.      .--+--+--.\n   |  |  |   -->   grows  --> | merged |  <-- |  |  |  |  split then merge\n   +--+--+        outward     | region |      +--+--+--+\n   |  |o |                    '--------'      |  |  |  |\n   '--+--'                                    '--+--+--'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 139,
+      "heading_context": "## Layer 3: Watershed — The Topographic Metaphor",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       WATERSHED  (immersion analogy)                         |\n|                                                                              |\n|   gradient as terrain:    /\\        /\\        each LOCAL MINIMUM is a basin; |\n|                          /  \\  /\\  /  \\       flooding the basins, the lines |\n|              ___/\\_____/    \\/  \\/    \\___    where waters MEET are the      |\n|             basin A        watershed    B     segment boundaries.            |\n|                              line                                            |\n|                                                                              |\n|   Problem: OVER-SEGMENTATION (every tiny minimum starts a basin).            |\n|   Fix: MARKER-CONTROLLED watershed -- flood only from user/auto markers.     |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Layer 4: Mean Shift — Mode-Seeking in Feature Space",
+      "confidence": "candidate",
+      "text": "   Each pixel = a point in (x, y, r, g, b) space.\n   Iterate: move each point to the mean of neighbors within a bandwidth h.\n\n      .  .  .            modes (peaks of density)\n       . o.  .   --->        O          O\n      .  .. .             converged   converged\n                          cluster 1   cluster 2\n\n   bandwidth h_spatial controls region size; h_color controls color tolerance.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 198,
+      "heading_context": "## Layer 5: Graph Cuts — Segmentation as Energy Minimization",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|             GRAPH CUTS  (segmentation = min-cut = energy minimization)       |\n|                                                                              |\n|              SOURCE (foreground)                                             |\n|              /    |     \\                                                    |\n|         t-link  t-link  t-link     t-links: how much each pixel \"wants\" to   |\n|           |       |       |        be FG vs BG (DATA term)                   |\n|         [p1]----[p2]----[p3]       n-links: penalty for cutting between      |\n|           |       |       |        SIMILAR neighbors (SMOOTHNESS term)       |\n|         t-link  t-link  t-link                                               |\n|              \\    |     /                                                    |\n|              SINK (background)                                               |\n|                                                                              |\n|   Energy:  E(L) = SUM data(p, L_p)  +  lambda * SUM smooth(L_p, L_q)         |\n|   Min-cut on this graph = global minimum of E for two labels (exact).        |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 237,
+      "heading_context": "## Layer 6: Deep Segmentation — Learning the Labels",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|              DEEP SEGMENTATION ARCHITECTURES  (encoder-decoder)              |\n|                                                                              |\n|   ENCODER (downsample, learn what)        DECODER (upsample, restore where)  |\n|   image -> conv -> conv -> ... -> small -> upconv -> ... -> per-pixel labels |\n|              |        |                       ^         ^                    |\n|              +--------+-----skip connections--+---------+                    |\n|                       (U-Net: copy fine detail across to recover boundaries) |\n|                                                                              |\n|   FCN     : first dense per-pixel net                                        |\n|   U-Net   : symmetric encoder-decoder + skips (medical imaging standard)     |\n|   DeepLab : atrous/dilated convolution + CRF for sharp boundaries            |\n|   Mask R-CNN : detection + a mask head -> INSTANCE segmentation              |\n|   SAM     : promptable, foundation-model segmentation (2023)                 |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

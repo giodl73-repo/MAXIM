@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "combinatorics\\05-RECURRENCES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                  A RECURRENCE IS A COUNT DEFINED BY ITSELF                 |\n+============================================================================+\n|                                                                            |\n|   LINEAR, CONSTANT COEFFS         NONLINEAR / CONVOLUTION                  |\n|   a_n = c1 a_{n-1}+...+ck a_{n-k}  a_{n+1}=SUM a_i a_{n-i} (Catalan)       |\n|        |                                  |                                |\n|        v                                  v                                |\n|   CHARACTERISTIC EQUATION           GENERATING FUNCTION (file 03)          |\n|   x^k = c1 x^{k-1}+...+ck            functional eqn -> closed form         |\n|   roots r_i ->                                                             |\n|   a_n = SUM A_i r_i^n                                                      |\n|   (repeated root r: r^n, n r^n,...)                                        |\n|                                                                            |\n|   .------------------.   .------------------.   .-------------------.      |\n|   | HOMOGENEOUS      |   | INHOMOGENEOUS    |   | DIVIDE & CONQUER  |      |\n|   | a_n = c a_{n-1}  |   | a_n = c a_{n-1}  |   | T(n)=a T(n/b)+f(n)|      |\n|   |       homog. sol |   |    + g(n)        |   | -> Master Theorem |      |\n|   |                  |   | homog + particular|  | (cross: graph-alg)|      |\n|   '------------------'   '------------------'   '-------------------'      |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## Layer 1 — Linear Recurrences with Constant Coefficients",
+      "confidence": "candidate",
+      "text": "   ORDER-k HOMOGENEOUS:\n   a_n = c1 a_{n-1} + c2 a_{n-2} + ... + ck a_{n-k}\n\n   SOLUTION RECIPE\n   1. Write the CHARACTERISTIC POLYNOMIAL:\n        x^k - c1 x^{k-1} - c2 x^{k-2} - ... - ck = 0\n   2. Find its roots r_1, ..., r_k (with multiplicity).\n   3. GENERAL SOLUTION is a linear combination of root powers:\n        a_n = A_1 r_1^n + A_2 r_2^n + ... + A_k r_k^n\n   4. Fit constants A_i to the k initial conditions (linear system).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 74,
+      "heading_context": "## Layer 1 — Linear Recurrences with Constant Coefficients",
+      "confidence": "candidate",
+      "text": "`r^k = c_1 r^{k-1} + ... + c_k`, i.e. `r` must satisfy the characteristic",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 96,
+      "heading_context": "### Inhomogeneous recurrences",
+      "confidence": "candidate",
+      "text": "   a_n = c1 a_{n-1} + ... + ck a_{n-k} + g(n)\n        \\________________________/   \\____/\n            homogeneous part         forcing term\n\n   SOLUTION = homogeneous solution  +  ONE particular solution.\n   Guess the particular solution by the SHAPE of g(n):\n     g(n) const      -> try constant          (or n*const if 1 is a root)\n     g(n) = d^n      -> try B d^n             (or n B d^n if d is a root)\n     g(n) polynomial -> try polynomial same degree",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## Layer 2 — Worked Example: Fibonacci and Tilings",
+      "confidence": "candidate",
+      "text": "   PROBLEM: # of ways to tile a 1xn strip with 1x1 squares and 1x2 dominoes.\n   Condition on the LAST tile:\n     - ends in a square  -> tilings of length n-1\n     - ends in a domino  -> tilings of length n-2\n   => f_n = f_{n-1} + f_{n-2},   f_0 = 1, f_1 = 1.   (Fibonacci, shifted)\n\n   CHAR. EQN  x^2 - x - 1 = 0,  roots phi=(1+sqrt5)/2, psi=(1-sqrt5)/2.\n   a_n = A phi^n + B psi^n.  Fit f_0=1, f_1=1:\n   f_n = (phi^{n+1} - psi^{n+1}) / sqrt5.\n\n   Since |psi| < 1, f_n ~ phi^{n+1}/sqrt5  (geometric growth, rate phi).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Layer 3 — The Catalan Recurrence (convolution → GF)",
+      "confidence": "candidate",
+      "text": "   C_0 = 1,   C_{n+1} = SUM_{i=0}^{n} C_i C_{n-i}.\n\n   This convolution arises everywhere:\n     - binary trees on n internal nodes: pick a root, split into\n       left subtree (i nodes) and right subtree (n-i nodes)\n     - triangulations of an (n+2)-gon: fix an edge, the triangle on it\n       splits the polygon into two smaller polygons\n     - balanced parenthesizations, Dyck paths, ...\n\n   Convolution => use a generating function (file 03):\n       C(x) = 1 + x C(x)^2   =>   C(x) = (1 - sqrt(1-4x))/(2x)\n       C_n = (1/(n+1)) C(2n, n).\n\n   C_n: 1, 1, 2, 5, 14, 42, 132, 429, ...   (grows like 4^n / n^{3/2}).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Layer 4 — Divide-and-Conquer Recurrences and the Master Theorem",
+      "confidence": "candidate",
+      "text": "   T(n) = a T(n/b) + f(n),   a >= 1, b > 1.\n   Let  c* = log_b(a)   (the \"critical exponent\").\n\n   CASE 1  f(n) = O(n^{c*-eps})         => T(n) = Theta(n^{c*})\n           (leaves dominate)\n   CASE 2  f(n) = Theta(n^{c*} log^k n) => T(n) = Theta(n^{c*} log^{k+1} n)\n           (balanced)\n   CASE 3  f(n) = Omega(n^{c*+eps})     => T(n) = Theta(f(n))\n           and a f(n/b) <= c f(n) for c<1 (root dominates, regularity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

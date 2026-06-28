@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-combinatorics-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.combinatorics.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-combinatorics-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-source-corpus.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-overview.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.counting-basics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-counting-basics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/01-COUNTING-BASICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-counting-basics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/01-COUNTING-BASICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.counting-basics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-counting-basics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.counting-basics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-counting-basics.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-counting-basics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/01-COUNTING-BASICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.counting-basics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/01-COUNTING-BASICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.counting-basics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/01-COUNTING-BASICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/01-COUNTING-BASICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/01-COUNTING-BASICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.counting-basics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/01-COUNTING-BASICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.counting-basics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/01-COUNTING-BASICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/01-COUNTING-BASICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/01-COUNTING-BASICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.counting-basics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/01-COUNTING-BASICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.counting-basics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/01-COUNTING-BASICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/01-COUNTING-BASICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/01-COUNTING-BASICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.binomial-and-identities.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-binomial-and-identities.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-binomial-and-identities.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.binomial-and-identities.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-binomial-and-identities.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.binomial-and-identities.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-binomial-and-identities.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-binomial-and-identities.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.binomial-and-identities.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/02-BINOMIAL-AND-IDENTITIES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.binomial-and-identities.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/02-BINOMIAL-AND-IDENTITIES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.binomial-and-identities.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/02-BINOMIAL-AND-IDENTITIES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.binomial-and-identities.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/02-BINOMIAL-AND-IDENTITIES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.binomial-and-identities.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/02-BINOMIAL-AND-IDENTITIES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.binomial-and-identities.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/02-BINOMIAL-AND-IDENTITIES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/02-BINOMIAL-AND-IDENTITIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.generating-functions.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-generating-functions.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-generating-functions.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.generating-functions.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-generating-functions.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.generating-functions.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-generating-functions.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-generating-functions.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.generating-functions.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/03-GENERATING-FUNCTIONS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.generating-functions.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/03-GENERATING-FUNCTIONS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.generating-functions.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/03-GENERATING-FUNCTIONS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.generating-functions.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/03-GENERATING-FUNCTIONS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.generating-functions.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/03-GENERATING-FUNCTIONS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.generating-functions.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/03-GENERATING-FUNCTIONS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/03-GENERATING-FUNCTIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.inclusion-exclusion.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-inclusion-exclusion.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-inclusion-exclusion.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.inclusion-exclusion.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-inclusion-exclusion.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.inclusion-exclusion.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-inclusion-exclusion.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-inclusion-exclusion.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.inclusion-exclusion.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/04-INCLUSION-EXCLUSION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.inclusion-exclusion.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/04-INCLUSION-EXCLUSION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.inclusion-exclusion.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/04-INCLUSION-EXCLUSION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.inclusion-exclusion.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/04-INCLUSION-EXCLUSION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.inclusion-exclusion.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/04-INCLUSION-EXCLUSION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.inclusion-exclusion.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/04-INCLUSION-EXCLUSION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.recurrences.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-recurrences.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/05-RECURRENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-recurrences.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/05-RECURRENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.recurrences.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-recurrences.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.recurrences.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-recurrences.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-recurrences.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/05-RECURRENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.recurrences.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/05-RECURRENCES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.recurrences.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/05-RECURRENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/05-RECURRENCES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/05-RECURRENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.recurrences.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/05-RECURRENCES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.recurrences.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/05-RECURRENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/05-RECURRENCES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/05-RECURRENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.recurrences.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/05-RECURRENCES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.recurrences.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/05-RECURRENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/05-RECURRENCES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/05-RECURRENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.pigeonhole-and-ramsey.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-pigeonhole-and-ramsey.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-pigeonhole-and-ramsey.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.pigeonhole-and-ramsey.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-pigeonhole-and-ramsey.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.pigeonhole-and-ramsey.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-pigeonhole-and-ramsey.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-pigeonhole-and-ramsey.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.pigeonhole-and-ramsey.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/06-PIGEONHOLE-AND-RAMSEY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.pigeonhole-and-ramsey.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/06-PIGEONHOLE-AND-RAMSEY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.pigeonhole-and-ramsey.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/06-PIGEONHOLE-AND-RAMSEY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.pigeonhole-and-ramsey.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/06-PIGEONHOLE-AND-RAMSEY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.pigeonhole-and-ramsey.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/06-PIGEONHOLE-AND-RAMSEY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.pigeonhole-and-ramsey.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/06-PIGEONHOLE-AND-RAMSEY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/06-PIGEONHOLE-AND-RAMSEY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.special-numbers.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-special-numbers.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-special-numbers.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.special-numbers.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-special-numbers.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.special-numbers.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-special-numbers.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-special-numbers.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.special-numbers.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/07-SPECIAL-NUMBERS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.special-numbers.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/07-SPECIAL-NUMBERS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.special-numbers.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/07-SPECIAL-NUMBERS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.special-numbers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/07-SPECIAL-NUMBERS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.special-numbers.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/07-SPECIAL-NUMBERS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.special-numbers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/07-SPECIAL-NUMBERS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/07-SPECIAL-NUMBERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.probabilistic-method.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-probabilistic-method.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-probabilistic-method.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.probabilistic-method.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-probabilistic-method.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.probabilistic-method.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-probabilistic-method.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-probabilistic-method.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.probabilistic-method.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/08-PROBABILISTIC-METHOD.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.probabilistic-method.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/08-PROBABILISTIC-METHOD.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.probabilistic-method.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/08-PROBABILISTIC-METHOD.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.probabilistic-method.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/08-PROBABILISTIC-METHOD.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.probabilistic-method.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/08-PROBABILISTIC-METHOD.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.probabilistic-method.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/08-PROBABILISTIC-METHOD.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/08-PROBABILISTIC-METHOD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.extremal-and-design.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-combinatorics-extremal-and-design.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-combinatorics-extremal-and-design.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.extremal-and-design.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-combinatorics-extremal-and-design.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.extremal-and-design.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.combinatorics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-combinatorics-extremal-and-design.json",
+            "module": "combinatorics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-combinatorics-extremal-and-design.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.extremal-and-design.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/09-EXTREMAL-AND-DESIGN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.extremal-and-design.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/09-EXTREMAL-AND-DESIGN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.extremal-and-design.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/09-EXTREMAL-AND-DESIGN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.extremal-and-design.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/09-EXTREMAL-AND-DESIGN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.combinatorics.extremal-and-design.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/combinatorics/proof-source/09-EXTREMAL-AND-DESIGN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.combinatorics.extremal-and-design.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "combinatorics",
+            "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/combinatorics/proof-source/09-EXTREMAL-AND-DESIGN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "combinatorics",
+        "guide": "combinatorics/09-EXTREMAL-AND-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

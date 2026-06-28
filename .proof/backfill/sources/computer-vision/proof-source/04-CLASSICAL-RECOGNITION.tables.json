@@ -1,0 +1,117 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\04-CLASSICAL-RECOGNITION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 147,
+      "heading_context": "## Layer 4: The Classifiers",
+      "headers": [
+        "Classifier",
+        "How it works",
+        "Vision role"
+      ],
+      "rows": [
+        [
+          "**Linear SVM**",
+          "Max-margin hyperplane in feature space",
+          "HOG + linear SVM detection; fast at test time"
+        ],
+        [
+          "**Kernel SVM**",
+          "Implicit nonlinear mapping (RBF, chi-squared)",
+          "BoVW classification; chi-squared kernel fits histograms"
+        ],
+        [
+          "**AdaBoost**",
+          "Weighted sum of weak learners",
+          "Viola-Jones face detection (next layer)"
+        ],
+        [
+          "**Random Forest**",
+          "Ensemble of decision trees",
+          "Kinect body-part labeling, fast pixel classifiers"
+        ],
+        [
+          "**Nearest neighbor**",
+          "Match to labeled exemplars",
+          "Simple retrieval baselines"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 235,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Classical recognition analogue"
+      ],
+      "rows": [
+        [
+          "Bag-of-words / tf-idf / inverted index (search)",
+          "Bag-of-visual-words image retrieval"
+        ],
+        [
+          "k-means clustering",
+          "Builds the visual vocabulary"
+        ],
+        [
+          "Max-margin / SVM theory",
+          "The classical recognizer's decision stage"
+        ],
+        [
+          "Summed-area table / prefix sums",
+          "Viola-Jones integral image"
+        ],
+        [
+          "Boosting (ensemble methods)",
+          "AdaBoost feature selection + cascade"
+        ],
+        [
+          "Sliding-window scan",
+          "Template detection (HOG+SVM, Viola-Jones)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 248,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Detect rigid structured objects (pedestrians)",
+          "HOG + linear SVM, sliding window"
+        ],
+        [
+          "Classify whole images, pre-deep",
+          "BoVW + spatial pyramid + kernel SVM"
+        ],
+        [
+          "Search a large image database",
+          "BoVW + tf-idf + inverted index"
+        ],
+        [
+          "Detect faces in real time on weak hardware",
+          "Viola-Jones (Haar + integral image + cascade)"
+        ],
+        [
+          "Compare histogram features",
+          "Chi-squared / histogram-intersection kernel"
+        ],
+        [
+          "Fast pixel-wise classification",
+          "Random forest"
+        ],
+        [
+          "Understand what a CNN automated",
+          "This whole pipeline → one learned net"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\02-FILTERING-AND-FEATURES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 93,
+      "heading_context": "## Layer 1: Convolution vs Correlation (Get This Exactly Right)",
+      "headers": [
+        "Strategy",
+        "Behavior at edges"
+      ],
+      "rows": [
+        [
+          "Zero-pad",
+          "Treat outside as 0; darkens borders"
+        ],
+        [
+          "Replicate",
+          "Extend edge pixel outward"
+        ],
+        [
+          "Reflect",
+          "Mirror the image at the boundary"
+        ],
+        [
+          "Wrap",
+          "Toroidal (matches FFT convolution)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 163,
+      "heading_context": "## Layer 3: Edges — Where Intensity Changes Fast",
+      "headers": [
+        "Operator",
+        "What it computes",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Sobel / Prewitt",
+          "First derivative (gradient)",
+          "Cheap; gives magnitude + direction"
+        ],
+        [
+          "Laplacian",
+          "Second derivative (`div grad`)",
+          "Zero-crossings = edges; noise-sensitive"
+        ],
+        [
+          "LoG / Marr-Hildreth",
+          "Laplacian of Gaussian",
+          "Smooth then Laplacian; blob/edge detector"
+        ],
+        [
+          "Canny",
+          "Multi-stage gradient pipeline",
+          "Best general-purpose edge map"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 271,
+      "heading_context": "## Layer 7: Fast Binary Features — ORB and Friends",
+      "headers": [
+        "Detector / Descriptor",
+        "Type",
+        "Speed",
+        "Invariance",
+        "Use case"
+      ],
+      "rows": [
+        [
+          "**SIFT**",
+          "Float (128-D)",
+          "Slow",
+          "Scale + rotation",
+          "Accuracy benchmark, SfM"
+        ],
+        [
+          "**SURF**",
+          "Float (64/128-D)",
+          "Medium",
+          "Scale + rotation",
+          "Faster SIFT-like"
+        ],
+        [
+          "**FAST**",
+          "Detector only",
+          "Very fast",
+          "None (rotation added later)",
+          "Corner detection in real time"
+        ],
+        [
+          "**BRIEF**",
+          "Binary",
+          "Very fast",
+          "None",
+          "Quick descriptor (no rotation)"
+        ],
+        [
+          "**ORB**",
+          "Binary (256-bit)",
+          "Very fast",
+          "Rotation + (limited) scale",
+          "SLAM, mobile, AR"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 293,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Filtering/features analogue"
+      ],
+      "rows": [
+        [
+          "LTI convolution, impulse response",
+          "2D image filtering; receptive field = kernel support"
+        ],
+        [
+          "FFT-based fast convolution",
+          "Large-kernel blurs done in the Fourier domain"
+        ],
+        [
+          "Covariance / eigenvectors",
+          "Harris structure matrix `M`; principal gradient directions"
+        ],
+        [
+          "Template matching",
+          "Cross-correlation; the source of the \"CNN convolution\" name"
+        ],
+        [
+          "Multiresolution / wavelets",
+          "Scale space and the DoG pyramid"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 305,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Smooth / denoise before differentiating",
+          "Gaussian blur (separable)"
+        ],
+        [
+          "Find edges, clean and thin",
+          "Canny"
+        ],
+        [
+          "Get a raw gradient (magnitude + direction)",
+          "Sobel"
+        ],
+        [
+          "Detect blob-like edges at a scale",
+          "Laplacian of Gaussian"
+        ],
+        [
+          "Find stable corner points",
+          "Harris (or Shi-Tomasi for tracking)"
+        ],
+        [
+          "Match points across scale + rotation",
+          "SIFT (accuracy)"
+        ],
+        [
+          "Match points fast, on-device",
+          "ORB (binary, Hamming)"
+        ],
+        [
+          "Reject ambiguous matches",
+          "Lowe's ratio test (< 0.8)"
+        ],
+        [
+          "Apply a kernel cheaply",
+          "Exploit separability or FFT"
+        ]
+      ]
+    }
+  ]
+}

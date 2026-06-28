@@ -1,0 +1,183 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-vision\\08-3D-AND-SLAM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 157,
+      "heading_context": "## Layer 4: Point Clouds and Surfaces",
+      "headers": [
+        "Representation",
+        "What it is",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Point cloud",
+          "Set of 3D points",
+          "Raw LiDAR/MVS output"
+        ],
+        [
+          "Mesh",
+          "Vertices + faces (triangles)",
+          "Rendering, simulation"
+        ],
+        [
+          "Voxel grid",
+          "3D occupancy lattice",
+          "Volumetric reasoning, collision"
+        ],
+        [
+          "SDF / implicit",
+          "Signed distance to surface",
+          "Smooth reconstruction (Poisson)"
+        ],
+        [
+          "Depth map",
+          "Per-pixel `Z` (2.5D)",
+          "RGB-D, single-view depth"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 214,
+      "heading_context": "## Layer 5: Visual SLAM — Mapping While Moving",
+      "headers": [
+        "SLAM system",
+        "Approach"
+      ],
+      "rows": [
+        [
+          "**ORB-SLAM**",
+          "Feature-based (ORB) + keyframes + loop closure; the reference"
+        ],
+        [
+          "**LSD-SLAM / DSO**",
+          "Direct (photometric) — optimizes intensity, not features"
+        ],
+        [
+          "**VINS / OKVIS**",
+          "Visual-inertial — fuses camera with an IMU"
+        ],
+        [
+          "**Learned SLAM**",
+          "DROID-SLAM, etc. — deep features/depth inside the geometric frame"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 255,
+      "heading_context": "## Layer 6: Neural 3D — NeRF and Gaussian Splatting",
+      "headers": [
+        "Method",
+        "Representation",
+        "Strength",
+        "Weakness"
+      ],
+      "rows": [
+        [
+          "Classical SfM+MVS",
+          "Explicit points/mesh",
+          "Metric, interpretable, robust",
+          "Sparse detail, texture-less fails"
+        ],
+        [
+          "NeRF",
+          "Implicit MLP",
+          "Photoreal novel views",
+          "Slow to train/render; per-scene"
+        ],
+        [
+          "3D Gaussian Splatting",
+          "Explicit Gaussians",
+          "Real-time, high quality",
+          "Memory-heavy; editing harder"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 271,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "3D / SLAM analogue"
+      ],
+      "rows": [
+        [
+          "Sparse nonlinear least squares (numerics)",
+          "Bundle adjustment (Levenberg-Marquardt + Schur)"
+        ],
+        [
+          "State estimation / filtering (control)",
+          "SLAM back end; visual-inertial fusion"
+        ],
+        [
+          "Procrustes / SVD pose fit",
+          "ICP cloud registration"
+        ],
+        [
+          "Meshes, voxels, SDFs (graphics)",
+          "The geometry SfM/MVS recover"
+        ],
+        [
+          "Volume rendering (graphics)",
+          "NeRF's differentiable renderer"
+        ],
+        [
+          "Place recognition / retrieval (guide 04)",
+          "Loop closure via bag-of-visual-words"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 284,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Reconstruct a scene from a photo set (offline)",
+          "Structure-from-Motion (COLMAP)"
+        ],
+        [
+          "Localize a new image against known 3D",
+          "PnP (P3P + RANSAC)"
+        ],
+        [
+          "Refine all poses + points optimally",
+          "Bundle adjustment"
+        ],
+        [
+          "Get a dense surface, not sparse points",
+          "Multi-View Stereo + meshing"
+        ],
+        [
+          "Align two point clouds",
+          "ICP"
+        ],
+        [
+          "Map and localize in real time",
+          "Visual SLAM (ORB-SLAM)"
+        ],
+        [
+          "Add robustness with an IMU",
+          "Visual-inertial SLAM (VINS)"
+        ],
+        [
+          "Correct accumulated drift",
+          "Loop closure + pose-graph optimization"
+        ],
+        [
+          "Photorealistic novel-view synthesis",
+          "NeRF or 3D Gaussian Splatting"
+        ]
+      ]
+    }
+  ]
+}
